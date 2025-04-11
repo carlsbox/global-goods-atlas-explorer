@@ -17,6 +17,11 @@ export interface GlobalGood {
   maturity?: string;
   summary?: string;
   tags?: string[];
+  healthStandards?: string[];
+  whoSystemClassification?: {
+    primary?: string[];
+    additional?: string[];
+  };
 }
 
 export interface UseCase {

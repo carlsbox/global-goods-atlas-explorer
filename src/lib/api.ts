@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData } from "./types";
 
@@ -31,6 +30,11 @@ const MOCK_DATA = {
       maturity: "Global Scale",
       summary: "OpenMRS is a software platform and a reference application which enables design of a customized medical records system with no programming knowledge.",
       tags: ["EMR", "EHR", "Health Records"],
+      healthStandards: ["HL7v2", "OpenHIE"],
+      whoSystemClassification: {
+        primary: ["C1 | C1 Electronic medical records"],
+        additional: ["D3 | D3 Civil registration and vital statistics"]
+      }
     },
     {
       id: "dhis2",
@@ -50,6 +54,16 @@ const MOCK_DATA = {
       maturity: "Global Scale",
       summary: "DHIS2 is the world's largest health management information system platform, in use in more than 70 countries.",
       tags: ["HMIS", "Health Data", "Analytics"],
+      healthStandards: ["ADX", "FHIR", "CDA", "ICD-10"],
+      whoSystemClassification: {
+        primary: ["D6 | D6 Health management information systems (HMIS)"],
+        additional: [
+          "A2 | A2 Community-based information systems",
+          "B6 | B6 Logistics management information systems (LMIS)",
+          "E2 | E2 Public health and disease surveillance system",
+          "D8 | D8 Shared Health Record and Health Information Repositories"
+        ]
+      }
     },
     {
       id: "odkcollect",
@@ -69,6 +83,11 @@ const MOCK_DATA = {
       maturity: "Global Scale",
       summary: "ODK Collect is an open source Android app that replaces paper forms used in survey-based data gathering.",
       tags: ["Mobile Data", "Surveys", "Forms"],
+      healthStandards: ["OpenHIE"],
+      whoSystemClassification: {
+        primary: ["A1 | A1 Client communication systems"],
+        additional: ["D2 | D2 Electronic forms"]
+      }
     }
   ],
   useCases: [

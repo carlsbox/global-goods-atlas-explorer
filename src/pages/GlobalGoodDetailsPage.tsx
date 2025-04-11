@@ -13,6 +13,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { 
   ArrowLeft, 
   Globe, 
@@ -21,7 +27,9 @@ import {
   Users,
   Calendar,
   Layers,
-  Tag
+  Tag,
+  FileText,
+  BookOpen
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -146,6 +154,7 @@ export default function GlobalGoodDetailsPage() {
             <TabsList>
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="technical">Technical Details</TabsTrigger>
+              <TabsTrigger value="standards">Standards & Classification</TabsTrigger>
               <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="mt-4">
@@ -243,6 +252,85 @@ export default function GlobalGoodDetailsPage() {
                     )}
                   </div>
                 </CardContent>
+              </Card>
+            </TabsContent>
+            
+            {/* New Tab for Standards and Classification */}
+            <TabsContent value="standards" className="mt-4">
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="grid grid-cols-1 gap-8">
+                    {/* Health Standards Section */}
+                    {globalGood.healthStandards && globalGood.healthStandards.length > 0 && (
+                      <div>
+                        <h3 className="text-xl font-semibold mb-4 flex items-center">
+                          <FileText className="mr-2 h-5 w-5 text-primary" />
+                          Health Standards
+                        </h3>
+                        <div className="flex flex-wrap gap-2 mb-2">
+                          {globalGood.healthStandards.map((standard) => (
+                            <Badge key={standard} variant="outline">
+                              {standard}
+                            </Badge>
+                          ))}
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-2">
+                          Standards supported or implemented by this global good
+                        </p>
+                      </div>
+                    )}
+                    
+                    {/* WHO System Classification Section */}
+                    {globalGood.whoSystemClassification && (
+                      <div>
+                        <h3 className="text-xl font-semibold mb-4 flex items-center">
+                          <BookOpen className="mr-2 h-5 w-5 text-primary" />
+                          WHO System Classification
+                        </h3>
+                        
+                        {globalGood.whoSystemClassification.primary && 
+                         globalGood.whoSystemClassification.primary.length > 0 && (
+                          <div className="mb-4">
+                            <h4 className="font-medium mb-2">Primary</h4>
+                            <ul className="space-y-2">
+                              {globalGood.whoSystemClassification.primary.map((classification) => (
+                                <li key={classification} className="p-2 bg-secondary/30 rounded-sm">
+                                  {classification}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        
+                        {globalGood.whoSystemClassification.additional && 
+                         globalGood.whoSystemClassification.additional.length > 0 && (
+                          <div>
+                            <h4 className="font-medium mb-2">Additional</h4>
+                            <Accordion type="single" collapsible className="w-full">
+                              <AccordionItem value="classifications">
+                                <AccordionTrigger>
+                                  View {globalGood.whoSystemClassification.additional.length} additional classifications
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                  <ul className="space-y-2 mt-2">
+                                    {globalGood.whoSystemClassification.additional.map((classification) => (
+                                      <li key={classification} className="p-2 bg-secondary/30 rounded-sm">
+                                        {classification}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </AccordionContent>
+                              </AccordionItem>
+                            </Accordion>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t bg-muted/50 text-sm text-muted-foreground">
+                  <p>Based on WHO Digital Health Atlas classification system</p>
+                </CardFooter>
               </Card>
             </TabsContent>
             
