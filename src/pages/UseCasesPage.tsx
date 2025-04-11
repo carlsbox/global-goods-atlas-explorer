@@ -11,7 +11,8 @@ import {
   Filter, 
   MapPin, 
   ArrowUpRight, 
-  CalendarIcon 
+  CalendarIcon,
+  ArrowRight
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -209,6 +210,15 @@ function UseCaseCard({ useCase, globalGoods }) {
   return (
     <Card className="h-full transition-all hover:shadow-md overflow-hidden">
       <CardContent className="p-0">
+        {useCase.featuredImage && (
+          <div className="relative aspect-video">
+            <img 
+              src={useCase.featuredImage} 
+              alt={useCase.title} 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+        )}
         <div className="p-6">
           <h3 className="font-semibold text-xl mb-2">{useCase.title}</h3>
           
@@ -245,18 +255,25 @@ function UseCaseCard({ useCase, globalGoods }) {
             <span className="text-sm text-muted-foreground">
               {useCase.organization}
             </span>
-            {useCase.link && (
-              <Button asChild variant="ghost" size="sm" className="text-primary">
-                <a 
-                  href={useCase.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center"
-                >
-                  Details <ArrowUpRight className="ml-1 h-3 w-3" />
-                </a>
+            <div className="flex items-center gap-2">
+              {useCase.link && (
+                <Button asChild variant="ghost" size="sm" className="text-primary">
+                  <a 
+                    href={useCase.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center"
+                  >
+                    Website <ArrowUpRight className="ml-1 h-3 w-3" />
+                  </a>
+                </Button>
+              )}
+              <Button asChild size="sm">
+                <Link to={`/use-cases/${useCase.id}`} className="flex items-center">
+                  Details <ArrowRight className="ml-1 h-3 w-3" />
+                </Link>
               </Button>
-            )}
+            </div>
           </div>
         </div>
       </CardContent>

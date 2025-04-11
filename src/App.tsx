@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import GlobalGoodsPage from "./pages/GlobalGoodsPage";
 import GlobalGoodDetailsPage from "./pages/GlobalGoodDetailsPage";
 import UseCasesPage from "./pages/UseCasesPage";
+import UseCaseDetailsPage from "./pages/UseCaseDetailsPage";
 import MapPage from "./pages/MapPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/global-goods" element={<GlobalGoodsPage />} />
           <Route path="/global-goods/:id" element={<GlobalGoodDetailsPage />} />
           <Route path="/use-cases" element={<UseCasesPage />} />
+          <Route path="/use-cases/:id" element={<UseCaseDetailsPage />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

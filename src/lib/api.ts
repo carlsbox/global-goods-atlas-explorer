@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData } from "./types";
 
@@ -101,7 +102,37 @@ const MOCK_DATA = {
       organization: "Partners In Health",
       year: "2020",
       link: "https://example.org/case-kenya",
-      results: "Improved patient tracking and reporting."
+      results: "Improved patient tracking and reporting.",
+      challenge: "Kenya faced challenges in tracking HIV patients across different clinics, leading to gaps in treatment continuity and difficulty in monitoring patient progress.",
+      solution: "Implementation of OpenMRS to create a centralized electronic medical record system that allows patient data to be accessed across multiple clinics.",
+      impact: "The implementation has improved patient tracking by 45%, reduced duplicate testing by 30%, and enhanced reporting accuracy for national health metrics.",
+      lessons: [
+        "Early stakeholder engagement is critical for system adoption",
+        "Offline capabilities are essential in areas with limited connectivity",
+        "Regular training sessions help maintain consistent usage patterns"
+      ],
+      contacts: [
+        {
+          name: "Dr. Jane Doe",
+          email: "jane.doe@pih.org",
+          organization: "Partners In Health",
+          role: "Project Lead"
+        }
+      ],
+      resources: [
+        {
+          title: "Implementation Guide",
+          url: "https://example.org/kenya-openmrs-guide",
+          type: "PDF"
+        },
+        {
+          title: "Training Materials",
+          url: "https://example.org/kenya-training",
+          type: "Website"
+        }
+      ],
+      sdgs: ["SDG3"],
+      featuredImage: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2148&q=80"
     },
     {
       id: "tanzania-malaria",
@@ -113,7 +144,80 @@ const MOCK_DATA = {
       organization: "Ministry of Health",
       year: "2021",
       link: "https://example.org/case-tanzania",
-      results: "30% improvement in response time to outbreaks."
+      results: "30% improvement in response time to outbreaks.",
+      challenge: "Tanzania struggled with detecting and responding to malaria outbreaks in a timely manner, particularly in rural regions.",
+      solution: "Implementation of DHIS2 to create a real-time surveillance system for malaria cases, with dashboards for health officials at district and national levels.",
+      impact: "The system has reduced response time to outbreaks by 30%, enabled targeted interventions, and improved resource allocation for malaria control efforts.",
+      lessons: [
+        "Mobile data collection is critical for rural areas",
+        "Data visualization dashboards help officials make quick decisions",
+        "Integration with existing health information systems increases adoption"
+      ],
+      contacts: [
+        {
+          name: "Dr. Emmanuel Mwangi",
+          organization: "Tanzania Ministry of Health",
+          role: "National Malaria Control Program Director"
+        }
+      ],
+      sdgs: ["SDG3"]
+    },
+    {
+      id: "disaster-management",
+      title: "Disaster Management System for Emergency Response",
+      description: "Implementation of a mobile data collection system for rapid assessment and response to natural disasters.",
+      country: "Philippines",
+      sector: "Disaster Management",
+      globalGoods: ["odkcollect"],
+      organization: "Philippines Red Cross",
+      year: "2022",
+      link: "https://example.org/case-philippines-disaster",
+      results: "50% faster assessment and response time to disaster-affected areas.",
+      challenge: "The Philippines, being prone to natural disasters like typhoons and earthquakes, faced difficulties in quickly assessing damage and coordinating emergency response efforts across its many islands.",
+      solution: "Implementation of ODK Collect for mobile data gathering by field responders, enabling real-time information collection about affected areas, damage assessment, and resource needs during disaster events.",
+      impact: "The system has reduced assessment time by 50%, improved resource allocation accuracy by 35%, and enhanced coordination between government agencies and humanitarian organizations.",
+      lessons: [
+        "Offline data collection capability is crucial in disaster scenarios where connectivity is compromised",
+        "Pre-configured standardized forms improve data consistency and quality",
+        "Regular simulation drills ensure responders are familiar with the system before actual emergencies",
+        "Integration with geographic information systems enhances situational awareness"
+      ],
+      contacts: [
+        {
+          name: "Maria Santos",
+          email: "m.santos@redcross.ph",
+          organization: "Philippines Red Cross",
+          role: "Disaster Response Coordinator"
+        },
+        {
+          name: "Juan Reyes",
+          organization: "National Disaster Risk Reduction and Management Council",
+          role: "Technical Advisor"
+        }
+      ],
+      resources: [
+        {
+          title: "Disaster Assessment Forms",
+          url: "https://example.org/ph-disaster-forms",
+          type: "Repository"
+        },
+        {
+          title: "Implementation Case Study",
+          url: "https://example.org/ph-case-study",
+          type: "PDF"
+        },
+        {
+          title: "Training Video Series",
+          url: "https://example.org/ph-training-videos",
+          type: "Video"
+        }
+      ],
+      sdgs: ["SDG11", "SDG13"],
+      featuredImage: "https://images.unsplash.com/photo-1547683905-f686c993aae5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+        "https://images.unsplash.com/photo-1583244685026-d8519b5e3d21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+      ]
     },
     {
       id: "india-vaccination",
@@ -125,7 +229,23 @@ const MOCK_DATA = {
       organization: "UNICEF",
       year: "2022",
       link: "https://example.org/case-india",
-      results: "Reached 95% of target population in remote areas."
+      results: "Reached 95% of target population in remote areas.",
+      challenge: "India faced challenges tracking vaccination coverage in remote rural areas, leading to gaps in immunization programs and difficulty in identifying under-served communities.",
+      solution: "Deployment of ODK Collect to enable health workers to record vaccination data on mobile devices, even in offline settings, with synchronization when connectivity is available.",
+      impact: "The implementation has increased vaccination coverage to 95% in target areas, improved data accuracy for health planning, and reduced the time needed for compiling vaccination statistics.",
+      lessons: [
+        "Training community health workers is essential for system success",
+        "Pictorial interfaces help overcome literacy barriers",
+        "Solar charging solutions are important in areas with limited electricity"
+      ],
+      contacts: [
+        {
+          name: "Dr. Priya Sharma",
+          organization: "UNICEF India",
+          role: "Immunization Program Manager"
+        }
+      ],
+      sdgs: ["SDG3"]
     }
   ],
   countries: [

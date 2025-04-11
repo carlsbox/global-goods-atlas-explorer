@@ -35,6 +35,25 @@ export interface UseCase {
   year: string;
   link?: string;
   results?: string;
+  // New fields for the detailed use case page
+  challenge?: string;
+  solution?: string;
+  impact?: string;
+  lessons?: string[];
+  contacts?: {
+    name: string;
+    email?: string;
+    organization: string;
+    role?: string;
+  }[];
+  resources?: {
+    title: string;
+    url: string;
+    type: string;
+  }[];
+  sdgs?: string[];
+  images?: string[];
+  featuredImage?: string;
 }
 
 export interface CountryData {
