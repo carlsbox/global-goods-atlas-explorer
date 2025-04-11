@@ -23,7 +23,7 @@ import { Badge } from "@/components/ui/badge";
 export default function GlobalGoodsPage() {
   const { data: globalGoods = [], isLoading, error } = useGlobalGoods();
   const [searchTerm, setSearchTerm] = useState("");
-  const [sectorFilter, setSectorFilter] = useState("");
+  const [sectorFilter, setSectorFilter] = useState("all");
   
   // Extract unique sectors for filter
   const sectors = Array.from(
@@ -36,7 +36,7 @@ export default function GlobalGoodsPage() {
       good.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       good.description.toLowerCase().includes(searchTerm.toLowerCase());
       
-    const matchesSector = sectorFilter === "" || 
+    const matchesSector = sectorFilter === "all" || 
       (good.sector && good.sector.includes(sectorFilter));
       
     return matchesSearch && matchesSector;
@@ -69,7 +69,7 @@ export default function GlobalGoodsPage() {
               <SelectValue placeholder="Filter by sector" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Sectors</SelectItem>
+              <SelectItem value="all">All Sectors</SelectItem>
               {sectors.map(sector => (
                 <SelectItem key={sector} value={sector}>
                   {sector}
@@ -82,7 +82,7 @@ export default function GlobalGoodsPage() {
             variant="outline" 
             onClick={() => {
               setSearchTerm("");
-              setSectorFilter("");
+              setSectorFilter("all");
             }}
             className="flex items-center"
           >
@@ -124,7 +124,7 @@ export default function GlobalGoodsPage() {
                 variant="outline" 
                 onClick={() => {
                   setSearchTerm("");
-                  setSectorFilter("");
+                  setSectorFilter("all");
                 }}
               >
                 Clear Filters

@@ -30,13 +30,13 @@ export default function UseCasesPage() {
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
   
   const [searchTerm, setSearchTerm] = useState("");
-  const [sectorFilter, setSectorFilter] = useState("");
-  const [globalGoodFilter, setGlobalGoodFilter] = useState(globalGoodFilterParam || "");
+  const [sectorFilter, setSectorFilter] = useState("all");
+  const [globalGoodFilter, setGlobalGoodFilter] = useState(globalGoodFilterParam || "all");
   
   // Update URL when filters change
   useEffect(() => {
     const params = new URLSearchParams();
-    if (globalGoodFilter) {
+    if (globalGoodFilter && globalGoodFilter !== "all") {
       params.set("globalGood", globalGoodFilter);
     }
     setSearchParams(params, { replace: true });
@@ -53,15 +53,15 @@ export default function UseCasesPage() {
       useCase.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       useCase.description.toLowerCase().includes(searchTerm.toLowerCase());
       
-    const matchesSector = sectorFilter === "" || useCase.sector === sectorFilter;
-    const matchesGlobalGood = globalGoodFilter === "" || 
+    const matchesSector = sectorFilter === "all" || useCase.sector === sectorFilter;
+    const matchesGlobalGood = globalGoodFilter === "all" || 
       (useCase.globalGoods && useCase.globalGoods.includes(globalGoodFilter));
       
     return matchesSearch && matchesSector && matchesGlobalGood;
   });
 
   // Get global good name for display
-  const selectedGoodName = globalGoodFilter 
+  const selectedGoodName = globalGoodFilter && globalGoodFilter !== "all"
     ? globalGoods.find(g => g.id === globalGoodFilter)?.name || "Unknown Global Good"
     : "";
 
@@ -74,7 +74,7 @@ export default function UseCasesPage() {
         </p>
       </div>
       
-      {globalGoodFilter && (
+      {globalGoodFilter && globalGoodFilter !== "all" && (
         <div className="bg-secondary/30 p-4 rounded-lg mb-6">
           <div className="flex items-center justify-between">
             <div>
@@ -86,7 +86,7 @@ export default function UseCasesPage() {
             <Button 
               variant="outline" 
               size="sm"
-              onClick={() => setGlobalGoodFilter("")}
+              onClick={() => setGlobalGoodFilter("all")}
             >
               Clear Filter
             </Button>
@@ -112,7 +112,7 @@ export default function UseCasesPage() {
               <SelectValue placeholder="Filter by sector" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Sectors</SelectItem>
+              <SelectItem value="all">All Sectors</SelectItem>
               {sectors.map(sector => (
                 <SelectItem key={sector} value={sector}>
                   {sector}
@@ -126,7 +126,7 @@ export default function UseCasesPage() {
               <SelectValue placeholder="Filter by global good" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Global Goods</SelectItem>
+              <SelectItem value="all">All Global Goods</SelectItem>
               {globalGoods.map(good => (
                 <SelectItem key={good.id} value={good.id}>
                   {good.name}
@@ -140,8 +140,8 @@ export default function UseCasesPage() {
             variant="outline" 
             onClick={() => {
               setSearchTerm("");
-              setSectorFilter("");
-              setGlobalGoodFilter("");
+              setSectorFilter("all");
+              setGlobalGoodFilter("all");
             }}
             className="flex items-center"
           >
@@ -183,8 +183,8 @@ export default function UseCasesPage() {
                 variant="outline" 
                 onClick={() => {
                   setSearchTerm("");
-                  setSectorFilter("");
-                  setGlobalGoodFilter("");
+                  setSectorFilter("all");
+                  setGlobalGoodFilter("all");
                 }}
               >
                 Clear All Filters
