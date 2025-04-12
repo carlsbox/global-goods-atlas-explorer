@@ -1,6 +1,4 @@
-
 import { Link } from "react-router-dom";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Globe, FileText, MapPin } from "lucide-react";
@@ -10,7 +8,7 @@ export default function HomePage() {
   const { data: globalGoods, isLoading } = useGlobalGoods();
   
   return (
-    <PageLayout>
+    <>
       {/* Hero Section */}
       <section className="py-16 md:py-24">
         <div className="container">
@@ -157,6 +155,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </PageLayout>
+    </>
   );
 }
