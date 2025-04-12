@@ -1,214 +1,160 @@
 
-import { useState } from "react";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { 
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle 
-} from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  Send, 
-  MessageSquare,
-  Globe,
-  GithubIcon,
-  TwitterIcon
-} from "lucide-react";
+import { useState } from "react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
+  const [formSubmitted, setFormSubmitted] = useState(false);
   
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message Sent",
-        description: "Thank you for your message. We'll get back to you soon.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-    }, 1500);
+    // Form submission logic would go here
+    setFormSubmitted(true);
   };
-
+  
   return (
-    <PageLayout>
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-12 text-center">
-          <h1 className="mb-6">Contact Us</h1>
-          <p className="text-xl text-muted-foreground">
-            Have questions or suggestions? Get in touch with our team.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <Card>
-            <CardHeader className="text-center">
-              <Mail className="h-8 w-8 text-primary mx-auto mb-2" />
-              <CardTitle>Email Us</CardTitle>
-              <CardDescription>Reach out directly</CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-primary">info@globalgoodsatlas.org</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="text-center">
-              <MessageSquare className="h-8 w-8 text-primary mx-auto mb-2" />
-              <CardTitle>Community</CardTitle>
-              <CardDescription>Join the conversation</CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-primary">Join our Slack channel</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="text-center">
-              <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
-              <CardTitle>Social Media</CardTitle>
-              <CardDescription>Follow our updates</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-center space-x-4">
-                <Button variant="outline" size="icon">
-                  <TwitterIcon className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <GithubIcon className="h-4 w-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-        
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle>Send Us a Message</CardTitle>
-            <CardDescription>
-              Fill out the form below and we'll get back to you as soon as possible.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Your Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Your Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium">
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Enter subject"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Type your message here"
-                  rows={6}
-                  required
-                />
-              </div>
-            </form>
-          </CardContent>
-          <CardFooter className="flex justify-between">
-            <p className="text-sm text-muted-foreground">
-              We'll respond within 48 hours
+    <>
+      <section className="py-12 md:py-16">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
+              Contact Us
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Have questions or want to get involved? We'd love to hear from you.
             </p>
-            <Button 
-              onClick={handleSubmit} 
-              disabled={isSubmitting}
-              className="flex items-center"
-            >
-              {isSubmitting ? "Sending..." : (
-                <>
-                  Send Message <Send className="ml-2 h-4 w-4" />
-                </>
-              )}
-            </Button>
-          </CardFooter>
-        </Card>
-        
-        <div className="bg-secondary/30 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Suggest a Global Good</h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Know of a digital global good that should be included in our catalog?
-            Let us know and we'll review it for inclusion.
-          </p>
-          <Button size="lg">Suggest a Global Good</Button>
+          </div>
         </div>
-      </div>
-    </PageLayout>
+      </section>
+      
+      <section className="py-12">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Our Location</h3>
+                  <p className="text-muted-foreground">
+                    123 Impact Drive<br />
+                    San Francisco, CA 94103<br />
+                    United States
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Mail className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+                  <p className="text-muted-foreground">
+                    <a href="mailto:info@globalgoodsatlas.org" className="text-primary hover:underline">
+                      info@globalgoodsatlas.org
+                    </a><br />
+                    <span className="text-sm">General inquiries</span>
+                  </p>
+                  <p className="text-muted-foreground mt-2">
+                    <a href="mailto:support@globalgoodsatlas.org" className="text-primary hover:underline">
+                      support@globalgoodsatlas.org
+                    </a><br />
+                    <span className="text-sm">Technical support</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+                  <p className="text-muted-foreground">
+                    +1 (555) 123-4567<br />
+                    <span className="text-sm">Monday-Friday, 9am-5pm PT</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-12">
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
+            <Card>
+              <CardContent className="pt-6">
+                <h2 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
+                
+                {formSubmitted ? (
+                  <div className="text-center p-8">
+                    <h3 className="text-xl font-medium text-primary mb-2">Thank you for your message!</h3>
+                    <p className="text-muted-foreground">We'll get back to you as soon as possible.</p>
+                    <Button 
+                      className="mt-4" 
+                      variant="outline" 
+                      onClick={() => setFormSubmitted(false)}
+                    >
+                      Send another message
+                    </Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium mb-1">
+                          Your Name
+                        </label>
+                        <Input id="name" placeholder="John Doe" required />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium mb-1">
+                          Email Address
+                        </label>
+                        <Input id="email" type="email" placeholder="john@example.com" required />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium mb-1">
+                        Subject
+                      </label>
+                      <Input id="subject" placeholder="How can we help?" required />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium mb-1">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        placeholder="Tell us how we can help you..."
+                        rows={5}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="flex justify-end">
+                      <Button type="submit">Send Message</Button>
+                    </div>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
