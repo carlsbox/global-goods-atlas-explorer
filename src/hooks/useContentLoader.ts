@@ -12,8 +12,28 @@ export function useContentLoader(contentPath: string) {
     async function loadContent() {
       try {
         setIsLoading(true);
-        const data = await import(`../content/${contentPath}.json`);
-        setContent(data.default[language]);
+        // Import content directly without using dynamic path segments
+        if (contentPath === 'pages/home') {
+          const data = await import('../content/home.json');
+          setContent(data.default[language]);
+        } else if (contentPath === 'pages/navigation') {
+          const data = await import('../content/navigation.json');
+          setContent(data.default[language]);
+        } else if (contentPath === 'pages/privacy') {
+          const data = await import('../content/pages/privacy.json');
+          setContent(data.default[language]);
+        } else if (contentPath === 'pages/terms') {
+          const data = await import('../content/pages/terms.json');
+          setContent(data.default[language]);
+        } else if (contentPath === 'pages/about') {
+          const data = await import('../content/pages/about.json');
+          setContent(data.default[language]);
+        } else if (contentPath === 'pages/contact') {
+          const data = await import('../content/pages/contact.json');
+          setContent(data.default[language]);
+        } else {
+          throw new Error(`Content path not supported: ${contentPath}`);
+        }
         setError(null);
       } catch (err) {
         console.error(`Failed to load content: ${contentPath}`, err);

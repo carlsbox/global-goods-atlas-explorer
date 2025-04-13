@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
-  const { content, isLoading } = useContentLoader("pages/home");
+  const { content, isLoading, error } = useContentLoader("pages/home");
   const [homeContent, setHomeContent] = useState<any>(null);
 
   useEffect(() => {
@@ -22,6 +22,15 @@ export default function HomePage() {
     return (
       <div className="container py-12 text-center">
         <p>Loading content...</p>
+      </div>
+    );
+  }
+  
+  if (error) {
+    console.error("Error loading homepage content:", error);
+    return (
+      <div className="container py-12 text-center">
+        <p>Failed to load content. Please try again later.</p>
       </div>
     );
   }
@@ -58,6 +67,7 @@ export default function HomePage() {
       <section className="py-16 bg-secondary/30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature Cards */}
             <Card className="bg-white">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center">

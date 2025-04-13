@@ -6,7 +6,9 @@
     "nav.useCases": "Use Cases",
     "nav.map": "Map",
     "nav.about": "About",
-    "nav.contact": "Contact"
+    "nav.contact": "Contact",
+    "nav.privacy": "Privacy Policy",
+    "nav.terms": "Terms of Service"
   },
   "fr": {
     "nav.home": "Accueil",
@@ -14,7 +16,9 @@
     "nav.useCases": "Cas d'Utilisation",
     "nav.map": "Carte",
     "nav.about": "À Propos",
-    "nav.contact": "Contact"
+    "nav.contact": "Contact",
+    "nav.privacy": "Politique de Confidentialité",
+    "nav.terms": "Conditions d'Utilisation"
   },
   "es": {
     "nav.home": "Inicio",
@@ -22,6 +26,8 @@
     "nav.useCases": "Casos de Uso",
     "nav.map": "Mapa",
     "nav.about": "Acerca de",
-    "nav.contact": "Contacto"
+    "nav.contact": "Contacto",
+    "nav.privacy": "Política de Privacidad",
+    "nav.terms": "Términos de Servicio"
   }
 }

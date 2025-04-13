@@ -28,7 +28,6 @@ const navItems = [
 
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { t } = useLanguage();
   const { content, isLoading } = useContentLoader('pages/navigation');
   
   return (
