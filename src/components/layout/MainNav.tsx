@@ -29,7 +29,7 @@ const navItems = [
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { t } = useLanguage();
-  const { content, isLoading } = useContentLoader('navigation');
+  const { content, isLoading } = useContentLoader('pages/navigation');
   
   return (
     <div className="flex justify-between items-center py-4">

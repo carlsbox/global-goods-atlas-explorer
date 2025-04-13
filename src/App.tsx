@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CookieConsent } from "@/components/CookieConsent";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -14,6 +15,8 @@ import UseCaseDetailsPage from "./pages/UseCaseDetailsPage";
 import MapPage from "./pages/MapPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,8 +37,11 @@ const App = () => (
               <Route path="/map" element={<MapPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsOfServicePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <CookieConsent />
           </PageLayout>
         </BrowserRouter>
       </ThemeProvider>

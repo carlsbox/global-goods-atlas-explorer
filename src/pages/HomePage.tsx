@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
-  const { content, isLoading } = useContentLoader("home");
+  const { content, isLoading } = useContentLoader("pages/home");
   const [homeContent, setHomeContent] = useState<any>(null);
 
   useEffect(() => {

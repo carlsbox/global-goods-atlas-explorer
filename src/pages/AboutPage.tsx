@@ -6,7 +6,7 @@ import { useContentLoader } from "@/hooks/useContentLoader";
 import { useState, useEffect } from "react";
 
 export default function AboutPage() {
-  const { content, isLoading } = useContentLoader("about");
+  const { content, isLoading } = useContentLoader("pages/about");
   const [aboutContent, setAboutContent] = useState<any>(null);
 
   useEffect(() => {

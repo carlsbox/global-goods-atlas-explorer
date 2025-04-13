@@ -9,7 +9,7 @@ import { useContentLoader } from "@/hooks/useContentLoader";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const { content, isLoading } = useContentLoader("contact");
+  const { content, isLoading } = useContentLoader("pages/contact");
   const [contactContent, setContactContent] = useState<any>(null);
 
   useEffect(() => {

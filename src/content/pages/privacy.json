@@ -1,0 +1,366 @@
+
+{
+  "en": {
+    "title": "Privacy Policy",
+    "updatedDate": "Last Updated: April 13, 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "At Global Goods Atlas, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site."
+    },
+    "dataCollection": {
+      "title": "Information We Collect",
+      "content": "We collect information that you provide directly to us when you register for an account, create or modify your profile, sign up for our newsletter, or otherwise communicate with us.",
+      "categories": [
+        {
+          "title": "Personal Information",
+          "items": [
+            "Name",
+            "Email address",
+            "Organization",
+            "Country"
+          ]
+        },
+        {
+          "title": "Usage Data",
+          "items": [
+            "IP address",
+            "Browser type",
+            "Pages visited",
+            "Time spent on pages",
+            "Referring website"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Use of Cookies",
+      "content": "Our website uses cookies to enhance your experience and collect information about visitors and visits to our website. We explain how we use cookies and similar technologies in our Cookie Policy.",
+      "types": [
+        {
+          "name": "Essential cookies",
+          "description": "Necessary for the website to function properly."
+        },
+        {
+          "name": "Analytics cookies",
+          "description": "Help us understand how visitors interact with our website."
+        },
+        {
+          "name": "Preference cookies", 
+          "description": "Enable the website to remember information that changes the way it behaves or looks."
+        }
+      ]
+    },
+    "dataUse": {
+      "title": "How We Use Your Information",
+      "purposes": [
+        "To provide and maintain our Service",
+        "To notify you about changes to our Service",
+        "To allow you to participate in interactive features of our Service",
+        "To provide customer support",
+        "To gather analysis or valuable information so that we can improve our Service",
+        "To monitor the usage of our Service",
+        "To detect, prevent and address technical issues"
+      ]
+    },
+    "dataSharing": {
+      "title": "Sharing Your Information",
+      "content": "We do not sell, trade, or rent users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates, and advertisers.",
+      "thirdParties": [
+        {
+          "name": "Service providers",
+          "purpose": "To perform services on our behalf, such as hosting, data analysis, and customer service"
+        },
+        {
+          "name": "Research partners",
+          "purpose": "For anonymized data analysis and research purposes"
+        },
+        {
+          "name": "Legal requirements",
+          "purpose": "To comply with applicable law, regulation, legal process, or governmental request"
+        }
+      ]
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure."
+    },
+    "userRights": {
+      "title": "Your Rights",
+      "rights": [
+        {
+          "name": "Access",
+          "description": "You have the right to request copies of your personal data."
+        },
+        {
+          "name": "Rectification",
+          "description": "You have the right to request that we correct any information you believe is inaccurate."
+        },
+        {
+          "name": "Erasure",
+          "description": "You have the right to request that we erase your personal data, under certain conditions."
+        },
+        {
+          "name": "Restrict processing",
+          "description": "You have the right to request that we restrict the processing of your personal data, under certain conditions."
+        },
+        {
+          "name": "Object to processing",
+          "description": "You have the right to object to our processing of your personal data, under certain conditions."
+        },
+        {
+          "name": "Data portability",
+          "description": "You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+        }
+      ],
+      "contact": "If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions or comments about this Privacy Policy, please contact us at:",
+      "email": "privacy@globalgoodsatlas.org",
+      "address": "Global Goods Atlas\n123 Impact Drive\nSan Francisco, CA 94103\nUnited States"
+    }
+  },
+  "fr": {
+    "title": "Politique de Confidentialité",
+    "updatedDate": "Dernière mise à jour : 13 avril 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Chez Global Goods Atlas, nous prenons votre vie privée très au sérieux. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site Web ou utilisez nos services. Veuillez lire attentivement cette politique de confidentialité. Si vous n'êtes pas d'accord avec les termes de cette politique de confidentialité, veuillez ne pas accéder au site."
+    },
+    "dataCollection": {
+      "title": "Informations que nous collectons",
+      "content": "Nous collectons les informations que vous nous fournissez directement lorsque vous créez un compte, modifiez votre profil, vous inscrivez à notre newsletter ou communiquez avec nous.",
+      "categories": [
+        {
+          "title": "Informations personnelles",
+          "items": [
+            "Nom",
+            "Adresse e-mail",
+            "Organisation",
+            "Pays"
+          ]
+        },
+        {
+          "title": "Données d'utilisation",
+          "items": [
+            "Adresse IP",
+            "Type de navigateur",
+            "Pages visitées",
+            "Temps passé sur les pages",
+            "Site web de référence"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Utilisation des cookies",
+      "content": "Notre site Web utilise des cookies pour améliorer votre expérience et collecter des informations sur les visiteurs et les visites sur notre site Web. Nous expliquons comment nous utilisons les cookies et technologies similaires dans notre Politique de cookies.",
+      "types": [
+        {
+          "name": "Cookies essentiels",
+          "description": "Nécessaires au bon fonctionnement du site web."
+        },
+        {
+          "name": "Cookies analytiques",
+          "description": "Nous aident à comprendre comment les visiteurs interagissent avec notre site web."
+        },
+        {
+          "name": "Cookies de préférence", 
+          "description": "Permettent au site web de se souvenir des informations qui modifient son comportement ou son apparence."
+        }
+      ]
+    },
+    "dataUse": {
+      "title": "Comment nous utilisons vos informations",
+      "purposes": [
+        "Pour fournir et maintenir notre Service",
+        "Pour vous informer des changements apportés à notre Service",
+        "Pour vous permettre de participer aux fonctionnalités interactives de notre Service",
+        "Pour fournir un service client",
+        "Pour recueillir des analyses ou des informations précieuses afin d'améliorer notre Service",
+        "Pour surveiller l'utilisation de notre Service",
+        "Pour détecter, prévenir et résoudre les problèmes techniques"
+      ]
+    },
+    "dataSharing": {
+      "title": "Partage de vos informations",
+      "content": "Nous ne vendons, n'échangeons ni ne louons les informations d'identification personnelle des utilisateurs à des tiers. Nous pouvons partager des informations démographiques agrégées génériques non liées à des informations d'identification personnelle concernant les visiteurs et les utilisateurs avec nos partenaires commerciaux, affiliés de confiance et annonceurs.",
+      "thirdParties": [
+        {
+          "name": "Prestataires de services",
+          "purpose": "Pour effectuer des services en notre nom, tels que l'hébergement, l'analyse de données et le service client"
+        },
+        {
+          "name": "Partenaires de recherche",
+          "purpose": "À des fins d'analyse de données anonymisées et de recherche"
+        },
+        {
+          "name": "Exigences légales",
+          "purpose": "Pour se conformer à la loi applicable, à la réglementation, au processus juridique ou à la demande gouvernementale"
+        }
+      ]
+    },
+    "security": {
+      "title": "Sécurité des données",
+      "content": "Nous avons mis en œuvre des mesures de sécurité techniques et organisationnelles appropriées conçues pour protéger la sécurité de toutes les informations personnelles que nous traitons. Cependant, n'oubliez pas que nous ne pouvons pas garantir que l'internet lui-même est sécurisé à 100 %."
+    },
+    "userRights": {
+      "title": "Vos droits",
+      "rights": [
+        {
+          "name": "Accès",
+          "description": "Vous avez le droit de demander des copies de vos données personnelles."
+        },
+        {
+          "name": "Rectification",
+          "description": "Vous avez le droit de nous demander de corriger toute information que vous jugez inexacte."
+        },
+        {
+          "name": "Effacement",
+          "description": "Vous avez le droit de demander l'effacement de vos données personnelles, sous certaines conditions."
+        },
+        {
+          "name": "Restriction du traitement",
+          "description": "Vous avez le droit de demander que nous limitions le traitement de vos données personnelles, sous certaines conditions."
+        },
+        {
+          "name": "Opposition au traitement",
+          "description": "Vous avez le droit de vous opposer à notre traitement de vos données personnelles, sous certaines conditions."
+        },
+        {
+          "name": "Portabilité des données",
+          "description": "Vous avez le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions."
+        }
+      ],
+      "contact": "Si vous faites une demande, nous avons un mois pour vous répondre. Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter."
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "content": "Si vous avez des questions ou des commentaires sur cette politique de confidentialité, veuillez nous contacter à :",
+      "email": "privacy@globalgoodsatlas.org",
+      "address": "Global Goods Atlas\n123 Impact Drive\nSan Francisco, CA 94103\nÉtats-Unis"
+    }
+  },
+  "es": {
+    "title": "Política de Privacidad",
+    "updatedDate": "Última actualización: 13 de abril de 2025",
+    "introduction": {
+      "title": "Introducción",
+      "content": "En Global Goods Atlas, nos tomamos su privacidad en serio. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando visita nuestro sitio web o utiliza nuestros servicios. Por favor, lea atentamente esta política de privacidad. Si no está de acuerdo con los términos de esta política de privacidad, no acceda al sitio."
+    },
+    "dataCollection": {
+      "title": "Información que recopilamos",
+      "content": "Recopilamos información que usted nos proporciona directamente cuando se registra para una cuenta, crea o modifica su perfil, se suscribe a nuestro boletín informativo, o se comunica con nosotros de otra manera.",
+      "categories": [
+        {
+          "title": "Información personal",
+          "items": [
+            "Nombre",
+            "Dirección de correo electrónico",
+            "Organización",
+            "País"
+          ]
+        },
+        {
+          "title": "Datos de uso",
+          "items": [
+            "Dirección IP",
+            "Tipo de navegador",
+            "Páginas visitadas",
+            "Tiempo empleado en las páginas",
+            "Sitio web de referencia"
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Uso de cookies",
+      "content": "Nuestro sitio web utiliza cookies para mejorar su experiencia y recopilar información sobre los visitantes y las visitas a nuestro sitio web. Explicamos cómo utilizamos cookies y tecnologías similares en nuestra Política de Cookies.",
+      "types": [
+        {
+          "name": "Cookies esenciales",
+          "description": "Necesarias para que el sitio web funcione correctamente."
+        },
+        {
+          "name": "Cookies analíticas",
+          "description": "Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web."
+        },
+        {
+          "name": "Cookies de preferencia", 
+          "description": "Permiten que el sitio web recuerde información que cambia la forma en que se comporta o se ve."
+        }
+      ]
+    },
+    "dataUse": {
+      "title": "Cómo utilizamos su información",
+      "purposes": [
+        "Para proporcionar y mantener nuestro Servicio",
+        "Para notificarle sobre cambios en nuestro Servicio",
+        "Para permitirle participar en funciones interactivas de nuestro Servicio",
+        "Para proporcionar atención al cliente",
+        "Para recopilar análisis o información valiosa para que podamos mejorar nuestro Servicio",
+        "Para monitorear el uso de nuestro Servicio",
+        "Para detectar, prevenir y abordar problemas técnicos"
+      ]
+    },
+    "dataSharing": {
+      "title": "Compartir su información",
+      "content": "No vendemos, comerciamos ni alquilamos la información de identificación personal de los usuarios a terceros. Podemos compartir información demográfica agregada genérica no vinculada a ninguna información de identificación personal sobre visitantes y usuarios con nuestros socios comerciales, afiliados de confianza y anunciantes.",
+      "thirdParties": [
+        {
+          "name": "Proveedores de servicios",
+          "purpose": "Para realizar servicios en nuestro nombre, como alojamiento, análisis de datos y servicio al cliente"
+        },
+        {
+          "name": "Socios de investigación",
+          "purpose": "Para fines de análisis de datos anonimizados e investigación"
+        },
+        {
+          "name": "Requisitos legales",
+          "purpose": "Para cumplir con la ley aplicable, regulación, proceso legal o solicitud gubernamental"
+        }
+      ]
+    },
+    "security": {
+      "title": "Seguridad de datos",
+      "content": "Hemos implementado medidas de seguridad técnicas y organizativas apropiadas diseñadas para proteger la seguridad de cualquier información personal que procesamos. Sin embargo, recuerde también que no podemos garantizar que Internet en sí sea 100% seguro."
+    },
+    "userRights": {
+      "title": "Sus derechos",
+      "rights": [
+        {
+          "name": "Acceso",
+          "description": "Tiene derecho a solicitar copias de sus datos personales."
+        },
+        {
+          "name": "Rectificación",
+          "description": "Tiene derecho a solicitar que corrijamos cualquier información que considere inexacta."
+        },
+        {
+          "name": "Eliminación",
+          "description": "Tiene derecho a solicitar que eliminemos sus datos personales, bajo ciertas condiciones."
+        },
+        {
+          "name": "Restricción de procesamiento",
+          "description": "Tiene derecho a solicitar que restrinjamos el procesamiento de sus datos personales, bajo ciertas condiciones."
+        },
+        {
+          "name": "Oposición al procesamiento",
+          "description": "Tiene derecho a oponerse a nuestro procesamiento de sus datos personales, bajo ciertas condiciones."
+        },
+        {
+          "name": "Portabilidad de datos",
+          "description": "Tiene derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a usted, bajo ciertas condiciones."
+        }
+      ],
+      "contact": "Si realiza una solicitud, tenemos un mes para responderle. Si desea ejercer alguno de estos derechos, póngase en contacto con nosotros."
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "content": "Si tiene preguntas o comentarios sobre esta Política de Privacidad, póngase en contacto con nosotros en:",
+      "email": "privacy@globalgoodsatlas.org",
+      "address": "Global Goods Atlas\n123 Impact Drive\nSan Francisco, CA 94103\nEstados Unidos"
+    }
+  }
+}
