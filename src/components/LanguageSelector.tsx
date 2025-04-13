@@ -21,8 +21,9 @@ export default function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9" aria-label="Select language">
-          <Globe className="h-5 w-5" />
+        <Button variant="ghost" size="sm" className="h-9 flex items-center gap-1" aria-label="Select language">
+          <Globe className="h-4 w-4" />
+          <span className="uppercase text-xs font-medium">{language}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

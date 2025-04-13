@@ -8,12 +8,14 @@ import {
   MapPin,
   Grid3X3,
   FileText,
-  Info
+  Info,
+  Mail
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import LanguageSelector from '@/components/LanguageSelector';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useContentLoader } from '@/hooks/useContentLoader';
 
 const navItems = [
   { name: 'Home', path: '/', icon: Home, translationKey: 'nav.home' },
@@ -21,36 +23,13 @@ const navItems = [
   { name: 'Use Cases', path: '/use-cases', icon: FileText, translationKey: 'nav.useCases' },
   { name: 'Map', path: '/map', icon: MapPin, translationKey: 'nav.map' },
   { name: 'About', path: '/about', icon: Info, translationKey: 'nav.about' },
+  { name: 'Contact', path: '/contact', icon: Mail, translationKey: 'nav.contact' },
 ];
 
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { t } = useLanguage();
-
-  // Fallback translations for navigation
-  const translations = {
-    en: {
-      'nav.home': 'Home',
-      'nav.globalGoods': 'Global Goods',
-      'nav.useCases': 'Use Cases',
-      'nav.map': 'Map',
-      'nav.about': 'About'
-    },
-    fr: {
-      'nav.home': 'Accueil',
-      'nav.globalGoods': 'Biens Mondiaux',
-      'nav.useCases': 'Cas d\'Utilisation',
-      'nav.map': 'Carte',
-      'nav.about': 'À Propos'
-    },
-    es: {
-      'nav.home': 'Inicio',
-      'nav.globalGoods': 'Bienes Globales',
-      'nav.useCases': 'Casos de Uso',
-      'nav.map': 'Mapa',
-      'nav.about': 'Acerca de'
-    }
-  };
+  const { content, isLoading } = useContentLoader('navigation');
   
   return (
     <div className="flex justify-between items-center py-4">
@@ -72,7 +51,7 @@ export function MainNav() {
                 isActive ? "text-primary font-semibold" : "text-muted-foreground"
               )}
             >
-              {t(item.translationKey) || item.name}
+              {!isLoading && content ? content[item.translationKey] : item.name}
             </NavLink>
           ))}
         </nav>
@@ -105,7 +84,7 @@ export function MainNav() {
                 )}
               >
                 <item.icon className="mr-2 h-5 w-5" />
-                {t(item.translationKey) || item.name}
+                {!isLoading && content ? content[item.translationKey] : item.name}
               </NavLink>
             ))}
           </nav>
