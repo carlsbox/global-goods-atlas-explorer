@@ -14,8 +14,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import LanguageSelector from '@/components/LanguageSelector';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { useContentLoader } from '@/hooks/useContentLoader';
+import { getSiteName } from '@/lib/config';
 
 const navItems = [
   { name: 'Home', path: '/', icon: Home, translationKey: 'nav.home' },
@@ -29,12 +29,13 @@ const navItems = [
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { content, isLoading } = useContentLoader('pages/navigation');
+  const siteName = getSiteName();
   
   return (
     <div className="flex justify-between items-center py-4">
       <div className="flex items-center">
         <NavLink to="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-primary">Global Goods Atlas</span>
+          <span className="text-2xl font-bold text-primary">{siteName}</span>
         </NavLink>
       </div>
       

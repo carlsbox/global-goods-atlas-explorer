@@ -1,0 +1,16 @@
+
+{
+  "siteName": "Global Goods Atlas",
+  "domain": "globalgoodsatlas.org",
+  "emails": {
+    "contact": "info@globalgoodsatlas.org",
+    "support": "support@globalgoodsatlas.org"
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-XXXXXXXXXX"
+  },
+  "social": {
+    "twitter": "globalgoodsatlas",
+    "github": "globalgoodsatlas"
+  }
+}

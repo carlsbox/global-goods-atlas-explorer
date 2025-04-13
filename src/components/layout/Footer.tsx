@@ -1,11 +1,11 @@
 
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useContentLoader } from "@/hooks/useContentLoader";
+import { getSiteName } from "@/lib/config";
 
 export function Footer() {
-  const { language } = useLanguage();
   const { content } = useContentLoader('pages/navigation');
+  const siteName = getSiteName();
   
   const year = new Date().getFullYear();
   
@@ -15,10 +15,10 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="mb-4 sm:mb-0">
             <div className="flex items-center space-x-2">
-              <span className="text-lg font-semibold">Global Goods Atlas</span>
+              <span className="text-lg font-semibold">{siteName}</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">
-              &copy; {year} Global Goods Atlas. All rights reserved.
+              &copy; {year} {siteName}. All rights reserved.
             </p>
           </div>
           
