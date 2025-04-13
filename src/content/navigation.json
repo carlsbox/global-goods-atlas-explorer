@@ -1,0 +1,27 @@
+
+{
+  "en": {
+    "nav.home": "Home",
+    "nav.globalGoods": "Global Goods",
+    "nav.useCases": "Use Cases",
+    "nav.map": "Map",
+    "nav.about": "About",
+    "nav.contact": "Contact"
+  },
+  "fr": {
+    "nav.home": "Accueil",
+    "nav.globalGoods": "Biens Mondiaux",
+    "nav.useCases": "Cas d'Utilisation",
+    "nav.map": "Carte",
+    "nav.about": "À Propos",
+    "nav.contact": "Contact"
+  },
+  "es": {
+    "nav.home": "Inicio",
+    "nav.globalGoods": "Bienes Globales",
+    "nav.useCases": "Casos de Uso",
+    "nav.map": "Mapa",
+    "nav.about": "Acerca de",
+    "nav.contact": "Contacto"
+  }
+}

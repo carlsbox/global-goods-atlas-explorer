@@ -2,18 +2,37 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Heart, Terminal } from "lucide-react";
+import { useContentLoader } from "@/hooks/useContentLoader";
+import { useState, useEffect } from "react";
 
 export default function AboutPage() {
+  const { content, isLoading } = useContentLoader("about");
+  const [aboutContent, setAboutContent] = useState<any>(null);
+
+  useEffect(() => {
+    if (content) {
+      setAboutContent(content);
+    }
+  }, [content]);
+
+  if (isLoading || !aboutContent) {
+    return (
+      <div className="container py-12 text-center">
+        <p>Loading content...</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <section className="py-12 md:py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              About Global Goods Atlas
+              {aboutContent.title}
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Connecting the world to open-source digital public goods for sustainable development.
+              {aboutContent.subtitle}
             </p>
           </div>
         </div>
@@ -28,9 +47,9 @@ export default function AboutPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Heart className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+                  <h3 className="text-xl font-semibold mb-2">{aboutContent.mission.title}</h3>
                   <p className="text-muted-foreground">
-                    We're dedicated to promoting digital global goods that solve critical challenges in sustainable development. Our platform connects developers, organizations, and communities to create lasting impact.
+                    {aboutContent.mission.content}
                   </p>
                 </div>
               </CardContent>
@@ -42,9 +61,9 @@ export default function AboutPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Terminal className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Technology Stack</h3>
+                  <h3 className="text-xl font-semibold mb-2">{aboutContent.technology.title}</h3>
                   <p className="text-muted-foreground">
-                    We build using modern web technologies focused on performance, accessibility, and user experience. Our open architecture encourages collaboration and innovation.
+                    {aboutContent.technology.content}
                   </p>
                 </div>
               </CardContent>
@@ -56,9 +75,9 @@ export default function AboutPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Code className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Open Source Commitment</h3>
+                  <h3 className="text-xl font-semibold mb-2">{aboutContent.openSource.title}</h3>
                   <p className="text-muted-foreground">
-                    We believe in the power of open source to transform lives. By supporting and promoting open digital goods, we help create a more equitable digital world.
+                    {aboutContent.openSource.content}
                   </p>
                 </div>
               </CardContent>
@@ -70,12 +89,12 @@ export default function AboutPage() {
       <section className="py-12 bg-secondary/30">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Our Team</h2>
+            <h2 className="text-3xl font-bold mb-6">{aboutContent.team.title}</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We're a diverse group of technologists, policy experts, and development specialists committed to leveraging technology for social good.
+              {aboutContent.team.content}
             </p>
             <Button variant="default" size="lg">
-              Join Our Team
+              {aboutContent.team.joinButton}
             </Button>
           </div>
         </div>

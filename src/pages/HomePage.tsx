@@ -1,11 +1,30 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Globe, FileText, MapPin } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
+import { useContentLoader } from "@/hooks/useContentLoader";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const { data: globalGoods, isLoading } = useGlobalGoods();
+  const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
+  const { content, isLoading } = useContentLoader("home");
+  const [homeContent, setHomeContent] = useState<any>(null);
+
+  useEffect(() => {
+    if (content) {
+      setHomeContent(content);
+    }
+  }, [content]);
+
+  if (isLoading || !homeContent) {
+    return (
+      <div className="container py-12 text-center">
+        <p>Loading content...</p>
+      </div>
+    );
+  }
   
   return (
     <>
@@ -14,21 +33,20 @@ export default function HomePage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Discover Digital Global Goods
+              {homeContent.hero.title}
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Explore a comprehensive catalog of digital public goods and solutions
-              making an impact across the globe.
+              {homeContent.hero.subtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button asChild size="lg">
                 <Link to="/global-goods">
-                  Browse Catalog <ArrowRight className="ml-2 h-4 w-4" />
+                  {homeContent.hero.buttons.catalog} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/map">
-                  View Map <MapPin className="ml-2 h-4 w-4" />
+                  {homeContent.hero.buttons.map} <MapPin className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -46,13 +64,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Global Goods Catalog</h3>
+                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.goods.title}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Browse a comprehensive directory of vetted digital global goods across sectors.
+                    {homeContent.features.goods.description}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/global-goods">
-                      Explore Catalog <ArrowRight className="ml-1 h-4 w-4" />
+                      {homeContent.features.goods.button} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -65,13 +83,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <FileText className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Use Cases</h3>
+                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.cases.title}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Discover real-world implementations and success stories from around the world.
+                    {homeContent.features.cases.description}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/use-cases">
-                      View Use Cases <ArrowRight className="ml-1 h-4 w-4" />
+                      {homeContent.features.cases.button} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -84,13 +102,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Interactive Map</h3>
+                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.map.title}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Visualize the global impact and distribution of digital global goods.
+                    {homeContent.features.map.description}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/map">
-                      Explore Map <ArrowRight className="ml-1 h-4 w-4" />
+                      {homeContent.features.map.button} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -104,16 +122,16 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold">Featured Global Goods</h2>
+            <h2 className="text-3xl font-bold">{homeContent.featuredGoods.title}</h2>
             <Button asChild variant="link" className="mt-2 md:mt-0">
               <Link to="/global-goods">
-                View all <ArrowRight className="ml-1 h-4 w-4" />
+                {homeContent.featuredGoods.viewAll} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {isLoading ? (
+            {isLoadingGoods ? (
               <p>Loading featured global goods...</p>
             ) : (
               globalGoods?.slice(0, 3).map((good) => (

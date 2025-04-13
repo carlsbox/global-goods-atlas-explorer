@@ -4,16 +4,33 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useContentLoader } from "@/hooks/useContentLoader";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { content, isLoading } = useContentLoader("contact");
+  const [contactContent, setContactContent] = useState<any>(null);
+
+  useEffect(() => {
+    if (content) {
+      setContactContent(content);
+    }
+  }, [content]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form submission logic would go here
     setFormSubmitted(true);
   };
+
+  if (isLoading || !contactContent) {
+    return (
+      <div className="container py-12 text-center">
+        <p>Loading content...</p>
+      </div>
+    );
+  }
   
   return (
     <>
@@ -21,10 +38,10 @@ export default function ContactPage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              Contact Us
+              {contactContent.title}
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Have questions or want to get involved? We'd love to hear from you.
+              {contactContent.subtitle}
             </p>
           </div>
         </div>
@@ -39,12 +56,8 @@ export default function ContactPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Our Location</h3>
-                  <p className="text-muted-foreground">
-                    123 Impact Drive<br />
-                    San Francisco, CA 94103<br />
-                    United States
-                  </p>
+                  <h3 className="text-xl font-semibold mb-2">{contactContent.location.title}</h3>
+                  <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: contactContent.location.address }}></p>
                 </div>
               </CardContent>
             </Card>
@@ -55,18 +68,18 @@ export default function ContactPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+                  <h3 className="text-xl font-semibold mb-2">{contactContent.email.title}</h3>
                   <p className="text-muted-foreground">
-                    <a href="mailto:info@globalgoodsatlas.org" className="text-primary hover:underline">
-                      info@globalgoodsatlas.org
+                    <a href={`mailto:${contactContent.email.general.address}`} className="text-primary hover:underline">
+                      {contactContent.email.general.address}
                     </a><br />
-                    <span className="text-sm">General inquiries</span>
+                    <span className="text-sm">{contactContent.email.general.label}</span>
                   </p>
                   <p className="text-muted-foreground mt-2">
-                    <a href="mailto:support@globalgoodsatlas.org" className="text-primary hover:underline">
-                      support@globalgoodsatlas.org
+                    <a href={`mailto:${contactContent.email.support.address}`} className="text-primary hover:underline">
+                      {contactContent.email.support.address}
                     </a><br />
-                    <span className="text-sm">Technical support</span>
+                    <span className="text-sm">{contactContent.email.support.label}</span>
                   </p>
                 </div>
               </CardContent>
@@ -78,10 +91,10 @@ export default function ContactPage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+                  <h3 className="text-xl font-semibold mb-2">{contactContent.phone.title}</h3>
                   <p className="text-muted-foreground">
-                    +1 (555) 123-4567<br />
-                    <span className="text-sm">Monday-Friday, 9am-5pm PT</span>
+                    {contactContent.phone.number}<br />
+                    <span className="text-sm">{contactContent.phone.hours}</span>
                   </p>
                 </div>
               </CardContent>
@@ -95,18 +108,18 @@ export default function ContactPage() {
           <div className="max-w-2xl mx-auto">
             <Card>
               <CardContent className="pt-6">
-                <h2 className="text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center">{contactContent.form.title}</h2>
                 
                 {formSubmitted ? (
                   <div className="text-center p-8">
-                    <h3 className="text-xl font-medium text-primary mb-2">Thank you for your message!</h3>
-                    <p className="text-muted-foreground">We'll get back to you as soon as possible.</p>
+                    <h3 className="text-xl font-medium text-primary mb-2">{contactContent.form.success.title}</h3>
+                    <p className="text-muted-foreground">{contactContent.form.success.message}</p>
                     <Button 
                       className="mt-4" 
                       variant="outline" 
                       onClick={() => setFormSubmitted(false)}
                     >
-                      Send another message
+                      {contactContent.form.success.button}
                     </Button>
                   </div>
                 ) : (
@@ -114,39 +127,39 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-1">
-                          Your Name
+                          {contactContent.form.nameLabel}
                         </label>
-                        <Input id="name" placeholder="John Doe" required />
+                        <Input id="name" placeholder={contactContent.form.namePlaceholder} required />
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-1">
-                          Email Address
+                          {contactContent.form.emailLabel}
                         </label>
-                        <Input id="email" type="email" placeholder="john@example.com" required />
+                        <Input id="email" type="email" placeholder={contactContent.form.emailPlaceholder} required />
                       </div>
                     </div>
                     
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                        Subject
+                        {contactContent.form.subjectLabel}
                       </label>
-                      <Input id="subject" placeholder="How can we help?" required />
+                      <Input id="subject" placeholder={contactContent.form.subjectPlaceholder} required />
                     </div>
                     
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-1">
-                        Message
+                        {contactContent.form.messageLabel}
                       </label>
                       <Textarea
                         id="message"
-                        placeholder="Tell us how we can help you..."
+                        placeholder={contactContent.form.messagePlaceholder}
                         rows={5}
                         required
                       />
                     </div>
                     
                     <div className="flex justify-end">
-                      <Button type="submit">Send Message</Button>
+                      <Button type="submit">{contactContent.form.submitButton}</Button>
                     </div>
                   </form>
                 )}

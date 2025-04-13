@@ -1,0 +1,63 @@
+
+{
+  "en": {
+    "name": "openIMIS",
+    "description": "A comprehensive health insurance management system supporting enrollment, claims processing and reporting.",
+    "sectors": ["Health", "Insurance", "Finance"],
+    "website": "https://openimis.org",
+    "github": "https://github.com/openimis",
+    "details": "openIMIS is an open source software designed to manage health insurance schemes. It helps manage beneficiary enrollment, claims processing, and reporting for healthcare financing mechanisms.",
+    "features": [
+      "Beneficiary enrollment and management",
+      "Claims processing",
+      "Policy and premium management",
+      "Provider management",
+      "Reporting and analytics"
+    ],
+    "impacts": [
+      "Supporting national health insurance in Tanzania and Nepal",
+      "Used in community-based health insurance schemes in Cameroon and Chad",
+      "Being implemented in 10+ countries for various health financing mechanisms"
+    ]
+  },
+  "fr": {
+    "name": "openIMIS",
+    "description": "Un système complet de gestion d'assurance santé prenant en charge l'inscription, le traitement des réclamations et les rapports.",
+    "sectors": ["Santé", "Assurance", "Finance"],
+    "website": "https://openimis.org",
+    "github": "https://github.com/openimis",
+    "details": "openIMIS est un logiciel open source conçu pour gérer les régimes d'assurance santé. Il aide à gérer l'inscription des bénéficiaires, le traitement des réclamations et les rapports pour les mécanismes de financement des soins de santé.",
+    "features": [
+      "Inscription et gestion des bénéficiaires",
+      "Traitement des réclamations",
+      "Gestion des polices et des primes",
+      "Gestion des prestataires",
+      "Rapports et analyses"
+    ],
+    "impacts": [
+      "Soutien à l'assurance maladie nationale en Tanzanie et au Népal",
+      "Utilisé dans les régimes d'assurance santé communautaire au Cameroun et au Tchad",
+      "En cours d'implémentation dans plus de 10 pays pour divers mécanismes de financement de la santé"
+    ]
+  },
+  "es": {
+    "name": "openIMIS",
+    "description": "Un sistema integral de gestión de seguros de salud que admite inscripción, procesamiento de reclamos e informes.",
+    "sectors": ["Salud", "Seguros", "Finanzas"],
+    "website": "https://openimis.org",
+    "github": "https://github.com/openimis",
+    "details": "openIMIS es un software de código abierto diseñado para gestionar esquemas de seguro médico. Ayuda a gestionar la inscripción de beneficiarios, el procesamiento de reclamos y la generación de informes para mecanismos de financiación de atención médica.",
+    "features": [
+      "Inscripción y gestión de beneficiarios",
+      "Procesamiento de reclamos",
+      "Gestión de pólizas y primas",
+      "Gestión de proveedores",
+      "Informes y análisis"
+    ],
+    "impacts": [
+      "Apoyo al seguro nacional de salud en Tanzania y Nepal",
+      "Utilizado en esquemas de seguro de salud comunitario en Camerún y Chad",
+      "En implementación en más de 10 países para diversos mecanismos de financiación de salud"
+    ]
+  }
+}
