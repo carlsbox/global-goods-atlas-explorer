@@ -1,7 +1,5 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { GlobalGood } from "@/lib/types";
 import { useGlobalGoods } from "@/lib/api";
 import { Input } from "@/components/ui/input";
@@ -43,7 +41,7 @@ export default function GlobalGoodsPage() {
   });
 
   return (
-    <PageLayout>
+    <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
         <h1 className="mb-6">Global Goods Catalog</h1>
         <p className="text-xl text-muted-foreground">
@@ -133,7 +131,7 @@ export default function GlobalGoodsPage() {
           )}
         </>
       )}
-    </PageLayout>
+    </>
   );
 }
 

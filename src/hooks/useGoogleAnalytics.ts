@@ -8,36 +8,30 @@ export const useGoogleAnalytics = () => {
   const analyticsId = getAnalyticsId();
 
   useEffect(() => {
-    // Skip if no analytics ID is configured or if it's the placeholder
-    if (!analyticsId || analyticsId === 'G-XXXXXXXXXX') {
-      console.log('Google Analytics ID not configured');
-      return;
-    }
-
-    // Load Google Analytics script
-    const loadGoogleAnalytics = () => {
-      if (document.getElementById('ga-script')) {
+    // Initialize Google Analytics
+    const initGoogleAnalytics = () => {
+      if (!analyticsId || analyticsId === 'G-XXXXXXXXXX') {
+        console.info('Google Analytics ID not configured');
         return;
       }
 
-      const script = document.createElement('script');
-      script.id = 'ga-script';
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
-      document.head.appendChild(script);
+      const script1 = document.createElement('script');
+      script1.async = true;
+      script1.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', analyticsId);
+      const script2 = document.createElement('script');
+      script2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${analyticsId}');
+      `;
 
-      // Make gtag available globally
-      window.gtag = gtag;
+      document.head.appendChild(script1);
+      document.head.appendChild(script2);
     };
 
-    loadGoogleAnalytics();
+    initGoogleAnalytics();
   }, [analyticsId]);
 
   // Track page views
@@ -45,7 +39,7 @@ export const useGoogleAnalytics = () => {
     if (!analyticsId || analyticsId === 'G-XXXXXXXXXX' || !window.gtag) {
       return;
     }
-    
+
     window.gtag('config', analyticsId, {
       page_path: location.pathname + location.search
     });

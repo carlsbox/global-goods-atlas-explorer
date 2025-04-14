@@ -1,7 +1,5 @@
-
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { useUseCases, useGlobalGoods } from "@/lib/api";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -67,7 +65,7 @@ export default function UseCasesPage() {
     : "";
 
   return (
-    <PageLayout>
+    <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
         <h1 className="mb-6">Use Cases</h1>
         <p className="text-xl text-muted-foreground">
@@ -194,7 +192,7 @@ export default function UseCasesPage() {
           )}
         </>
       )}
-    </PageLayout>
+    </>
   );
 }
 
