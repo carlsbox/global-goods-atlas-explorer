@@ -31,6 +31,9 @@ export function useContentLoader(contentPath: string) {
         } else if (contentPath === 'pages/contact') {
           const data = await import('../content/pages/contact.json');
           setContent(data.default[language]);
+        } else if (contentPath === 'pages/cookie') {
+          const data = await import('../content/pages/cookie.json');
+          setContent(data.default[language]);
         } else {
           throw new Error(`Content path not supported: ${contentPath}`);
         }
