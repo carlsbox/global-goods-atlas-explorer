@@ -63,7 +63,7 @@ export default function GlobalGoodDetailsPage() {
   }
 
   return (
-    <PageLayout>
+    <>
       {/* Breadcrumb Navigation */}
       <div className="mb-6">
         <Link 
@@ -391,6 +391,6 @@ export default function GlobalGoodDetailsPage() {
           </Card>
         </div>
       </div>
-    </PageLayout>
+    </>
   );
 }
