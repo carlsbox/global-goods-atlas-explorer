@@ -64,3 +64,52 @@ export interface CountryData {
   lng: number;
   globalGoods: string[];
 }
+
+// CMS User Types
+export interface User {
+  id: string;
+  email: string;
+  role: 'admin' | 'editor';
+  firstName?: string;
+  lastName?: string;
+  avatarUrl?: string;
+  lastLogin?: string;
+}
+
+// CMS Authentication Types
+export interface AuthState {
+  user: User | null;
+  session: any | null;
+  loading: boolean;
+  error: string | null;
+}
+
+// Site Settings Type
+export interface SiteSettings {
+  id: string;
+  siteName: string;
+  siteDescription: string;
+  logoUrl?: string;
+  faviconUrl?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  metaTags?: Record<string, string>;
+  socialLinks?: Record<string, string>;
+  updatedAt: string;
+  updatedBy: string;
+}
+
+// Media Asset Type
+export interface MediaAsset {
+  id: string;
+  fileName: string;
+  fileType: string;
+  fileSize: number;
+  url: string;
+  uploadedBy: string;
+  uploadedAt: string;
+  tags?: string[];
+  alt?: string;
+  width?: number;
+  height?: number;
+}
