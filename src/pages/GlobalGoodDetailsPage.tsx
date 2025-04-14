@@ -1,6 +1,4 @@
-
 import { useParams, Link } from "react-router-dom";
-import { PageLayout } from "@/components/layout/PageLayout";
 import { useGlobalGood } from "@/lib/api";
 import { 
   Card, 
@@ -41,30 +39,26 @@ export default function GlobalGoodDetailsPage() {
   // Handle various loading states
   if (isLoading) {
     return (
-      <PageLayout>
-        <div className="text-center py-24">
-          <p>Loading global good details...</p>
-        </div>
-      </PageLayout>
+      <div className="text-center py-24">
+        <p>Loading global good details...</p>
+      </div>
     );
   }
 
   if (error || !globalGood) {
     return (
-      <PageLayout>
-        <div className="text-center py-24">
-          <h2 className="text-2xl font-bold mb-4">Global Good Not Found</h2>
-          <p className="text-muted-foreground mb-6">
-            The global good you're looking for doesn't exist or couldn't be loaded.
-          </p>
-          <Button asChild>
-            <Link to="/global-goods">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Catalog
-            </Link>
-          </Button>
-        </div>
-      </PageLayout>
+      <div className="text-center py-24">
+        <h2 className="text-2xl font-bold mb-4">Global Good Not Found</h2>
+        <p className="text-muted-foreground mb-6">
+          The global good you're looking for doesn't exist or couldn't be loaded.
+        </p>
+        <Button asChild>
+          <Link to="/global-goods">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Catalog
+          </Link>
+        </Button>
+      </div>
     );
   }
 
@@ -255,12 +249,10 @@ export default function GlobalGoodDetailsPage() {
               </Card>
             </TabsContent>
             
-            {/* New Tab for Standards and Classification */}
             <TabsContent value="standards" className="mt-4">
               <Card>
                 <CardContent className="pt-6">
                   <div className="grid grid-cols-1 gap-8">
-                    {/* Health Standards Section */}
                     {globalGood.healthStandards && globalGood.healthStandards.length > 0 && (
                       <div>
                         <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -280,7 +272,6 @@ export default function GlobalGoodDetailsPage() {
                       </div>
                     )}
                     
-                    {/* WHO System Classification Section */}
                     {globalGood.whoSystemClassification && (
                       <div>
                         <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -351,7 +342,6 @@ export default function GlobalGoodDetailsPage() {
           </Tabs>
         </div>
         
-        {/* Right Column - Sidebar */}
         <div>
           <Card>
             <CardHeader>

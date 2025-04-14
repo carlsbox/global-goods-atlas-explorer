@@ -14,10 +14,10 @@ export function useContentLoader(contentPath: string) {
         setIsLoading(true);
         // Import content directly without using dynamic path segments
         if (contentPath === 'pages/home') {
-          const data = await import('../content/home.json');
+          const data = await import('../content/pages/home.json');
           setContent(data.default[language]);
         } else if (contentPath === 'pages/navigation') {
-          const data = await import('../content/navigation.json');
+          const data = await import('../content/pages/navigation.json');
           setContent(data.default[language]);
         } else if (contentPath === 'pages/privacy') {
           const data = await import('../content/pages/privacy.json');
