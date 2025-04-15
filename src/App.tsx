@@ -1,150 +1,76 @@
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "next-themes";
-import { PageLayout } from "@/components/layout/PageLayout";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import { AuthProvider } from "@/contexts/AuthContext";
-import { CookieConsent } from "@/components/CookieConsent";
-import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
-import { AdminLayout } from "@/components/layout/AdminLayout";
-import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
-
-// Main site pages
-import HomePage from "./pages/HomePage";
-import GlobalGoodsPage from "./pages/GlobalGoodsPage";
-import GlobalGoodDetailsPage from "./pages/GlobalGoodDetailsPage";
-import UseCasesPage from "./pages/UseCasesPage";
-import UseCaseDetailsPage from "./pages/UseCaseDetailsPage";
-import MapPage from "./pages/MapPage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import TermsOfServicePage from "./pages/TermsOfServicePage";
-import NotFound from "./pages/NotFound";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import GlobalGoodsPage from './pages/GlobalGoodsPage';
+import GlobalGoodDetailsPage from './pages/GlobalGoodDetailsPage';
+import UseCasesPage from './pages/UseCasesPage';
+import UseCaseDetailsPage from './pages/UseCaseDetailsPage';
+import MapPage from './pages/MapPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Admin pages
-import LoginPage from "./pages/admin/LoginPage";
-import DashboardPage from "./pages/admin/DashboardPage";
-import UnauthorizedPage from "./pages/admin/UnauthorizedPage";
+import LoginPage from './pages/admin/LoginPage';
+import DashboardPage from './pages/admin/DashboardPage';
+import UnauthorizedPage from './pages/admin/UnauthorizedPage';
+import GlobalGoodsManagementPage from './pages/admin/GlobalGoodsManagementPage';
+import UseCasesManagementPage from './pages/admin/UseCasesManagementPage';
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
 
-const queryClient = new QueryClient();
+function App() {
+  const { user, loading } = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
 
-// Analytics wrapper component
-const AnalyticsWrapper = ({ children }: { children: React.ReactNode }) => {
-  useGoogleAnalytics();
-  return <>{children}</>;
-};
+  useEffect(() => {
+    setIsAdmin(user?.role === 'admin');
+  }, [user]);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <AuthProvider>
-        <LanguageProvider>
-          <BrowserRouter>
-            <AnalyticsWrapper>
-              <Routes>
-                {/* Admin Routes */}
-                <Route path="/admin/login" element={<LoginPage />} />
-                <Route path="/admin/unauthorized" element={<UnauthorizedPage />} />
-                
-                {/* Protected Admin Routes */}
-                <Route path="/admin/dashboard" element={
-                  <ProtectedRoute>
-                    <AdminLayout>
-                      <DashboardPage />
-                    </AdminLayout>
-                  </ProtectedRoute>
-                } />
-                
-                {/* Admin Routes requiring admin role */}
-                <Route path="/admin/users" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <AdminLayout>
-                      {/* We will implement this page later */}
-                      <div>Users Management Page</div>
-                    </AdminLayout>
-                  </ProtectedRoute>
-                } />
-                
-                <Route path="/admin/settings" element={
-                  <ProtectedRoute requiredRole="admin">
-                    <AdminLayout>
-                      {/* We will implement this page later */}
-                      <div>Settings Page</div>
-                    </AdminLayout>
-                  </ProtectedRoute>
-                } />
-                
-                {/* Public Website Routes */}
-                <Route path="/" element={
-                  <PageLayout>
-                    <HomePage />
-                  </PageLayout>
-                } />
-                <Route path="/home" element={
-                  <PageLayout>
-                    <HomePage />
-                  </PageLayout>
-                } />
-                <Route path="/global-goods" element={
-                  <PageLayout>
-                    <GlobalGoodsPage />
-                  </PageLayout>
-                } />
-                <Route path="/global-goods/:id" element={
-                  <PageLayout>
-                    <GlobalGoodDetailsPage />
-                  </PageLayout>
-                } />
-                <Route path="/use-cases" element={
-                  <PageLayout>
-                    <UseCasesPage />
-                  </PageLayout>
-                } />
-                <Route path="/use-cases/:id" element={
-                  <PageLayout>
-                    <UseCaseDetailsPage />
-                  </PageLayout>
-                } />
-                <Route path="/map" element={
-                  <PageLayout>
-                    <MapPage />
-                  </PageLayout>
-                } />
-                <Route path="/about" element={
-                  <PageLayout>
-                    <AboutPage />
-                  </PageLayout>
-                } />
-                <Route path="/contact" element={
-                  <PageLayout>
-                    <ContactPage />
-                  </PageLayout>
-                } />
-                <Route path="/privacy" element={
-                  <PageLayout>
-                    <PrivacyPolicyPage />
-                  </PageLayout>
-                } />
-                <Route path="/terms" element={
-                  <PageLayout>
-                    <TermsOfServicePage />
-                  </PageLayout>
-                } />
-                <Route path="*" element={
-                  <PageLayout>
-                    <NotFound />
-                  </PageLayout>
-                } />
-              </Routes>
-              <CookieConsent />
-            </AnalyticsWrapper>
-          </BrowserRouter>
-        </LanguageProvider>
-      </AuthProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/global-goods" element={<GlobalGoodsPage />} />
+        <Route path="/global-goods/:id" element={<GlobalGoodDetailsPage />} />
+        <Route path="/use-cases" element={<UseCasesPage />} />
+        <Route path="/use-cases/:id" element={<UseCaseDetailsPage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/cookie" element={<CookiePolicyPage />} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route path="/admin/dashboard" element={
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/global-goods" element={
+          <ProtectedRoute>
+            <GlobalGoodsManagementPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/use-cases" element={
+          <ProtectedRoute>
+            <UseCasesManagementPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/unauthorized" element={<UnauthorizedPage />} />
+        
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
