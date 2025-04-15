@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -7,11 +6,11 @@ import { Progress } from '@/components/ui/progress';
 import { useGlobalGoods, useUseCases } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
 import { 
-  FiPlus, 
-  FiGlobe,
-  FiBookOpen,
-  FiImage,
-  FiUsers
+  FilePlus, 
+  Globe,
+  BookOpen,
+  FileImage,
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
@@ -78,21 +77,21 @@ export default function DashboardPage() {
     {
       title: 'Global Goods',
       value: globalGoods?.length || 0,
-      icon: <FiGlobe className="h-6 w-6" />,
+      icon: <Globe className="h-6 w-6" />,
       color: 'bg-blue-100 text-blue-700',
       link: '/admin/global-goods'
     },
     {
       title: 'Use Cases',
       value: useCases?.length || 0,
-      icon: <FiBookOpen className="h-6 w-6" />,
+      icon: <BookOpen className="h-6 w-6" />,
       color: 'bg-green-100 text-green-700',
       link: '/admin/use-cases'
     },
     {
       title: 'Media Assets',
       value: mediaCount,
-      icon: <FiImage className="h-6 w-6" />,
+      icon: <FileImage className="h-6 w-6" />,
       color: 'bg-amber-100 text-amber-700',
       link: '/admin/media'
     }
@@ -103,7 +102,7 @@ export default function DashboardPage() {
     statCards.push({
       title: 'Users',
       value: userCount,
-      icon: <FiUsers className="h-6 w-6" />,
+      icon: <Users className="h-6 w-6" />,
       color: 'bg-purple-100 text-purple-700',
       link: '/admin/users'
     });
@@ -168,7 +167,7 @@ export default function DashboardPage() {
                           className="h-6 w-6 object-contain"
                         />
                       ) : (
-                        <FiGlobe className="h-5 w-5 text-primary" />
+                        <Globe className="h-5 w-5 text-primary" />
                       )}
                     </div>
                     <div>
@@ -181,7 +180,7 @@ export default function DashboardPage() {
                 ))}
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/admin/global-goods" className="flex items-center">
-                    <FiPlus className="mr-2 h-4 w-4" />
+                    <FilePlus className="mr-2 h-4 w-4" />
                     Manage Global Goods
                   </Link>
                 </Button>
@@ -199,7 +198,7 @@ export default function DashboardPage() {
                 {useCases?.slice(0, 5).map((useCase) => (
                   <div key={useCase.id} className="flex items-center gap-2 border-b pb-2 last:border-0">
                     <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <FiBookOpen className="h-5 w-5 text-primary" />
+                      <BookOpen className="h-5 w-5 text-primary" />
                     </div>
                     <div>
                       <div className="font-medium">{useCase.title}</div>
@@ -211,7 +210,7 @@ export default function DashboardPage() {
                 ))}
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/admin/use-cases" className="flex items-center">
-                    <FiPlus className="mr-2 h-4 w-4" />
+                    <FilePlus className="mr-2 h-4 w-4" />
                     Manage Use Cases
                   </Link>
                 </Button>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -13,20 +12,20 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
-  FiGrid,
-  FiList,
-  FiUsers,
-  FiSettings,
-  FiImage,
-  FiFile,
-  FiHome,
-  FiMenu,
-  FiX,
-  FiLogOut,
-  FiUser,
-  FiBarChart2,
-  FiGlobe,
-  FiBookOpen
+  Grid,
+  List,
+  Users,
+  Settings,
+  FileImage,
+  File,
+  Home,
+  Menu,
+  X,
+  LogOut,
+  User,
+  BarChart2,
+  Globe,
+  BookOpen
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -54,17 +53,15 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     navigate('/admin/login');
   };
 
-  // Define sidebar links with icons
   const sidebarLinks: SidebarLink[] = [
-    { path: '/admin/dashboard', label: 'Dashboard', icon: <FiGrid /> },
-    { path: '/admin/global-goods', label: 'Global Goods', icon: <FiGlobe /> },
-    { path: '/admin/use-cases', label: 'Use Cases', icon: <FiBookOpen /> },
-    { path: '/admin/media', label: 'Media Library', icon: <FiImage /> },
-    { path: '/admin/users', label: 'Users', icon: <FiUsers />, adminOnly: true },
-    { path: '/admin/settings', label: 'Settings', icon: <FiSettings />, adminOnly: true },
+    { path: '/admin/dashboard', label: 'Dashboard', icon: <Grid /> },
+    { path: '/admin/global-goods', label: 'Global Goods', icon: <Globe /> },
+    { path: '/admin/use-cases', label: 'Use Cases', icon: <BookOpen /> },
+    { path: '/admin/media', label: 'Media Library', icon: <FileImage /> },
+    { path: '/admin/users', label: 'Users', icon: <Users />, adminOnly: true },
+    { path: '/admin/settings', label: 'Settings', icon: <Settings />, adminOnly: true },
   ];
-  
-  // Filter links based on user role
+
   const filteredLinks = sidebarLinks.filter(
     link => !link.adminOnly || user?.role === 'admin'
   );
@@ -79,10 +76,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-muted/20 flex flex-col">
-      {/* Top navigation */}
       <header className="border-b bg-background shadow-sm">
         <div className="flex h-16 items-center px-4">
-          {/* Mobile menu toggle */}
           <Button 
             variant="ghost" 
             size="icon" 
@@ -90,25 +85,23 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             className="mr-2 md:hidden"
           >
             {sidebarOpen ? (
-              <FiX className="h-5 w-5" />
+              <X className="h-5 w-5" />
             ) : (
-              <FiMenu className="h-5 w-5" />
+              <Menu className="h-5 w-5" />
             )}
             <span className="sr-only">Toggle menu</span>
           </Button>
           
-          {/* Logo and title */}
           <div className="flex items-center">
             <Link to="/admin/dashboard" className="flex items-center">
-              <FiBarChart2 className="h-6 w-6 text-primary mr-2" />
+              <BarChart2 className="h-6 w-6 text-primary mr-2" />
               <span className="font-bold text-lg">Global Goods CMS</span>
             </Link>
           </div>
           
-          {/* Right side navigation */}
           <div className="ml-auto flex items-center gap-2">
             <Link to="/" className="flex gap-2 items-center">
-              <FiHome className="h-4 w-4" />
+              <Home className="h-4 w-4" />
               <span className="hidden sm:inline-block">View Site</span>
             </Link>
             
@@ -140,13 +133,13 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
                   <Link to="/admin/profile">
-                    <FiUser className="mr-2 h-4 w-4" />
+                    <User className="mr-2 h-4 w-4" />
                     Profile
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut}>
-                  <FiLogOut className="mr-2 h-4 w-4" />
+                  <LogOut className="mr-2 h-4 w-4" />
                   Sign Out
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -156,7 +149,6 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       </header>
       
       <div className="flex flex-1">
-        {/* Sidebar */}
         <aside
           className={`${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -183,13 +175,11 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           </ScrollArea>
         </aside>
         
-        {/* Main content */}
         <main className="flex-1 p-4 md:p-6">
           {children}
         </main>
       </div>
       
-      {/* Dark overlay for mobile sidebar */}
       {sidebarOpen && (
         <div 
           className="fixed inset-0 z-40 bg-black/50 md:hidden" 

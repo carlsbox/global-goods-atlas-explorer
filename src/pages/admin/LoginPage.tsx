@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -6,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { FiMail, FiLock, FiLogIn } from 'lucide-react';
+import { Mail, FileLock, LogIn } from 'lucide-react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +25,6 @@ export default function LoginPage() {
   const location = useLocation();
   const [googleSignInLoading, setGoogleSignInLoading] = useState(false);
   
-  // Get the previous location or default to dashboard
   const from = location.state?.from?.pathname || "/admin/dashboard";
   
   const form = useForm<LoginFormValues>({
@@ -83,7 +81,7 @@ export default function LoginPage() {
                           disabled={loading} 
                         />
                       </FormControl>
-                      <FiMail className="absolute left-3 top-3 text-muted-foreground h-4 w-4" />
+                      <Mail className="absolute left-3 top-3 text-muted-foreground h-4 w-4" />
                     </div>
                     <FormMessage />
                   </FormItem>
@@ -106,7 +104,7 @@ export default function LoginPage() {
                           disabled={loading}
                         />
                       </FormControl>
-                      <FiLock className="absolute left-3 top-3 text-muted-foreground h-4 w-4" />
+                      <FileLock className="absolute left-3 top-3 text-muted-foreground h-4 w-4" />
                     </div>
                     <FormMessage />
                   </FormItem>
@@ -125,7 +123,7 @@ export default function LoginPage() {
                   </>
                 ) : (
                   <>
-                    <FiLogIn className="mr-2" />
+                    <LogIn className="mr-2" />
                     Sign In
                   </>
                 )}

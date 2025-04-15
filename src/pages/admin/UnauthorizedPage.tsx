@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
-import { FiShield, FiArrowLeft, FiHome } from 'lucide-react';
+import { Shield, ArrowLeft, Home } from 'lucide-react';
 
 export default function UnauthorizedPage() {
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ export default function UnauthorizedPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-muted/20 p-4">
       <div className="rounded-full bg-primary/10 p-6 mb-6">
-        <FiShield className="h-16 w-16 text-primary" />
+        <Shield className="h-16 w-16 text-primary" />
       </div>
       
       <h1 className="text-4xl font-bold tracking-tight mb-2">Access Denied</h1>
@@ -32,12 +31,12 @@ export default function UnauthorizedPage() {
       
       <div className="flex flex-wrap gap-4">
         <Button onClick={() => navigate(-1)} variant="outline">
-          <FiArrowLeft className="mr-2 h-4 w-4" />
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Go Back
         </Button>
         
         <Button onClick={() => navigate("/admin/dashboard")}>
-          <FiHome className="mr-2 h-4 w-4" />
+          <Home className="mr-2 h-4 w-4" />
           Dashboard
         </Button>
       </div>
