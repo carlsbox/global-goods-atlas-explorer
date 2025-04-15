@@ -8,8 +8,8 @@ import UseCaseDetailsPage from './pages/UseCaseDetailsPage';
 import MapPage from './pages/MapPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -44,8 +44,8 @@ function App() {
         <Route path="/map" element={<MapPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy" element={<PrivacyPage />} />
-        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms" element={<TermsOfServicePage />} />
         <Route path="/cookie" element={<CookiePolicyPage />} />
         
         {/* Admin Routes */}
