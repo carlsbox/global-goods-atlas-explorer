@@ -1,89 +1,61 @@
 
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import GlobalGoodsPage from './pages/GlobalGoodsPage';
-import GlobalGoodDetailsPage from './pages/GlobalGoodDetailsPage';
-import UseCasesPage from './pages/UseCasesPage';
-import UseCaseDetailsPage from './pages/UseCaseDetailsPage';
-import MapPage from './pages/MapPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import TermsOfServicePage from './pages/TermsOfServicePage';
-import CookiePolicyPage from './pages/CookiePolicyPage';
-import { useAuth } from '@/contexts/AuthContext';
-import { usingMockClient } from './lib/supabase';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import { PageLayout } from "@/components/layout/PageLayout";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CookieConsent } from "@/components/CookieConsent";
+import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 
-// Admin pages
-import LoginPage from './pages/admin/LoginPage';
-import DashboardPage from './pages/admin/DashboardPage';
-import UnauthorizedPage from './pages/admin/UnauthorizedPage';
-import GlobalGoodsManagementPage from './pages/admin/GlobalGoodsManagementPage';
-import UseCasesManagementPage from './pages/admin/UseCasesManagementPage';
-import { ProtectedRoute } from './components/auth/ProtectedRoute';
+// Pages
+import HomePage from "./pages/HomePage";
+import GlobalGoodsPage from "./pages/GlobalGoodsPage";
+import GlobalGoodDetailsPage from "./pages/GlobalGoodDetailsPage";
+import UseCasesPage from "./pages/UseCasesPage";
+import UseCaseDetailsPage from "./pages/UseCaseDetailsPage";
+import MapPage from "./pages/MapPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
+import NotFound from "./pages/NotFound";
 
-function App() {
-  const { user, loading } = useAuth();
-  const [isAdmin, setIsAdmin] = useState(false);
+const queryClient = new QueryClient();
 
-  useEffect(() => {
-    setIsAdmin(user?.role === 'admin');
-    
-    if (usingMockClient) {
-      console.info('Running with mock authentication. All admin features will be available.');
-    }
-  }, [user]);
+// Analytics wrapper component
+const AnalyticsWrapper = ({ children }: { children: React.ReactNode }) => {
+  useGoogleAnalytics();
+  return <>{children}</>;
+};
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-lg">Loading application...</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/global-goods" element={<GlobalGoodsPage />} />
-        <Route path="/global-goods/:id" element={<GlobalGoodDetailsPage />} />
-        <Route path="/use-cases" element={<UseCasesPage />} />
-        <Route path="/use-cases/:id" element={<UseCaseDetailsPage />} />
-        <Route path="/map" element={<MapPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms" element={<TermsOfServicePage />} />
-        <Route path="/cookie" element={<CookiePolicyPage />} />
-        
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={<LoginPage />} />
-        <Route path="/admin/dashboard" element={
-          <ProtectedRoute>
-            <DashboardPage />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/global-goods" element={
-          <ProtectedRoute>
-            <GlobalGoodsManagementPage />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/use-cases" element={
-          <ProtectedRoute>
-            <UseCasesManagementPage />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/unauthorized" element={<UnauthorizedPage />} />
-        
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => (
+  <LanguageProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <BrowserRouter>
+          <AnalyticsWrapper>
+            <PageLayout>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/global-goods" element={<GlobalGoodsPage />} />
+                <Route path="/global-goods/:id" element={<GlobalGoodDetailsPage />} />
+                <Route path="/use-cases" element={<UseCasesPage />} />
+                <Route path="/use-cases/:id" element={<UseCaseDetailsPage />} />
+                <Route path="/map" element={<MapPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms" element={<TermsOfServicePage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <CookieConsent />
+            </PageLayout>
+          </AnalyticsWrapper>
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
+  </LanguageProvider>
+);
 
 export default App;
