@@ -168,7 +168,8 @@ export default function UseCasesListPage() {
             </div>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Sectors</SelectItem>
+            {/* Fix: Change empty string to "all" for the value prop */}
+            <SelectItem value="all">All Sectors</SelectItem>
             {sectors.map(sector => (
               <SelectItem key={sector} value={sector}>{sector}</SelectItem>
             ))}
