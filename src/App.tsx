@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -12,6 +13,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import { useAuth } from '@/contexts/AuthContext';
+import { usingMockClient } from './lib/supabase';
 
 // Admin pages
 import LoginPage from './pages/admin/LoginPage';
@@ -27,10 +29,21 @@ function App() {
 
   useEffect(() => {
     setIsAdmin(user?.role === 'admin');
+    
+    if (usingMockClient) {
+      console.info('Running with mock authentication. All admin features will be available.');
+    }
   }, [user]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
+          <p className="mt-4 text-lg">Loading application...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
