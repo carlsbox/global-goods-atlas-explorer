@@ -1,6 +1,16 @@
 
 import { Button } from "@/components/ui/button";
 import { CountryData, GlobalGood } from "@/lib/types";
+import { 
+  ComposableMap, 
+  Geographies, 
+  Geography, 
+  ZoomableGroup 
+} from "react-simple-maps";
+import { useState } from "react";
+
+// GeoJSON data for the world map
+const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
 interface MapDisplayProps {
   selectedGood: GlobalGood | null;
@@ -17,9 +27,29 @@ export function MapDisplay({
   onSelectCountry,
   selectedCountryCode,
 }: MapDisplayProps) {
+  const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+
+  // Get array of country codes for easy comparison
+  const countryCodes = selectedGoodCountries.map(country => country.code);
+  
+  // Handle zoom
+  const handleZoomIn = () => {
+    if (position.zoom >= 4) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom * 1.5 }));
+  };
+
+  const handleZoomOut = () => {
+    if (position.zoom <= 1) return;
+    setPosition(pos => ({ ...pos, zoom: pos.zoom / 1.5 }));
+  };
+
+  const handleMoveEnd = (position: any) => {
+    setPosition(position);
+  };
+
   return (
     <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col items-center justify-center">
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h1 className="text-2xl font-bold mb-2">Global Goods Distribution</h1>
         <p className="text-muted-foreground">
           {selectedGood
@@ -32,33 +62,81 @@ export function MapDisplay({
       </div>
       
       <div className="relative w-full max-w-2xl aspect-[2/1] border rounded-lg bg-card overflow-hidden shadow-lg">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <svg viewBox="0 0 1000 500" className="w-full h-full">
-            <path 
-              d="M300,250 C400,200 600,200 700,250 C800,300 800,400 700,450 C600,500 400,500 300,450 C200,400 200,300 300,250 Z" 
-              fill="currentColor" 
-            />
-          </svg>
+        <div className="flex absolute top-2 right-2 z-10 space-x-2">
+          <Button size="icon" variant="outline" onClick={handleZoomIn}>+</Button>
+          <Button size="icon" variant="outline" onClick={handleZoomOut}>-</Button>
         </div>
         
-        <div className="absolute inset-0 p-4">
-          <div className="text-center flex flex-col items-center justify-center h-full">
-            <p className="text-muted-foreground mb-4">
-              This is a placeholder for the interactive map.
-            </p>
-            <p className="text-sm">
-              In a production app, this would be replaced with an interactive map using 
-              libraries like Mapbox, Leaflet, or Google Maps.
-            </p>
-          </div>
-        </div>
+        <ComposableMap
+          projection="geoEqualEarth"
+          width={800}
+          height={400}
+          className="w-full h-full"
+        >
+          <ZoomableGroup
+            zoom={position.zoom}
+            center={position.coordinates}
+            onMoveEnd={handleMoveEnd}
+          >
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map(geo => {
+                  const isActive = countryCodes.includes(geo.id);
+                  const isSelected = selectedCountryCode === geo.id;
+                  
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onClick={() => {
+                        const countryCode = geo.id;
+                        // Only allow clicking on countries that are in the selected global good
+                        if (selectedGood && !isActive) return;
+                        onSelectCountry(isSelected ? null : countryCode);
+                      }}
+                      style={{
+                        default: {
+                          fill: isActive 
+                            ? isSelected 
+                              ? "var(--primary)" 
+                              : "var(--primary-foreground)" 
+                            : "var(--muted)",
+                          stroke: "var(--border)",
+                          strokeWidth: 0.5,
+                          outline: "none",
+                          cursor: isActive ? "pointer" : "default"
+                        },
+                        hover: {
+                          fill: isActive 
+                            ? "var(--primary)" 
+                            : "var(--muted)",
+                          stroke: "var(--border)",
+                          strokeWidth: 0.5,
+                          outline: "none"
+                        },
+                        pressed: {
+                          fill: isActive 
+                            ? "var(--primary)" 
+                            : "var(--muted)",
+                          stroke: "var(--border)",
+                          strokeWidth: 0.5,
+                          outline: "none"
+                        }
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
       </div>
       
-      <div className="mt-8 w-full max-w-2xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="mt-4 w-full max-w-2xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {selectedGood && selectedGoodCountries.map(country => (
           <Button
             key={country.code}
-            variant="outline"
+            variant={selectedCountryCode === country.code ? "default" : "outline"}
             size="sm"
             className="text-xs"
             onClick={() => onSelectCountry(country.code)}
