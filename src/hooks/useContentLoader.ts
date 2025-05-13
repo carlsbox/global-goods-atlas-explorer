@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { toast } from "@/hooks/use-toast";
@@ -29,12 +30,12 @@ export function useContentLoader(contentPath: string) {
         // Try loading the content with proper error handling
         let data;
         try {
-          // First try direct import from content root
-          data = await import(`../content/${adjustedPath}.json`);
+          // Try import from data folder instead of content
+          data = await import(`../data/${adjustedPath}.json`);
         } catch (directImportError) {
           // If direct import fails, try with pages/ prefix
           try {
-            data = await import(`../content/pages/${adjustedPath}.json`);
+            data = await import(`../data/pages/${adjustedPath}.json`);
           } catch (pageImportError) {
             console.error(`Failed to import from both paths for ${contentPath}`, pageImportError);
             toast({
