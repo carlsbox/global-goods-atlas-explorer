@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { Home, Package, FileText, Settings, Users, List } from 'lucide-react';
+import { Home, Package, FileText, Settings, Users, List, Wrench } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -72,6 +72,15 @@ const AdminLayout = () => {
             }>
               <Settings className="mr-3 h-5 w-5" />
               <span>Settings</span>
+            </NavLink>
+
+            <NavLink to="/admin/tools" className={({ isActive }) => 
+              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
+                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
+              )
+            }>
+              <Wrench className="mr-3 h-5 w-5" />
+              <span>Tools</span>
             </NavLink>
           </div>
         </nav>

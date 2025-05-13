@@ -30,6 +30,7 @@ import UseCasesListPage from "./pages/admin/UseCasesListPage";
 import SiteSettingsPage from "./pages/admin/SiteSettingsPage";
 import UsersPage from "./pages/admin/UsersPage";
 import ClassificationsPage from "./pages/admin/ClassificationsPage";
+import AdminToolsPage from "./pages/admin/AdminToolsPage";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
                 <Route path="use-cases/edit/:id" element={<GlobalGoodFormPage />} />
                 <Route path="settings" element={<SiteSettingsPage />} />
                 <Route path="users" element={<UsersPage />} />
+                <Route path="tools" element={<AdminToolsPage />} />
               </Route>
               
               {/* Public Routes */}
