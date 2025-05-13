@@ -86,7 +86,7 @@ const AdminLayout = () => {
         </nav>
         
         <div className="absolute bottom-4 w-48">
-          <Button variant="outline" className="w-full text-slate-100 hover:text-white border-slate-600" asChild>
+          <Button variant="outline" className="w-full text-slate-800 hover:text-white border-slate-600" asChild>
             <NavLink to="/">Back to Site</NavLink>
           </Button>
         </div>
