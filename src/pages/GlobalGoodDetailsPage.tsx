@@ -10,6 +10,7 @@ import { OverviewTab } from "@/components/global-good/OverviewTab";
 import { TechnicalTab } from "@/components/global-good/TechnicalTab";
 import { StandardsTab } from "@/components/global-good/StandardsTab";
 import { UseCasesTab } from "@/components/global-good/UseCasesTab";
+import { MaturityTab } from "@/components/global-good/MaturityTab";
 import { DeploymentLocations } from "@/components/global-good/DeploymentLocations";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
@@ -55,6 +56,7 @@ export default function GlobalGoodDetailsPage() {
               <TabsTrigger value="overview">{tPage('tabs.overview', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="technical">{tPage('tabs.technical', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="standards">{tPage('tabs.standards', 'globalGoodDetails')}</TabsTrigger>
+              <TabsTrigger value="maturity">{tPage('tabs.maturity', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="use-cases">{tPage('tabs.useCases', 'globalGoodDetails')}</TabsTrigger>
             </TabsList>
 
@@ -68,6 +70,10 @@ export default function GlobalGoodDetailsPage() {
             
             <TabsContent value="standards" className="mt-4">
               <StandardsTab globalGood={globalGood} />
+            </TabsContent>
+            
+            <TabsContent value="maturity" className="mt-4">
+              <MaturityTab globalGood={globalGood} />
             </TabsContent>
             
             <TabsContent value="use-cases" className="mt-4">

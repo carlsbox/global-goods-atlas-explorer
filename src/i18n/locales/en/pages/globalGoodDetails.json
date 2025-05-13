@@ -8,9 +8,29 @@
     "overview": "Overview",
     "technical": "Technical",
     "standards": "Standards",
-    "useCases": "Use Cases"
+    "useCases": "Use Cases",
+    "maturity": "Maturity"
   },
   "deployments": "Deployment Locations",
   "countries": "{{count}} countries",
-  "noDeployments": "No deployment information available"
+  "noDeployments": "No deployment information available",
+  "maturity": {
+    "title": "Maturity Assessment",
+    "level": "Maturity Level",
+    "noData": "No maturity data available for this global good",
+    "description": "Assessment of this global good's maturity across key dimensions",
+    "scores": {
+      "global_utility": "Global Utility",
+      "community_support": "Community Support",
+      "maturity_of_gg": "Maturity of Global Good",
+      "inclusive_design": "Inclusive Design",
+      "climate_resilience": "Climate Resilience",
+      "low_carbon": "Low Carbon"
+    },
+    "scoreTable": {
+      "dimension": "Dimension",
+      "score": "Score",
+      "outOf": "out of 10"
+    }
+  }
 }

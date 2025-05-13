@@ -8,9 +8,29 @@
     "overview": "Aperçu",
     "technical": "Technique",
     "standards": "Normes",
-    "useCases": "Cas d'Utilisation"
+    "useCases": "Cas d'Utilisation",
+    "maturity": "Maturité"
   },
   "deployments": "Lieux de Déploiement",
   "countries": "{{count}} pays",
-  "noDeployments": "Aucune information de déploiement disponible"
+  "noDeployments": "Aucune information de déploiement disponible",
+  "maturity": {
+    "title": "Évaluation de Maturité",
+    "level": "Niveau de Maturité",
+    "noData": "Aucune donnée de maturité disponible pour ce bien mondial",
+    "description": "Évaluation de la maturité de ce bien mondial selon des dimensions clés",
+    "scores": {
+      "global_utility": "Utilité Mondiale",
+      "community_support": "Soutien Communautaire",
+      "maturity_of_gg": "Maturité du Bien Mondial",
+      "inclusive_design": "Conception Inclusive",
+      "climate_resilience": "Résilience Climatique",
+      "low_carbon": "Faible Empreinte Carbone"
+    },
+    "scoreTable": {
+      "dimension": "Dimension",
+      "score": "Score",
+      "outOf": "sur 10"
+    }
+  }
 }

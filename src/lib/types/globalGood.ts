@@ -2,6 +2,15 @@
 import { MultilingualText } from './commonTypes';
 import { Classification } from './classification';
 
+export interface MaturityScores {
+  global_utility?: number;
+  community_support?: number;
+  maturity_of_gg?: number;
+  inclusive_design?: number;
+  climate_resilience?: number;
+  low_carbon?: number;
+}
+
 export interface GlobalGood {
   id: string;
   name: MultilingualText | string;
@@ -43,14 +52,7 @@ export interface GlobalGood {
   };
   maturity?: {
     level: string;
-    scores?: {
-      global_utility?: number;
-      community_support?: number;
-      maturity_of_gg?: number;
-      inclusive_design?: number;
-      climate_resilience?: number;
-      low_carbon?: number;
-    };
+    scores?: MaturityScores;
   } | string;
   climate_integration?: {
     enabled: boolean;
