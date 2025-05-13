@@ -1,22 +1,10 @@
 
 {
   "id": "dhis2",
-  "name": {
-    "en": "DHIS2",
-    "fr": "DHIS2",
-    "es": "DHIS2"
-  },
+  "name": "DHIS2",
   "summary": "DHIS2 is the world's largest health information management system platform, in use in more than 70 countries.",
-  "description": {
-    "en": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
-    "fr": "Un système d'information open-source flexible et basé sur le web avec des fonctionnalités de visualisation, y compris SIG, graphiques et tableaux croisés.",
-    "es": "Un sistema de información de código abierto flexible y basado en la web con funciones de visualización que incluyen SIG, gráficos y tablas dinámicas."
-  },
-  "details": {
-    "en": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
-    "fr": "DHIS2 est le plus grand système de gestion d'informations sanitaires au monde, utilisé dans plus de 70 pays. Le logiciel aide les gouvernements et les organisations de santé à collecter, gérer et analyser des données pour améliorer les résultats en matière de santé.",
-    "es": "DHIS2 es el sistema de gestión de información sanitaria más grande del mundo, utilizado en más de 70 países. El software ayuda a gobiernos y organizaciones de salud a recopilar, gestionar y analizar datos para mejorar los resultados de salud."
-  },
+  "description": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
+  "details": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
   "logo": "/lovable-uploads/41aa56a1-d6ef-46b7-ac9b-1151e3d27e20.png",
   "website": "https://dhis2.org",
   "source_code": {
@@ -131,11 +119,7 @@
   "types": [
     {
       "code": "software",
-      "title": {
-        "en": "Software",
-        "fr": "Logiciel",
-        "es": "Software"
-      }
+      "title": "Software"
     }
   ],
   "tags": ["HMIS", "Health Data", "Analytics"],
