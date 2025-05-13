@@ -2,18 +2,35 @@
 import { GlobalGood } from "@/lib/types";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Users, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface OverviewTabProps {
   globalGood: GlobalGood;
 }
 
 export function OverviewTab({ globalGood }: OverviewTabProps) {
+  const { language } = useLanguage();
+  
+  // Helper function to get text from multilingual field
+  const getLocalizedText = (field: string | { [key: string]: string } | undefined): string => {
+    if (!field) return '';
+    if (typeof field === 'string') return field;
+    if (typeof field === 'object') {
+      return field[language] || field.en || Object.values(field)[0] || '';
+    }
+    return '';
+  };
+
   return (
     <Card>
       <CardContent className="pt-6">
         <div className="prose max-w-none">
           <h3 className="text-xl font-semibold mb-4">Summary</h3>
-          <p className="mb-6">{globalGood.summary || globalGood.description}</p>
+          <p className="mb-6">
+            {globalGood.summary
+              ? getLocalizedText(globalGood.summary)
+              : getLocalizedText(globalGood.description)}
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             {globalGood.implementers && globalGood.implementers.length > 0 && (

@@ -1,10 +1,17 @@
-
 export interface GlobalGood {
   id: string;
-  name: string;
-  description: string;
+  name: string | {
+    [language: string]: string;
+  };
+  description: string | {
+    [language: string]: string;
+  };
   website?: string;
   github?: string;
+  source_code?: {
+    primary: string;
+    additional?: string[];
+  };
   sector: string[];
   countries: string[]; // Will now store country codes instead of names
   technologies: string[];
@@ -14,11 +21,33 @@ export interface GlobalGood {
   lastUpdated: string;
   logo?: string;
   sdgs?: string[];
-  maturity?: string;
-  summary?: string;
+  maturity?: string | {
+    level: string;
+    scores?: {
+      [key: string]: number;
+    };
+  };
+  summary?: string | {
+    [language: string]: string;
+  };
   tags?: string[];
   healthStandards?: string[];
-  classificationCodes?: string[]; // New field replacing whoSystemClassification
+  classificationCodes?: string[]; // References to classification codes
+  details?: {
+    [language: string]: string;
+  };
+  // New fields for the updated schema
+  demo_link?: string;
+  contact?: {
+    name?: string;
+    email?: string;
+  };
+  climate_integration?: {
+    enabled: boolean;
+    description?: string;
+  };
+  features?: string[];
+  impacts?: string[];
 }
 
 export interface UseCase {
