@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGood } from "@/lib/api";
 import { 
@@ -11,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { ClassificationBadge } from "@/components/ClassificationBadge";
 import {
   Accordion,
   AccordionContent,
