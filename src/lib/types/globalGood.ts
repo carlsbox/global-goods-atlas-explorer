@@ -1,5 +1,6 @@
 
 import { MultilingualText } from './commonTypes';
+import { Classification } from './classification';
 
 export interface GlobalGood {
   id: string;

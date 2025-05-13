@@ -2,7 +2,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { LanguageType } from "@/contexts/LanguageContext"
-import { MultilingualText } from "./types"
+import { MultilingualText } from "./types/commonTypes"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

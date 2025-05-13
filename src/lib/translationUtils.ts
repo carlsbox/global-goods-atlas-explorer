@@ -1,6 +1,6 @@
 
 import { LanguageType } from '@/contexts/LanguageContext';
-import { MultilingualText } from '@/lib/types';
+import { MultilingualText } from '@/lib/types/commonTypes';
 
 /**
  * Merges base object with language-specific translations

@@ -1,5 +1,5 @@
 
-import { MultilingualText } from "@/lib/types";
+import { MultilingualText } from "@/lib/types/commonTypes";
 import { useI18n } from "@/hooks/useI18n";
 
 /**

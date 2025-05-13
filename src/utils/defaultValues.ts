@@ -1,5 +1,6 @@
 
-import { MultilingualText } from "@/lib/types";
+import { MultilingualText } from "@/lib/types/commonTypes";
+import { createMultilingualText, ensureMultilingualText } from "@/lib/translationUtils";
 
 /**
  * Create a default multilingual text object with empty values for required languages
@@ -12,21 +13,5 @@ export function createEmptyMultilingualText(): MultilingualText {
   };
 }
 
-/**
- * Helper to ensure a value is a proper MultilingualText object
- */
-export function ensureMultilingualText(value: string | MultilingualText | undefined): MultilingualText {
-  if (value === undefined || value === null) {
-    return createEmptyMultilingualText();
-  }
-  
-  if (typeof value === 'string') {
-    return {
-      en: value,
-      fr: value,
-      es: value
-    };
-  }
-  
-  return value;
-}
+// Re-export these functions from translationUtils for backward compatibility
+export { createMultilingualText, ensureMultilingualText };
