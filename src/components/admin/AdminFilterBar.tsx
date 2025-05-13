@@ -43,8 +43,8 @@ export function AdminFilterBar({
         />
       </div>
       <Select 
-        value={selectedFilter || ""} 
-        onValueChange={(value) => setSelectedFilter(value === "" ? null : value)}
+        value={selectedFilter || "all"} 
+        onValueChange={(value) => setSelectedFilter(value === "all" ? null : value)}
       >
         <SelectTrigger className="w-full sm:w-[180px]">
           <div className="flex items-center">
@@ -53,7 +53,7 @@ export function AdminFilterBar({
           </div>
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="">All</SelectItem>
+          <SelectItem value="all">All</SelectItem>
           {filterOptions.map(option => (
             <SelectItem key={option.value} value={option.value}>
               {option.label}
