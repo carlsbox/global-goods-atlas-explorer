@@ -67,39 +67,6 @@ export default function UseCasesListPage() {
   const [selectedSector, setSelectedSector] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   
-  // Function to toggle item selection
-  const toggleItemSelection = (id: string) => {
-    if (id === "all") {
-      setSelectedItems(useCases.map(item => item.id));
-      return;
-    }
-    
-    if (id === "none") {
-      setSelectedItems([]);
-      return;
-    }
-    
-    if (selectedItems.includes(id)) {
-      setSelectedItems(selectedItems.filter(item => item !== id));
-    } else {
-      setSelectedItems([...selectedItems, id]);
-    }
-  };
-  
-  // Function to handle bulk delete action
-  const handleBulkDelete = () => {
-    if (selectedItems.length === 0) return;
-    
-    // In a real app, this would be an API call
-    toast.info(`${selectedItems.length} items would be deleted in a real application`, {
-      description: "This is a mock functionality for demonstration purposes.",
-    });
-    
-    // Remove the items from the state
-    setUseCases(useCases.filter(item => !selectedItems.includes(item.id)));
-    setSelectedItems([]);
-  };
-  
   // Load data on component mount
   useEffect(() => {
     const fetchUseCases = async () => {
@@ -141,6 +108,20 @@ export default function UseCasesListPage() {
     { title: "Actions", className: "text-right" }
   ];
   
+  // Function to handle bulk delete action
+  const handleBulkDelete = () => {
+    if (selectedItems.length === 0) return;
+    
+    // In a real app, this would be an API call
+    toast.info(`${selectedItems.length} items would be deleted in a real application`, {
+      description: "This is a mock functionality for demonstration purposes.",
+    });
+    
+    // Remove the items from the state
+    setUseCases(useCases.filter(item => !selectedItems.includes(item.id)));
+    setSelectedItems([]);
+  };
+  
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
@@ -169,15 +150,18 @@ export default function UseCasesListPage() {
         data={filteredUseCases}
         isLoading={isLoading}
         selectedItems={selectedItems}
-        toggleItemSelection={toggleItemSelection}
-        onBulkDelete={handleBulkDelete}
+        setSelectedItems={setSelectedItems}
         columns={columns}
-        renderRow={(useCase) => (
+        renderRow={(useCase: UseCase) => (
           <UseCaseRow
             key={useCase.id}
             useCase={useCase}
             isSelected={selectedItems.includes(useCase.id)}
-            onToggleSelect={() => toggleItemSelection(useCase.id)}
+            onToggleSelect={() => setSelectedItems(prev => 
+              prev.includes(useCase.id) 
+                ? prev.filter(id => id !== useCase.id)
+                : [...prev, useCase.id]
+            )}
           />
         )}
       />
