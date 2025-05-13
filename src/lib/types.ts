@@ -1,53 +1,147 @@
 export interface GlobalGood {
   id: string;
-  name: string | {
+  name: {
     [language: string]: string;
   };
-  description: string | {
+  summary: {
     [language: string]: string;
   };
+  description: {
+    [language: string]: string;
+  };
+  details: {
+    [language: string]: string;
+  };
+  logo?: string;
   website?: string;
-  github?: string;
   source_code?: {
     primary: string;
     additional?: string[];
   };
-  sector: string[];
-  countries: string[]; // Will now store country codes instead of names
+  demo_link?: string;
+  sectors: string[];
+  features?: string[];
+  impacts?: string[];
   technologies: string[];
-  implementers?: string[];
-  supporters?: string[];
-  licenses?: string[];
-  lastUpdated: string;
-  logo?: string;
-  sdgs?: string[];
-  maturity?: string | {
-    level: string;
-    scores?: {
-      [key: string]: number;
+  classificationCodes?: string[];
+  classifications?: {
+    who: {
+      primary: Classification;
+      additional: Classification[];
     };
   };
-  summary?: string | {
-    [language: string]: string;
-  };
-  tags?: string[];
+  sdgs?: string[];
   healthStandards?: string[];
-  classificationCodes?: string[]; // References to classification codes
-  details?: {
-    [language: string]: string;
+  standards?: {
+    health?: string[];
+    interoperability?: string[];
   };
-  // New fields for the updated schema
-  demo_link?: string;
-  contact?: {
-    name?: string;
-    email?: string;
+  licenses?: string[];
+  implementers?: string[];
+  supporters?: string[];
+  countries: string[];
+  reach?: {
+    summary: string;
+    implementations: number;
+    countries: string[];
+  };
+  maturity: {
+    level: string;
+    scores?: {
+      global_utility?: number;
+      community_support?: number;
+      maturity_of_gg?: number;
+      inclusive_design?: number;
+      climate_resilience?: number;
+      low_carbon?: number;
+    };
   };
   climate_integration?: {
     enabled: boolean;
     description?: string;
   };
-  features?: string[];
-  impacts?: string[];
+  types?: Array<{
+    code: string;
+    title: {
+      [language: string]: string;
+    };
+  }>;
+  tags?: string[];
+  languages?: string[];
+  community?: {
+    overview?: string;
+    anchored?: boolean;
+    anchor_description?: string;
+    anchor_countries?: string[];
+    inception_year?: number;
+    size_estimate?: number;
+    platform?: {
+      url?: string;
+      governance?: boolean;
+      governance_link?: string;
+    };
+    engagement?: string;
+    events?: {
+      schedule?: string;
+      recent?: any[];
+    };
+    mailing_list?: {
+      exists: boolean;
+      link?: string;
+    };
+  };
+  inclusive_design?: {
+    user_input?: boolean;
+    description?: string;
+    offline_support?: boolean;
+    offline_support_description?: string;
+  };
+  low_carbon?: {
+    considered: boolean;
+    description?: string;
+  };
+  cost_of_ownership?: {
+    has_model: boolean;
+  };
+  sustainability?: {
+    description?: string;
+    funders?: string[];
+  };
+  resources?: {
+    articles?: any[];
+    documentation?: {
+      product?: any[];
+      user_reqs?: any[];
+      end_user?: any[];
+      implementer?: any[];
+      developer?: any[];
+      operator?: any[];
+      installer?: any[];
+    };
+    deployment_tools?: {
+      uses: boolean;
+      description?: string;
+      link?: string;
+    };
+  };
+  policies?: {
+    terms?: string;
+    user_agreement?: string;
+    privacy?: string;
+    do_no_harm?: boolean;
+    pii_collected?: boolean;
+    npii_used?: boolean;
+  };
+  linked_initiatives?: Array<{
+    label: string;
+    logo_url?: string;
+    site_url: string;
+  }>;
+  contact?: {
+    name?: string;
+    email?: string;
+  };
+  lastUpdated: string;
 }
 
 export interface UseCase {

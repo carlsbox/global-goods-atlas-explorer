@@ -137,18 +137,75 @@
   "tags": ["HMIS", "Health Data", "Analytics"],
   "languages": ["en", "fr", "es", "pt"],
   "community": {
-    "overview": "DHIS2 has a vibrant global community of implementers, developers, and users.",
+    "overview": "",
     "anchored": true,
-    "anchor_description": "The DHIS2 project is anchored at the University of Oslo",
+    "anchor_description": "",
+    "anchor_countries": [],
+    "inception_year": 2000,
+    "size_estimate": 10000,
     "platform": {
       "url": "https://community.dhis2.org/",
-      "governance": true
+      "governance": true,
+      "governance_link": "https://community.dhis2.org/about"
+    },
+    "engagement": "",
+    "events": {
+      "schedule": "https://dhis2.org/events/",
+      "recent": []
+    },
+    "mailing_list": {
+      "exists": true,
+      "link": ""
     }
   },
   "inclusive_design": {
     "user_input": true,
+    "description": "",
     "offline_support": true,
-    "offline_support_description": "DHIS2 works offline and syncs when connectivity is available"
+    "offline_support_description": ""
   },
+  "low_carbon": {
+    "considered": true,
+    "description": ""
+  },
+  "cost_of_ownership": {
+    "has_model": true
+  },
+  "sustainability": {
+    "description": "",
+    "funders": []
+  },
+  "resources": {
+    "articles": [],
+    "documentation": {
+      "product": [],
+      "user_reqs": [],
+      "end_user": [],
+      "implementer": [],
+      "developer": [],
+      "operator": [],
+      "installer": []
+    },
+    "deployment_tools": {
+      "uses": true,
+      "description": "",
+      "link": ""
+    }
+  },
+  "policies": {
+    "terms": "",
+    "user_agreement": "",
+    "privacy": "",
+    "do_no_harm": false,
+    "pii_collected": false,
+    "npii_used": true
+  },
+  "linked_initiatives": [
+    {
+      "label": "DPGA",
+      "logo_url": "",
+      "site_url": "https://www.digitalpublicgoods.net/registry"
+    }
+  ],
   "lastUpdated": "2023-11-20"
 }
