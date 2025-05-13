@@ -75,10 +75,25 @@ export async function loadClassificationsData(language: LanguageType) {
   }
 }
 
-// Function to load global good data with translations
+// Function to load global good data with translations - FIXED PATH ISSUE
 export async function loadGlobalGood(id: string, language: LanguageType): Promise<GlobalGood | undefined> {
   try {
-    return loadWithTranslations<GlobalGood>(`global-goods/${id}`, `global-goods/translations/${id}`, language);
+    // Load the new file structure directly from data folder
+    const baseModule = await import(`../data/global-goods/${id}-new.json`);
+    const baseData = baseModule.default;
+    
+    // Try to load translations
+    try {
+      const translationsModule = await import(`../data/global-goods/translations/${id}-new/${language}.json`);
+      const translations = translationsModule.default;
+      
+      // Merge base data with translations
+      return { ...baseData, ...translations } as GlobalGood;
+    } catch (e) {
+      // If translations not found, just return base data
+      console.warn(`Translations not found for ${id} in ${language}, using base data`);
+      return baseData as GlobalGood;
+    }
   } catch (err) {
     console.error(`Failed to load global good: ${id}`, err);
     return undefined;
