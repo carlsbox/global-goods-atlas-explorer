@@ -1,4 +1,3 @@
-
 import { Classification, GlobalGood, MultilingualText } from './types';
 import { ensureMultilingualText } from './translationUtils';
 
@@ -30,13 +29,13 @@ export function convertLegacyGlobalGood(legacyGood: any): GlobalGood {
   if (legacyGood.impacts) standardizedGood.impacts = legacyGood.impacts;
   if (legacyGood.classificationCodes) standardizedGood.classificationCodes = legacyGood.classificationCodes;
   if (legacyGood.classifications) standardizedGood.classifications = legacyGood.classifications;
-  if (legacyGood.sdgs) standardizedGood.sdgs = legacyGood.sdgs;
+  if (legacyGood.sdgs) standardizedGood.sdgs = standardizedGood.sdgs;
   if (legacyGood.healthStandards) standardizedGood.healthStandards = legacyGood.healthStandards;
-  if (legacyGood.standards) standardizedGood.standards = legacyGood.standards;
+  if (legacyGood.standards) standardizedGood.standards = standardizedGood.standards;
   if (legacyGood.licenses) standardizedGood.licenses = legacyGood.licenses;
   if (legacyGood.implementers) standardizedGood.implementers = legacyGood.implementers;
-  if (legacyGood.supporters) standardizedGood.supporters = legacyGood.supporters;
-  if (legacyGood.reach) standardizedGood.reach = legacyGood.reach;
+  if (legacyGood.supporters) standardizedGood.supporters = standardizedGood.supporters;
+  if (legacyGood.reach) standardizedGood.reach = standardizedGood.reach;
   if (legacyGood.maturity) standardizedGood.maturity = legacyGood.maturity;
 
   return standardizedGood;
@@ -122,8 +121,29 @@ export function extractTranslations(good: GlobalGood): Record<string, any> {
       }
     }
     
-    // Process other translatable fields (if needed in the future)
+    // Process other translatable fields if present
+    // For future extensions, add more translated field extractors here
   }
   
   return result;
+}
+
+/**
+ * Save data to a file
+ * Helper function for browser-based conversion
+ * @param data The data to save
+ * @param filename The filename to save as
+ */
+export function saveToJsonFile(data: any, filename: string): void {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 0);
 }
