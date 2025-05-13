@@ -3,7 +3,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalGood } from "@/lib/types";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface CountryDetailsProps {
   countryName: string;
@@ -16,7 +16,7 @@ export function CountryDetails({
   countryGoods,
   onSelectGood
 }: CountryDetailsProps) {
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   
   return (
     <Card className="border-0 shadow-none rounded-none h-full">

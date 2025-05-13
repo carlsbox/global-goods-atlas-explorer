@@ -16,10 +16,9 @@ interface AdminDataTableProps<T> {
   data: T[];
   isLoading: boolean;
   selectedItems: string[];
-  toggleItemSelection: (id: string) => void;
-  onBulkDelete: () => void;
+  setSelectedItems: React.Dispatch<React.SetStateAction<string[]>>;
   renderRow: (item: T) => React.ReactNode;
-  columns: {
+  columns?: {
     title: string;
     className?: string;
   }[];
@@ -29,12 +28,42 @@ export function AdminDataTable<T extends { id: string }>({
   data,
   isLoading,
   selectedItems,
-  toggleItemSelection,
-  onBulkDelete,
+  setSelectedItems,
   renderRow,
-  columns
+  columns = [
+    { title: "Item", className: "w-[300px]" },
+    { title: "Categories", className: "hidden md:table-cell" },
+    { title: "Deployment", className: "hidden lg:table-cell" },
+    { title: "Last Updated", className: "hidden md:table-cell" },
+    { title: "Actions", className: "text-right" }
+  ]
 }: AdminDataTableProps<T>) {
   const allSelected = data.length > 0 && selectedItems.length === data.length;
+  
+  // Toggle item selection
+  const toggleItemSelection = (id: string) => {
+    setSelectedItems(prev => 
+      prev.includes(id) 
+        ? prev.filter(item => item !== id)
+        : [...prev, id]
+    );
+  };
+
+  // Toggle all items
+  const toggleAllItems = (selected: boolean) => {
+    if (selected) {
+      setSelectedItems(data.map(item => item.id));
+    } else {
+      setSelectedItems([]);
+    }
+  };
+
+  // Handle bulk delete
+  const handleBulkDelete = () => {
+    // In a real app, this would delete the selected items
+    console.log("Deleting items:", selectedItems);
+    setSelectedItems([]);
+  };
   
   return (
     <div>
@@ -42,7 +71,7 @@ export function AdminDataTable<T extends { id: string }>({
       {selectedItems.length > 0 && (
         <div className="bg-muted/50 p-3 rounded-md flex items-center justify-between mb-4">
           <span className="text-sm">{selectedItems.length} items selected</span>
-          <Button variant="destructive" size="sm" onClick={onBulkDelete}>
+          <Button variant="destructive" size="sm" onClick={handleBulkDelete}>
             <Trash2 className="h-4 w-4 mr-2" />
             Delete Selected
           </Button>
@@ -57,13 +86,7 @@ export function AdminDataTable<T extends { id: string }>({
               <TableHead className="w-12">
                 <Checkbox 
                   checked={allSelected} 
-                  onCheckedChange={(checked) => {
-                    if (checked) {
-                      toggleItemSelection("all");
-                    } else {
-                      toggleItemSelection("none");
-                    }
-                  }}
+                  onCheckedChange={toggleAllItems}
                 />
               </TableHead>
               {columns.map((column, index) => (
@@ -90,7 +113,7 @@ export function AdminDataTable<T extends { id: string }>({
                 </TableCell>
               </TableRow>
             ) : (
-              data.map(renderRow)
+              data.map(item => renderRow(item))
             )}
           </TableBody>
         </Table>

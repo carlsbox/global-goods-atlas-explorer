@@ -3,7 +3,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalGood, CountryData } from "@/lib/types";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface GlobalGoodDetailsProps {
   globalGood: GlobalGood;
@@ -18,7 +18,7 @@ export function GlobalGoodDetails({
   countries,
   onSelectCountry
 }: GlobalGoodDetailsProps) {
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   
   // Get countries for the selected global good
   const selectedGoodCountries = globalGood.countries

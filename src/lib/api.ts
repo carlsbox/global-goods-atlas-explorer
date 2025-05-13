@@ -1,5 +1,5 @@
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
   loadAllGlobalGoods, 
@@ -22,7 +22,7 @@ export const useGlobalGoods = () => {
 };
 
 // Fetch a single global good by ID
-export const useGlobalGood = (id: string | undefined) => {
+export const useGlobalGood = (id: string | undefined, options = {}) => {
   const { language } = useLanguage();
   
   return useQuery({
@@ -31,7 +31,60 @@ export const useGlobalGood = (id: string | undefined) => {
       if (!id) return undefined;
       return loadGlobalGood(id, language);
     },
-    enabled: !!id
+    enabled: !!id,
+    ...options
+  });
+};
+
+// Create a new global good
+export const useCreateGlobalGood = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async (newGood: GlobalGood): Promise<GlobalGood> => {
+      // This is a mock implementation
+      console.log('Creating global good:', newGood);
+      // In a real app, this would make an API call
+      return Promise.resolve(newGood);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['globalGoods'] });
+    }
+  });
+};
+
+// Update an existing global good
+export const useUpdateGlobalGood = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async ({ id, data }: { id: string; data: GlobalGood }): Promise<GlobalGood> => {
+      // This is a mock implementation
+      console.log(`Updating global good ${id}:`, data);
+      // In a real app, this would make an API call
+      return Promise.resolve(data);
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['globalGoods'] });
+      queryClient.invalidateQueries({ queryKey: ['globalGood', variables.id] });
+    }
+  });
+};
+
+// Delete a global good
+export const useDeleteGlobalGood = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async (id: string): Promise<void> => {
+      // This is a mock implementation
+      console.log(`Deleting global good ${id}`);
+      // In a real app, this would make an API call
+      return Promise.resolve();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['globalGoods'] });
+    }
   });
 };
 

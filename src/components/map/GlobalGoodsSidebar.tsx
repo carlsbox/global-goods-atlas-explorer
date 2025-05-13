@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, X } from "lucide-react";
 import { GlobalGood } from "@/lib/types";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface GlobalGoodsSidebarProps {
   globalGoods: GlobalGood[];
@@ -19,7 +19,7 @@ export function GlobalGoodsSidebar({
   onSelectGood 
 }: GlobalGoodsSidebarProps) {
   const [searchTerm, setSearchTerm] = useState("");
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   
   // Filter global goods based on search
   const filteredGoods = globalGoods.filter(good => 

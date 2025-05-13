@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface GlobalGoodRowProps {
   good: GlobalGood;
@@ -16,7 +16,7 @@ interface GlobalGoodRowProps {
 }
 
 export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRowProps) {
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   const goodName = getText(good.name);
   const goodDescription = getText(good.description);
   

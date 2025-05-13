@@ -1,5 +1,4 @@
 
-// This is a mock implementation assuming the original file exists
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalGoods, useDeleteGlobalGood } from '@/lib/api';
@@ -7,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { AdminDataTable } from '@/components/admin/AdminDataTable';
 import { GlobalGoodRow } from '@/components/admin/GlobalGoodRow';
 import { useI18n } from '@/hooks/useI18n';
+import { GlobalGood } from '@/lib/types';
 
 export default function GlobalGoodsListPage() {
   const { data: globalGoods = [], isLoading } = useGlobalGoods();
@@ -50,13 +50,17 @@ export default function GlobalGoodsListPage() {
         isLoading={isLoading}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
-        renderRow={(good) => (
+        renderRow={(good: GlobalGood) => (
           <GlobalGoodRow 
             key={good.id}
             good={good}
-            name={getText(good.name)}
-            description={getText(good.description)}
-            onDelete={() => handleDelete(good.id)}
+            isSelected={selectedItems.includes(good.id)}
+            onToggleSelect={() => {
+              const newSelectedItems = selectedItems.includes(good.id)
+                ? selectedItems.filter(id => id !== good.id)
+                : [...selectedItems, good.id];
+              setSelectedItems(newSelectedItems);
+            }}
           />
         )}
       />

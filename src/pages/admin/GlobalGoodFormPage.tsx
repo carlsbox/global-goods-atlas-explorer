@@ -1,17 +1,20 @@
+
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGlobalGood, useCreateGlobalGood, useUpdateGlobalGood } from '@/lib/api';
 import { GlobalGood } from '@/lib/types';
 import { createEmptyMultilingualText, ensureMultilingualText } from '@/utils/defaultValues';
 import { toast } from '@/components/ui/use-toast';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function GlobalGoodFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const isEditing = Boolean(id);
+  const { getText } = useI18n();
   
   // Fetch global good data if editing
-  const { data: globalGoodData, isLoading } = useGlobalGood(id, { enabled: isEditing });
+  const { data: globalGoodData, isLoading } = useGlobalGood(id);
   
   // Form state
   const [formData, setFormData] = useState<Partial<GlobalGood>>({
@@ -75,10 +78,10 @@ export default function GlobalGoodFormPage() {
         });
       } else {
         // Create new global good
-        const result = await createMutation.mutateAsync({
+        await createMutation.mutateAsync({
           ...dataToSubmit,
           id: `gg-${Date.now()}` // Generate a simple ID
-        });
+        } as GlobalGood);
         toast({
           title: "Success",
           description: "Global good created successfully"
