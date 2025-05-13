@@ -4,7 +4,8 @@ import { useContentLoader } from "@/hooks/useContentLoader";
 import { getSiteName } from "@/lib/config";
 
 export function Footer() {
-  const { content } = useContentLoader('pages/navigation');
+  // Update content path
+  const { content } = useContentLoader('navigation');
   const siteName = getSiteName();
   
   const year = new Date().getFullYear();

@@ -29,7 +29,7 @@ const navItems = [
 
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { content, isLoading } = useContentLoader('pages/navigation');
+  const { content, isLoading } = useContentLoader('navigation');
   const siteName = getSiteName();
   
   return (

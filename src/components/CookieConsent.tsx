@@ -1,207 +1,115 @@
-
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { 
-  Card,
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Cookie, X, Settings, Info } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useToast } from '@/hooks/use-toast';
-import { useContentLoader } from '@/hooks/useContentLoader';
-
-interface CookieSettings {
-  necessary: boolean;
-  analytics: boolean;
-  preferences: boolean;
-}
+import { useEffect, useState } from "react";
+import { useContentLoader } from "@/hooks/useContentLoader";
 
 export function CookieConsent() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [settings, setSettings] = useState<CookieSettings>({
+  // Update the path to use 'cookie' instead of 'pages/cookie'
+  const { content, isLoading } = useContentLoader("cookie");
+  
+  const [showConsent, setShowConsent] = useState(false);
+  const [cookiePreferences, setCookiePreferences] = useState({
     necessary: true,
     analytics: false,
-    preferences: false
+    preferences: false,
   });
-  const { language } = useLanguage();
-  const { toast } = useToast();
-  const { content, isLoading } = useContentLoader('pages/cookie');
-  
-  // Check if the user has already consented to cookies
+  const [showCustomize, setShowCustomize] = useState(false);
+
   useEffect(() => {
-    const hasConsent = localStorage.getItem('cookieConsent');
-    if (!hasConsent) {
-      setIsOpen(true);
+    // Check if consent is already given
+    const consentGiven = localStorage.getItem('cookieConsent');
+    if (!consentGiven) {
+      setShowConsent(true);
     } else {
       try {
-        const savedSettings = JSON.parse(hasConsent);
-        setSettings(savedSettings);
+        const savedPreferences = JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+        setCookiePreferences(prev => ({ ...prev, ...savedPreferences }));
       } catch (e) {
-        console.error('Error parsing cookie settings', e);
+        console.error("Error parsing cookie preferences from localStorage", e);
       }
     }
   }, []);
 
-  const acceptAll = () => {
-    const allSettings = { necessary: true, analytics: true, preferences: true };
-    localStorage.setItem('cookieConsent', JSON.stringify(allSettings));
-    setSettings(allSettings);
-    setIsOpen(false);
-    
-    toast({
-      title: content?.acceptToastTitle || 'Cookies accepted',
-      description: content?.acceptAllToastDesc || 'All cookie preferences have been saved.',
-      duration: 3000
-    });
+  const handleAcceptAll = () => {
+    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('cookiePreferences', JSON.stringify({ analytics: true, preferences: true }));
+    setCookiePreferences({ necessary: true, analytics: true, preferences: true });
+    setShowConsent(false);
   };
 
-  const acceptSelected = () => {
-    localStorage.setItem('cookieConsent', JSON.stringify(settings));
-    setIsOpen(false);
-    
-    toast({
-      title: content?.acceptToastTitle || 'Cookies saved',
-      description: content?.acceptSelectedToastDesc || 'Your cookie preferences have been saved.',
-      duration: 3000
-    });
+  const handleSavePreferences = () => {
+    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+    setShowConsent(false);
   };
 
-  const handleSettingChange = (key: keyof CookieSettings) => {
-    if (key === 'necessary') return; // Necessary cookies can't be disabled
-    setSettings(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
+  const handleCustomize = () => {
+    setShowCustomize(true);
   };
 
-  if (!isOpen) return null;
-  if (isLoading) return null;
+  const handlePreferenceChange = (type: string, value: boolean) => {
+    setCookiePreferences(prev => ({ ...prev, [type]: value }));
+  };
+  
+  if (isLoading || !content) {
+    return null; // Or a loading indicator
+  }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/80 backdrop-blur-sm">
-      <Card className="mx-auto max-w-4xl shadow-lg">
-        <CardHeader className="flex flex-row items-center gap-2 pb-2">
-          <Cookie className="h-6 w-6 text-primary" />
-          <div>
-            <CardTitle>{content?.title || 'Cookie Consent'}</CardTitle>
-            <CardDescription>
-              {content?.description || 'We use cookies to enhance your browsing experience.'}
-            </CardDescription>
+    <div className={`fixed bottom-0 left-0 w-full bg-background border-t z-50 p-4 ${showConsent ? '' : 'hidden'}`}>
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="mb-4 md:mb-0">
+            <h2 className="text-lg font-semibold">{content.title}</h2>
+            <p className="text-sm text-muted-foreground">{content.description}</p>
           </div>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="ml-auto" 
-            onClick={() => setIsOpen(false)}
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </Button>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="settings">
-              <AccordionTrigger>
-                <div className="flex items-center gap-2">
-                  <Settings className="h-4 w-4" />
-                  <span>{content?.customize || 'Customize Cookie Settings'}</span>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <button className="px-4 py-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-md text-sm" onClick={handleCustomize}>
+              {content.customize}
+            </button>
+            <button className="px-4 py-2 bg-primary hover:bg-primary/80 text-primary-foreground rounded-md text-sm" onClick={handleAcceptAll}>
+              {content.acceptAll}
+            </button>
+          </div>
+        </div>
+        {showCustomize && (
+          <div className="mt-4">
+            <h3 className="text-md font-semibold mb-2">{content.customize}</h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium">{content.necessary}</p>
+                  <p className="text-sm text-muted-foreground">{content.necessaryDesc}</p>
                 </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-medium">{content?.necessary || 'Necessary Cookies'}</h4>
-                      <p className="text-xs text-muted-foreground">
-                        {content?.necessaryDesc || 'These cookies are essential for the website to function.'}
-                      </p>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-xs text-muted-foreground">{content?.alwaysActive || 'Always active'}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-medium">{content?.analytics || 'Analytics Cookies'}</h4>
-                      <p className="text-xs text-muted-foreground">
-                        {content?.analyticsDesc || 'These cookies help us understand how visitors interact with our website.'}
-                      </p>
-                    </div>
-                    <Button 
-                      variant={settings.analytics ? "default" : "outline"} 
-                      size="sm"
-                      onClick={() => handleSettingChange('analytics')}
-                    >
-                      {settings.analytics 
-                        ? (content?.enabled || 'Enabled') 
-                        : (content?.disabled || 'Disabled')}
-                    </Button>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-medium">{content?.preferences || 'Preferences Cookies'}</h4>
-                      <p className="text-xs text-muted-foreground">
-                        {content?.preferencesDesc || 'These cookies allow the website to remember your preferences.'}
-                      </p>
-                    </div>
-                    <Button 
-                      variant={settings.preferences ? "default" : "outline"} 
-                      size="sm"
-                      onClick={() => handleSettingChange('preferences')}
-                    >
-                      {settings.preferences 
-                        ? (content?.enabled || 'Enabled') 
-                        : (content?.disabled || 'Disabled')}
-                    </Button>
-                  </div>
+                <span className="text-sm">{content.alwaysActive}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium">{content.analytics}</p>
+                  <p className="text-sm text-muted-foreground">{content.analyticsDesc}</p>
                 </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="info">
-              <AccordionTrigger>
-                <div className="flex items-center gap-2">
-                  <Info className="h-4 w-4" />
-                  <span>{content?.moreInfo || 'More Information'}</span>
+                <label className="switch">
+                  <input type="checkbox" checked={cookiePreferences.analytics} onChange={(e) => handlePreferenceChange('analytics', e.target.checked)} />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium">{content.preferences}</p>
+                  <p className="text-sm text-muted-foreground">{content.preferencesDesc}</p>
                 </div>
-              </AccordionTrigger>
-              <AccordionContent>
-                <p className="text-sm text-muted-foreground mb-2">
-                  {content?.policyIntro || 'For more information about how we use cookies, please visit our'}
-                  {' '}
-                  <a href="/privacy" className="text-primary hover:underline">
-                    {content?.privacyPolicy || 'Privacy Policy'}
-                  </a>.
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {content?.contactInfo || 'If you have any questions, please contact us at'}
-                  {' '}
-                  <a href="mailto:privacy@globalgoodsatlas.org" className="text-primary hover:underline">
-                    privacy@globalgoodsatlas.org
-                  </a>
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </CardContent>
-        <CardFooter className="flex flex-col sm:flex-row gap-2 justify-end">
-          <Button variant="outline" onClick={acceptSelected}>
-            {content?.savePreferences || 'Save Preferences'}
-          </Button>
-          <Button onClick={acceptAll}>
-            {content?.acceptAll || 'Accept All'}
-          </Button>
-        </CardFooter>
-      </Card>
+                <label className="switch">
+                  <input type="checkbox" checked={cookiePreferences.preferences} onChange={(e) => handlePreferenceChange('preferences', e.target.checked)} />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div className="mt-4">
+              <button className="px-4 py-2 bg-primary hover:bg-primary/80 text-primary-foreground rounded-md text-sm" onClick={handleSavePreferences}>
+                {content.savePreferences}
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
