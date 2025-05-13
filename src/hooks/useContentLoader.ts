@@ -17,11 +17,8 @@ export function useContentLoader(contentPath: string) {
         // Handle different content paths with direct imports
         let data;
         try {
-          if (contentPath.startsWith('pages/')) {
-            data = await import(`../content/${contentPath}.json`);
-          } else {
-            data = await import(`../content/${contentPath}.json`);
-          }
+          // Use a dynamic import with the correct path
+          data = await import(`../content/${contentPath}.json`);
           
           if (data.default[language]) {
             setContent(data.default[language]);
