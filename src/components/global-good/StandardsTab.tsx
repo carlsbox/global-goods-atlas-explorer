@@ -97,11 +97,11 @@ export function StandardsTab({ globalGood }: StandardsTabProps) {
                 Digital Health Classifications
               </h3>
               
-              <div className="mb-4">
+              <div className="mb-4 space-y-4">
                 <h4 className="font-medium mb-2">Classifications</h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="space-y-3">
                   {globalGood.classificationCodes.map((code) => (
-                    <ClassificationBadge key={code} code={code} />
+                    <ClassificationBadge key={code} code={code} expanded={true} />
                   ))}
                 </div>
               </div>
