@@ -35,10 +35,7 @@ export function ClassificationBadge({
     return (
       <div className="border rounded-lg p-4 mb-2">
         <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <Badge variant="outline" className="font-medium">
-              {code}
-            </Badge>
+          <div>
             <h4 className="font-medium">{classification.title}</h4>
           </div>
           <Badge variant="secondary">{authority}</Badge>
