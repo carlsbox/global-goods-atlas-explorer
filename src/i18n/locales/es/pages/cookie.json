@@ -1,0 +1,24 @@
+
+{
+  "title": "Consentimiento de Cookies",
+  "description": "Utilizamos cookies para mejorar su experiencia de navegación, analizar el tráfico del sitio y personalizar el contenido.",
+  "customize": "Personalizar Configuración de Cookies",
+  "necessary": "Cookies Necesarias",
+  "necessaryDesc": "Estas cookies son esenciales para que el sitio web funcione correctamente y no se pueden desactivar.",
+  "analytics": "Cookies Analíticas",
+  "analyticsDesc": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web mediante la recopilación de información anónima.",
+  "preferences": "Cookies de Preferencias",
+  "preferencesDesc": "Estas cookies permiten que el sitio web recuerde las elecciones que usted hace y proporcione funciones mejoradas.",
+  "enabled": "Habilitado",
+  "disabled": "Deshabilitado",
+  "alwaysActive": "Siempre activo",
+  "moreInfo": "Más Información",
+  "policyIntro": "Para obtener más información sobre cómo utilizamos las cookies, visite nuestra",
+  "privacyPolicy": "Política de Privacidad",
+  "contactInfo": "Si tiene alguna pregunta, contáctenos en",
+  "savePreferences": "Guardar Preferencias",
+  "acceptAll": "Aceptar Todo",
+  "acceptToastTitle": "Preferencias Guardadas",
+  "acceptAllToastDesc": "Todas las preferencias de cookies han sido guardadas.",
+  "acceptSelectedToastDesc": "Sus preferencias de cookies han sido guardadas."
+}

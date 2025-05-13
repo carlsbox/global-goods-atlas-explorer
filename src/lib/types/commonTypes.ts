@@ -5,4 +5,5 @@ export interface MultilingualText {
 
 export type LanguageCode = 'en' | 'fr' | 'es';
 
-export type TranslationNamespace = 'translation' | 'home' | 'about' | 'contact' | 'globalGoods' | 'useCases' | 'map' | 'admin' | 'notFound' | 'privacy' | 'terms';
+export type TranslationNamespace = 'translation' | 'home' | 'about' | 'contact' | 'globalGoods' | 'useCases' | 'map' | 'admin' | 'notFound' | 'privacy' | 'terms' | 'cookie';
+

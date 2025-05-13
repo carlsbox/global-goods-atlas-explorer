@@ -1,0 +1,24 @@
+
+{
+  "title": "Cookie Consent",
+  "description": "We use cookies to enhance your browsing experience, analyze site traffic, and personalize content.",
+  "customize": "Customize Cookie Settings",
+  "necessary": "Necessary Cookies",
+  "necessaryDesc": "These cookies are essential for the website to function properly and cannot be disabled.",
+  "analytics": "Analytics Cookies",
+  "analyticsDesc": "These cookies help us understand how visitors interact with our website by collecting anonymous information.",
+  "preferences": "Preferences Cookies",
+  "preferencesDesc": "These cookies allow the website to remember choices you make and provide enhanced features.",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "alwaysActive": "Always active",
+  "moreInfo": "More Information",
+  "policyIntro": "For more information about how we use cookies, please visit our",
+  "privacyPolicy": "Privacy Policy",
+  "contactInfo": "If you have any questions, please contact us at",
+  "savePreferences": "Save Preferences",
+  "acceptAll": "Accept All",
+  "acceptToastTitle": "Preferences Saved",
+  "acceptAllToastDesc": "All cookie preferences have been saved.",
+  "acceptSelectedToastDesc": "Your cookie preferences have been saved."
+}
