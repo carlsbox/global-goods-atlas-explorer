@@ -1,0 +1,22 @@
+
+{
+  "title": "About Global Goods Atlas",
+  "subtitle": "Connecting the world to open-source digital public goods for sustainable development.",
+  "mission": {
+    "title": "Our Mission",
+    "content": "We're dedicated to promoting digital global goods that solve critical challenges in sustainable development. Our platform connects developers, organizations, and communities to create lasting impact."
+  },
+  "technology": {
+    "title": "Technology Stack",
+    "content": "We build using modern web technologies focused on performance, accessibility, and user experience. Our open architecture encourages collaboration and innovation."
+  },
+  "openSource": {
+    "title": "Open Source Commitment",
+    "content": "We believe in the power of open source to transform lives. By supporting and promoting open digital goods, we help create a more equitable digital world."
+  },
+  "team": {
+    "title": "Our Team",
+    "content": "We're a diverse group of technologists, policy experts, and development specialists committed to leveraging technology for social good.",
+    "joinButton": "Join Our Team"
+  }
+}

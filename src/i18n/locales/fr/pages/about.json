@@ -1,0 +1,22 @@
+
+{
+  "title": "À Propos de l'Atlas des Biens Mondiaux",
+  "subtitle": "Connecter le monde aux biens publics numériques open source pour un développement durable.",
+  "mission": {
+    "title": "Notre Mission",
+    "content": "Nous sommes dédiés à la promotion des biens numériques mondiaux qui résolvent les défis critiques du développement durable. Notre plateforme connecte développeurs, organisations et communautés pour créer un impact durable."
+  },
+  "technology": {
+    "title": "Stack Technologique",
+    "content": "Nous construisons en utilisant des technologies web modernes axées sur la performance, l'accessibilité et l'expérience utilisateur. Notre architecture ouverte favorise la collaboration et l'innovation."
+  },
+  "openSource": {
+    "title": "Engagement Open Source",
+    "content": "Nous croyons au pouvoir de l'open source pour transformer des vies. En soutenant et en promouvant des biens numériques ouverts, nous contribuons à créer un monde numérique plus équitable."
+  },
+  "team": {
+    "title": "Notre Équipe",
+    "content": "Nous sommes un groupe diversifié de technologues, d'experts en politiques et de spécialistes du développement engagés à utiliser la technologie pour le bien social.",
+    "joinButton": "Rejoindre Notre Équipe"
+  }
+}

@@ -14,6 +14,11 @@ import homeEN from './locales/en/pages/home.json';
 import homeFR from './locales/fr/pages/home.json';
 import homeES from './locales/es/pages/home.json';
 
+// Import about page translations
+import aboutEN from './locales/en/pages/about.json';
+import aboutFR from './locales/fr/pages/about.json';
+import aboutES from './locales/es/pages/about.json';
+
 // Import NotFound page translations
 import notFoundEN from './locales/en/pages/notFound.json';
 import notFoundFR from './locales/fr/pages/notFound.json';
@@ -54,6 +59,7 @@ const resources = {
   en: {
     translation: translationEN,
     home: homeEN,
+    about: aboutEN,
     notFound: notFoundEN,
     globalGoods: globalGoodsEN,
     globalGoodDetails: globalGoodDetailsEN,
@@ -65,6 +71,7 @@ const resources = {
   fr: {
     translation: translationFR,
     home: homeFR,
+    about: aboutFR,
     notFound: notFoundFR,
     globalGoods: globalGoodsFR,
     globalGoodDetails: globalGoodDetailsFR,
@@ -76,6 +83,7 @@ const resources = {
   es: {
     translation: translationES,
     home: homeES,
+    about: aboutES,
     notFound: notFoundES,
     globalGoods: globalGoodsES,
     globalGoodDetails: globalGoodDetailsES,
@@ -97,7 +105,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
