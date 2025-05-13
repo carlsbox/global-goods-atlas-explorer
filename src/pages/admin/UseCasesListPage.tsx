@@ -1,29 +1,13 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
-} from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import { Pencil, Trash2, Search, Filter, Plus, Eye } from "lucide-react";
+import { Plus } from "lucide-react";
 import { UseCase } from "@/lib/types";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
+import { AdminFilterBar } from "@/components/admin/AdminFilterBar";
+import { AdminDataTable } from "@/components/admin/AdminDataTable";
+import { UseCaseRow } from "@/components/admin/UseCaseRow";
 
 // Mock data loader for demonstration
 async function loadUseCases(): Promise<UseCase[]> {
@@ -82,10 +66,19 @@ export default function UseCasesListPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSector, setSelectedSector] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const { language } = useLanguage();
   
   // Function to toggle item selection
   const toggleItemSelection = (id: string) => {
+    if (id === "all") {
+      setSelectedItems(useCases.map(item => item.id));
+      return;
+    }
+    
+    if (id === "none") {
+      setSelectedItems([]);
+      return;
+    }
+    
     if (selectedItems.includes(id)) {
       setSelectedItems(selectedItems.filter(item => item !== id));
     } else {
@@ -111,6 +104,7 @@ export default function UseCasesListPage() {
   useEffect(() => {
     const fetchUseCases = async () => {
       try {
+        setIsLoading(true);
         const data = await loadUseCases();
         setUseCases(data);
       } catch (error) {
@@ -136,6 +130,16 @@ export default function UseCasesListPage() {
   
   // Extract unique sectors for filter dropdown
   const sectors = [...new Set(useCases.map(useCase => useCase.sector))].sort();
+  const sectorOptions = sectors.map(sector => ({ label: sector, value: sector }));
+  
+  // Define table columns
+  const columns = [
+    { title: "Title" },
+    { title: "Country", className: "hidden md:table-cell" },
+    { title: "Sector", className: "hidden lg:table-cell" },
+    { title: "Year", className: "hidden lg:table-cell" },
+    { title: "Actions", className: "text-right" }
+  ];
   
   return (
     <div className="p-6 space-y-6">
@@ -150,156 +154,33 @@ export default function UseCasesListPage() {
       </div>
       
       {/* Filters and search */}
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="relative flex-1">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search use cases..."
-            className="pl-9"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+      <AdminFilterBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        searchPlaceholder="Search use cases..."
+        filterOptions={sectorOptions}
+        selectedFilter={selectedSector}
+        setSelectedFilter={setSelectedSector}
+        filterPlaceholder="Filter by sector"
+      />
+      
+      {/* Data table */}
+      <AdminDataTable
+        data={filteredUseCases}
+        isLoading={isLoading}
+        selectedItems={selectedItems}
+        toggleItemSelection={toggleItemSelection}
+        onBulkDelete={handleBulkDelete}
+        columns={columns}
+        renderRow={(useCase) => (
+          <UseCaseRow
+            key={useCase.id}
+            useCase={useCase}
+            isSelected={selectedItems.includes(useCase.id)}
+            onToggleSelect={() => toggleItemSelection(useCase.id)}
           />
-        </div>
-        <Select value={selectedSector || ""} onValueChange={(value) => setSelectedSector(value || null)}>
-          <SelectTrigger className="w-full sm:w-[180px]">
-            <div className="flex items-center">
-              <Filter className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Filter by sector" />
-            </div>
-          </SelectTrigger>
-          <SelectContent>
-            {/* Fix: Change empty string to "all" for the value prop */}
-            <SelectItem value="all">All Sectors</SelectItem>
-            {sectors.map(sector => (
-              <SelectItem key={sector} value={sector}>{sector}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-      
-      {/* Selected items actions */}
-      {selectedItems.length > 0 && (
-        <div className="bg-muted/50 p-3 rounded-md flex items-center justify-between">
-          <span className="text-sm">{selectedItems.length} items selected</span>
-          <Button variant="destructive" size="sm" onClick={handleBulkDelete}>
-            <Trash2 className="h-4 w-4 mr-2" />
-            Delete Selected
-          </Button>
-        </div>
-      )}
-      
-      {/* Table */}
-      <div className="border rounded-md">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-12">
-                <Checkbox 
-                  checked={useCases.length > 0 && selectedItems.length === useCases.length} 
-                  onCheckedChange={(checked) => {
-                    if (checked) {
-                      setSelectedItems(useCases.map(useCase => useCase.id));
-                    } else {
-                      setSelectedItems([]);
-                    }
-                  }}
-                />
-              </TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead className="hidden md:table-cell">Country</TableHead>
-              <TableHead className="hidden lg:table-cell">Sector</TableHead>
-              <TableHead className="hidden lg:table-cell">Year</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {isLoading ? (
-              <TableRow>
-                <TableCell colSpan={6} className="text-center py-10">
-                  <div className="flex justify-center items-center">
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                    <span className="ml-2">Loading...</span>
-                  </div>
-                </TableCell>
-              </TableRow>
-            ) : filteredUseCases.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={6} className="text-center py-10">
-                  No use cases found
-                </TableCell>
-              </TableRow>
-            ) : (
-              filteredUseCases.map((useCase) => (
-                <TableRow key={useCase.id}>
-                  <TableCell>
-                    <Checkbox 
-                      checked={selectedItems.includes(useCase.id)} 
-                      onCheckedChange={() => toggleItemSelection(useCase.id)}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <div>
-                      <p className="font-medium">{useCase.title}</p>
-                      <p className="text-xs text-muted-foreground hidden sm:block">
-                        {useCase.description.length > 50
-                          ? `${useCase.description.slice(0, 50)}...`
-                          : useCase.description}
-                      </p>
-                      <div className="mt-1 hidden sm:flex flex-wrap gap-1">
-                        {useCase.globalGoods.slice(0, 2).map(goodId => (
-                          <Badge key={goodId} variant="outline" className="text-xs">
-                            {goodId}
-                          </Badge>
-                        ))}
-                        {useCase.globalGoods.length > 2 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{useCase.globalGoods.length - 2}
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {useCase.country}
-                  </TableCell>
-                  <TableCell className="hidden lg:table-cell">
-                    <Badge variant="secondary">{useCase.sector}</Badge>
-                  </TableCell>
-                  <TableCell className="hidden lg:table-cell">
-                    {useCase.year}
-                  </TableCell>
-                  <TableCell className="text-right space-x-1">
-                    <Button variant="ghost" size="icon" asChild>
-                      <Link to={`/use-cases/${useCase.id}`} target="_blank">
-                        <Eye className="h-4 w-4" />
-                        <span className="sr-only">View</span>
-                      </Link>
-                    </Button>
-                    <Button variant="ghost" size="icon" asChild>
-                      <Link to={`/admin/use-cases/edit/${useCase.id}`}>
-                        <Pencil className="h-4 w-4" />
-                        <span className="sr-only">Edit</span>
-                      </Link>
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      onClick={() => {
-                        toast.warning(`This would delete "${useCase.title}" in a real application`, {
-                          description: "Mock functionality for demonstration",
-                        });
-                      }}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                      <span className="sr-only">Delete</span>
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </div>
+        )}
+      />
     </div>
   );
 }
