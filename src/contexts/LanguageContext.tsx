@@ -28,8 +28,12 @@ interface LanguageProviderProps {
 export function LanguageProvider({ children }: LanguageProviderProps) {
   // Get language from localStorage or default to 'en'
   const [language, setLanguage] = useState<LanguageType>(() => {
-    const savedLanguage = localStorage.getItem('language') as LanguageType;
-    return savedLanguage || 'en';
+    // Need to check if we're in a browser environment before accessing localStorage
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('language') as LanguageType;
+      return savedLanguage || 'en';
+    }
+    return 'en';
   });
 
   // Cache for content
@@ -37,7 +41,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   useEffect(() => {
     // Save language to localStorage when it changes
-    localStorage.setItem('language', language);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', language);
+    }
   }, [language]);
 
   // Translation function
@@ -69,25 +75,27 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         // If section is specified, try to load that content if not already cached
         if (!contentCache[section]) {
           // This will be loaded asynchronously, so for now return a placeholder
-          Promise.all([
-            import(`../data/pages/${section}.json`).catch(() => ({ default: null })),
-            import(`../data/pages/${section}/translations/${language}.json`).catch(() => ({ default: null }))
-          ]).then(([baseModule, translationsModule]) => {
-            if (baseModule.default) {
-              setContentCache(prev => ({
-                ...prev,
-                [section]: {
-                  base: baseModule.default,
-                  translations: translationsModule.default ? {
-                    [language]: translationsModule.default
-                  } : undefined,
-                  [language]: baseModule.default[language] || baseModule.default.en
-                }
-              }));
-            }
-          }).catch(error => {
-            console.error(`Failed to load content for section ${section}:`, error);
-          });
+          if (typeof window !== 'undefined') {
+            Promise.all([
+              import(`../data/pages/${section}.json`).catch(() => ({ default: null })),
+              import(`../data/pages/${section}/translations/${language}.json`).catch(() => ({ default: null }))
+            ]).then(([baseModule, translationsModule]) => {
+              if (baseModule.default) {
+                setContentCache(prev => ({
+                  ...prev,
+                  [section]: {
+                    base: baseModule.default,
+                    translations: translationsModule.default ? {
+                      [language]: translationsModule.default
+                    } : undefined,
+                    [language]: baseModule.default[language] || baseModule.default.en
+                  }
+                }));
+              }
+            }).catch(error => {
+              console.error(`Failed to load content for section ${section}:`, error);
+            });
+          }
           
           return key; // Return the key as fallback while loading
         }
