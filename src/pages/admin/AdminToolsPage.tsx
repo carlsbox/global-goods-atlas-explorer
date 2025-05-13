@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { DataConverterTool } from '@/components/admin/DataConverterTool';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -12,32 +11,17 @@ const AdminToolsPage = () => {
         <p className="text-muted-foreground">Utilities and tools for data management</p>
       </div>
 
-      <Tabs defaultValue="converters" className="space-y-6">
+      <Tabs defaultValue="utilities" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="converters">Data Converters</TabsTrigger>
           <TabsTrigger value="utilities">Utilities</TabsTrigger>
         </TabsList>
-        
-        <TabsContent value="converters" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Data Conversion Tools</CardTitle>
-              <CardDescription>
-                Tools for converting and migrating data between formats
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <DataConverterTool />
-            </CardContent>
-          </Card>
-        </TabsContent>
         
         <TabsContent value="utilities" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Other Utilities</CardTitle>
+              <CardTitle>Admin Utilities</CardTitle>
               <CardDescription>
-                Additional administrative utilities
+                Administrative utilities and tools
               </CardDescription>
             </CardHeader>
             <CardContent className="py-4">
