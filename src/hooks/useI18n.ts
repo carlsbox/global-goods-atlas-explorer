@@ -1,6 +1,6 @@
 
 import { useTranslation } from 'react-i18next';
-import { LanguageCode, MultilingualText } from '@/i18n/types';
+import { LanguageCode, MultilingualText } from '@/lib/types';
 
 export function useI18n() {
   const { t, i18n } = useTranslation();
@@ -47,12 +47,15 @@ export function useI18n() {
   
   /**
    * Get translation with namespace support
+   * Ensure we always return a string rather than allowing object returns
    */
-  const tPage = (key: string, namespace?: string, options?: any) => {
+  const tPage = (key: string, namespace?: string, options?: any): string => {
     if (namespace) {
-      return i18n.t(key, { ns: namespace, ...options });
+      const result = i18n.t(key, { ns: namespace, ...options });
+      return typeof result === 'string' ? result : String(result);
     }
-    return t(key, options);
+    const result = t(key, options);
+    return typeof result === 'string' ? result : String(result);
   };
   
   return {
