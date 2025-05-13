@@ -93,7 +93,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
                   className="flex items-center"
                 >
                   <Globe className="mr-2 h-4 w-4" />
-                  Website
+                  Website: {globalGood.website}
                 </a>
               </Button>
             )}
@@ -106,7 +106,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
                   className="flex items-center"
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  GitHub
+                  GitHub: {globalGood.github}
                 </a>
               </Button>
             )}
@@ -120,7 +120,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
                   className="flex items-center"
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  GitHub
+                  GitHub: {globalGood.source_code.primary}
                 </a>
               </Button>
             )}
@@ -133,7 +133,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
                   className="flex items-center"
                 >
                   <Globe className="mr-2 h-4 w-4" />
-                  Live Demo
+                  Live Demo: {globalGood.demo_link}
                 </a>
               </Button>
             )}
