@@ -34,7 +34,8 @@ export function useContentLoader(contentPath: string) {
 export async function loadGlobalGood(id: string, language: string) {
   try {
     const data = await import(`../data/global-goods/${id}.json`);
-    return data.default[language];
+    // Add type assertion to fix the TypeScript error
+    return (data as any).default[language];
   } catch (err) {
     console.error(`Failed to load global good: ${id}`, err);
     return null;
@@ -49,8 +50,9 @@ export async function loadAllGlobalGoods() {
     const items = await Promise.all(
       Object.keys(context).map(async (key) => {
         const module = await context[key]();
+        // Add type assertion to fix the TypeScript error
         const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en }; // Using English as default for the list
+        return { id, ...(module as any).default.en }; // Using English as default for the list
       })
     );
     return items;
@@ -64,7 +66,7 @@ export async function loadAllGlobalGoods() {
 export async function loadUseCase(id: string, language: string) {
   try {
     const data = await import(`../data/use-cases/${id}.json`);
-    return data.default[language];
+    return (data as any).default[language];
   } catch (err) {
     console.error(`Failed to load use case: ${id}`, err);
     return null;
@@ -79,7 +81,7 @@ export async function loadAllUseCases() {
       Object.keys(context).map(async (key) => {
         const module = await context[key]();
         const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en }; // Using English as default for the list
+        return { id, ...(module as any).default.en }; // Using English as default for the list
       })
     );
     return items;
@@ -93,7 +95,8 @@ export async function loadAllUseCases() {
 export async function loadCountriesData() {
   try {
     const data = await import('../data/countries/countries.json');
-    return data.default;
+    // Make sure we return the array of countries, not the object with a countries property
+    return (data as any).default.countries;
   } catch (err) {
     console.error('Failed to load countries data', err);
     return [];
@@ -104,7 +107,7 @@ export async function loadCountriesData() {
 export async function loadClassificationsData(language: string) {
   try {
     const data = await import('../data/classifications/classifications.json');
-    return data.default[language];
+    return (data as any).default[language];
   } catch (err) {
     console.error('Failed to load classifications data', err);
     return null;
