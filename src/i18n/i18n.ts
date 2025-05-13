@@ -34,7 +34,7 @@ i18n
     resources,
     fallbackLng: 'en',
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false // React already safes from xss
     },
     detection: {
       order: ['localStorage', 'navigator'],

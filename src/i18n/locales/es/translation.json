@@ -1,57 +1,32 @@
 
 {
-  "common": {
-    "loading": "Cargando...",
-    "error": "Se ha producido un error",
-    "notFound": "No encontrado"
-  },
-  "navigation": {
+  "nav": {
     "home": "Inicio",
-    "globalGoods": "Bienes Globales",
+    "globalGoods": "Bienes Mundiales",
     "useCases": "Casos de Uso",
     "map": "Mapa",
     "about": "Acerca de",
-    "contact": "Contacto",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio"
+    "contact": "Contacto"
   },
-  "home": {
-    "hero": {
-      "title": "Plataforma de Bienes Globales Digitales",
-      "subtitle": "Explore soluciones digitales que generan impacto global en salud y más allá",
-      "buttons": {
-        "catalog": "Explorar Catálogo",
-        "map": "Ver Mapa Global"
-      }
-    },
-    "features": {
-      "goods": {
-        "title": "Bienes Globales",
-        "description": "Descubra soluciones digitales diseñadas para escala e impacto global",
-        "button": "Ver Catálogo"
-      },
-      "cases": {
-        "title": "Casos de Uso",
-        "description": "Aprenda de implementaciones reales e historias de éxito",
-        "button": "Explorar Casos"
-      },
-      "map": {
-        "title": "Mapa Global",
-        "description": "Vea dónde los bienes digitales están generando impacto en todo el mundo",
-        "button": "Abrir Mapa"
-      }
-    },
-    "featuredGoods": {
-      "title": "Bienes Globales Destacados",
-      "viewAll": "Ver Todos"
-    }
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "retry": "Reintentar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "noResults": "No se encontraron resultados"
   },
   "globalGoods": {
-    "title": "Catálogo de Bienes Globales",
-    "subtitle": "Explore nuestra colección completa de bienes globales digitales que generan impacto en diversos sectores y regiones."
-  },
-  "useCases": {
-    "title": "Casos de Uso",
-    "subtitle": "Explore implementaciones reales e historias de éxito de bienes globales digitales."
+    "title": "Bienes Mundiales",
+    "description": "Bienes públicos digitales para la salud mundial",
+    "viewDetails": "Ver detalles",
+    "countries": "Países",
+    "sectors": "Sectores",
+    "technologies": "Tecnologías"
   }
 }

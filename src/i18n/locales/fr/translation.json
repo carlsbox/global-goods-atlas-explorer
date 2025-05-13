@@ -1,57 +1,32 @@
 
 {
-  "common": {
-    "loading": "Chargement...",
-    "error": "Une erreur s'est produite",
-    "notFound": "Non trouvé"
-  },
-  "navigation": {
+  "nav": {
     "home": "Accueil",
     "globalGoods": "Biens Mondiaux",
     "useCases": "Cas d'Utilisation",
     "map": "Carte",
     "about": "À Propos",
-    "contact": "Contact",
-    "privacy": "Politique de Confidentialité",
-    "terms": "Conditions d'Utilisation"
+    "contact": "Contact"
   },
-  "home": {
-    "hero": {
-      "title": "Plateforme de Biens Mondiaux Numériques",
-      "subtitle": "Explorez des solutions numériques ayant un impact mondial dans la santé et au-delà",
-      "buttons": {
-        "catalog": "Parcourir le Catalogue",
-        "map": "Voir la Carte Mondiale"
-      }
-    },
-    "features": {
-      "goods": {
-        "title": "Biens Mondiaux",
-        "description": "Découvrez des solutions numériques conçues pour une échelle et un impact mondiaux",
-        "button": "Voir le Catalogue"
-      },
-      "cases": {
-        "title": "Cas d'Utilisation",
-        "description": "Apprenez des implémentations réelles et des histoires de réussite",
-        "button": "Explorer les Cas"
-      },
-      "map": {
-        "title": "Carte Mondiale",
-        "description": "Voyez où les biens numériques ont un impact dans le monde entier",
-        "button": "Ouvrir la Carte"
-      }
-    },
-    "featuredGoods": {
-      "title": "Biens Mondiaux en Vedette",
-      "viewAll": "Voir Tout"
-    }
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "noResults": "Aucun résultat trouvé"
   },
   "globalGoods": {
-    "title": "Catalogue de Biens Mondiaux",
-    "subtitle": "Parcourez notre collection complète de biens mondiaux numériques ayant un impact dans tous les secteurs et régions."
-  },
-  "useCases": {
-    "title": "Cas d'Utilisation",
-    "subtitle": "Explorez les implémentations réelles et les histoires de réussite des biens mondiaux numériques."
+    "title": "Biens Mondiaux",
+    "description": "Biens publics numériques pour la santé mondiale",
+    "viewDetails": "Voir les détails",
+    "countries": "Pays",
+    "sectors": "Secteurs",
+    "technologies": "Technologies"
   }
 }

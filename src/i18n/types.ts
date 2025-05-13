@@ -1,10 +1,10 @@
+
 export type LanguageCode = 'en' | 'fr' | 'es';
 
 export interface MultilingualText {
   [language: string]: string;
 }
 
-// A more specific version of the GlobalGood interface that handles multilingual fields properly
 export interface TypedGlobalGood {
   id: string;
   name: MultilingualText;
