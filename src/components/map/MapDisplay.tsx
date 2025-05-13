@@ -63,7 +63,7 @@ export function MapDisplay({
             className="text-xs"
             onClick={() => onSelectCountry(country.code)}
           >
-            {country.name}
+            {country.name.short}
           </Button>
         ))}
       </div>
