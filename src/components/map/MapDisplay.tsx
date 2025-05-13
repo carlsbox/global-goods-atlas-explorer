@@ -9,8 +9,8 @@ import {
 } from "react-simple-maps";
 import { useState } from "react";
 
-// GeoJSON data for the world map
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+// Updated GeoJSON data for the world map from world-atlas package
+const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
 interface MapDisplayProps {
   selectedGood: GlobalGood | null;
@@ -81,15 +81,16 @@ export function MapDisplay({
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map(geo => {
-                  const isActive = countryCodes.includes(geo.id);
-                  const isSelected = selectedCountryCode === geo.id;
+                  // Use ISO A3 country code format from the world-atlas data
+                  const isActive = countryCodes.includes(geo.properties.ISO_A3);
+                  const isSelected = selectedCountryCode === geo.properties.ISO_A3;
                   
                   return (
                     <Geography
                       key={geo.rsmKey}
                       geography={geo}
                       onClick={() => {
-                        const countryCode = geo.id;
+                        const countryCode = geo.properties.ISO_A3;
                         // Only allow clicking on countries that are in the selected global good
                         if (selectedGood && !isActive) return;
                         onSelectCountry(isSelected ? null : countryCode);
