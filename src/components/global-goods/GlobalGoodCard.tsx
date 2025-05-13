@@ -7,14 +7,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight } from "lucide-react";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface GlobalGoodCardProps {
   good: GlobalGood;
 }
 
 export function GlobalGoodCard({ good }: GlobalGoodCardProps) {
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   const goodName = getText(good.name);
   const goodDescription = getText(good.description);
 
@@ -41,14 +41,14 @@ export function GlobalGoodCard({ good }: GlobalGoodCardProps) {
             </p>
             
             <div className="flex flex-wrap gap-1 mb-4">
-              {good.sector?.slice(0, 3).map((sector) => (
+              {good.sectors?.slice(0, 3).map((sector) => (
                 <Badge key={sector} variant="secondary" className="text-xs">
                   {sector}
                 </Badge>
               ))}
-              {(good.sector?.length || 0) > 3 && (
+              {(good.sectors?.length || 0) > 3 && (
                 <Badge variant="outline" className="text-xs">
-                  +{(good.sector?.length || 0) - 3} more
+                  +{(good.sectors?.length || 0) - 3} more
                 </Badge>
               )}
             </div>

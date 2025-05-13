@@ -7,20 +7,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 import { toast } from "@/components/ui/use-toast";
+import { LanguageCode } from "@/i18n/types";
 
 const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'es', name: 'Español' }
+  { code: 'en' as LanguageCode, name: 'English' },
+  { code: 'fr' as LanguageCode, name: 'Français' },
+  { code: 'es' as LanguageCode, name: 'Español' }
 ];
 
 export default function LanguageSelector() {
-  const { language, setLanguage } = useLanguage();
+  const { language, changeLanguage } = useI18n();
 
-  const handleLanguageChange = (langCode: 'en' | 'fr' | 'es') => {
-    setLanguage(langCode);
+  const handleLanguageChange = (langCode: LanguageCode) => {
+    changeLanguage(langCode);
     toast({
       description: `Language changed to ${languages.find(lang => lang.code === langCode)?.name}`
     });
@@ -38,7 +39,7 @@ export default function LanguageSelector() {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => handleLanguageChange(lang.code as 'en' | 'fr' | 'es')}
+            onClick={() => handleLanguageChange(lang.code)}
             className={language === lang.code ? "bg-secondary" : ""}
           >
             {lang.name}

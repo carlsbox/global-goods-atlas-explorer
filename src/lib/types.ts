@@ -1,17 +1,13 @@
+export interface MultilingualText {
+  [language: string]: string;
+}
+
 export interface GlobalGood {
   id: string;
-  name: {
-    [language: string]: string;
-  };
-  summary: {
-    [language: string]: string;
-  };
-  description: {
-    [language: string]: string;
-  };
-  details: {
-    [language: string]: string;
-  };
+  name: MultilingualText | string;
+  summary: MultilingualText | string;
+  description: MultilingualText | string;
+  details: MultilingualText | string;
   logo?: string;
   website?: string;
   source_code?: {
@@ -19,10 +15,10 @@ export interface GlobalGood {
     additional?: string[];
   };
   demo_link?: string;
-  sectors: string[];
+  sectors?: string[];
   features?: string[];
   impacts?: string[];
-  technologies: string[];
+  technologies?: string[];
   classificationCodes?: string[];
   classifications?: {
     who: {
@@ -39,13 +35,13 @@ export interface GlobalGood {
   licenses?: string[];
   implementers?: string[];
   supporters?: string[];
-  countries: string[];
+  countries?: string[];
   reach?: {
     summary: string;
     implementations: number;
     countries: string[];
   };
-  maturity: {
+  maturity?: {
     level: string;
     scores?: {
       global_utility?: number;
@@ -55,16 +51,14 @@ export interface GlobalGood {
       climate_resilience?: number;
       low_carbon?: number;
     };
-  };
+  } | string;
   climate_integration?: {
     enabled: boolean;
     description?: string;
   };
   types?: Array<{
     code: string;
-    title: {
-      [language: string]: string;
-    };
+    title: MultilingualText | string;
   }>;
   tags?: string[];
   languages?: string[];
@@ -141,7 +135,10 @@ export interface GlobalGood {
     name?: string;
     email?: string;
   };
-  lastUpdated: string;
+  lastUpdated?: string;
+  // For backward compatibility with old code
+  sector?: string[];
+  github?: string;
 }
 
 export interface UseCase {

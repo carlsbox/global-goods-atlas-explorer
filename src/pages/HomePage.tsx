@@ -4,33 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Globe, FileText, MapPin } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
-import { useContentLoader } from "@/hooks/useContentLoader";
-import { useState, useEffect } from "react";
+import { useI18n } from "@/hooks/useI18n";
 
 export default function HomePage() {
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
-  const { content, isLoading, error } = useContentLoader("home");
-  const [homeContent, setHomeContent] = useState<any>(null);
+  const { t, getText } = useI18n();
 
-  useEffect(() => {
-    if (content) {
-      setHomeContent(content);
-    }
-  }, [content]);
-
-  if (isLoading || !homeContent) {
+  if (isLoadingGoods) {
     return (
       <div className="container py-12 text-center">
-        <p>Loading content...</p>
-      </div>
-    );
-  }
-  
-  if (error) {
-    console.error("Error loading homepage content:", error);
-    return (
-      <div className="container py-12 text-center">
-        <p>Failed to load content. Please try again later.</p>
+        <p>{t('common.loading')}</p>
       </div>
     );
   }
@@ -42,20 +25,20 @@ export default function HomePage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              {homeContent.hero.title}
+              {t('home.hero.title')}
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              {homeContent.hero.subtitle}
+              {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button asChild size="lg">
                 <Link to="/global-goods">
-                  {homeContent.hero.buttons.catalog} <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('home.hero.buttons.catalog')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/map">
-                  {homeContent.hero.buttons.map} <MapPin className="ml-2 h-4 w-4" />
+                  {t('home.hero.buttons.map')} <MapPin className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -74,13 +57,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.goods.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.features.goods.title')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {homeContent.features.goods.description}
+                    {t('home.features.goods.description')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/global-goods">
-                      {homeContent.features.goods.button} <ArrowRight className="ml-1 h-4 w-4" />
+                      {t('home.features.goods.button')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -93,13 +76,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <FileText className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.cases.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.features.cases.title')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {homeContent.features.cases.description}
+                    {t('home.features.cases.description')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/use-cases">
-                      {homeContent.features.cases.button} <ArrowRight className="ml-1 h-4 w-4" />
+                      {t('home.features.cases.button')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -112,13 +95,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{homeContent.features.map.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('home.features.map.title')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {homeContent.features.map.description}
+                    {t('home.features.map.description')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/map">
-                      {homeContent.features.map.button} <ArrowRight className="ml-1 h-4 w-4" />
+                      {t('home.features.map.button')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -132,17 +115,17 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold">{homeContent.featuredGoods.title}</h2>
+            <h2 className="text-3xl font-bold">{t('home.featuredGoods.title')}</h2>
             <Button asChild variant="link" className="mt-2 md:mt-0">
               <Link to="/global-goods">
-                {homeContent.featuredGoods.viewAll} <ArrowRight className="ml-1 h-4 w-4" />
+                {t('home.featuredGoods.viewAll')} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {isLoadingGoods ? (
-              <p>Loading featured global goods...</p>
+              <p>{t('common.loading')}</p>
             ) : (
               globalGoods?.slice(0, 3).map((good) => (
                 <Link to={`/global-goods/${good.id}`} key={good.id}>
@@ -153,19 +136,19 @@ export default function HomePage() {
                           {good.logo ? (
                             <img 
                               src={good.logo} 
-                              alt={good.name} 
+                              alt={getText(good.name)} 
                               className="h-10 w-10 mr-3"
                             />
                           ) : (
                             <div className="h-10 w-10 bg-primary/10 rounded-full mr-3" />
                           )}
-                          <h3 className="font-semibold">{good.name}</h3>
+                          <h3 className="font-semibold">{getText(good.name)}</h3>
                         </div>
                         <p className="text-muted-foreground text-sm mb-4 flex-1">
-                          {good.description}
+                          {getText(good.description)}
                         </p>
                         <div className="flex flex-wrap gap-1 mt-auto">
-                          {good.sector?.slice(0, 2).map(sector => (
+                          {good.sectors?.slice(0, 2).map(sector => (
                             <span 
                               key={sector}
                               className="text-xs bg-secondary px-2 py-1 rounded-full"

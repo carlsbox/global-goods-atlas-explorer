@@ -1,0 +1,57 @@
+
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Not found"
+  },
+  "navigation": {
+    "home": "Home",
+    "globalGoods": "Global Goods",
+    "useCases": "Use Cases",
+    "map": "Map",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "home": {
+    "hero": {
+      "title": "Digital Global Goods Platform",
+      "subtitle": "Explore digital solutions making global impact in health and beyond",
+      "buttons": {
+        "catalog": "Browse Catalog",
+        "map": "View Global Map"
+      }
+    },
+    "features": {
+      "goods": {
+        "title": "Global Goods",
+        "description": "Discover digital solutions designed for global scale and impact",
+        "button": "View Catalog"
+      },
+      "cases": {
+        "title": "Use Cases",
+        "description": "Learn from real-world implementations and success stories",
+        "button": "Explore Cases"
+      },
+      "map": {
+        "title": "Global Map",
+        "description": "See where digital goods are making an impact worldwide",
+        "button": "Open Map"
+      }
+    },
+    "featuredGoods": {
+      "title": "Featured Global Goods",
+      "viewAll": "View All"
+    }
+  },
+  "globalGoods": {
+    "title": "Global Goods Catalog",
+    "subtitle": "Browse our comprehensive collection of digital global goods making an impact across sectors and regions."
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "subtitle": "Explore real-world implementations and success stories of digital global goods."
+  }
+}
