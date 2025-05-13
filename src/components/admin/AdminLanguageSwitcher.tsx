@@ -8,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "@/components/ui/use-toast";
 
 const languages = [
   { code: 'en', name: 'English' },
@@ -17,6 +18,13 @@ const languages = [
 
 export default function AdminLanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
+
+  const handleLanguageChange = (langCode: 'en' | 'fr' | 'es') => {
+    setLanguage(langCode);
+    toast({
+      description: `Admin interface language changed to ${languages.find(lang => lang.code === langCode)?.name}`
+    });
+  };
 
   return (
     <DropdownMenu>
@@ -30,7 +38,7 @@ export default function AdminLanguageSwitcher() {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code as 'en' | 'fr' | 'es')}
+            onClick={() => handleLanguageChange(lang.code as 'en' | 'fr' | 'es')}
             className={language === lang.code ? "bg-secondary" : ""}
           >
             {lang.name}

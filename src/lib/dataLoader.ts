@@ -75,24 +75,31 @@ export async function loadClassificationsData(language: LanguageType) {
   }
 }
 
-// Function to load global good data with translations - FIXED PATH ISSUE
+// Function to load global good data with translations
 export async function loadGlobalGood(id: string, language: LanguageType): Promise<GlobalGood | undefined> {
   try {
-    // Load the new file structure directly from data folder
-    const baseModule = await import(`../data/global-goods/${id}-new.json`);
-    const baseData = baseModule.default;
-    
-    // Try to load translations
+    // First try to load from the new file structure
     try {
-      const translationsModule = await import(`../data/global-goods/translations/${id}-new/${language}.json`);
-      const translations = translationsModule.default;
+      const baseModule = await import(`../data/global-goods/${id}-new.json`);
+      const baseData = baseModule.default;
       
-      // Merge base data with translations
-      return { ...baseData, ...translations } as GlobalGood;
+      // Try to load translations
+      try {
+        const translationsModule = await import(`../data/global-goods/translations/${id}-new/${language}.json`);
+        const translations = translationsModule.default;
+        
+        // Merge base data with translations
+        return { ...baseData, ...translations } as GlobalGood;
+      } catch (e) {
+        // If translations not found, just return base data
+        console.warn(`Translations not found for ${id}-new in ${language}, using base data`);
+        return baseData as GlobalGood;
+      }
     } catch (e) {
-      // If translations not found, just return base data
-      console.warn(`Translations not found for ${id} in ${language}, using base data`);
-      return baseData as GlobalGood;
+      // If new structure not found, try the old structure
+      console.warn(`Could not load ${id}-new.json, trying legacy format`);
+      const legacyModule = await import(`../data/global-goods/${id}.json`);
+      return legacyModule.default[language] as GlobalGood;
     }
   } catch (err) {
     console.error(`Failed to load global good: ${id}`, err);
@@ -112,8 +119,18 @@ export async function loadAllGlobalGoods(): Promise<GlobalGood[]> {
         }
         
         const module = context[key] as any;
-        const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en } as GlobalGood; // Using English as default for the list
+        
+        // Handle different file structures
+        const id = key.split('/').pop()?.replace('.json', '').replace('-new', '');
+        
+        // Check if it's new format or old format
+        if (module.default.en) {
+          // Old format with languages as keys
+          return { id, ...module.default.en } as GlobalGood;
+        } else {
+          // New format with direct properties
+          return { id, ...module.default } as GlobalGood;
+        }
       })
     );
     return items.filter(Boolean) as GlobalGood[];

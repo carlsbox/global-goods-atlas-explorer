@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { toast } from "@/components/ui/use-toast";
 
 export function useContentLoader(contentPath: string) {
   const { language } = useLanguage();
@@ -13,30 +14,29 @@ export function useContentLoader(contentPath: string) {
       try {
         setIsLoading(true);
         
-        // Handle different content paths with direct imports instead of dynamic paths
-        if (contentPath === 'pages/home') {
-          const data = await import('../content/pages/home.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/navigation') {
-          const data = await import('../content/pages/navigation.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/about') {
-          const data = await import('../content/pages/about.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/contact') {
-          const data = await import('../content/pages/contact.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/cookie') {
-          const data = await import('../content/pages/cookie.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/privacy') {
-          const data = await import('../content/pages/privacy.json');
-          setContent((data as any).default[language]);
-        } else if (contentPath === 'pages/terms') {
-          const data = await import('../content/pages/terms.json');
-          setContent((data as any).default[language]);
-        } else {
-          throw new Error(`Content path not supported: ${contentPath}`);
+        // Handle different content paths with direct imports
+        let data;
+        try {
+          if (contentPath.startsWith('pages/')) {
+            data = await import(`../content/${contentPath}.json`);
+          } else {
+            data = await import(`../content/${contentPath}.json`);
+          }
+          
+          if (data.default[language]) {
+            setContent(data.default[language]);
+          } else {
+            console.warn(`No translations found for ${contentPath} in ${language}, using English`);
+            setContent(data.default.en);
+          }
+        } catch (importError) {
+          console.error(`Failed to import content: ${contentPath}`, importError);
+          toast({
+            title: "Warning",
+            description: `Could not load content for ${contentPath}`,
+            variant: "destructive"
+          });
+          throw importError;
         }
         
         setError(null);
