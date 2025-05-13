@@ -49,10 +49,10 @@ export default function GlobalGoodDetailsPage() {
       
       {/* Main Content */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Left Column - Details */}
+        {/* Left Column - Tabs */}
         <div className="md:col-span-2">
           <Tabs defaultValue="overview">
-            <TabsList>
+            <TabsList className="mb-4 w-full flex flex-wrap">
               <TabsTrigger value="overview">{tPage('tabs.overview', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="technical">{tPage('tabs.technical', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="standards">{tPage('tabs.standards', 'globalGoodDetails')}</TabsTrigger>
@@ -83,7 +83,7 @@ export default function GlobalGoodDetailsPage() {
         </div>
         
         {/* Right Column - Deployment Locations */}
-        <div>
+        <div className="space-y-6">
           <DeploymentLocations globalGood={globalGood} />
         </div>
       </div>

@@ -14,6 +14,7 @@
   "deployments": "Lieux de Déploiement",
   "countries": "{{count}} pays",
   "noDeployments": "Aucune information de déploiement disponible",
+  "viewOnMap": "Voir sur la Carte",
   "maturity": {
     "title": "Évaluation de Maturité",
     "level": "Niveau de Maturité",

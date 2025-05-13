@@ -14,6 +14,7 @@
   "deployments": "Ubicaciones de Implementación",
   "countries": "{{count}} países",
   "noDeployments": "No hay información de implementación disponible",
+  "viewOnMap": "Ver en el Mapa",
   "maturity": {
     "title": "Evaluación de Madurez",
     "level": "Nivel de Madurez",
