@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { convertGlobalGoodData, saveToJsonFile } from '@/utils/dataConverter';
+import { convertGlobalGoodData } from '@/utils/dataConverter';
+import { saveToJsonFile } from '@/lib/migrationUtils';
 import { toast } from '@/components/ui/use-toast';
 
 export function DataConverterTool() {
