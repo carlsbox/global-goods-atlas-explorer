@@ -23,6 +23,10 @@
     "primary": "https://github.com/dhis2",
     "additional": []
   },
+  "contact": {
+  "name": "DHIS2 Team",
+  "email": "info@dhis2.org"
+},
   "demo_link": "https://play.dhis2.org/demo",
   "sectors": ["Health", "Data Management"],
   "features": [
