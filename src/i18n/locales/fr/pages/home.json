@@ -1,0 +1,32 @@
+
+{
+  "hero": {
+    "title": "Découvrez les Biens Numériques Mondiaux pour le Développement",
+    "subtitle": "Un catalogue complet de biens publics numériques open source répondant aux défis du développement mondial.",
+    "buttons": {
+      "catalog": "Explorer le Catalogue",
+      "map": "Voir la Carte Mondiale"
+    }
+  },
+  "features": {
+    "goods": {
+      "title": "Biens Numériques Mondiaux",
+      "description": "Découvrez des solutions open source de haute qualité soutenant le développement durable dans tous les secteurs.",
+      "button": "Explorer le Catalogue"
+    },
+    "cases": {
+      "title": "Cas d'Utilisation",
+      "description": "Découvrez comment ces outils ont un impact réel dans les communautés du monde entier.",
+      "button": "Voir les Cas d'Utilisation" 
+    },
+    "map": {
+      "title": "Carte Mondiale",
+      "description": "Visualisez l'adoption et l'impact des biens numériques dans différentes régions.",
+      "button": "Ouvrir la Carte"
+    }
+  },
+  "featuredGoods": {
+    "title": "Biens Mondiaux en Vedette",
+    "viewAll": "Voir Tous les Biens Mondiaux"
+  }
+}

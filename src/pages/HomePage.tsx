@@ -8,7 +8,7 @@ import { useI18n } from "@/hooks/useI18n";
 
 export default function HomePage() {
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
-  const { t, getText } = useI18n();
+  const { t, tPage, getText } = useI18n();
 
   if (isLoadingGoods) {
     return (
@@ -25,20 +25,20 @@ export default function HomePage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">
-              {t('home.hero.title')}
+              {tPage('hero.title', 'home')}
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              {t('home.hero.subtitle')}
+              {tPage('hero.subtitle', 'home')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button asChild size="lg">
                 <Link to="/global-goods">
-                  {t('home.hero.buttons.catalog')} <ArrowRight className="ml-2 h-4 w-4" />
+                  {tPage('hero.buttons.catalog', 'home')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link to="/map">
-                  {t('home.hero.buttons.map')} <MapPin className="ml-2 h-4 w-4" />
+                  {tPage('hero.buttons.map', 'home')} <MapPin className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -57,13 +57,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{t('home.features.goods.title')}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{tPage('features.goods.title', 'home')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {t('home.features.goods.description')}
+                    {tPage('features.goods.description', 'home')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/global-goods">
-                      {t('home.features.goods.button')} <ArrowRight className="ml-1 h-4 w-4" />
+                      {tPage('features.goods.button', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -76,13 +76,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <FileText className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{t('home.features.cases.title')}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{tPage('features.cases.title', 'home')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {t('home.features.cases.description')}
+                    {tPage('features.cases.description', 'home')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/use-cases">
-                      {t('home.features.cases.button')} <ArrowRight className="ml-1 h-4 w-4" />
+                      {tPage('features.cases.button', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -95,13 +95,13 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{t('home.features.map.title')}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{tPage('features.map.title', 'home')}</h3>
                   <p className="text-muted-foreground mb-4">
-                    {t('home.features.map.description')}
+                    {tPage('features.map.description', 'home')}
                   </p>
                   <Button asChild variant="link">
                     <Link to="/map">
-                      {t('home.features.map.button')} <ArrowRight className="ml-1 h-4 w-4" />
+                      {tPage('features.map.button', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -115,10 +115,10 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold">{t('home.featuredGoods.title')}</h2>
+            <h2 className="text-3xl font-bold">{tPage('featuredGoods.title', 'home')}</h2>
             <Button asChild variant="link" className="mt-2 md:mt-0">
               <Link to="/global-goods">
-                {t('home.featuredGoods.viewAll')} <ArrowRight className="ml-1 h-4 w-4" />
+                {tPage('featuredGoods.viewAll', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </div>

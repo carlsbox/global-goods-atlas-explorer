@@ -1,0 +1,32 @@
+
+{
+  "hero": {
+    "title": "Descubra Bienes Digitales Globales para el Desarrollo",
+    "subtitle": "Un catálogo completo de bienes públicos digitales de código abierto que abordan los desafíos del desarrollo global.",
+    "buttons": {
+      "catalog": "Explorar Catálogo",
+      "map": "Ver Mapa Global"
+    }
+  },
+  "features": {
+    "goods": {
+      "title": "Bienes Digitales Globales",
+      "description": "Descubra soluciones de código abierto de alta calidad que apoyan el desarrollo sostenible en todos los sectores.",
+      "button": "Explorar Catálogo"
+    },
+    "cases": {
+      "title": "Casos de Uso",
+      "description": "Conozca cómo estas herramientas están generando un impacto real en comunidades de todo el mundo.",
+      "button": "Ver Casos de Uso" 
+    },
+    "map": {
+      "title": "Mapa Global",
+      "description": "Visualice la adopción y el impacto de los bienes digitales en diferentes regiones.",
+      "button": "Abrir Mapa"
+    }
+  },
+  "featuredGoods": {
+    "title": "Bienes Globales Destacados",
+    "viewAll": "Ver Todos los Bienes Globales"
+  }
+}

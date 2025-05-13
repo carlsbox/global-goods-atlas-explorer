@@ -16,6 +16,8 @@ export interface TypedGlobalGood {
 
 export interface I18nNamespace {
   translation: Record<string, unknown>;
+  home?: Record<string, unknown>;
+  // Add more namespaces as needed
 }
 
 export interface I18nResources {

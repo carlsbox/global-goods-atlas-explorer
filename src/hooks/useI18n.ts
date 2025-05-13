@@ -45,8 +45,19 @@ export function useI18n() {
     return firstValue || '';
   };
   
+  /**
+   * Get translation with namespace support
+   */
+  const tPage = (key: string, namespace?: string, options?: any) => {
+    if (namespace) {
+      return i18n.t(key, { ns: namespace, ...options });
+    }
+    return t(key, options);
+  };
+  
   return {
     t,
+    tPage,
     i18n,
     language: getCurrentLanguage(),
     changeLanguage,

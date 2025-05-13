@@ -4,21 +4,29 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
-// Import translations
+// Import common translations
 import translationEN from './locales/en/translation.json';
 import translationFR from './locales/fr/translation.json';
 import translationES from './locales/es/translation.json';
 
-// Define the resources structure
+// Import page-specific translations
+import homeEN from './locales/en/pages/home.json';
+import homeFR from './locales/fr/pages/home.json';
+import homeES from './locales/es/pages/home.json';
+
+// Define the resources structure with namespaces
 const resources = {
   en: {
-    translation: translationEN
+    translation: translationEN,
+    home: homeEN
   },
   fr: {
-    translation: translationFR
+    translation: translationFR,
+    home: homeFR
   },
   es: {
-    translation: translationES
+    translation: translationES,
+    home: homeES
   }
 };
 
@@ -33,6 +41,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    ns: ['translation', 'home'],
+    defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
     },

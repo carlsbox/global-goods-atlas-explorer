@@ -1,0 +1,32 @@
+
+{
+  "hero": {
+    "title": "Discover Digital Global Goods for Development",
+    "subtitle": "A comprehensive catalog of open-source digital public goods addressing global development challenges.",
+    "buttons": {
+      "catalog": "Explore Catalog",
+      "map": "View Global Map"
+    }
+  },
+  "features": {
+    "goods": {
+      "title": "Digital Global Goods",
+      "description": "Discover high-quality, open-source solutions supporting sustainable development across sectors.",
+      "button": "Explore Catalog"
+    },
+    "cases": {
+      "title": "Use Cases",
+      "description": "Learn how these tools are making a real impact in communities around the world.",
+      "button": "View Use Cases" 
+    },
+    "map": {
+      "title": "Global Map",
+      "description": "Visualize the adoption and impact of digital goods across different regions.",
+      "button": "Open Map"
+    }
+  },
+  "featuredGoods": {
+    "title": "Featured Global Goods",
+    "viewAll": "View All Global Goods"
+  }
+}
