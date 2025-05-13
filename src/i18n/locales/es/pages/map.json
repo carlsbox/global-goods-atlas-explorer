@@ -1,0 +1,29 @@
+
+{
+  "title": "Mapa de Implementación Global",
+  "subtitle": "Visualice la implementación mundial de bienes públicos digitales",
+  "sidebar": {
+    "title": "Bienes Globales",
+    "searchPlaceholder": "Buscar bienes globales...",
+    "noResults": "No se encontraron bienes globales"
+  },
+  "map": {
+    "loading": "Cargando datos del mapa...",
+    "error": "Error al cargar datos del mapa",
+    "retry": "Reintentar"
+  },
+  "details": {
+    "empty": {
+      "title": "Seleccione un elemento",
+      "description": "Haga clic en un país o seleccione un bien global en la barra lateral"
+    },
+    "good": {
+      "countries": "Implementado en {{count}} países",
+      "noDeployment": "No hay información de implementación disponible"
+    },
+    "country": {
+      "goods": "{{count}} Bienes Globales implementados",
+      "noGoods": "No hay bienes globales implementados en este país"
+    }
+  }
+}

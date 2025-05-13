@@ -1,0 +1,82 @@
+
+{
+  "login": {
+    "title": "Administración",
+    "description": "Ingrese sus credenciales para acceder al CMS",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "admin@example.com",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "demoCredentials": "Credenciales de demostración: admin@example.com / admin123 o user@example.com / user123",
+    "signIn": "Iniciar sesión",
+    "signingIn": "Iniciando sesión...",
+    "success": "¡Inicio de sesión exitoso!",
+    "error": "Credenciales inválidas. Por favor intente de nuevo."
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "globalGoods": "Bienes Globales",
+    "useCases": "Casos de Uso",
+    "users": "Usuarios",
+    "visitors": "Visitantes Mensuales",
+    "recentGlobalGoods": "Bienes Globales Recientemente Actualizados",
+    "recentUseCases": "Casos de Uso Recientemente Actualizados",
+    "viewAll": "Ver Todo",
+    "edit": "Editar",
+    "view": "Ver"
+  },
+  "globalGoods": {
+    "title": "Administrar Bienes Globales",
+    "addNew": "Agregar Nuevo Bien Global",
+    "edit": "Editar Bien Global",
+    "create": "Crear Bien Global",
+    "loading": "Cargando bienes globales...",
+    "success": "Éxito",
+    "error": "Error",
+    "created": "Bien global creado exitosamente",
+    "updated": "Bien global actualizado exitosamente",
+    "failedToSave": "Error al guardar el bien global",
+    "confirmDelete": "¿Está seguro de que desea eliminar este bien global?",
+    "deleted": "Bien global eliminado exitosamente"
+  },
+  "useCases": {
+    "title": "Administrar Casos de Uso",
+    "addNew": "Agregar Nuevo Caso de Uso",
+    "edit": "Editar Caso de Uso",
+    "create": "Crear Caso de Uso", 
+    "loading": "Cargando casos de uso...",
+    "success": "Éxito",
+    "error": "Error",
+    "created": "Caso de uso creado exitosamente",
+    "updated": "Caso de uso actualizado exitosamente",
+    "failedToSave": "Error al guardar el caso de uso",
+    "confirmDelete": "¿Está seguro de que desea eliminar este caso de uso?",
+    "deleted": "Caso de uso eliminado exitosamente"
+  },
+  "tools": {
+    "title": "Herramientas de Administración",
+    "description": "Utilidades y herramientas para la gestión de datos",
+    "utilities": "Utilidades",
+    "noUtilities": "No hay utilidades adicionales disponibles en este momento."
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "actions": "Acciones",
+    "confirm": "Confirmar",
+    "retry": "Reintentar",
+    "updated": "Actualizado",
+    "select": "Seleccionar..."
+  },
+  "forms": {
+    "validationError": "Error de Validación",
+    "fillAllRequired": "Por favor complete todos los campos requeridos",
+    "save": "Guardar",
+    "saving": "Guardando..."
+  }
+}

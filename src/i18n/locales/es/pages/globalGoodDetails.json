@@ -1,0 +1,16 @@
+
+{
+  "loading": "Cargando detalles del bien global...",
+  "error": "Error al cargar el bien global",
+  "retry": "Reintentar",
+  "backToGlobalGoods": "Volver a Bienes Globales",
+  "tabs": {
+    "overview": "Descripción General",
+    "technical": "Técnico",
+    "standards": "Estándares",
+    "useCases": "Casos de Uso"
+  },
+  "deployments": "Ubicaciones de Implementación",
+  "countries": "{{count}} países",
+  "noDeployments": "No hay información de implementación disponible"
+}

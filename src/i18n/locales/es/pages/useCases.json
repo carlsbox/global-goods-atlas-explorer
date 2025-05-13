@@ -1,0 +1,22 @@
+
+{
+  "title": "Casos de Uso",
+  "description": "Explore implementaciones del mundo real e historias de éxito de bienes públicos digitales.",
+  "loading": "Cargando casos de uso...",
+  "showing": "Mostrando {{filtered}} de {{total}} casos de uso",
+  "filters": {
+    "searchPlaceholder": "Buscar casos de uso...",
+    "sectorLabel": "Filtrar por sector",
+    "goodsLabel": "Filtrar por bien global",
+    "allSectors": "Todos los sectores",
+    "allGoods": "Todos los bienes globales",
+    "selectedGood": "Mostrando casos de uso para:",
+    "clearFilters": "Borrar filtros",
+    "clearAll": "Borrar todos los filtros"
+  },
+  "noResults": {
+    "title": "No se encontraron casos de uso",
+    "description": "Intente ajustar sus criterios de búsqueda o borrar los filtros",
+    "button": "Borrar todos los filtros"
+  }
+}

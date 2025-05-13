@@ -1,0 +1,29 @@
+
+{
+  "title": "Global Deployment Map",
+  "subtitle": "Visualize the worldwide implementation of digital global goods",
+  "sidebar": {
+    "title": "Global Goods",
+    "searchPlaceholder": "Search global goods...",
+    "noResults": "No global goods found"
+  },
+  "map": {
+    "loading": "Loading map data...",
+    "error": "Error loading map data",
+    "retry": "Retry"
+  },
+  "details": {
+    "empty": {
+      "title": "Select an item",
+      "description": "Click on a country or select a global good from the sidebar"
+    },
+    "good": {
+      "countries": "Deployed in {{count}} countries",
+      "noDeployment": "No deployment information available"
+    },
+    "country": {
+      "goods": "{{count}} Global Goods deployed",
+      "noGoods": "No global goods deployed in this country"
+    }
+  }
+}

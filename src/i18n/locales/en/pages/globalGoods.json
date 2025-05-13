@@ -1,0 +1,18 @@
+
+{
+  "catalogTitle": "Global Goods Catalog",
+  "catalogDescription": "Explore our collection of digital global goods supporting sustainable development worldwide",
+  "loadingCatalog": "Loading global goods catalog...",
+  "showing": "Showing {{filtered}} of {{total}} global goods",
+  "filters": {
+    "searchPlaceholder": "Search global goods...",
+    "sectorLabel": "Filter by sector",
+    "allSectors": "All sectors",
+    "clearFilters": "Clear filters"
+  },
+  "noResults": {
+    "title": "No global goods found",
+    "description": "Try adjusting your search criteria or clearing filters",
+    "button": "Clear all filters"
+  }
+}

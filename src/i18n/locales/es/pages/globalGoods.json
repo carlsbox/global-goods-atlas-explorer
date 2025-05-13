@@ -1,0 +1,18 @@
+
+{
+  "catalogTitle": "Catálogo de Bienes Globales",
+  "catalogDescription": "Explore nuestra colección de bienes públicos digitales que apoyan el desarrollo sostenible en todo el mundo",
+  "loadingCatalog": "Cargando catálogo de bienes globales...",
+  "showing": "Mostrando {{filtered}} de {{total}} bienes globales",
+  "filters": {
+    "searchPlaceholder": "Buscar bienes globales...",
+    "sectorLabel": "Filtrar por sector",
+    "allSectors": "Todos los sectores",
+    "clearFilters": "Borrar filtros"
+  },
+  "noResults": {
+    "title": "No se encontraron bienes globales",
+    "description": "Intente ajustar sus criterios de búsqueda o borrar los filtros",
+    "button": "Borrar todos los filtros"
+  }
+}

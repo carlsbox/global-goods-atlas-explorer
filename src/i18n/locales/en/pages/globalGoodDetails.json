@@ -1,0 +1,16 @@
+
+{
+  "loading": "Loading global good details...",
+  "error": "Error loading global good",
+  "retry": "Retry",
+  "backToGlobalGoods": "Back to Global Goods",
+  "tabs": {
+    "overview": "Overview",
+    "technical": "Technical",
+    "standards": "Standards",
+    "useCases": "Use Cases"
+  },
+  "deployments": "Deployment Locations",
+  "countries": "{{count}} countries",
+  "noDeployments": "No deployment information available"
+}

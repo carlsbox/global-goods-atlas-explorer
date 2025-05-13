@@ -1,0 +1,22 @@
+
+{
+  "title": "Use Cases",
+  "description": "Explore real-world implementations and success stories of digital global goods.",
+  "loading": "Loading use cases...",
+  "showing": "Showing {{filtered}} of {{total}} use cases",
+  "filters": {
+    "searchPlaceholder": "Search use cases...",
+    "sectorLabel": "Filter by sector",
+    "goodsLabel": "Filter by global good",
+    "allSectors": "All sectors",
+    "allGoods": "All global goods",
+    "selectedGood": "Showing use cases for:",
+    "clearFilters": "Clear filters",
+    "clearAll": "Clear all filters"
+  },
+  "noResults": {
+    "title": "No use cases found",
+    "description": "Try adjusting your search criteria or clearing filters",
+    "button": "Clear all filters"
+  }
+}

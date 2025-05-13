@@ -1,0 +1,22 @@
+
+{
+  "title": "Cas d'Utilisation",
+  "description": "Explorez les implémentations réelles et les success stories des biens publics numériques.",
+  "loading": "Chargement des cas d'utilisation...",
+  "showing": "Affichage de {{filtered}} sur {{total}} cas d'utilisation",
+  "filters": {
+    "searchPlaceholder": "Rechercher des cas d'utilisation...",
+    "sectorLabel": "Filtrer par secteur",
+    "goodsLabel": "Filtrer par bien mondial",
+    "allSectors": "Tous les secteurs",
+    "allGoods": "Tous les biens mondiaux",
+    "selectedGood": "Affichage des cas d'utilisation pour:",
+    "clearFilters": "Effacer les filtres",
+    "clearAll": "Effacer tous les filtres"
+  },
+  "noResults": {
+    "title": "Aucun cas d'utilisation trouvé",
+    "description": "Essayez d'ajuster vos critères de recherche ou d'effacer les filtres",
+    "button": "Effacer tous les filtres"
+  }
+}

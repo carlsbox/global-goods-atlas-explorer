@@ -1,0 +1,16 @@
+
+{
+  "loading": "Chargement des détails du bien mondial...",
+  "error": "Erreur lors du chargement du bien mondial",
+  "retry": "Réessayer",
+  "backToGlobalGoods": "Retour aux Biens Mondiaux",
+  "tabs": {
+    "overview": "Aperçu",
+    "technical": "Technique",
+    "standards": "Normes",
+    "useCases": "Cas d'Utilisation"
+  },
+  "deployments": "Lieux de Déploiement",
+  "countries": "{{count}} pays",
+  "noDeployments": "Aucune information de déploiement disponible"
+}

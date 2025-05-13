@@ -1,0 +1,29 @@
+
+{
+  "title": "Carte de Déploiement Mondiale",
+  "subtitle": "Visualisez l'implémentation mondiale des biens publics numériques",
+  "sidebar": {
+    "title": "Biens Mondiaux",
+    "searchPlaceholder": "Rechercher des biens mondiaux...",
+    "noResults": "Aucun bien mondial trouvé"
+  },
+  "map": {
+    "loading": "Chargement des données de la carte...",
+    "error": "Erreur lors du chargement des données de la carte",
+    "retry": "Réessayer"
+  },
+  "details": {
+    "empty": {
+      "title": "Sélectionner un élément",
+      "description": "Cliquez sur un pays ou sélectionnez un bien mondial dans la barre latérale"
+    },
+    "good": {
+      "countries": "Déployé dans {{count}} pays",
+      "noDeployment": "Aucune information de déploiement disponible"
+    },
+    "country": {
+      "goods": "{{count}} Biens Mondiaux déployés",
+      "noGoods": "Aucun bien mondial déployé dans ce pays"
+    }
+  }
+}

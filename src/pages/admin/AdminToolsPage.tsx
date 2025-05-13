@@ -2,31 +2,34 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useI18n } from '@/hooks/useI18n';
 
 const AdminToolsPage = () => {
+  const { tPage } = useI18n();
+
   return (
     <div className="container p-6">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold">Admin Tools</h1>
-        <p className="text-muted-foreground">Utilities and tools for data management</p>
+        <h1 className="text-3xl font-bold">{tPage('tools.title', 'admin')}</h1>
+        <p className="text-muted-foreground">{tPage('tools.description', 'admin')}</p>
       </div>
 
       <Tabs defaultValue="utilities" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="utilities">Utilities</TabsTrigger>
+          <TabsTrigger value="utilities">{tPage('tools.utilities', 'admin')}</TabsTrigger>
         </TabsList>
         
         <TabsContent value="utilities" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Admin Utilities</CardTitle>
+              <CardTitle>{tPage('tools.utilities', 'admin')}</CardTitle>
               <CardDescription>
-                Administrative utilities and tools
+                {tPage('tools.description', 'admin')}
               </CardDescription>
             </CardHeader>
             <CardContent className="py-4">
               <p className="text-center text-muted-foreground py-8">
-                No additional utilities are available at this time.
+                {tPage('tools.noUtilities', 'admin')}
               </p>
             </CardContent>
           </Card>

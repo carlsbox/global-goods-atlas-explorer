@@ -1,0 +1,18 @@
+
+{
+  "catalogTitle": "Catalogue des Biens Mondiaux",
+  "catalogDescription": "Explorez notre collection de biens publics numériques soutenant le développement durable dans le monde entier",
+  "loadingCatalog": "Chargement du catalogue des biens mondiaux...",
+  "showing": "Affichage de {{filtered}} sur {{total}} biens mondiaux",
+  "filters": {
+    "searchPlaceholder": "Rechercher des biens mondiaux...",
+    "sectorLabel": "Filtrer par secteur",
+    "allSectors": "Tous les secteurs",
+    "clearFilters": "Effacer les filtres"
+  },
+  "noResults": {
+    "title": "Aucun bien mondial trouvé",
+    "description": "Essayez d'ajuster vos critères de recherche ou d'effacer les filtres",
+    "button": "Effacer tous les filtres"
+  }
+}
