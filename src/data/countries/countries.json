@@ -6,80 +6,70 @@
       "name": "Kenya",
       "region": "East Africa",
       "lat": -1.2921,
-      "lng": 36.8219,
-      "globalGoods": ["dhis2", "openimis"]
+      "lng": 36.8219
     },
     {
       "code": "TZ",
       "name": "Tanzania",
       "region": "East Africa",
       "lat": -6.7924,
-      "lng": 39.2083,
-      "globalGoods": ["dhis2", "openimis"]
+      "lng": 39.2083
     },
     {
       "code": "UG",
       "name": "Uganda",
       "region": "East Africa",
       "lat": 0.3476,
-      "lng": 32.5825,
-      "globalGoods": ["dhis2"]
+      "lng": 32.5825
     },
     {
       "code": "RW",
       "name": "Rwanda",
       "region": "East Africa",
       "lat": -1.9403,
-      "lng": 29.8739,
-      "globalGoods": ["dhis2"]
+      "lng": 29.8739
     },
     {
       "code": "GH",
       "name": "Ghana",
       "region": "West Africa",
       "lat": 7.9465,
-      "lng": -1.0232,
-      "globalGoods": ["dhis2"]
+      "lng": -1.0232
     },
     {
       "code": "IN",
       "name": "India",
       "region": "South Asia",
       "lat": 20.5937,
-      "lng": 78.9629,
-      "globalGoods": ["dhis2"]
+      "lng": 78.9629
     },
     {
       "code": "BD",
       "name": "Bangladesh",
       "region": "South Asia",
       "lat": 23.6850,
-      "lng": 90.3563,
-      "globalGoods": ["dhis2"]
+      "lng": 90.3563
     },
     {
       "code": "NO",
       "name": "Norway",
       "region": "Europe",
       "lat": 60.4720,
-      "lng": 8.4689,
-      "globalGoods": ["dhis2"]
+      "lng": 8.4689
     },
     {
       "code": "CM",
       "name": "Cameroon",
       "region": "Central Africa",
       "lat": 7.3697,
-      "lng": 12.3547,
-      "globalGoods": ["openimis"]
+      "lng": 12.3547
     },
     {
       "code": "NP",
       "name": "Nepal",
       "region": "South Asia",
       "lat": 28.3949,
-      "lng": 84.1240,
-      "globalGoods": ["openimis"]
+      "lng": 84.1240
     }
   ]
 }
