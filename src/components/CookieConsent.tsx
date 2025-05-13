@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useContentLoader } from "@/hooks/useContentLoader";
 
 export function CookieConsent() {
-  // Update the path to use 'cookie' instead of 'pages/cookie'
-  const { content, isLoading } = useContentLoader("cookie");
+  // Update the path to use 'pages/cookie' instead of 'cookie'
+  const { content, isLoading } = useContentLoader("pages/cookie");
   
   const [showConsent, setShowConsent] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState({

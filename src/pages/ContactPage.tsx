@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
@@ -9,6 +8,7 @@ import { useContentLoader } from "@/hooks/useContentLoader";
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  // Update to use pages/contact path
   const { content, isLoading } = useContentLoader("pages/contact");
   const [contactContent, setContactContent] = useState<any>(null);
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
     // Form submission logic would go here
     setFormSubmitted(true);
   };
-
+  
   if (isLoading || !contactContent) {
     return (
       <div className="container py-12 text-center">
