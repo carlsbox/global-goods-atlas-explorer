@@ -1,17 +1,30 @@
 
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { Home, Package, FileText, Settings, Users, List, Wrench } from 'lucide-react';
+import { Home, Package, FileText, Settings, Users, List, Wrench, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import AdminLanguageSwitcher from './AdminLanguageSwitcher';
+import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 const AdminLayout = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove user info from localStorage
+    localStorage.removeItem("cms_user");
+    toast.success("You've been logged out successfully");
+    navigate("/admin/login");
+  };
+
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
       <div className="w-64 bg-slate-800 text-white p-4">
-        <div className="mb-6">
+        <div className="mb-6 flex items-center justify-between">
           <h1 className="text-xl font-bold">Admin Dashboard</h1>
+          <AdminLanguageSwitcher />
         </div>
         
         <nav className="space-y-1">
@@ -84,6 +97,13 @@ const AdminLayout = () => {
             </NavLink>
           </div>
         </nav>
+        
+        <div className="absolute bottom-16 w-48">
+          <Button variant="ghost" className="w-full text-slate-300 hover:text-white hover:bg-slate-700 flex items-center justify-center" onClick={handleLogout}>
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Logout</span>
+          </Button>
+        </div>
         
         <div className="absolute bottom-4 w-48">
           <Button variant="outline" className="w-full text-slate-800 hover:text-white border-slate-600" asChild>

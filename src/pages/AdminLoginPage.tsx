@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { getSiteName } from "@/lib/config";
+import AdminLanguageSwitcher from "@/components/admin/AdminLanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -14,6 +16,7 @@ export default function AdminLoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const siteName = getSiteName();
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +31,7 @@ export default function AdminLoginPage() {
           role: "admin", 
           name: "Admin User" 
         }));
-        toast.success("Login successful!");
+        toast.success(t("login.success", "admin"));
         navigate("/admin");
       } else if (email === "user@example.com" && password === "user123") {
         localStorage.setItem("cms_user", JSON.stringify({ 
@@ -36,10 +39,10 @@ export default function AdminLoginPage() {
           role: "editor", 
           name: "Regular Editor" 
         }));
-        toast.success("Login successful!");
+        toast.success(t("login.success", "admin"));
         navigate("/admin");
       } else {
-        toast.error("Invalid credentials. Please try again.");
+        toast.error(t("login.error", "admin"));
       }
       setIsLoading(false);
     }, 800);
@@ -47,47 +50,49 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/40 px-4">
+      <div className="absolute top-4 right-4">
+        <AdminLanguageSwitcher />
+      </div>
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold tracking-tight">
-            {siteName} Admin
+            {siteName} {t("login.title", "admin")}
           </CardTitle>
           <CardDescription>
-            Enter your credentials to access the CMS
+            {t("login.description", "admin")}
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("login.emailLabel", "admin")}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@example.com"
+                placeholder={t("login.emailPlaceholder", "admin")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t("login.passwordLabel", "admin")}</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder={t("login.passwordPlaceholder", "admin")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <div className="text-sm text-muted-foreground">
-                Demo credentials: admin@example.com / admin123 <br />
-                or user@example.com / user123
+                {t("login.demoCredentials", "admin")}
               </div>
             </div>
           </CardContent>
           <CardFooter>
             <Button className="w-full" type="submit" disabled={isLoading}>
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? t("login.signingIn", "admin") : t("login.signIn", "admin")}
             </Button>
           </CardFooter>
         </form>
