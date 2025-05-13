@@ -54,6 +54,11 @@ import cookieEN from './locales/en/pages/cookie.json';
 import cookieFR from './locales/fr/pages/cookie.json';
 import cookieES from './locales/es/pages/cookie.json';
 
+// Import Contact page translations
+import contactEN from './locales/en/pages/contact.json';
+import contactFR from './locales/fr/pages/contact.json';
+import contactES from './locales/es/pages/contact.json';
+
 // Define the resources structure with namespaces
 const resources = {
   en: {
@@ -66,7 +71,8 @@ const resources = {
     useCases: useCasesEN,
     map: mapEN,
     admin: adminEN,
-    cookie: cookieEN
+    cookie: cookieEN,
+    contact: contactEN
   },
   fr: {
     translation: translationFR,
@@ -78,7 +84,8 @@ const resources = {
     useCases: useCasesFR,
     map: mapFR,
     admin: adminFR,
-    cookie: cookieFR
+    cookie: cookieFR,
+    contact: contactFR
   },
   es: {
     translation: translationES,
@@ -90,7 +97,8 @@ const resources = {
     useCases: useCasesES,
     map: mapES,
     admin: adminES,
-    cookie: cookieES
+    cookie: cookieES,
+    contact: contactES
   }
 };
 
@@ -105,7 +113,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie', 'contact'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
