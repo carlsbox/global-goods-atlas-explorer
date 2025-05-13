@@ -21,8 +21,8 @@ interface DeploymentMapProps {
 export function DeploymentMap({ globalGood, countries }: DeploymentMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
 
-  // Get country codes for the global good
-  const countryCodes = globalGood.countries || [];
+  // Get country codes from reach.countries or fall back to countries
+  const countryCodes = globalGood.reach?.countries || globalGood.countries || [];
   
   return (
     <AspectRatio ratio={16/9} className="overflow-hidden rounded-md bg-muted/20 mb-4">

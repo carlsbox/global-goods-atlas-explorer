@@ -24,9 +24,12 @@ export function DeploymentLocations({ globalGood }: DeploymentLocationsProps) {
     return map;
   }, {});
   
+  // Use reach.countries instead of countries directly
+  const countryCodes = globalGood.reach?.countries || globalGood.countries || [];
+  
   // Get the country objects for all countries in the global good
-  const deploymentCountries = globalGood.countries
-    ?.map(code => countryMap[code])
+  const deploymentCountries = countryCodes
+    .map(code => countryMap[code])
     .filter(Boolean) || [];
 
   // Count of countries for display
