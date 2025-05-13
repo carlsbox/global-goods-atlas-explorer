@@ -18,10 +18,7 @@ export interface GlobalGood {
   summary?: string;
   tags?: string[];
   healthStandards?: string[];
-  whoSystemClassification?: {
-    primary?: string[];
-    additional?: string[];
-  };
+  classificationCodes?: string[]; // New field replacing whoSystemClassification
 }
 
 export interface UseCase {
@@ -63,4 +60,24 @@ export interface CountryData {
   lat: number;
   lng: number;
   globalGoods: string[];
+}
+
+export interface Classification {
+  code: string;
+  title: string;
+  group_code: string;
+  group_name: string;
+  authority: string;
+}
+
+export interface ClassificationTranslations {
+  [code: string]: {
+    title?: string;
+  };
+  group_names?: {
+    [code: string]: string;
+  };
+  authority_names?: {
+    [code: string]: string;
+  };
 }

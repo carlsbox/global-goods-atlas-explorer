@@ -1,6 +1,6 @@
 
 import { useQuery } from "@tanstack/react-query";
-import { GlobalGood, UseCase, CountryData } from "./types";
+import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
   loadAllGlobalGoods, 
   loadGlobalGood, 
@@ -69,14 +69,43 @@ export const useCountries = () => {
   });
 };
 
-// Fetch classifications data
+// Updated function to fetch classifications data
 export const useClassifications = () => {
   const { language } = useLanguage();
   
   return useQuery({
     queryKey: ['classifications', language],
-    queryFn: async () => {
+    queryFn: async (): Promise<Classification[]> => {
       return loadClassificationsData(language);
     }
   });
+};
+
+// Helper function to group classifications by authority and group
+export const useGroupedClassifications = () => {
+  const { data: classifications = [], isLoading, error } = useClassifications();
+  
+  const groupedData = classifications.reduce((acc: Record<string, Record<string, Classification[]>>, item) => {
+    // Initialize authority object if it doesn't exist
+    if (!acc[item.authority]) {
+      acc[item.authority] = {};
+    }
+    
+    // Initialize group array if it doesn't exist
+    if (!acc[item.authority][item.group_code]) {
+      acc[item.authority][item.group_code] = [];
+    }
+    
+    // Add classification to the appropriate group
+    acc[item.authority][item.group_code].push(item);
+    
+    return acc;
+  }, {});
+  
+  return { 
+    groupedData, 
+    isLoading, 
+    error,
+    classifications 
+  };
 };

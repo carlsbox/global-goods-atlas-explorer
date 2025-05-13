@@ -1,0 +1,27 @@
+
+{
+  "name": "DHIS2",
+  "description": "Un système d'information open-source flexible et basé sur le web avec des fonctionnalités de visualisation, y compris SIG, graphiques et tableaux croisés.",
+  "sectors": ["Santé", "Gestion des Données"],
+  "details": "DHIS2 est le plus grand système de gestion d'informations sanitaires au monde, utilisé dans plus de 70 pays. Le logiciel aide les gouvernements et les organisations de santé à collecter, gérer et analyser des données pour améliorer les résultats en matière de santé.",
+  "features": [
+    "Collecte de données flexible",
+    "Analyses visuelles",
+    "Support mobile",
+    "Capacités hors ligne",
+    "Tableaux de bord personnalisables"
+  ],
+  "impacts": [
+    "Utilisé par les ministères de la santé dans plus de 70 pays",
+    "Soutient la surveillance du COVID-19 dans 36 pays",
+    "Utilisé pour le suivi de la santé maternelle et infantile dans 23 pays"
+  ],
+  "countries": ["Tanzanie", "Ghana", "Inde", "Bangladesh", "Norvège"],
+  "implementers": ["HISP", "Université d'Oslo"],
+  "supporters": ["Université d'Oslo", "NORAD", "PEPFAR"],
+  "licenses": ["Licence BSD 3-Clause"],
+  "sdgs": ["ODD3", "ODD17"],
+  "maturity": "Échelle Mondiale",
+  "summary": "DHIS2 est la plus grande plateforme de système d'information de gestion de la santé au monde, utilisée dans plus de 70 pays.",
+  "tags": ["SIIS", "Données de santé", "Analytique"]
+}

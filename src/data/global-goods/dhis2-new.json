@@ -1,0 +1,35 @@
+
+{
+  "id": "dhis2",
+  "name": "DHIS2",
+  "description": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
+  "sectors": ["Health", "Data Management"],
+  "website": "https://dhis2.org",
+  "github": "https://github.com/dhis2",
+  "details": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
+  "features": [
+    "Flexible data collection",
+    "Visual analytics",
+    "Mobile support",
+    "Offline capabilities",
+    "Customizable dashboards"
+  ],
+  "impacts": [
+    "Used by ministries of health in over 70 countries",
+    "Supports COVID-19 surveillance in 36 countries",
+    "Used for maternal and child health monitoring in 23 countries"
+  ],
+  "countries": ["Tanzania", "Ghana", "India", "Bangladesh", "Norway"],
+  "technologies": ["Java", "React", "PostgreSQL"],
+  "implementers": ["HISP", "University of Oslo"],
+  "supporters": ["University of Oslo", "NORAD", "PEPFAR"],
+  "licenses": ["BSD 3-Clause License"],
+  "lastUpdated": "2023-11-20",
+  "logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb.png",
+  "sdgs": ["SDG3", "SDG17"],
+  "maturity": "Global Scale",
+  "summary": "DHIS2 is the world's largest health management information system platform, in use in more than 70 countries.",
+  "tags": ["HMIS", "Health Data", "Analytics"],
+  "healthStandards": ["ADX", "FHIR", "CDA", "ICD-10"],
+  "classificationCodes": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_E2", "WHO_D8"]
+}

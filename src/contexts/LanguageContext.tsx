@@ -1,7 +1,17 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type LanguageType = 'en' | 'fr' | 'es';
+export type LanguageType = 'en' | 'fr' | 'es';
+
+interface TranslationCache {
+  [section: string]: {
+    [language: string]: any;
+    base?: any;
+    translations?: {
+      [language: string]: any;
+    };
+  };
+}
 
 interface LanguageContextType {
   language: LanguageType;
@@ -23,7 +33,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   });
 
   // Cache for content
-  const [contentCache, setContentCache] = useState<Record<string, any>>({});
+  const [contentCache, setContentCache] = useState<TranslationCache>({});
 
   useEffect(() => {
     // Save language to localStorage when it changes
@@ -59,16 +69,26 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         // If section is specified, try to load that content if not already cached
         if (!contentCache[section]) {
           // This will be loaded asynchronously, so for now return a placeholder
-          import(`../content/${section}.json`)
-            .then(module => {
+          Promise.all([
+            import(`../content/${section}.json`).catch(() => ({ default: null })),
+            import(`../content/${section}/translations/${language}.json`).catch(() => ({ default: null }))
+          ]).then(([baseModule, translationsModule]) => {
+            if (baseModule.default) {
               setContentCache(prev => ({
                 ...prev,
-                [section]: module.default
+                [section]: {
+                  base: baseModule.default,
+                  translations: translationsModule.default ? {
+                    [language]: translationsModule.default
+                  } : undefined,
+                  [language]: baseModule.default[language] || baseModule.default.en
+                }
               }));
-            })
-            .catch(error => {
-              console.error(`Failed to load content for section ${section}:`, error);
-            });
+            }
+          }).catch(error => {
+            console.error(`Failed to load content for section ${section}:`, error);
+          });
+          
           return key; // Return the key as fallback while loading
         }
 
