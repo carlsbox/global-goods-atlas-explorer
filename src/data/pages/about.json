@@ -1,0 +1,66 @@
+
+{
+  "en": {
+    "title": "About Global Goods Atlas",
+    "subtitle": "Connecting the world to open-source digital public goods for sustainable development.",
+    "mission": {
+      "title": "Our Mission",
+      "content": "We're dedicated to promoting digital global goods that solve critical challenges in sustainable development. Our platform connects developers, organizations, and communities to create lasting impact."
+    },
+    "technology": {
+      "title": "Technology Stack",
+      "content": "We build using modern web technologies focused on performance, accessibility, and user experience. Our open architecture encourages collaboration and innovation."
+    },
+    "openSource": {
+      "title": "Open Source Commitment",
+      "content": "We believe in the power of open source to transform lives. By supporting and promoting open digital goods, we help create a more equitable digital world."
+    },
+    "team": {
+      "title": "Our Team",
+      "content": "We're a diverse group of technologists, policy experts, and development specialists committed to leveraging technology for social good.",
+      "joinButton": "Join Our Team"
+    }
+  },
+  "fr": {
+    "title": "À Propos de l'Atlas des Biens Mondiaux",
+    "subtitle": "Connecter le monde aux biens publics numériques open source pour un développement durable.",
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Nous sommes dédiés à la promotion des biens numériques mondiaux qui résolvent les défis critiques du développement durable. Notre plateforme connecte développeurs, organisations et communautés pour créer un impact durable."
+    },
+    "technology": {
+      "title": "Stack Technologique",
+      "content": "Nous construisons en utilisant des technologies web modernes axées sur la performance, l'accessibilité et l'expérience utilisateur. Notre architecture ouverte favorise la collaboration et l'innovation."
+    },
+    "openSource": {
+      "title": "Engagement Open Source",
+      "content": "Nous croyons au pouvoir de l'open source pour transformer des vies. En soutenant et en promouvant des biens numériques ouverts, nous contribuons à créer un monde numérique plus équitable."
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "content": "Nous sommes un groupe diversifié de technologues, d'experts en politiques et de spécialistes du développement engagés à utiliser la technologie pour le bien social.",
+      "joinButton": "Rejoindre Notre Équipe"
+    }
+  },
+  "es": {
+    "title": "Acerca del Atlas de Bienes Globales",
+    "subtitle": "Conectando al mundo con bienes públicos digitales de código abierto para el desarrollo sostenible.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "content": "Nos dedicamos a promover bienes digitales globales que resuelven desafíos críticos en el desarrollo sostenible. Nuestra plataforma conecta a desarrolladores, organizaciones y comunidades para crear un impacto duradero."
+    },
+    "technology": {
+      "title": "Stack Tecnológico",
+      "content": "Construimos utilizando tecnologías web modernas enfocadas en el rendimiento, la accesibilidad y la experiencia del usuario. Nuestra arquitectura abierta fomenta la colaboración y la innovación."
+    },
+    "openSource": {
+      "title": "Compromiso Open Source",
+      "content": "Creemos en el poder del código abierto para transformar vidas. Al apoyar y promover bienes digitales abiertos, ayudamos a crear un mundo digital más equitativo."
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "content": "Somos un grupo diverso de tecnólogos, expertos en políticas y especialistas en desarrollo comprometidos a aprovechar la tecnología para el bien social.",
+      "joinButton": "Únete a Nuestro Equipo"
+    }
+  }
+}

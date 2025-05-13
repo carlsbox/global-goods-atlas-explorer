@@ -29,6 +29,7 @@ import GlobalGoodFormPage from "./pages/admin/GlobalGoodFormPage";
 import UseCasesListPage from "./pages/admin/UseCasesListPage";
 import SiteSettingsPage from "./pages/admin/SiteSettingsPage";
 import UsersPage from "./pages/admin/UsersPage";
+import ClassificationsPage from "./pages/admin/ClassificationsPage";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
                 <Route path="global-goods" element={<GlobalGoodsListPage />} />
                 <Route path="global-goods/new" element={<GlobalGoodFormPage />} />
                 <Route path="global-goods/edit/:id" element={<GlobalGoodFormPage />} />
+                <Route path="global-goods/classifications" element={<ClassificationsPage />} />
                 <Route path="use-cases" element={<UseCasesListPage />} />
                 <Route path="use-cases/new" element={<GlobalGoodFormPage />} />
                 <Route path="use-cases/edit/:id" element={<GlobalGoodFormPage />} />

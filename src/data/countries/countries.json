@@ -1,0 +1,20 @@
+
+{
+  "countries": [
+    { "code": "KE", "name": "Kenya", "region": "Africa", "lat": -1.286389, "lng": 36.817223, "globalGoods": ["openmrs", "odkcollect"] },
+    { "code": "RW", "name": "Rwanda", "region": "Africa", "lat": -1.940278, "lng": 29.873888, "globalGoods": ["openmrs"] },
+    { "code": "UG", "name": "Uganda", "region": "Africa", "lat": 0.347596, "lng": 32.582520, "globalGoods": ["openmrs"] },
+    { "code": "TZ", "name": "Tanzania", "region": "Africa", "lat": -6.369028, "lng": 34.888822, "globalGoods": ["dhis2", "openimis"] },
+    { "code": "GH", "name": "Ghana", "region": "Africa", "lat": 7.946527, "lng": -1.023194, "globalGoods": ["dhis2"] },
+    { "code": "IN", "name": "India", "region": "Asia", "lat": 20.593684, "lng": 78.962880, "globalGoods": ["dhis2", "openmrs", "odkcollect"] },
+    { "code": "BD", "name": "Bangladesh", "region": "Asia", "lat": 23.684994, "lng": 90.356331, "globalGoods": ["dhis2"] },
+    { "code": "BR", "name": "Brazil", "region": "South America", "lat": -14.235004, "lng": -51.925280, "globalGoods": ["odkcollect"] },
+    { "code": "US", "name": "USA", "region": "North America", "lat": 37.090240, "lng": -95.712891, "globalGoods": ["odkcollect"] },
+    { "code": "PH", "name": "Philippines", "region": "Asia", "lat": 12.879721, "lng": 121.774017, "globalGoods": ["odkcollect"] },
+    { "code": "HT", "name": "Haiti", "region": "North America", "lat": 18.971187, "lng": -72.285215, "globalGoods": ["openmrs"] },
+    { "code": "NO", "name": "Norway", "region": "Europe", "lat": 60.472024, "lng": 8.468946, "globalGoods": ["dhis2"] },
+    { "code": "NP", "name": "Nepal", "region": "Asia", "lat": 28.394857, "lng": 84.124008, "globalGoods": ["openimis"] },
+    { "code": "CM", "name": "Cameroon", "region": "Africa", "lat": 7.369722, "lng": 12.354722, "globalGoods": ["openimis"] },
+    { "code": "TD", "name": "Chad", "region": "Africa", "lat": 15.454166, "lng": 18.732207, "globalGoods": ["openimis"] }
+  ]
+}
