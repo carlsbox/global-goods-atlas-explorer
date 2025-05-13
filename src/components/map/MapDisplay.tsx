@@ -9,8 +9,8 @@ import {
 } from "react-simple-maps";
 import { useState } from "react";
 
-// Updated GeoJSON data for the world map from world-atlas package
-const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
+// Local GeoJSON data for the world map
+const geoUrl = "/src/data/countries/world-countries-110m.json";
 
 interface MapDisplayProps {
   selectedGood: GlobalGood | null;
@@ -81,7 +81,7 @@ export function MapDisplay({
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map(geo => {
-                  // Use ISO A3 country code format from the world-atlas data
+                  // Use ISO A3 country code format from our local GeoJSON data
                   const isActive = countryCodes.includes(geo.properties.ISO_A3);
                   const isSelected = selectedCountryCode === geo.properties.ISO_A3;
                   
