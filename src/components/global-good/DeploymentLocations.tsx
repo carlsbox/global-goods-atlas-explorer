@@ -40,7 +40,7 @@ export function DeploymentLocations({ globalGood }: DeploymentLocationsProps) {
             <div className="flex flex-wrap gap-1">
               {deploymentCountries.map((country) => (
                 <Badge key={country.code} variant="outline">
-                  {country.name}
+                  {country.name.short}
                 </Badge>
               ))}
             </div>

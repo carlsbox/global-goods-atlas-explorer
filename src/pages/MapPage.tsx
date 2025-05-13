@@ -53,7 +53,7 @@ export default function MapPage() {
 
   // Get selected country name
   const selectedCountryName = selectedCountryCode 
-    ? countryMap[selectedCountryCode]?.name 
+    ? countryMap[selectedCountryCode]?.name.short 
     : null;
 
   const handleSelectGood = (good: GlobalGood | null) => {

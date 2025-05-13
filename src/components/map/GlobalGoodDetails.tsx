@@ -53,7 +53,7 @@ export function GlobalGoodDetails({
                   className="text-xs justify-start"
                   onClick={() => onSelectCountry(selectedCountryCode === country.code ? null : country.code)}
                 >
-                  {country.name}
+                  {country.name.short}
                 </Button>
               ))}
             </div>

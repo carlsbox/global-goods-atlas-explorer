@@ -1,3 +1,4 @@
+
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useState } from 'react';
 import { Classification, ClassificationTranslations, CountryData, CountryTranslations, GlobalGood, UseCase } from './types';
@@ -163,9 +164,13 @@ export async function loadCountriesData(language: LanguageType = 'en') {
         // Apply translations to country names
         return countries.map(country => {
           if (translations[country.code]?.name) {
+            // Create a new object with the translated name
             return {
               ...country,
-              name: translations[country.code].name
+              name: {
+                ...country.name,
+                short: translations[country.code].name
+              }
             };
           }
           return country;

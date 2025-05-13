@@ -1,3 +1,4 @@
+
 export interface GlobalGood {
   id: string;
   name: string;
@@ -53,16 +54,15 @@ export interface UseCase {
 }
 
 export interface CountryData {
-  iso_code: string;        // ISO code (e.g., "KE" for Kenya)
-  type: string         // State etc
-  name {
-  short: string;        // Default short name (usually English)
-  formal: string;        // Default Formal name (usually English)
-      }
+  code: string;        // ISO code (e.g., "KE" for Kenya)
+  type: string;        // State etc
+  name: {
+    short: string;     // Default short name (usually English)
+    formal: string;    // Default Formal name (usually English)
+  };
   region: string;      // Geographic region
   lat: number;         // Latitude coordinate
   lng: number;         // Longitude coordinate
-  
 }
 
 export interface Classification {
