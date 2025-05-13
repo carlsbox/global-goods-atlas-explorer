@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalGood, CountryData } from "@/lib/types";
+import { useMultilingualText } from "@/lib/textUtils";
 
 interface GlobalGoodDetailsProps {
   globalGood: GlobalGood;
@@ -17,6 +18,8 @@ export function GlobalGoodDetails({
   countries,
   onSelectCountry
 }: GlobalGoodDetailsProps) {
+  const { getText } = useMultilingualText();
+  
   // Get countries for the selected global good
   const selectedGoodCountries = globalGood.countries
     .map(code => countries.find(c => c.code === code))
@@ -29,16 +32,16 @@ export function GlobalGoodDetails({
           {globalGood.logo ? (
             <img 
               src={globalGood.logo} 
-              alt={globalGood.name} 
+              alt={getText(globalGood.name)} 
               className="h-6 w-6 object-contain"
             />
           ) : null}
-          {globalGood.name}
+          {getText(globalGood.name)}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground mb-4">
-          {globalGood.description}
+          {getText(globalGood.description)}
         </p>
         
         <h3 className="font-semibold mb-2">Countries</h3>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, X } from "lucide-react";
 import { GlobalGood } from "@/lib/types";
+import { useMultilingualText } from "@/lib/textUtils";
 
 interface GlobalGoodsSidebarProps {
   globalGoods: GlobalGood[];
@@ -18,10 +19,11 @@ export function GlobalGoodsSidebar({
   onSelectGood 
 }: GlobalGoodsSidebarProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  const { getText } = useMultilingualText();
   
   // Filter global goods based on search
   const filteredGoods = globalGoods.filter(good => 
-    good.name.toLowerCase().includes(searchTerm.toLowerCase())
+    getText(good.name).toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -56,7 +58,7 @@ export function GlobalGoodsSidebar({
               onSelectGood(selectedGood?.id === good.id ? null : good);
             }}
           >
-            {good.name}
+            {getText(good.name)}
             <Badge variant="outline" className="ml-auto text-xs">
               {good.countries?.length || 0}
             </Badge>

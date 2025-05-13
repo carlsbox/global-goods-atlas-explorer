@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GlobalGood } from "@/lib/types";
+import { useMultilingualText } from "@/lib/textUtils";
 
 interface CountryDetailsProps {
   countryName: string;
@@ -15,6 +16,8 @@ export function CountryDetails({
   countryGoods,
   onSelectGood
 }: CountryDetailsProps) {
+  const { getText } = useMultilingualText();
+  
   return (
     <Card className="border-0 shadow-none rounded-none h-full">
       <CardHeader>
@@ -35,11 +38,11 @@ export function CountryDetails({
                   {good.logo ? (
                     <img 
                       src={good.logo} 
-                      alt={good.name} 
+                      alt={getText(good.name)} 
                       className="h-5 w-5 mr-2 object-contain" 
                     />
                   ) : null}
-                  {good.name}
+                  {getText(good.name)}
                 </div>
                 <div className="ml-auto flex gap-1">
                   {good.sector?.slice(0, 1).map(sector => (

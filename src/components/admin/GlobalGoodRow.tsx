@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
+import { useMultilingualText } from "@/lib/textUtils";
 
 interface GlobalGoodRowProps {
   good: GlobalGood;
@@ -15,6 +16,10 @@ interface GlobalGoodRowProps {
 }
 
 export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRowProps) {
+  const { getText } = useMultilingualText();
+  const goodName = getText(good.name);
+  const goodDescription = getText(good.description);
+  
   return (
     <TableRow key={good.id}>
       <TableCell>
@@ -28,21 +33,21 @@ export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRo
           {good.logo ? (
             <img 
               src={good.logo} 
-              alt={good.name} 
+              alt={goodName} 
               className="h-8 w-8 object-contain rounded-sm"
               onError={(e) => (e.currentTarget.src = "/placeholder.svg")}
             />
           ) : (
             <div className="h-8 w-8 rounded-sm bg-muted flex items-center justify-center">
-              {good.name.charAt(0)}
+              {goodName.charAt(0)}
             </div>
           )}
           <div>
-            <p className="font-medium">{good.name}</p>
+            <p className="font-medium">{goodName}</p>
             <p className="text-xs text-muted-foreground hidden sm:block">
-              {good.description.length > 50
-                ? `${good.description.slice(0, 50)}...`
-                : good.description}
+              {goodDescription.length > 50
+                ? `${goodDescription.slice(0, 50)}...`
+                : goodDescription}
             </p>
           </div>
         </div>
@@ -82,7 +87,7 @@ export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRo
           variant="ghost" 
           size="icon" 
           onClick={() => {
-            toast.warning(`This would delete ${good.name} in a real application`, {
+            toast.warning(`This would delete ${goodName} in a real application`, {
               description: "Mock functionality for demonstration",
             });
           }}

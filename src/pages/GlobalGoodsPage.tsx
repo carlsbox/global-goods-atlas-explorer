@@ -5,11 +5,13 @@ import { useGlobalGoods } from "@/lib/api";
 import { FilterBar } from "@/components/global-goods/FilterBar";
 import { GlobalGoodCard } from "@/components/global-goods/GlobalGoodCard";
 import { NoResults } from "@/components/global-goods/NoResults";
+import { useMultilingualText } from "@/lib/textUtils";
 
 export default function GlobalGoodsPage() {
   const { data: globalGoods = [], isLoading, error } = useGlobalGoods();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
+  const { getText } = useMultilingualText();
   
   // Extract unique sectors for filter
   const sectors = Array.from(
@@ -18,9 +20,12 @@ export default function GlobalGoodsPage() {
   
   // Filter global goods
   const filteredGoods = globalGoods.filter(good => {
+    const goodName = getText(good.name);
+    const goodDescription = getText(good.description);
+    
     const matchesSearch = searchTerm === "" || 
-      good.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      good.description.toLowerCase().includes(searchTerm.toLowerCase());
+      goodName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      goodDescription.toLowerCase().includes(searchTerm.toLowerCase());
       
     const matchesSector = sectorFilter === "all" || 
       (good.sector && good.sector.includes(sectorFilter));
