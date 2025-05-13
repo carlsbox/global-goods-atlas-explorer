@@ -1,0 +1,126 @@
+
+{
+  "en": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or want to get involved? We'd love to hear from you.",
+    "location": {
+      "title": "Our Location",
+      "address": "123 Impact Drive<br />San Francisco, CA 94103<br />United States"
+    },
+    "email": {
+      "title": "Email Us",
+      "general": {
+        "address": "info@globalgoodsatlas.org",
+        "label": "General inquiries"
+      },
+      "support": {
+        "address": "support@globalgoodsatlas.org",
+        "label": "Technical support"
+      }
+    },
+    "phone": {
+      "title": "Call Us",
+      "number": "+1 (555) 123-4567",
+      "hours": "Monday-Friday, 9am-5pm PT"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "nameLabel": "Your Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submitButton": "Send Message",
+      "success": {
+        "title": "Thank you for your message!",
+        "message": "We'll get back to you as soon as possible.",
+        "button": "Send another message"
+      }
+    }
+  },
+  "fr": {
+    "title": "Contactez-nous",
+    "subtitle": "Des questions ou envie de vous impliquer ? Nous serions ravis de vous entendre.",
+    "location": {
+      "title": "Notre Emplacement",
+      "address": "123 Impact Drive<br />San Francisco, CA 94103<br />États-Unis"
+    },
+    "email": {
+      "title": "Envoyez-nous un Email",
+      "general": {
+        "address": "info@globalgoodsatlas.org",
+        "label": "Demandes générales"
+      },
+      "support": {
+        "address": "support@globalgoodsatlas.org",
+        "label": "Support technique"
+      }
+    },
+    "phone": {
+      "title": "Appelez-nous",
+      "number": "+1 (555) 123-4567",
+      "hours": "Lundi-Vendredi, 9h-17h PT"
+    },
+    "form": {
+      "title": "Envoyez-nous un Message",
+      "nameLabel": "Votre Nom",
+      "namePlaceholder": "Jean Dupont",
+      "emailLabel": "Adresse Email",
+      "emailPlaceholder": "jean@exemple.com",
+      "subjectLabel": "Sujet",
+      "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Dites-nous comment nous pouvons vous aider...",
+      "submitButton": "Envoyer le Message",
+      "success": {
+        "title": "Merci pour votre message !",
+        "message": "Nous vous répondrons dès que possible.",
+        "button": "Envoyer un autre message"
+      }
+    }
+  },
+  "es": {
+    "title": "Contáctenos",
+    "subtitle": "¿Tiene preguntas o desea participar? Nos encantaría saber de usted.",
+    "location": {
+      "title": "Nuestra Ubicación",
+      "address": "123 Impact Drive<br />San Francisco, CA 94103<br />Estados Unidos"
+    },
+    "email": {
+      "title": "Envíenos un Email",
+      "general": {
+        "address": "info@globalgoodsatlas.org",
+        "label": "Consultas generales"
+      },
+      "support": {
+        "address": "support@globalgoodsatlas.org",
+        "label": "Soporte técnico"
+      }
+    },
+    "phone": {
+      "title": "Llámenos",
+      "number": "+1 (555) 123-4567",
+      "hours": "Lunes-Viernes, 9am-5pm PT"
+    },
+    "form": {
+      "title": "Envíenos un Mensaje",
+      "nameLabel": "Su Nombre",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Dirección de Email",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "subjectLabel": "Asunto",
+      "subjectPlaceholder": "¿Cómo podemos ayudarle?",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Díganos cómo podemos ayudarle...",
+      "submitButton": "Enviar Mensaje",
+      "success": {
+        "title": "¡Gracias por su mensaje!",
+        "message": "Le responderemos lo antes posible.",
+        "button": "Enviar otro mensaje"
+      }
+    }
+  }
+}

@@ -1,12 +1,19 @@
-
 export interface GlobalGood {
   id: string;
-  name: string;
-  description: string;
+  name: string | {
+    [language: string]: string;
+  };
+  description: string | {
+    [language: string]: string;
+  };
   website?: string;
   github?: string;
+  source_code?: {
+    primary: string;
+    additional?: string[];
+  };
   sector: string[];
-  countries: string[];
+  countries: string[]; // Will now store country codes instead of names
   technologies: string[];
   implementers?: string[];
   supporters?: string[];
@@ -14,14 +21,33 @@ export interface GlobalGood {
   lastUpdated: string;
   logo?: string;
   sdgs?: string[];
-  maturity?: string;
-  summary?: string;
+  maturity?: string | {
+    level: string;
+    scores?: {
+      [key: string]: number;
+    };
+  };
+  summary?: string | {
+    [language: string]: string;
+  };
   tags?: string[];
   healthStandards?: string[];
-  whoSystemClassification?: {
-    primary?: string[];
-    additional?: string[];
+  classificationCodes?: string[]; // References to classification codes
+  details?: {
+    [language: string]: string;
   };
+  // New fields for the updated schema
+  demo_link?: string;
+  contact?: {
+    name?: string;
+    email?: string;
+  };
+  climate_integration?: {
+    enabled: boolean;
+    description?: string;
+  };
+  features?: string[];
+  impacts?: string[];
 }
 
 export interface UseCase {
@@ -57,10 +83,40 @@ export interface UseCase {
 }
 
 export interface CountryData {
+  code: string;        // ISO code (e.g., "KE" for Kenya)
+  type: string;        // State etc
+  name: {
+    short: string;     // Default short name (usually English)
+    formal: string;    // Default Formal name (usually English)
+  };
+  region: string;      // Geographic region
+  lat: number;         // Latitude coordinate
+  lng: number;         // Longitude coordinate
+}
+
+export interface Classification {
   code: string;
-  name: string;
-  region: string;
-  lat: number;
-  lng: number;
-  globalGoods: string[];
+  title: string;
+  group_code: string;
+  group_name: string;
+  authority: string;
+}
+
+export interface ClassificationTranslations {
+  [code: string]: {
+    title?: string;
+  };
+  group_names?: {
+    [code: string]: string;
+  };
+  authority_names?: {
+    [code: string]: string;
+  };
+}
+
+// New interface for country translations
+export interface CountryTranslations {
+  [code: string]: {
+    name: string;
+  };
 }
