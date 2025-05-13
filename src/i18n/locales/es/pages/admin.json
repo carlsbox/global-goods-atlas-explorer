@@ -71,7 +71,9 @@
     "confirm": "Confirmar",
     "retry": "Reintentar",
     "updated": "Actualizado",
-    "select": "Seleccionar..."
+    "select": "Seleccionar...",
+    "selectLanguage": "Seleccionar idioma",
+    "languageChanged": "Idioma de la interfaz cambiado a"
   },
   "forms": {
     "validationError": "Error de Validación",

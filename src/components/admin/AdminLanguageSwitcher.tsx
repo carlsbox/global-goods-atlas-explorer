@@ -7,22 +7,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 import { toast } from "@/components/ui/use-toast";
+import { LanguageCode } from "@/lib/types";
 
 const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'es', name: 'Español' }
+  { code: 'en' as LanguageCode, name: 'English' },
+  { code: 'fr' as LanguageCode, name: 'Français' },
+  { code: 'es' as LanguageCode, name: 'Español' }
 ];
 
 export default function AdminLanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, changeLanguage, tPage } = useI18n();
 
-  const handleLanguageChange = (langCode: 'en' | 'fr' | 'es') => {
-    setLanguage(langCode);
+  const handleLanguageChange = (langCode: LanguageCode) => {
+    changeLanguage(langCode);
     toast({
-      description: `Admin interface language changed to ${languages.find(lang => lang.code === langCode)?.name}`
+      description: `${tPage('common.languageChanged', 'admin')}: ${languages.find(lang => lang.code === langCode)?.name}`
     });
   };
 
@@ -31,14 +32,14 @@ export default function AdminLanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
           <Globe className="h-4 w-4" />
-          <span className="sr-only">Select language</span>
+          <span className="sr-only">{tPage('common.selectLanguage', 'admin')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => handleLanguageChange(lang.code as 'en' | 'fr' | 'es')}
+            onClick={() => handleLanguageChange(lang.code)}
             className={language === lang.code ? "bg-secondary" : ""}
           >
             {lang.name}

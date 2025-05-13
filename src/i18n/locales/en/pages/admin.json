@@ -71,7 +71,9 @@
     "confirm": "Confirm",
     "retry": "Retry",
     "updated": "Updated",
-    "select": "Select..."
+    "select": "Select...",
+    "selectLanguage": "Select language",
+    "languageChanged": "Interface language changed to"
   },
   "forms": {
     "validationError": "Validation Error",

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Globe, Users, Eye, ArrowUpRight, BarChart3 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 
 interface DashboardStats {
   globalGoods: number;
@@ -18,7 +18,7 @@ interface DashboardStats {
 export default function AdminDashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { language } = useLanguage();
+  const { tPage } = useI18n();
   
   useEffect(() => {
     // Simulate API call to fetch dashboard data
@@ -54,7 +54,7 @@ export default function AdminDashboardPage() {
   if (isLoading) {
     return (
       <div className="p-6 space-y-6">
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold">{tPage('dashboard.title', 'admin')}</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
             <Card key={i} className="animate-pulse">
@@ -75,7 +75,7 @@ export default function AdminDashboardPage() {
   
   return (
     <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold">Dashboard</h1>
+      <h1 className="text-3xl font-bold">{tPage('dashboard.title', 'admin')}</h1>
       
       {/* Stats cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -83,7 +83,7 @@ export default function AdminDashboardPage() {
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium flex items-center">
               <Globe className="h-4 w-4 mr-2 text-muted-foreground" />
-              Global Goods
+              {tPage('dashboard.globalGoods', 'admin')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -96,7 +96,7 @@ export default function AdminDashboardPage() {
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium flex items-center">
               <FileText className="h-4 w-4 mr-2 text-muted-foreground" />
-              Use Cases
+              {tPage('dashboard.useCases', 'admin')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -109,7 +109,7 @@ export default function AdminDashboardPage() {
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium flex items-center">
               <Users className="h-4 w-4 mr-2 text-muted-foreground" />
-              Users
+              {tPage('dashboard.users', 'admin')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -122,7 +122,7 @@ export default function AdminDashboardPage() {
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium flex items-center">
               <Eye className="h-4 w-4 mr-2 text-muted-foreground" />
-              Monthly Visitors
+              {tPage('dashboard.visitors', 'admin')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -136,8 +136,8 @@ export default function AdminDashboardPage() {
       <Tabs defaultValue="globalGoods" className="w-full">
         <div className="flex justify-between items-center">
           <TabsList>
-            <TabsTrigger value="globalGoods">Recent Global Goods</TabsTrigger>
-            <TabsTrigger value="useCases">Recent Use Cases</TabsTrigger>
+            <TabsTrigger value="globalGoods">{tPage('dashboard.recentGlobalGoods', 'admin')}</TabsTrigger>
+            <TabsTrigger value="useCases">{tPage('dashboard.recentUseCases', 'admin')}</TabsTrigger>
           </TabsList>
           <BarChart3 className="h-4 w-4 text-muted-foreground mr-2" />
         </div>
@@ -146,7 +146,7 @@ export default function AdminDashboardPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">
-                Recently Updated Global Goods
+                {tPage('dashboard.recentGlobalGoods', 'admin')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -159,12 +159,12 @@ export default function AdminDashboardPage() {
                     </div>
                     <div className="space-x-2">
                       <Button variant="ghost" size="sm" asChild>
-                        <a href={`/admin/global-goods/edit/${item.id}`}>Edit</a>
+                        <a href={`/admin/global-goods/edit/${item.id}`}>{tPage('dashboard.edit', 'admin')}</a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/global-goods/${item.id}`} target="_blank" rel="noopener noreferrer">
                           <Eye className="h-4 w-4 mr-1" />
-                          View
+                          {tPage('dashboard.view', 'admin')}
                         </a>
                       </Button>
                     </div>
@@ -173,7 +173,7 @@ export default function AdminDashboardPage() {
               </ul>
               <Button variant="outline" className="w-full mt-4" asChild>
                 <a href="/admin/global-goods">
-                  View All Global Goods
+                  {tPage('dashboard.viewAll', 'admin')} {tPage('dashboard.globalGoods', 'admin')}
                   <ArrowUpRight className="h-4 w-4 ml-2" />
                 </a>
               </Button>
@@ -185,7 +185,7 @@ export default function AdminDashboardPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">
-                Recently Updated Use Cases
+                {tPage('dashboard.recentUseCases', 'admin')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -198,12 +198,12 @@ export default function AdminDashboardPage() {
                     </div>
                     <div className="space-x-2">
                       <Button variant="ghost" size="sm" asChild>
-                        <a href={`/admin/use-cases/edit/${item.id}`}>Edit</a>
+                        <a href={`/admin/use-cases/edit/${item.id}`}>{tPage('dashboard.edit', 'admin')}</a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
                         <a href={`/use-cases/${item.id}`} target="_blank" rel="noopener noreferrer">
                           <Eye className="h-4 w-4 mr-1" />
-                          View
+                          {tPage('dashboard.view', 'admin')}
                         </a>
                       </Button>
                     </div>
@@ -212,7 +212,7 @@ export default function AdminDashboardPage() {
               </ul>
               <Button variant="outline" className="w-full mt-4" asChild>
                 <a href="/admin/use-cases">
-                  View All Use Cases
+                  {tPage('dashboard.viewAll', 'admin')} {tPage('dashboard.useCases', 'admin')}
                   <ArrowUpRight className="h-4 w-4 ml-2" />
                 </a>
               </Button>
