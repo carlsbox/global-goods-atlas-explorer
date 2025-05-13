@@ -75,27 +75,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         // If section is specified, try to load that content if not already cached
         if (!contentCache[section]) {
           // This will be loaded asynchronously, so for now return a placeholder
-          if (typeof window !== 'undefined') {
-            Promise.all([
-              import(`../data/pages/${section}.json`).catch(() => ({ default: null })),
-              import(`../data/pages/${section}/translations/${language}.json`).catch(() => ({ default: null }))
-            ]).then(([baseModule, translationsModule]) => {
-              if (baseModule.default) {
-                setContentCache(prev => ({
-                  ...prev,
-                  [section]: {
-                    base: baseModule.default,
-                    translations: translationsModule.default ? {
-                      [language]: translationsModule.default
-                    } : undefined,
-                    [language]: baseModule.default[language] || baseModule.default.en
-                  }
-                }));
-              }
-            }).catch(error => {
-              console.error(`Failed to load content for section ${section}:`, error);
-            });
-          }
+          // Use a separate function to handle the async loading to avoid React hook rules issues
+          loadSectionContent(section, language, setContentCache);
           
           return key; // Return the key as fallback while loading
         }
@@ -131,6 +112,35 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       {children}
     </LanguageContext.Provider>
   );
+}
+
+// Helper function to load section content outside of React component to avoid hook rules issues
+function loadSectionContent(
+  section: string, 
+  language: LanguageType, 
+  setContentCache: React.Dispatch<React.SetStateAction<TranslationCache>>
+) {
+  if (typeof window !== 'undefined') {
+    Promise.all([
+      import(`../data/pages/${section}.json`).catch(() => ({ default: null })),
+      import(`../data/pages/${section}/translations/${language}.json`).catch(() => ({ default: null }))
+    ]).then(([baseModule, translationsModule]) => {
+      if (baseModule.default) {
+        setContentCache(prev => ({
+          ...prev,
+          [section]: {
+            base: baseModule.default,
+            translations: translationsModule.default ? {
+              [language]: translationsModule.default
+            } : undefined,
+            [language]: baseModule.default[language] || baseModule.default.en
+          }
+        }));
+      }
+    }).catch(error => {
+      console.error(`Failed to load content for section ${section}:`, error);
+    });
+  }
 }
 
 export function useLanguage() {
