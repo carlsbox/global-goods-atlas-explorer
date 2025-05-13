@@ -1,0 +1,139 @@
+
+[
+  {
+    "code": "SDG-1",
+    "title": {
+      "en": "No Poverty",
+      "fr": "Pas de pauvreté",
+      "es": "Fin de la pobreza"
+    }
+  },
+  {
+    "code": "SDG-2",
+    "title": {
+      "en": "Zero Hunger",
+      "fr": "Faim zéro",
+      "es": "Hambre cero"
+    }
+  },
+  {
+    "code": "SDG-3",
+    "title": {
+      "en": "Good Health and Well-being",
+      "fr": "Bonne santé et bien-être",
+      "es": "Salud y bienestar"
+    }
+  },
+  {
+    "code": "SDG-4",
+    "title": {
+      "en": "Quality Education",
+      "fr": "Éducation de qualité",
+      "es": "Educación de calidad"
+    }
+  },
+  {
+    "code": "SDG-5",
+    "title": {
+      "en": "Gender Equality",
+      "fr": "Égalité entre les sexes",
+      "es": "Igualdad de género"
+    }
+  },
+  {
+    "code": "SDG-6",
+    "title": {
+      "en": "Clean Water and Sanitation",
+      "fr": "Eau propre et assainissement",
+      "es": "Agua limpia y saneamiento"
+    }
+  },
+  {
+    "code": "SDG-7",
+    "title": {
+      "en": "Affordable and Clean Energy",
+      "fr": "Énergie propre et d'un coût abordable",
+      "es": "Energía asequible y no contaminante"
+    }
+  },
+  {
+    "code": "SDG-8",
+    "title": {
+      "en": "Decent Work and Economic Growth",
+      "fr": "Travail décent et croissance économique",
+      "es": "Trabajo decente y crecimiento económico"
+    }
+  },
+  {
+    "code": "SDG-9",
+    "title": {
+      "en": "Industry, Innovation and Infrastructure",
+      "fr": "Industrie, innovation et infrastructure",
+      "es": "Industria, innovación e infraestructura"
+    }
+  },
+  {
+    "code": "SDG-10",
+    "title": {
+      "en": "Reduced Inequality",
+      "fr": "Inégalités réduites",
+      "es": "Reducción de las desigualdades"
+    }
+  },
+  {
+    "code": "SDG-11",
+    "title": {
+      "en": "Sustainable Cities and Communities",
+      "fr": "Villes et communautés durables",
+      "es": "Ciudades y comunidades sostenibles"
+    }
+  },
+  {
+    "code": "SDG-12",
+    "title": {
+      "en": "Responsible Consumption and Production",
+      "fr": "Consommation et production responsables",
+      "es": "Producción y consumo responsables"
+    }
+  },
+  {
+    "code": "SDG-13",
+    "title": {
+      "en": "Climate Action",
+      "fr": "Mesures relatives à la lutte contre les changements climatiques",
+      "es": "Acción por el clima"
+    }
+  },
+  {
+    "code": "SDG-14",
+    "title": {
+      "en": "Life Below Water",
+      "fr": "Vie aquatique",
+      "es": "Vida submarina"
+    }
+  },
+  {
+    "code": "SDG-15",
+    "title": {
+      "en": "Life on Land",
+      "fr": "Vie terrestre",
+      "es": "Vida de ecosistemas terrestres"
+    }
+  },
+  {
+    "code": "SDG-16",
+    "title": {
+      "en": "Peace, Justice and Strong Institutions",
+      "fr": "Paix, justice et institutions efficaces",
+      "es": "Paz, justicia e instituciones sólidas"
+    }
+  },
+  {
+    "code": "SDG-17",
+    "title": {
+      "en": "Partnerships for the Goals",
+      "fr": "Partenariats pour la réalisation des objectifs",
+      "es": "Alianzas para lograr los objetivos"
+    }
+  }
+]
