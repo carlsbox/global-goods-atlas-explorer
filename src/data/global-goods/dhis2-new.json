@@ -1,12 +1,30 @@
 
 {
   "id": "dhis2",
-  "name": "DHIS2",
-  "description": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
-  "sectors": ["Health", "Data Management"],
+  "name": {
+    "en": "DHIS2",
+    "fr": "DHIS2",
+    "es": "DHIS2"
+  },
+  "summary": "DHIS2 is the world's largest health information management system platform, in use in more than 70 countries.",
+  "description": {
+    "en": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
+    "fr": "Un système d'information open-source flexible et basé sur le web avec des fonctionnalités de visualisation, y compris SIG, graphiques et tableaux croisés.",
+    "es": "Un sistema de información de código abierto flexible y basado en la web con funciones de visualización que incluyen SIG, gráficos y tablas dinámicas."
+  },
+  "details": {
+    "en": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
+    "fr": "DHIS2 est le plus grand système de gestion d'informations sanitaires au monde, utilisé dans plus de 70 pays. Le logiciel aide les gouvernements et les organisations de santé à collecter, gérer et analyser des données pour améliorer les résultats en matière de santé.",
+    "es": "DHIS2 es el sistema de gestión de información sanitaria más grande del mundo, utilizado en más de 70 países. El software ayuda a gobiernos y organizaciones de salud a recopilar, gestionar y analizar datos para mejorar los resultados de salud."
+  },
+  "logo": "/lovable-uploads/41aa56a1-d6ef-46b7-ac9b-1151e3d27e20.png",
   "website": "https://dhis2.org",
-  "github": "https://github.com/dhis2",
-  "details": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
+  "source_code": {
+    "primary": "https://github.com/dhis2",
+    "additional": []
+  },
+  "demo_link": "https://play.dhis2.org/demo",
+  "sectors": ["Health", "Data Management"],
   "features": [
     "Flexible data collection",
     "Visual analytics",
@@ -19,17 +37,118 @@
     "Supports COVID-19 surveillance in 36 countries",
     "Used for maternal and child health monitoring in 23 countries"
   ],
-  "countries": ["Tanzania", "Ghana", "India", "Bangladesh", "Norway"],
   "technologies": ["Java", "React", "PostgreSQL"],
+  "classificationCodes": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_E2", "WHO_D8"],
+  "classifications": {
+    "who": {
+      "primary": {
+        "code": "WHO_D6",
+        "title": "Health Management Information systems (HMIS)",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      },
+      "additional": [
+        {
+          "code": "WHO_A2",
+          "title": "Community Health Information Systems",
+          "group_code": "A",
+          "group_name": "Point of Service",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_B6",
+          "title": "Logistics Management Information Systems (LMIS)",
+          "group_code": "B",
+          "group_name": "Health System/Provider Management",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_E2",
+          "title": "Public Health and Disease Surveillance System",
+          "group_code": "E",
+          "group_name": "Surveillance & Response",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_D8",
+          "title": "Shared Health Record and Health Information Repositories",
+          "group_code": "D",
+          "group_name": "Data Management Systems",
+          "authority": "WHO"
+        }
+      ]
+    }
+  },
+  "sdgs": ["SDG3", "SDG17"],
+  "healthStandards": ["ADX", "FHIR", "CDA", "ICD-10"],
+  "standards": {
+    "health": ["ICD-10"],
+    "interoperability": ["FHIR", "ADX", "CDA"]
+  },
+  "licenses": ["BSD 3-Clause License"],
   "implementers": ["HISP", "University of Oslo"],
   "supporters": ["University of Oslo", "NORAD", "PEPFAR"],
-  "licenses": ["BSD 3-Clause License"],
-  "lastUpdated": "2023-11-20",
-  "logo": "/lovable-uploads/41aa56a1-d6ef-46b7-ac9b-1151e3d27e20.png",
-  "sdgs": ["SDG3", "SDG17"],
-  "maturity": "Global Scale",
-  "summary": "DHIS2 is the world's largest health management information system platform, in use in more than 70 countries.",
+  "countries": ["tz", "gh", "in", "bd", "no"],
+  "reach": {
+    "summary": "DHIS2 is in use by ministries of health in 80 low and middle-income countries. 3.2 billion people (40% of the world's population) live in countries where DHIS2 is used.",
+    "implementations": 1000,
+    "countries": [
+      "af", "al", "dz", "ao", "ag", "ar", "am", "az", "bs", "bd",
+      "bb", "bj", "bt", "bo", "bw", "br", "bf", "bi", "kh", "cm",
+      "cv", "cf", "td", "cl", "co", "km", "cr", "cd", "dj", "dm",
+      "do", "tl", "ec", "eg", "sv", "gq", "er", "sz", "et", "ga",
+      "de", "gh", "gr", "gd", "gt", "gn", "gw", "gy", "ht", "hn",
+      "in", "id", "ir", "iq", "ci", "jm", "jo", "kz", "ke", "xk",
+      "kg", "la", "lb", "ls", "lr", "ly", "mg", "mw", "my", "mv",
+      "ml", "mr", "mu", "mx", "md", "mn", "ma", "mz", "mm", "na",
+      "np", "ni", "ne", "ng", "no", "pk", "pw", "ps", "pa", "pg",
+      "py", "pe", "ph", "qa", "cg", "rw", "lc", "st", "sn", "rs",
+      "sl", "sb", "so", "za", "ss", "lk", "vc", "sd", "sr", "sy",
+      "tj", "tz", "th", "gm", "tg", "to", "tt", "tn", "tr", "ug",
+      "ua", "uz", "vu", "ve", "vn", "ye", "zm", "zw"
+    ]
+  },
+  "maturity": {
+    "level": "Global Scale",
+    "scores": {
+      "global_utility": 8,
+      "community_support": 9,
+      "maturity_of_gg": 8,
+      "inclusive_design": 7,
+      "climate_resilience": 6,
+      "low_carbon": 5
+    }
+  },
+  "climate_integration": {
+    "enabled": true,
+    "description": "DHIS2 has climate data integration capabilities and can be used for climate-related health monitoring."
+  },
+  "types": [
+    {
+      "code": "software",
+      "title": {
+        "en": "Software",
+        "fr": "Logiciel",
+        "es": "Software"
+      }
+    }
+  ],
   "tags": ["HMIS", "Health Data", "Analytics"],
-  "healthStandards": ["ADX", "FHIR", "CDA", "ICD-10"],
-  "classificationCodes": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_E2", "WHO_D8"]
+  "languages": ["en", "fr", "es", "pt"],
+  "community": {
+    "overview": "DHIS2 has a vibrant global community of implementers, developers, and users.",
+    "anchored": true,
+    "anchor_description": "The DHIS2 project is anchored at the University of Oslo",
+    "platform": {
+      "url": "https://community.dhis2.org/",
+      "governance": true
+    }
+  },
+  "inclusive_design": {
+    "user_input": true,
+    "offline_support": true,
+    "offline_support_description": "DHIS2 works offline and syncs when connectivity is available"
+  },
+  "lastUpdated": "2023-11-20"
 }
