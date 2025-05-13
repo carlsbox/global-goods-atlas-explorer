@@ -12,18 +12,27 @@ export function mergeWithTranslations<T extends Record<string, any>>(
     return { ...baseData };
   }
 
-  const result = { ...baseData };
+  const result = { ...baseData } as T;
   const languageTranslations = translations[language];
 
   // Recursively merge translations with the base data
   for (const key in languageTranslations) {
-    if (key in result && typeof result[key] === 'object' && !Array.isArray(result[key]) && 
-        typeof languageTranslations[key] === 'object' && !Array.isArray(languageTranslations[key])) {
+    if (
+      Object.prototype.hasOwnProperty.call(result, key) &&
+      typeof result[key as keyof T] === 'object' && 
+      !Array.isArray(result[key as keyof T]) && 
+      typeof languageTranslations[key] === 'object' && 
+      !Array.isArray(languageTranslations[key])
+    ) {
       // If both are objects, merge recursively
-      result[key] = mergeWithTranslations(result[key], { [language]: languageTranslations[key] }, language);
+      result[key as keyof T] = mergeWithTranslations(
+        result[key as keyof T] as Record<string, any>,
+        { [language]: languageTranslations[key] },
+        language
+      ) as any;
     } else {
       // Otherwise replace the value
-      result[key] = languageTranslations[key];
+      result[key as keyof T] = languageTranslations[key];
     }
   }
 

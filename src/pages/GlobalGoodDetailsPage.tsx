@@ -272,49 +272,21 @@ export default function GlobalGoodDetailsPage() {
                       </div>
                     )}
                     
-                    {globalGood.whoSystemClassification && (
+                    {globalGood.classificationCodes && globalGood.classificationCodes.length > 0 && (
                       <div>
                         <h3 className="text-xl font-semibold mb-4 flex items-center">
                           <BookOpen className="mr-2 h-5 w-5 text-primary" />
-                          WHO System Classification
+                          Digital Health Classifications
                         </h3>
                         
-                        {globalGood.whoSystemClassification.primary && 
-                         globalGood.whoSystemClassification.primary.length > 0 && (
-                          <div className="mb-4">
-                            <h4 className="font-medium mb-2">Primary</h4>
-                            <ul className="space-y-2">
-                              {globalGood.whoSystemClassification.primary.map((classification) => (
-                                <li key={classification} className="p-2 bg-secondary/30 rounded-sm">
-                                  {classification}
-                                </li>
-                              ))}
-                            </ul>
+                        <div className="mb-4">
+                          <h4 className="font-medium mb-2">Classifications</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {globalGood.classificationCodes.map((code) => (
+                              <ClassificationBadge key={code} code={code} />
+                            ))}
                           </div>
-                        )}
-                        
-                        {globalGood.whoSystemClassification.additional && 
-                         globalGood.whoSystemClassification.additional.length > 0 && (
-                          <div>
-                            <h4 className="font-medium mb-2">Additional</h4>
-                            <Accordion type="single" collapsible className="w-full">
-                              <AccordionItem value="classifications">
-                                <AccordionTrigger>
-                                  View {globalGood.whoSystemClassification.additional.length} additional classifications
-                                </AccordionTrigger>
-                                <AccordionContent>
-                                  <ul className="space-y-2 mt-2">
-                                    {globalGood.whoSystemClassification.additional.map((classification) => (
-                                      <li key={classification} className="p-2 bg-secondary/30 rounded-sm">
-                                        {classification}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </AccordionContent>
-                              </AccordionItem>
-                            </Accordion>
-                          </div>
-                        )}
+                        </div>
                       </div>
                     )}
                   </div>

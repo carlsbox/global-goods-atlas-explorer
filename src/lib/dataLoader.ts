@@ -1,8 +1,9 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useState } from 'react';
-import { Classification, ClassificationTranslations } from './types';
+import { Classification, ClassificationTranslations, GlobalGood, UseCase } from './types';
 import { loadWithTranslations, mergeWithTranslations } from './translationUtils';
+import { LanguageType } from '@/contexts/LanguageContext';
 
 export function useContentLoader(contentPath: string) {
   const { language } = useLanguage();
@@ -33,7 +34,7 @@ export function useContentLoader(contentPath: string) {
 }
 
 // Updated classification loader
-export async function loadClassificationsData(language: string) {
+export async function loadClassificationsData(language: LanguageType) {
   try {
     // Load base classifications
     const baseData = await import('../data/classifications/base.json');
@@ -75,17 +76,17 @@ export async function loadClassificationsData(language: string) {
 }
 
 // Function to load global good data with translations
-export async function loadGlobalGood(id: string, language: string) {
+export async function loadGlobalGood(id: string, language: LanguageType): Promise<GlobalGood | undefined> {
   try {
-    return loadWithTranslations(`global-goods/${id}`, `global-goods/translations/${id}`, language);
+    return loadWithTranslations<GlobalGood>(`global-goods/${id}`, `global-goods/translations/${id}`, language);
   } catch (err) {
     console.error(`Failed to load global good: ${id}`, err);
-    return null;
+    return undefined;
   }
 }
 
 // Function to load all global goods
-export async function loadAllGlobalGoods() {
+export async function loadAllGlobalGoods(): Promise<GlobalGood[]> {
   try {
     // This dynamically imports all global goods
     const context = import.meta.glob('../data/global-goods/*.json', { eager: true });
@@ -96,12 +97,11 @@ export async function loadAllGlobalGoods() {
         }
         
         const module = context[key] as any;
-        // Add type assertion to fix the TypeScript error
         const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en }; // Using English as default for the list
+        return { id, ...module.default.en } as GlobalGood; // Using English as default for the list
       })
     );
-    return items.filter(Boolean) as any[];
+    return items.filter(Boolean) as GlobalGood[];
   } catch (err) {
     console.error('Failed to load global goods', err);
     return [];
@@ -109,17 +109,17 @@ export async function loadAllGlobalGoods() {
 }
 
 // Function to load use case data
-export async function loadUseCase(id: string, language: string) {
+export async function loadUseCase(id: string, language: LanguageType): Promise<UseCase | undefined> {
   try {
-    return loadWithTranslations(`use-cases/${id}`, `use-cases/translations/${id}`, language);
+    return loadWithTranslations<UseCase>(`use-cases/${id}`, `use-cases/translations/${id}`, language);
   } catch (err) {
     console.error(`Failed to load use case: ${id}`, err);
-    return null;
+    return undefined;
   }
 }
 
 // Function to load all use cases
-export async function loadAllUseCases() {
+export async function loadAllUseCases(): Promise<UseCase[]> {
   try {
     const context = import.meta.glob('../data/use-cases/*.json', { eager: true });
     const items = await Promise.all(
@@ -130,10 +130,10 @@ export async function loadAllUseCases() {
         
         const module = context[key] as any;
         const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en }; // Using English as default for the list
+        return { id, ...module.default.en } as UseCase; // Using English as default for the list
       })
     );
-    return items.filter(Boolean) as any[];
+    return items.filter(Boolean) as UseCase[];
   } catch (err) {
     console.error('Failed to load use cases', err);
     return [];

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { PlusCircle, Edit, Trash2 } from 'lucide-react';
@@ -26,13 +25,44 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/components/ui/use-toast';
 import { useClassifications } from '@/lib/api';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { Classification } from '@/lib/types';
+
+interface ClassificationWithSubcategories {
+  id: string;
+  name: string;
+  description: string;
+  subcategories: {
+    id: string;
+    name: string;
+    description: string;
+  }[];
+}
 
 const ClassificationsPage = () => {
   const { toast } = useToast();
-  const { data: classificationsData, isLoading } = useClassifications();
+  const { data: classifications = [] } = useClassifications();
   const [showDialog, setShowDialog] = useState(false);
-  const [currentClassification, setCurrentClassification] = useState<any>(null);
+  const [currentClassification, setCurrentClassification] = useState<ClassificationWithSubcategories | null>(null);
   const [dialogMode, setDialogMode] = useState<'add' | 'edit'>('add');
+
+  // Group classifications by authority and group code to display in hierarchical form
+  const groupedClassifications = React.useMemo(() => {
+    const grouped: Record<string, Record<string, Classification[]>> = {};
+    
+    classifications.forEach(item => {
+      if (!grouped[item.authority]) {
+        grouped[item.authority] = {};
+      }
+      
+      if (!grouped[item.authority][item.group_code]) {
+        grouped[item.authority][item.group_code] = [];
+      }
+      
+      grouped[item.authority][item.group_code].push(item);
+    });
+    
+    return grouped;
+  }, [classifications]);
 
   const handleAddClassification = () => {
     setDialogMode('add');
@@ -45,9 +75,15 @@ const ClassificationsPage = () => {
     setShowDialog(true);
   };
 
-  const handleEditClassification = (classification: any) => {
+  const handleEditClassification = (classification: Classification) => {
+    // Convert Classification to ClassificationWithSubcategories format
     setDialogMode('edit');
-    setCurrentClassification({ ...classification });
+    setCurrentClassification({
+      id: classification.code,
+      name: classification.title,
+      description: classification.group_name,
+      subcategories: []
+    });
     setShowDialog(true);
   };
 
@@ -70,7 +106,7 @@ const ClassificationsPage = () => {
     }
   };
 
-  if (isLoading) {
+  if (classifications.length === 0) {
     return <LoadingSpinner />;
   }
 
@@ -98,20 +134,20 @@ const ClassificationsPage = () => {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>ID</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Description</TableHead>
-                    <TableHead>Subcategories</TableHead>
+                    <TableHead>Code</TableHead>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Group</TableHead>
+                    <TableHead>Authority</TableHead>
                     <TableHead className="text-right">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {classificationsData?.classifications?.map((classification: any) => (
-                    <TableRow key={classification.id}>
-                      <TableCell>{classification.id}</TableCell>
-                      <TableCell>{classification.name}</TableCell>
-                      <TableCell>{classification.description}</TableCell>
-                      <TableCell>{classification.subcategories?.length || 0}</TableCell>
+                  {classifications.map((classification) => (
+                    <TableRow key={classification.code}>
+                      <TableCell>{classification.code}</TableCell>
+                      <TableCell>{classification.title}</TableCell>
+                      <TableCell>{classification.group_name}</TableCell>
+                      <TableCell>{classification.authority}</TableCell>
                       <TableCell className="text-right space-x-2">
                         <Button 
                           variant="outline" 
@@ -123,7 +159,7 @@ const ClassificationsPage = () => {
                         <Button 
                           variant="outline" 
                           size="sm" 
-                          onClick={() => handleDeleteClassification(classification.id)}
+                          onClick={() => handleDeleteClassification(classification.code)}
                           className="text-destructive hover:text-destructive"
                         >
                           <Trash2 className="h-4 w-4 mr-1" /> Delete
@@ -136,25 +172,27 @@ const ClassificationsPage = () => {
             </TabsContent>
             
             <TabsContent value="hierarchical" className="mt-4">
-              {classificationsData?.classifications?.map((classification: any) => (
-                <Card key={classification.id} className="mb-4">
-                  <CardHeader>
-                    <CardTitle>{classification.id} | {classification.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="mb-4">{classification.description}</p>
-                    
-                    <h4 className="font-semibold mb-2">Subcategories:</h4>
-                    <ul className="space-y-2">
-                      {classification.subcategories?.map((sub: any) => (
-                        <li key={sub.id} className="bg-muted p-3 rounded-md">
-                          <div className="font-medium">{sub.id} | {sub.name}</div>
-                          <div className="text-sm text-muted-foreground">{sub.description}</div>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+              {Object.entries(groupedClassifications).map(([authority, groups]) => (
+                <div key={authority} className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4">{authority}</h3>
+                  
+                  {Object.entries(groups).map(([groupCode, items]) => (
+                    <Card key={groupCode} className="mb-4">
+                      <CardHeader>
+                        <CardTitle>{items[0].group_name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          {items.map((item) => (
+                            <li key={item.code} className="bg-muted p-3 rounded-md">
+                              <div className="font-medium">{item.code} | {item.title}</div>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               ))}
             </TabsContent>
           </Tabs>
