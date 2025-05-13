@@ -6,6 +6,7 @@ import { UseCaseCard } from "@/components/use-cases/UseCaseCard";
 import { UseCasesFilterBar } from "@/components/use-cases/UseCasesFilterBar";
 import { SelectedGoodFilter } from "@/components/use-cases/SelectedGoodFilter";
 import { UseCasesNoResults } from "@/components/use-cases/UseCasesNoResults";
+import { useI18n } from "@/hooks/useI18n";
 
 export default function UseCasesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +14,7 @@ export default function UseCasesPage() {
 
   const { data: useCases = [], isLoading: useCasesLoading } = useUseCases();
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
+  const { getText } = useI18n();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -52,9 +54,9 @@ export default function UseCasesPage() {
     setGlobalGoodFilter("all");
   };
 
-  // Get global good name for display
+  // Get global good name for display - using getText to handle multilingual names
   const selectedGoodName = globalGoodFilter && globalGoodFilter !== "all"
-    ? globalGoods.find(g => g.id === globalGoodFilter)?.name || "Unknown Global Good"
+    ? getText(globalGoods.find(g => g.id === globalGoodFilter)?.name) || "Unknown Global Good"
     : "";
 
   return (

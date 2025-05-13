@@ -5,13 +5,13 @@ import { useGlobalGoods } from "@/lib/api";
 import { FilterBar } from "@/components/global-goods/FilterBar";
 import { GlobalGoodCard } from "@/components/global-goods/GlobalGoodCard";
 import { NoResults } from "@/components/global-goods/NoResults";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 export default function GlobalGoodsPage() {
   const { data: globalGoods = [], isLoading, error } = useGlobalGoods();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   
   // Extract unique sectors for filter
   const sectors = Array.from(

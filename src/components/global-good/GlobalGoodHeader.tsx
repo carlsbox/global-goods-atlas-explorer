@@ -4,31 +4,18 @@ import { GlobalGood } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Globe, Github } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 
 interface GlobalGoodHeaderProps {
   globalGood: GlobalGood;
 }
 
 export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
-  const { language } = useLanguage();
+  const { getText } = useI18n();
 
-  // Handle multilingual fields - extract the text based on current language or fall back to English
-  const getName = (name: string | { [key: string]: string }): string => {
-    if (typeof name === 'string') return name;
-    if (name && typeof name === 'object') {
-      return name[language] || name.en || Object.values(name)[0] || '';
-    }
-    return '';
-  };
-
-  const getDescription = (description: string | { [key: string]: string }): string => {
-    if (typeof description === 'string') return description;
-    if (description && typeof description === 'object') {
-      return description[language] || description.en || Object.values(description)[0] || '';
-    }
-    return '';
-  };
+  // Get the name and description using our getText helper
+  const goodName = getText(globalGood.name);
+  const goodDescription = getText(globalGood.description);
 
   return (
     <div className="mb-8">
@@ -36,19 +23,19 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
         {globalGood.logo ? (
           <img 
             src={globalGood.logo} 
-            alt={getName(globalGood.name)} 
+            alt={goodName} 
             className="h-16 w-16 object-contain"
           />
         ) : (
           <div className="h-16 w-16 bg-primary/10 rounded flex items-center justify-center">
             <span className="text-2xl font-bold text-primary">
-              {getName(globalGood.name).charAt(0)}
+              {goodName.charAt(0)}
             </span>
           </div>
         )}
         <div>
-          <h1 className="text-3xl font-bold">{getName(globalGood.name)}</h1>
-          <p className="text-muted-foreground">{getDescription(globalGood.description)}</p>
+          <h1 className="text-3xl font-bold">{goodName}</h1>
+          <p className="text-muted-foreground">{goodDescription}</p>
         </div>
       </div>
 

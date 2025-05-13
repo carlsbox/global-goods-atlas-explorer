@@ -26,11 +26,13 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useI18n } from "@/hooks/useI18n";
 
 export default function UseCaseDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const { data: useCase, isLoading, error } = useUseCase(id);
   const { data: globalGoods = [] } = useGlobalGoods();
+  const { getText } = useI18n();
   
   // State for collapsible sections
   const [lessonsExpanded, setLessonsExpanded] = useState(true);
@@ -38,7 +40,7 @@ export default function UseCaseDetailsPage() {
   // Get global good names for this use case
   const usedGoodsNames = useCase?.globalGoods?.map(goodId => {
     const good = globalGoods.find(g => g.id === goodId);
-    return good ? good.name : null;
+    return good ? getText(good.name) : null;
   }).filter(Boolean) || [];
 
   if (isLoading) {
