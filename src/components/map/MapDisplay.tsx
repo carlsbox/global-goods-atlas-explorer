@@ -9,8 +9,8 @@ import {
 } from "react-simple-maps";
 import { useState } from "react";
 
-// Local GeoJSON data for the world map
-const geoUrl = "/src/data/countries/world-countries-110m.json";
+// Fixed path to GeoJSON data using absolute path from public folder
+const geoUrl = "/world-countries-110m.json";
 
 interface MapDisplayProps {
   selectedGood: GlobalGood | null;
@@ -81,7 +81,7 @@ export function MapDisplay({
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
                 geographies.map(geo => {
-                  // Use ISO A3 country code format from our local GeoJSON data
+                  // Use ISO A3 country code format from our GeoJSON data
                   const isActive = countryCodes.includes(geo.properties.ISO_A3);
                   const isSelected = selectedCountryCode === geo.properties.ISO_A3;
                   
