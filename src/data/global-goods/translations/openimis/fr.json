@@ -1,0 +1,13 @@
+
+{
+  "name": "openIMIS",
+  "summary": "openIMIS est un logiciel open source qui fournit une solution complète pour la gestion des régimes d'assurance maladie.",
+  "description": "Un système complet de gestion d'assurance santé prenant en charge l'inscription, le traitement des réclamations et les rapports.",
+  "details": "openIMIS est un logiciel open source conçu pour gérer les régimes d'assurance santé. Il aide à gérer l'inscription des bénéficiaires, le traitement des réclamations et les rapports pour les mécanismes de financement des soins de santé.",
+  "types": [
+    {
+      "code": "software",
+      "title": "Logiciel" 
+    }
+  ]
+}

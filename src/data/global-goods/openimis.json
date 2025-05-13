@@ -1,25 +1,10 @@
+
 {
   "id": "openimis",
-  "name": {
-    "en": "openIMIS",
-    "fr": "openIMIS",
-    "es": "openIMIS"
-  },
-  "summary": {
-    "en": "openIMIS is an open source software providing a comprehensive solution for managing health insurance schemes.",
-    "fr": "openIMIS est un logiciel open source qui fournit une solution complète pour la gestion des régimes d'assurance maladie.",
-    "es": "openIMIS es un software de código abierto que proporciona una solución integral para la gestión de esquemas de seguro médico."
-  },
-  "description": {
-    "en": "A comprehensive health insurance management system supporting enrollment, claims processing and reporting.",
-    "fr": "Un système complet de gestion d'assurance santé prenant en charge l'inscription, le traitement des réclamations et les rapports.",
-    "es": "Un sistema integral de gestión de seguros de salud que admite inscripción, procesamiento de reclamos e informes."
-  },
-  "details": {
-    "en": "openIMIS is an open source software designed to manage health insurance schemes. It helps manage beneficiary enrollment, claims processing, and reporting for healthcare financing mechanisms.",
-    "fr": "openIMIS est un logiciel open source conçu pour gérer les régimes d'assurance santé. Il aide à gérer l'inscription des bénéficiaires, le traitement des réclamations et les rapports pour les mécanismes de financement des soins de santé.",
-    "es": "openIMIS es un software de código abierto diseñado para gestionar esquemas de seguro médico. Ayuda a gestionar la inscripción de beneficiarios, el procesamiento de reclamos y la generación de informes para mecanismos de financiación de atención médica."
-  },
+  "name": "openIMIS",
+  "summary": "openIMIS is an open source software providing a comprehensive solution for managing health insurance schemes.",
+  "description": "A comprehensive health insurance management system supporting enrollment, claims processing and reporting.",
+  "details": "openIMIS is an open source software designed to manage health insurance schemes. It helps manage beneficiary enrollment, claims processing, and reporting for healthcare financing mechanisms.",
   "logo": "https://openimis.org/wp-content/uploads/2020/01/openimis-logo.svg",
   "website": "https://openimis.org",
   "source_code": {
@@ -27,9 +12,10 @@
     "additional": []
   },
   "contact": {
-  "name": "openIMIS Initiative",
-  "email": "info@openimis.org"
-},"demo_link": "https://demo.openimis.org",
+    "name": "openIMIS Initiative",
+    "email": "info@openimis.org"
+  },
+  "demo_link": "https://demo.openimis.org",
   "sectors": ["Health", "Insurance", "Finance"],
   "features": [
     "Beneficiary enrollment and management",
@@ -101,11 +87,7 @@
   "types": [
     {
       "code": "software",
-      "title": {
-        "en": "Software",
-        "fr": "Logiciel",
-        "es": "Software"
-      }
+      "title": "Software"
     }
   ],
   "tags": ["Health Insurance", "Claims", "Healthcare Financing"],
