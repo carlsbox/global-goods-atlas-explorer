@@ -1,0 +1,57 @@
+
+[
+    {
+      "code": "software",
+      "title": { "en": "Software", "fr": "Logiciel", "es": "Software" },
+      "description": {
+        "en": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings.",
+        "fr": "Un outil logiciel libre et open-source conçu pour gérer, analyser ou transmettre des données liées à la santé, avec une utilité prouvée dans plusieurs contextes.",
+        "es": "Una herramienta de software libre y de código abierto diseñada para gestionar, analizar o transmitir datos relacionados con la salud, con utilidad probada en múltiples contextos."
+      }
+    },
+    {
+      "code": "content",
+      "title": { "en": "Content", "fr": "Contenu", "es": "Contenido" },
+      "description": {
+        "en": "A resource, toolkit, or data standard available under an open license, used to improve or analyze health data management processes.",
+        "fr": "Une ressource, une boîte à outils ou une norme de données disponible sous une licence ouverte, utilisée pour améliorer ou analyser les processus de gestion des données de santé.",
+        "es": "Un recurso, conjunto de herramientas o estándar de datos disponible bajo una licencia abierta, utilizado para mejorar o analizar los procesos de gestión de datos de salud."
+      }
+    },
+    {
+      "code": "service",
+      "title": { "en": "Service", "fr": "Service", "es": "Servicio" },
+      "description": {
+        "en": "A software-as-a-service tool used to manage, transmit, or analyze health-related data, freely accessible and adhering to open data principles.",
+        "fr": "Un outil de type logiciel en tant que service utilisé pour gérer, transmettre ou analyser des données de santé, librement accessible et conforme aux principes des données ouvertes.",
+        "es": "Una herramienta de software como servicio utilizada para gestionar, transmitir o analizar datos relacionados con la salud, de acceso libre y que cumple con los principios de datos abiertos."
+      }
+    },
+    {
+      "code": "climate",
+      "title": { "en": "Climate Data Product", "fr": "Produit de données climatiques", "es": "Producto de datos climáticos" },
+      "description": {
+        "en": "Open data sets or platforms providing analysis-ready, global, geospatial data reporting about the presence of population and human settlements.",
+        "fr": "Jeux de données ou plateformes ouvertes fournissant des données géospatiales globales prêtes à l'analyse sur la présence de populations et d'établissements humains.",
+        "es": "Conjuntos de datos abiertos o plataformas que proporcionan datos geoespaciales globales listos para el análisis sobre la presencia de población y asentamientos humanos."
+      }
+    },
+    {
+      "code": "data",
+      "title": { "en": "Data", "fr": "Données", "es": "Datos" },
+      "description": {
+        "en": "Open data collections that are accessible, reusable, and adhere to privacy and other applicable laws and best practices, contributing to the attainment of the Sustainable Development Goals (SDGs).",
+        "fr": "Ensembles de données ouvertes accessibles, réutilisables et conformes aux lois sur la confidentialité et aux meilleures pratiques applicables, contribuant à l'atteinte des Objectifs de développement durable (ODD).",
+        "es": "Colecciones de datos abiertos que son accesibles, reutilizables y cumplen con las leyes de privacidad y otras normas aplicables, contribuyendo al logro de los Objetivos de Desarrollo Sostenible (ODS)."
+      }
+    },
+    {
+      "code": "ai",
+      "title": { "en": "AI", "fr": "IA", "es": "IA" },
+      "description": {
+        "en": "Open artificial intelligence models that adhere to privacy and other applicable laws and best practices, designed to do no harm and help attain the SDGs.",
+        "fr": "Modèles d'intelligence artificielle ouverts conformes aux lois sur la confidentialité et aux meilleures pratiques applicables, conçus pour ne pas nuire et contribuer à l'atteinte des ODD.",
+        "es": "Modelos de inteligencia artificial abiertos que cumplen con las leyes de privacidad y otras normas aplicables, diseñados para no causar daño y ayudar a alcanzar los ODS."
+      }
+    }
+]
