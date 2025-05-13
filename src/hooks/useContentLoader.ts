@@ -15,25 +15,25 @@ export function useContentLoader(contentPath: string) {
         
         // Handle different content paths with direct imports instead of dynamic paths
         if (contentPath === 'pages/home') {
-          const data = await import('@/data/pages/home.json');
+          const data = await import('../content/pages/home.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/navigation') {
-          const data = await import('@/data/pages/navigation.json');
+          const data = await import('../content/pages/navigation.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/about') {
-          const data = await import('@/data/pages/about.json');
+          const data = await import('../content/pages/about.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/contact') {
-          const data = await import('@/data/pages/contact.json');
+          const data = await import('../content/pages/contact.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/cookie') {
-          const data = await import('@/data/pages/cookie.json');
+          const data = await import('../content/pages/cookie.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/privacy') {
-          const data = await import('@/data/pages/privacy.json');
+          const data = await import('../content/pages/privacy.json');
           setContent((data as any).default[language]);
         } else if (contentPath === 'pages/terms') {
-          const data = await import('@/data/pages/terms.json');
+          const data = await import('../content/pages/terms.json');
           setContent((data as any).default[language]);
         } else {
           throw new Error(`Content path not supported: ${contentPath}`);
