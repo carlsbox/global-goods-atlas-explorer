@@ -18,11 +18,11 @@ import { useI18n } from "@/hooks/useI18n";
 export default function GlobalGoodDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const { data: globalGood, isLoading, error, refetch } = useGlobalGood(id);
-  const { t } = useI18n();
+  const { tPage } = useI18n();
 
   // Handle loading state
   if (isLoading) {
-    return <LoadingState message={t('globalGoods.loading')} />;
+    return <LoadingState message={tPage('loading', 'globalGoodDetails')} />;
   }
 
   // Handle error state
@@ -39,7 +39,7 @@ export default function GlobalGoodDetailsPage() {
           className="text-muted-foreground hover:text-primary flex items-center"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          {t('navigation.backToGlobalGoods')}
+          {tPage('backToGlobalGoods', 'globalGoodDetails')}
         </Link>
       </div>
       
@@ -52,10 +52,10 @@ export default function GlobalGoodDetailsPage() {
         <div className="md:col-span-2">
           <Tabs defaultValue="overview">
             <TabsList>
-              <TabsTrigger value="overview">{t('globalGoods.tabs.overview')}</TabsTrigger>
-              <TabsTrigger value="technical">{t('globalGoods.tabs.technical')}</TabsTrigger>
-              <TabsTrigger value="standards">{t('globalGoods.tabs.standards')}</TabsTrigger>
-              <TabsTrigger value="use-cases">{t('globalGoods.tabs.useCases')}</TabsTrigger>
+              <TabsTrigger value="overview">{tPage('tabs.overview', 'globalGoodDetails')}</TabsTrigger>
+              <TabsTrigger value="technical">{tPage('tabs.technical', 'globalGoodDetails')}</TabsTrigger>
+              <TabsTrigger value="standards">{tPage('tabs.standards', 'globalGoodDetails')}</TabsTrigger>
+              <TabsTrigger value="use-cases">{tPage('tabs.useCases', 'globalGoodDetails')}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="mt-4">

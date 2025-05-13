@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useI18n } from "@/hooks/useI18n";
 import { toast } from "@/components/ui/use-toast";
-import { LanguageCode } from "@/i18n/types";
+import { LanguageCode } from "@/lib/types";
 
 const languages = [
   { code: 'en' as LanguageCode, name: 'English' },
@@ -18,19 +18,19 @@ const languages = [
 ];
 
 export default function LanguageSelector() {
-  const { language, changeLanguage } = useI18n();
+  const { language, changeLanguage, t } = useI18n();
 
   const handleLanguageChange = (langCode: LanguageCode) => {
     changeLanguage(langCode);
     toast({
-      description: `Language changed to ${languages.find(lang => lang.code === langCode)?.name}`
+      description: t("common.languageChanged", { language: languages.find(lang => lang.code === langCode)?.name })
     });
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="h-9 flex items-center gap-1" aria-label="Select language">
+        <Button variant="ghost" size="sm" className="h-9 flex items-center gap-1" aria-label={t("common.selectLanguage")}>
           <Globe className="h-4 w-4" />
           <span className="uppercase text-xs font-medium">{language}</span>
         </Button>

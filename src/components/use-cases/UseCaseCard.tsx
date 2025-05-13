@@ -10,6 +10,7 @@ import {
   CalendarIcon,
   ArrowRight 
 } from "lucide-react";
+import { useI18n } from "@/hooks/useI18n";
 
 interface UseCaseCardProps {
   useCase: UseCase;
@@ -17,11 +18,13 @@ interface UseCaseCardProps {
 }
 
 export function UseCaseCard({ useCase, globalGoods }: UseCaseCardProps) {
+  const { getText } = useI18n();
+  
   // Get global good names for display
   const usedGoodsNames = useCase.globalGoods
     .map(goodId => {
       const good = globalGoods.find(g => g.id === goodId);
-      return good ? good.name : null;
+      return good ? getText(good.name) : null;
     })
     .filter(Boolean);
 
@@ -61,8 +64,8 @@ export function UseCaseCard({ useCase, globalGoods }: UseCaseCardProps) {
           <div className="mb-4">
             <h4 className="text-sm font-medium mb-2">Global Goods Used:</h4>
             <div className="flex flex-wrap gap-1">
-              {usedGoodsNames.map((name) => (
-                <Badge key={name} className="text-xs">
+              {usedGoodsNames.map((name, index) => (
+                <Badge key={index} className="text-xs">
                   {name}
                 </Badge>
               ))}

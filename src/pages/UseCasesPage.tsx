@@ -14,7 +14,7 @@ export default function UseCasesPage() {
 
   const { data: useCases = [], isLoading: useCasesLoading } = useUseCases();
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
-  const { getText } = useI18n();
+  const { getText, tPage } = useI18n();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -66,9 +66,9 @@ export default function UseCasesPage() {
   return (
     <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
-        <h1 className="mb-6">Use Cases</h1>
+        <h1 className="mb-6">{tPage("title", "useCases")}</h1>
         <p className="text-xl text-muted-foreground">
-          Explore real-world implementations and success stories of digital global goods.
+          {tPage("description", "useCases")}
         </p>
       </div>
       
@@ -93,13 +93,13 @@ export default function UseCasesPage() {
 
       {useCasesLoading || globalGoodsLoading ? (
         <div className="text-center my-12">
-          <p>Loading use cases...</p>
+          <p>{tPage("loading", "useCases")}</p>
         </div>
       ) : (
         <>
           <div className="mb-4">
             <p className="text-muted-foreground">
-              Showing {filteredUseCases.length} of {useCases.length} use cases
+              {tPage("showing", "useCases", { filtered: filteredUseCases.length, total: useCases.length })}
             </p>
           </div>
           

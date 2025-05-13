@@ -1,22 +1,25 @@
 
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/hooks/useI18n";
 
 interface UseCasesNoResultsProps {
   onClearFilters: () => void;
 }
 
 export function UseCasesNoResults({ onClearFilters }: UseCasesNoResultsProps) {
+  const { tPage } = useI18n();
+  
   return (
     <div className="text-center my-12 p-8 bg-muted rounded-lg">
-      <h3 className="text-xl font-semibold mb-2">No use cases found</h3>
+      <h3 className="text-xl font-semibold mb-2">{tPage("noResults.title", "useCases")}</h3>
       <p className="text-muted-foreground mb-4">
-        Try adjusting your search criteria or clear filters.
+        {tPage("noResults.description", "useCases")}
       </p>
       <Button 
         variant="outline" 
         onClick={onClearFilters}
       >
-        Clear All Filters
+        {tPage("noResults.button", "useCases")}
       </Button>
     </div>
   );

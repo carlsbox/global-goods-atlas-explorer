@@ -11,6 +11,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useI18n } from "@/hooks/useI18n";
+import { GlobalGood } from "@/lib/types";
 
 interface UseCasesFilterBarProps {
   sectors: string[];
@@ -35,6 +37,8 @@ export function UseCasesFilterBar({
   setGlobalGoodFilter,
   onClearAllFilters
 }: UseCasesFilterBarProps) {
+  const { tPage, getText } = useI18n();
+  
   return (
     <div className="bg-card shadow-sm rounded-lg p-4 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -70,7 +74,7 @@ export function UseCasesFilterBar({
             <SelectItem value="all">All Global Goods</SelectItem>
             {globalGoods.map(good => (
               <SelectItem key={good.id} value={good.id}>
-                {good.name}
+                {getText(good.name)}
               </SelectItem>
             ))}
           </SelectContent>

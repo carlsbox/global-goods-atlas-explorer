@@ -13,7 +13,7 @@ export default function GlobalGoodsPage() {
   const { data: globalGoods = [], isLoading, error, refetch } = useGlobalGoods();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
-  const { getText, t } = useI18n();
+  const { getText, tPage } = useI18n();
   
   // Extract unique sectors for filter
   const sectors = Array.from(
@@ -42,7 +42,7 @@ export default function GlobalGoodsPage() {
   };
 
   if (isLoading) {
-    return <LoadingState message={t('globalGoods.loadingCatalog')} />;
+    return <LoadingState message={tPage('loadingCatalog', 'globalGoods')} />;
   }
 
   if (error) {
@@ -52,9 +52,9 @@ export default function GlobalGoodsPage() {
   return (
     <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
-        <h1 className="mb-6">{t('globalGoods.catalogTitle')}</h1>
+        <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
         <p className="text-xl text-muted-foreground">
-          {t('globalGoods.catalogDescription')}
+          {tPage('catalogDescription', 'globalGoods')}
         </p>
       </div>
       
@@ -68,7 +68,7 @@ export default function GlobalGoodsPage() {
 
       <div className="mb-4">
         <p className="text-muted-foreground">
-          {t('globalGoods.showing', { 
+          {tPage('showing', 'globalGoods', { 
             filtered: filteredGoods.length, 
             total: globalGoods.length 
           })}
