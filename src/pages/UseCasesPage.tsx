@@ -55,8 +55,12 @@ export default function UseCasesPage() {
   };
 
   // Get global good name for display - using getText to handle multilingual names
-  const selectedGoodName = globalGoodFilter && globalGoodFilter !== "all"
-    ? getText(globalGoods.find(g => g.id === globalGoodFilter)?.name) || "Unknown Global Good"
+  const selectedGood = globalGoodFilter !== "all" 
+    ? globalGoods.find(g => g.id === globalGoodFilter) 
+    : null;
+  
+  const selectedGoodName = selectedGood 
+    ? getText(selectedGood.name) 
     : "";
 
   return (

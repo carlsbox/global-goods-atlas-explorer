@@ -4,14 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { toast } from "@/components/ui/use-toast";
-import { useMultilingualText } from "@/lib/textUtils";
+import { useI18n } from "@/hooks/useI18n";
 
 interface UseCasesTabProps {
   globalGood: GlobalGood;
 }
 
 export function UseCasesTab({ globalGood }: UseCasesTabProps) {
-  const { getText } = useMultilingualText();
+  const { getText } = useI18n();
   const goodName = getText(globalGood.name);
 
   return (
