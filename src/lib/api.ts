@@ -59,12 +59,14 @@ export const useUseCase = (id: string | undefined) => {
   });
 };
 
-// Fetch countries data
+// Updated to use language for countries data
 export const useCountries = () => {
+  const { language } = useLanguage();
+  
   return useQuery({
-    queryKey: ['countries'],
+    queryKey: ['countries', language],
     queryFn: async (): Promise<CountryData[]> => {
-      return loadCountriesData();
+      return loadCountriesData(language);
     }
   });
 };

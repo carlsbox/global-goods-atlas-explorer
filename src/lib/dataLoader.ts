@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useState } from 'react';
-import { Classification, ClassificationTranslations, GlobalGood, UseCase } from './types';
+import { Classification, ClassificationTranslations, CountryData, CountryTranslations, GlobalGood, UseCase } from './types';
 import { loadWithTranslations, mergeWithTranslations } from './translationUtils';
 import { LanguageType } from '@/contexts/LanguageContext';
 import { toast } from '@/hooks/use-toast';
@@ -147,12 +147,35 @@ export async function loadAllUseCases(): Promise<UseCase[]> {
   }
 }
 
-// Function to load countries data
-export async function loadCountriesData() {
+// Updated function to load countries data with translations
+export async function loadCountriesData(language: LanguageType = 'en') {
   try {
-    const data = await import('../data/countries/countries.json');
-    // Make sure we return the array of countries, not the object with a countries property
-    return (data as any).default.countries;
+    // Load base country data
+    const baseData = await import('../data/countries/countries.json');
+    const countries: CountryData[] = (baseData as any).default.countries;
+    
+    // Try to load translations if not English
+    if (language !== 'en') {
+      try {
+        const translationsModule = await import(`../data/countries/translations/${language}.json`);
+        const translations: CountryTranslations = translationsModule.default;
+        
+        // Apply translations to country names
+        return countries.map(country => {
+          if (translations[country.code]?.name) {
+            return {
+              ...country,
+              name: translations[country.code].name
+            };
+          }
+          return country;
+        });
+      } catch (e) {
+        console.warn(`No translations found for countries in language: ${language}`);
+      }
+    }
+    
+    return countries;
   } catch (err) {
     console.error('Failed to load countries data', err);
     return [];

@@ -1,17 +1,31 @@
 
-import { GlobalGood } from "@/lib/types";
+import { GlobalGood, CountryData } from "@/lib/types";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { useCountries } from "@/lib/api";
 
 interface DeploymentLocationsProps {
   globalGood: GlobalGood;
 }
 
 export function DeploymentLocations({ globalGood }: DeploymentLocationsProps) {
+  const { data: countries = [] } = useCountries();
+  
+  // Create a map of country codes to country objects for quick lookups
+  const countryMap = countries.reduce((map: Record<string, CountryData>, country) => {
+    map[country.code] = country;
+    return map;
+  }, {});
+  
+  // Get the country objects for all countries in the global good
+  const deploymentCountries = globalGood.countries
+    ?.map(code => countryMap[code])
+    .filter(Boolean) || [];
+
   return (
     <Card>
       <CardHeader>
@@ -21,12 +35,12 @@ export function DeploymentLocations({ globalGood }: DeploymentLocationsProps) {
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
-        {globalGood.countries && globalGood.countries.length > 0 ? (
+        {deploymentCountries.length > 0 ? (
           <>
             <div className="flex flex-wrap gap-1">
-              {globalGood.countries.map((country) => (
-                <Badge key={country} variant="outline">
-                  {country}
+              {deploymentCountries.map((country) => (
+                <Badge key={country.code} variant="outline">
+                  {country.name}
                 </Badge>
               ))}
             </div>
@@ -37,12 +51,12 @@ export function DeploymentLocations({ globalGood }: DeploymentLocationsProps) {
               className="w-full"
               onClick={() => {
                 toast({
-                  title: "Coming Soon",
-                  description: "The map view is under development"
+                  title: "Map View Available",
+                  description: "Redirecting to the map visualization"
                 });
               }}
             >
-              <Link to="/map">
+              <Link to={`/map?highlight=${globalGood.id}`}>
                 <MapPin className="mr-2 h-4 w-4" />
                 View on Map
               </Link>

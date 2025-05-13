@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalGoods, useCountries } from "@/lib/api";
@@ -6,20 +7,26 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
-import { GlobalGood } from "@/lib/types";
+import { GlobalGood, CountryData } from "@/lib/types";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-// In a real implementation, we'd use Mapbox, Leaflet, or another mapping library
-// For this prototype, we'll create a simplified map visualization
 export default function MapPage() {
   const [searchParams] = useSearchParams();
   const highlightParam = searchParams.get("highlight");
+  const { language } = useLanguage();
   
   const { data: globalGoods = [] } = useGlobalGoods();
   const { data: countries = [] } = useCountries();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGood, setSelectedGood] = useState<GlobalGood | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
+  
+  // Map of country codes to country objects for quick lookups
+  const countryMap = countries.reduce((map: Record<string, CountryData>, country) => {
+    map[country.code] = country;
+    return map;
+  }, {});
   
   // Filter global goods based on search
   const filteredGoods = globalGoods.filter(good => 
@@ -38,17 +45,22 @@ export default function MapPage() {
   
   // Get countries for the selected global good
   const selectedGoodCountries = selectedGood
-    ? countries.filter(country => 
-        selectedGood.countries.includes(country.name)
-      )
+    ? selectedGood.countries
+        .map(code => countryMap[code])
+        .filter(Boolean)
     : [];
     
   // Get global goods for the selected country
-  const selectedCountryGoods = selectedCountry
+  const selectedCountryGoods = selectedCountryCode
     ? globalGoods.filter(good => 
-        good.countries && good.countries.includes(selectedCountry)
+        good.countries && good.countries.includes(selectedCountryCode)
       )
     : [];
+
+  // Get selected country name
+  const selectedCountryName = selectedCountryCode 
+    ? countryMap[selectedCountryCode]?.name 
+    : null;
 
   return (
     <div className="grid grid-cols-12 gap-0 h-[calc(100vh-8rem)]">
@@ -82,7 +94,7 @@ export default function MapPage() {
               className="w-full justify-start text-left font-normal"
               onClick={() => {
                 setSelectedGood(selectedGood?.id === good.id ? null : good);
-                setSelectedCountry(null);
+                setSelectedCountryCode(null);
               }}
             >
               {good.name}
@@ -101,8 +113,8 @@ export default function MapPage() {
           <p className="text-muted-foreground">
             {selectedGood
               ? `Showing countries using ${selectedGood.name}`
-              : selectedCountry
-                ? `Showing global goods used in ${selectedCountry}`
+              : selectedCountryName
+                ? `Showing global goods used in ${selectedCountryName}`
                 : "Select a global good or country to view its distribution"
             }
           </p>
@@ -138,7 +150,7 @@ export default function MapPage() {
               variant="outline"
               size="sm"
               className="text-xs"
-              onClick={() => setSelectedCountry(country.name)}
+              onClick={() => setSelectedCountryCode(country.code)}
             >
               {country.name}
             </Button>
@@ -171,15 +183,15 @@ export default function MapPage() {
               <div className="mb-6">
                 {selectedGood.countries && selectedGood.countries.length > 0 ? (
                   <div className="grid grid-cols-2 gap-2">
-                    {selectedGood.countries.map(country => (
+                    {selectedGoodCountries.map(country => (
                       <Button
-                        key={country}
-                        variant={selectedCountry === country ? "default" : "outline"}
+                        key={country.code}
+                        variant={selectedCountryCode === country.code ? "default" : "outline"}
                         size="sm"
                         className="text-xs justify-start"
-                        onClick={() => setSelectedCountry(selectedCountry === country ? null : country)}
+                        onClick={() => setSelectedCountryCode(selectedCountryCode === country.code ? null : country.code)}
                       >
-                        {country}
+                        {country.name}
                       </Button>
                     ))}
                   </div>
@@ -197,10 +209,10 @@ export default function MapPage() {
               </div>
             </CardContent>
           </Card>
-        ) : selectedCountry ? (
+        ) : selectedCountryCode ? (
           <Card className="border-0 shadow-none rounded-none h-full">
             <CardHeader>
-              <CardTitle>{selectedCountry}</CardTitle>
+              <CardTitle>{selectedCountryName}</CardTitle>
             </CardHeader>
             <CardContent>
               <h3 className="font-semibold mb-2">Global Goods Used</h3>

@@ -1,4 +1,3 @@
-
 export interface GlobalGood {
   id: string;
   name: string;
@@ -6,7 +5,7 @@ export interface GlobalGood {
   website?: string;
   github?: string;
   sector: string[];
-  countries: string[];
+  countries: string[]; // Will now store country codes instead of names
   technologies: string[];
   implementers?: string[];
   supporters?: string[];
@@ -54,12 +53,17 @@ export interface UseCase {
 }
 
 export interface CountryData {
-  code: string;
-  name: string;
-  region: string;
-  lat: number;
-  lng: number;
-  globalGoods: string[];
+  code: string;        // ISO code (e.g., "KE" for Kenya)
+  name: string;        // Default name (usually English)
+  region: string;      // Geographic region
+  lat: number;         // Latitude coordinate
+  lng: number;         // Longitude coordinate
+  globalGoods: string[]; // Array of global good IDs
+  translations?: {     // Added translations support
+    [lang: string]: {
+      name: string;    // Translated country name
+    };
+  };
 }
 
 export interface Classification {
@@ -79,5 +83,12 @@ export interface ClassificationTranslations {
   };
   authority_names?: {
     [code: string]: string;
+  };
+}
+
+// New interface for country translations
+export interface CountryTranslations {
+  [code: string]: {
+    name: string;
   };
 }
