@@ -1,11 +1,10 @@
 
 import { Link } from "react-router-dom";
-import { useContentLoader } from "@/hooks/useContentLoader";
+import { useI18n } from "@/hooks/useI18n";
 import { getSiteName } from "@/lib/config";
 
 export function Footer() {
-  // Update content path
-  const { content } = useContentLoader('navigation');
+  const { tPage } = useI18n();
   const siteName = getSiteName();
   
   const year = new Date().getFullYear();
@@ -25,10 +24,10 @@ export function Footer() {
           
           <div className="flex flex-wrap justify-center gap-6">
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary">
-              {content ? content['nav.privacy'] : 'Privacy Policy'}
+              {tPage('nav.privacy', 'navigation')}
             </Link>
             <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary">
-              {content ? content['nav.terms'] : 'Terms of Service'}
+              {tPage('nav.terms', 'navigation')}
             </Link>
           </div>
         </div>

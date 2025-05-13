@@ -59,6 +59,21 @@ import contactEN from './locales/en/pages/contact.json';
 import contactFR from './locales/fr/pages/contact.json';
 import contactES from './locales/es/pages/contact.json';
 
+// Import Privacy Policy page translations
+import privacyEN from './locales/en/pages/privacy.json';
+import privacyFR from './locales/fr/pages/privacy.json';
+import privacyES from './locales/es/pages/privacy.json';
+
+// Import Terms of Service page translations
+import termsEN from './locales/en/pages/terms.json';
+import termsFR from './locales/fr/pages/terms.json';
+import termsES from './locales/es/pages/terms.json';
+
+// Import Navigation translations
+import navigationEN from './locales/en/pages/navigation.json';
+import navigationFR from './locales/fr/pages/navigation.json';
+import navigationES from './locales/es/pages/navigation.json';
+
 // Define the resources structure with namespaces
 const resources = {
   en: {
@@ -72,7 +87,10 @@ const resources = {
     map: mapEN,
     admin: adminEN,
     cookie: cookieEN,
-    contact: contactEN
+    contact: contactEN,
+    privacy: privacyEN,
+    terms: termsEN,
+    navigation: navigationEN
   },
   fr: {
     translation: translationFR,
@@ -85,7 +103,10 @@ const resources = {
     map: mapFR,
     admin: adminFR,
     cookie: cookieFR,
-    contact: contactFR
+    contact: contactFR,
+    privacy: privacyFR,
+    terms: termsFR,
+    navigation: navigationFR
   },
   es: {
     translation: translationES,
@@ -98,7 +119,10 @@ const resources = {
     map: mapES,
     admin: adminES,
     cookie: cookieES,
-    contact: contactES
+    contact: contactES,
+    privacy: privacyES,
+    terms: termsES,
+    navigation: navigationES
   }
 };
 
@@ -113,7 +137,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie', 'contact'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie', 'contact', 'privacy', 'terms', 'navigation'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss

@@ -1,0 +1,71 @@
+
+{
+  "title": "Conditions d'Utilisation",
+  "updatedDate": "Dernière mise à jour : 13 avril 2025",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Bienvenue sur Global Goods Atlas. Ces Conditions d'Utilisation régissent votre utilisation de notre site Web situé à globalgoodsatlas.org et constituent un accord juridique contraignant entre vous et Global Goods Atlas."
+  },
+  "acceptance": {
+    "title": "Acceptation des Conditions",
+    "content": "En accédant ou en utilisant le Service, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord avec une partie des conditions, vous ne pouvez pas accéder au Service."
+  },
+  "changes": {
+    "title": "Modifications des Conditions",
+    "content": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Nous vous informerons de tout changement en publiant les nouvelles Conditions sur cette page. Votre utilisation continue du Service après de tels changements constitue votre acceptation des nouvelles Conditions."
+  },
+  "access": {
+    "title": "Accès au Service",
+    "content": "Nous nous réservons le droit de retirer ou de modifier notre Service, et tout service ou matériel que nous fournissons via le Service, à notre seule discrétion sans préavis. Nous ne serons pas responsables si, pour une raison quelconque, tout ou partie du Service est indisponible à tout moment ou pour toute période."
+  },
+  "accountTerms": {
+    "title": "Conditions du Compte",
+    "rules": [
+      "Vous devez avoir 18 ans ou plus pour utiliser ce Service",
+      "Vous devez fournir des informations précises, actuelles et complètes lors de l'inscription",
+      "Vous êtes responsable du maintien de la sécurité de votre compte",
+      "Vous êtes responsable de toutes les activités qui se produisent sous votre compte",
+      "Vous devez nous informer immédiatement de toute utilisation non autorisée de votre compte"
+    ]
+  },
+  "intellectualProperty": {
+    "title": "Propriété Intellectuelle",
+    "content": "Le Service et son contenu original, ses fonctionnalités et ses fonctions sont et resteront la propriété exclusive de Global Goods Atlas et de ses concédants. Le Service est protégé par le droit d'auteur, les marques de commerce et d'autres lois des États-Unis et des pays étrangers. Nos marques de commerce et notre habillage commercial ne peuvent pas être utilisés en relation avec un produit ou un service sans le consentement écrit préalable de Global Goods Atlas."
+  },
+  "userContent": {
+    "title": "Contenu de l'Utilisateur",
+    "content": "Lorsque vous téléchargez, soumettez, stockez, envoyez ou recevez du contenu vers ou via notre Service, vous accordez à Global Goods Atlas une licence mondiale pour utiliser, héberger, stocker, reproduire, modifier, créer des œuvres dérivées, communiquer, publier, exécuter publiquement, afficher publiquement et distribuer ce contenu.",
+    "restrictions": {
+      "title": "Restrictions de Contenu",
+      "items": [
+        "Le contenu ne doit pas être illégal, nuisible, menaçant, abusif, harcelant, diffamatoire ou invasif de la vie privée",
+        "Le contenu ne doit pas enfreindre un brevet, une marque de commerce, un secret commercial, des droits d'auteur ou d'autres droits de propriété intellectuelle",
+        "Le contenu ne doit pas être faux, trompeur ou conçu pour exploiter ou nuire à d'autres",
+        "Le contenu ne doit pas interférer avec ou perturber le Service ou les serveurs",
+        "Le contenu ne doit pas contenir de virus, logiciels malveillants ou autres codes nuisibles"
+      ]
+    }
+  },
+  "links": {
+    "title": "Liens Vers D'autres Sites Web",
+    "content": "Notre Service peut contenir des liens vers des sites Web ou des services tiers qui ne sont pas détenus ou contrôlés par Global Goods Atlas. Nous n'avons aucun contrôle sur, et n'assumons aucune responsabilité pour, le contenu, les politiques de confidentialité ou les pratiques de tout site Web ou service tiers."
+  },
+  "termination": {
+    "title": "Résiliation",
+    "content": "Nous pouvons résilier ou suspendre votre compte immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans limitation, si vous enfreignez les Conditions. À la résiliation, votre droit d'utiliser le Service cessera immédiatement."
+  },
+  "governing": {
+    "title": "Loi Applicable",
+    "content": "Ces Conditions seront régies et interprétées conformément aux lois des États-Unis, sans égard à ses dispositions en matière de conflit de lois. Notre incapacité à faire respecter tout droit ou disposition de ces Conditions ne sera pas considérée comme une renonciation à ces droits."
+  },
+  "disclaimer": {
+    "title": "Avertissement",
+    "content": "Votre utilisation du Service est à vos seuls risques. Le Service est fourni sur une base \"TEL QUEL\" et \"TEL QUE DISPONIBLE\". Le Service est fourni sans garanties d'aucune sorte, qu'elles soient expresses ou implicites."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "content": "Si vous avez des questions concernant ces Conditions, veuillez nous contacter à :",
+    "email": "terms@globalgoodsatlas.org",
+    "address": "Global Goods Atlas\n123 Impact Drive\nSan Francisco, CA 94103\nÉtats-Unis"
+  }
+}

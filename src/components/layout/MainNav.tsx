@@ -15,7 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import LanguageSelector from '@/components/LanguageSelector';
-import { useContentLoader } from '@/hooks/useContentLoader';
+import { useI18n } from '@/hooks/useI18n';
 import { getSiteName } from '@/lib/config';
 
 const navItems = [
@@ -29,7 +29,7 @@ const navItems = [
 
 export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const { content, isLoading } = useContentLoader('navigation');
+  const { tPage } = useI18n();
   const siteName = getSiteName();
   
   return (
@@ -52,7 +52,7 @@ export function MainNav() {
                 isActive ? "text-primary font-semibold" : "text-muted-foreground"
               )}
             >
-              {!isLoading && content ? content[item.translationKey] : item.name}
+              {tPage(item.translationKey, 'navigation')}
             </NavLink>
           ))}
           
@@ -65,7 +65,7 @@ export function MainNav() {
             )}
           >
             <UserCog className="h-4 w-4" />
-            <span>Admin</span>
+            <span>{tPage('nav.admin', 'navigation')}</span>
           </NavLink>
         </nav>
         
@@ -97,7 +97,7 @@ export function MainNav() {
                 )}
               >
                 <item.icon className="mr-2 h-5 w-5" />
-                {!isLoading && content ? content[item.translationKey] : item.name}
+                {tPage(item.translationKey, 'navigation')}
               </NavLink>
             ))}
             
@@ -111,7 +111,7 @@ export function MainNav() {
               )}
             >
               <UserCog className="mr-2 h-5 w-5" />
-              <span>Admin</span>
+              <span>{tPage('nav.admin', 'navigation')}</span>
             </NavLink>
           </nav>
         </SheetContent>

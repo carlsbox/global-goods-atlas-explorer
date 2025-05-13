@@ -18,4 +18,5 @@ export type TranslationNamespace =
   | 'notFound' 
   | 'privacy' 
   | 'terms' 
-  | 'cookie';
+  | 'cookie'
+  | 'navigation';

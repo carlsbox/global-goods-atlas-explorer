@@ -1,0 +1,122 @@
+
+{
+  "title": "Politique de Confidentialité",
+  "updatedDate": "Dernière mise à jour : 13 avril 2025",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Chez Global Goods Atlas, nous prenons votre vie privée très au sérieux. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site Web ou utilisez nos services. Veuillez lire attentivement cette politique de confidentialité. Si vous n'êtes pas d'accord avec les termes de cette politique de confidentialité, veuillez ne pas accéder au site."
+  },
+  "dataCollection": {
+    "title": "Informations que nous collectons",
+    "content": "Nous collectons les informations que vous nous fournissez directement lorsque vous créez un compte, modifiez votre profil, vous inscrivez à notre newsletter ou communiquez avec nous.",
+    "categories": [
+      {
+        "title": "Informations personnelles",
+        "items": [
+          "Nom",
+          "Adresse e-mail",
+          "Organisation",
+          "Pays"
+        ]
+      },
+      {
+        "title": "Données d'utilisation",
+        "items": [
+          "Adresse IP",
+          "Type de navigateur",
+          "Pages visitées",
+          "Temps passé sur les pages",
+          "Site web de référence"
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Utilisation des cookies",
+    "content": "Notre site Web utilise des cookies pour améliorer votre expérience et collecter des informations sur les visiteurs et les visites sur notre site Web. Nous expliquons comment nous utilisons les cookies et technologies similaires dans notre Politique de cookies.",
+    "types": [
+      {
+        "name": "Cookies essentiels",
+        "description": "Nécessaires au bon fonctionnement du site web."
+      },
+      {
+        "name": "Cookies analytiques",
+        "description": "Nous aident à comprendre comment les visiteurs interagissent avec notre site web."
+      },
+      {
+        "name": "Cookies de préférence", 
+        "description": "Permettent au site web de se souvenir des informations qui modifient son comportement ou son apparence."
+      }
+    ]
+  },
+  "dataUse": {
+    "title": "Comment nous utilisons vos informations",
+    "purposes": [
+      "Pour fournir et maintenir notre Service",
+      "Pour vous informer des changements apportés à notre Service",
+      "Pour vous permettre de participer aux fonctionnalités interactives de notre Service",
+      "Pour fournir un service client",
+      "Pour recueillir des analyses ou des informations précieuses afin d'améliorer notre Service",
+      "Pour surveiller l'utilisation de notre Service",
+      "Pour détecter, prévenir et résoudre les problèmes techniques"
+    ]
+  },
+  "dataSharing": {
+    "title": "Partage de vos informations",
+    "content": "Nous ne vendons, n'échangeons ni ne louons les informations d'identification personnelle des utilisateurs à des tiers. Nous pouvons partager des informations démographiques agrégées génériques non liées à des informations d'identification personnelle concernant les visiteurs et les utilisateurs avec nos partenaires commerciaux, affiliés de confiance et annonceurs.",
+    "thirdParties": [
+      {
+        "name": "Prestataires de services",
+        "purpose": "Pour effectuer des services en notre nom, tels que l'hébergement, l'analyse de données et le service client"
+      },
+      {
+        "name": "Partenaires de recherche",
+        "purpose": "À des fins d'analyse de données anonymisées et de recherche"
+      },
+      {
+        "name": "Exigences légales",
+        "purpose": "Pour se conformer à la loi applicable, à la réglementation, au processus juridique ou à la demande gouvernementale"
+      }
+    ]
+  },
+  "security": {
+    "title": "Sécurité des données",
+    "content": "Nous avons mis en œuvre des mesures de sécurité techniques et organisationnelles appropriées conçues pour protéger la sécurité de toutes les informations personnelles que nous traitons. Cependant, n'oubliez pas que nous ne pouvons pas garantir que l'internet lui-même est sécurisé à 100 %."
+  },
+  "userRights": {
+    "title": "Vos droits",
+    "rights": [
+      {
+        "name": "Accès",
+        "description": "Vous avez le droit de demander des copies de vos données personnelles."
+      },
+      {
+        "name": "Rectification",
+        "description": "Vous avez le droit de nous demander de corriger toute information que vous jugez inexacte."
+      },
+      {
+        "name": "Effacement",
+        "description": "Vous avez le droit de demander l'effacement de vos données personnelles, sous certaines conditions."
+      },
+      {
+        "name": "Restriction du traitement",
+        "description": "Vous avez le droit de demander que nous limitions le traitement de vos données personnelles, sous certaines conditions."
+      },
+      {
+        "name": "Opposition au traitement",
+        "description": "Vous avez le droit de vous opposer à notre traitement de vos données personnelles, sous certaines conditions."
+      },
+      {
+        "name": "Portabilité des données",
+        "description": "Vous avez le droit de demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions."
+      }
+    ],
+    "contact": "Si vous faites une demande, nous avons un mois pour vous répondre. Si vous souhaitez exercer l'un de ces droits, veuillez nous contacter."
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "content": "Si vous avez des questions ou des commentaires sur cette politique de confidentialité, veuillez nous contacter à :",
+    "email": "privacy@globalgoodsatlas.org",
+    "address": "Global Goods Atlas\n123 Impact Drive\nSan Francisco, CA 94103\nÉtats-Unis"
+  }
+}
