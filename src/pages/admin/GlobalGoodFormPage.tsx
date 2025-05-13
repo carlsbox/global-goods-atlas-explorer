@@ -1,34 +1,36 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGlobalGood, useCreateGlobalGood, useUpdateGlobalGood } from '@/lib/api';
 import { GlobalGood } from '@/lib/types';
-import { createEmptyMultilingualText, ensureMultilingualText } from '@/utils/defaultValues';
+import { ensureMultilingualText } from '@/lib/translationUtils';
 import { toast } from '@/components/ui/use-toast';
 import { useI18n } from '@/hooks/useI18n';
+import { LoadingState } from '@/components/global-good/LoadingState';
+import { ErrorState } from '@/components/global-good/ErrorState';
 
 export default function GlobalGoodFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const isEditing = Boolean(id);
-  const { getText } = useI18n();
+  const { t, language } = useI18n();
   
   // Fetch global good data if editing
-  const { data: globalGoodData, isLoading } = useGlobalGood(id);
+  const { data: globalGoodData, isLoading, error, refetch } = useGlobalGood(id);
   
   // Form state
   const [formData, setFormData] = useState<Partial<GlobalGood>>({
-    name: createEmptyMultilingualText(),
-    summary: createEmptyMultilingualText(),
-    description: createEmptyMultilingualText(),
-    details: createEmptyMultilingualText(),
+    name: { en: '', fr: '', es: '' },
+    summary: { en: '', fr: '', es: '' },
+    description: { en: '', fr: '', es: '' },
+    details: { en: '', fr: '', es: '' },
     sector: [],
     countries: [],
     technologies: [],
   });
 
   // Initialize form data from fetched data
-  React.useEffect(() => {
+  useEffect(() => {
     if (globalGoodData) {
       setFormData({
         ...globalGoodData,
@@ -53,8 +55,8 @@ export default function GlobalGoodFormPage() {
       // Ensure required fields
       if (!formData.name || !formData.description || !formData.summary || !formData.details) {
         toast({
-          title: "Validation Error",
-          description: "Please fill in all required fields",
+          title: t('forms.validationError'),
+          description: t('forms.fillAllRequired'),
           variant: "destructive"
         });
         return;
@@ -73,8 +75,8 @@ export default function GlobalGoodFormPage() {
           data: dataToSubmit
         });
         toast({
-          title: "Success",
-          description: "Global good updated successfully"
+          title: t('admin.success'),
+          description: t('admin.globalGoodUpdated')
         });
       } else {
         // Create new global good
@@ -83,8 +85,8 @@ export default function GlobalGoodFormPage() {
           id: `gg-${Date.now()}` // Generate a simple ID
         } as GlobalGood);
         toast({
-          title: "Success",
-          description: "Global good created successfully"
+          title: t('admin.success'),
+          description: t('admin.globalGoodCreated')
         });
       }
 
@@ -92,8 +94,8 @@ export default function GlobalGoodFormPage() {
       navigate('/admin/global-goods');
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to save global good",
+        title: t('admin.error'),
+        description: t('admin.failedToSave'),
         variant: "destructive"
       });
       console.error(error);
@@ -109,15 +111,19 @@ export default function GlobalGoodFormPage() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingState message={t('admin.loadingGlobalGood')} />;
+  }
+
+  if (error && isEditing) {
+    return <ErrorState onRetry={() => refetch()} />;
   }
 
   return (
     <div>
-      <h1>{isEditing ? 'Edit' : 'Create'} Global Good</h1>
+      <h1>{isEditing ? t('admin.editGlobalGood') : t('admin.createGlobalGood')}</h1>
       <form onSubmit={handleSubmit}>
         {/* Form fields would go here */}
-        <button type="submit">Save</button>
+        <button type="submit">{t('forms.save')}</button>
       </form>
     </div>
   );

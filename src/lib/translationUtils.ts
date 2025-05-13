@@ -1,4 +1,6 @@
+
 import { LanguageType } from '@/contexts/LanguageContext';
+import { MultilingualText } from '@/lib/types';
 
 /**
  * Merges base object with language-specific translations
@@ -68,4 +70,36 @@ export async function loadWithTranslations<T>(
     console.error(`Failed to load data: ${basePath}`, e);
     throw e;
   }
+}
+
+/**
+ * Creates a multilingual text object with the same value for all supported languages
+ */
+export function createMultilingualText(text: string): MultilingualText {
+  return {
+    en: text,
+    fr: text,
+    es: text
+  };
+}
+
+/**
+ * Ensures a value is a proper MultilingualText object
+ * Converts string values to MultilingualText objects
+ */
+export function ensureMultilingualText(value: string | MultilingualText | undefined): MultilingualText {
+  if (!value) {
+    return { en: '', fr: '', es: '' };
+  }
+  
+  if (typeof value === 'string') {
+    return createMultilingualText(value);
+  }
+  
+  // Ensure all languages are present
+  return {
+    en: value.en || '',
+    fr: value.fr || value.en || '',
+    es: value.es || value.en || ''
+  };
 }

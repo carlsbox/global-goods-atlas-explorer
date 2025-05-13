@@ -6,12 +6,14 @@ import { FilterBar } from "@/components/global-goods/FilterBar";
 import { GlobalGoodCard } from "@/components/global-goods/GlobalGoodCard";
 import { NoResults } from "@/components/global-goods/NoResults";
 import { useI18n } from "@/hooks/useI18n";
+import { LoadingState } from "@/components/global-good/LoadingState";
+import { ErrorState } from "@/components/global-good/ErrorState";
 
 export default function GlobalGoodsPage() {
-  const { data: globalGoods = [], isLoading, error } = useGlobalGoods();
+  const { data: globalGoods = [], isLoading, error, refetch } = useGlobalGoods();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
-  const { getText } = useI18n();
+  const { getText, t } = useI18n();
   
   // Extract unique sectors for filter
   const sectors = Array.from(
@@ -39,12 +41,20 @@ export default function GlobalGoodsPage() {
     setSectorFilter("all");
   };
 
+  if (isLoading) {
+    return <LoadingState message={t('globalGoods.loadingCatalog')} />;
+  }
+
+  if (error) {
+    return <ErrorState onRetry={() => refetch()} />;
+  }
+
   return (
     <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
-        <h1 className="mb-6">Global Goods Catalog</h1>
+        <h1 className="mb-6">{t('globalGoods.catalogTitle')}</h1>
         <p className="text-xl text-muted-foreground">
-          Browse our comprehensive collection of digital global goods making an impact across sectors and regions.
+          {t('globalGoods.catalogDescription')}
         </p>
       </div>
       
@@ -56,32 +66,23 @@ export default function GlobalGoodsPage() {
         setSectorFilter={setSectorFilter}
       />
 
-      {isLoading ? (
-        <div className="text-center my-12">
-          <p>Loading global goods catalog...</p>
-        </div>
-      ) : error ? (
-        <div className="text-center my-12">
-          <p className="text-destructive">Error loading catalog. Please try again later.</p>
-        </div>
-      ) : (
-        <>
-          <div className="mb-4">
-            <p className="text-muted-foreground">
-              Showing {filteredGoods.length} of {globalGoods.length} global goods
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredGoods.map((good) => (
-              <GlobalGoodCard key={good.id} good={good} />
-            ))}
-          </div>
-          
-          {filteredGoods.length === 0 && (
-            <NoResults onClearFilters={handleClearFilters} />
-          )}
-        </>
+      <div className="mb-4">
+        <p className="text-muted-foreground">
+          {t('globalGoods.showing', { 
+            filtered: filteredGoods.length, 
+            total: globalGoods.length 
+          })}
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredGoods.map((good) => (
+          <GlobalGoodCard key={good.id} good={good} />
+        ))}
+      </div>
+      
+      {filteredGoods.length === 0 && (
+        <NoResults onClearFilters={handleClearFilters} />
       )}
     </>
   );

@@ -2,9 +2,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useState } from 'react';
 import { Classification, ClassificationTranslations, CountryData, CountryTranslations, GlobalGood, UseCase } from './types';
-import { loadWithTranslations, mergeWithTranslations } from './translationUtils';
+import { loadWithTranslations, mergeWithTranslations, ensureMultilingualText } from './translationUtils';
 import { LanguageType } from '@/contexts/LanguageContext';
 import { toast } from '@/hooks/use-toast';
+import { convertLegacyGlobalGood } from './migrationUtils';
 
 // Import the updated useContentLoader from the hooks directory
 export { useContentLoader } from '@/hooks/useContentLoader';
@@ -54,28 +55,96 @@ export async function loadClassificationsData(language: LanguageType) {
 // Function to load global good data with translations
 export async function loadGlobalGood(id: string, language: LanguageType): Promise<GlobalGood | undefined> {
   try {
-    // First try to load from the new file structure
+    // Try to load from the standardized file structure first
     try {
-      const baseModule = await import(`../data/global-goods/${id}-new.json`);
+      // Load base data (English)
+      const baseModule = await import(`../data/global-goods/${id}.json`);
       const baseData = baseModule.default;
       
-      // Try to load translations
-      try {
-        const translationsModule = await import(`../data/global-goods/translations/${id}-new/${language}.json`);
-        const translations = translationsModule.default;
-        
-        // Merge base data with translations
-        return { ...baseData, ...translations } as GlobalGood;
-      } catch (e) {
-        // If translations not found, just return base data
-        console.warn(`Translations not found for ${id}-new in ${language}, using base data`);
-        return baseData as GlobalGood;
+      // Try to load translations if not English
+      if (language !== 'en') {
+        try {
+          const translationsModule = await import(`../data/global-goods/translations/${id}/${language}.json`);
+          const translations = translationsModule.default;
+          
+          // Create a copy of the base data
+          const result = { ...baseData };
+          
+          // Apply translations to multilingual fields
+          for (const field of ['name', 'summary', 'description', 'details']) {
+            if (translations[field]) {
+              result[field] = {
+                ...ensureMultilingualText(baseData[field]),
+                [language]: translations[field]
+              };
+            }
+          }
+          
+          // Apply translations to other fields if present
+          for (const key in translations) {
+            if (!['name', 'summary', 'description', 'details'].includes(key)) {
+              result[key] = translations[key];
+            }
+          }
+          
+          return result as GlobalGood;
+        } catch (e) {
+          // If translations not found, just return base data
+          console.warn(`Translations not found for ${id} in ${language}, using base data`);
+          
+          // Ensure multilingual fields are properly formatted
+          const result = { ...baseData };
+          ['name', 'summary', 'description', 'details'].forEach(field => {
+            result[field] = ensureMultilingualText(baseData[field]);
+          });
+          
+          return result as GlobalGood;
+        }
       }
+      
+      // For English, ensure multilingual fields are properly formatted
+      const result = { ...baseData };
+      ['name', 'summary', 'description', 'details'].forEach(field => {
+        result[field] = ensureMultilingualText(baseData[field]);
+      });
+      
+      return result as GlobalGood;
     } catch (e) {
-      // If new structure not found, try the old structure
-      console.warn(`Could not load ${id}-new.json, trying legacy format`);
-      const legacyModule = await import(`../data/global-goods/${id}.json`);
-      return legacyModule.default[language] as GlobalGood;
+      // If standard format not found, try the legacy format
+      console.warn(`Could not load ${id}.json in standard format, trying legacy format`);
+      
+      try {
+        // Try the "-new" suffix format
+        const legacyNewModule = await import(`../data/global-goods/${id}-new.json`);
+        const baseData = legacyNewModule.default;
+        
+        if (language !== 'en') {
+          try {
+            const translationsModule = await import(`../data/global-goods/translations/${id}-new/${language}.json`);
+            const translations = translationsModule.default;
+            
+            return { ...baseData, ...translations } as GlobalGood;
+          } catch (e) {
+            // If translations not found, just return base data
+            console.warn(`Translations not found for ${id}-new in ${language}, using base data`);
+            return baseData as GlobalGood;
+          }
+        }
+        
+        return baseData as GlobalGood;
+      } catch (e) {
+        // If new-legacy format not found, try the very old format
+        console.warn(`Could not load ${id}-new.json, trying very legacy format`);
+        const veryLegacyModule = await import(`../data/global-goods/${id}.json`);
+        
+        if (veryLegacyModule.default[language]) {
+          // Old format with languages as keys
+          return convertLegacyGlobalGood(veryLegacyModule.default[language]) as GlobalGood;
+        } else {
+          // Fallback to English
+          return convertLegacyGlobalGood(veryLegacyModule.default.en || veryLegacyModule.default) as GlobalGood;
+        }
+      }
     }
   } catch (err) {
     console.error(`Failed to load global good: ${id}`, err);
@@ -84,7 +153,7 @@ export async function loadGlobalGood(id: string, language: LanguageType): Promis
 }
 
 // Function to load all global goods
-export async function loadAllGlobalGoods(): Promise<GlobalGood[]> {
+export async function loadAllGlobalGoods(language: LanguageType = 'en'): Promise<GlobalGood[]> {
   try {
     // This dynamically imports all global goods
     const context = import.meta.glob('../data/global-goods/*.json', { eager: true });
@@ -95,20 +164,20 @@ export async function loadAllGlobalGoods(): Promise<GlobalGood[]> {
         }
         
         const module = context[key] as any;
-        
-        // Handle different file structures
         const id = key.split('/').pop()?.replace('.json', '').replace('-new', '');
         
-        // Check if it's new format or old format
-        if (module.default.en) {
-          // Old format with languages as keys
-          return { id, ...module.default.en } as GlobalGood;
-        } else {
-          // New format with direct properties
-          return { id, ...module.default } as GlobalGood;
+        if (!id) return null;
+        
+        try {
+          // Try to load with proper translations
+          return await loadGlobalGood(id, language);
+        } catch (e) {
+          console.error(`Failed to load global good ${id}:`, e);
+          return null;
         }
       })
     );
+    
     return items.filter(Boolean) as GlobalGood[];
   } catch (err) {
     console.error('Failed to load global goods', err);
@@ -127,7 +196,7 @@ export async function loadUseCase(id: string, language: LanguageType): Promise<U
 }
 
 // Function to load all use cases
-export async function loadAllUseCases(): Promise<UseCase[]> {
+export async function loadAllUseCases(language: LanguageType = 'en'): Promise<UseCase[]> {
   try {
     const context = import.meta.glob('../data/use-cases/*.json', { eager: true });
     const items = await Promise.all(
@@ -138,9 +207,19 @@ export async function loadAllUseCases(): Promise<UseCase[]> {
         
         const module = context[key] as any;
         const id = key.split('/').pop()?.replace('.json', '');
-        return { id, ...module.default.en } as UseCase; // Using English as default for the list
+        
+        if (!id) return null;
+        
+        try {
+          // Try to load with proper translations
+          return await loadUseCase(id, language);
+        } catch (e) {
+          console.error(`Failed to load use case ${id}:`, e);
+          return null;
+        }
       })
     );
+    
     return items.filter(Boolean) as UseCase[];
   } catch (err) {
     console.error('Failed to load use cases', err);

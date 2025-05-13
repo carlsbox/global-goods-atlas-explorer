@@ -4,7 +4,7 @@ import { useGlobalGood } from "@/lib/api";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft } from "lucide-react";
 
-// Import our new components
+// Import our components
 import { GlobalGoodHeader } from "@/components/global-good/GlobalGoodHeader";
 import { OverviewTab } from "@/components/global-good/OverviewTab";
 import { TechnicalTab } from "@/components/global-good/TechnicalTab";
@@ -13,19 +13,21 @@ import { UseCasesTab } from "@/components/global-good/UseCasesTab";
 import { DeploymentLocations } from "@/components/global-good/DeploymentLocations";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
+import { useI18n } from "@/hooks/useI18n";
 
 export default function GlobalGoodDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const { data: globalGood, isLoading, error } = useGlobalGood(id);
+  const { data: globalGood, isLoading, error, refetch } = useGlobalGood(id);
+  const { t } = useI18n();
 
   // Handle loading state
   if (isLoading) {
-    return <LoadingState />;
+    return <LoadingState message={t('globalGoods.loading')} />;
   }
 
   // Handle error state
   if (error || !globalGood) {
-    return <ErrorState />;
+    return <ErrorState onRetry={() => refetch()} />;
   }
 
   return (
@@ -37,7 +39,7 @@ export default function GlobalGoodDetailsPage() {
           className="text-muted-foreground hover:text-primary flex items-center"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Global Goods
+          {t('navigation.backToGlobalGoods')}
         </Link>
       </div>
       
@@ -50,10 +52,10 @@ export default function GlobalGoodDetailsPage() {
         <div className="md:col-span-2">
           <Tabs defaultValue="overview">
             <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="technical">Technical Details</TabsTrigger>
-              <TabsTrigger value="standards">Standards & Classification</TabsTrigger>
-              <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
+              <TabsTrigger value="overview">{t('globalGoods.tabs.overview')}</TabsTrigger>
+              <TabsTrigger value="technical">{t('globalGoods.tabs.technical')}</TabsTrigger>
+              <TabsTrigger value="standards">{t('globalGoods.tabs.standards')}</TabsTrigger>
+              <TabsTrigger value="use-cases">{t('globalGoods.tabs.useCases')}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="mt-4">
