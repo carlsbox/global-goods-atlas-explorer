@@ -70,8 +70,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         if (!contentCache[section]) {
           // This will be loaded asynchronously, so for now return a placeholder
           Promise.all([
-            import(`../content/${section}.json`).catch(() => ({ default: null })),
-            import(`../content/${section}/translations/${language}.json`).catch(() => ({ default: null }))
+            import(`../data/pages/${section}.json`).catch(() => ({ default: null })),
+            import(`../data/pages/${section}/translations/${language}.json`).catch(() => ({ default: null }))
           ]).then(([baseModule, translationsModule]) => {
             if (baseModule.default) {
               setContentCache(prev => ({
