@@ -33,7 +33,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
       </div>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {globalGood.sectors?.map((sector) => (
+        {globalGood.sector?.map((sector) => (
           <Badge key={sector} variant="outline" className="text-xs">
             {sector}
           </Badge>
