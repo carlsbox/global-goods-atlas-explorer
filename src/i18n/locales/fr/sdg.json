@@ -1,0 +1,19 @@
+{
+  "SDG-1": { "title": "Pas de pauvreté" },
+  "SDG-2": { "title": "Faim zéro" },
+  "SDG-3": { "title": "Bonne santé et bien-être" },
+  "SDG-4": { "title": "Éducation de qualité" },
+  "SDG-5": { "title": "Égalité entre les sexes" },
+  "SDG-6": { "title": "Eau propre et assainissement" },
+  "SDG-7": { "title": "Énergie propre et d'un coût abordable" },
+  "SDG-8": { "title": "Travail décent et croissance économique" },
+  "SDG-9": { "title": "Industrie, innovation et infrastructure" },
+  "SDG-10": { "title": "Inégalités réduites" },
+  "SDG-11": { "title": "Villes et communautés durables" },
+  "SDG-12": { "title": "Consommation et production responsables" },
+  "SDG-13": { "title": "Mesures relatives à la lutte contre les changements climatiques" },
+  "SDG-14": { "title": "Vie aquatique" },
+  "SDG-15": { "title": "Vie terrestre" },
+  "SDG-16": { "title": "Paix, justice et institutions efficaces" },
+  "SDG-17": { "title": "Partenariats pour la réalisation des objectifs" }
+} 

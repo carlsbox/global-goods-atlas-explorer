@@ -1,0 +1,429 @@
+[
+  {
+    "code": "DPI_BD1",
+    "title": "Logistics Management Information Services",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_BD2",
+    "title": "Shared Health Record",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_BD3",
+    "title": "Health Management Information System",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_BD4",
+    "title": "Finance and Insurance System",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_RG1",
+    "title": "Terminology Services",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_RG2",
+    "title": "Client Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_RG3",
+    "title": "Facility Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_RG4",
+    "title": "Health Workforce Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "DPI_RG5",
+    "title": "Product Catalogue",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H"
+  },
+  {
+    "code": "WHO_A1",
+    "title": "Communication systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A2",
+    "title": "Community-based information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A3",
+    "title": "Decision support systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A4",
+    "title": "Diagnostics information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A5",
+    "title": "Electronic medical record systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A6",
+    "title": "Laboratory information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A7",
+    "title": "Personal health records",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A8",
+    "title": "Pharmacy information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_A9",
+    "title": "Telehealth systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B1",
+    "title": "Blood bank information management systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B2",
+    "title": "Health finance-related information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B3",
+    "title": "Health program monitoring systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B4",
+    "title": "Human resource information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B5",
+    "title": "Learning and training systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B6",
+    "title": "Logistics management information systems (LMIS)",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B7",
+    "title": "Patient Administration systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_B8",
+    "title": "Research information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C1",
+    "title": "Census and population information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C2",
+    "title": "Civil registration and vital statistics (CRVS) systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C3",
+    "title": "Facility management information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C4",
+    "title": "(Health) Facility registries",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C5",
+    "title": "Health worker registry",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C6",
+    "title": "Identification registries and directories",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C7",
+    "title": "Immunization information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C8",
+    "title": "Master patient index",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C9",
+    "title": "Product catalogues",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C10",
+    "title": "Public Key directories",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_C11",
+    "title": "Terminology and classification systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D1",
+    "title": "Analytics Systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D2",
+    "title": "Data interchange and interoperability",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D3",
+    "title": "Data warehouses",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D4",
+    "title": "Environmental monitoring systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D5",
+    "title": "Geographic information systems (GIS)",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D6",
+    "title": "Health Management Information systems (HMIS)",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D7",
+    "title": "Knowledge management systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_D8",
+    "title": "Shared Health Record and Health Information Repository",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_E1",
+    "title": "Emergency preparedness and response systems",
+    "group_code": "E",
+    "group_name": "Surveillance and Response",
+    "authority": "WHO"
+  },
+  {
+    "code": "WHO_E2",
+    "title": "Public health and disease surveillance systems",
+    "group_code": "E",
+    "group_name": "Surveillance and Response",
+    "authority": "WHO"
+  },
+  {
+    "code": "WMO_A1",
+    "title": "Modelling & Reanalysis (merging of multisource data)",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_A2",
+    "title": "Observations",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_A3",
+    "title": "Climate Data Repositories",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_A4",
+    "title": "Open Data Platforms",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_B1",
+    "title": "Climate data integration and interoperability",
+    "group_code": "B",
+    "group_name": "Climate Data Processing",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_B2",
+    "title": "Statistical analysis & modelling",
+    "group_code": "B",
+    "group_name": "Climate Data Processing",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_C1",
+    "title": "Programming-based",
+    "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_C2",
+    "title": "Interactive dashboard",
+    "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_C3",
+    "title": "GIS",
+    "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_D1",
+    "title": "Decision Support Systems",
+    "group_code": "D",
+    "group_name": "Climate Services",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_D2",
+    "title": "Climate Risk Platforms",
+    "group_code": "D",
+    "group_name": "Climate Services",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_E1",
+    "title": "Climate ontologies",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_E2",
+    "title": "Climate frameworks",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO"
+  },
+  {
+    "code": "WMO_E3",
+    "title": "Climate standards",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO"
+  }
+]

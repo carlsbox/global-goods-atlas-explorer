@@ -1,0 +1,19 @@
+{
+  "SDG-1": { "code": "SDG-1", "title": "No Poverty" },
+  "SDG-2": { "code": "SDG-2", "title": "Zero Hunger" },
+  "SDG-3": { "code": "SDG-3", "title": "Good Health and Well-being" },
+  "SDG-4": { "code": "SDG-4", "title": "Quality Education" },
+  "SDG-5": { "code": "SDG-5", "title": "Gender Equality" },
+  "SDG-6": { "code": "SDG-6", "title": "Clean Water and Sanitation" },
+  "SDG-7": { "code": "SDG-7", "title": "Affordable and Clean Energy" },
+  "SDG-8": { "code": "SDG-8", "title": "Decent Work and Economic Growth" },
+  "SDG-9": { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure" },
+  "SDG-10": { "code": "SDG-10", "title": "Reduced Inequality" },
+  "SDG-11": { "code": "SDG-11", "title": "Sustainable Cities and Communities" },
+  "SDG-12": { "code": "SDG-12", "title": "Responsible Consumption and Production" },
+  "SDG-13": { "code": "SDG-13", "title": "Climate Action" },
+  "SDG-14": { "code": "SDG-14", "title": "Life Below Water" },
+  "SDG-15": { "code": "SDG-15", "title": "Life on Land" },
+  "SDG-16": { "code": "SDG-16", "title": "Peace, Justice and Strong Institutions" },
+  "SDG-17": { "code": "SDG-17", "title": "Partnerships for the Goals" }
+} 

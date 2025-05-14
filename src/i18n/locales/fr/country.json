@@ -1,0 +1,1088 @@
+{
+  "af": {
+    "iso_code": "af",
+    "type": "State",
+    "short": "Afghanistan (l')",
+    "formal": "la République islamique d'Afghanistan"
+  },
+  "al": {
+    "iso_code": "al",
+    "type": "State",
+    "short": "Albanie (l')",
+    "formal": "la République d'Albanie"
+  },
+  "dz": {
+    "iso_code": "dz",
+    "type": "State",
+    "short": "Algérie (l')",
+    "formal": "la République algérienne démocratique et populaire"
+  },
+  "ad": {
+    "iso_code": "ad",
+    "type": "State",
+    "short": "Andorre (l')",
+    "formal": "la Principauté d'Andorre"
+  },
+  "ao": {
+    "iso_code": "ao",
+    "type": "State",
+    "short": "Angola (l')",
+    "formal": "la République d'Angola"
+  },
+  "ag": {
+    "iso_code": "ag",
+    "type": "State",
+    "short": "Antigua-et-Barbuda",
+    "formal": "Antigua-et-Barbuda"
+  },
+  "ar": {
+    "iso_code": "ar",
+    "type": "State",
+    "short": "Argentine (l')",
+    "formal": "la République argentine"
+  },
+  "am": {
+    "iso_code": "am",
+    "type": "State",
+    "short": "Arménie (l')",
+    "formal": "la République d'Arménie"
+  },
+  "au": {
+    "iso_code": "au",
+    "type": "State",
+    "short": "Australie (l')",
+    "formal": "l'Australie"
+  },
+  "at": {
+    "iso_code": "at",
+    "type": "State",
+    "short": "Autriche (l')",
+    "formal": "la République d'Autriche"
+  },
+  "az": {
+    "iso_code": "az",
+    "type": "State",
+    "short": "Azerbaïdjan (l')",
+    "formal": "la République d'Azerbaïdjan"
+  },
+  "bs": {
+    "iso_code": "bs",
+    "type": "State",
+    "short": "Bahamas (les)",
+    "formal": "le Commonwealth des Bahamas"
+  },
+  "bh": {
+    "iso_code": "bh",
+    "type": "State",
+    "short": "Bahreïn",
+    "formal": "le Royaume de Bahreïn"
+  },
+  "bd": {
+    "iso_code": "bd",
+    "type": "State",
+    "short": "Bangladesh (le)",
+    "formal": "la République populaire du Bangladesh"
+  },
+  "bb": {
+    "iso_code": "bb",
+    "type": "State",
+    "short": "Barbade (la)",
+    "formal": "la Barbade"
+  },
+  "by": {
+    "iso_code": "by",
+    "type": "State",
+    "short": "Bélarus (le)",
+    "formal": "la République du Bélarus"
+  },
+  "be": {
+    "iso_code": "be",
+    "type": "State",
+    "short": "Belgique (la)",
+    "formal": "le Royaume de Belgique"
+  },
+  "bz": {
+    "iso_code": "bz",
+    "type": "State",
+    "short": "Belize (le)",
+    "formal": "le Belize"
+  },
+  "bj": {
+    "iso_code": "bj",
+    "type": "State",
+    "short": "Bénin (le)",
+    "formal": "la République du Bénin"
+  },
+  "bt": {
+    "iso_code": "bt",
+    "type": "State",
+    "short": "Bhoutan (le)",
+    "formal": "le Royaume du Bhoutan"
+  },
+  "bo": {
+    "iso_code": "bo",
+    "type": "State",
+    "short": "Bolivie (État plurinational de)",
+    "formal": "l'État plurinational de Bolivie"
+  },
+  "ba": {
+    "iso_code": "ba",
+    "type": "State",
+    "short": "Bosnie-Herzégovine (la)",
+    "formal": "la Bosnie-Herzégovine"
+  },
+  "bw": {
+    "iso_code": "bw",
+    "type": "State",
+    "short": "Botswana (le)",
+    "formal": "la République du Botswana"
+  },
+  "br": {
+    "iso_code": "br",
+    "type": "State",
+    "short": "Brésil (le)",
+    "formal": "la République fédérative du Brésil"
+  },
+  "bn": {
+    "iso_code": "bn",
+    "type": "State",
+    "short": "Brunéi Darussalam (le)",
+    "formal": "le Brunéi Darussalam"
+  },
+  "bg": {
+    "iso_code": "bg",
+    "type": "State",
+    "short": "Bulgarie (la)",
+    "formal": "la République de Bulgarie"
+  },
+  "bf": {
+    "iso_code": "bf",
+    "type": "State",
+    "short": "Burkina Faso (le)",
+    "formal": "le Burkina Faso"
+  },
+  "bi": {
+    "iso_code": "bi",
+    "type": "State",
+    "short": "Burundi (le)",
+    "formal": "la République du Burundi"
+  },
+  "cv": {
+    "iso_code": "cv",
+    "type": "State",
+    "short": "Cabo Verde",
+    "formal": "la République de Cabo Verde"
+  },
+  "kh": {
+    "iso_code": "kh",
+    "type": "State",
+    "short": "Cambodge (le)",
+    "formal": "le Royaume du Cambodge"
+  },
+  "cm": {
+    "iso_code": "cm",
+    "type": "State",
+    "short": "Cameroun (le)",
+    "formal": "la République du Cameroun"
+  },
+  "ca": {
+    "iso_code": "ca",
+    "type": "State",
+    "short": "Canada (le)",
+    "formal": "le Canada"
+  },
+  "cf": {
+    "iso_code": "cf",
+    "type": "State",
+    "short": "République centrafricaine (la)",
+    "formal": "la République centrafricaine"
+  },
+  "td": {
+    "iso_code": "td",
+    "type": "State",
+    "short": "Tchad (le)",
+    "formal": "la République du Tchad"
+  },
+  "cl": {
+    "iso_code": "cl",
+    "type": "State",
+    "short": "Chili (le)",
+    "formal": "la République du Chili"
+  },
+  "cn": {
+    "iso_code": "cn",
+    "type": "State",
+    "short": "Chine (la)",
+    "formal": "la République populaire de Chine"
+  },
+  "co": {
+    "iso_code": "co",
+    "type": "State",
+    "short": "Colombie (la)",
+    "formal": "la République de Colombie"
+  },
+  "km": {
+    "iso_code": "km",
+    "type": "State",
+    "short": "Comores (les)",
+    "formal": "l'Union des Comores"
+  },
+  "cg": {
+    "iso_code": "cg",
+    "type": "State",
+    "short": "Congo (le)",
+    "formal": "la République du Congo"
+  },
+  "cr": {
+    "iso_code": "cr",
+    "type": "State",
+    "short": "Costa Rica (le)",
+    "formal": "la République du Costa Rica"
+  },
+  "ci": {
+    "iso_code": "ci",
+    "type": "State",
+    "short": "Côte d'Ivoire (la)",
+    "formal": "la République de Côte d'Ivoire"
+  },
+  "hr": {
+    "iso_code": "hr",
+    "type": "State",
+    "short": "Croatie (la)",
+    "formal": "la République de Croatie"
+  },
+  "cu": {
+    "iso_code": "cu",
+    "type": "State",
+    "short": "Cuba",
+    "formal": "la République de Cuba"
+  },
+  "cy": {
+    "iso_code": "cy",
+    "type": "State",
+    "short": "Chypre",
+    "formal": "la République de Chypre"
+  },
+  "cz": {
+    "iso_code": "cz",
+    "type": "State",
+    "short": "Tchéquie (la)",
+    "formal": "la République tchèque"
+  },
+  "kp": {
+    "iso_code": "kp",
+    "type": "State",
+    "short": "République populaire démocratique de Corée (la)",
+    "formal": "la République populaire démocratique de Corée"
+  },
+  "cd": {
+    "iso_code": "cd",
+    "type": "State",
+    "short": "République démocratique du Congo (la)",
+    "formal": "la République démocratique du Congo"
+  },
+  "dk": {
+    "iso_code": "dk",
+    "type": "State",
+    "short": "Danemark (le)",
+    "formal": "le Royaume du Danemark"
+  },
+  "dj": {
+    "iso_code": "dj",
+    "type": "State",
+    "short": "Djibouti",
+    "formal": "la République de Djibouti"
+  },
+  "dm": {
+    "iso_code": "dm",
+    "type": "State",
+    "short": "Dominique (la)",
+    "formal": "le Commonwealth de Dominique"
+  },
+  "do": {
+    "iso_code": "do",
+    "type": "State",
+    "short": "République dominicaine (la)",
+    "formal": "la République dominicaine"
+  },
+  "ec": {
+    "iso_code": "ec",
+    "type": "State",
+    "short": "Équateur (l')",
+    "formal": "la République de l'Équateur"
+  },
+  "eg": {
+    "iso_code": "eg",
+    "type": "State",
+    "short": "Égypte (l')",
+    "formal": "la République arabe d'Égypte"
+  },
+  "sv": {
+    "iso_code": "sv",
+    "type": "State",
+    "short": "El Salvador",
+    "formal": "la République d'El Salvador"
+  },
+  "gq": {
+    "iso_code": "gq",
+    "type": "State",
+    "short": "Guinée équatoriale (la)",
+    "formal": "la République de Guinée équatoriale"
+  },
+  "er": {
+    "iso_code": "er",
+    "type": "State",
+    "short": "Érythrée (l')",
+    "formal": "l'État d'Érythrée"
+  },
+  "ee": {
+    "iso_code": "ee",
+    "type": "State",
+    "short": "Estonie (l')",
+    "formal": "la République d'Estonie"
+  },
+  "sz": {
+    "iso_code": "sz",
+    "type": "State",
+    "short": "Eswatini (l')",
+    "formal": "le Royaume d'Eswatini"
+  },
+  "et": {
+    "iso_code": "et",
+    "type": "State",
+    "short": "Éthiopie (l')",
+    "formal": "la République fédérale démocratique d'Éthiopie"
+  },
+  "fj": {
+    "iso_code": "fj",
+    "type": "State",
+    "short": "Fidji (les)",
+    "formal": "la République des Fidji"
+  },
+  "fi": {
+    "iso_code": "fi",
+    "type": "State",
+    "short": "Finlande (la)",
+    "formal": "la République de Finlande"
+  },
+  "fr": {
+    "iso_code": "fr",
+    "type": "State",
+    "short": "France (la)",
+    "formal": "la République française"
+  },
+  "ga": {
+    "iso_code": "ga",
+    "type": "State",
+    "short": "Gabon (le)",
+    "formal": "la République gabonaise"
+  },
+  "gm": {
+    "iso_code": "gm",
+    "type": "State",
+    "short": "Gambie (la)",
+    "formal": "la République de Gambie"
+  },
+  "ge": {
+    "iso_code": "ge",
+    "type": "State",
+    "short": "Géorgie (la)",
+    "formal": "la Géorgie"
+  },
+  "de": {
+    "iso_code": "de",
+    "type": "State",
+    "short": "Allemagne (l')",
+    "formal": "la République fédérale d'Allemagne"
+  },
+  "gh": {
+    "iso_code": "gh",
+    "type": "State",
+    "short": "Ghana (le)",
+    "formal": "la République du Ghana"
+  },
+  "gr": {
+    "iso_code": "gr",
+    "type": "State",
+    "short": "Grèce (la)",
+    "formal": "la République hellénique"
+  },
+  "gd": {
+    "iso_code": "gd",
+    "type": "State",
+    "short": "Grenade (la)",
+    "formal": "la Grenade"
+  },
+  "gt": {
+    "iso_code": "gt",
+    "type": "State",
+    "short": "Guatemala (le)",
+    "formal": "la République du Guatemala"
+  },
+  "gn": {
+    "iso_code": "gn",
+    "type": "State",
+    "short": "Guinée (la)",
+    "formal": "la République de Guinée"
+  },
+  "gw": {
+    "iso_code": "gw",
+    "type": "State",
+    "short": "Guinée-Bissau (la)",
+    "formal": "la République de Guinée-Bissau"
+  },
+  "gy": {
+    "iso_code": "gy",
+    "type": "State",
+    "short": "Guyana (le)",
+    "formal": "la République coopérative du Guyana"
+  },
+  "ht": {
+    "iso_code": "ht",
+    "type": "State",
+    "short": "Haïti",
+    "formal": "la République d'Haïti"
+  },
+  "hn": {
+    "iso_code": "hn",
+    "type": "State",
+    "short": "Honduras (le)",
+    "formal": "la République du Honduras"
+  },
+  "hu": {
+    "iso_code": "hu",
+    "type": "State",
+    "short": "Hongrie (la)",
+    "formal": "la Hongrie"
+  },
+  "is": {
+    "iso_code": "is",
+    "type": "State",
+    "short": "Islande (l')",
+    "formal": "l'Islande"
+  },
+  "in": {
+    "iso_code": "in",
+    "type": "State",
+    "short": "Inde (l')",
+    "formal": "la République de l'Inde"
+  },
+  "id": {
+    "iso_code": "id",
+    "type": "State",
+    "short": "Indonésie (l')",
+    "formal": "la République d'Indonésie"
+  },
+  "ir": {
+    "iso_code": "ir",
+    "type": "State",
+    "short": "Iran (République islamique d')",
+    "formal": "la République islamique d'Iran"
+  },
+  "iq": {
+    "iso_code": "iq",
+    "type": "State",
+    "short": "Iraq (l')",
+    "formal": "la République d'Iraq"
+  },
+  "ie": {
+    "iso_code": "ie",
+    "type": "State",
+    "short": "Irlande (l')",
+    "formal": "l'Irlande"
+  },
+  "il": {
+    "iso_code": "il",
+    "type": "State",
+    "short": "Israël",
+    "formal": "l'État d'Israël"
+  },
+  "it": {
+    "iso_code": "it",
+    "type": "State",
+    "short": "Italie (l')",
+    "formal": "la République italienne"
+  },
+  "jm": {
+    "iso_code": "jm",
+    "type": "State",
+    "short": "Jamaïque (la)",
+    "formal": "la Jamaïque"
+  },
+  "jp": {
+    "iso_code": "jp",
+    "type": "State",
+    "short": "Japon (le)",
+    "formal": "le Japon"
+  },
+  "jo": {
+    "iso_code": "jo",
+    "type": "State",
+    "short": "Jordanie (la)",
+    "formal": "le Royaume hachémite de Jordanie"
+  },
+  "kz": {
+    "iso_code": "kz",
+    "type": "State",
+    "short": "Kazakhstan (le)",
+    "formal": "la République du Kazakhstan"
+  },
+  "ke": {
+    "iso_code": "ke",
+    "type": "State",
+    "short": "Kenya (le)",
+    "formal": "la République du Kenya"
+  },
+  "ki": {
+    "iso_code": "ki",
+    "type": "State",
+    "short": "Kiribati",
+    "formal": "la République de Kiribati"
+  },
+  "kw": {
+    "iso_code": "kw",
+    "type": "State",
+    "short": "Koweït (le)",
+    "formal": "l'État du Koweït"
+  },
+  "kg": {
+    "iso_code": "kg",
+    "type": "State",
+    "short": "Kirghizistan (le)",
+    "formal": "la République kirghize"
+  },
+  "lv": {
+    "iso_code": "lv",
+    "type": "State",
+    "short": "Lettonie (la)",
+    "formal": "la République de Lettonie"
+  },
+  "lb": {
+    "iso_code": "lb",
+    "type": "State",
+    "short": "Liban (le)",
+    "formal": "la République libanaise"
+  },
+  "ls": {
+    "iso_code": "ls",
+    "type": "State",
+    "short": "Lesotho (le)",
+    "formal": "le Royaume du Lesotho"
+  },
+  "lr": {
+    "iso_code": "lr",
+    "type": "State",
+    "short": "Libéria (le)",
+    "formal": "la République du Libéria"
+  },
+  "ly": {
+    "iso_code": "ly",
+    "type": "State",
+    "short": "Libye (la)",
+    "formal": "l'État de Libye"
+  },
+  "li": {
+    "iso_code": "li",
+    "type": "State",
+    "short": "Liechtenstein (le)",
+    "formal": "la Principauté du Liechtenstein"
+  },
+  "lt": {
+    "iso_code": "lt",
+    "type": "State",
+    "short": "Lituanie (la)",
+    "formal": "la République de Lituanie"
+  },
+  "lu": {
+    "iso_code": "lu",
+    "type": "State",
+    "short": "Luxembourg (le)",
+    "formal": "le Grand-Duché de Luxembourg"
+  },
+  "mg": {
+    "iso_code": "mg",
+    "type": "State",
+    "short": "Madagascar",
+    "formal": "la République de Madagascar"
+  },
+  "mw": {
+    "iso_code": "mw",
+    "type": "State",
+    "short": "Malawi (le)",
+    "formal": "la République du Malawi"
+  },
+  "my": {
+    "iso_code": "my",
+    "type": "State",
+    "short": "Malaisie (la)",
+    "formal": "la Malaisie"
+  },
+  "mv": {
+    "iso_code": "mv",
+    "type": "State",
+    "short": "Maldives (les)",
+    "formal": "la République des Maldives"
+  },
+  "ml": {
+    "iso_code": "ml",
+    "type": "State",
+    "short": "Mali (le)",
+    "formal": "la République du Mali"
+  },
+  "mt": {
+    "iso_code": "mt",
+    "type": "State",
+    "short": "Malte",
+    "formal": "la République de Malte"
+  },
+  "mr": {
+    "iso_code": "mr",
+    "type": "State",
+    "short": "Mauritanie (la)",
+    "formal": "la République islamique de Mauritanie"
+  },
+  "mu": {
+    "iso_code": "mu",
+    "type": "State",
+    "short": "Maurice",
+    "formal": "la République de Maurice"
+  },
+  "mx": {
+    "iso_code": "mx",
+    "type": "State",
+    "short": "Mexique (le)",
+    "formal": "les États-Unis du Mexique"
+  },
+  "mc": {
+    "iso_code": "mc",
+    "type": "State",
+    "short": "Monaco",
+    "formal": "la Principauté de Monaco"
+  },
+  "mn": {
+    "iso_code": "mn",
+    "type": "State",
+    "short": "Mongolie (la)",
+    "formal": "la Mongolie"
+  },
+  "me": {
+    "iso_code": "me",
+    "type": "State",
+    "short": "Monténégro (le)",
+    "formal": "le Monténégro"
+  },
+  "ma": {
+    "iso_code": "ma",
+    "type": "State",
+    "short": "Maroc (le)",
+    "formal": "le Royaume du Maroc"
+  },
+  "mz": {
+    "iso_code": "mz",
+    "type": "State",
+    "short": "Mozambique (le)",
+    "formal": "la République du Mozambique"
+  },
+  "mm": {
+    "iso_code": "mm",
+    "type": "State",
+    "short": "Myanmar (le)",
+    "formal": "la République de l'Union du Myanmar"
+  },
+  "na": {
+    "iso_code": "na",
+    "type": "State",
+    "short": "Namibie (la)",
+    "formal": "la République de Namibie"
+  },
+  "nr": {
+    "iso_code": "nr",
+    "type": "State",
+    "short": "Nauru",
+    "formal": "la République de Nauru"
+  },
+  "np": {
+    "iso_code": "np",
+    "type": "State",
+    "short": "Népal (le)",
+    "formal": "le Népal"
+  },
+  "nz": {
+    "iso_code": "nz",
+    "type": "State",
+    "short": "Nouvelle-Zélande (la)",
+    "formal": "la Nouvelle-Zélande"
+  },
+  "ni": {
+    "iso_code": "ni",
+    "type": "State",
+    "short": "Nicaragua (le)",
+    "formal": "la République du Nicaragua"
+  },
+  "ng": {
+    "iso_code": "ng",
+    "type": "State",
+    "short": "Nigéria (le)",
+    "formal": "la République fédérale du Nigéria"
+  },
+  "mk": {
+    "iso_code": "mk",
+    "type": "State",
+    "short": "Macédoine du Nord (la)",
+    "formal": "la République de Macédoine du Nord"
+  },
+  "no": {
+    "iso_code": "no",
+    "type": "State",
+    "short": "Norvège (la)",
+    "formal": "le Royaume de Norvège"
+  },
+  "om": {
+    "iso_code": "om",
+    "type": "State",
+    "short": "Oman",
+    "formal": "le Sultanat d'Oman"
+  },
+  "pk": {
+    "iso_code": "pk",
+    "type": "State",
+    "short": "Pakistan (le)",
+    "formal": "la République islamique du Pakistan"
+  },
+  "pw": {
+    "iso_code": "pw",
+    "type": "State",
+    "short": "Palaos (les)",
+    "formal": "la République des Palaos"
+  },
+  "pa": {
+    "iso_code": "pa",
+    "type": "State",
+    "short": "Panama (le)",
+    "formal": "la République du Panama"
+  },
+  "pg": {
+    "iso_code": "pg",
+    "type": "State",
+    "short": "Papouasie-Nouvelle-Guinée (la)",
+    "formal": "l'État indépendant de Papouasie-Nouvelle-Guinée"
+  },
+  "py": {
+    "iso_code": "py",
+    "type": "State",
+    "short": "Paraguay (le)",
+    "formal": "la République du Paraguay"
+  },
+  "pe": {
+    "iso_code": "pe",
+    "type": "State",
+    "short": "Pérou (le)",
+    "formal": "la République du Pérou"
+  },
+  "pl": {
+    "iso_code": "pl",
+    "type": "State",
+    "short": "Pologne (la)",
+    "formal": "la République de Pologne"
+  },
+  "pt": {
+    "iso_code": "pt",
+    "type": "State",
+    "short": "Portugal (le)",
+    "formal": "la République portugaise"
+  },
+  "qa": {
+    "iso_code": "qa",
+    "type": "State",
+    "short": "Qatar (le)",
+    "formal": "l'État du Qatar"
+  },
+  "ro": {
+    "iso_code": "ro",
+    "type": "State",
+    "short": "Roumanie (la)",
+    "formal": "la Roumanie"
+  },
+  "rw": {
+    "iso_code": "rw",
+    "type": "State",
+    "short": "Rwanda (le)",
+    "formal": "la République du Rwanda"
+  },
+  "kn": {
+    "iso_code": "kn",
+    "type": "State",
+    "short": "Saint-Kitts-et-Nevis",
+    "formal": "Saint-Kitts-et-Nevis"
+  },
+  "lc": {
+    "iso_code": "lc",
+    "type": "State",
+    "short": "Sainte-Lucie",
+    "formal": "Sainte-Lucie"
+  },
+  "vc": {
+    "iso_code": "vc",
+    "type": "State",
+    "short": "Saint-Vincent-et-les Grenadines",
+    "formal": "Saint-Vincent-et-les Grenadines"
+  },
+  "ws": {
+    "iso_code": "ws",
+    "type": "State",
+    "short": "Samoa (le)",
+    "formal": "l'État indépendant du Samoa"
+  },
+  "sm": {
+    "iso_code": "sm",
+    "type": "State",
+    "short": "Saint-Marin",
+    "formal": "la République de Saint-Marin"
+  },
+  "st": {
+    "iso_code": "st",
+    "type": "State",
+    "short": "Sao Tomé-et-Principe",
+    "formal": "la République démocratique de Sao Tomé-et-Principe"
+  },
+  "sa": {
+    "iso_code": "sa",
+    "type": "State",
+    "short": "Arabie saoudite (l')",
+    "formal": "le Royaume d'Arabie saoudite"
+  },
+  "sn": {
+    "iso_code": "sn",
+    "type": "State",
+    "short": "Sénégal (le)",
+    "formal": "la République du Sénégal"
+  },
+  "rs": {
+    "iso_code": "rs",
+    "type": "State",
+    "short": "Serbie (la)",
+    "formal": "la République de Serbie"
+  },
+  "sc": {
+    "iso_code": "sc",
+    "type": "State",
+    "short": "Seychelles (les)",
+    "formal": "la République des Seychelles"
+  },
+  "sl": {
+    "iso_code": "sl",
+    "type": "State",
+    "short": "Sierra Leone (la)",
+    "formal": "la République de Sierra Leone"
+  },
+  "sg": {
+    "iso_code": "sg",
+    "type": "State",
+    "short": "Singapour",
+    "formal": "la République de Singapour"
+  },
+  "sk": {
+    "iso_code": "sk",
+    "type": "State",
+    "short": "Slovaquie (la)",
+    "formal": "la République slovaque"
+  },
+  "si": {
+    "iso_code": "si",
+    "type": "State",
+    "short": "Slovénie (la)",
+    "formal": "la République de Slovénie"
+  },
+  "sb": {
+    "iso_code": "sb",
+    "type": "State",
+    "short": "Îles Salomon (les)",
+    "formal": "les Îles Salomon"
+  },
+  "so": {
+    "iso_code": "so",
+    "type": "State",
+    "short": "Somalie (la)",
+    "formal": "la République fédérale de Somalie"
+  },
+  "za": {
+    "iso_code": "za",
+    "type": "State",
+    "short": "Afrique du Sud (l')",
+    "formal": "la République sud-africaine"
+  },
+  "ss": {
+    "iso_code": "ss",
+    "type": "State",
+    "short": "Soudan du Sud (le)",
+    "formal": "la République du Soudan du Sud"
+  },
+  "es": {
+    "iso_code": "es",
+    "type": "State",
+    "short": "Espagne (l')",
+    "formal": "le Royaume d'Espagne"
+  },
+  "lk": {
+    "iso_code": "lk",
+    "type": "State",
+    "short": "Sri Lanka",
+    "formal": "la République socialiste démocratique de Sri Lanka"
+  },
+  "sr": {
+    "iso_code": "sr",
+    "type": "State",
+    "short": "Suriname (le)",
+    "formal": "la République du Suriname"
+  },
+  "se": {
+    "iso_code": "se",
+    "type": "State",
+    "short": "Suède (la)",
+    "formal": "le Royaume de Suède"
+  },
+  "ch": {
+    "iso_code": "ch",
+    "type": "State",
+    "short": "Suisse (la)",
+    "formal": "la Confédération suisse"
+  },
+  "tj": {
+    "iso_code": "tj",
+    "type": "State",
+    "short": "Tadjikistan (le)",
+    "formal": "la République du Tadjikistan"
+  },
+  "th": {
+    "iso_code": "th",
+    "type": "State",
+    "short": "Thaïlande (la)",
+    "formal": "le Royaume de Thaïlande"
+  },
+  "tl": {
+    "iso_code": "tl",
+    "type": "State",
+    "short": "Timor-Leste (le)",
+    "formal": "la République démocratique du Timor-Leste"
+  },
+  "tg": {
+    "iso_code": "tg",
+    "type": "State",
+    "short": "Togo (le)",
+    "formal": "la République togolaise"
+  },
+  "to": {
+    "iso_code": "to",
+    "type": "State",
+    "short": "Tonga (les)",
+    "formal": "le Royaume des Tonga"
+  },
+  "tt": {
+    "iso_code": "tt",
+    "type": "State",
+    "short": "Trinité-et-Tobago (la)",
+    "formal": "la République de Trinité-et-Tobago"
+  },
+  "tn": {
+    "iso_code": "tn",
+    "type": "State",
+    "short": "Tunisie (la)",
+    "formal": "la République tunisienne"
+  },
+  "tm": {
+    "iso_code": "tm",
+    "type": "State",
+    "short": "Turkménistan (le)",
+    "formal": "le Turkménistan"
+  },
+  "tv": {
+    "iso_code": "tv",
+    "type": "State",
+    "short": "Tuvalu (les)",
+    "formal": "les Tuvalu"
+  },
+  "ug": {
+    "iso_code": "ug",
+    "type": "State",
+    "short": "Ouganda (l')",
+    "formal": "la République de l'Ouganda"
+  },
+  "ua": {
+    "iso_code": "ua",
+    "type": "State",
+    "short": "Ukraine (l')",
+    "formal": "l'Ukraine"
+  },
+  "uy": {
+    "iso_code": "uy",
+    "type": "State",
+    "short": "Uruguay (l')",
+    "formal": "la République orientale de l'Uruguay"
+  },
+  "uz": {
+    "iso_code": "uz",
+    "type": "State",
+    "short": "Ouzbékistan (l')",
+    "formal": "la République d'Ouzbékistan"
+  },
+  "vu": {
+    "iso_code": "vu",
+    "type": "State",
+    "short": "Vanuatu",
+    "formal": "la République de Vanuatu"
+  },
+  "vn": {
+    "iso_code": "vn",
+    "type": "State",
+    "short": "Viet Nam (le)",
+    "formal": "la République socialiste du Viet Nam"
+  },
+  "ye": {
+    "iso_code": "ye",
+    "type": "State",
+    "short": "Yémen (le)",
+    "formal": "la République du Yémen"
+  },
+  "zm": {
+    "iso_code": "zm",
+    "type": "State",
+    "short": "Zambie (la)",
+    "formal": "la République de Zambie"
+  },
+  "zw": {
+    "iso_code": "zw",
+    "type": "State",
+    "short": "Zimbabwe (le)",
+    "formal": "la République du Zimbabwe"
+  },
+  "ps": {
+    "iso_code": "ps",
+    "type": "Observer",
+    "short": "Palestine, État de",
+    "formal": "l'État de Palestine"
+  },
+  "va": {
+    "iso_code": "va",
+    "type": "Observer",
+    "short": "Saint-Siège",
+    "formal": "le Saint-Siège"
+  },
+  "ck": {
+    "iso_code": "ck",
+    "type": "Associated State",
+    "short": "Îles Cook",
+    "formal": "les Îles Cook"
+  },
+  "nu": {
+    "iso_code": "nu",
+    "type": "Associated State",
+    "short": "Niue",
+    "formal": "Niue"
+  },
+  "us": {
+    "iso_code": "us",
+    "type": "State",
+    "short": "États-Unis d'Amérique (les)",
+    "formal": "les États-Unis d'Amérique"
+  }
+}

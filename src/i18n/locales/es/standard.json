@@ -1,0 +1,186 @@
+{
+  "ADX": {
+    "code": "ADX",
+    "domain": "Health",
+    "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+    "type": "exchange",
+    "name": "ADX",
+    "description": "Estándar de intercambio de datos agregados para el intercambio de datos de salud agregados, comúnmente utilizado en informes de salud pública y análisis estadístico."
+  },
+  "CIEL": {
+    "code": "CIEL",
+    "domain": "Health",
+    "link": "https://openconceptlab.org/orgs/CIEL/sources/CIEL/",
+    "type": "terminology",
+    "name": "CIEL",
+    "description": "Diccionario del Columbia International eHealth Laboratory, un sistema integral de terminología clínica diseñado para su uso en entornos de bajos recursos."
+  },
+  "GS1": {
+    "code": "GS1",
+    "domain": "Health",
+    "link": "https://www.gs1.org/healthcare",
+    "type": "identifier",
+    "name": "GS1",
+    "description": "Global Standards One, un estándar internacional para la gestión de la cadena de suministro e identificación de productos en el sector salud."
+  },
+  "HL7 FHIR": {
+    "code": "HL7 FHIR",
+    "domain": "Health",
+    "link": "https://www.hl7.org/fhir/",
+    "type": "exchange",
+    "name": "HL7 FHIR",
+    "description": "Fast Healthcare Interoperability Resources, un estándar moderno para el intercambio electrónico de información sanitaria."
+  },
+  "HL7 V2": {
+    "code": "HL7 V2",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+    "type": "exchange",
+    "name": "HL7 V2",
+    "description": "Health Level 7 Version 2, un estándar de mensajería para el intercambio de datos clínicos y administrativos en entornos sanitarios."
+  },
+  "HL7 V3": {
+    "code": "HL7 V3",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
+    "type": "exchange",
+    "name": "HL7 V3",
+    "description": "Health Level 7 Version 3, un marco de mensajería basado en XML para el intercambio de datos sanitarios e interoperabilidad."
+  },
+  "ICD-9": {
+    "code": "ICD-9",
+    "domain": "Health",
+    "link": "https://www.cdc.gov/nchs/icd/icd9.htm",
+    "type": "terminology",
+    "name": "CIE-9",
+    "description": "Clasificación Internacional de Enfermedades, 9ª revisión, para la codificación y clasificación de datos de mortalidad y morbilidad."
+  },
+  "ICD-10": {
+    "code": "ICD-10",
+    "domain": "Health",
+    "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+    "type": "terminology",
+    "name": "CIE-10",
+    "description": "Clasificación Internacional de Enfermedades, 10ª revisión, clasificación diagnóstica estándar de la OMS para epidemiología y gestión sanitaria."
+  },
+  "ICD-11": {
+    "code": "ICD-11",
+    "domain": "Health",
+    "link": "https://icd.who.int/en",
+    "type": "terminology",
+    "name": "CIE-11",
+    "description": "Clasificación Internacional de Enfermedades, 11ª revisión, la última clasificación de la OMS para estadísticas de mortalidad, morbilidad y documentación clínica."
+  },
+  "LOINC": {
+    "code": "LOINC",
+    "domain": "Health",
+    "link": "https://loinc.org/",
+    "type": "terminology",
+    "name": "LOINC",
+    "description": "Logical Observation Identifiers Names and Codes, un estándar universal para la identificación de observaciones de laboratorio médico."
+  },
+  "SNOMED": {
+    "code": "SNOMED",
+    "domain": "Health",
+    "link": "https://www.snomed.org/",
+    "type": "terminology",
+    "name": "SNOMED",
+    "description": "Systematized Nomenclature of Medicine Clinical Terms, una terminología clínica integral para registros de salud electrónicos."
+  },
+  "Not Applicable": {
+    "code": "Not Applicable",
+    "domain": "Health",
+    "link": "",
+    "type": "not_applicable",
+    "name": "No Aplicable",
+    "description": "Indica que ningún estándar de salud específico es aplicable al contexto dado."
+  },
+  "Other": {
+    "code": "Other",
+    "domain": "Health",
+    "link": "",
+    "type": "other",
+    "name": "Otro",
+    "description": "Se refiere a estándares de salud no incluidos en el sistema de clasificación actual."
+  },
+  "GRIB": {
+    "code": "GRIB",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf",
+    "type": "data_format",
+    "name": "GRIB",
+    "description": "Formato GRIdded Binary, un estándar para la codificación de datos meteorológicos y oceanográficos."
+  },
+  "NetCDF": {
+    "code": "NetCDF",
+    "domain": "Weather and Climate",
+    "link": "https://www.unidata.ucar.edu/software/netcdf/",
+    "type": "data_format",
+    "name": "NetCDF",
+    "description": "Network Common Data Form, un conjunto de bibliotecas de software y formatos de datos independientes para datos científicos orientados a matrices."
+  },
+  "GML": {
+    "code": "GML",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/gml",
+    "type": "data_format",
+    "name": "GML",
+    "description": "Geography Markup Language, una gramática XML para expresar características geográficas."
+  },
+  "WFS": {
+    "code": "WFS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wfs",
+    "type": "exchange",
+    "name": "WFS",
+    "description": "Web Feature Service, proporciona una interfaz que permite solicitudes de características geográficas a través de la web."
+  },
+  "WCS": {
+    "code": "WCS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wcs",
+    "type": "exchange",
+    "name": "WCS",
+    "description": "Web Coverage Service, proporciona acceso a datos de cobertura en formas útiles para la renderización del lado del cliente."
+  },
+  "WMS": {
+    "code": "WMS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wms",
+    "type": "exchange",
+    "name": "WMS",
+    "description": "Web Map Service, proporciona imágenes de mapas desde una base de datos de sistema de información geográfica."
+  },
+  "HDF": {
+    "code": "HDF",
+    "domain": "Weather and Climate",
+    "link": "https://www.hdfgroup.org/solutions/hdf5/",
+    "type": "data_format",
+    "name": "HDF",
+    "description": "Hierarchical Data Format, un conjunto de formatos de archivo diseñados para almacenar y organizar grandes cantidades de datos numéricos."
+  },
+  "BUFR": {
+    "code": "BUFR",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/VolumeI.2.html",
+    "type": "data_format",
+    "name": "BUFR",
+    "description": "Binary Universal Form for the Representation of meteorological data, un formato de datos binario para observaciones meteorológicas."
+  },
+  "Not Applicable Weather": {
+    "code": "Not Applicable",
+    "domain": "Weather and Climate",
+    "link": "",
+    "type": "not_applicable",
+    "name": "No Aplicable",
+    "description": "Indica que ningún estándar meteorológico o climático específico es aplicable al contexto dado."
+  },
+  "Other Weather": {
+    "code": "Other",
+    "domain": "Weather and Climate",
+    "link": "",
+    "type": "other",
+    "name": "Otro",
+    "description": "Se refiere a estándares meteorológicos y climáticos no incluidos en el sistema de clasificación actual."
+  }
+} 

@@ -1,0 +1,26 @@
+{
+  "software": {
+    "title": "Software",
+    "description": "Una herramienta de software libre y de código abierto diseñada para gestionar, analizar o transmitir datos relacionados con la salud, con utilidad probada en múltiples contextos."
+  },
+  "content": {
+    "title": "Contenido",
+    "description": "Un recurso, conjunto de herramientas o estándar de datos disponible bajo una licencia abierta, utilizado para mejorar o analizar los procesos de gestión de datos de salud."
+  },
+  "service": {
+    "title": "Servicio",
+    "description": "Una herramienta de software como servicio utilizada para gestionar, transmitir o analizar datos relacionados con la salud, de acceso libre y que cumple con los principios de datos abiertos."
+  },
+  "climate": {
+    "title": "Producto de datos climáticos",
+    "description": "Conjuntos de datos abiertos o plataformas que proporcionan datos geoespaciales globales listos para el análisis sobre la presencia de población y asentamientos humanos."
+  },
+  "data": {
+    "title": "Datos",
+    "description": "Colecciones de datos abiertos que son accesibles, reutilizables y cumplen con las leyes de privacidad y otras normas aplicables, contribuyendo al logro de los Objetivos de Desarrollo Sostenible (ODS)."
+  },
+  "ai": {
+    "title": "IA",
+    "description": "Modelos de inteligencia artificial abiertos que cumplen con las leyes de privacidad y otras normas aplicables, diseñados para no causar daño y ayudar a alcanzar los ODS."
+  }
+} 
