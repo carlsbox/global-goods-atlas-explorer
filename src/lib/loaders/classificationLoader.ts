@@ -1,12 +1,12 @@
 
 import { LanguageType } from '@/contexts/LanguageContext';
-import { Classification, ClassificationTranslations } from '../types';
+import { Classification, ClassificationTranslations } from '../types/globalGood/classification';
 
 // Load classifications data with translations
 export async function loadClassificationsData(language: LanguageType) {
   try {
     // Load base classifications
-    const baseData = await import('../../data/classifications/base.json');
+    const baseData = await import('../../data/classifications/classifcations.json');
     const classifications: Classification[] = baseData.default;
     
     // Try to load translations
