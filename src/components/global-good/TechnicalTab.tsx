@@ -122,16 +122,17 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       {/* Handle languages from productOverview if available */}
                       {globalGood.productOverview?.languages && 
                         globalGood.productOverview.languages.map((lang, index) => {
-                          // Use type checking instead of property access
+                          // Fix the type issue by explicitly defining potential language shapes
                           let langDisplay = 'Unknown';
                           if (typeof lang === 'string') {
                             langDisplay = lang;
                           } else if (lang && typeof lang === 'object') {
-                            // Safely check for properties
-                            if ('name' in lang) {
-                              langDisplay = String(lang.name);
-                            } else if ('code' in lang) {
-                              langDisplay = String(lang.code);
+                            // Type assertion to avoid 'never' type errors
+                            const langObj = lang as Record<string, any>;
+                            if (langObj && 'name' in langObj) {
+                              langDisplay = String(langObj.name);
+                            } else if (langObj && 'code' in langObj) {
+                              langDisplay = String(langObj.code);
                             }
                           }
                           
