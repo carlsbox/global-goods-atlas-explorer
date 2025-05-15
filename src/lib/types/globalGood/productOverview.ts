@@ -1,25 +1,20 @@
+
 /**
  * Product overview information for a global good.
  */
-import { MultilingualText } from '../commonTypes';
-
 export interface ProductOverview {
   /** Summary of the product */
-  summary: MultilingualText | string;
+  summary?: string;
   /** Description of the product */
-  description?: MultilingualText | string;
-  /** Primary functionality */
+  description?: string;
+  /** Detailed information about the product */
+  details?: string;
+  /** Primary functionality information */
   primaryFunctionality?: string;
-  /** Users of the product */
+  /** Users information */
   users?: string;
-  /** Supported languages */
-  languages?: Array<{
-    code: string;
-    name: string;
-  }>;
-  /** Screenshots */
-  screenshots?: Array<{
-    url: string;
-    description: string;
-  }>;
+  /** Languages supported by the product */
+  languages?: string[];
+  /** Screenshots of the product */
+  screenshots?: string[];
 } 

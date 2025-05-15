@@ -1,19 +1,20 @@
+
 import { MultilingualText } from '../commonTypes';
-import { Classification } from '../classifcation';
-import { CoreMetadata } from '../coreMetadata';
-import { Classifications } from '../classifications';
-import { StandardsAndInteroperability } from '../standardsAndInteroperability';
-import { ProductOverview } from '../productOverview';
-import { Reach } from '../reach';
-import { Maturity } from '../maturity';
-import { ClimateAndHealthIntegration } from '../climateAndHealthIntegration';
-import { Community } from '../community';
-import { InclusiveDesign } from '../inclusiveDesign';
-import { EnvironmentalImpact } from '../environmentalImpact';
-import { TotalCostOfOwnership } from '../totalCostOfOwnership';
-import { Sustainability } from '../sustainability';
-import { Resources } from '../resources';
-import { LinkedInitiatives } from '../linkedInitiatives';
+import { Classification } from './classification';
+import { CoreMetadata } from './coreMetadata';
+import { Classifications } from './classifications';
+import { StandardsAndInteroperability } from './standardsAndInteroperability';
+import { ProductOverview } from './productOverview';
+import { Reach } from './reach';
+import { Maturity } from './maturity';
+import { ClimateAndHealthIntegration } from './climateAndHealthIntegration';
+import { Community } from './community';
+import { InclusiveDesign } from './inclusiveDesign';
+import { EnvironmentalImpact } from './environmentalImpact';
+import { TotalCostOfOwnership } from './totalCostOfOwnership';
+import { Sustainability } from './sustainability';
+import { Resources } from './resources';
+import { LinkedInitiatives } from './linkedInitiatives';
 
 export interface MaturityScores {
   global_utility?: number;

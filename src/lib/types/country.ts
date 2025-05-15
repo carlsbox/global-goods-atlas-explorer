@@ -1,15 +1,24 @@
+
 export interface CountryData {
-  iso_code: string; // ISO code (e.g., "KE" for Kenya)
-  type: string;     // State, Observer, Associated State, etc.
-  short: string;    // Short/common name
-  formal: string;   // Formal/official name
-}
-
-
-// Interface for country translations
-export interface CountryTranslations {
-  [iso_code: string]: {
-    short?: string;
-    formal?: string;
+  /** Country code (ISO 3166-1 alpha-2) */
+  code: string;
+  /** ISO 3-letter code */
+  iso_code?: string;
+  /** Country name */
+  name: {
+    /** Common name */
+    common: string;
+    /** Official name */
+    official: string;
+    /** Short name */
+    short: string;
   };
+  /** Country coordinates */
+  coordinates?: [number, number];
+  /** Country flag URL */
+  flag?: string;
+  /** Region */
+  region?: string;
+  /** Sub-region */
+  subregion?: string;
 }

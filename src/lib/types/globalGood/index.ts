@@ -1,4 +1,5 @@
-export * from './classifcation';
+
+export * from './classification';
 export * from './coreMetadata';
 export * from './classifications';
 export * from './standardsAndInteroperability';

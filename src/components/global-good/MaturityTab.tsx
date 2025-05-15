@@ -55,7 +55,9 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
     ] as MaturityScoreKey[];
     
     return scoreKeys.map(key => {
-      const scores = (globalGood.maturity as {level: string, scores: Record<string, number>}).scores;
+      const scores = globalGood.maturity && typeof globalGood.maturity === 'object' && globalGood.maturity.scores 
+                    ? globalGood.maturity.scores 
+                    : {};
       return {
         dimension: tPage(`maturity.scores.${key}`, 'globalGoodDetails'),
         value: scores[key] || 0,
@@ -68,7 +70,9 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
   const getMaturityScores = () => {
     if (!hasMaturityData()) return [];
 
-    const scores = (globalGood.maturity as {level: string, scores: Record<string, number>}).scores;
+    const scores = globalGood.maturity && typeof globalGood.maturity === 'object' && globalGood.maturity.scores 
+                  ? globalGood.maturity.scores 
+                  : {};
     return Object.entries(scores)
       .filter(([_, score]) => score !== undefined)
       .map(([key, score]) => ({
@@ -85,7 +89,9 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
 
   const maturityData = formatMaturityData();
   const maturityScores = getMaturityScores();
-  const maturityLevel = typeof globalGood.maturity === 'object' ? globalGood.maturity.level : globalGood.maturity;
+  const maturityLevel = globalGood.maturity && typeof globalGood.maturity === 'object' && 'level' in globalGood.maturity 
+                      ? globalGood.maturity.level 
+                      : (typeof globalGood.maturity === 'string' ? globalGood.maturity : '');
 
   if (!globalGood.maturity) {
     return (

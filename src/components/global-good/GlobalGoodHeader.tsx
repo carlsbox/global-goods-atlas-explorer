@@ -14,15 +14,19 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
   const { getText } = useI18n();
 
   // Safety checks for accessing properties with potential undefined values
-  const logoUrl = globalGood.logo || globalGood.coreMetadata?.logo || '';
-  const goodName = globalGood.name || getText(globalGood.coreMetadata?.name) || 'Unknown';
-  const goodDescription = globalGood.description || getText(globalGood.productOverview?.description) || '';
+  const logoUrl = globalGood.logo || (globalGood.coreMetadata && globalGood.coreMetadata.logo) || '';
+  const goodName = typeof globalGood.name === 'string' ? globalGood.name : 
+                  (globalGood.coreMetadata && typeof globalGood.coreMetadata.name === 'string' ? 
+                    globalGood.coreMetadata.name : 'Unknown');
+  const goodDescription = typeof globalGood.description === 'string' ? globalGood.description : 
+                         (globalGood.productOverview && typeof globalGood.productOverview.description === 'string' ? 
+                           globalGood.productOverview.description : '');
   
   // Get types with fallbacks
   const types = globalGood.coreMetadata?.globalGoodsType || [];
-  const maturityLevel = typeof globalGood.maturity === 'string' 
-    ? globalGood.maturity 
-    : globalGood.maturity?.level || '';
+  const maturityLevel = globalGood.maturity && typeof globalGood.maturity === 'object' && 'level' in globalGood.maturity ? 
+                        globalGood.maturity.level : 
+                        (typeof globalGood.maturity === 'string' ? globalGood.maturity : '');
   
   // Get contact info with fallbacks
   const contactName = globalGood.contact?.name || '';
@@ -65,7 +69,8 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
               variant="outline" 
               className="text-xs"
             >
-              {typeof typegg === 'string' ? typegg : typegg.title}
+              {typeof typegg === 'string' ? typegg : 
+                (typeof typegg.title === 'string' ? typegg.title : typegg.code)}
             </Badge>
           ))}
           {maturityLevel && (
