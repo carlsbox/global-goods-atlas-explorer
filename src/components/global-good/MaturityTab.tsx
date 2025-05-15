@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { GlobalGood } from "@/lib/types";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Table, 
   TableBody, 
@@ -16,8 +16,7 @@ import {
   PolarGrid, 
   PolarAngleAxis, 
   PolarRadiusAxis, 
-  ResponsiveContainer, 
-  Tooltip 
+  ResponsiveContainer 
 } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { useI18n } from "@/hooks/useI18n";
@@ -36,8 +35,7 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
 
   // Helper function to check if maturity data is valid
   const hasMaturityData = () => {
-    return typeof globalGood.maturity === 'object' && 
-           globalGood.maturity.scores && 
+    return globalGood.maturity && globalGood.maturity.scores && 
            Object.keys(globalGood.maturity.scores).length > 0;
   };
 
@@ -54,25 +52,21 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
       'low_carbon'
     ] as MaturityScoreKey[];
     
-    return scoreKeys.map(key => {
-      const scores = globalGood.maturity && typeof globalGood.maturity === 'object' && globalGood.maturity.scores 
-                    ? globalGood.maturity.scores 
-                    : {};
-      return {
+    return scoreKeys
+      .filter(key => globalGood.maturity?.scores?.[key] !== undefined)
+      .map(key => ({
         dimension: tPage(`maturity.scores.${key}`, 'globalGoodDetails'),
-        value: scores[key] || 0,
+        value: globalGood.maturity?.scores?.[key] || 0,
         fullMark: 10
-      };
-    }).filter(item => item.value > 0); // Filter out dimensions with no score
+      }));
   };
 
   // Get maturity scores for table display
   const getMaturityScores = () => {
     if (!hasMaturityData()) return [];
 
-    const scores = globalGood.maturity && typeof globalGood.maturity === 'object' && globalGood.maturity.scores 
-                  ? globalGood.maturity.scores 
-                  : {};
+    const scores = globalGood.maturity?.scores || {};
+    
     return Object.entries(scores)
       .filter(([_, score]) => score !== undefined)
       .map(([key, score]) => ({
@@ -89,11 +83,9 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
 
   const maturityData = formatMaturityData();
   const maturityScores = getMaturityScores();
-  const maturityLevel = globalGood.maturity && typeof globalGood.maturity === 'object' && 'level' in globalGood.maturity 
-                      ? globalGood.maturity.level 
-                      : (typeof globalGood.maturity === 'string' ? globalGood.maturity : '');
+  const maturityLevel = globalGood.maturity?.level || globalGood.maturity?.summaryOfMaturity || '';
 
-  if (!globalGood.maturity) {
+  if (!hasMaturityData()) {
     return (
       <Card>
         <CardContent className="pt-6 text-center">
@@ -108,7 +100,7 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
       <CardHeader>
         <div className="flex justify-between items-center">
           <CardTitle>{tPage('maturity.title', 'globalGoodDetails')}</CardTitle>
-          <Badge variant="outline">{maturityLevel}</Badge>
+          {maturityLevel && <Badge variant="outline">{maturityLevel}</Badge>}
         </div>
         <p className="text-sm text-muted-foreground">
           {tPage('maturity.description', 'globalGoodDetails')}
@@ -122,7 +114,7 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
           </TabsList>
           
           <TabsContent value="chart" className="w-full">
-            {hasMaturityData() && maturityData.length > 0 ? (
+            {maturityData.length > 0 ? (
               <div className="w-full h-[400px]">
                 <ChartContainer config={chartConfig}>
                   <RadarChart outerRadius={90} data={maturityData}>
@@ -146,7 +138,7 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
           </TabsContent>
           
           <TabsContent value="table">
-            {hasMaturityData() && maturityScores.length > 0 ? (
+            {maturityScores.length > 0 ? (
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -179,9 +171,6 @@ export function MaturityTab({ globalGood }: MaturityTabProps) {
           </TabsContent>
         </Tabs>
       </CardContent>
-      <CardFooter className="border-t bg-muted/50 text-sm text-muted-foreground">
-        <p>{tPage('maturity.level', 'globalGoodDetails')}: {maturityLevel}</p>
-      </CardFooter>
     </Card>
   );
 }
