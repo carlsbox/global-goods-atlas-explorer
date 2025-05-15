@@ -11,34 +11,41 @@ interface TechnicalTabProps {
 }
 
 export function TechnicalTab({ globalGood }: TechnicalTabProps) {
-  // Check if languages are available from either source
-  const hasLanguages = 
-    (globalGood.languages && globalGood.languages.length > 0) || 
-    (globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0);
+  // Extract technologies from StandardsAndInteroperability section if available
+  const technologies = globalGood.technologies || [];
   
-  // Check if there's community information
+  // Get standards from the standardsAndInteroperability section
+  const healthStandards = globalGood.standardsAndInteroperability?.healthStandards?.map(std => std.name) || 
+                          globalGood.healthStandards || [];
+  
+  // Get languages from productOverview
+  const languages = globalGood.productOverview?.languages?.map(lang => {
+    if (typeof lang === 'string') return lang;
+    return lang.name || lang.code || '';
+  }).filter(Boolean) || globalGood.languages || [];
+  
+  // Get licenses from coreMetadata
+  const licenses = globalGood.coreMetadata?.license?.map(lic => lic.name) || 
+                  globalGood.licenses || [];
+  
+  // Extract features from productOverview or fall back to existing features
+  const features = globalGood.productOverview?.primaryFunctionality?.split(',').map(f => f.trim()) || 
+                   globalGood.features || [];
+  
+  // Get community info
   const hasCommunityInfo = 
-    globalGood.community?.size_estimate || 
-    globalGood.community?.sizeOfCommunity || 
-    (globalGood.community?.platform?.url);
+    (globalGood.community?.sizeOfCommunity > 0) || 
+    (globalGood.community?.hostAnchorOrganization?.name);
+    
+  // Check for environmental impact
+  const environmentalInfo = globalGood.environmentalImpact?.lowCarbon || 
+                           (globalGood.low_carbon?.description) ||
+                           (globalGood.maturity?.scores?.low_carbon !== undefined);
   
-  // Check for environmental impact information
-  const hasEnvironmentalInfo = 
-    globalGood.environmentalImpact?.lowCarbon || 
-    globalGood.environmentalImpact?.description ||
-    globalGood.low_carbon?.considered ||
-    globalGood.low_carbon?.description ||
-    (globalGood.maturity?.scores?.low_carbon !== undefined);
-
-  // Add console logs to debug what data is available
-  console.log("GlobalGood data:", globalGood);
-  console.log("Has languages:", hasLanguages);
-  console.log("Has community info:", hasCommunityInfo);
-  console.log("Has environmental info:", hasEnvironmentalInfo);
-  console.log("Technologies:", globalGood.technologies);
-  console.log("Features:", globalGood.features);
-  console.log("Logo:", globalGood.logo);
-
+  // Get SDGs from Classifications
+  const sdgs = globalGood.classifications?.SDGs?.map(sdg => sdg.title) || 
+               globalGood.sdgs || [];
+  
   return (
     <Card>
       <CardContent className="pt-6 space-y-8">
@@ -58,7 +65,7 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
         )}
       
         {/* Technology Stack */}
-        {(globalGood.technologies || globalGood.features) && (
+        {(technologies.length > 0 || features.length > 0) && (
           <div className="space-y-4">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
               <Code className="mr-2 h-5 w-5 text-primary" />
@@ -66,11 +73,11 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {globalGood.technologies && globalGood.technologies.length > 0 && (
+              {technologies.length > 0 && (
                 <div>
                   <h4 className="text-md font-medium mb-2">Core Technologies</h4>
                   <div className="flex flex-wrap gap-2">
-                    {globalGood.technologies.map((tech, index) => (
+                    {technologies.map((tech, index) => (
                       <Badge key={`tech-${index}`} variant="secondary">
                         {tech}
                       </Badge>
@@ -79,11 +86,11 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                 </div>
               )}
               
-              {globalGood.features && globalGood.features.length > 0 && (
+              {features.length > 0 && (
                 <div>
                   <h4 className="text-md font-medium mb-2">Key Features</h4>
                   <ul className="list-disc list-inside text-muted-foreground">
-                    {globalGood.features.slice(0, 5).map((feature, index) => (
+                    {features.slice(0, 5).map((feature, index) => (
                       <li key={`feature-${index}`}>{feature}</li>
                     ))}
                   </ul>
@@ -93,10 +100,10 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
           </div>
         )}
         
-        {globalGood.technologies || globalGood.features ? <Separator /> : null}
+        {(technologies.length > 0 || features.length > 0) ? <Separator /> : null}
         
         {/* Standards and Interoperability */}
-        {(globalGood.licenses || globalGood.healthStandards) && (
+        {(licenses.length > 0 || healthStandards.length > 0) && (
           <div className="space-y-4">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
               <Shield className="mr-2 h-5 w-5 text-primary" />
@@ -104,25 +111,25 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {globalGood.licenses && globalGood.licenses.length > 0 && (
+              {licenses.length > 0 && (
                 <div>
                   <h4 className="text-md font-medium mb-2">
                     <Tag className="mr-2 h-4 w-4" />
                     Licenses
                   </h4>
                   <ul className="list-disc list-inside text-muted-foreground">
-                    {globalGood.licenses.map((license, index) => (
+                    {licenses.map((license, index) => (
                       <li key={`license-${index}`}>{license}</li>
                     ))}
                   </ul>
                 </div>
               )}
               
-              {globalGood.healthStandards && globalGood.healthStandards.length > 0 && (
+              {healthStandards.length > 0 && (
                 <div>
                   <h4 className="text-md font-medium mb-2">Health Standards</h4>
                   <div className="flex flex-wrap gap-2">
-                    {globalGood.healthStandards.map((standard, index) => (
+                    {healthStandards.map((standard, index) => (
                       <Badge key={`standard-${index}`} variant="outline" className="text-primary">
                         {standard}
                       </Badge>
@@ -134,10 +141,10 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
           </div>
         )}
         
-        {(globalGood.licenses || globalGood.healthStandards) ? <Separator /> : null}
+        {(licenses.length > 0 || healthStandards.length > 0) ? <Separator /> : null}
         
         {/* Development and Community */}
-        {(hasCommunityInfo || hasLanguages) && (
+        {(hasCommunityInfo || languages.length > 0) && (
           <>
             <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -147,43 +154,18 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Display languages from either the root level or productOverview */}
-                {hasLanguages && (
+                {languages.length > 0 && (
                   <div>
                     <h4 className="text-md font-medium mb-2">
                       <Languages className="mr-2 h-4 w-4" />
                       Supported Languages
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {(globalGood.languages || []).map((lang, index) => (
+                      {languages.map((lang, index) => (
                         <Badge key={`lang-${index}`} variant="secondary">
                           {lang}
                         </Badge>
                       ))}
-                      
-                      {/* Handle languages from productOverview if available */}
-                      {globalGood.productOverview?.languages && 
-                        globalGood.productOverview.languages.map((lang, index) => {
-                          // Fix the type issue by explicitly defining potential language shapes
-                          let langDisplay = 'Unknown';
-                          if (typeof lang === 'string') {
-                            langDisplay = lang;
-                          } else if (lang && typeof lang === 'object') {
-                            // Type assertion to avoid 'never' type errors
-                            const langObj = lang as Record<string, any>;
-                            if (langObj && 'name' in langObj) {
-                              langDisplay = String(langObj.name);
-                            } else if (langObj && 'code' in langObj) {
-                              langDisplay = String(langObj.code);
-                            }
-                          }
-                          
-                          return (
-                            <Badge key={`po-${index}`} variant="secondary">
-                              {langDisplay}
-                            </Badge>
-                          );
-                        })
-                      }
                     </div>
                   </div>
                 )}
@@ -194,14 +176,19 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       <Users className="mr-2 h-4 w-4" />
                       Community
                     </h4>
-                    {(globalGood.community?.size_estimate || globalGood.community?.sizeOfCommunity) && (
+                    {globalGood.community?.sizeOfCommunity && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        Community size: {(globalGood.community.size_estimate || globalGood.community.sizeOfCommunity).toLocaleString()} members
+                        Community size: {globalGood.community.sizeOfCommunity.toLocaleString()} members
                       </p>
                     )}
-                    {globalGood.community?.platform?.url && (
+                    {globalGood.community?.hostAnchorOrganization?.name && (
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Host organization: {globalGood.community.hostAnchorOrganization.name}
+                      </p>
+                    )}
+                    {globalGood.community?.links?.community?.[0]?.url && (
                       <a 
-                        href={globalGood.community.platform.url} 
+                        href={globalGood.community.links.community[0].url} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-sm text-primary hover:underline"
@@ -219,7 +206,7 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
         )}
         
         {/* Environmental Impact */}
-        {hasEnvironmentalInfo && (
+        {environmentalInfo && (
           <>
             <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -234,15 +221,9 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                   </p>
                 )}
                 
-                {globalGood.environmentalImpact?.description && (
-                  <p className="text-muted-foreground mb-2">
-                    {globalGood.environmentalImpact.description}
-                  </p>
-                )}
-                
                 {globalGood.low_carbon?.description && (
                   <p className="text-muted-foreground mb-2">
-                    {globalGood.low_carbon.description || "Designed to minimize carbon footprint."}
+                    {globalGood.low_carbon.description}
                   </p>
                 )}
                 
@@ -262,11 +243,11 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
         )}
         
         {/* SDGs */}
-        {globalGood.sdgs && globalGood.sdgs.length > 0 && (
+        {sdgs.length > 0 && (
           <div className="space-y-4">
             <h3 className="text-xl font-semibold mb-4">Sustainable Development Goals</h3>
             <div className="flex flex-wrap gap-2">
-              {globalGood.sdgs.map((sdg, index) => (
+              {sdgs.map((sdg, index) => (
                 <Badge key={`sdg-${index}`} variant="outline">
                   {sdg}
                 </Badge>
@@ -276,10 +257,10 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
         )}
 
         {/* Add a fallback message if no technical data is available */}
-        {!globalGood.technologies && !globalGood.features && 
-         !globalGood.licenses && !globalGood.healthStandards && 
-         !hasLanguages && !hasCommunityInfo && 
-         !hasEnvironmentalInfo && !globalGood.sdgs && (
+        {!technologies.length && !features.length && 
+         !licenses.length && !healthStandards.length && 
+         !languages.length && !hasCommunityInfo && 
+         !environmentalInfo && !sdgs.length && (
           <div className="text-center py-8">
             <p className="text-muted-foreground">No technical information available for this global good.</p>
           </div>
