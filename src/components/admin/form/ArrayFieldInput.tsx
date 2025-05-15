@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { FormField, FormItem, FormLabel } from '@/components/ui/form';
-import { useFieldArray } from 'react-hook-form';
+import { useFieldArray, useFormContext } from 'react-hook-form';
 import { Plus, Trash } from 'lucide-react';
 import { useI18n } from '@/hooks/useI18n';
 
@@ -28,6 +28,21 @@ export function ArrayFieldInput({
     control,
     name,
   });
+  const form = useFormContext();
+
+  // Helper function to safely get value with type casting
+  const getFieldValue = (fieldPath: string): string => {
+    const value = form.watch(fieldPath);
+    return typeof value === 'string' ? value : '';
+  };
+
+  // Helper function to safely set value
+  const setFieldValue = (fieldPath: string, value: string) => {
+    form.setValue(fieldPath as any, value, {
+      shouldValidate: true,
+      shouldDirty: true
+    });
+  };
 
   return (
     <FormItem className="space-y-4">
