@@ -1,11 +1,10 @@
-
 import { GlobalGood } from "@/lib/types";
 import { TableRow, TableCell } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Pencil, Trash2, Eye } from "lucide-react";
+import { Pencil, Trash, Eye } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n } from "@/hooks/useI18n";
 
@@ -92,7 +91,7 @@ export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRo
             });
           }}
         >
-          <Trash2 className="h-4 w-4" />
+          <Trash className="h-4 w-4" />
           <span className="sr-only">Delete</span>
         </Button>
       </TableCell>

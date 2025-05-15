@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Table, 
@@ -10,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { Trash2 } from "lucide-react";
+import { Trash } from "lucide-react";
 
 interface AdminDataTableProps<T> {
   data: T[];
@@ -72,7 +71,7 @@ export function AdminDataTable<T extends { id: string }>({
         <div className="bg-muted/50 p-3 rounded-md flex items-center justify-between mb-4">
           <span className="text-sm">{selectedItems.length} items selected</span>
           <Button variant="destructive" size="sm" onClick={handleBulkDelete}>
-            <Trash2 className="h-4 w-4 mr-2" />
+            <Trash className="h-4 w-4 mr-2" />
             Delete Selected
           </Button>
         </div>

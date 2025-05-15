@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,6 +13,7 @@ import { MultilingualTextInput } from './MultilingualTextInput';
 import { ArrayFieldInput } from './ArrayFieldInput';
 import { UrlWithDescriptionInput } from './UrlWithDescriptionInput';
 import { toast } from '@/components/ui/use-toast';
+import { ensureMultilingualText } from '@/lib/translationUtils';
 
 interface GlobalGoodFormProps {
   initialData?: Partial<GlobalGood>;
@@ -30,7 +30,9 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
     defaultValues: {
       coreMetadata: {
         id: initialData?.coreMetadata?.id || initialData?.id || '',
-        name: initialData?.name || { en: '', fr: '', es: '' },
+        name: initialData?.name ? (typeof initialData.name === 'string' ? 
+               ensureMultilingualText(initialData.name) : initialData.name) 
+               : { en: '', fr: '', es: '' },
         logo: initialData?.logo || '',
         website: initialData?.coreMetadata?.website || [],
         globalGoodsType: initialData?.coreMetadata?.globalGoodsType || [],
@@ -40,19 +42,33 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
         contact: initialData?.coreMetadata?.contact || [],
       },
       productOverview: {
-        summary: initialData?.summary || { en: '', fr: '', es: '' },
-        description: initialData?.description || { en: '', fr: '', es: '' },
-        details: initialData?.details || { en: '', fr: '', es: '' },
+        summary: initialData?.summary ? (typeof initialData.summary === 'string' ? 
+                 ensureMultilingualText(initialData.summary) : initialData.summary) 
+                 : { en: '', fr: '', es: '' },
+        description: initialData?.description ? (typeof initialData.description === 'string' ? 
+                     ensureMultilingualText(initialData.description) : initialData.description) 
+                     : { en: '', fr: '', es: '' },
+        details: initialData?.details ? (typeof initialData.details === 'string' ? 
+                 ensureMultilingualText(initialData.details) : initialData.details) 
+                 : { en: '', fr: '', es: '' },
         primaryFunctionality: initialData?.productOverview?.primaryFunctionality || '',
         users: initialData?.productOverview?.users || '',
         languages: initialData?.productOverview?.languages || [],
         screenshots: initialData?.productOverview?.screenshots || [],
       },
       id: initialData?.id || '',
-      name: initialData?.name || { en: '', fr: '', es: '' },
-      summary: initialData?.summary || { en: '', fr: '', es: '' },
-      description: initialData?.description || { en: '', fr: '', es: '' },
-      details: initialData?.details || { en: '', fr: '', es: '' },
+      name: initialData?.name ? (typeof initialData.name === 'string' ? 
+             ensureMultilingualText(initialData.name) : initialData.name) 
+             : { en: '', fr: '', es: '' },
+      summary: initialData?.summary ? (typeof initialData.summary === 'string' ? 
+               ensureMultilingualText(initialData.summary) : initialData.summary) 
+               : { en: '', fr: '', es: '' },
+      description: initialData?.description ? (typeof initialData.description === 'string' ? 
+                   ensureMultilingualText(initialData.description) : initialData.description) 
+                   : { en: '', fr: '', es: '' },
+      details: initialData?.details ? (typeof initialData.details === 'string' ? 
+               ensureMultilingualText(initialData.details) : initialData.details) 
+               : { en: '', fr: '', es: '' },
     },
   });
 
@@ -169,11 +185,11 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
               label="Contact Information"
               control={form.control}
               addLabel="Add Contact"
-              renderItem={(name) => (
+              renderItem={(name, index) => (
                 <div className="space-y-3">
                   <FormField
                     control={form.control}
-                    name={`${name}.name`}
+                    name={`coreMetadata.contact.${index}.name`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Name" {...field} />
@@ -182,7 +198,7 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                   />
                   <FormField
                     control={form.control}
-                    name={`${name}.email`}
+                    name={`coreMetadata.contact.${index}.email`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Email" {...field} />
@@ -191,7 +207,7 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                   />
                   <FormField
                     control={form.control}
-                    name={`${name}.role`}
+                    name={`coreMetadata.contact.${index}.role`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Role" {...field} />

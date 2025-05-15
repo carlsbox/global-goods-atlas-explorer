@@ -1,10 +1,8 @@
-
 import { Badge } from "@/components/ui/badge";
 import { useClassifications } from "@/lib/api";
 import { Classification } from "@/lib/types";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Info } from "lucide-react";
 
 interface ClassificationBadgeProps {
   code: string;
