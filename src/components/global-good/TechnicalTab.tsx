@@ -18,12 +18,12 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
   const healthStandards = globalGood.standardsAndInteroperability?.healthStandards?.map(std => std.name) || 
                           globalGood.healthStandards || [];
   
-  // Get languages from productOverview - fix for TypeScript errors by properly checking type
-  const languages = globalGood.productOverview?.languages?.map(lang => {
-    // Handle both string and object types safely
+  // Get languages from productOverview - fix TypeScript errors by using type guards and proper type assertions
+  const languages = globalGood.productOverview?.languages?.map((lang: any) => {
+    // Handle both string and object types safely using type checking
     if (typeof lang === 'string') return lang;
-    // Access properties safely with optional chaining
-    return lang.name || lang.code || '';
+    // Access properties safely with optional chaining and proper type handling
+    return (lang && typeof lang === 'object') ? (lang.name || lang.code || '') : '';
   }).filter(Boolean) || globalGood.languages || [];
   
   // Get licenses from coreMetadata
