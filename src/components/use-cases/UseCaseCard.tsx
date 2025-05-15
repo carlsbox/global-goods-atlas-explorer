@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { 
   MapPin, 
   ArrowUpRight, 
-  CalendarIcon,
+  Calendar,
   ArrowRight 
 } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
@@ -52,7 +52,7 @@ export function UseCaseCard({ useCase, globalGoods }: UseCaseCardProps) {
             </Badge>
             <span className="text-muted-foreground">•</span>
             <div className="flex items-center text-sm text-muted-foreground">
-              <CalendarIcon className="h-3 w-3 mr-1" />
+              <Calendar className="h-3 w-3 mr-1" />
               {useCase.year}
             </div>
           </div>

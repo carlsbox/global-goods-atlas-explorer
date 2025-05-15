@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { FormControl, FormField } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
 interface UrlWithDescriptionInputProps {
@@ -9,46 +8,33 @@ interface UrlWithDescriptionInputProps {
 }
 
 export function UrlWithDescriptionInput({ baseName, control }: UrlWithDescriptionInputProps) {
+  // Get the form from the control to access setValue and watch
+  const form = control._formState.form;
+
   return (
     <div className="space-y-3">
-      <FormField
-        control={control}
-        name={`${baseName}.id`}
-        render={({ field }) => (
-          <FormControl>
-            <Input placeholder="ID (e.g., main, github)" {...field} />
-          </FormControl>
-        )}
+      <Input 
+        placeholder="ID (e.g., main, github)" 
+        value={form.watch(`${baseName}.id`) || ''}
+        onChange={e => form.setValue(`${baseName}.id` as any, e.target.value)}
       />
       
-      <FormField
-        control={control}
-        name={`${baseName}.name`}
-        render={({ field }) => (
-          <FormControl>
-            <Input placeholder="Name (e.g., Official Website)" {...field} />
-          </FormControl>
-        )}
+      <Input 
+        placeholder="Name (e.g., Official Website)" 
+        value={form.watch(`${baseName}.name`) || ''}
+        onChange={e => form.setValue(`${baseName}.name` as any, e.target.value)}
       />
       
-      <FormField
-        control={control}
-        name={`${baseName}.url`}
-        render={({ field }) => (
-          <FormControl>
-            <Input placeholder="URL (e.g., https://example.org)" {...field} />
-          </FormControl>
-        )}
+      <Input 
+        placeholder="URL (e.g., https://example.org)" 
+        value={form.watch(`${baseName}.url`) || ''}
+        onChange={e => form.setValue(`${baseName}.url` as any, e.target.value)}
       />
       
-      <FormField
-        control={control}
-        name={`${baseName}.description`}
-        render={({ field }) => (
-          <FormControl>
-            <Input placeholder="Description" {...field} />
-          </FormControl>
-        )}
+      <Input 
+        placeholder="Description" 
+        value={form.watch(`${baseName}.description`) || ''}
+        onChange={e => form.setValue(`${baseName}.description` as any, e.target.value)}
       />
     </div>
   );

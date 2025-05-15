@@ -65,4 +65,21 @@ declare module 'lucide-react' {
   export const GripVertical: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const ChevronUp: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const UserCog: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  
+  // Additional icons from error list
+  export const PanelLeft: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Heart: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Terminal: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const BarChart3: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Phone: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Building: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const GanttChartSquare: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const LayoutGrid: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Contact: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Goal: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Download: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const AlertTriangle: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Lightbulb: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const PlusCircle: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Edit: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 }

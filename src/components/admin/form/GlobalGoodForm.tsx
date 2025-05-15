@@ -22,12 +22,30 @@ interface GlobalGoodFormProps {
   isSubmitting?: boolean;
 }
 
+// Helper to convert string arrays to object arrays with required structure
+const convertToLanguagesArray = (arr: string[] | { code: string, name: string }[] | undefined): { code: string, name: string }[] => {
+  if (!arr) return [];
+  
+  if (arr.length > 0 && typeof arr[0] === 'string') {
+    return (arr as string[]).map(item => ({ code: item, name: item }));
+  }
+  
+  return arr as { code: string, name: string }[];
+};
+
+// Helper to convert string arrays to object arrays with url description structure
+const convertToUrlArray = (arr: string[] | { url: string, description: string }[] | undefined): { url: string, description: string }[] => {
+  if (!arr) return [];
+  
+  if (arr.length > 0 && typeof arr[0] === 'string') {
+    return (arr as string[]).map(item => ({ url: item, description: '' }));
+  }
+  
+  return arr as { url: string, description: string }[];
+};
+
 export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: GlobalGoodFormProps) {
   const { t } = useI18n();
-  
-  // Default empty arrays with correct types for language and screenshot fields
-  const emptyLanguages: { code: string, name: string }[] = [];
-  const emptyScreenshots: { url: string, description: string }[] = [];
   
   // Create form with react-hook-form and zod validation
   const form = useForm<GlobalGoodFormValues>({
@@ -58,8 +76,8 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                  : { en: '', fr: '', es: '' },
         primaryFunctionality: initialData?.productOverview?.primaryFunctionality || '',
         users: initialData?.productOverview?.users || '',
-        languages: initialData?.productOverview?.languages || emptyLanguages,
-        screenshots: initialData?.productOverview?.screenshots || emptyScreenshots,
+        languages: convertToLanguagesArray(initialData?.productOverview?.languages),
+        screenshots: convertToUrlArray(initialData?.productOverview?.screenshots),
       },
       id: initialData?.id || '',
       name: initialData?.name ? (typeof initialData.name === 'string' ? 
@@ -190,34 +208,22 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
               label="Contact Information"
               control={form.control}
               addLabel="Add Contact"
-              renderItem={(name) => (
+              renderItem={(name, index) => (
                 <div className="space-y-3">
-                  <FormField
-                    control={form.control}
-                    name={`${name}.name`}
-                    render={({ field }) => (
-                      <FormControl>
-                        <Input placeholder="Name" {...field} />
-                      </FormControl>
-                    )}
+                  <Input 
+                    placeholder="Name" 
+                    value={form.watch(`${name}.name`) || ''}
+                    onChange={e => form.setValue(`${name}.name` as any, e.target.value)}
                   />
-                  <FormField
-                    control={form.control}
-                    name={`${name}.email`}
-                    render={({ field }) => (
-                      <FormControl>
-                        <Input placeholder="Email" {...field} />
-                      </FormControl>
-                    )}
+                  <Input 
+                    placeholder="Email" 
+                    value={form.watch(`${name}.email`) || ''}
+                    onChange={e => form.setValue(`${name}.email` as any, e.target.value)}
                   />
-                  <FormField
-                    control={form.control}
-                    name={`${name}.role`}
-                    render={({ field }) => (
-                      <FormControl>
-                        <Input placeholder="Role" {...field} />
-                      </FormControl>
-                    )}
+                  <Input 
+                    placeholder="Role" 
+                    value={form.watch(`${name}.role`) || ''}
+                    onChange={e => form.setValue(`${name}.role` as any, e.target.value)}
                   />
                 </div>
               )}
@@ -303,25 +309,17 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
               label="Supported Languages"
               control={form.control}
               addLabel="Add Language"
-              renderItem={(name) => (
+              renderItem={(name, index) => (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <FormField
-                    control={form.control}
-                    name={`${name}.code`}
-                    render={({ field }) => (
-                      <FormControl>
-                        <Input placeholder="Language Code (e.g., en)" {...field} />
-                      </FormControl>
-                    )}
+                  <Input 
+                    placeholder="Language Code (e.g., en)" 
+                    value={form.watch(`${name}.code`) || ''}
+                    onChange={e => form.setValue(`${name}.code` as any, e.target.value)}
                   />
-                  <FormField
-                    control={form.control}
-                    name={`${name}.name`}
-                    render={({ field }) => (
-                      <FormControl>
-                        <Input placeholder="Language Name (e.g., English)" {...field} />
-                      </FormControl>
-                    )}
+                  <Input 
+                    placeholder="Language Name (e.g., English)" 
+                    value={form.watch(`${name}.name`) || ''}
+                    onChange={e => form.setValue(`${name}.name` as any, e.target.value)}
                   />
                 </div>
               )}
