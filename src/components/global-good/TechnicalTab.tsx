@@ -26,8 +26,18 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
   const hasEnvironmentalInfo = 
     globalGood.environmentalImpact?.lowCarbon || 
     globalGood.environmentalImpact?.description ||
-    globalGood.low_carbon ||
+    globalGood.low_carbon?.considered ||
+    globalGood.low_carbon?.description ||
     (globalGood.maturity?.scores?.low_carbon !== undefined);
+
+  // Add console logs to debug what data is available
+  console.log("GlobalGood data:", globalGood);
+  console.log("Has languages:", hasLanguages);
+  console.log("Has community info:", hasCommunityInfo);
+  console.log("Has environmental info:", hasEnvironmentalInfo);
+  console.log("Technologies:", globalGood.technologies);
+  console.log("Features:", globalGood.features);
+  console.log("Logo:", globalGood.logo);
 
   return (
     <Card>
@@ -48,79 +58,83 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
         )}
       
         {/* Technology Stack */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold mb-4 flex items-center">
-            <Code className="mr-2 h-5 w-5 text-primary" />
-            Technology Implementation
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {globalGood.technologies && globalGood.technologies.length > 0 && (
-              <div>
-                <h4 className="text-md font-medium mb-2">Core Technologies</h4>
-                <div className="flex flex-wrap gap-2">
-                  {globalGood.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
+        {(globalGood.technologies || globalGood.features) && (
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold mb-4 flex items-center">
+              <Code className="mr-2 h-5 w-5 text-primary" />
+              Technology Implementation
+            </h3>
             
-            {globalGood.features && globalGood.features.length > 0 && (
-              <div>
-                <h4 className="text-md font-medium mb-2">Key Features</h4>
-                <ul className="list-disc list-inside text-muted-foreground">
-                  {globalGood.features.slice(0, 5).map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {globalGood.technologies && globalGood.technologies.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium mb-2">Core Technologies</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {globalGood.technologies.map((tech, index) => (
+                      <Badge key={`tech-${index}`} variant="secondary">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {globalGood.features && globalGood.features.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium mb-2">Key Features</h4>
+                  <ul className="list-disc list-inside text-muted-foreground">
+                    {globalGood.features.slice(0, 5).map((feature, index) => (
+                      <li key={`feature-${index}`}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
         
-        <Separator />
+        {globalGood.technologies || globalGood.features ? <Separator /> : null}
         
         {/* Standards and Interoperability */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold mb-4 flex items-center">
-            <Shield className="mr-2 h-5 w-5 text-primary" />
-            Standards & Interoperability
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {globalGood.licenses && globalGood.licenses.length > 0 && (
-              <div>
-                <h4 className="text-md font-medium mb-2">
-                  <Tag className="mr-2 h-4 w-4" />
-                  Licenses
-                </h4>
-                <ul className="list-disc list-inside text-muted-foreground">
-                  {globalGood.licenses.map((license) => (
-                    <li key={license}>{license}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        {(globalGood.licenses || globalGood.healthStandards) && (
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold mb-4 flex items-center">
+              <Shield className="mr-2 h-5 w-5 text-primary" />
+              Standards & Interoperability
+            </h3>
             
-            {globalGood.healthStandards && globalGood.healthStandards.length > 0 && (
-              <div>
-                <h4 className="text-md font-medium mb-2">Health Standards</h4>
-                <div className="flex flex-wrap gap-2">
-                  {globalGood.healthStandards.map((standard) => (
-                    <Badge key={standard} variant="outline" className="text-primary">
-                      {standard}
-                    </Badge>
-                  ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {globalGood.licenses && globalGood.licenses.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium mb-2">
+                    <Tag className="mr-2 h-4 w-4" />
+                    Licenses
+                  </h4>
+                  <ul className="list-disc list-inside text-muted-foreground">
+                    {globalGood.licenses.map((license, index) => (
+                      <li key={`license-${index}`}>{license}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            )}
+              )}
+              
+              {globalGood.healthStandards && globalGood.healthStandards.length > 0 && (
+                <div>
+                  <h4 className="text-md font-medium mb-2">Health Standards</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {globalGood.healthStandards.map((standard, index) => (
+                      <Badge key={`standard-${index}`} variant="outline" className="text-primary">
+                        {standard}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
         
-        <Separator />
+        {(globalGood.licenses || globalGood.healthStandards) ? <Separator /> : null}
         
         {/* Development and Community */}
         {(hasCommunityInfo || hasLanguages) && (
@@ -141,7 +155,7 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {(globalGood.languages || []).map((lang, index) => (
-                        <Badge key={index} variant="secondary">
+                        <Badge key={`lang-${index}`} variant="secondary">
                           {lang}
                         </Badge>
                       ))}
@@ -226,7 +240,7 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                   </p>
                 )}
                 
-                {globalGood.low_carbon && (
+                {globalGood.low_carbon?.description && (
                   <p className="text-muted-foreground mb-2">
                     {globalGood.low_carbon.description || "Designed to minimize carbon footprint."}
                   </p>
@@ -252,12 +266,22 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold mb-4">Sustainable Development Goals</h3>
             <div className="flex flex-wrap gap-2">
-              {globalGood.sdgs.map((sdg) => (
-                <Badge key={sdg} variant="outline">
+              {globalGood.sdgs.map((sdg, index) => (
+                <Badge key={`sdg-${index}`} variant="outline">
                   {sdg}
                 </Badge>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Add a fallback message if no technical data is available */}
+        {!globalGood.technologies && !globalGood.features && 
+         !globalGood.licenses && !globalGood.healthStandards && 
+         !hasLanguages && !hasCommunityInfo && 
+         !hasEnvironmentalInfo && !globalGood.sdgs && (
+          <div className="text-center py-8">
+            <p className="text-muted-foreground">No technical information available for this global good.</p>
           </div>
         )}
       </CardContent>
