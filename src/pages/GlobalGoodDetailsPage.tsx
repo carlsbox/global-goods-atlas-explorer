@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGood } from "@/lib/api";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,6 +14,7 @@ import { DeploymentLocations } from "@/components/global-good/DeploymentLocation
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { useI18n } from "@/hooks/useI18n";
+import { AllFieldsTab } from "@/components/global-good/AllFieldsTab";
 
 export default function GlobalGoodDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -58,6 +58,7 @@ export default function GlobalGoodDetailsPage() {
               <TabsTrigger value="standards">{tPage('tabs.standards', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="maturity">{tPage('tabs.maturity', 'globalGoodDetails')}</TabsTrigger>
               <TabsTrigger value="use-cases">{tPage('tabs.useCases', 'globalGoodDetails')}</TabsTrigger>
+              <TabsTrigger value="all">{tPage('tabs.all', 'globalGoodDetails') || 'All'}</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="mt-4">
@@ -78,6 +79,10 @@ export default function GlobalGoodDetailsPage() {
             
             <TabsContent value="use-cases" className="mt-4">
               <UseCasesTab globalGood={globalGood} />
+            </TabsContent>
+
+            <TabsContent value="all" className="mt-4">
+              <AllFieldsTab globalGood={globalGood} />
             </TabsContent>
           </Tabs>
         </div>

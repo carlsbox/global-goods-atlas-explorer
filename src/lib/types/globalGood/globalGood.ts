@@ -1,5 +1,5 @@
 import { MultilingualText } from '../commonTypes';
-import { Classification } from '../classification';
+import { Classification } from '../classifcation';
 import { CoreMetadata } from '../coreMetadata';
 import { Classifications } from '../classifications';
 import { StandardsAndInteroperability } from '../standardsAndInteroperability';
