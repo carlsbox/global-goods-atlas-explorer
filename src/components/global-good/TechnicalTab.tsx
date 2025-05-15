@@ -2,24 +2,51 @@
 import { GlobalGood } from "@/lib/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Layers, Tag, Code, Database, Languages, Users, Shield, GitBranch } from "lucide-react";
+import { Layers, Tag, Code, Database, Languages, Users, Shield, GitBranch, Leaf } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface TechnicalTabProps {
   globalGood: GlobalGood;
 }
 
 export function TechnicalTab({ globalGood }: TechnicalTabProps) {
-  const hasLanguages = globalGood.languages && globalGood.languages.length > 0 || 
-                      (globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0);
+  // Check if languages are available from either source
+  const hasLanguages = 
+    (globalGood.languages && globalGood.languages.length > 0) || 
+    (globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0);
   
-  const hasCommunityInfo = globalGood.community?.size_estimate || 
-                          globalGood.community?.sizeOfCommunity || 
-                          (globalGood.community?.platform?.url);
+  // Check if there's community information
+  const hasCommunityInfo = 
+    globalGood.community?.size_estimate || 
+    globalGood.community?.sizeOfCommunity || 
+    (globalGood.community?.platform?.url);
   
+  // Check for environmental impact information
+  const hasEnvironmentalInfo = 
+    globalGood.environmentalImpact?.lowCarbon || 
+    globalGood.environmentalImpact?.description ||
+    globalGood.low_carbon ||
+    (globalGood.maturity?.scores?.low_carbon !== undefined);
+
   return (
     <Card>
       <CardContent className="pt-6 space-y-8">
+        {/* Display logo at the top if available */}
+        {globalGood.logo && (
+          <div className="flex justify-center mb-4">
+            <div className="w-32 h-32 relative">
+              <AspectRatio ratio={1 / 1}>
+                <img 
+                  src={globalGood.logo} 
+                  alt={`${globalGood.name} logo`} 
+                  className="w-full h-full object-contain"
+                />
+              </AspectRatio>
+            </div>
+          </div>
+        )}
+      
         {/* Technology Stack */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -168,6 +195,49 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                         Community Platform
                       </a>
                     )}
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            <Separator />
+          </>
+        )}
+        
+        {/* Environmental Impact */}
+        {hasEnvironmentalInfo && (
+          <>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold mb-4 flex items-center">
+                <Leaf className="mr-2 h-5 w-5 text-green-500" />
+                Environmental Impact
+              </h3>
+              
+              <div>
+                {globalGood.environmentalImpact?.lowCarbon && (
+                  <p className="text-muted-foreground mb-2">
+                    {globalGood.environmentalImpact.lowCarbon}
+                  </p>
+                )}
+                
+                {globalGood.environmentalImpact?.description && (
+                  <p className="text-muted-foreground mb-2">
+                    {globalGood.environmentalImpact.description}
+                  </p>
+                )}
+                
+                {globalGood.low_carbon && (
+                  <p className="text-muted-foreground mb-2">
+                    {globalGood.low_carbon.description || "Designed to minimize carbon footprint."}
+                  </p>
+                )}
+                
+                {globalGood.maturity?.scores?.low_carbon !== undefined && (
+                  <div className="flex items-center mt-2">
+                    <span className="text-sm font-medium mr-2">Low Carbon Score:</span>
+                    <Badge variant="outline" className="bg-green-50">
+                      {globalGood.maturity.scores.low_carbon}/10
+                    </Badge>
                   </div>
                 )}
               </div>
