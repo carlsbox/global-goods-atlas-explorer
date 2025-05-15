@@ -22,3 +22,13 @@ export interface CountryData {
   /** Sub-region */
   subregion?: string;
 }
+
+/**
+ * Interface for country translations
+ */
+export interface CountryTranslations {
+  [iso_code: string]: {
+    short?: string;
+    formal?: string;
+  }
+}

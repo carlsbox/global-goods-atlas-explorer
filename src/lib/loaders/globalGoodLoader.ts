@@ -125,6 +125,7 @@ export async function loadAllGlobalGoods(language: LanguageType = 'en'): Promise
       name: mappedItem.CoreMetadata?.Name || '',
       summary: mappedItem.ProductOverview?.Summary || '',
       description: mappedItem.ProductOverview?.Description || '',
+      details: mappedItem.ProductOverview?.Details || '', // Add the missing details property
       logo: mappedItem.CoreMetadata?.Logo || '',
       website: mappedItem.CoreMetadata?.Website?.[0]?.url || '',
       source_code: mappedItem.CoreMetadata?.SourceCode?.length ? {

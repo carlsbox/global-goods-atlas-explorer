@@ -1,5 +1,6 @@
+
 import { LanguageType } from '@/contexts/LanguageContext';
-import { CountryData, CountryTranslations } from '../types';
+import { CountryData, CountryTranslations } from '../types/country';
 
 // Updated function to load countries data with translations
 export async function loadCountriesData(language: LanguageType = 'en') {
@@ -17,12 +18,17 @@ export async function loadCountriesData(language: LanguageType = 'en') {
         
         // Apply translations to country names
         return countries.map(country => {
-          if (translations[country.iso_code]?.short || translations[country.iso_code]?.formal) {
-            // Create a new object with the translated short and/or formal name
+          if (translations[country.iso_code || ''] && 
+              (translations[country.iso_code || ''].short || 
+               translations[country.iso_code || ''].formal)) {
+            // Create a new country object with translated names if available
             return {
               ...country,
-              short: translations[country.iso_code].short || country.short,
-              formal: translations[country.iso_code].formal || country.formal
+              name: {
+                ...country.name,
+                short: translations[country.iso_code || ''].short || country.name.short,
+                official: translations[country.iso_code || ''].formal || country.name.official
+              }
             };
           }
           return country;
