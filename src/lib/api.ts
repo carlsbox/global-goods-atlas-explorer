@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
@@ -164,3 +163,6 @@ export const useGroupedClassifications = () => {
     classifications 
   };
 };
+
+// Export the global good mutations
+export { useCreateGlobalGood, useUpdateGlobalGood } from '@/hooks/useGlobalGoodMutations';

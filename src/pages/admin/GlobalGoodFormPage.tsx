@@ -8,6 +8,9 @@ import { toast } from '@/components/ui/use-toast';
 import { useI18n } from '@/hooks/useI18n';
 import { LoadingState } from '@/components/global-good/LoadingState';
 import { ErrorState } from '@/components/global-good/ErrorState';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { GlobalGoodForm } from '@/components/admin/form/GlobalGoodForm';
+import { GlobalGoodFormValues } from '@/lib/schemas/globalGoodFormSchema';
 
 export default function GlobalGoodFormPage() {
   const { id } = useParams<{ id: string }>();
@@ -18,50 +21,14 @@ export default function GlobalGoodFormPage() {
   // Fetch global good data if editing
   const { data: globalGoodData, isLoading, error, refetch } = useGlobalGood(id);
   
-  // Form state
-  const [formData, setFormData] = useState<Partial<GlobalGood>>({
-    name: { en: '', fr: '', es: '' },
-    summary: { en: '', fr: '', es: '' },
-    description: { en: '', fr: '', es: '' },
-    details: { en: '', fr: '', es: '' },
-    sector: [],
-    countries: [],
-    technologies: [],
-  });
-
-  // Initialize form data from fetched data
-  useEffect(() => {
-    if (globalGoodData) {
-      setFormData({
-        ...globalGoodData,
-        // Ensure multilingual fields are properly formatted
-        name: ensureMultilingualText(globalGoodData.name),
-        summary: ensureMultilingualText(globalGoodData.summary),
-        description: ensureMultilingualText(globalGoodData.description),
-        details: ensureMultilingualText(globalGoodData.details),
-      });
-    }
-  }, [globalGoodData]);
-
   // Update and create mutations
   const createMutation = useCreateGlobalGood();
   const updateMutation = useUpdateGlobalGood();
+  const isSubmitting = createMutation.isPending || updateMutation.isPending;
 
   // Form submission handler
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = async (formData: GlobalGoodFormValues) => {
     try {
-      // Ensure required fields
-      if (!formData.name || !formData.description || !formData.summary || !formData.details) {
-        toast({
-          title: t('forms.validationError'),
-          description: t('forms.fillAllRequired'),
-          variant: "destructive"
-        });
-        return;
-      }
-
       // Add current timestamp
       const dataToSubmit = {
         ...formData,
@@ -76,17 +43,17 @@ export default function GlobalGoodFormPage() {
         });
         toast({
           title: t('admin.success'),
-          description: t('admin.globalGoodUpdated')
+          description: t('admin.globalGoods.updated')
         });
       } else {
         // Create new global good
         await createMutation.mutateAsync({
           ...dataToSubmit,
-          id: `gg-${Date.now()}` // Generate a simple ID
+          id: formData.id || `gg-${Date.now()}` // Generate a simple ID if not provided
         } as GlobalGood);
         toast({
           title: t('admin.success'),
-          description: t('admin.globalGoodCreated')
+          description: t('admin.globalGoods.created')
         });
       }
 
@@ -102,14 +69,6 @@ export default function GlobalGoodFormPage() {
     }
   };
 
-  // Form field handler
-  const handleChange = (field: string, value: any) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
   if (isLoading) {
     return <LoadingState message={t('admin.loadingGlobalGood')} />;
   }
@@ -119,12 +78,21 @@ export default function GlobalGoodFormPage() {
   }
 
   return (
-    <div>
-      <h1>{isEditing ? t('admin.editGlobalGood') : t('admin.createGlobalGood')}</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Form fields would go here */}
-        <button type="submit">{t('forms.save')}</button>
-      </form>
+    <div className="container py-6 max-w-5xl">
+      <Card>
+        <CardHeader>
+          <CardTitle>
+            {isEditing ? t('admin.globalGoods.edit') : t('admin.globalGoods.create')}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <GlobalGoodForm
+            initialData={globalGoodData}
+            onSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
+          />
+        </CardContent>
+      </Card>
     </div>
   );
 }
