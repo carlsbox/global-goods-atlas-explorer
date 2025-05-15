@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,7 +26,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
-import { Loader2, Save, Upload } from "lucide-react";
+import { Loader, ArrowUpCircle, FileUp } from "lucide-react";
 import { getSiteName } from "@/lib/config";
 
 // Form schema for site settings
@@ -202,7 +201,7 @@ export default function SiteSettingsPage() {
     return (
       <div className="p-6 flex justify-center items-center min-h-screen">
         <div className="flex flex-col items-center">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <Loader className="h-8 w-8 animate-spin text-primary" />
           <p className="mt-2 text-muted-foreground">Loading site settings...</p>
         </div>
       </div>
@@ -341,7 +340,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <Upload className="h-4 w-4 mr-2" />
+                              <FileUp className="h-4 w-4 mr-2" />
                               Upload Logo
                             </span>
                           </Button>
@@ -386,7 +385,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <Upload className="h-4 w-4 mr-2" />
+                              <FileUp className="h-4 w-4 mr-2" />
                               Upload Favicon
                             </span>
                           </Button>
@@ -511,12 +510,12 @@ export default function SiteSettingsPage() {
               <Button type="submit" disabled={isSaving}>
                 {isSaving ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader className="mr-2 h-4 w-4 animate-spin" />
                     Saving...
                   </>
                 ) : (
                   <>
-                    <Save className="mr-2 h-4 w-4" />
+                    <ArrowUpCircle className="mr-2 h-4 w-4" />
                     Save Settings
                   </>
                 )}

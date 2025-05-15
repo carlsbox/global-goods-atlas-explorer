@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { PlusCircle, Edit, Trash2 } from 'lucide-react';
+import { PlusCircle, Edit, Trash } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -162,7 +162,7 @@ const ClassificationsPage = () => {
                           onClick={() => handleDeleteClassification(classification.code)}
                           className="text-destructive hover:text-destructive"
                         >
-                          <Trash2 className="h-4 w-4 mr-1" /> Delete
+                          <Trash className="h-4 w-4 mr-1" /> Delete
                         </Button>
                       </TableCell>
                     </TableRow>

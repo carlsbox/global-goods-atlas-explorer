@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { 
   Table, 
@@ -30,12 +29,12 @@ import {
 import { Label } from "@/components/ui/label";
 import { 
   Pencil, 
-  Trash2, 
+  Trash, 
   Search, 
   Plus, 
-  UserPlus, 
-  UserCheck,
-  Loader2,
+  UserCircle,
+  User,
+  Loader,
   Mail
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -245,7 +244,7 @@ export default function UsersPage() {
           <Dialog open={isAddUserOpen} onOpenChange={setIsAddUserOpen}>
             <DialogTrigger asChild>
               <Button>
-                <UserPlus className="h-4 w-4 mr-2" />
+                <UserCircle className="h-4 w-4 mr-2" />
                 Add User
               </Button>
             </DialogTrigger>
@@ -299,12 +298,12 @@ export default function UsersPage() {
                 <Button onClick={handleAddUser} disabled={isSaving}>
                   {isSaving ? (
                     <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      <Loader className="h-4 w-4 mr-2 animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <UserPlus className="h-4 w-4 mr-2" />
+                      <UserCircle className="h-4 w-4 mr-2" />
                       Send Invitation
                     </>
                   )}
@@ -429,7 +428,7 @@ export default function UsersPage() {
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button variant="ghost" size="icon" title="Change role">
-                              <UserCheck className="h-4 w-4" />
+                              <User className="h-4 w-4" />
                               <span className="sr-only">Change role</span>
                             </Button>
                           </DialogTrigger>
@@ -473,7 +472,7 @@ export default function UsersPage() {
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button variant="ghost" size="icon" title="Delete user">
-                              <Trash2 className="h-4 w-4" />
+                              <Trash className="h-4 w-4" />
                               <span className="sr-only">Delete user</span>
                             </Button>
                           </DialogTrigger>

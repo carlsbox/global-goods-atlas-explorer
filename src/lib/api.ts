@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
@@ -110,6 +109,22 @@ export const useGroupedClassifications = () => {
     isLoading, 
     error,
     classifications 
+  };
+};
+
+// Add the missing useDeleteGlobalGood hook
+export const useDeleteGlobalGood = () => {
+  return {
+    mutateAsync: async (id: string) => {
+      console.log(`Deleting global good with ID: ${id}`);
+      // This is a mock implementation. In a real application, this would call an API
+      // to delete the global good with the specified ID.
+      
+      // Simulate a successful deletion after a short delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      return { success: true };
+    }
   };
 };
 
