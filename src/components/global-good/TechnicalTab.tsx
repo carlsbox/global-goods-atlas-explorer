@@ -18,9 +18,11 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
   const healthStandards = globalGood.standardsAndInteroperability?.healthStandards?.map(std => std.name) || 
                           globalGood.healthStandards || [];
   
-  // Get languages from productOverview
+  // Get languages from productOverview - fix for TypeScript errors by properly checking type
   const languages = globalGood.productOverview?.languages?.map(lang => {
+    // Handle both string and object types safely
     if (typeof lang === 'string') return lang;
+    // Access properties safely with optional chaining
     return lang.name || lang.code || '';
   }).filter(Boolean) || globalGood.languages || [];
   
@@ -42,8 +44,8 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                            (globalGood.low_carbon?.description) ||
                            (globalGood.maturity?.scores?.low_carbon !== undefined);
   
-  // Get SDGs from Classifications
-  const sdgs = globalGood.classifications?.SDGs?.map(sdg => sdg.title) || 
+  // Get SDGs from Classifications - fix casing issue from SDGs to sdgs
+  const sdgs = globalGood.classifications?.sdgs?.map(sdg => sdg.title) || 
                globalGood.sdgs || [];
   
   return (
