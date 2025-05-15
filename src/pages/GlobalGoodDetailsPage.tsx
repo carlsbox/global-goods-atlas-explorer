@@ -1,7 +1,6 @@
 
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGood } from "@/lib/api";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft } from "lucide-react";
 
 // Import our components
@@ -12,9 +11,11 @@ import { StandardsTab } from "@/components/global-good/StandardsTab";
 import { MaturityTab } from "@/components/global-good/MaturityTab";
 import { DeploymentTab } from "@/components/global-good/DeploymentTab";
 import { CommunityTab } from "@/components/global-good/CommunityTab";
+import { UseCasesTab } from "@/components/global-good/UseCasesTab";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { useI18n } from "@/hooks/useI18n";
+import { Separator } from "@/components/ui/separator";
 
 export default function GlobalGoodDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -47,44 +48,61 @@ export default function GlobalGoodDetailsPage() {
       {/* Header Section */}
       <GlobalGoodHeader globalGood={globalGood} />
       
-      {/* Main Content */}
-      <div className="mt-8">
-        <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="mb-6 w-full max-w-3xl mx-auto flex flex-wrap justify-center border-b pb-1">
-            <TabsTrigger value="overview">{tPage('tabs.overview', 'globalGoodDetails')}</TabsTrigger>
-            <TabsTrigger value="technical">{tPage('tabs.technical', 'globalGoodDetails')}</TabsTrigger>
-            <TabsTrigger value="deployment">Deployment</TabsTrigger>
-            <TabsTrigger value="community">Community</TabsTrigger>
-            <TabsTrigger value="maturity">{tPage('tabs.maturity', 'globalGoodDetails')}</TabsTrigger>
-            <TabsTrigger value="standards">{tPage('tabs.standards', 'globalGoodDetails')}</TabsTrigger>
-          </TabsList>
-
-          <div className="mt-6">
-            <TabsContent value="overview">
-              <OverviewTab globalGood={globalGood} />
-            </TabsContent>
-            
-            <TabsContent value="technical">
-              <TechnicalTab globalGood={globalGood} />
-            </TabsContent>
-            
-            <TabsContent value="deployment">
-              <DeploymentTab globalGood={globalGood} />
-            </TabsContent>
-            
-            <TabsContent value="community">
-              <CommunityTab globalGood={globalGood} />
-            </TabsContent>
-            
-            <TabsContent value="maturity">
-              <MaturityTab globalGood={globalGood} />
-            </TabsContent>
-            
-            <TabsContent value="standards">
-              <StandardsTab globalGood={globalGood} />
-            </TabsContent>
-          </div>
-        </Tabs>
+      {/* Main Content - All sections displayed vertically */}
+      <div className="mt-8 space-y-10">
+        {/* Overview Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">{tPage('tabs.overview', 'globalGoodDetails')}</h2>
+          <OverviewTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Technical Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">{tPage('tabs.technical', 'globalGoodDetails')}</h2>
+          <TechnicalTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Deployment Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Deployment</h2>
+          <DeploymentTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Community Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Community</h2>
+          <CommunityTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Maturity Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">{tPage('tabs.maturity', 'globalGoodDetails')}</h2>
+          <MaturityTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Standards Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">{tPage('tabs.standards', 'globalGoodDetails')}</h2>
+          <StandardsTab globalGood={globalGood} />
+        </div>
+        
+        <Separator />
+        
+        {/* Use Cases Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Use Cases</h2>
+          <UseCasesTab globalGood={globalGood} />
+        </div>
       </div>
     </div>
   );
