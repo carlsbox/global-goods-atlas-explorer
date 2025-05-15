@@ -10,8 +10,12 @@ interface TechnicalTabProps {
 }
 
 export function TechnicalTab({ globalGood }: TechnicalTabProps) {
-  const hasLanguages = globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0;
-  const hasCommunityInfo = globalGood.community?.size_estimate || globalGood.community?.sizeOfCommunity || (globalGood.community?.platform?.url);
+  const hasLanguages = globalGood.languages && globalGood.languages.length > 0 || 
+                      (globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0);
+  
+  const hasCommunityInfo = globalGood.community?.size_estimate || 
+                          globalGood.community?.sizeOfCommunity || 
+                          (globalGood.community?.platform?.url);
   
   return (
     <Card>
@@ -101,6 +105,7 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Display languages from either the root level or productOverview */}
                 {hasLanguages && (
                   <div>
                     <h4 className="text-md font-medium mb-2">
@@ -108,14 +113,28 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       Supported Languages
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {globalGood.productOverview.languages.map((lang, index) => (
-                        <Badge 
-                          key={index} 
-                          variant="secondary"
-                        >
-                          {typeof lang === 'string' ? lang : (lang.name || lang.code || 'Unknown')}
+                      {(globalGood.languages || []).map((lang, index) => (
+                        <Badge key={index} variant="secondary">
+                          {lang}
                         </Badge>
                       ))}
+                      
+                      {/* Handle languages from productOverview if available */}
+                      {globalGood.productOverview?.languages && 
+                        globalGood.productOverview.languages.map((lang, index) => {
+                          const langDisplay = typeof lang === 'string' 
+                            ? lang 
+                            : (lang && 'name' in lang 
+                                ? lang.name 
+                                : (lang && 'code' in lang ? lang.code : 'Unknown'));
+                          
+                          return (
+                            <Badge key={`po-${index}`} variant="secondary">
+                              {langDisplay}
+                            </Badge>
+                          );
+                        })
+                      }
                     </div>
                   </div>
                 )}
