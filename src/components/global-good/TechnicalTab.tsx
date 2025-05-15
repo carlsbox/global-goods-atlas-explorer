@@ -122,11 +122,18 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       {/* Handle languages from productOverview if available */}
                       {globalGood.productOverview?.languages && 
                         globalGood.productOverview.languages.map((lang, index) => {
-                          const langDisplay = typeof lang === 'string' 
-                            ? lang 
-                            : (lang && 'name' in lang 
-                                ? lang.name 
-                                : (lang && 'code' in lang ? lang.code : 'Unknown'));
+                          // Use type checking instead of property access
+                          let langDisplay = 'Unknown';
+                          if (typeof lang === 'string') {
+                            langDisplay = lang;
+                          } else if (lang && typeof lang === 'object') {
+                            // Safely check for properties
+                            if ('name' in lang) {
+                              langDisplay = String(lang.name);
+                            } else if ('code' in lang) {
+                              langDisplay = String(lang.code);
+                            }
+                          }
                           
                           return (
                             <Badge key={`po-${index}`} variant="secondary">
