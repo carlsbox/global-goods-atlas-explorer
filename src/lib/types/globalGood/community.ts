@@ -1,3 +1,4 @@
+
 /**
  * Community information for a global good.
  */
@@ -15,6 +16,13 @@ export interface Community {
   inceptionYear?: number;
   /** Size of the community */
   sizeOfCommunity?: number;
+  /** Size estimate (for backward compatibility) */
+  size_estimate?: number;
+  /** Platform information (for backward compatibility) */
+  platform?: {
+    url: string;
+    description?: string;
+  };
   /** Community links */
   links?: {
     community?: Array<{

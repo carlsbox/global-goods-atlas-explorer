@@ -5,4 +5,7 @@ export * from './globalGood';
 export * from './useCase';
 export * from './country';
 export * from './globalGood/classification';
+export * from './globalGood/community';
+export * from './globalGood/environmentalImpact';
+export * from './globalGood/maturity';
 

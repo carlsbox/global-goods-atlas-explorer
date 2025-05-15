@@ -11,7 +11,7 @@ interface TechnicalTabProps {
 
 export function TechnicalTab({ globalGood }: TechnicalTabProps) {
   const hasLanguages = globalGood.productOverview?.languages && globalGood.productOverview.languages.length > 0;
-  const hasCommunityInfo = globalGood.community?.size_estimate || (globalGood.community?.platform?.url);
+  const hasCommunityInfo = globalGood.community?.size_estimate || globalGood.community?.sizeOfCommunity || (globalGood.community?.platform?.url);
   
   return (
     <Card>
@@ -108,9 +108,12 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       Supported Languages
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {globalGood.productOverview.languages.map((lang) => (
-                        <Badge key={typeof lang === 'string' ? lang : lang.code} variant="secondary">
-                          {typeof lang === 'string' ? lang : lang.name}
+                      {globalGood.productOverview.languages.map((lang, index) => (
+                        <Badge 
+                          key={index} 
+                          variant="secondary"
+                        >
+                          {typeof lang === 'string' ? lang : (lang.name || lang.code || 'Unknown')}
                         </Badge>
                       ))}
                     </div>
@@ -123,9 +126,9 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       <Users className="mr-2 h-4 w-4" />
                       Community
                     </h4>
-                    {globalGood.community?.size_estimate && (
+                    {(globalGood.community?.size_estimate || globalGood.community?.sizeOfCommunity) && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        Community size: {globalGood.community.size_estimate.toLocaleString()} members
+                        Community size: {(globalGood.community.size_estimate || globalGood.community.sizeOfCommunity).toLocaleString()} members
                       </p>
                     )}
                     {globalGood.community?.platform?.url && (
