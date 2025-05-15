@@ -110,4 +110,9 @@ export interface GlobalGood {
   // For backward compatibility with old code
   sector?: string[];
   github?: string;
+  // Adding the missing low_carbon property that exists in the data
+  low_carbon?: {
+    considered?: boolean;
+    description?: string;
+  };
 }
