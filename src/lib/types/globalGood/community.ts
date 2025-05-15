@@ -76,4 +76,4 @@ export interface Community {
       url: string;
     }>;
   };
-} 
+}
