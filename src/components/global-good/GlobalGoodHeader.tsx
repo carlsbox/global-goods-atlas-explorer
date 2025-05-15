@@ -1,11 +1,10 @@
 
 import { Link } from "react-router-dom";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Globe, Github, Mail } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
-import { GlobalGood } from "@/lib/types/globalGood/globalGood";
+import { GlobalGood } from "@/lib/types/globalGood";
 
 interface GlobalGoodHeaderProps {
   globalGood: GlobalGood;
@@ -14,25 +13,42 @@ interface GlobalGoodHeaderProps {
 export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
   const { getText } = useI18n();
 
-  // Get the name and description using our getText helper
-  const goodName = getText(globalGood.coreMetadata.name);
-  const goodDescription = getText(globalGood.productOverview.description);
+  // Safety checks for accessing properties with potential undefined values
+  const logoUrl = globalGood.logo || globalGood.coreMetadata?.logo || '';
+  const goodName = globalGood.name || getText(globalGood.coreMetadata?.name) || 'Unknown';
+  const goodDescription = globalGood.description || getText(globalGood.productOverview?.description) || '';
+  
+  // Get types with fallbacks
+  const types = globalGood.coreMetadata?.globalGoodsType || [];
+  const maturityLevel = typeof globalGood.maturity === 'string' 
+    ? globalGood.maturity 
+    : globalGood.maturity?.level || '';
+  
+  // Get contact info with fallbacks
+  const contactName = globalGood.contact?.name || '';
+  const contactEmail = globalGood.contact?.email || '';
+  
+  // Get resource links with fallbacks
+  const websiteUrl = globalGood.website || '';
+  const githubUrl = globalGood.github || '';
+  const sourceCodeUrl = globalGood.source_code?.primary || '';
+  const demoUrl = globalGood.demo_link || '';
 
   return (
     <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Left Column - Logo, Name, Description, Tags */}
       <div>
         <div className="flex items-center gap-4 mb-4">
-          {globalGood.logo ? (
+          {logoUrl ? (
             <img 
-              src={globalGood.coreMetadata.logo} 
-              alt={goodName} 
+              src={logoUrl} 
+              alt={typeof goodName === 'string' ? goodName : 'Global Good'} 
               className="h-16 w-16 object-contain"
             />
           ) : (
             <div className="h-16 w-16 bg-primary/10 rounded flex items-center justify-center">
               <span className="text-2xl font-bold text-primary">
-                {goodName.charAt(0)}
+                {typeof goodName === 'string' ? goodName.charAt(0) : 'G'}
               </span>
             </div>
           )}
@@ -43,39 +59,39 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {globalGood.coreMetadata.GlobalGoodsType?.map((typegg) => (
-            <Badge key={typegg} variant="outline" className="text-xs">
-              {typegg}
+          {types.map((typegg, index) => (
+            <Badge 
+              key={index} 
+              variant="outline" 
+              className="text-xs"
+            >
+              {typeof typegg === 'string' ? typegg : typegg.title}
             </Badge>
           ))}
-          {typeof globalGood.maturity === 'string' ? (
+          {maturityLevel && (
             <Badge variant="secondary" className="text-xs">
-              {globalGood.maturity}
+              {maturityLevel}
             </Badge>
-          ) : globalGood.maturity?.level ? (
-            <Badge variant="secondary" className="text-xs">
-              {globalGood.maturity.level}
-            </Badge>
-          ) : null}
+          )}
         </div>
       </div>
 
       {/* Right Column - Contact Info, Website, GitHub */}
       <div className="flex flex-col justify-start gap-4 md:border-l md:pl-6">
         {/* Contact Information */}
-        {globalGood.contact && (globalGood.contact.name || globalGood.contact.email) && (
+        {(contactName || contactEmail) && (
           <div className="mb-2">
             <h3 className="text-sm font-medium text-muted-foreground mb-2">Contact</h3>
-            {globalGood.contact.name && (
-              <p className="text-sm mb-1">{globalGood.contact.name}</p>
+            {contactName && (
+              <p className="text-sm mb-1">{contactName}</p>
             )}
-            {globalGood.contact.email && (
+            {contactEmail && (
               <a 
-                href={`mailto:${globalGood.contact.email}`}
+                href={`mailto:${contactEmail}`}
                 className="text-sm text-primary hover:underline flex items-center gap-2"
               >
                 <Mail className="h-4 w-4" />
-                {globalGood.contact.email}
+                {contactEmail}
               </a>
             )}
           </div>
@@ -85,56 +101,56 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
         <div>
           <h3 className="text-sm font-medium text-muted-foreground mb-2">Resources</h3>
           <div className="flex flex-col space-y-2">
-            {globalGood.website && (
+            {websiteUrl && (
               <Button asChild variant="outline" size="sm" className="justify-start w-full md:w-auto">
                 <a 
-                  href={globalGood.website} 
+                  href={websiteUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center"
                 >
                   <Globe className="mr-2 h-4 w-4" />
-                  Website: {globalGood.website}
+                  Website: {websiteUrl}
                 </a>
               </Button>
             )}
-            {globalGood.github && (
+            {githubUrl && (
               <Button asChild variant="outline" size="sm" className="justify-start w-full md:w-auto">
                 <a 
-                  href={globalGood.github} 
+                  href={githubUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center"
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  GitHub: {globalGood.github}
+                  GitHub: {githubUrl}
                 </a>
               </Button>
             )}
             {/* Support for source_code field format from updated schema */}
-            {!globalGood.github && globalGood.source_code?.primary && (
+            {!githubUrl && sourceCodeUrl && (
               <Button asChild variant="outline" size="sm" className="justify-start w-full md:w-auto">
                 <a 
-                  href={globalGood.source_code.primary} 
+                  href={sourceCodeUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center"
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  GitHub: {globalGood.source_code.primary}
+                  GitHub: {sourceCodeUrl}
                 </a>
               </Button>
             )}
-            {globalGood.demo_link && (
+            {demoUrl && (
               <Button asChild variant="outline" size="sm" className="justify-start w-full md:w-auto">
                 <a 
-                  href={globalGood.demo_link} 
+                  href={demoUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center"
                 >
                   <Globe className="mr-2 h-4 w-4" />
-                  Live Demo: {globalGood.demo_link}
+                  Live Demo: {demoUrl}
                 </a>
               </Button>
             )}
