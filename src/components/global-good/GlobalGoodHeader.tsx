@@ -1,10 +1,11 @@
 
 import { Link } from "react-router-dom";
-import { GlobalGood } from "@/lib/types";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Globe, Github, Mail } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
+import { GlobalGood } from "@/lib/types/globalGood/globalGood";
 
 interface GlobalGoodHeaderProps {
   globalGood: GlobalGood;
@@ -14,8 +15,8 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
   const { getText } = useI18n();
 
   // Get the name and description using our getText helper
-  const goodName = getText(globalGood.name);
-  const goodDescription = getText(globalGood.description);
+  const goodName = getText(globalGood.coreMetadata.name);
+  const goodDescription = getText(globalGood.productOverview.description);
 
   return (
     <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -24,7 +25,7 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
         <div className="flex items-center gap-4 mb-4">
           {globalGood.logo ? (
             <img 
-              src={globalGood.logo} 
+              src={globalGood.coreMetadata.logo} 
               alt={goodName} 
               className="h-16 w-16 object-contain"
             />
@@ -42,9 +43,9 @@ export function GlobalGoodHeader({ globalGood }: GlobalGoodHeaderProps) {
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {globalGood.sector?.map((sector) => (
-            <Badge key={sector} variant="outline" className="text-xs">
-              {sector}
+          {globalGood.coreMetadata.GlobalGoodsType?.map((typegg) => (
+            <Badge key={typegg} variant="outline" className="text-xs">
+              {typegg}
             </Badge>
           ))}
           {typeof globalGood.maturity === 'string' ? (
