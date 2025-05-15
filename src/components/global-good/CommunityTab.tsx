@@ -35,43 +35,47 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Community Size */}
-          {community.size_estimate && (
+          {(community.sizeOfCommunity || community.size_estimate) && (
             <div>
               <h3 className="text-sm font-medium mb-2">Community Size</h3>
               <div className="flex items-center gap-2">
-                <p className="text-2xl font-bold">{community.size_estimate.toLocaleString()}</p>
+                <p className="text-2xl font-bold">
+                  {(community.sizeOfCommunity || community.size_estimate)?.toLocaleString()}
+                </p>
                 <span className="text-muted-foreground">members</span>
               </div>
             </div>
           )}
 
           {/* Inception */}
-          {community.inception_year && (
+          {community.inceptionYear && (
             <div>
               <h3 className="text-sm font-medium mb-2">Year Founded</h3>
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-muted-foreground" />
-                <p>{community.inception_year}</p>
+                <p>{community.inceptionYear}</p>
               </div>
             </div>
           )}
 
-          {/* Anchoring */}
-          {community.anchored && (
+          {/* Host Organization */}
+          {community.hostAnchorOrganization && (
             <div>
-              <h3 className="text-sm font-medium mb-2">Community Status</h3>
-              <Badge variant="outline" className="bg-green-50">Anchored</Badge>
-              {community.anchor_description && (
-                <p className="text-sm text-muted-foreground mt-2">{community.anchor_description}</p>
+              <h3 className="text-sm font-medium mb-2">Host Organization</h3>
+              <Badge variant="outline" className="bg-green-50">
+                {community.hostAnchorOrganization.name}
+              </Badge>
+              {community.hostAnchorOrganization.description && (
+                <p className="text-sm text-muted-foreground mt-2">{community.hostAnchorOrganization.description}</p>
               )}
             </div>
           )}
 
           {/* Overview Description */}
-          {community.overview && (
+          {community.descriptionOfCommunity && (
             <div>
               <h3 className="text-sm font-medium mb-2">About</h3>
-              <p className="text-sm text-muted-foreground">{community.overview}</p>
+              <p className="text-sm text-muted-foreground">{community.descriptionOfCommunity}</p>
             </div>
           )}
         </CardContent>
@@ -97,20 +101,10 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
                 </Button>
               )}
               
-              {community.platform.governance && (
-                <div className="flex items-center gap-2 text-sm">
-                  <Badge variant="secondary">Governance Model</Badge>
-                  {community.platform.governance_link && (
-                    <a 
-                      href={community.platform.governance_link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline text-sm"
-                    >
-                      View governance details
-                    </a>
-                  )}
-                </div>
+              {community.platform.description && (
+                <p className="text-sm text-muted-foreground">
+                  {community.platform.description}
+                </p>
               )}
             </CardContent>
           </Card>
@@ -125,19 +119,31 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Mailing List */}
-            {community.mailing_list?.exists && (
+            {/* Community Links */}
+            {community.links?.community && community.links.community.length > 0 && (
               <div>
-                <h3 className="text-sm font-medium mb-2">Mailing List</h3>
-                {community.mailing_list.link ? (
-                  <Button asChild variant="outline" size="sm">
-                    <a href={community.mailing_list.link} target="_blank" rel="noopener noreferrer">
-                      Subscribe to mailing list
+                <h3 className="text-sm font-medium mb-2">Community Links</h3>
+                {community.links.community.map((link, index) => (
+                  <Button asChild key={index} variant="outline" size="sm" className="mr-2 mb-2">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      {link.description || "Community Link"}
                     </a>
                   </Button>
-                ) : (
-                  <Badge>Available</Badge>
-                )}
+                ))}
+              </div>
+            )}
+            
+            {/* Mailing List */}
+            {community.links?.mailingList && community.links.mailingList.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium mb-2">Mailing List</h3>
+                {community.links.mailingList.map((link, index) => (
+                  <Button asChild key={index} variant="outline" size="sm" className="mr-2 mb-2">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      {link.description || "Subscribe to mailing list"}
+                    </a>
+                  </Button>
+                ))}
               </div>
             )}
             
@@ -147,6 +153,7 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
                 <Separator />
                 <div>
                   <h3 className="text-sm font-medium mb-2">Events</h3>
+                  <p className="text-sm text-muted-foreground mb-2">{community.events.description}</p>
                   <Button asChild variant="outline" size="sm">
                     <a href={community.events.schedule} target="_blank" rel="noopener noreferrer">
                       <Calendar className="h-4 w-4 mr-2" />
@@ -164,15 +171,21 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
                 <ul className="space-y-2">
                   {community.events.recent.map((event, index) => (
                     <li key={index} className="text-sm">
-                      {event.title && <p className="font-medium">{event.title}</p>}
+                      <p className="font-medium">{event.event}</p>
                       {event.date && <p className="text-xs text-muted-foreground">{event.date}</p>}
+                      {event.url && (
+                        <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">
+                          View details
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
             
-            {!community.mailing_list?.exists && (!community.events?.schedule) && (
+            {/* No communication channels message */}
+            {!community.links?.community && !community.links?.mailingList && !community.events?.schedule && (
               <p className="text-sm text-muted-foreground">No communication channels listed for this global good.</p>
             )}
           </CardContent>
