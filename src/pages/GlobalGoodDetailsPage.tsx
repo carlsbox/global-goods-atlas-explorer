@@ -14,6 +14,7 @@ import { CommunityTab } from "@/components/global-good/CommunityTab";
 import { UseCasesTab } from "@/components/global-good/UseCasesTab";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
+import { RawDataViewer } from "@/components/global-good/RawDataViewer";
 import { useI18n } from "@/hooks/useI18n";
 import { Separator } from "@/components/ui/separator";
 
@@ -35,7 +36,7 @@ export default function GlobalGoodDetailsPage() {
   return (
     <div className="container px-4 py-8 mx-auto max-w-7xl">
       {/* Breadcrumb Navigation */}
-      <div className="mb-6">
+      <div className="mb-6 flex justify-between items-center">
         <Link 
           to="/global-goods" 
           className="text-muted-foreground hover:text-primary flex items-center"
@@ -43,6 +44,9 @@ export default function GlobalGoodDetailsPage() {
           <ArrowLeft className="mr-2 h-4 w-4" />
           {tPage('backToGlobalGoods', 'globalGoodDetails')}
         </Link>
+        
+        {/* Add the Raw Data Viewer button */}
+        <RawDataViewer data={globalGood} title={`Raw Data: ${globalGood.name}`} />
       </div>
       
       {/* Header Section */}
