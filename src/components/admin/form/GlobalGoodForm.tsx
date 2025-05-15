@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,6 +24,10 @@ interface GlobalGoodFormProps {
 
 export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: GlobalGoodFormProps) {
   const { t } = useI18n();
+  
+  // Default empty arrays with correct types for language and screenshot fields
+  const emptyLanguages: { code: string, name: string }[] = [];
+  const emptyScreenshots: { url: string, description: string }[] = [];
   
   // Create form with react-hook-form and zod validation
   const form = useForm<GlobalGoodFormValues>({
@@ -53,8 +58,8 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                  : { en: '', fr: '', es: '' },
         primaryFunctionality: initialData?.productOverview?.primaryFunctionality || '',
         users: initialData?.productOverview?.users || '',
-        languages: initialData?.productOverview?.languages || [],
-        screenshots: initialData?.productOverview?.screenshots || [],
+        languages: initialData?.productOverview?.languages || emptyLanguages,
+        screenshots: initialData?.productOverview?.screenshots || emptyScreenshots,
       },
       id: initialData?.id || '',
       name: initialData?.name ? (typeof initialData.name === 'string' ? 
@@ -185,11 +190,11 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
               label="Contact Information"
               control={form.control}
               addLabel="Add Contact"
-              renderItem={(name, index) => (
+              renderItem={(name) => (
                 <div className="space-y-3">
                   <FormField
                     control={form.control}
-                    name={`coreMetadata.contact.${index}.name`}
+                    name={`${name}.name`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Name" {...field} />
@@ -198,7 +203,7 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                   />
                   <FormField
                     control={form.control}
-                    name={`coreMetadata.contact.${index}.email`}
+                    name={`${name}.email`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Email" {...field} />
@@ -207,7 +212,7 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                   />
                   <FormField
                     control={form.control}
-                    name={`coreMetadata.contact.${index}.role`}
+                    name={`${name}.role`}
                     render={({ field }) => (
                       <FormControl>
                         <Input placeholder="Role" {...field} />

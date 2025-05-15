@@ -31,4 +31,38 @@ declare module 'lucide-react' {
   export const AlignRight: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const Heading1: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const Heading2: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  
+  // Additional missing icons from error list
+  export const Calendar: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const MessageSquare: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const MapPin: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const AlertCircle: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Github: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Mail: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ExternalLink: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Loader: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const BookOpen: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Layers: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Tag: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Database: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Languages: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Shield: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const GitBranch: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Leaf: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ArrowUpRight: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Menu: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Grid3X3: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const X: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ChevronDown: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ChevronRight: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const MoreHorizontal: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ChevronLeft: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ArrowLeft: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ArrowRight: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Check: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Circle: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Dot: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const GripVertical: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const ChevronUp: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const UserCog: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 }
