@@ -26,7 +26,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
-import { Loader, ArrowUpRight, Upload } from "lucide-react";
+import { Loader, ArrowUpRight, Plus } from "lucide-react";
 import { getSiteName } from "@/lib/config";
 
 // Form schema for site settings
@@ -340,7 +340,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <Upload className="h-4 w-4 mr-2" />
+                              <Plus className="h-4 w-4 mr-2" />
                               Upload Logo
                             </span>
                           </Button>
@@ -385,7 +385,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <Upload className="h-4 w-4 mr-2" />
+                              <Plus className="h-4 w-4 mr-2" />
                               Upload Favicon
                             </span>
                           </Button>
