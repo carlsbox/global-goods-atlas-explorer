@@ -115,11 +115,11 @@ export function WorldMap({ globalGood }: WorldMapProps) {
           <ComposableMap
             projection="geoEqualEarth"
             projectionConfig={{
-              scale: 120,
+              scale: 150,
             }}
             className="w-full h-full"
           >
-            <ZoomableGroup zoom={1} center={[0, 20]}>
+            <ZoomableGroup zoom={1.2} center={[0, 20]}>
               <Geographies geography={geoData}>
                 {({ geographies }) => {
                   console.log('WorldMap: Rendering geographies, count:', geographies.length);
