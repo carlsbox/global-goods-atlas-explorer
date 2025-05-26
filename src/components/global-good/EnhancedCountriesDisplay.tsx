@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { CountriesModal } from "./CountriesModal";
+import { CountryFlag } from "@/lib/utils/countryFlags";
 
 interface EnhancedCountriesDisplayProps {
   globalGood: GlobalGoodFlat;
@@ -55,8 +56,8 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
           <div className="grid grid-cols-1 gap-2">
             {sortedCountries.map((country, index) => (
               <div key={index} className="flex items-center p-2 border rounded hover:bg-muted/50 transition-colors">
-                <div className="w-8 h-5 bg-gray-200 rounded flex items-center justify-center text-xs font-medium mr-3 flex-shrink-0">
-                  {country.iso_code.toUpperCase()}
+                <div className="mr-3 flex-shrink-0">
+                  <CountryFlag isoCode={country.iso_code} />
                 </div>
                 <div className="font-medium text-sm truncate">
                   {country.names.en.short}

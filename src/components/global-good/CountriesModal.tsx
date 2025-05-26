@@ -18,6 +18,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
+import { CountryFlag } from "@/lib/utils/countryFlags";
 
 interface CountriesModalProps {
   globalGood: GlobalGoodFlat;
@@ -90,6 +91,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
             <Table>
               <TableHeader>
                 <TableRow>
+                  <TableHead className="w-16">Flag</TableHead>
                   <TableHead>Country</TableHead>
                   <TableHead>ISO Code</TableHead>
                   <TableHead>Type</TableHead>
@@ -99,6 +101,9 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
               <TableBody>
                 {sortedCountries.map((country, index) => (
                   <TableRow key={index}>
+                    <TableCell>
+                      <CountryFlag isoCode={country.iso_code} />
+                    </TableCell>
                     <TableCell className="font-medium">
                       {country.names.en.short}
                     </TableCell>
