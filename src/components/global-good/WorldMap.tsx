@@ -3,8 +3,10 @@ import { useState } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const geoUrl = "/world-countries-110m.json";
+// Use a reliable CDN-hosted world map from Natural Earth data
+const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@3/countries-110m.json";
 
 interface WorldMapProps {
   globalGood: GlobalGoodFlat;
@@ -12,6 +14,9 @@ interface WorldMapProps {
 
 export function WorldMap({ globalGood }: WorldMapProps) {
   const [tooltipContent, setTooltipContent] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  
   const implementationCountries = globalGood.Reach?.ImplementationCountries || [];
   
   // Create a set of ISO codes for quick lookup
@@ -19,9 +24,47 @@ export function WorldMap({ globalGood }: WorldMapProps) {
     implementationCountries.map(country => country.iso_code.toUpperCase())
   );
 
+  // Create a map for country data lookup
+  const countryDataMap = new Map(
+    implementationCountries.map(country => [
+      country.iso_code.toUpperCase(),
+      country
+    ])
+  );
+
+  const handleGeographiesLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleGeographiesError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  if (hasError) {
+    return (
+      <div className="w-full h-[400px] bg-muted/20 rounded-lg flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-muted-foreground mb-2">Unable to load world map</p>
+          <p className="text-sm text-muted-foreground">Please check your internet connection</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <TooltipProvider>
-      <div className="w-full h-[400px] bg-muted/20 rounded-lg overflow-hidden">
+      <div className="w-full h-[400px] bg-muted/20 rounded-lg overflow-hidden relative">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-muted/20 z-10">
+            <div className="text-center">
+              <Skeleton className="w-12 h-12 rounded-full mx-auto mb-2" />
+              <p className="text-sm text-muted-foreground">Loading world map...</p>
+            </div>
+          </div>
+        )}
+        
         <ComposableMap
           projection="geoEqualEarth"
           projectionConfig={{
@@ -30,13 +73,16 @@ export function WorldMap({ globalGood }: WorldMapProps) {
           className="w-full h-full"
         >
           <ZoomableGroup zoom={1} center={[0, 20]}>
-            <Geographies geography={geoUrl}>
+            <Geographies 
+              geography={geoUrl}
+              onLoad={handleGeographiesLoad}
+              onError={handleGeographiesError}
+            >
               {({ geographies }) =>
                 geographies.map(geo => {
-                  const isImplemented = implementedCountryCodes.has(geo.properties.ISO_A3);
-                  const countryData = implementationCountries.find(
-                    country => country.iso_code.toUpperCase() === geo.properties.ISO_A3
-                  );
+                  const countryCode = geo.properties.ISO_A3 || geo.id;
+                  const isImplemented = implementedCountryCodes.has(countryCode);
+                  const countryData = countryDataMap.get(countryCode);
                   
                   return (
                     <Tooltip key={geo.rsmKey}>
@@ -45,11 +91,9 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                           geography={geo}
                           onMouseEnter={() => {
                             if (isImplemented && countryData) {
-                              setTooltipContent(
-                                `${countryData.names.en.formal} (${countryData.type})`
-                              );
+                              setTooltipContent(countryData.names.en.formal);
                             } else {
-                              setTooltipContent(geo.properties.name);
+                              setTooltipContent(geo.properties.NAME || geo.properties.name || 'Unknown');
                             }
                           }}
                           onMouseLeave={() => {
