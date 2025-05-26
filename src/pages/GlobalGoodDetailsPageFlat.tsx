@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
-import { ArrowLeft, BookOpen, Code, FileText, Package, Settings, Download, Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, Link as LinkIcon, Leaf, Heart, Building, HandCoins } from "lucide-react";
+import { ArrowLeft, BookOpen, Code, FileText, Package, Settings, Download, Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, Link as LinkIcon, Leaf, Heart, Building, DollarSign } from "lucide-react";
 
 // Import flat structure components
 import { GlobalGoodHeaderFlat } from "@/components/global-good/GlobalGoodHeaderFlat";
@@ -587,7 +587,7 @@ export default function GlobalGoodDetailsPageFlat() {
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center">
-                          <HandCoins className="h-5 w-5 mr-2 text-blue-600" />
+                          <DollarSign className="h-5 w-5 mr-2 text-blue-600" />
                           Total Cost of Ownership
                         </CardTitle>
                       </CardHeader>
@@ -863,7 +863,7 @@ export default function GlobalGoodDetailsPageFlat() {
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center">
-                          <HandCoins className="h-5 w-5 mr-2 text-blue-600" />
+                          <DollarSign className="h-5 w-5 mr-2 text-blue-600" />
                           Total Cost of Ownership
                         </CardTitle>
                       </CardHeader>
