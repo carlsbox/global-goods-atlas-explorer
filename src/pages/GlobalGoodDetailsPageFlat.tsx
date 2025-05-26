@@ -13,7 +13,8 @@ import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Globe, Code, BarChart3, Shield, MapPin } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Users, Globe, Code, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Network } from "lucide-react";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -29,6 +30,27 @@ export default function GlobalGoodDetailsPageFlat() {
   if (error || !globalGood) {
     return <ErrorState onRetry={() => refetch()} />;
   }
+
+  // Helper function to check if classifications have data
+  const hasClassifications = () => {
+    const classifications = globalGood.Classifications;
+    return classifications && (
+      (classifications.SDGs && classifications.SDGs.length > 0) ||
+      (classifications.DPI && classifications.DPI.length > 0) ||
+      (classifications.WHO && classifications.WHO.length > 0) ||
+      (classifications.WMO && classifications.WMO.length > 0)
+    );
+  };
+
+  // Helper function to check if standards have data
+  const hasStandards = () => {
+    const standards = globalGood.StandardsAndInteroperability;
+    return standards && (
+      (standards.HealthStandards && standards.HealthStandards.length > 0) ||
+      (standards.Interoperability && standards.Interoperability.length > 0) ||
+      (standards.ClimateStandards && standards.ClimateStandards.length > 0)
+    );
+  };
 
   return (
     <div className="container px-4 py-8 mx-auto max-w-7xl">
@@ -61,12 +83,194 @@ export default function GlobalGoodDetailsPageFlat() {
         {/* Technical Section */}
         <div>
           <h2 className="text-2xl font-bold mb-4">Technical Information</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Classifications Section */}
+          {hasClassifications() && (
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold mb-4 flex items-center">
+                <Tag className="h-5 w-5 mr-2 text-primary" />
+                Classifications
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* SDGs */}
+                {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium">SDGs</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {globalGood.Classifications.SDGs.map((sdg, index) => (
+                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                          {sdg.code} - {sdg.title}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
+                
+                {/* DPI */}
+                {globalGood.Classifications?.DPI && globalGood.Classifications.DPI.length > 0 && (
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium">DPI</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {globalGood.Classifications.DPI.map((dpi, index) => (
+                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                          {dpi.code} - {dpi.title}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
+                
+                {/* WHO */}
+                {globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0 && (
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium">WHO</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {globalGood.Classifications.WHO.map((who, index) => (
+                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                          {who.code} - {who.title}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
+                
+                {/* WMO */}
+                {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-sm font-medium">WMO</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {globalGood.Classifications.WMO.map((wmo, index) => (
+                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                          {wmo.code} - {wmo.title}
+                        </Badge>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
+          )}
+          
+          {/* Standards and Interoperability Section */}
+          {hasStandards() && (
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold mb-4 flex items-center">
+                <Shield className="h-5 w-5 mr-2 text-primary" />
+                Standards & Interoperability
+              </h3>
+              
+              {/* Health Standards */}
+              {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
+                <div>
+                  <h4 className="text-lg font-medium mb-3 flex items-center">
+                    <FileText className="h-4 w-4 mr-2" />
+                    Health Standards
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
+                      <Card key={index} className="hover:shadow-md transition-shadow">
+                        <CardContent className="p-4">
+                          <div className="flex items-start justify-between mb-2">
+                            <h5 className="font-medium">{standard.name}</h5>
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="ghost" size="sm">
+                                  <ExternalLink className="h-3 w-3" />
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent>
+                                <DialogHeader>
+                                  <DialogTitle>{standard.name}</DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-3">
+                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                  <div className="space-y-2">
+                                    <p><strong>Code:</strong> {standard.code}</p>
+                                    <p><strong>Domain:</strong> {standard.domain}</p>
+                                    <Button asChild className="w-full">
+                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                      </a>
+                                    </Button>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                          <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Interoperability Standards */}
+              {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
+                <div>
+                  <h4 className="text-lg font-medium mb-3 flex items-center">
+                    <Network className="h-4 w-4 mr-2" />
+                    Interoperability Standards
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
+                      <Card key={index} className="hover:shadow-md transition-shadow">
+                        <CardContent className="p-4">
+                          <div className="flex items-start justify-between mb-2">
+                            <h5 className="font-medium">{standard.name}</h5>
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="ghost" size="sm">
+                                  <ExternalLink className="h-3 w-3" />
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent>
+                                <DialogHeader>
+                                  <DialogTitle>{standard.name}</DialogTitle>
+                                </DialogHeader>
+                                <div className="space-y-3">
+                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                  <div className="space-y-2">
+                                    <p><strong>Code:</strong> {standard.code}</p>
+                                    <p><strong>Type:</strong> {standard.type}</p>
+                                    <Button asChild className="w-full">
+                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                      </a>
+                                    </Button>
+                                  </div>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                          <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {/* Legacy License & Languages Section - Keep for backward compatibility */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Code className="h-5 w-5 mr-2 text-primary" />
-                  License & Standards
+                  License & Legacy Info
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -75,19 +279,6 @@ export default function GlobalGoodDetailsPageFlat() {
                     <h3 className="text-sm font-medium mb-2">License</h3>
                     <Badge variant="outline">{globalGood.License.name}</Badge>
                     <p className="text-xs text-muted-foreground mt-1">{globalGood.License.description}</p>
-                  </div>
-                )}
-                
-                {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">Health Standards</h3>
-                    <div className="flex flex-wrap gap-1">
-                      {globalGood.StandardsAndInteroperability.HealthStandards.slice(0, 3).map((standard, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
-                          {standard.name}
-                        </Badge>
-                      ))}
-                    </div>
                   </div>
                 )}
               </CardContent>
