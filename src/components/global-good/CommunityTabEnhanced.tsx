@@ -2,7 +2,7 @@ import { GlobalGood } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf, User } from "lucide-react";
+import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGood;
@@ -260,7 +260,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           {globalGood.inclusiveDesign && (
             <div>
               <h4 className="text-sm font-medium mb-2 flex items-center">
-                <User className="h-3 w-3 mr-1 text-blue-500" />
+                <Users className="h-3 w-3 mr-1 text-blue-500" />
                 Inclusive Design
               </h4>
               <div className="space-y-1">
