@@ -6,6 +6,7 @@ import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getMapGeoUrl } from "@/lib/config";
+import { createUnCodeToIso2Mapping, getCountryByAnyCode } from "@/lib/utils/countryLookup";
 
 // Use centralized map data configuration
 const geoUrl = getMapGeoUrl();
@@ -19,12 +20,13 @@ export function WorldMap({ globalGood }: WorldMapProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [geoData, setGeoData] = useState(null);
+  const [unCodeToIso2Map, setUnCodeToIso2Map] = useState<Map<string, string>>(new Map());
   
   const implementationCountries = globalGood.Reach?.ImplementationCountries || [];
   
   console.log('WorldMap: Implementation countries:', implementationCountries);
   
-  // Create multiple lookup sets for different country code formats
+  // Create lookup sets for implementation countries using ISO codes
   const implementedCountryCodes = new Set([
     ...implementationCountries.map(country => country.iso_code?.toUpperCase()),
     ...implementationCountries.map(country => country.iso_code?.toLowerCase()),
@@ -37,6 +39,13 @@ export function WorldMap({ globalGood }: WorldMapProps) {
       country
     ])
   );
+
+  // Initialize the UN code to ISO2 mapping
+  useEffect(() => {
+    const mapping = createUnCodeToIso2Mapping();
+    setUnCodeToIso2Map(mapping);
+    console.log('WorldMap: UN code to ISO2 mapping initialized with', mapping.size, 'entries');
+  }, []);
 
   // Fetch and convert TopoJSON to GeoJSON
   useEffect(() => {
@@ -56,7 +65,6 @@ export function WorldMap({ globalGood }: WorldMapProps) {
         console.log('WorldMap: TopoJSON loaded, converting to GeoJSON');
 
         // Convert TopoJSON to GeoJSON using topojson-client
-        // The countries are typically in the 'countries' or 'land' property
         const countries = topoData.objects.countries || topoData.objects.land || Object.values(topoData.objects)[0];
         
         if (!countries) {
@@ -115,27 +123,41 @@ export function WorldMap({ globalGood }: WorldMapProps) {
               <Geographies geography={geoData}>
                 {({ geographies }) => {
                   console.log('WorldMap: Rendering geographies, count:', geographies.length);
+                  let implementedCount = 0;
                   
                   return geographies.map(geo => {
-                    // Check multiple potential country code properties
-                    const countryCode = geo.properties.ISO_A3 || 
-                                      geo.properties.ISO_A2 || 
-                                      geo.properties.iso_a3 || 
-                                      geo.properties.iso_a2 || 
-                                      geo.id;
+                    // Get country identifier from map data (usually the ID is the UN code)
+                    const mapCountryId = geo.id || geo.properties.UN_A3 || geo.properties.ISO_A3;
                     
-                    // Check if implemented using multiple formats
-                    const isImplemented = implementedCountryCodes.has(countryCode) ||
-                                        implementedCountryCodes.has(countryCode?.toUpperCase()) ||
-                                        implementedCountryCodes.has(countryCode?.toLowerCase());
+                    // Try to map UN code to ISO2 code
+                    let countryIso2 = null;
+                    if (mapCountryId && unCodeToIso2Map.has(String(mapCountryId))) {
+                      countryIso2 = unCodeToIso2Map.get(String(mapCountryId));
+                    }
                     
-                    const countryData = countryDataMap.get(countryCode?.toUpperCase());
+                    // Alternative: try direct ISO code lookup
+                    if (!countryIso2) {
+                      countryIso2 = geo.properties.ISO_A2?.toLowerCase();
+                    }
                     
-                    console.log('WorldMap: Country:', {
-                      name: geo.properties.NAME || geo.properties.name,
-                      code: countryCode,
+                    // Check if this country is implemented
+                    const isImplemented = countryIso2 && (
+                      implementedCountryCodes.has(countryIso2.toUpperCase()) ||
+                      implementedCountryCodes.has(countryIso2.toLowerCase())
+                    );
+                    
+                    if (isImplemented) {
+                      implementedCount++;
+                    }
+                    
+                    const countryData = countryIso2 ? countryDataMap.get(countryIso2.toUpperCase()) : null;
+                    
+                    console.log('WorldMap: Country mapping:', {
+                      mapId: mapCountryId,
+                      mapName: geo.properties.NAME || geo.properties.NAME_EN,
+                      iso2: countryIso2,
                       isImplemented,
-                      allProperties: Object.keys(geo.properties)
+                      hasCountryData: !!countryData
                     });
                     
                     return (
@@ -147,7 +169,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                               if (isImplemented && countryData) {
                                 setTooltipContent(countryData.names.en.formal);
                               } else {
-                                setTooltipContent(geo.properties.NAME || geo.properties.name || 'Unknown');
+                                setTooltipContent(geo.properties.NAME || geo.properties.NAME_EN || 'Unknown');
                               }
                             }}
                             onMouseLeave={() => {
@@ -208,7 +230,9 @@ export function WorldMap({ globalGood }: WorldMapProps) {
         {/* Debug info */}
         {geoData && (
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 text-xs text-gray-600">
-            Countries loaded: {(geoData as any).features?.length || 0}
+            <div>Countries loaded: {(geoData as any).features?.length || 0}</div>
+            <div>UN mappings: {unCodeToIso2Map.size}</div>
+            <div>Expected: {implementationCountries.length}</div>
           </div>
         )}
       </div>
