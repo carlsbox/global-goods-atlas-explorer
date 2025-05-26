@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { CountryData, GlobalGood } from "@/lib/types";
 import { 
@@ -7,8 +6,9 @@ import {
   Geography, 
   ZoomableGroup 
 } from "react-simple-maps";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getMapGeoUrl } from "@/lib/config";
+import { loadGeoJsonData } from "@/lib/mapUtils";
 
 // Use centralized map data configuration
 const geoUrl = getMapGeoUrl();
@@ -29,9 +29,26 @@ export function MapDisplay({
   selectedCountryCode,
 }: MapDisplayProps) {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+  const [geoData, setGeoData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Get array of country codes for easy comparison
   const countryCodes = selectedGoodCountries.map(country => country.code);
+
+  // Load geo data
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await loadGeoJsonData(geoUrl);
+        setGeoData(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error loading geo data:', error);
+        setIsLoading(false);
+      }
+    };
+    loadData();
+  }, []);
   
   // Handle zoom
   const handleZoomIn = () => {
@@ -47,6 +64,14 @@ export function MapDisplay({
   const handleMoveEnd = (position: any) => {
     setPosition(position);
   };
+
+  if (isLoading) {
+    return (
+      <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col items-center justify-center">
+        <p>Loading map...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col items-center justify-center">
@@ -68,70 +93,75 @@ export function MapDisplay({
           <Button size="icon" variant="outline" onClick={handleZoomOut}>-</Button>
         </div>
         
-        <ComposableMap
-          projection="geoEqualEarth"
-          width={800}
-          height={400}
-          className="w-full h-full"
-        >
-          <ZoomableGroup
-            zoom={position.zoom}
-            center={position.coordinates}
-            onMoveEnd={handleMoveEnd}
+        {geoData && (
+          <ComposableMap
+            projection="geoEqualEarth"
+            width={800}
+            height={400}
+            className="w-full h-full"
           >
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map(geo => {
-                  // Use ISO A3 country code format from our GeoJSON data
-                  const isActive = countryCodes.includes(geo.properties.ISO_A3);
-                  const isSelected = selectedCountryCode === geo.properties.ISO_A3;
-                  
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      onClick={() => {
-                        const countryCode = geo.properties.ISO_A3;
-                        // Only allow clicking on countries that are in the selected global good
-                        if (selectedGood && !isActive) return;
-                        onSelectCountry(isSelected ? null : countryCode);
-                      }}
-                      style={{
-                        default: {
-                          fill: isActive 
-                            ? isSelected 
+            <ZoomableGroup
+              zoom={position.zoom}
+              center={position.coordinates}
+              onMoveEnd={handleMoveEnd}
+            >
+              <Geographies geography={geoData}>
+                {({ geographies }) =>
+                  geographies.map(geo => {
+                    // Check multiple possible property names for country code
+                    const countryCode = geo.properties.ISO_A3 || 
+                                      geo.properties.iso_a3 || 
+                                      geo.properties.ADM0_A3 || 
+                                      geo.id;
+                    const isActive = countryCodes.includes(countryCode);
+                    const isSelected = selectedCountryCode === countryCode;
+                    
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        onClick={() => {
+                          // Only allow clicking on countries that are in the selected global good
+                          if (selectedGood && !isActive) return;
+                          onSelectCountry(isSelected ? null : countryCode);
+                        }}
+                        style={{
+                          default: {
+                            fill: isActive 
+                              ? isSelected 
+                                ? "var(--primary)" 
+                                : "var(--primary-foreground)" 
+                              : "var(--muted)",
+                            stroke: "var(--border)",
+                            strokeWidth: 0.5,
+                            outline: "none",
+                            cursor: isActive ? "pointer" : "default"
+                          },
+                          hover: {
+                            fill: isActive 
                               ? "var(--primary)" 
-                              : "var(--primary-foreground)" 
-                            : "var(--muted)",
-                          stroke: "var(--border)",
-                          strokeWidth: 0.5,
-                          outline: "none",
-                          cursor: isActive ? "pointer" : "default"
-                        },
-                        hover: {
-                          fill: isActive 
-                            ? "var(--primary)" 
-                            : "var(--muted)",
-                          stroke: "var(--border)",
-                          strokeWidth: 0.5,
-                          outline: "none"
-                        },
-                        pressed: {
-                          fill: isActive 
-                            ? "var(--primary)" 
-                            : "var(--muted)",
-                          stroke: "var(--border)",
-                          strokeWidth: 0.5,
-                          outline: "none"
-                        }
-                      }}
-                    />
-                  );
-                })
-              }
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+                              : "var(--muted)",
+                            stroke: "var(--border)",
+                            strokeWidth: 0.5,
+                            outline: "none"
+                          },
+                          pressed: {
+                            fill: isActive 
+                              ? "var(--primary)" 
+                              : "var(--muted)",
+                            stroke: "var(--border)",
+                            strokeWidth: 0.5,
+                            outline: "none"
+                          }
+                        }}
+                      />
+                    );
+                  })
+                }
+              </Geographies>
+            </ZoomableGroup>
+          </ComposableMap>
+        )}
       </div>
       
       <div className="mt-4 w-full max-w-2xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
