@@ -42,17 +42,18 @@ export function MaturityRadarChart({ data, allYearsData, dimensions, showMultiYe
       return dimensionData;
     });
 
-    // Create chart config for multi-year
-    const chartConfig: any = {};
+    // Enhanced color palette for better distinction
     const colors = [
-      "hsl(var(--chart-1))",
-      "hsl(var(--chart-2))", 
-      "hsl(var(--chart-3))",
-      "hsl(var(--chart-4))",
-      "hsl(var(--chart-5))",
-      "hsl(220 70% 50%)"
+      "#2563eb", // Blue
+      "#dc2626", // Red  
+      "#16a34a", // Green
+      "#9333ea", // Purple
+      "#ea580c", // Orange
+      "#0d9488", // Teal
     ];
 
+    // Create chart config for multi-year
+    const chartConfig: any = {};
     allYearsData.forEach((yearData, index) => {
       chartConfig[`year_${yearData.year}`] = {
         label: yearData.year.toString(),
@@ -86,10 +87,10 @@ export function MaturityRadarChart({ data, allYearsData, dimensions, showMultiYe
               key={`year_${yearData.year}`}
               dataKey={`year_${yearData.year}`}
               stroke={colors[index % colors.length]}
-              fill={colors[index % colors.length]}
-              fillOpacity={0.1}
-              strokeWidth={2}
-              dot={{ fill: colors[index % colors.length], strokeWidth: 2, r: 3 }}
+              fill="transparent"
+              fillOpacity={0}
+              strokeWidth={3}
+              dot={{ fill: colors[index % colors.length], strokeWidth: 2, r: 4 }}
             />
           ))}
         </RadarChart>
