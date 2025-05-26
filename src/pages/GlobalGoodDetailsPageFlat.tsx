@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -14,7 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Users, Globe, Code, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Network } from "lucide-react";
+import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon } from "lucide-react";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -219,7 +220,7 @@ export default function GlobalGoodDetailsPageFlat() {
               {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
                 <div>
                   <h4 className="text-lg font-medium mb-3 flex items-center">
-                    <Network className="h-4 w-4 mr-2" />
+                    <LinkIcon className="h-4 w-4 mr-2" />
                     Interoperability Standards
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -263,60 +264,6 @@ export default function GlobalGoodDetailsPageFlat() {
               )}
             </div>
           )}
-          
-          {/* Legacy License & Languages Section - Keep for backward compatibility */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Code className="h-5 w-5 mr-2 text-primary" />
-                  License & Legacy Info
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {globalGood.License && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">License</h3>
-                    <Badge variant="outline">{globalGood.License.name}</Badge>
-                    <p className="text-xs text-muted-foreground mt-1">{globalGood.License.description}</p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Globe className="h-5 w-5 mr-2 text-primary" />
-                  Languages & Accessibility
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {globalGood.ProductOverview?.Languages && globalGood.ProductOverview.Languages.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">Supported Languages</h3>
-                    <div className="flex flex-wrap gap-1">
-                      {globalGood.ProductOverview.Languages.map((lang, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {lang.name}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                {globalGood.InclusiveDesign && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">Inclusive Design</h3>
-                    <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.Description}</p>
-                    {globalGood.InclusiveDesign.OfflineSupport && (
-                      <Badge variant="secondary" className="mt-2">Offline Support: {globalGood.InclusiveDesign.OfflineSupport}</Badge>
-                    )}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
         </div>
         
         <Separator />
