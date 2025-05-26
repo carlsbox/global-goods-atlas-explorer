@@ -2,6 +2,7 @@
 import { MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
+import { CountriesModal } from "./CountriesModal";
 
 interface EnhancedCountriesDisplayProps {
   globalGood: GlobalGoodFlat;
@@ -43,10 +44,11 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
             Deployed in {countries.length} {countries.length === 1 ? 'country' : 'countries'}
           </p>
+          <CountriesModal globalGood={globalGood} />
         </div>
         
         <div className="max-h-80 overflow-y-auto">
