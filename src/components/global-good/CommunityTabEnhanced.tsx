@@ -3,7 +3,7 @@ import { GlobalGood } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, Clock, ExternalLink } from "lucide-react";
+import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 interface CommunityTabEnhancedProps {
@@ -24,83 +24,106 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
     );
   }
 
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Column 1: Community Overview */}
-      <div className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Users className="h-5 w-5 mr-2 text-primary" />
-              Community Overview
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {/* Community Description */}
-            {community.DescriptionOfCommunity && (
-              <div>
-                <h3 className="text-sm font-medium mb-2">About the Community</h3>
-                <p className="text-sm text-muted-foreground">{community.DescriptionOfCommunity}</p>
-              </div>
-            )}
+  // Function to get country short name
+  const getCountryShortName = (countryCode: string): string => {
+    try {
+      // Import country data dynamically
+      const countryData = require("@/i18n/locales/en/country.json");
+      const country = countryData[countryCode.toLowerCase()];
+      return country?.short || countryCode.toUpperCase();
+    } catch (error) {
+      return countryCode.toUpperCase();
+    }
+  };
 
+  return (
+    <div className="space-y-8">
+      {/* Community Overview - Full Width */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center">
+            <Users className="h-5 w-5 mr-2 text-primary" />
+            Community Overview
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Community Description */}
+          {community.DescriptionOfCommunity && (
+            <div>
+              <h3 className="text-sm font-medium mb-2">About the Community</h3>
+              <p className="text-sm text-muted-foreground">{community.DescriptionOfCommunity}</p>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Community Metrics */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-4">
               {(community.SizeOfCommunity || community.size_estimate) && (
-                <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">
+                <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  <div className="text-3xl font-bold text-primary">
                     {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
                   </div>
-                  <div className="text-xs text-muted-foreground">Members</div>
+                  <div className="text-sm text-muted-foreground">Community Members</div>
                 </div>
               )}
 
               {community.InceptionYear && (
-                <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <div className="text-2xl font-bold text-primary">{community.InceptionYear}</div>
-                  <div className="text-xs text-muted-foreground">Founded</div>
+                <div className="text-center p-4 bg-muted/50 rounded-lg">
+                  <div className="text-3xl font-bold text-primary">{community.InceptionYear}</div>
+                  <div className="text-sm text-muted-foreground">Year Founded</div>
                 </div>
               )}
             </div>
 
             {/* Host Organization */}
             {community.HostAnchorOrganization && (
-              <div>
+              <div className="md:col-span-2">
                 <h3 className="text-sm font-medium mb-3 flex items-center">
                   <Building className="h-4 w-4 mr-2" />
                   Host Organization
                 </h3>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <Badge variant="outline" className="bg-green-50">
-                      {community.HostAnchorOrganization.name}
-                    </Badge>
-                    {community.HostAnchorOrganization.url && (
-                      <Button asChild variant="ghost" size="sm">
-                        <a href={community.HostAnchorOrganization.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                  {community.HostAnchorOrganization.description && (
-                    <p className="text-xs text-muted-foreground">{community.HostAnchorOrganization.description}</p>
-                  )}
-                  {community.HostAnchorOrganization.country && community.HostAnchorOrganization.country.length > 0 && (
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <MapPin className="h-3 w-3" />
-                      {community.HostAnchorOrganization.country.join(", ").toUpperCase()}
+                <Card>
+                  <CardContent className="p-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <Badge variant="outline" className="bg-green-50 text-lg px-3 py-1">
+                          {community.HostAnchorOrganization.name}
+                        </Badge>
+                        {community.HostAnchorOrganization.url && (
+                          <Button asChild variant="ghost" size="sm">
+                            <a href={community.HostAnchorOrganization.url} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="h-4 w-4" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                      {community.HostAnchorOrganization.description && (
+                        <p className="text-sm text-muted-foreground">{community.HostAnchorOrganization.description}</p>
+                      )}
+                      {community.HostAnchorOrganization.country && community.HostAnchorOrganization.country.length > 0 && (
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <div className="flex gap-2">
+                            {community.HostAnchorOrganization.country.map((countryCode, index) => (
+                              <Badge key={index} variant="secondary" className="text-xs">
+                                {getCountryShortName(countryCode)}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             )}
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      {/* Column 2: Engagement & Communication */}
-      <div className="space-y-6">
+      {/* Two Column Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Column 1: Engagement & Communication */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center">
@@ -186,7 +209,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                               <p className="text-xs font-medium">{event.event}</p>
                               {event.date && (
                                 <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                                  <Clock className="h-3 w-3" />
+                                  <Calendar className="h-3 w-3" />
                                   {event.date}
                                 </div>
                               )}
@@ -208,10 +231,8 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             )}
           </CardContent>
         </Card>
-      </div>
 
-      {/* Column 3: Governance & Policies */}
-      <div className="space-y-6">
+        {/* Column 2: Governance & Policies */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center">
