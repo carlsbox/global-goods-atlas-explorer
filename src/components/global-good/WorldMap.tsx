@@ -119,7 +119,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
               }}
               className="w-full h-full"
             >
-              <ZoomableGroup zoom={1.5} center={[0, 20]}>
+              <ZoomableGroup zoom={1.3} center={[0, 30]}>
                 <Geographies geography={geoData}>
                   {({ geographies }) => {
                     console.log('WorldMap: Rendering geographies, count:', geographies.length);
