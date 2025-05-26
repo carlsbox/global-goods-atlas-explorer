@@ -1,4 +1,3 @@
-
 // New type definition that matches the exact JSON structure
 export interface GlobalGoodFlat {
   ID: string;
@@ -97,10 +96,10 @@ export interface GlobalGoodFlat {
   Reach: {
     SummaryOfReach: string;
     NumberOfImplementations: number;
-    ImplementationMapOverview: Array<{
+    ImplementationMapOverview: {
       url: string;
       description: string;
-    }>;
+    } | null;
     ImplementationCountries: Array<{
       iso_code: string;
       type: string;

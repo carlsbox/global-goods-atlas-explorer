@@ -11,7 +11,7 @@ interface InteractiveMapCardProps {
 export function InteractiveMapCard({ globalGood }: InteractiveMapCardProps) {
   const mapOverview = globalGood.Reach?.ImplementationMapOverview;
 
-  if (!mapOverview || mapOverview.length === 0) {
+  if (!mapOverview) {
     return (
       <Card>
         <CardHeader>
@@ -39,19 +39,17 @@ export function InteractiveMapCard({ globalGood }: InteractiveMapCardProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {mapOverview.map((map, index) => (
-          <div key={index} className="border rounded-lg p-4">
-            <p className="text-sm text-muted-foreground mb-3">
-              {map.description}
-            </p>
-            <Button asChild className="w-full">
-              <a href={map.url} target="_blank" rel="noopener noreferrer">
-                View Interactive Map
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        ))}
+        <div className="border rounded-lg p-4">
+          <p className="text-sm text-muted-foreground mb-3">
+            {mapOverview.description}
+          </p>
+          <Button asChild className="w-full">
+            <a href={mapOverview.url} target="_blank" rel="noopener noreferrer">
+              View Interactive Map
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
