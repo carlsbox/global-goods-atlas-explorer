@@ -167,17 +167,21 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                   {/* Display up to 3 events */}
                   {community.Events.recent.slice(0, 3).map((event, index) => (
                     <div key={index} className="text-xs p-2 bg-muted/50 rounded">
-                      <div className="font-medium">{event.event}</div>
-                      {event.date && (
-                        <div className="text-muted-foreground">{event.date}</div>
+                      {event.url ? (
+                        <a 
+                          href={event.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="font-medium text-primary hover:underline flex items-center"
+                        >
+                          {event.event}
+                          <ExternalLink className="h-3 w-3 ml-1" />
+                        </a>
+                      ) : (
+                        <div className="font-medium">{event.event}</div>
                       )}
-                      {event.url && (
-                        <Button asChild variant="ghost" size="sm" className="h-auto p-0 mt-1">
-                          <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary">
-                            <ExternalLink className="h-3 w-3 mr-1" />
-                            Event Link
-                          </a>
-                        </Button>
+                      {event.date && (
+                        <div className="text-muted-foreground mt-1">{event.date}</div>
                       )}
                     </div>
                   ))}
