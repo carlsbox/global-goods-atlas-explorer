@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import { feature } from "topojson-client";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -17,6 +18,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
   const [tooltipContent, setTooltipContent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [geoData, setGeoData] = useState(null);
   
   const implementationCountries = globalGood.Reach?.ImplementationCountries || [];
   
@@ -33,32 +35,45 @@ export function WorldMap({ globalGood }: WorldMapProps) {
     ])
   );
 
-  // Add timeout for loading
+  // Fetch and convert TopoJSON to GeoJSON
   useEffect(() => {
-    console.log('WorldMap: Using GeoJSON URL:', geoUrl);
+    console.log('WorldMap: Loading TopoJSON from:', geoUrl);
     
-    const timeout = setTimeout(() => {
-      if (isLoading) {
-        console.error('WorldMap: Loading timeout after 10 seconds');
+    const loadMapData = async () => {
+      try {
+        setIsLoading(true);
+        setHasError(false);
+
+        const response = await fetch(geoUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch map data: ${response.status}`);
+        }
+
+        const topoData = await response.json();
+        console.log('WorldMap: TopoJSON loaded, converting to GeoJSON');
+
+        // Convert TopoJSON to GeoJSON using topojson-client
+        // The countries are typically in the 'countries' or 'land' property
+        const countries = topoData.objects.countries || topoData.objects.land || Object.values(topoData.objects)[0];
+        
+        if (!countries) {
+          throw new Error('No countries data found in TopoJSON');
+        }
+
+        const geoJsonData = feature(topoData, countries);
+        console.log('WorldMap: Conversion successful, countries count:', geoJsonData.features.length);
+        
+        setGeoData(geoJsonData);
         setIsLoading(false);
+      } catch (error) {
+        console.error('WorldMap: Error loading map data:', error);
         setHasError(true);
+        setIsLoading(false);
       }
-    }, 10000);
+    };
 
-    return () => clearTimeout(timeout);
-  }, [isLoading]);
-
-  const handleGeographiesLoad = () => {
-    console.log('WorldMap: Geographies loaded successfully');
-    setIsLoading(false);
-    setHasError(false);
-  };
-
-  const handleGeographiesError = (error: any) => {
-    console.error('WorldMap: Error loading geographies:', error);
-    setIsLoading(false);
-    setHasError(true);
-  };
+    loadMapData();
+  }, [geoUrl]);
 
   if (hasError) {
     return (
@@ -84,76 +99,74 @@ export function WorldMap({ globalGood }: WorldMapProps) {
           </div>
         )}
         
-        <ComposableMap
-          projection="geoEqualEarth"
-          projectionConfig={{
-            scale: 120,
-          }}
-          className="w-full h-full"
-        >
-          <ZoomableGroup zoom={1} center={[0, 20]}>
-            <Geographies 
-              geography={geoUrl}
-              onLoad={handleGeographiesLoad}
-              onError={handleGeographiesError}
-            >
-              {({ geographies }) =>
-                geographies.map(geo => {
-                  const countryCode = geo.properties.ISO_A3 || geo.id;
-                  const isImplemented = implementedCountryCodes.has(countryCode);
-                  const countryData = countryDataMap.get(countryCode);
-                  
-                  return (
-                    <Tooltip key={geo.rsmKey}>
-                      <TooltipTrigger asChild>
-                        <Geography
-                          geography={geo}
-                          onMouseEnter={() => {
-                            if (isImplemented && countryData) {
-                              setTooltipContent(countryData.names.en.formal);
-                            } else {
-                              setTooltipContent(geo.properties.NAME || geo.properties.name || 'Unknown');
-                            }
-                          }}
-                          onMouseLeave={() => {
-                            setTooltipContent("");
-                          }}
-                          style={{
-                            default: {
-                              fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                              stroke: "hsl(var(--border))",
-                              strokeWidth: 0.5,
-                              opacity: isImplemented ? 1 : 0.3,
-                              outline: "none"
-                            },
-                            hover: {
-                              fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                              stroke: "hsl(var(--border))",
-                              strokeWidth: 1,
-                              opacity: isImplemented ? 0.8 : 0.5,
-                              outline: "none"
-                            },
-                            pressed: {
-                              fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                              stroke: "hsl(var(--border))",
-                              strokeWidth: 0.5,
-                              outline: "none"
-                            }
-                          }}
-                        />
-                      </TooltipTrigger>
-                      {tooltipContent && (
-                        <TooltipContent>
-                          <p>{tooltipContent}</p>
-                        </TooltipContent>
-                      )}
-                    </Tooltip>
-                  );
-                })
-              }
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+        {geoData && (
+          <ComposableMap
+            projection="geoEqualEarth"
+            projectionConfig={{
+              scale: 120,
+            }}
+            className="w-full h-full"
+          >
+            <ZoomableGroup zoom={1} center={[0, 20]}>
+              <Geographies geography={geoData}>
+                {({ geographies }) =>
+                  geographies.map(geo => {
+                    const countryCode = geo.properties.ISO_A3 || geo.id;
+                    const isImplemented = implementedCountryCodes.has(countryCode);
+                    const countryData = countryDataMap.get(countryCode);
+                    
+                    return (
+                      <Tooltip key={geo.rsmKey}>
+                        <TooltipTrigger asChild>
+                          <Geography
+                            geography={geo}
+                            onMouseEnter={() => {
+                              if (isImplemented && countryData) {
+                                setTooltipContent(countryData.names.en.formal);
+                              } else {
+                                setTooltipContent(geo.properties.NAME || geo.properties.name || 'Unknown');
+                              }
+                            }}
+                            onMouseLeave={() => {
+                              setTooltipContent("");
+                            }}
+                            style={{
+                              default: {
+                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
+                                stroke: "hsl(var(--border))",
+                                strokeWidth: 0.5,
+                                opacity: isImplemented ? 1 : 0.3,
+                                outline: "none"
+                              },
+                              hover: {
+                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
+                                stroke: "hsl(var(--border))",
+                                strokeWidth: 1,
+                                opacity: isImplemented ? 0.8 : 0.5,
+                                outline: "none"
+                              },
+                              pressed: {
+                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
+                                stroke: "hsl(var(--border))",
+                                strokeWidth: 0.5,
+                                outline: "none"
+                              }
+                            }}
+                          />
+                        </TooltipTrigger>
+                        {tooltipContent && (
+                          <TooltipContent>
+                            <p>{tooltipContent}</p>
+                          </TooltipContent>
+                        )}
+                      </Tooltip>
+                    );
+                  })
+                }
+              </Geographies>
+            </ZoomableGroup>
+          </ComposableMap>
+        )}
         
         {/* Legend */}
         <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 text-sm">
