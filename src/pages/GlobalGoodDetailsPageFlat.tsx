@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft, BookOpen, Code, FileText, Package, Settings, Download, Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, Link as LinkIcon, Leaf, Heart } from "lucide-react";
@@ -113,9 +112,7 @@ export default function GlobalGoodDetailsPageFlat() {
         icon: BookOpen,
         color: "text-blue-600",
         items: [
-          ...(resources.Articles || []).map(item => ({ ...item, type: "Article" })),
-          ...(resources.ProductDocumentation || []).map(item => ({ ...item, type: "Product Documentation" })),
-          ...(resources.UserRequirements || []).map(item => ({ ...item, type: "User Requirements" }))
+          ...(resources.Articles || []).map(item => ({ ...item, type: "Article" }))
         ]
       },
       {
@@ -123,9 +120,11 @@ export default function GlobalGoodDetailsPageFlat() {
         icon: FileText,
         color: "text-green-600",
         items: [
+          ...(resources.ProductDocumentation || []).map(item => ({ ...item, type: "Product Documentation" })),
           ...(resources.EndUserDocumentation || []).map(item => ({ ...item, type: "End User Documentation" })),
           ...(resources.ImplementerDocumentation || []).map(item => ({ ...item, type: "Implementer Documentation" })),
-          ...(resources.OperatorDocumentation || []).map(item => ({ ...item, type: "Operator Documentation" }))
+          ...(resources.OperatorDocumentation || []).map(item => ({ ...item, type: "Operator Documentation" })),
+          ...(resources.UserRequirements || []).map(item => ({ ...item, type: "User Requirements" }))
         ]
       },
       {
