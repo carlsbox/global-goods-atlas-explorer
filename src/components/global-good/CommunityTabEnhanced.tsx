@@ -3,6 +3,8 @@ import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
@@ -162,14 +164,68 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
               )}
               {community.Events.recent && community.Events.recent.length > 0 && (
                 <div className="space-y-1">
-                  {community.Events.recent.slice(0, 2).map((event, index) => (
+                  {/* Display up to 3 events */}
+                  {community.Events.recent.slice(0, 3).map((event, index) => (
                     <div key={index} className="text-xs p-2 bg-muted/50 rounded">
                       <div className="font-medium">{event.event}</div>
                       {event.date && (
                         <div className="text-muted-foreground">{event.date}</div>
                       )}
+                      {event.url && (
+                        <Button asChild variant="ghost" size="sm" className="h-auto p-0 mt-1">
+                          <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary">
+                            <ExternalLink className="h-3 w-3 mr-1" />
+                            Event Link
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   ))}
+                  
+                  {/* Show "View All Events" button if there are more than 3 events */}
+                  {community.Events.recent.length > 3 && (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="sm" className="w-full mt-2">
+                          View All Events ({community.Events.recent.length})
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle>All Community Events</DialogTitle>
+                        </DialogHeader>
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead>Event</TableHead>
+                              <TableHead>Date</TableHead>
+                              <TableHead>Link</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {community.Events.recent.map((event, index) => (
+                              <TableRow key={index}>
+                                <TableCell className="font-medium">{event.event}</TableCell>
+                                <TableCell>{event.date || 'N/A'}</TableCell>
+                                <TableCell>
+                                  {event.url ? (
+                                    <Button asChild variant="ghost" size="sm">
+                                      <a href={event.url} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="h-3 w-3 mr-1" />
+                                        Visit
+                                      </a>
+                                    </Button>
+                                  ) : (
+                                    'N/A'
+                                  )}
+                                </TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </DialogContent>
+                    </Dialog>
+                  )}
                 </div>
               )}
             </div>
