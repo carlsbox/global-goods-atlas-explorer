@@ -1,4 +1,3 @@
-
 import { MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
