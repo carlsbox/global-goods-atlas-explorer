@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { feature } from "topojson-client";
@@ -226,15 +225,6 @@ export function WorldMap({ globalGood }: WorldMapProps) {
             </div>
           </div>
         </div>
-        
-        {/* Debug info */}
-        {geoData && (
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 text-xs text-gray-600">
-            <div>Countries loaded: {(geoData as any).features?.length || 0}</div>
-            <div>UN mappings: {unCodeToIso2Map.size}</div>
-            <div>Expected: {implementationCountries.length}</div>
-          </div>
-        )}
       </div>
     </TooltipProvider>
   );
