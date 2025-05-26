@@ -1,15 +1,16 @@
-import { GlobalGood } from "@/lib/types";
+
+import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
-  globalGood: GlobalGood;
+  globalGood: GlobalGoodFlat;
 }
 
 export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) {
-  const community = globalGood.community;
+  const community = globalGood.Community;
   
   // Check if we have community data
   if (!community) {
@@ -89,12 +90,12 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           {/* Members and Founded side by side */}
           <div className="grid grid-cols-2 gap-3">
             {/* Members */}
-            {(community.SizeOfCommunity || community.size_estimate) && (
+            {community.SizeOfCommunity && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Members</h4>
                 <div className="text-center p-2 bg-muted/50 rounded">
                   <div className="text-lg font-bold text-primary">
-                    {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
+                    {community.SizeOfCommunity.toLocaleString()}
                   </div>
                   <div className="text-xs text-muted-foreground">Members</div>
                 </div>
@@ -124,18 +125,6 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Platform */}
-          {community.platform && (
-            <div>
-              <Button asChild variant="outline" size="sm" className="w-full">
-                <a href={community.platform.url} target="_blank" rel="noopener noreferrer">
-                  <Globe className="h-3 w-3 mr-2" />
-                  Platform
-                </a>
-              </Button>
-            </div>
-          )}
-
           {/* Communication Links */}
           <div className="space-y-2">
             {community.Links?.Community && (
@@ -187,11 +176,11 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           )}
 
           {/* SDGs */}
-          {globalGood.classifications?.sdgs && globalGood.classifications.sdgs.length > 0 && (
+          {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
             <div>
               <h4 className="text-sm font-medium mb-2">SDGs</h4>
               <div className="flex flex-wrap gap-1">
-                {globalGood.classifications.sdgs.slice(0, 3).map((sdg, index) => (
+                {globalGood.Classifications.SDGs.slice(0, 3).map((sdg, index) => (
                   <Badge key={index} variant="secondary" className="text-xs">
                     {sdg.code}
                   </Badge>
@@ -201,7 +190,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           )}
 
           {/* Climate & Health Integration */}
-          {globalGood.climateAndHealthIntegration && (
+          {globalGood.ClimateAndHealthIntegration && (
             <div>
               <h4 className="text-sm font-medium mb-2">Climate & Health</h4>
               <Badge variant="outline" className="text-xs">
@@ -211,11 +200,11 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           )}
 
           {/* WMO Classifications */}
-          {globalGood.classifications?.wmo && globalGood.classifications.wmo.length > 0 && (
+          {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
             <div>
               <h4 className="text-sm font-medium mb-2">WMO</h4>
               <div className="flex flex-wrap gap-1">
-                {globalGood.classifications.wmo.slice(0, 2).map((wmo, index) => (
+                {globalGood.Classifications.WMO.slice(0, 2).map((wmo, index) => (
                   <Badge key={index} variant="outline" className="text-xs">
                     {wmo.title}
                   </Badge>
@@ -225,11 +214,11 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           )}
 
           {/* Climate Standards */}
-          {globalGood.standardsAndInteroperability?.climateStandards && globalGood.standardsAndInteroperability.climateStandards.length > 0 && (
+          {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
             <div>
               <h4 className="text-sm font-medium mb-2">Climate Standards</h4>
               <div className="flex flex-wrap gap-1">
-                {globalGood.standardsAndInteroperability.climateStandards.slice(0, 2).map((standard, index) => (
+                {globalGood.StandardsAndInteroperability.ClimateStandards.slice(0, 2).map((standard, index) => (
                   <Badge key={index} variant="outline" className="text-xs">
                     {standard.name}
                   </Badge>
@@ -239,41 +228,39 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           )}
 
           {/* Environmental Impact */}
-          {globalGood.environmentalImpact && (
+          {globalGood.EnvironmentalImpact && (
             <div>
               <h4 className="text-sm font-medium mb-2 flex items-center">
                 <Leaf className="h-3 w-3 mr-1 text-green-500" />
                 Environmental Impact
               </h4>
-              {globalGood.environmentalImpact.lowCarbon && (
-                <p className="text-xs text-muted-foreground mb-1">{globalGood.environmentalImpact.lowCarbon}</p>
+              {globalGood.EnvironmentalImpact.LowCarbon && (
+                <p className="text-xs text-muted-foreground mb-1">{globalGood.EnvironmentalImpact.LowCarbon}</p>
               )}
-              {globalGood.environmentalImpact.considered && (
-                <Badge variant="outline" className="text-xs bg-green-50">
-                  Low Carbon Considered
-                </Badge>
-              )}
+              <Badge variant="outline" className="text-xs bg-green-50">
+                Low Carbon Considered
+              </Badge>
             </div>
           )}
 
           {/* Inclusive Design */}
-          {globalGood.inclusiveDesign && (
+          {globalGood.InclusiveDesign && (
             <div>
               <h4 className="text-sm font-medium mb-2 flex items-center">
                 <Users className="h-3 w-3 mr-1 text-blue-500" />
                 Inclusive Design
               </h4>
               <div className="space-y-1">
-                {globalGood.inclusiveDesign.description && (
-                  <p className="text-xs text-muted-foreground">{globalGood.inclusiveDesign.description}</p>
+                {globalGood.InclusiveDesign.Description && (
+                  <p className="text-xs text-muted-foreground">{globalGood.InclusiveDesign.Description}</p>
                 )}
-                {globalGood.inclusiveDesign.userInput && (
+                {globalGood.InclusiveDesign.UserInput && (
                   <div className="text-xs">
                     <span className="font-medium">User Input: </span>
-                    <span className="text-muted-foreground">{globalGood.inclusiveDesign.userInput}</span>
+                    <span className="text-muted-foreground">{globalGood.InclusiveDesign.UserInput}</span>
                   </div>
                 )}
-                {globalGood.inclusiveDesign.offlineSupport && (
+                {globalGood.InclusiveDesign.OfflineSupport && (
                   <Badge variant="outline" className="text-xs bg-blue-50">
                     Offline Support
                   </Badge>
