@@ -229,11 +229,6 @@ export default function GlobalGoodDetailsPageFlat() {
           {/* Climate Column */}
           {hasClimateData() && (
             <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center">
-                <Leaf className="h-6 w-6 mr-2 text-green-600" />
-                Climate
-              </h2>
-              
               {/* Climate and Health Integration */}
               {globalGood.ClimateAndHealthIntegration?.Description && (
                 <div className="mb-8">
