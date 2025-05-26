@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -14,7 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, CloudRain, ThermometerSun, Leaf } from "lucide-react";
+import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Leaf } from "lucide-react";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -270,8 +271,7 @@ export default function GlobalGoodDetailsPageFlat() {
               {/* Climate and Health Integration */}
               {globalGood.ClimateAndHealthIntegration?.Description && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <ThermometerSun className="h-5 w-5 mr-2 text-primary" />
+                  <h3 className="text-xl font-semibold mb-4">
                     Climate & Health Integration
                   </h3>
                   <Card>
@@ -285,8 +285,7 @@ export default function GlobalGoodDetailsPageFlat() {
               {/* WMO Classifications */}
               {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <CloudRain className="h-5 w-5 mr-2 text-primary" />
+                  <h3 className="text-xl font-semibold mb-4">
                     WMO Classifications
                   </h3>
                   <Card>
