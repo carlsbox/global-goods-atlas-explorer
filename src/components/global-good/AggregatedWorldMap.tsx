@@ -219,24 +219,24 @@ export function AggregatedWorldMap({ globalGoods, onCountryClick, selectedCountr
                                 }}
                                 style={{
                                   default: {
-                                    fill: getCountryColor(implementationCount),
-                                    stroke: isSelected ? "#1f2937" : "#d1d5db",
-                                    strokeWidth: isSelected ? 2 : 0.5,
+                                    fill: isSelected ? "#1e40af" : getCountryColor(implementationCount),
+                                    stroke: "#e5e7eb",
+                                    strokeWidth: 0.3,
                                     opacity: getCountryOpacity(implementationCount, isSelected),
                                     outline: "none",
                                     cursor: implementationCount > 0 ? "pointer" : "default"
                                   },
                                   hover: {
                                     fill: implementationCount > 0 ? "#1d4ed8" : "#f3f4f6",
-                                    stroke: "#9ca3af",
-                                    strokeWidth: 1,
+                                    stroke: "#d1d5db",
+                                    strokeWidth: 0.4,
                                     opacity: 1,
                                     outline: "none"
                                   },
                                   pressed: {
                                     fill: implementationCount > 0 ? "#1e40af" : "#e5e7eb",
-                                    stroke: "#6b7280",
-                                    strokeWidth: 0.5,
+                                    stroke: "#d1d5db",
+                                    strokeWidth: 0.3,
                                     outline: "none"
                                   }
                                 }}
