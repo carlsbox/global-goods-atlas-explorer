@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { 
   Table, 
@@ -32,8 +33,8 @@ import {
   Trash, 
   Search, 
   Plus, 
-  UserCircle,
-  User,
+  PlusCircle,
+  Users,
   Loader,
   Mail
 } from "lucide-react";
@@ -244,7 +245,7 @@ export default function UsersPage() {
           <Dialog open={isAddUserOpen} onOpenChange={setIsAddUserOpen}>
             <DialogTrigger asChild>
               <Button>
-                <UserCircle className="h-4 w-4 mr-2" />
+                <PlusCircle className="h-4 w-4 mr-2" />
                 Add User
               </Button>
             </DialogTrigger>
@@ -303,7 +304,7 @@ export default function UsersPage() {
                     </>
                   ) : (
                     <>
-                      <UserCircle className="h-4 w-4 mr-2" />
+                      <PlusCircle className="h-4 w-4 mr-2" />
                       Send Invitation
                     </>
                   )}
@@ -428,7 +429,7 @@ export default function UsersPage() {
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button variant="ghost" size="icon" title="Change role">
-                              <User className="h-4 w-4" />
+                              <Users className="h-4 w-4" />
                               <span className="sr-only">Change role</span>
                             </Button>
                           </DialogTrigger>

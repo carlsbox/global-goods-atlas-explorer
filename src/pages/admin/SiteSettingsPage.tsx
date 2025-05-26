@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +27,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
-import { Loader, ArrowUpCircle, FileUp } from "lucide-react";
+import { Loader, ArrowUpRight, Upload } from "lucide-react";
 import { getSiteName } from "@/lib/config";
 
 // Form schema for site settings
@@ -340,7 +341,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <FileUp className="h-4 w-4 mr-2" />
+                              <Upload className="h-4 w-4 mr-2" />
                               Upload Logo
                             </span>
                           </Button>
@@ -385,7 +386,7 @@ export default function SiteSettingsPage() {
                             asChild
                           >
                             <span>
-                              <FileUp className="h-4 w-4 mr-2" />
+                              <Upload className="h-4 w-4 mr-2" />
                               Upload Favicon
                             </span>
                           </Button>
@@ -515,7 +516,7 @@ export default function SiteSettingsPage() {
                   </>
                 ) : (
                   <>
-                    <ArrowUpCircle className="mr-2 h-4 w-4" />
+                    <ArrowUpRight className="mr-2 h-4 w-4" />
                     Save Settings
                   </>
                 )}
