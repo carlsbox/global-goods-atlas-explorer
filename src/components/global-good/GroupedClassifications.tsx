@@ -47,9 +47,6 @@ export function GroupedClassifications({ classifications, title }: GroupedClassi
             <div className="space-y-2 ml-4">
               {groupClassifications.map((classification, index) => (
                 <div key={index} className="flex items-start gap-3 p-2 rounded-md bg-muted/30">
-                  <Badge variant="outline" className="text-xs shrink-0">
-                    {classification.code}
-                  </Badge>
                   <span className="text-sm">{classification.title}</span>
                 </div>
               ))}
