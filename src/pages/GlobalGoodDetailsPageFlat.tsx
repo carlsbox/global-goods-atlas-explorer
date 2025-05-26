@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -5,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 // Import flat structure components
 import { GlobalGoodHeaderFlat } from "@/components/global-good/GlobalGoodHeaderFlat";
 import { OverviewTabFlat } from "@/components/global-good/OverviewTabFlat";
+import { CommunityTabEnhanced } from "@/components/global-good/CommunityTabEnhanced";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { RawDataViewer } from "@/components/global-good/RawDataViewer";
@@ -391,46 +393,10 @@ export default function GlobalGoodDetailsPageFlat() {
         
         <Separator />
         
-        {/* Community Section */}
+        {/* Community Section - Using Enhanced Component */}
         <div>
           <h2 className="text-2xl font-bold mb-4">Community</h2>
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Users className="h-5 w-5 mr-2 text-primary" />
-                Community Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {globalGood.Community?.DescriptionOfCommunity && (
-                <p className="text-muted-foreground">{globalGood.Community.DescriptionOfCommunity}</p>
-              )}
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {globalGood.Community?.Links?.Community && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">Community Platform</h3>
-                    <Button asChild variant="outline" size="sm">
-                      <a href={globalGood.Community.Links.Community.url} target="_blank" rel="noopener noreferrer">
-                        Visit Community
-                      </a>
-                    </Button>
-                  </div>
-                )}
-                
-                {globalGood.Community?.Links?.MailingList && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-2">Mailing List</h3>
-                    <Button asChild variant="outline" size="sm">
-                      <a href={globalGood.Community.Links.MailingList.url} target="_blank" rel="noopener noreferrer">
-                        Subscribe
-                      </a>
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <CommunityTabEnhanced globalGood={globalGood} />
         </div>
         
         <Separator />

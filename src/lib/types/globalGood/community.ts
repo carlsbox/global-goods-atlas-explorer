@@ -4,18 +4,18 @@
  */
 export interface Community {
   /** Description of the community */
-  descriptionOfCommunity?: string;
+  DescriptionOfCommunity?: string;
   /** Host anchor organization */
-  hostAnchorOrganization?: {
+  HostAnchorOrganization?: {
     name: string;
     url: string;
     description: string;
     country: string[];
   };
   /** Inception year */
-  inceptionYear?: number;
+  InceptionYear?: number;
   /** Size of the community */
-  sizeOfCommunity?: number;
+  SizeOfCommunity?: number;
   /** Size estimate (for backward compatibility) */
   size_estimate?: number;
   /** Platform information (for backward compatibility) */
@@ -24,18 +24,18 @@ export interface Community {
     description?: string;
   };
   /** Community links */
-  links?: {
-    community?: Array<{
+  Links?: {
+    Community?: {
       url: string;
       description: string;
-    }>;
-    mailingList?: Array<{
+    };
+    MailingList?: {
       url: string;
       description: string;
-    }>;
+    };
   };
   /** Events */
-  events?: {
+  Events?: {
     description?: string;
     schedule?: string;
     recent?: Array<{
@@ -45,35 +45,35 @@ export interface Community {
     }>;
   };
   /** Policies */
-  policies?: {
-    description?: string;
-    governance?: Array<{
+  Policies?: {
+    Description?: string;
+    Governance?: {
       url: string;
       description: string;
-    }>;
-    termsOfUse?: Array<{
+    };
+    TermsOfUse?: {
       url: string;
       description: string;
-    }>;
-    userAgreement?: Array<{
+    };
+    UserAgreement?: {
       url: string;
       description: string;
-    }>;
-    privacyPolicy?: Array<{
+    };
+    PrivacyPolicy?: {
       url: string;
       description: string;
-    }>;
-    doNoHarm?: Array<{
+    };
+    DoNoHarm?: {
       description: string;
       url: string;
-    }>;
-    piiCollected?: Array<{
+    };
+    PIICollected?: {
       description: string;
       url: string;
-    }>;
-    npiiUsed?: Array<{
+    };
+    NPIIUsed?: {
       description: string;
       url: string;
-    }>;
+    };
   };
 }
