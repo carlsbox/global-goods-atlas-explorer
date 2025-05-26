@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
-import { ArrowLeft, BookOpen, Code, FileText, Package, Settings, Download, Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, Link as LinkIcon, Leaf, Heart, DollarSign as Dollar, Building } from "lucide-react";
+import { ArrowLeft, BookOpen, Code, FileText, Package, Settings, Download, Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, Link as LinkIcon, Leaf, Heart, Dollar, Building } from "lucide-react";
 
 // Import flat structure components
 import { GlobalGoodHeaderFlat } from "@/components/global-good/GlobalGoodHeaderFlat";
