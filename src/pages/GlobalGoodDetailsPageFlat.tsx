@@ -126,7 +126,7 @@ export default function GlobalGoodDetailsPageFlat() {
                   {globalGood.Classifications?.DPI && globalGood.Classifications.DPI.length > 0 && (
                     <Card>
                       <CardHeader className="pb-3">
-                        <CardTitle className="text-sm font-medium">DPI</CardTitle>
+                        <CardTitle className="text-sm font-medium">Digital Public Infrastructure (DPI)</CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {globalGood.Classifications.DPI.map((dpi, index) => (
@@ -144,7 +144,7 @@ export default function GlobalGoodDetailsPageFlat() {
                   {globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0 && (
                     <Card>
                       <CardHeader className="pb-3">
-                        <CardTitle className="text-sm font-medium">WHO</CardTitle>
+                        <CardTitle className="text-sm font-medium">World Health Organization</CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {globalGood.Classifications.WHO.map((who, index) => (
