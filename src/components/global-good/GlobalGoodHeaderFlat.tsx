@@ -45,23 +45,7 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
             </p>
             
             <div className="mt-4 flex flex-wrap gap-2">
-              {globalGood.GlobalGoodsType?.map((type, index) => (
-                <Badge 
-                  key={index}
-                  variant="outline" 
-                  className="bg-primary/5"
-                >
-                  {type.title}
-                </Badge>
-              ))}
-              
-              {globalGood.Maturity?.SummaryOfMaturity && (
-                <Badge variant="secondary">
-                  {globalGood.Maturity.SummaryOfMaturity}
-                </Badge>
-              )}
-
-              {/* License Badge */}
+              {/* License Badge - First */}
               {globalGood.License && (
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -90,6 +74,24 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
                     </div>
                   </TooltipContent>
                 </Tooltip>
+              )}
+
+              {/* Global Good Types - Second */}
+              {globalGood.GlobalGoodsType?.map((type, index) => (
+                <Badge 
+                  key={index}
+                  variant="outline" 
+                  className="bg-primary/5"
+                >
+                  {type.title}
+                </Badge>
+              ))}
+              
+              {/* Maturity Summary - Third */}
+              {globalGood.Maturity?.SummaryOfMaturity && (
+                <Badge variant="secondary">
+                  {globalGood.Maturity.SummaryOfMaturity}
+                </Badge>
               )}
             </div>
           </div>
