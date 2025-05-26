@@ -114,7 +114,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
           <ComposableMap
             projection="geoEqualEarth"
             projectionConfig={{
-              scale: 150,
+              scale: 170,
             }}
             className="w-full h-full"
           >
