@@ -36,8 +36,8 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
   
   // Get community info
   const hasCommunityInfo = 
-    (globalGood.community?.sizeOfCommunity > 0) || 
-    (globalGood.community?.hostAnchorOrganization?.name);
+    (globalGood.community?.SizeOfCommunity && globalGood.community.SizeOfCommunity > 0) || 
+    (globalGood.community?.HostAnchorOrganization?.name);
     
   // Check for environmental impact
   const environmentalInfo = globalGood.environmentalImpact?.lowCarbon || 
@@ -178,19 +178,19 @@ export function TechnicalTab({ globalGood }: TechnicalTabProps) {
                       <Users className="mr-2 h-4 w-4" />
                       Community
                     </h4>
-                    {globalGood.community?.sizeOfCommunity && (
+                    {globalGood.community?.SizeOfCommunity && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        Community size: {globalGood.community.sizeOfCommunity.toLocaleString()} members
+                        Community size: {globalGood.community.SizeOfCommunity.toLocaleString()} members
                       </p>
                     )}
-                    {globalGood.community?.hostAnchorOrganization?.name && (
+                    {globalGood.community?.HostAnchorOrganization?.name && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        Host organization: {globalGood.community.hostAnchorOrganization.name}
+                        Host organization: {globalGood.community.HostAnchorOrganization.name}
                       </p>
                     )}
-                    {globalGood.community?.links?.community?.[0]?.url && (
+                    {globalGood.community?.Links?.Community?.url && (
                       <a 
-                        href={globalGood.community.links.community[0].url} 
+                        href={globalGood.community.Links.Community.url} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-sm text-primary hover:underline"
