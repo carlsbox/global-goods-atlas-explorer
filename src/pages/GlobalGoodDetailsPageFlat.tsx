@@ -17,6 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Leaf } from "lucide-react";
+import { SDGClassificationCard } from "@/components/global-good/SDGClassificationCard";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -109,14 +110,35 @@ export default function GlobalGoodDetailsPageFlat() {
                   {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
                     <Card>
                       <CardHeader className="pb-3">
-                        <CardTitle className="text-sm font-medium">SDGs</CardTitle>
+                        <div className="space-y-2">
+                          <CardTitle className="text-sm font-medium flex items-center gap-2">
+                            Sustainable Development Goals (SDGs)
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              className="h-auto p-1"
+                            >
+                              <a 
+                                href="https://sdgs.un.org/goals"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
+                              >
+                                <ExternalLink className="h-3 w-3" />
+                              </a>
+                            </Button>
+                          </CardTitle>
+                          <p className="text-xs text-muted-foreground">
+                            UN's blueprint for peace and prosperity for people and the planet by 2030
+                          </p>
+                        </div>
                       </CardHeader>
-                      <CardContent className="space-y-2">
+                      <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {globalGood.Classifications.SDGs.map((sdg, index) => (
-                          <EnhancedClassificationBadge 
+                          <SDGClassificationCard 
                             key={index} 
-                            code={sdg.code}
-                            showFullDetails={true}
+                            sdg={sdg}
                           />
                         ))}
                       </CardContent>
