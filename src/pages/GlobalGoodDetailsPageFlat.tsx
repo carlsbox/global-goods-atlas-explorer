@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -19,6 +18,12 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Leaf } from "lucide-react";
 import { SDGClassificationCard } from "@/components/global-good/SDGClassificationCard";
+
+// Import new Global Reach components
+import { HeroStats } from "@/components/global-good/HeroStats";
+import { InteractiveMapCard } from "@/components/global-good/InteractiveMapCard";
+import { EnhancedCountriesDisplay } from "@/components/global-good/EnhancedCountriesDisplay";
+import { ImplementationContext } from "@/components/global-good/ImplementationContext";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -361,68 +366,21 @@ export default function GlobalGoodDetailsPageFlat() {
         
         <Separator />
         
-        {/* Global Reach Section */}
+        {/* Global Reach Section - Redesigned */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Global Reach</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-primary" />
-                    Implementation Countries
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {globalGood.Reach?.ImplementationCountries && globalGood.Reach.ImplementationCountries.length > 0 ? (
-                    <>
-                      <div className="mb-4">
-                        <p className="text-sm text-muted-foreground">
-                          Deployed in {globalGood.Reach.ImplementationCountries.length} countries
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {globalGood.Reach.ImplementationCountries.map((country, index) => (
-                          <Badge key={index} variant="secondary">
-                            {country.names.en.short}
-                          </Badge>
-                        ))}
-                      </div>
-                      {globalGood.Reach.SummaryOfReach && (
-                        <p className="text-sm text-muted-foreground mt-4">{globalGood.Reach.SummaryOfReach}</p>
-                      )}
-                    </>
-                  ) : (
-                    <p className="text-muted-foreground">No deployment information available</p>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <BarChart3 className="h-5 w-5 mr-2 text-primary" />
-                  Statistics
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {globalGood.Reach?.NumberOfImplementations && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-1">Total Implementations</h3>
-                    <p className="text-2xl font-bold">{globalGood.Reach.NumberOfImplementations.toLocaleString()}</p>
-                  </div>
-                )}
-                
-                {globalGood.Community?.SizeOfCommunity && (
-                  <div>
-                    <h3 className="text-sm font-medium mb-1">Community Size</h3>
-                    <p className="text-2xl font-bold">{globalGood.Community.SizeOfCommunity.toLocaleString()}</p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+          <h2 className="text-2xl font-bold mb-6">Global Reach</h2>
+          
+          {/* Hero Stats Row */}
+          <HeroStats globalGood={globalGood} />
+          
+          {/* Map & Countries Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <InteractiveMapCard globalGood={globalGood} />
+            <EnhancedCountriesDisplay globalGood={globalGood} />
           </div>
+          
+          {/* Implementation Context */}
+          <ImplementationContext globalGood={globalGood} />
         </div>
         
         <Separator />
