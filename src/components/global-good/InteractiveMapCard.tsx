@@ -43,20 +43,6 @@ export function InteractiveMapCard({ globalGood }: InteractiveMapCardProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <WorldMap globalGood={globalGood} />
-        
-        {mapOverview && (
-          <div className="border rounded-lg p-4">
-            <p className="text-sm text-muted-foreground mb-3">
-              {mapOverview.description}
-            </p>
-            <Button asChild className="w-full">
-              <a href={mapOverview.url} target="_blank" rel="noopener noreferrer">
-                View External Interactive Map
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
-        )}
       </CardContent>
     </Card>
   );
