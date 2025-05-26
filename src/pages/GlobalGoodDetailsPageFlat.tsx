@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -9,6 +8,7 @@ import { OverviewTabFlat } from "@/components/global-good/OverviewTabFlat";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { RawDataViewer } from "@/components/global-good/RawDataViewer";
+import { EnhancedClassificationBadge } from "@/components/EnhancedClassificationBadge";
 import { useI18n } from "@/hooks/useI18n";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -112,9 +112,11 @@ export default function GlobalGoodDetailsPageFlat() {
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {globalGood.Classifications.SDGs.map((sdg, index) => (
-                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                            {sdg.code} - {sdg.title}
-                          </Badge>
+                          <EnhancedClassificationBadge 
+                            key={index} 
+                            code={sdg.code}
+                            showFullDetails={true}
+                          />
                         ))}
                       </CardContent>
                     </Card>
@@ -128,9 +130,11 @@ export default function GlobalGoodDetailsPageFlat() {
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {globalGood.Classifications.DPI.map((dpi, index) => (
-                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                            {dpi.code} - {dpi.title}
-                          </Badge>
+                          <EnhancedClassificationBadge 
+                            key={index} 
+                            code={dpi.code}
+                            showFullDetails={true}
+                          />
                         ))}
                       </CardContent>
                     </Card>
@@ -144,9 +148,11 @@ export default function GlobalGoodDetailsPageFlat() {
                       </CardHeader>
                       <CardContent className="space-y-2">
                         {globalGood.Classifications.WHO.map((who, index) => (
-                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                            {who.code} - {who.title}
-                          </Badge>
+                          <EnhancedClassificationBadge 
+                            key={index} 
+                            code={who.code}
+                            showFullDetails={true}
+                          />
                         ))}
                       </CardContent>
                     </Card>
@@ -292,9 +298,10 @@ export default function GlobalGoodDetailsPageFlat() {
                     <CardContent className="p-6">
                       <div className="flex flex-wrap gap-2">
                         {globalGood.Classifications.WMO.map((wmo, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {wmo.code} - {wmo.title}
-                          </Badge>
+                          <EnhancedClassificationBadge 
+                            key={index} 
+                            code={wmo.code}
+                          />
                         ))}
                       </div>
                     </CardContent>
