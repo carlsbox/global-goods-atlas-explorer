@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 /**
  * Convert ISO country code to flag emoji
  * @param isoCode - ISO 3166-1 alpha-2 country code
