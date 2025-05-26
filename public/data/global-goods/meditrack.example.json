@@ -1,0 +1,366 @@
+{
+  
+    "ID": "meditrack",
+    "Name": "MediTrack",
+    "Logo": "https://meditrack.org/logo.svg",
+    "Website": {
+      "main": {
+        "name": "MediTrack Website",
+        "url": "https://meditrack.org",
+        "description": "Official site for MediTrack"
+      },
+      "docs": {
+        "name": "Documentation",
+        "url": "https://docs.meditrack.org",
+        "description": "User and developer documentation"
+      },
+      "source_code": {
+        "name": "Source Code",
+        "url": "https://github.com/meditrack/meditrack-core",
+        "description": "Main code repository"
+      },
+      "demo": {
+        "name": "Demo",
+        "url": "https://demo.meditrack.org",
+        "description": "Test the tool online"
+      }
+    },
+    "GlobalGoodsType": [
+      {
+        "code": "software",
+        "title": "Software",
+        "description": "An open-source logistics tracking platform for health supply chains."
+      }
+    ],
+    "License": {
+      "id": "apache-2.0",
+      "name": "Apache License 2.0", 
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "description": "Permissive open source license"
+    },
+    "Contact": [
+      {
+        "name": "Dr. Jane Smith",
+        "email": "jane@meditrack.org",
+        "role": "Project Lead"
+      }
+    ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being"
+      },
+      {
+        "code": "SDG-9",
+        "title": "Industry, Innovation and Infrastructure"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_B6",
+        "title": "Logistics management information systems (LMIS)",
+        "group_code": "B",
+        "group_name": "Health System / Provider administration",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": [
+      {
+        "code": "DPI_BD1",
+        "title": "Logistics Management Information Services",
+        "group_code": "BD",
+        "group_name": "Business Domain Services",
+        "authority": "DPI-H"
+      }
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "GS1",
+        "domain": "Health",
+        "link": "https://www.gs1.org/healthcare",
+        "name": "GS1",
+        "description": "Standard for supply chain data in healthcare"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "ADX",
+        "type": "exchange",
+        "link": "https://www.ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_ADX.pdf",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
+    "Description": "MediTrack offers integrated supply chain management for health systems with customizable workflows, mobile support, and dashboards.",
+    "PrimaryFunctionality": "Supply chain and logistics tracking",
+    "Users": "Pharmacy managers, central medical stores, ministries of health",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
+    "Screenshots": [
+      {
+        "url": "https://meditrack.org/images/dashboard.png",
+        "description": "MediTrack dashboard screenshot"
+      },
+      {
+        "url": "https://meditrack.org/images/home.png",
+        "description": "MediTrack dashboard screenshot"
+      }
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Used in 25 countries by national supply chain programs.",
+    "NumberOfImplementations": 37,
+    "ImplementationMapOverview": [
+      {
+        "url": "https://meditrack.org/map",
+        "description": "Global reach map"
+      }
+    ],
+    "ImplementationCountries": [
+      {
+        "iso_code": "ke",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "Mature and proven in multiple supply chain deployments.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 8,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 6,
+        "climate_resilience": 5,
+        "low_carbon": 6
+      },
+      {
+        "year": 2022,
+        "global_utility": 7,
+        "community_support": 7,
+        "maturity_of_gg": 7,
+        "inclusive_design": 6,
+        "climate_resilience": 3,
+        "low_carbon": 6
+      },
+      {
+        "year": 2021,
+        "global_utility": 6,
+        "community_support": 6,
+        "maturity_of_gg": 6,
+        "inclusive_design": 5,
+        "climate_resilience": 1,
+        "low_carbon": 5
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "Can be integrated with climate risk data to support logistics during extreme weather disruptions."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Moderately active open-source community with monthly updates.",
+    "HostAnchorOrganization": {
+      "name": "HealthWare Foundation",
+      "url": "https://healthware.org",
+      "description": "Global health non-profit",
+      "country": [
+        "nl"
+      ]
+    },
+    "InceptionYear": 2016,
+    "SizeOfCommunity": 1200,
+    "Links": {
+      "Community": {
+        "url": "https://community.meditrack.org",
+        "description": "Community forum"
+      },
+      "MailingList": {
+        "url": "https://meditrack.org/newsletter",
+          "description": "Join the newsletter"
+      }
+    },
+    "Events": {
+      "description": "Annual stakeholder summit and quarterly webinars.",
+      "schedule": "https://meditrack.org/events",
+      "recent": [
+        {
+          "event": "MediTrack Summit 2024",
+          "date": "2024-10-12",
+          "url": "https://meditrack.org/summit2024"
+        },{
+          "event": "MediTrack Summit 2024",
+          "date": "2024-10-12",
+          "url": "https://meditrack.org/summit2024"
+        },{
+          "event": "MediTrack Summit 2024",
+          "date": "2024-10-12",
+          "url": "https://meditrack.org/summit2024"
+        }
+      ]
+    },
+    "Policies": {
+      "Description": "Governed by open data principles and user protection policies.",
+      "Governance": {
+        "url": "https://meditrack.org/governance",
+        "description": "Governance documentation"
+      },
+      "TermsOfUse": {
+        "url": "https://meditrack.org/terms-of-use",
+        "description": "Terms of use"
+      },
+      "UserAgreement": {
+        "url": "https://meditrack.org/user-agreement",
+        "description": "User agreement"
+      },
+      "PrivacyPolicy": {
+        "url": "https://meditrack.org/privacy-policy",
+        "description": "Privacy policy"
+      },
+      "DoNoHarm": {
+        "url": "https://meditrack.org/do-no-harm",
+        "description": "Do no harm"
+      },
+        "PIICollected": {
+          "url": "https://meditrack.org/pii-collected",
+        "description": "PII collected"
+      },
+      "NPIIUsed": {
+        "url": "https://meditrack.org/npii-used",
+        "description": "NPII used"
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "Supports offline mode and works on low-bandwidth mobile networks.",
+    "UserInput": "Collected via GitHub issues and quarterly surveys.",
+    "OfflineSupport": "Yes"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Optimized mobile apps with low power usage."
+  },
+  "TotalCostOfOwnership": {
+    "Description": "Free to use with low implementation cost due to modular design.",
+    "url": "https://meditrack.org/tco"
+    },
+  "Sustainability": {
+    "Description": "Funded by the Global Fund and supported by in-country governments.",
+    "KeyFundersSupporters": [
+      {
+        "name": "The Global Fund",
+        "url": "https://www.theglobalfund.org",
+        "description": "Primary funding partner"
+      },
+      {
+        "name": "The Mars Fund",
+        "url": "https://www.themarsfund.org",
+        "description": "Planetary funding partner"
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "Case study: MediTrack in Uganda",
+        "url": "https://meditrack.org/case-uganda"
+      },{
+        "description": "Case study: MediTrack in Kenya",
+        "url": "https://meditrack.org/case-kenya"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "Product Documentation",
+        "url": "https://meditrack.org/Productdetail"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "User Requirements",
+        "url": "https://meditrack.org/user-requirements"
+      }
+    ],
+    "EndUserDocumentation": [{
+      "description": "User manual",
+      "url": "https://meditrack.org/user-manual"
+    }],
+    "ImplementerDocumentation": [
+      {
+        "description": "Implementer Documentation",
+        "url": "https://meditrack.org/implementer-documentation"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": "https://meditrack.org/developer-documentation"
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "description": "Operator Documentation",
+        "url": "https://meditrack.org/operator-documentation"
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "description": "Installation Documentation",
+        "url": "https://meditrack.org/installation-documentation"
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net",
+          "description": "Global digital public goods registry"
+        },
+        "tool_url": "https://digitalpublicgoods.net/registry/meditrack.html"
+      },
+      {
+        "collectionInitiative": {
+          "label": "Open Data Institute",
+          "logo_url": "https://opendata.org/images/logo.svg",
+          "site_url": "https://opendata.org",
+          "description": "Global open data registry"
+        },
+        "tool_url": "https://opendata.org/registry/meditrack.html"
+      }
+    ]
+  }
+}

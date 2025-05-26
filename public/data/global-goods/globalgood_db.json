@@ -1,1261 +1,524 @@
 [
   {
-    "CoreMetadata": {
-      "ID": "dhis2",
-      "Name": "DHIS2",
-      "Logo": "https://dhis2.org/wp-content/uploads/2020/06/dhis2-logo-rgb-positive.svg",
-      "Website": [
-        {
-          "id": "main",
-          "name": "DHIS2 Website",
-          "url": "https://dhis2.org",
-          "description": "Official website"
-        },
-        {
-          "id": "docs",
-          "name": "DHIS2 Documentation",
-          "url": "https://docs.dhis2.org/",
-          "description": "Official documentation"
-        }
-      ],
-      "GlobalGoodsType": [
-        {
-          "code": "software",
-          "title": "Software",
-          "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
-        }
-      ],
-      "SourceCode": [
-        {
-          "id": "github",
-          "name": "GitHub",
-          "url": "https://github.com/dhis2",
-          "description": "Source code repository"
-        }
-      ],
-      "License": [
-        {
-          "id": "bsd-3-clause",
-          "name": "BSD 3-Clause License",
-          "url": "https://github.com/dhis2/dhis2-core/blob/master/LICENSE",
-          "description": "Open source license"
-        }
-      ],
-      "DemoLink": [
-        {
-          "id": "demo",
-          "name": "Demo Site",
-          "url": "https://play.dhis2.org/demo/",
-          "description": "Live demo instance"
-        }
-      ],
-      "Contact": [
-        {
-          "name": "HISP Centre",
-          "email": "post@dhis2.org",
-          "role": "Project Lead"
-        }
-      ]
+  
+  "ID": "meditrack",
+  "Name": "MediTrack",
+  "Logo": "https://meditrack.org/logo.svg",
+  "Website": {
+    "main": {
+      "name": "MediTrack Website",
+      "url": "https://meditrack.org",
+      "description": "Official site for MediTrack"
     },
-    "Classifications": {
-      "SDGs": [
-        { "code": "SDG-3", "title": "Good Health and Well-being" },
-        { "code": "SDG-13", "title": "Climate Action" }
-      ],
-      "WHO": [
-        {
-          "code": "UHC",
-          "title": "Universal Health Coverage",
-          "group_code": "A",
-          "group_name": "Health Systems",
-          "authority": "WHO"
-        }
-      ],
-      "WMO": [
-        {
-          "code": "CLIM",
-          "title": "Climate Monitoring",
-          "group_code": "B",
-          "group_name": "Climate",
-          "authority": "WMO"
-        }
-      ],
-      "DPI": [
-        {
-          "code": "DPI-1",
-          "title": "Digital Public Infrastructure",
-          "group_code": "C",
-          "group_name": "Infrastructure",
-          "authority": "DPI"
-        }
-      ]
+    "docs": {
+      "name": "Documentation",
+      "url": "https://docs.meditrack.org",
+      "description": "User and developer documentation"
     },
-    "StandardsAndInteroperability": {
-      "HealthStandards": [
-        {
-          "code": "HL7 FHIR",
-          "domain": "Health",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "Interoperability": [
-        {
-          "code": "ADX",
-          "type": "exchange",
-          "link": "https://www.ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_ADX.pdf",
-          "name": "ADX",
-          "description": "Aggregate Data Exchange, a standard for exchanging aggregate health data."
-        },
-        {
-          "code": "HL7 FHIR",
-          "type": "exchange",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "ClimateStandards": [
-        {
-          "code": "GRIB",
-          "domain": "Weather and Climate",
-          "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf",
-          "name": "GRIB",
-          "description": "GRIdded Binary format, a standard for encoding meteorological and oceanographic data."
-        }
-      ]
+    "source_code": {
+      "name": "Source Code",
+      "url": "https://github.com/meditrack/meditrack-core",
+      "description": "Main code repository"
     },
-    "ProductOverview": {
-      "Summary": "DHIS2 is an open-source platform for data collection, management, visualization, and analysis, widely used for health, climate, logistics, and education data.",
-      "Description": "A flexible, extensible platform for integrated health information management and more, supporting national and subnational systems in over 80 countries.",
-      "PrimaryFunctionality": "Health Information Management, Climate & Health Analytics, Logistics, Education Data",
-      "Users": "Ministries of Health, NGOs, Researchers, Data Analysts, Program Managers",
-      "Languages": [
-        { "code": "en", "name": "English" },
-        { "code": "fr", "name": "French" },
-        { "code": "es", "name": "Spanish" },
-        { "code": "pt", "name": "Portuguese" }
-      ],
-      "Screenshots": [
-        {
-          "url": "https://dhis2.org/wp-content/uploads/2020/06/dhis2-screenshot-1.png",
-          "description": "Dashboard screenshot"
-        },
-        {
-          "url": "https://dhis2.org/wp-content/uploads/2020/06/dhis2-screenshot-2.png",
-          "description": "Data entry screenshot"
-        }
-      ]
-    },
-    "Reach": {
-      "SummaryOfReach": "Deployed in over 80 countries, supporting national health information systems and more.",
-      "NumberOfImplementations": 100,
-      "ImplementationMapOverview": [
-        {
-          "url": "https://dhis2.org/in-action/",
-          "description": "Global implementation map"
-        }
-      ],
-      "Implementations": [
-        {
-          "iso_code": "ar",
-          "type": "State",
-          "names": {
-            "en": { "short": "Argentina", "formal": "the Argentine Republic" }
-          }
-        },
-        {
-          "iso_code": "bw",
-          "type": "State",
-          "names": {
-            "en": { "short": "Botswana", "formal": "the Republic of Botswana" }
-          }
-        },
-        {
-          "iso_code": "kh",
-          "type": "State",
-          "names": {
-            "en": { "short": "Cambodia", "formal": "the Kingdom of Cambodia" }
-          }
-        },
-        {
-          "iso_code": "cd",
-          "type": "State",
-          "names": {
-            "en": { "short": "Democratic Republic of the Congo (the)", "formal": "the Democratic Republic of the Congo" }
-          }
-        },
-        {
-          "iso_code": "et",
-          "type": "State",
-          "names": {
-            "en": { "short": "Ethiopia", "formal": "the Federal Democratic Republic of Ethiopia" }
-          }
-        },
-        {
-          "iso_code": "ga",
-          "type": "State",
-          "names": {
-            "en": { "short": "Gabon", "formal": "the Gabonese Republic" }
-          }
-        },
-        {
-          "iso_code": "gh",
-          "type": "State",
-          "names": {
-            "en": { "short": "Ghana", "formal": "the Republic of Ghana" }
-          }
-        },
-        {
-          "iso_code": "ht",
-          "type": "State",
-          "names": {
-            "en": { "short": "Haiti", "formal": "the Republic of Haiti" }
-          }
-        },
-        {
-          "iso_code": "hn",
-          "type": "State",
-          "names": {
-            "en": { "short": "Honduras", "formal": "the Republic of Honduras" }
-          }
-        },
-        {
-          "iso_code": "in",
-          "type": "State",
-          "names": {
-            "en": { "short": "India", "formal": "the Republic of India" }
-          }
-        },
-        {
-          "iso_code": "id",
-          "type": "State",
-          "names": {
-            "en": { "short": "Indonesia", "formal": "the Republic of Indonesia" }
-          }
-        },
-        {
-          "iso_code": "ke",
-          "type": "State",
-          "names": {
-            "en": { "short": "Kenya", "formal": "the Republic of Kenya" }
-          }
-        },
-        {
-          "iso_code": "ls",
-          "type": "State",
-          "names": {
-            "en": { "short": "Lesotho", "formal": "the Kingdom of Lesotho" }
-          }
-        },
-        {
-          "iso_code": "mw",
-          "type": "State",
-          "names": {
-            "en": { "short": "Malawi", "formal": "the Republic of Malawi" }
-          }
-        },
-        {
-          "iso_code": "my",
-          "type": "State",
-          "names": {
-            "en": { "short": "Malaysia", "formal": "Malaysia" }
-          }
-        }
-      ]
-    },
-    "Maturity": {
-      "SummaryOfMaturity": "Mature, widely adopted in health and other sectors.",
-      "Scores": [
-        {
-          "year": 2023,
-          "global_utility": 9,
-          "community_support": 9,
-          "maturity_of_gg": 9,
-          "inclusive_design": 8,
-          "climate_resilience": 8,
-          "low_carbon": 7
-        }
-      ]
-    },
-    "ClimateAndHealthIntegration": {
-      "Description": "Integrates climate, weather, and environmental data for health impact analysis and early warning systems. Supports climate-resilient health systems."
-    },
-    "Community": {
-      "DescriptionOfCommunity": "Large, active global community with regular events, forums, and collaborative development.",
-      "HostAnchorOrganization": {
-        "name": "HISP Centre, University of Oslo",
-        "url": "https://dhis2.org",
-        "description": "Non-profit supporting DHIS2",
-        "country": ["no"]
-      },
-      "InceptionYear": 1994,
-      "SizeOfCommunity": 10000,
-      "Links": {
-        "Community": [
-          {
-            "url": "https://community.dhis2.org/",
-            "description": "Community forum"
-          }
-        ],
-        "MailingList": [
-          {
-            "url": "https://dhis2.org/newsletter/",
-            "description": "Newsletter signup"
-          }
-        ]
-      },
-      "Events": {
-        "description": "Annual DHIS2 conference and regular online events.",
-        "schedule": "https://dhis2.org/events/",
-        "recent": [
-          {
-            "event": "DHIS2 Annual Conference 2024",
-            "date": "2024-06-10",
-            "url": "https://dhis2.org/ac2024/"
-          }
-        ]
-      },
-      "Policies": {
-        "Description": "DHIS2 has a range of policies and governance structures to ensure transparency, user protection, and responsible data management.",
-        "Governance": [
-          {
-            "url": "https://dhis2.org/governance/",
-            "description": "Governance structure"
-          }
-        ],
-        "TermsOfUse": [
-          {
-            "url": "https://dhis2.org/terms/",
-            "description": "Terms of use"
-          }
-        ],
-        "UserAgreement": [
-          {
-            "url": "https://dhis2.org/user-agreement/",
-            "description": "User agreement"
-          }
-        ],
-        "PrivacyPolicy": [
-          {
-            "url": "https://dhis2.org/privacy/",
-            "description": "Privacy policy"
-          }
-        ],
-        "DoNoHarm": [
-          {
-            "description": "This product is designed to do no harm.",
-            "url": "https://dhis2.org/do-no-harm/"
-          }
-        ],
-        "PIICollected": [
-          {
-            "description": "No personally identifiable information is collected.",
-            "url": "https://dhis2.org/pii/"
-          }
-        ],
-        "NPIIUsed": [
-          {
-            "description": "No non-personally identifiable information is used.",
-            "url": "https://dhis2.org/npii/"
-          }
-        ]
-      }
-    },
-    "InclusiveDesign": {
-      "Description": "Designed for accessibility and inclusivity, with support for multiple languages and offline use.",
-      "UserInput": "User feedback incorporated via community forums and surveys.",
-      "OfflineSupport": "Supports offline data entry and sync."
-    },
-    "EnvironmentalImpact": {
-      "LowCarbon": "Designed to minimize carbon footprint."
-    },
-    "TotalCostOfOwnership": {
-      "Description": "Low total cost due to open-source licensing and broad community support.",
-      "url": [
-        {
-          "url": "https://dhis2.org/tco/",
-          "description": "Cost of ownership details"
-        }
-      ]
-    },
-    "Sustainability": {
-      "Description": "Supported by major global health funders and international organizations.",
-      "KeyFundersSupporters": [
-        {
-          "name": "Bill & Melinda Gates Foundation",
-          "url": "https://www.gatesfoundation.org/",
-          "description": "Key funder"
-        },
-        {
-          "name": "Wellcome Trust",
-          "url": "https://wellcome.org/",
-          "description": "Key funder"
-        }
-      ]
-    },
-    "Resources": {
-      "Articles": [
-        {
-          "description": "DHIS2 in Action",
-          "url": "https://dhis2.org/in-action/"
-        }
-      ],
-      "ProductDocumentation": [
-        {
-          "description": "User guide",
-          "url": "https://docs.dhis2.org/"
-        }
-      ],
-      "UserRequirements": [
-        {
-          "description": "System requirements",
-          "url": "https://docs.dhis2.org/en/manage/installation.html"
-        }
-      ],
-      "EndUserDocumentation": [
-        {
-          "description": "End user manual",
-          "url": "https://docs.dhis2.org/en/use/user-guides.html"
-        }
-      ],
-      "ImplementerDocumentation": [
-        {
-          "description": "Implementation guide",
-          "url": "https://docs.dhis2.org/en/implement/index.html"
-        }
-      ],
-      "DeveloperDocumentation": [
-        {
-          "description": "Developer guide",
-          "url": "https://docs.dhis2.org/en/develop/index.html"
-        }
-      ],
-      "OperatorDocumentation": [
-        {
-          "description": "Operator manual",
-          "url": "https://docs.dhis2.org/en/manage/index.html"
-        }
-      ],
-      "InstallationDocumentation": [
-        {
-          "description": "Installation instructions",
-          "url": "https://docs.dhis2.org/en/manage/installation.html"
-        }
-      ]
-    },
-    "LinkedInitiatives": {
-      "Initiative": [
-        {
-          "collectionInitiative": {
-            "label": "DPGA",
-            "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
-            "site_url": "https://digitalpublicgoods.net/",
-            "description": "Digital Public Goods Alliance"
-          },
-          "tool_url": "https://digitalpublicgoods.net/registry/dhis2.html"
-        }
-      ]
+    "demo": {
+      "name": "Demo",
+      "url": "https://demo.meditrack.org",
+      "description": "Test the tool online"
     }
   },
-  {
-    "CoreMetadata": {
-      "ID": "openmrs",
-      "Name": "OpenMRS",
-      "Logo": "https://openmrs.org/wp-content/uploads/2020/10/OpenMRS-logo.png",
-      "Website": [
-        {
-          "id": "main",
-          "name": "OpenMRS Website",
-          "url": "https://openmrs.org",
-          "description": "Official website"
-        },
-        {
-          "id": "docs",
-          "name": "OpenMRS Documentation",
-          "url": "https://openmrs.org/documentation/",
-          "description": "Official documentation"
-        }
-      ],
-      "GlobalGoodsType": [
-        {
-          "code": "software",
-          "title": "Software",
-          "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
-        }
-      ],
-      "SourceCode": [
-        {
-          "id": "github",
-          "name": "GitHub",
-          "url": "https://github.com/openmrs/openmrs-core",
-          "description": "Source code repository"
-        }
-      ],
-      "License": [
-        {
-          "id": "mpl-2.0",
-          "name": "Mozilla Public License 2.0",
-          "url": "https://www.mozilla.org/en-US/MPL/2.0/",
-          "description": "Open source license"
-        }
-      ],
-      "DemoLink": [
-        {
-          "id": "demo",
-          "name": "Demo Site",
-          "url": "https://demo.openmrs.org",
-          "description": "Live demo instance"
-        }
-      ],
-      "Contact": [
-        {
-          "name": "OpenMRS Community",
-          "email": "community@openmrs.org",
-          "role": "Community Contact"
-        }
-      ]
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "An open-source logistics tracking platform for health supply chains."
+    }
+  ],
+  "License": {
+    "id": "apache-2.0",
+    "name": "Apache License 2.0", 
+    "url": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Permissive open source license"
+  },
+  "Contact": [
+    {
+      "name": "Dr. Jane Smith",
+      "email": "jane@meditrack.org",
+      "role": "Project Lead"
+    }
+  ],
+"Classifications": {
+  "SDGs": [
+    {
+      "code": "SDG-3",
+      "title": "Good Health and Well-being"
     },
-    "Classifications": {
-      "SDGs": [{ "code": "SDG-3", "title": "Good Health and Well-being" }],
-      "WHO": [
-        {
-          "code": "UHC",
-          "title": "Universal Health Coverage",
-          "group_code": "A",
-          "group_name": "Health Systems",
-          "authority": "WHO"
-        }
-      ],
-      "WMO": [],
-      "DPI": [
-        {
-          "code": "DPI-1",
-          "title": "Digital Public Infrastructure",
-          "group_code": "C",
-          "group_name": "Infrastructure",
-          "authority": "DPI"
-        }
-      ]
+    {
+      "code": "SDG-9",
+      "title": "Industry, Innovation and Infrastructure"
+    }
+  ],
+  "WHO": [
+    {
+      "code": "WHO_B6",
+      "title": "Logistics management information systems (LMIS)",
+      "group_code": "B",
+      "group_name": "Health System / Provider administration",
+      "authority": "WHO"
+    }
+  ],
+  "WMO": [],
+  "DPI": [
+    {
+      "code": "DPI_BD1",
+      "title": "Logistics Management Information Services",
+      "group_code": "BD",
+      "group_name": "Business Domain Services",
+      "authority": "DPI-H"
+    }
+  ]
+},
+"StandardsAndInteroperability": {
+  "HealthStandards": [
+    {
+      "code": "GS1",
+      "domain": "Health",
+      "link": "https://www.gs1.org/healthcare",
+      "name": "GS1",
+      "description": "Standard for supply chain data in healthcare"
+    }
+  ],
+  "Interoperability": [
+    {
+      "code": "ADX",
+      "type": "exchange",
+      "link": "https://www.ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_ADX.pdf",
+      "name": "ADX",
+      "description": "Aggregate Data Exchange standard"
+    }
+  ],
+  "ClimateStandards": []
+},
+"ProductOverview": {
+  "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
+  "Description": "MediTrack offers integrated supply chain management for health systems with customizable workflows, mobile support, and dashboards.",
+  "PrimaryFunctionality": "Supply chain and logistics tracking",
+  "Users": "Pharmacy managers, central medical stores, ministries of health",
+  "Languages": [
+    {
+      "code": "en",
+      "name": "English"
     },
-    "StandardsAndInteroperability": {
-      "HealthStandards": [
-        {
-          "code": "HL7 FHIR",
-          "domain": "Health",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "Interoperability": [
-        {
-          "code": "HL7 FHIR",
-          "type": "exchange",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "ClimateStandards": []
+    {
+      "code": "fr",
+      "name": "French"
+    }
+  ],
+  "Screenshots": [
+    {
+      "url": "https://meditrack.org/images/dashboard.png",
+      "description": "MediTrack dashboard screenshot"
     },
-    "ProductOverview": {
-      "Summary": "OpenMRS is an open-source medical record system platform, designed for resource-constrained environments.",
-      "Description": "A customizable electronic medical record system for low-resource settings, supported by a global community.",
-      "PrimaryFunctionality": "Electronic Medical Records",
-      "Users": "Clinicians, Health Workers, Implementers, Developers",
-      "Languages": [
-        { "code": "en", "name": "English" },
-        { "code": "fr", "name": "French" }
-      ],
-      "Screenshots": [
-        {
-          "url": "https://openmrs.org/wp-content/uploads/2020/10/openmrs-screenshot.png",
-          "description": "Dashboard screenshot"
+    {
+      "url": "https://meditrack.org/images/home.png",
+      "description": "MediTrack dashboard screenshot"
+    }
+  ]
+},
+"Reach": {
+  "SummaryOfReach": "Used in 25 countries by national supply chain programs.",
+  "NumberOfImplementations": 37,
+  "ImplementationMapOverview": [
+    {
+      "url": "https://meditrack.org/map",
+      "description": "Global reach map"
+    }
+  ],
+  "ImplementationCountries": [
+    {
+      "iso_code": "ke",
+      "type": "State",
+      "names": {
+        "en": {
+          "short": "Kenya",
+          "formal": "the Republic of Kenya"
         }
-      ]
-    },
-    "Reach": {
-      "SummaryOfReach": "Deployed in over 40 countries.",
-      "NumberOfImplementations": 8100,
-      "ImplementationMapOverview": [
-        {
-          "url": "https://openmrs.org/where-we-are/",
-          "description": "Global implementation map"
-        }
-      ],
-      "Implementations": [
-        {
-          "iso_code": "bd",
-          "type": "State",
-          "names": {
-            "en": { "short": "Bangladesh", "formal": "the People's Republic of Bangladesh" }
-          }
-        },
-        {
-          "iso_code": "cm",
-          "type": "State",
-          "names": {
-            "en": { "short": "Cameroon", "formal": "the Republic of Cameroon" }
-          }
-        },
-        {
-          "iso_code": "td",
-          "type": "State",
-          "names": {
-            "en": { "short": "Chad", "formal": "the Republic of Chad" }
-          }
-        },
-        {
-          "iso_code": "cd",
-          "type": "State",
-          "names": {
-            "en": { "short": "Democratic Republic of the Congo (the)", "formal": "the Democratic Republic of the Congo" }
-          }
-        },
-        {
-          "iso_code": "gm",
-          "type": "State",
-          "names": {
-            "en": { "short": "Gambia (the)", "formal": "the Republic of the Gambia" }
-          }
-        },
-        {
-          "iso_code": "mr",
-          "type": "State",
-          "names": {
-            "en": { "short": "Mauritania", "formal": "the Islamic Republic of Mauritania" }
-          }
-        },
-        {
-          "iso_code": "md",
-          "type": "State",
-          "names": {
-            "en": { "short": "Moldova (the Republic of)", "formal": "the Republic of Moldova" }
-          }
-        },
-        {
-          "iso_code": "np",
-          "type": "State",
-          "names": {
-            "en": { "short": "Nepal", "formal": "Nepal" }
-          }
-        },
-        {
-          "iso_code": "ne",
-          "type": "State",
-          "names": {
-            "en": { "short": "Niger", "formal": "the Republic of the Niger" }
-          }
-        },
-        {
-          "iso_code": "tz",
-          "type": "State",
-          "names": {
-            "en": { "short": "Tanzania, United Republic of", "formal": "the United Republic of Tanzania" }
-          }
-        },
-        {
-          "iso_code": "zanzibar_nonUN",
-          "type": "Other",
-          "names": {
-            "en": { "short": "Zanzibar", "formal": "Zanzibar" }
-          }
-        }
-      ]
-    },
-    "Maturity": {
-      "SummaryOfMaturity": "Mature, widely adopted in health systems.",
-      "Scores": [
-        {
-          "year": 2023,
-          "global_utility": 8,
-          "community_support": 9,
-          "maturity_of_gg": 8,
-          "inclusive_design": 7,
-          "climate_resilience": 6,
-          "low_carbon": 5
-        }
-      ]
-    },
-    "ClimateAndHealthIntegration": {
-      "Description": ""
-    },
-    "Community": {
-      "DescriptionOfCommunity": "Active global community with regular events.",
-      "HostAnchorOrganization": {
-        "name": "OpenMRS Inc.",
-        "url": "https://openmrs.org",
-        "description": "Non-profit supporting OpenMRS",
-        "country": ["us"]
-      },
-      "InceptionYear": 2004,
-      "SizeOfCommunity": 5000,
-      "Links": {
-        "Community": [
-          {
-            "url": "https://talk.openmrs.org",
-            "description": "Community forum"
-          }
-        ],
-        "MailingList": [
-          {
-            "url": "https://groups.google.com/g/openmrs",
-            "description": "Mailing list"
-          }
-        ]
-      },
-      "Events": {
-        "description": "Annual OpenMRS conference.",
-        "schedule": "https://openmrs.org/what-we-do/conference-2024/",
-        "recent": [
-          {
-            "event": "OpenMRS 2023 Summit",
-            "date": "2023-11-15",
-            "url": "https://openmrs.org/summit2023"
-          }
-        ]
-      },
-      "Policies": {
-        "Description": "OpenMRS has a range of policies and governance structures to ensure transparency, user protection, and responsible data management.",
-        "Governance": [
-          {
-            "url": "https://openmrs.org/governance",
-            "description": "Governance structure"
-          }
-        ],
-        "TermsOfUse": [
-          {
-            "url": "https://openmrs.org/terms",
-            "description": "Terms of use"
-          }
-        ],
-        "UserAgreement": [
-          {
-            "url": "https://openmrs.org/user-agreement",
-            "description": "User agreement"
-          }
-        ],
-        "PrivacyPolicy": [
-          {
-            "url": "https://openmrs.org/privacy",
-            "description": "Privacy policy"
-          }
-        ],
-        "DoNoHarm": [
-          {
-            "description": "This product is designed to do no harm.",
-            "url": "https://openmrs.org/do-no-harm"
-          }
-        ],
-        "PIICollected": [
-          {
-            "description": "No personally identifiable information is collected.",
-            "url": "https://openmrs.org/pii"
-          }
-        ],
-        "NPIIUsed": [
-          {
-            "description": "No non-personally identifiable information is used.",
-            "url": "https://openmrs.org/npii"
-          }
-        ]
       }
     },
-    "InclusiveDesign": {
-      "Description": "Designed for accessibility and inclusivity.",
-      "UserInput": "User feedback incorporated via surveys.",
-      "OfflineSupport": "Supports offline data entry and sync."
+    {
+      "iso_code": "ug",
+      "type": "State",
+      "names": {
+        "en": {
+          "short": "Uganda",
+          "formal": "the Republic of Uganda"
+        }
+      }
+    }
+  ]
+},
+"Maturity": {
+  "SummaryOfMaturity": "Mature and proven in multiple supply chain deployments.",
+  "Scores": [
+    {
+      "year": 2023,
+      "global_utility": 8,
+      "community_support": 7,
+      "maturity_of_gg": 8,
+      "inclusive_design": 6,
+      "climate_resilience": 5,
+      "low_carbon": 6
     },
-    "EnvironmentalImpact": {
-      "LowCarbon": "Designed to minimize carbon footprint."
+    {
+      "year": 2022,
+      "global_utility": 7,
+      "community_support": 7,
+      "maturity_of_gg": 7,
+      "inclusive_design": 6,
+      "climate_resilience": 3,
+      "low_carbon": 6
     },
-    "TotalCostOfOwnership": {
-      "Description": "Low total cost due to open-source licensing.",
-      "url": [
-        {
-          "url": "https://openmrs.org/tco",
-          "description": "Cost of ownership details"
-        }
-      ]
+    {
+      "year": 2021,
+      "global_utility": 6,
+      "community_support": 6,
+      "maturity_of_gg": 6,
+      "inclusive_design": 5,
+      "climate_resilience": 1,
+      "low_carbon": 5
+    }
+  ]
+},
+"ClimateAndHealthIntegration": {
+  "Description": "Can be integrated with climate risk data to support logistics during extreme weather disruptions."
+},
+"Community": {
+  "DescriptionOfCommunity": "Moderately active open-source community with monthly updates.",
+  "HostAnchorOrganization": {
+    "name": "HealthWare Foundation",
+    "url": "https://healthware.org",
+    "description": "Global health non-profit",
+    "country": [
+      "nl"
+    ]
+  },
+  "InceptionYear": 2016,
+  "SizeOfCommunity": 1200,
+  "Links": {
+    "Community": {
+      "url": "https://community.meditrack.org",
+      "description": "Community forum"
     },
-    "Sustainability": {
-      "Description": "Supported by major global health funders.",
-      "KeyFundersSupporters": [
-        {
-          "name": "Bill & Melinda Gates Foundation",
-          "url": "https://www.gatesfoundation.org/",
-          "description": "Key funder"
-        }
-      ]
-    },
-    "Resources": {
-      "Articles": [
-        {
-          "description": "OpenMRS in Action",
-          "url": "https://openmrs.org/article"
-        }
-      ],
-      "ProductDocumentation": [
-        {
-          "description": "User guide",
-          "url": "https://openmrs.org/docs"
-        }
-      ],
-      "UserRequirements": [
-        {
-          "description": "System requirements",
-          "url": "https://openmrs.org/requirements"
-        }
-      ],
-      "EndUserDocumentation": [
-        {
-          "description": "End user manual",
-          "url": "https://openmrs.org/end-user-docs"
-        }
-      ],
-      "ImplementerDocumentation": [
-        {
-          "description": "Implementation guide",
-          "url": "https://openmrs.org/implementer-docs"
-        }
-      ],
-      "DeveloperDocumentation": [
-        {
-          "description": "Developer guide",
-          "url": "https://openmrs.org/dev-docs"
-        }
-      ],
-      "OperatorDocumentation": [
-        {
-          "description": "Operator manual",
-          "url": "https://openmrs.org/operator-docs"
-        }
-      ],
-      "InstallationDocumentation": [
-        {
-          "description": "Installation instructions",
-          "url": "https://openmrs.org/install-docs"
-        }
-      ]
-    },
-    "LinkedInitiatives": {
-      "Initiative": [
-        {
-          "collectionInitiative": {
-            "label": "Digital Public Goods Alliance (DPGA)",
-            "logo_url": "https://digitalpublicgoods.net/assets/images/logo.svg",
-            "site_url": "https://www.digitalpublicgoods.net/registry",
-            "description": "A multi-stakeholder initiative accelerating the attainment of the Sustainable Development Goals by facilitating the discovery, development, use of, and investment in digital public goods."
-          },
-          "tool_url": "https://digitalpublicgoods.net/registry/openmrs.html"
-        },
-        {
-            "collectionInitiative": {
-              "label": "Digital Impact Exchange (DIAL Exchange)",
-    "logo_url": "https://dial.global/wp-content/uploads/2022/06/dial-logo.svg",
-    "site_url": "https://exchange.dial.global/",
-    "description": "The Digital Impact Exchange is a comprehensive platform for discovering, comparing, and connecting with digital solutions and tools for the development sector, managed by the Digital Impact Alliance."
-          },
-          "tool_url": "https://exchange.dial.global/openmrs"
-        }
-      ]
+    "MailingList": {
+      "url": "https://meditrack.org/newsletter",
+        "description": "Join the newsletter"
     }
   },
-  {
-    "CoreMetadata": {
-      "ID": "openimis",
-      "Name": "openIMIS",
-      "Logo": "https://openimis.org/sites/default/files/2021-03/openIMIS_logo.png",
-      "Website": [
-        {
-          "id": "main",
-          "name": "openIMIS Website",
-          "url": "https://openimis.org",
-          "description": "Official website"
-        },
-        {
-          "id": "docs",
-          "name": "openIMIS Documentation",
-          "url": "https://docs.openimis.org/en/latest/",
-          "description": "Official documentation"
-        }
-      ],
-      "GlobalGoodsType": [
-        {
-          "code": "software",
-          "title": "Software",
-          "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
-        }
-      ],
-      "SourceCode": [
-        {
-          "id": "github",
-          "name": "GitHub",
-          "url": "https://github.com/openimis/openimis-core-frontend",
-          "description": "Source code repository"
-        }
-      ],
-      "License": [
-        {
-          "id": "agpl-3.0",
-          "name": "GNU Affero General Public License v3.0",
-          "url": "https://www.gnu.org/licenses/agpl-3.0.html",
-          "description": "Open source license"
-        }
-      ],
-      "DemoLink": [
-        {
-          "id": "demo",
-          "name": "Demo Site",
-          "url": "https://demo.openimis.org",
-          "description": "Live demo instance"
-        }
-      ],
-      "Contact": [
-        {
-          "name": "openIMIS Community",
-          "email": "contact@openimis.org",
-          "role": "Community Contact"
-        }
-      ]
-    },
-    "Classifications": {
-      "SDGs": [{ "code": "SDG-3", "title": "Good Health and Well-being" }],
-      "WHO": [
-        {
-          "code": "UHC",
-          "title": "Universal Health Coverage",
-          "group_code": "A",
-          "group_name": "Health Systems",
-          "authority": "WHO"
-        }
-      ],
-      "WMO": [],
-      "DPI": [
-        {
-          "code": "DPI-1",
-          "title": "Digital Public Infrastructure",
-          "group_code": "C",
-          "group_name": "Infrastructure",
-          "authority": "DPI"
-        }
-      ]
-    },
-    "StandardsAndInteroperability": {
-      "HealthStandards": [
-        {
-          "code": "HL7 FHIR",
-          "domain": "Health",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "Interoperability": [
-        {
-          "code": "HL7 FHIR",
-          "type": "exchange",
-          "link": "https://www.hl7.org/fhir/",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        }
-      ],
-      "ClimateStandards": []
-    },
-    "ProductOverview": {
-      "Summary": "openIMIS is an open-source software for managing health financing and social protection programs.",
-      "Description": "A versatile platform for health insurance, cash transfers, and social protection, supporting over 34 million beneficiaries in 14 countries.",
-      "PrimaryFunctionality": "Health Financing, Social Protection Management",
-      "Users": "Program Operators, Implementers, Developers, Beneficiaries",
-      "Languages": [
-        { "code": "en", "name": "English" },
-        { "code": "fr", "name": "French" }
-      ],
-      "Screenshots": [
-        {
-          "url": "https://openimis.org/sites/default/files/2021-03/openIMIS_screenshot.png",
-          "description": "Dashboard screenshot"
-        }
-      ]
-    },
-    "Reach": {
-      "SummaryOfReach": "Deployed in over 14 countries, supporting over 34 million beneficiaries.",
-      "NumberOfImplementations": 14,
-      "ImplementationMapOverview": [
-        {
-          "url": "https://openimis.org/impact",
-          "description": "Global implementation map"
-        }
-      ],
-      "Implementations": [
-        {
-          "iso_code": "bd",
-          "type": "State",
-          "names": {
-            "en": { "short": "Bangladesh", "formal": "the People's Republic of Bangladesh" }
-          }
-        },
-        {
-          "iso_code": "cm",
-          "type": "State",
-          "names": {
-            "en": { "short": "Cameroon", "formal": "the Republic of Cameroon" }
-          }
-        },
-        {
-          "iso_code": "td",
-          "type": "State",
-          "names": {
-            "en": { "short": "Chad", "formal": "the Republic of Chad" }
-          }
-        },
-        {
-          "iso_code": "cd",
-          "type": "State",
-          "names": {
-            "en": { "short": "Democratic Republic of the Congo (the)", "formal": "the Democratic Republic of the Congo" }
-          }
-        },
-        {
-          "iso_code": "gm",
-          "type": "State",
-          "names": {
-            "en": { "short": "Gambia (the)", "formal": "the Republic of the Gambia" }
-          }
-        },
-        {
-          "iso_code": "mr",
-          "type": "State",
-          "names": {
-            "en": { "short": "Mauritania", "formal": "the Islamic Republic of Mauritania" }
-          }
-        },
-        {
-          "iso_code": "md",
-          "type": "State",
-          "names": {
-            "en": { "short": "Moldova (the Republic of)", "formal": "the Republic of Moldova" }
-          }
-        },
-        {
-          "iso_code": "np",
-          "type": "State",
-          "names": {
-            "en": { "short": "Nepal", "formal": "Nepal" }
-          }
-        },
-        {
-          "iso_code": "ne",
-          "type": "State",
-          "names": {
-            "en": { "short": "Niger", "formal": "the Republic of the Niger" }
-          }
-        },
-        {
-          "iso_code": "tz",
-          "type": "State",
-          "names": {
-            "en": { "short": "Tanzania, United Republic of", "formal": "the United Republic of Tanzania" }
-          }
-        },
-        {
-          "iso_code": "zanzibar_nonUN",
-          "type": "Other",
-          "names": {
-            "en": { "short": "Zanzibar", "formal": "Zanzibar" }
-          }
-        }
-      ]
-    },
-    "Maturity": {
-      "SummaryOfMaturity": "Growing adoption in health financing and social protection.",
-      "Scores": [
-        {
-          "year": 2023,
-          "global_utility": 7,
-          "community_support": 8,
-          "maturity_of_gg": 7,
-          "inclusive_design": 7,
-          "climate_resilience": 5,
-          "low_carbon": 5
-        }
-      ]
-    },
-    "ClimateAndHealthIntegration": {
-      "Description": ""
-    },
-    "Community": {
-      "DescriptionOfCommunity": "Open, collaborative community with regular events and knowledge hubs.",
-      "HostAnchorOrganization": {
-        "name": "openIMIS Initiative",
-        "url": "https://openimis.org",
-        "description": "Initiative supporting openIMIS",
-        "country": ["ch", "de"]
-      },
-      "InceptionYear": 2012,
-      "SizeOfCommunity": 1000,
-      "Links": {
-        "Community": [
-          {
-            "url": "https://openimis.org/community",
-            "description": "Community page"
-          }
-        ],
-        "MailingList": [
-          {
-            "url": "https://openimis.org/newsletter",
-            "description": "Newsletter signup"
-          }
-        ]
-      },
-      "Events": {
-        "description": "Annual openIMIS Stakeholder Conference and regular webinars.",
-        "schedule": "https://openimis.org/news",
-        "recent": [
-          {
-            "event": "openIMIS Stakeholder Conference 2024",
-            "date": "2024-11-15",
-            "url": "https://openimis.org/news"
-          }
-        ]
-      },
-      "Policies": {
-        "Description": "openIMIS has policies and governance structures for transparency and responsible data management.",
-        "Governance": [
-          {
-            "url": "https://openimis.org/governance",
-            "description": "Governance structure"
-          }
-        ],
-        "TermsOfUse": [
-          {
-            "url": "https://openimis.org/terms",
-            "description": "Terms of use"
-          }
-        ],
-        "UserAgreement": [
-          {
-            "url": "https://openimis.org/user-agreement",
-            "description": "User agreement"
-          }
-        ],
-        "PrivacyPolicy": [
-          {
-            "url": "https://openimis.org/privacy",
-            "description": "Privacy policy"
-          }
-        ],
-        "DoNoHarm": [
-          {
-            "description": "This product is designed to do no harm.",
-            "url": "https://openimis.org/do-no-harm"
-          }
-        ],
-        "PIICollected": [
-          {
-            "description": "No personally identifiable information is collected.",
-            "url": "https://openimis.org/pii"
-          }
-        ],
-        "NPIIUsed": [
-          {
-            "description": "No non-personally identifiable information is used.",
-            "url": "https://openimis.org/npii"
-          }
-        ]
+  "Events": {
+    "description": "Annual stakeholder summit and quarterly webinars.",
+    "schedule": "https://meditrack.org/events",
+    "recent": [
+      {
+        "event": "MediTrack Summit 2024",
+        "date": "2024-10-12",
+        "url": "https://meditrack.org/summit2024"
+      },{
+        "event": "MediTrack Summit 2024",
+        "date": "2024-10-12",
+        "url": "https://meditrack.org/summit2024"
+      },{
+        "event": "MediTrack Summit 2024",
+        "date": "2024-10-12",
+        "url": "https://meditrack.org/summit2024"
       }
+    ]
+  },
+  "Policies": {
+    "Description": "Governed by open data principles and user protection policies.",
+    "Governance": {
+      "url": "https://meditrack.org/governance",
+      "description": "Governance documentation"
     },
-    "InclusiveDesign": {
-      "Description": "Designed for accessibility and inclusivity.",
-      "UserInput": "User feedback incorporated via surveys.",
-      "OfflineSupport": "Supports offline data entry and sync."
+    "TermsOfUse": {
+      "url": "https://meditrack.org/terms-of-use",
+      "description": "Terms of use"
     },
-    "EnvironmentalImpact": {
-      "LowCarbon": "Designed to minimize carbon footprint."
+    "UserAgreement": {
+      "url": "https://meditrack.org/user-agreement",
+      "description": "User agreement"
     },
-    "TotalCostOfOwnership": {
-      "Description": "Low total cost due to open-source licensing.",
-      "url": [
-        {
-          "url": "https://openimis.org/tco",
-          "description": "Cost of ownership details"
-        }
-      ]
+    "PrivacyPolicy": {
+      "url": "https://meditrack.org/privacy-policy",
+      "description": "Privacy policy"
     },
-    "Sustainability": {
-      "Description": "Supported by major global health funders.",
-      "KeyFundersSupporters": [
-        {
-          "name": "Swiss Agency for Development and Cooperation",
-          "url": "https://www.eda.admin.ch/deza/en/home.html",
-          "description": "Key funder"
-        }
-      ]
+    "DoNoHarm": {
+      "url": "https://meditrack.org/do-no-harm",
+      "description": "Do no harm"
     },
-    "Resources": {
-      "Articles": [
-        {
-          "description": "openIMIS in Action",
-          "url": "https://openimis.org/article"
-        }
-      ],
-      "ProductDocumentation": [
-        {
-          "description": "User guide",
-          "url": "https://docs.openimis.org/en/latest/"
-        }
-      ],
-      "UserRequirements": [
-        {
-          "description": "System requirements",
-          "url": "https://docs.openimis.org/en/latest/requirements.html"
-        }
-      ],
-      "EndUserDocumentation": [
-        {
-          "description": "End user manual",
-          "url": "https://docs.openimis.org/en/latest/end-user.html"
-        }
-      ],
-      "ImplementerDocumentation": [
-        {
-          "description": "Implementation guide",
-          "url": "https://docs.openimis.org/en/latest/implementer.html"
-        }
-      ],
-      "DeveloperDocumentation": [
-        {
-          "description": "Developer guide",
-          "url": "https://docs.openimis.org/en/latest/developer.html"
-        }
-      ],
-      "OperatorDocumentation": [
-        {
-          "description": "Operator manual",
-          "url": "https://docs.openimis.org/en/latest/operator.html"
-        }
-      ],
-      "InstallationDocumentation": [
-        {
-          "description": "Installation instructions",
-          "url": "https://docs.openimis.org/en/latest/installation.html"
-        }
-      ]
+      "PIICollected": {
+        "url": "https://meditrack.org/pii-collected",
+      "description": "PII collected"
     },
-    "LinkedInitiatives": {
-      "Initiative": [
-        {
-          "collectionInitiative": {
-            "label": "DPGA",
-            "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
-            "site_url": "https://digitalpublicgoods.net/",
-            "description": "Digital Public Goods Alliance"
-          },
-          "tool_url": "https://digitalpublicgoods.net/registry/openimis.html"
-        }
-      ]
+    "NPIIUsed": {
+      "url": "https://meditrack.org/npii-used",
+      "description": "NPII used"
     }
   }
+},
+"InclusiveDesign": {
+  "Description": "Supports offline mode and works on low-bandwidth mobile networks.",
+  "UserInput": "Collected via GitHub issues and quarterly surveys.",
+  "OfflineSupport": "Yes"
+},
+"EnvironmentalImpact": {
+  "LowCarbon": "Optimized mobile apps with low power usage."
+},
+"TotalCostOfOwnership": {
+  "Description": "Free to use with low implementation cost due to modular design.",
+  "url": "https://meditrack.org/tco"
+  },
+"Sustainability": {
+  "Description": "Funded by the Global Fund and supported by in-country governments.",
+  "KeyFundersSupporters": [
+    {
+      "name": "The Global Fund",
+      "url": "https://www.theglobalfund.org",
+      "description": "Primary funding partner"
+    },
+    {
+      "name": "The Mars Fund",
+      "url": "https://www.themarsfund.org",
+      "description": "Planetary funding partner"
+    }
+  ]
+},
+"Resources": {
+  "Articles": [
+    {
+      "description": "Case study: MediTrack in Uganda",
+      "url": "https://meditrack.org/case-uganda"
+    },{
+      "description": "Case study: MediTrack in Kenya",
+      "url": "https://meditrack.org/case-kenya"
+    }
+  ],
+  "ProductDocumentation": [
+    {
+      "description": "Product Documentation",
+      "url": "https://meditrack.org/Productdetail"
+    }
+  ],
+  "UserRequirements": [
+    {
+      "description": "User Requirements",
+      "url": "https://meditrack.org/user-requirements"
+    }
+  ],
+  "EndUserDocumentation": [{
+    "description": "User manual",
+    "url": "https://meditrack.org/user-manual"
+  }],
+  "ImplementerDocumentation": [
+    {
+      "description": "Implementer Documentation",
+      "url": "https://meditrack.org/implementer-documentation"
+    }
+  ],
+  "DeveloperDocumentation": [
+    {
+      "description": "Developer Documentation",
+      "url": "https://meditrack.org/developer-documentation"
+    }
+  ],
+  "OperatorDocumentation": [
+    {
+      "description": "Operator Documentation",
+      "url": "https://meditrack.org/operator-documentation"
+    }
+  ],
+  "InstallationDocumentation": [
+    {
+      "description": "Installation Documentation",
+      "url": "https://meditrack.org/installation-documentation"
+    }
+  ]
+},
+"LinkedInitiatives": {
+  "Initiative": [
+    {
+      "collectionInitiative": {
+        "label": "Digital Public Goods Alliance",
+        "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
+        "site_url": "https://digitalpublicgoods.net",
+        "description": "Global digital public goods registry"
+      },
+      "tool_url": "https://digitalpublicgoods.net/registry/meditrack.html"
+    },
+    {
+      "collectionInitiative": {
+        "label": "Open Data Institute",
+        "logo_url": "https://opendata.org/images/logo.svg",
+        "site_url": "https://opendata.org",
+        "description": "Global open data registry"
+      },
+      "tool_url": "https://opendata.org/registry/meditrack.html"
+    }
+  ]
+}
+},
+{
+  "ID": "dhis2",
+  "Name": "DHIS2",
+  "Logo": "https://dhis2.org/logo.svg",
+  "Website": {
+    "main": {
+      "name": "DHIS2 Website",
+      "url": "https://dhis2.org",
+      "description": "Official site for DHIS2"
+    },
+    "docs": {
+      "name": "Documentation",
+      "url": "https://docs.dhis2.org",
+      "description": "User and developer documentation"
+    },
+    "source_code": {
+      "name": "Source Code",
+      "url": "https://github.com/dhis2/dhis2-core",
+      "description": "Main code repository"
+    },
+    "demo": {
+      "name": "Demo",
+      "url": "https://play.dhis2.org",
+      "description": "Test DHIS2 online"
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "Open-source health management data platform."
+    }
+  ],
+  "License": {
+    "id": "bsd-3-clause",
+    "name": "BSD 3-Clause License",
+    "url": "https://opensource.org/licenses/BSD-3-Clause",
+    "description": "Permissive open source license"
+  },
+  "Contact": [
+    {
+      "name": "DHIS2 Team",
+      "email": "info@dhis2.org",
+      "role": "Project Team"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      { "code": "SDG-3", "title": "Good Health and Well-being" },
+      { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure" }
+    ],
+    "WHO": [],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "type": "exchange",
+        "name": "HL7 FHIR",
+        "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
+      },
+      {
+        "code": "GS1",
+        "domain": "Health",
+        "link": "https://www.gs1.org/healthcare",
+        "type": "identifier",
+        "name": "GS1",
+        "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare."
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "ADX",
+        "domain": "Health",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "type": "exchange",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "A flexible, web-based open-source information system with visualization features.",
+    "Description": "DHIS2 is used to collect, manage, and analyze health data.",
+    "PrimaryFunctionality": "Health data management and analytics",
+    "Users": "Ministries of health, NGOs, researchers",
+    "Languages": [
+      { "code": "en", "name": "English" },
+      { "code": "fr", "name": "French" }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Deployed in over 20 countries for national health data management.",
+    "NumberOfImplementations": 20,
+    "ImplementationMapOverview": [
+      {
+        "url": "https://dhis2.org/map",
+        "description": "Global reach map"
+      }
+    ],
+    "ImplementationCountries": [
+      {"iso_code": "ke", "type": "State", "names": {"en": {"short": "Kenya", "formal": "the Republic of Kenya"}}},
+      {"iso_code": "ug", "type": "State", "names": {"en": {"short": "Uganda", "formal": "the Republic of Uganda"}}},
+      {"iso_code": "in", "type": "State", "names": {"en": {"short": "India", "formal": "the Republic of India"}}},
+      {"iso_code": "ng", "type": "State", "names": {"en": {"short": "Nigeria", "formal": "the Federal Republic of Nigeria"}}},
+      {"iso_code": "za", "type": "State", "names": {"en": {"short": "South Africa", "formal": "the Republic of South Africa"}}},
+      {"iso_code": "bd", "type": "State", "names": {"en": {"short": "Bangladesh", "formal": "the People's Republic of Bangladesh"}}},
+      {"iso_code": "et", "type": "State", "names": {"en": {"short": "Ethiopia", "formal": "the Federal Democratic Republic of Ethiopia"}}},
+      {"iso_code": "tz", "type": "State", "names": {"en": {"short": "Tanzania", "formal": "the United Republic of Tanzania"}}},
+      {"iso_code": "gh", "type": "State", "names": {"en": {"short": "Ghana", "formal": "the Republic of Ghana"}}},
+      {"iso_code": "rw", "type": "State", "names": {"en": {"short": "Rwanda", "formal": "the Republic of Rwanda"}}}
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "Widely adopted and mature.",
+    "Scores": []
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "Supports integration with climate data for health analytics."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Large, active global community.",
+    "HostAnchorOrganization": {
+      "name": "HISP Centre, University of Oslo",
+      "url": "https://www.uio.no/english/",
+      "description": "Academic anchor",
+      "country": ["no"]
+    },
+    "InceptionYear": 2006,
+    "SizeOfCommunity": 5000,
+    "Links": {},
+    "Events": {},
+    "Policies": {}
+  },
+  "InclusiveDesign": {
+    "Description": "Accessible and localizable interface."
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Web-based, can be hosted on green infrastructure."
+  },
+  "TotalCostOfOwnership": {
+    "Description": "Free and open-source, with optional paid support."
+  },
+  "Sustainability": {
+    "Description": "Supported by global donors and governments.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {},
+  "LinkedInitiatives": {}
+}
 ]
