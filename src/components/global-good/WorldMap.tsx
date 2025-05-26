@@ -22,15 +22,18 @@ export function WorldMap({ globalGood }: WorldMapProps) {
   
   const implementationCountries = globalGood.Reach?.ImplementationCountries || [];
   
-  // Create a set of ISO codes for quick lookup
-  const implementedCountryCodes = new Set(
-    implementationCountries.map(country => country.iso_code.toUpperCase())
-  );
+  console.log('WorldMap: Implementation countries:', implementationCountries);
+  
+  // Create multiple lookup sets for different country code formats
+  const implementedCountryCodes = new Set([
+    ...implementationCountries.map(country => country.iso_code?.toUpperCase()),
+    ...implementationCountries.map(country => country.iso_code?.toLowerCase()),
+  ].filter(Boolean));
 
   // Create a map for country data lookup
   const countryDataMap = new Map(
     implementationCountries.map(country => [
-      country.iso_code.toUpperCase(),
+      country.iso_code?.toUpperCase(),
       country
     ])
   );
@@ -62,6 +65,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
 
         const geoJsonData = feature(topoData, countries);
         console.log('WorldMap: Conversion successful, countries count:', geoJsonData.features.length);
+        console.log('WorldMap: Sample country properties:', geoJsonData.features[0]?.properties);
         
         setGeoData(geoJsonData);
         setIsLoading(false);
@@ -109,11 +113,30 @@ export function WorldMap({ globalGood }: WorldMapProps) {
           >
             <ZoomableGroup zoom={1} center={[0, 20]}>
               <Geographies geography={geoData}>
-                {({ geographies }) =>
-                  geographies.map(geo => {
-                    const countryCode = geo.properties.ISO_A3 || geo.id;
-                    const isImplemented = implementedCountryCodes.has(countryCode);
-                    const countryData = countryDataMap.get(countryCode);
+                {({ geographies }) => {
+                  console.log('WorldMap: Rendering geographies, count:', geographies.length);
+                  
+                  return geographies.map(geo => {
+                    // Check multiple potential country code properties
+                    const countryCode = geo.properties.ISO_A3 || 
+                                      geo.properties.ISO_A2 || 
+                                      geo.properties.iso_a3 || 
+                                      geo.properties.iso_a2 || 
+                                      geo.id;
+                    
+                    // Check if implemented using multiple formats
+                    const isImplemented = implementedCountryCodes.has(countryCode) ||
+                                        implementedCountryCodes.has(countryCode?.toUpperCase()) ||
+                                        implementedCountryCodes.has(countryCode?.toLowerCase());
+                    
+                    const countryData = countryDataMap.get(countryCode?.toUpperCase());
+                    
+                    console.log('WorldMap: Country:', {
+                      name: geo.properties.NAME || geo.properties.name,
+                      code: countryCode,
+                      isImplemented,
+                      allProperties: Object.keys(geo.properties)
+                    });
                     
                     return (
                       <Tooltip key={geo.rsmKey}>
@@ -132,22 +155,22 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                             }}
                             style={{
                               default: {
-                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                                stroke: "hsl(var(--border))",
+                                fill: isImplemented ? "#3b82f6" : "#e5e7eb",
+                                stroke: "#d1d5db",
                                 strokeWidth: 0.5,
-                                opacity: isImplemented ? 1 : 0.3,
+                                opacity: isImplemented ? 1 : 0.8,
                                 outline: "none"
                               },
                               hover: {
-                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                                stroke: "hsl(var(--border))",
+                                fill: isImplemented ? "#2563eb" : "#f3f4f6",
+                                stroke: "#9ca3af",
                                 strokeWidth: 1,
-                                opacity: isImplemented ? 0.8 : 0.5,
+                                opacity: 1,
                                 outline: "none"
                               },
                               pressed: {
-                                fill: isImplemented ? "hsl(var(--primary))" : "hsl(var(--muted))",
-                                stroke: "hsl(var(--border))",
+                                fill: isImplemented ? "#1d4ed8" : "#e5e7eb",
+                                stroke: "#6b7280",
                                 strokeWidth: 0.5,
                                 outline: "none"
                               }
@@ -161,26 +184,33 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                         )}
                       </Tooltip>
                     );
-                  })
-                }
+                  });
+                }}
               </Geographies>
             </ZoomableGroup>
           </ComposableMap>
         )}
         
         {/* Legend */}
-        <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3 text-sm">
+        <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 text-sm shadow-md">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-primary rounded"></div>
+              <div className="w-4 h-4 bg-blue-500 rounded"></div>
               <span>Implemented ({implementationCountries.length})</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-muted rounded opacity-30"></div>
+              <div className="w-4 h-4 bg-gray-300 rounded"></div>
               <span>Not implemented</span>
             </div>
           </div>
         </div>
+        
+        {/* Debug info */}
+        {geoData && (
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-2 text-xs text-gray-600">
+            Countries loaded: {(geoData as any).features?.length || 0}
+          </div>
+        )}
       </div>
     </TooltipProvider>
   );
