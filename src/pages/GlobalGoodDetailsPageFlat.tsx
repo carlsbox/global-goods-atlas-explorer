@@ -9,6 +9,7 @@ import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { RawDataViewer } from "@/components/global-good/RawDataViewer";
 import { EnhancedClassificationBadge } from "@/components/EnhancedClassificationBadge";
+import { GroupedClassifications } from "@/components/global-good/GroupedClassifications";
 import { useI18n } from "@/hooks/useI18n";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -123,40 +124,16 @@ export default function GlobalGoodDetailsPageFlat() {
                   )}
                   
                   {/* DPI */}
-                  {globalGood.Classifications?.DPI && globalGood.Classifications.DPI.length > 0 && (
-                    <Card>
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-sm font-medium">Digital Public Infrastructure (DPI)</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        {globalGood.Classifications.DPI.map((dpi, index) => (
-                          <EnhancedClassificationBadge 
-                            key={index} 
-                            code={dpi.code}
-                            showFullDetails={true}
-                          />
-                        ))}
-                      </CardContent>
-                    </Card>
-                  )}
+                  <GroupedClassifications 
+                    classifications={globalGood.Classifications?.DPI || []}
+                    title="Digital Public Infrastructure (DPI)"
+                  />
                   
                   {/* WHO */}
-                  {globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0 && (
-                    <Card>
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-sm font-medium">World Health Organization</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        {globalGood.Classifications.WHO.map((who, index) => (
-                          <EnhancedClassificationBadge 
-                            key={index} 
-                            code={who.code}
-                            showFullDetails={true}
-                          />
-                        ))}
-                      </CardContent>
-                    </Card>
-                  )}
+                  <GroupedClassifications 
+                    classifications={globalGood.Classifications?.WHO || []}
+                    title="World Health Organization"
+                  />
                 </div>
               </div>
             )}
