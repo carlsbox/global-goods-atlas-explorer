@@ -1,5 +1,3 @@
-
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -16,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Cloud, Thermometer, Leaf } from "lucide-react";
+import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, CloudRain, ThermometerSun, Leaf } from "lucide-react";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -33,24 +31,22 @@ export default function GlobalGoodDetailsPageFlat() {
     return <ErrorState onRetry={() => refetch()} />;
   }
 
-  // Helper function to check if classifications have data
-  const hasClassifications = () => {
+  // Helper function to check if technical classifications have data (excluding WMO)
+  const hasTechnicalClassifications = () => {
     const classifications = globalGood.Classifications;
     return classifications && (
       (classifications.SDGs && classifications.SDGs.length > 0) ||
       (classifications.DPI && classifications.DPI.length > 0) ||
-      (classifications.WHO && classifications.WHO.length > 0) ||
-      (classifications.WMO && classifications.WMO.length > 0)
+      (classifications.WHO && classifications.WHO.length > 0)
     );
   };
 
-  // Helper function to check if standards have data
-  const hasStandards = () => {
+  // Helper function to check if technical standards have data (excluding Climate Standards)
+  const hasTechnicalStandards = () => {
     const standards = globalGood.StandardsAndInteroperability;
     return standards && (
       (standards.HealthStandards && standards.HealthStandards.length > 0) ||
-      (standards.Interoperability && standards.Interoperability.length > 0) ||
-      (standards.ClimateStandards && standards.ClimateStandards.length > 0)
+      (standards.Interoperability && standards.Interoperability.length > 0)
     );
   };
 
@@ -92,87 +88,230 @@ export default function GlobalGoodDetailsPageFlat() {
         
         <Separator />
         
-        {/* Technical Section */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Technical Information</h2>
-          
-          {/* Classifications Section */}
-          {hasClassifications() && (
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Tag className="h-5 w-5 mr-2 text-primary" />
-                Classifications
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {/* SDGs */}
-                {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-sm font-medium">SDGs</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      {globalGood.Classifications.SDGs.map((sdg, index) => (
-                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                          {sdg.code} - {sdg.title}
-                        </Badge>
+        {/* Technical Information and Climate - Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Technical Information Column */}
+          <div>
+            <h2 className="text-2xl font-bold mb-6">Technical Information</h2>
+            
+            {/* Technical Classifications Section */}
+            {hasTechnicalClassifications() && (
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <Tag className="h-5 w-5 mr-2 text-primary" />
+                  Classifications
+                </h3>
+                
+                <div className="grid grid-cols-1 gap-6">
+                  {/* SDGs */}
+                  {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
+                    <Card>
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-sm font-medium">SDGs</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        {globalGood.Classifications.SDGs.map((sdg, index) => (
+                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                            {sdg.code} - {sdg.title}
+                          </Badge>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  )}
+                  
+                  {/* DPI */}
+                  {globalGood.Classifications?.DPI && globalGood.Classifications.DPI.length > 0 && (
+                    <Card>
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-sm font-medium">DPI</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        {globalGood.Classifications.DPI.map((dpi, index) => (
+                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                            {dpi.code} - {dpi.title}
+                          </Badge>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  )}
+                  
+                  {/* WHO */}
+                  {globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0 && (
+                    <Card>
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-sm font-medium">WHO</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        {globalGood.Classifications.WHO.map((who, index) => (
+                          <Badge key={index} variant="outline" className="w-full justify-start text-xs">
+                            {who.code} - {who.title}
+                          </Badge>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {/* Technical Standards and Interoperability Section */}
+            {hasTechnicalStandards() && (
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold mb-4 flex items-center">
+                  <Shield className="h-5 w-5 mr-2 text-primary" />
+                  Standards & Interoperability
+                </h3>
+                
+                {/* Health Standards */}
+                {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-medium mb-3 flex items-center">
+                      <FileText className="h-4 w-4 mr-2" />
+                      Health Standards
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4">
+                      {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
+                        <Card key={index} className="hover:shadow-md transition-shadow">
+                          <CardContent className="p-4">
+                            <div className="flex items-start justify-between mb-2">
+                              <h5 className="font-medium">{standard.name}</h5>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button variant="ghost" size="sm">
+                                    <ExternalLink className="h-3 w-3" />
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent>
+                                  <DialogHeader>
+                                    <DialogTitle>{standard.name}</DialogTitle>
+                                  </DialogHeader>
+                                  <div className="space-y-3">
+                                    <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                    <div className="space-y-2">
+                                      <p><strong>Code:</strong> {standard.code}</p>
+                                      <p><strong>Domain:</strong> {standard.domain}</p>
+                                      <Button asChild className="w-full">
+                                        <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                          Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                        </a>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                            <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
+                          </CardContent>
+                        </Card>
                       ))}
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 )}
                 
-                {/* DPI */}
-                {globalGood.Classifications?.DPI && globalGood.Classifications.DPI.length > 0 && (
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-sm font-medium">DPI</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      {globalGood.Classifications.DPI.map((dpi, index) => (
-                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                          {dpi.code} - {dpi.title}
-                        </Badge>
+                {/* Interoperability Standards */}
+                {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-medium mb-3 flex items-center">
+                      <LinkIcon className="h-4 w-4 mr-2" />
+                      Interoperability Standards
+                    </h4>
+                    <div className="grid grid-cols-1 gap-4">
+                      {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
+                        <Card key={index} className="hover:shadow-md transition-shadow">
+                          <CardContent className="p-4">
+                            <div className="flex items-start justify-between mb-2">
+                              <h5 className="font-medium">{standard.name}</h5>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button variant="ghost" size="sm">
+                                    <ExternalLink className="h-3 w-3" />
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent>
+                                  <DialogHeader>
+                                    <DialogTitle>{standard.name}</DialogTitle>
+                                  </DialogHeader>
+                                  <div className="space-y-3">
+                                    <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                    <div className="space-y-2">
+                                      <p><strong>Code:</strong> {standard.code}</p>
+                                      <p><strong>Type:</strong> {standard.type}</p>
+                                      <Button asChild className="w-full">
+                                        <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                          Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                        </a>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                            <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
+                          </CardContent>
+                        </Card>
                       ))}
-                    </CardContent>
-                  </Card>
-                )}
-                
-                {/* WHO */}
-                {globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0 && (
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-sm font-medium">WHO</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      {globalGood.Classifications.WHO.map((who, index) => (
-                        <Badge key={index} variant="outline" className="w-full justify-start text-xs">
-                          {who.code} - {who.title}
-                        </Badge>
-                      ))}
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 )}
               </div>
-            </div>
-          )}
+            )}
+          </div>
           
-          {/* Standards and Interoperability Section */}
-          {hasStandards() && (
-            <div className="space-y-6">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Shield className="h-5 w-5 mr-2 text-primary" />
-                Standards & Interoperability
-              </h3>
+          {/* Climate Column */}
+          {hasClimateData() && (
+            <div>
+              <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <Leaf className="h-6 w-6 mr-2 text-green-600" />
+                Climate
+              </h2>
               
-              {/* Health Standards */}
-              {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
+              {/* Climate and Health Integration */}
+              {globalGood.ClimateAndHealthIntegration?.Description && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <ThermometerSun className="h-5 w-5 mr-2 text-primary" />
+                    Climate & Health Integration
+                  </h3>
+                  <Card>
+                    <CardContent className="p-6">
+                      <p className="text-muted-foreground">{globalGood.ClimateAndHealthIntegration.Description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+              
+              {/* WMO Classifications */}
+              {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <CloudRain className="h-5 w-5 mr-2 text-primary" />
+                    WMO Classifications
+                  </h3>
+                  <Card>
+                    <CardContent className="p-6">
+                      <div className="flex flex-wrap gap-2">
+                        {globalGood.Classifications.WMO.map((wmo, index) => (
+                          <Badge key={index} variant="outline" className="text-xs">
+                            {wmo.code} - {wmo.title}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+              
+              {/* Climate Standards */}
+              {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
                 <div>
-                  <h4 className="text-lg font-medium mb-3 flex items-center">
-                    <FileText className="h-4 w-4 mr-2" />
-                    Health Standards
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <Shield className="h-5 w-5 mr-2 text-primary" />
+                    Climate Standards
+                  </h3>
+                  <div className="grid grid-cols-1 gap-4">
+                    {globalGood.StandardsAndInteroperability.ClimateStandards.map((standard, index) => (
                       <Card key={index} className="hover:shadow-md transition-shadow">
                         <CardContent className="p-4">
                           <div className="flex items-start justify-between mb-2">
@@ -210,151 +349,9 @@ export default function GlobalGoodDetailsPageFlat() {
                   </div>
                 </div>
               )}
-              
-              {/* Interoperability Standards */}
-              {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
-                <div>
-                  <h4 className="text-lg font-medium mb-3 flex items-center">
-                    <LinkIcon className="h-4 w-4 mr-2" />
-                    Interoperability Standards
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
-                      <Card key={index} className="hover:shadow-md transition-shadow">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h5 className="font-medium">{standard.name}</h5>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                  <ExternalLink className="h-3 w-3" />
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent>
-                                <DialogHeader>
-                                  <DialogTitle>{standard.name}</DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-3">
-                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                  <div className="space-y-2">
-                                    <p><strong>Code:</strong> {standard.code}</p>
-                                    <p><strong>Type:</strong> {standard.type}</p>
-                                    <Button asChild className="w-full">
-                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                      </a>
-                                    </Button>
-                                  </div>
-                                </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                          <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           )}
         </div>
-        
-        <Separator />
-        
-        {/* Climate Section */}
-        {hasClimateData() && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4 flex items-center">
-              <Leaf className="h-6 w-6 mr-2 text-green-600" />
-              Climate
-            </h2>
-            
-            {/* Climate and Health Integration */}
-            {globalGood.ClimateAndHealthIntegration?.Description && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Thermometer className="h-5 w-5 mr-2 text-primary" />
-                  Climate & Health Integration
-                </h3>
-                <Card>
-                  <CardContent className="p-6">
-                    <p className="text-muted-foreground">{globalGood.ClimateAndHealthIntegration.Description}</p>
-                  </CardContent>
-                </Card>
-              </div>
-            )}
-            
-            {/* WMO Classifications */}
-            {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Cloud className="h-5 w-5 mr-2 text-primary" />
-                  WMO Classifications
-                </h3>
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex flex-wrap gap-2">
-                      {globalGood.Classifications.WMO.map((wmo, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {wmo.code} - {wmo.title}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            )}
-            
-            {/* Climate Standards */}
-            {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
-              <div>
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Shield className="h-5 w-5 mr-2 text-primary" />
-                  Climate Standards
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {globalGood.StandardsAndInteroperability.ClimateStandards.map((standard, index) => (
-                    <Card key={index} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="flex items-start justify-between mb-2">
-                          <h5 className="font-medium">{standard.name}</h5>
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <Button variant="ghost" size="sm">
-                                <ExternalLink className="h-3 w-3" />
-                              </Button>
-                            </DialogTrigger>
-                            <DialogContent>
-                              <DialogHeader>
-                                <DialogTitle>{standard.name}</DialogTitle>
-                              </DialogHeader>
-                              <div className="space-y-3">
-                                <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                <div className="space-y-2">
-                                  <p><strong>Code:</strong> {standard.code}</p>
-                                  <p><strong>Domain:</strong> {standard.domain}</p>
-                                  <Button asChild className="w-full">
-                                    <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                      Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                    </a>
-                                  </Button>
-                                </div>
-                              </div>
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                        <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
         
         <Separator />
         
@@ -511,4 +508,3 @@ export default function GlobalGoodDetailsPageFlat() {
     </div>
   );
 }
-
