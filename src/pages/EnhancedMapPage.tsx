@@ -11,8 +11,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { WorldMap } from "@/components/global-good/WorldMap";
 import { EnhancedCountriesDisplay } from "@/components/global-good/EnhancedCountriesDisplay";
 import { GlobalGoodCardFlat } from "@/components/global-goods/GlobalGoodCardFlat";
+import { AggregatedWorldMap } from "@/components/global-good/AggregatedWorldMap";
+import { CountryDetailPanel } from "@/components/global-good/CountryDetailPanel";
 
-type ViewMode = 'overview' | 'focused' | 'grid';
+type ViewMode = 'overview' | 'focused' | 'grid' | 'country';
 
 export default function EnhancedMapPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,6 +23,7 @@ export default function EnhancedMapPage() {
   const { data: globalGoods = [], isLoading } = useGlobalGoodsFlat();
   
   const [selectedGood, setSelectedGood] = useState<GlobalGoodFlat | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<{code: string, name: string} | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>('overview');
   
@@ -40,6 +43,13 @@ export default function EnhancedMapPage() {
     good.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     good.ProductOverview?.Summary?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Get global goods for selected country
+  const countryGlobalGoods = selectedCountry ? globalGoods.filter(good => 
+    good.Reach?.ImplementationCountries?.some(country => 
+      country.iso_code?.toUpperCase() === selectedCountry.code
+    )
+  ) : [];
   
   // Calculate aggregate stats
   const totalCountries = new Set(
@@ -54,6 +64,7 @@ export default function EnhancedMapPage() {
 
   const handleSelectGood = (good: GlobalGoodFlat | null) => {
     setSelectedGood(good);
+    setSelectedCountry(null);
     setViewMode(good ? 'focused' : 'overview');
     
     // Update URL
@@ -62,6 +73,20 @@ export default function EnhancedMapPage() {
     } else {
       setSearchParams({});
     }
+  };
+
+  const handleCountryClick = (countryCode: string, countryName: string) => {
+    setSelectedCountry({ code: countryCode, name: countryName });
+    setSelectedGood(null);
+    setViewMode('country');
+    setSearchParams({});
+  };
+
+  const handleBackToOverview = () => {
+    setSelectedCountry(null);
+    setSelectedGood(null);
+    setViewMode('overview');
+    setSearchParams({});
   };
 
   if (isLoading) {
@@ -146,11 +171,7 @@ export default function EnhancedMapPage() {
             <Button
               variant={viewMode === 'overview' ? 'default' : 'outline'}
               size="sm"
-              onClick={() => {
-                setViewMode('overview');
-                setSelectedGood(null);
-                setSearchParams({});
-              }}
+              onClick={handleBackToOverview}
             >
               <MapPin className="h-4 w-4 mr-2" />
               Overview
@@ -210,6 +231,23 @@ export default function EnhancedMapPage() {
             <EnhancedCountriesDisplay globalGood={selectedGood} />
           </div>
         </div>
+      ) : viewMode === 'country' && selectedCountry ? (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <AggregatedWorldMap 
+              globalGoods={globalGoods}
+              onCountryClick={handleCountryClick}
+              selectedCountry={selectedCountry.code}
+            />
+          </div>
+          <CountryDetailPanel
+            countryCode={selectedCountry.code}
+            countryName={selectedCountry.name}
+            globalGoods={countryGlobalGoods}
+            onClose={handleBackToOverview}
+            onSelectGood={handleSelectGood}
+          />
+        </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Global Goods Sidebar */}
@@ -249,21 +287,16 @@ export default function EnhancedMapPage() {
                     Global Distribution Overview
                   </h3>
                   <p className="text-muted-foreground">
-                    Select a global good from the sidebar to view its implementation map
+                    Interactive map showing implementation density worldwide
                   </p>
                 </div>
                 
-                <div className="h-96 flex items-center justify-center bg-muted/20">
-                  <div className="text-center space-y-4">
-                    <MapPin className="h-16 w-16 mx-auto text-muted-foreground" />
-                    <div>
-                      <h4 className="font-medium mb-2">Interactive Map</h4>
-                      <p className="text-sm text-muted-foreground max-w-md">
-                        Choose a global good to see its worldwide implementation. 
-                        The map will highlight countries with active deployments.
-                      </p>
-                    </div>
-                  </div>
+                <div className="p-6">
+                  <AggregatedWorldMap 
+                    globalGoods={globalGoods}
+                    onCountryClick={handleCountryClick}
+                    selectedCountry={selectedCountry?.code}
+                  />
                 </div>
               </CardContent>
             </Card>
