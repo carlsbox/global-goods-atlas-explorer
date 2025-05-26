@@ -3,7 +3,7 @@ import { GlobalGood } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink } from "lucide-react";
+import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf, Accessibility } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGood;
@@ -87,29 +87,32 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             </div>
           )}
 
-          {/* Members */}
-          {(community.SizeOfCommunity || community.size_estimate) && (
-            <div>
-              <h4 className="text-sm font-medium mb-1">Members</h4>
-              <div className="text-center p-3 bg-muted/50 rounded">
-                <div className="text-2xl font-bold text-primary">
-                  {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
+          {/* Members and Founded side by side */}
+          <div className="grid grid-cols-2 gap-3">
+            {/* Members */}
+            {(community.SizeOfCommunity || community.size_estimate) && (
+              <div>
+                <h4 className="text-sm font-medium mb-1">Members</h4>
+                <div className="text-center p-2 bg-muted/50 rounded">
+                  <div className="text-lg font-bold text-primary">
+                    {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-muted-foreground">Members</div>
                 </div>
-                <div className="text-xs text-muted-foreground">Members</div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Founded */}
-          {community.InceptionYear && (
-            <div>
-              <h4 className="text-sm font-medium mb-1">Founded</h4>
-              <div className="text-center p-3 bg-muted/50 rounded">
-                <div className="text-2xl font-bold text-primary">{community.InceptionYear}</div>
-                <div className="text-xs text-muted-foreground">Year</div>
+            {/* Founded */}
+            {community.InceptionYear && (
+              <div>
+                <h4 className="text-sm font-medium mb-1">Founded</h4>
+                <div className="text-center p-2 bg-muted/50 rounded">
+                  <div className="text-lg font-bold text-primary">{community.InceptionYear}</div>
+                  <div className="text-xs text-muted-foreground">Year</div>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </CardContent>
       </Card>
 
@@ -181,6 +184,102 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                   ))}
                 </div>
               )}
+            </div>
+          )}
+
+          {/* SDGs */}
+          {globalGood.classifications?.sdgs && globalGood.classifications.sdgs.length > 0 && (
+            <div>
+              <h4 className="text-sm font-medium mb-2">SDGs</h4>
+              <div className="flex flex-wrap gap-1">
+                {globalGood.classifications.sdgs.slice(0, 3).map((sdg, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {sdg.code}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Climate & Health Integration */}
+          {globalGood.climateAndHealthIntegration && (
+            <div>
+              <h4 className="text-sm font-medium mb-2">Climate & Health</h4>
+              <Badge variant="outline" className="text-xs">
+                {globalGood.climateAndHealthIntegration.enabled ? 'Enabled' : 'Not Enabled'}
+              </Badge>
+            </div>
+          )}
+
+          {/* WMO Classifications */}
+          {globalGood.classifications?.wmo && globalGood.classifications.wmo.length > 0 && (
+            <div>
+              <h4 className="text-sm font-medium mb-2">WMO</h4>
+              <div className="flex flex-wrap gap-1">
+                {globalGood.classifications.wmo.slice(0, 2).map((wmo, index) => (
+                  <Badge key={index} variant="outline" className="text-xs">
+                    {wmo.title}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Climate Standards */}
+          {globalGood.standardsAndInteroperability?.climateStandards && globalGood.standardsAndInteroperability.climateStandards.length > 0 && (
+            <div>
+              <h4 className="text-sm font-medium mb-2">Climate Standards</h4>
+              <div className="flex flex-wrap gap-1">
+                {globalGood.standardsAndInteroperability.climateStandards.slice(0, 2).map((standard, index) => (
+                  <Badge key={index} variant="outline" className="text-xs">
+                    {standard.name}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Environmental Impact */}
+          {globalGood.environmentalImpact && (
+            <div>
+              <h4 className="text-sm font-medium mb-2 flex items-center">
+                <Leaf className="h-3 w-3 mr-1 text-green-500" />
+                Environmental Impact
+              </h4>
+              {globalGood.environmentalImpact.lowCarbon && (
+                <p className="text-xs text-muted-foreground mb-1">{globalGood.environmentalImpact.lowCarbon}</p>
+              )}
+              {globalGood.environmentalImpact.considered && (
+                <Badge variant="outline" className="text-xs bg-green-50">
+                  Low Carbon Considered
+                </Badge>
+              )}
+            </div>
+          )}
+
+          {/* Inclusive Design */}
+          {globalGood.inclusiveDesign && (
+            <div>
+              <h4 className="text-sm font-medium mb-2 flex items-center">
+                <Accessibility className="h-3 w-3 mr-1 text-blue-500" />
+                Inclusive Design
+              </h4>
+              <div className="space-y-1">
+                {globalGood.inclusiveDesign.description && (
+                  <p className="text-xs text-muted-foreground">{globalGood.inclusiveDesign.description}</p>
+                )}
+                {globalGood.inclusiveDesign.userInput && (
+                  <div className="text-xs">
+                    <span className="font-medium">User Input: </span>
+                    <span className="text-muted-foreground">{globalGood.inclusiveDesign.userInput}</span>
+                  </div>
+                )}
+                {globalGood.inclusiveDesign.offlineSupport && (
+                  <Badge variant="outline" className="text-xs bg-blue-50">
+                    Offline Support
+                  </Badge>
+                )}
+              </div>
             </div>
           )}
         </CardContent>
