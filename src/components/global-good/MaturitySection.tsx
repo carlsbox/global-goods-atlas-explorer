@@ -14,6 +14,7 @@ interface MaturitySectionProps {
 
 export function MaturitySection({ globalGood }: MaturitySectionProps) {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [showMultiYear, setShowMultiYear] = useState(false);
 
   const maturityData = globalGood.Maturity;
   const scores = maturityData?.Scores || [];
@@ -77,9 +78,18 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
-              <span>Maturity Profile {displayYear.year}</span>
+              <span>
+                Maturity Profile {showMultiYear ? '(All Years)' : displayYear.year}
+              </span>
               <div className="flex gap-2">
-                {availableYears.map(year => (
+                <Button
+                  variant={showMultiYear ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setShowMultiYear(!showMultiYear)}
+                >
+                  Multi-Year View
+                </Button>
+                {!showMultiYear && availableYears.map(year => (
                   <Button
                     key={year}
                     variant={selectedYear === year || (!selectedYear && year === latestYearData.year) ? "default" : "outline"}
@@ -93,7 +103,12 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <MaturityRadarChart data={displayYear} dimensions={dimensions} />
+            <MaturityRadarChart 
+              data={showMultiYear ? null : displayYear}
+              allYearsData={showMultiYear ? scores : null}
+              dimensions={dimensions}
+              showMultiYear={showMultiYear}
+            />
           </CardContent>
         </Card>
       </div>
