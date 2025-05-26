@@ -587,7 +587,7 @@ export default function GlobalGoodDetailsPageFlat() {
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center">
-                          <Dollar className="h-5 w-5 mr-2 text-blue-600" />
+                          <HandCoins className="h-5 w-5 mr-2 text-blue-600" />
                           Total Cost of Ownership
                         </CardTitle>
                       </CardHeader>
@@ -863,7 +863,7 @@ export default function GlobalGoodDetailsPageFlat() {
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center">
-                          <Dollar className="h-5 w-5 mr-2 text-blue-600" />
+                          <HandCoins className="h-5 w-5 mr-2 text-blue-600" />
                           Total Cost of Ownership
                         </CardTitle>
                       </CardHeader>
