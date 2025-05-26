@@ -29,6 +29,11 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
     );
   }
 
+  // Sort countries alphabetically by their English short name
+  const sortedCountries = [...countries].sort((a, b) => 
+    a.names.en.short.localeCompare(b.names.en.short)
+  );
+
   return (
     <Card className="h-full">
       <CardHeader>
@@ -46,7 +51,7 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
         
         <div className="max-h-80 overflow-y-auto">
           <div className="grid grid-cols-1 gap-2">
-            {countries.map((country, index) => (
+            {sortedCountries.map((country, index) => (
               <div key={index} className="flex items-center p-2 border rounded hover:bg-muted/50 transition-colors">
                 <div className="w-8 h-5 bg-gray-200 rounded flex items-center justify-center text-xs font-medium mr-3 flex-shrink-0">
                   {country.iso_code.toUpperCase()}
