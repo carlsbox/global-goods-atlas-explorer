@@ -37,6 +37,11 @@ export default function EnhancedMapPage() {
       }
     }
   }, [highlightParam, globalGoods]);
+
+  // Reset selected country on page load to ensure clean state
+  useEffect(() => {
+    setSelectedCountry(null);
+  }, []);
   
   // Filter global goods based on search
   const filteredGoods = globalGoods.filter(good => 
