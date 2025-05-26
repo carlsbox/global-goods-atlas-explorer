@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
@@ -30,7 +31,7 @@ import SiteSettingsPage from "@/pages/admin/SiteSettingsPage";
 import AdminToolsPage from "@/pages/admin/AdminToolsPage";
 
 // Layout components
-import PageLayout from "@/components/layout/PageLayout";
+import { PageLayout } from "@/components/layout/PageLayout";
 import AdminLayout from "@/components/admin/AdminLayout";
 
 const queryClient = new QueryClient({

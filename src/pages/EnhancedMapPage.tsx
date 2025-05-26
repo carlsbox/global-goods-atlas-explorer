@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
-import { Search, Grid, Map, Download } from "lucide-react";
+import { Search, LayoutGrid, MapPin, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -153,7 +152,7 @@ export default function EnhancedMapPage() {
                 setSearchParams({});
               }}
             >
-              <Map className="h-4 w-4 mr-2" />
+              <MapPin className="h-4 w-4 mr-2" />
               Overview
             </Button>
             <Button
@@ -161,7 +160,7 @@ export default function EnhancedMapPage() {
               size="sm"
               onClick={() => setViewMode('grid')}
             >
-              <Grid className="h-4 w-4 mr-2" />
+              <LayoutGrid className="h-4 w-4 mr-2" />
               Grid View
             </Button>
           </div>
@@ -256,7 +255,7 @@ export default function EnhancedMapPage() {
                 
                 <div className="h-96 flex items-center justify-center bg-muted/20">
                   <div className="text-center space-y-4">
-                    <Map className="h-16 w-16 mx-auto text-muted-foreground" />
+                    <MapPin className="h-16 w-16 mx-auto text-muted-foreground" />
                     <div>
                       <h4 className="font-medium mb-2">Interactive Map</h4>
                       <p className="text-sm text-muted-foreground max-w-md">
