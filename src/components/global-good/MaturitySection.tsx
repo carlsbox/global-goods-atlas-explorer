@@ -15,7 +15,6 @@ interface MaturitySectionProps {
 
 export function MaturitySection({ globalGood }: MaturitySectionProps) {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
-  const [showMultiYear, setShowMultiYear] = useState(false);
 
   const maturityData = globalGood.Maturity;
   const scores = maturityData?.Scores || [];
@@ -33,9 +32,8 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
     );
   }
 
-  // Get the latest year's data for the radar chart
+  // Get the latest year's data for the scores table
   const latestYearData = scores[0];
-  const displayYear = selectedYear ? scores.find(s => s.year === selectedYear) || latestYearData : latestYearData;
   const availableYears = scores.map(s => s.year).sort((a, b) => b - a);
 
   const dimensions = [
@@ -46,6 +44,13 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
     { key: 'climate_resilience', label: 'Climate Resilience' },
     { key: 'low_carbon', label: 'Low Carbon' }
   ];
+
+  const getChartTitle = () => {
+    if (selectedYear) {
+      return `Maturity Profile (All Years - ${selectedYear} Highlighted)`;
+    }
+    return 'Maturity Profile (All Years)';
+  };
 
   return (
     <div>
@@ -66,36 +71,37 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
-                <span>
-                  Maturity Profile {showMultiYear ? '(All Years)' : displayYear.year}
-                </span>
+                <span>{getChartTitle()}</span>
                 <div className="flex gap-2">
-                  <Button
-                    variant={showMultiYear ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setShowMultiYear(!showMultiYear)}
-                  >
-                    Multi-Year View
-                  </Button>
-                  {!showMultiYear && availableYears.map(year => (
+                  {availableYears.map(year => (
                     <Button
                       key={year}
-                      variant={selectedYear === year || (!selectedYear && year === latestYearData.year) ? "default" : "outline"}
+                      variant={selectedYear === year ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedYear(selectedYear === year ? null : year)}
                     >
                       {year}
                     </Button>
                   ))}
+                  {selectedYear && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setSelectedYear(null)}
+                    >
+                      Clear Selection
+                    </Button>
+                  )}
                 </div>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <MaturityRadarChart 
-                data={showMultiYear ? null : displayYear}
-                allYearsData={showMultiYear ? scores : null}
+                data={null}
+                allYearsData={scores}
                 dimensions={dimensions}
-                showMultiYear={showMultiYear}
+                showMultiYear={true}
+                highlightedYear={selectedYear}
               />
             </CardContent>
           </Card>

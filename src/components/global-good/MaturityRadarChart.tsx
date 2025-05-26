@@ -26,9 +26,10 @@ interface MaturityRadarChartProps {
     label: string;
   }>;
   showMultiYear?: boolean;
+  highlightedYear?: number | null;
 }
 
-export function MaturityRadarChart({ data, allYearsData, dimensions, showMultiYear = false }: MaturityRadarChartProps) {
+export function MaturityRadarChart({ data, allYearsData, dimensions, showMultiYear = false, highlightedYear }: MaturityRadarChartProps) {
   
   if (showMultiYear && allYearsData) {
     // Multi-year view
@@ -82,23 +83,34 @@ export function MaturityRadarChart({ data, allYearsData, dimensions, showMultiYe
           />
           <ChartLegend content={<ChartLegendContent />} />
           
-          {allYearsData.map((yearData, index) => (
-            <Radar
-              key={`year_${yearData.year}`}
-              dataKey={`year_${yearData.year}`}
-              stroke={colors[index % colors.length]}
-              fill="transparent"
-              fillOpacity={0}
-              strokeWidth={3}
-              dot={{ fill: colors[index % colors.length], strokeWidth: 2, r: 4 }}
-            />
-          ))}
+          {allYearsData.map((yearData, index) => {
+            const isHighlighted = highlightedYear === yearData.year;
+            const isOtherYearHighlighted = highlightedYear && highlightedYear !== yearData.year;
+            
+            return (
+              <Radar
+                key={`year_${yearData.year}`}
+                dataKey={`year_${yearData.year}`}
+                stroke={colors[index % colors.length]}
+                fill="transparent"
+                fillOpacity={0}
+                strokeWidth={isHighlighted ? 5 : isOtherYearHighlighted ? 2 : 3}
+                strokeOpacity={isOtherYearHighlighted ? 0.4 : 1}
+                dot={{ 
+                  fill: colors[index % colors.length], 
+                  strokeWidth: 2, 
+                  r: isHighlighted ? 6 : isOtherYearHighlighted ? 3 : 4,
+                  fillOpacity: isOtherYearHighlighted ? 0.4 : 1
+                }}
+              />
+            );
+          })}
         </RadarChart>
       </ChartContainer>
     );
   }
 
-  // Single year view
+  // Single year view (fallback - should rarely be used now)
   if (!data) return null;
   
   const radarData = dimensions.map(({ key, label }) => ({
