@@ -45,24 +45,13 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Community Metrics */}
-          <div className="space-y-3">
-            {(community.SizeOfCommunity || community.size_estimate) && (
-              <div className="text-center p-3 bg-muted/50 rounded">
-                <div className="text-2xl font-bold text-primary">
-                  {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
-                </div>
-                <div className="text-xs text-muted-foreground">Members</div>
-              </div>
-            )}
-
-            {community.InceptionYear && (
-              <div className="text-center p-3 bg-muted/50 rounded">
-                <div className="text-2xl font-bold text-primary">{community.InceptionYear}</div>
-                <div className="text-xs text-muted-foreground">Founded</div>
-              </div>
-            )}
-          </div>
+          {/* About */}
+          {community.DescriptionOfCommunity && (
+            <div>
+              <h4 className="text-sm font-medium mb-1">About</h4>
+              <p className="text-xs text-muted-foreground line-clamp-3">{community.DescriptionOfCommunity}</p>
+            </div>
+          )}
 
           {/* Host Organization */}
           {community.HostAnchorOrganization && (
@@ -72,9 +61,18 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                 Host Organization
               </h4>
               <div className="space-y-2">
-                <Badge variant="outline" className="text-xs">
-                  {community.HostAnchorOrganization.name}
-                </Badge>
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="text-xs">
+                    {community.HostAnchorOrganization.name}
+                  </Badge>
+                  {community.HostAnchorOrganization.url && (
+                    <Button asChild variant="ghost" size="sm" className="h-auto p-1">
+                      <a href={community.HostAnchorOrganization.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
                 {community.HostAnchorOrganization.country && community.HostAnchorOrganization.country.length > 0 && (
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <MapPin className="h-3 w-3" />
@@ -89,11 +87,27 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             </div>
           )}
 
-          {/* Description */}
-          {community.DescriptionOfCommunity && (
+          {/* Members */}
+          {(community.SizeOfCommunity || community.size_estimate) && (
             <div>
-              <h4 className="text-sm font-medium mb-1">About</h4>
-              <p className="text-xs text-muted-foreground line-clamp-3">{community.DescriptionOfCommunity}</p>
+              <h4 className="text-sm font-medium mb-1">Members</h4>
+              <div className="text-center p-3 bg-muted/50 rounded">
+                <div className="text-2xl font-bold text-primary">
+                  {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
+                </div>
+                <div className="text-xs text-muted-foreground">Members</div>
+              </div>
+            </div>
+          )}
+
+          {/* Founded */}
+          {community.InceptionYear && (
+            <div>
+              <h4 className="text-sm font-medium mb-1">Founded</h4>
+              <div className="text-center p-3 bg-muted/50 rounded">
+                <div className="text-2xl font-bold text-primary">{community.InceptionYear}</div>
+                <div className="text-xs text-muted-foreground">Year</div>
+              </div>
             </div>
           )}
         </CardContent>
