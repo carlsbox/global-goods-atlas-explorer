@@ -1,3 +1,4 @@
+
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -63,6 +64,11 @@ export default function GlobalGoodDetailsPageFlat() {
     return hasClimateIntegration || hasWMO || hasClimateStandards || hasSDGs;
   };
 
+  // Helper function to check if we should show Technical Information section
+  const hasTechnicalInformation = () => {
+    return hasTechnicalClassifications() || hasTechnicalStandards() || hasClimateData();
+  };
+
   return (
     <div className="container px-4 py-8 mx-auto max-w-7xl">
       {/* Breadcrumb Navigation */}
@@ -91,53 +97,226 @@ export default function GlobalGoodDetailsPageFlat() {
         
         <Separator />
         
-        {/* Technical Information and Climate - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Technical Information Column */}
+        {/* Technical Information Section - Spanning both columns */}
+        {hasTechnicalInformation() && (
           <div>
             <h2 className="text-2xl font-bold mb-6">Technical Information</h2>
             
-            {/* Technical Classifications Section */}
-            {hasTechnicalClassifications() && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Tag className="h-5 w-5 mr-2 text-primary" />
-                  Classifications
-                </h3>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Column 1: DPI, WHO, Standards and Interoperability */}
+              <div>
+                {/* Technical Classifications Section */}
+                {hasTechnicalClassifications() && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4 flex items-center">
+                      <Tag className="h-5 w-5 mr-2 text-primary" />
+                      Classifications
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 gap-6">
+                      {/* DPI */}
+                      <GroupedClassifications 
+                        classifications={globalGood.Classifications?.DPI || []}
+                        title="Digital Public Infrastructure (DPI)"
+                      />
+                      
+                      {/* WHO */}
+                      <GroupedClassifications 
+                        classifications={globalGood.Classifications?.WHO || []}
+                        title="World Health Organization"
+                      />
+                    </div>
+                  </div>
+                )}
                 
-                <div className="grid grid-cols-1 gap-6">
-                  {/* DPI */}
-                  <GroupedClassifications 
-                    classifications={globalGood.Classifications?.DPI || []}
-                    title="Digital Public Infrastructure (DPI)"
-                  />
-                  
-                  {/* WHO */}
-                  <GroupedClassifications 
-                    classifications={globalGood.Classifications?.WHO || []}
-                    title="World Health Organization"
-                  />
-                </div>
+                {/* Technical Standards and Interoperability Section */}
+                {hasTechnicalStandards() && (
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-semibold mb-4 flex items-center">
+                      <Shield className="h-5 w-5 mr-2 text-primary" />
+                      Standards & Interoperability
+                    </h3>
+                    
+                    {/* Health Standards */}
+                    {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
+                      <div>
+                        <h4 className="text-lg font-medium mb-3 flex items-center">
+                          <FileText className="h-4 w-4 mr-2" />
+                          Health Standards
+                        </h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
+                            <Card key={index} className="hover:shadow-md transition-shadow">
+                              <CardContent className="p-4">
+                                <div className="flex items-start justify-between mb-2">
+                                  <h5 className="font-medium">{standard.name}</h5>
+                                  <Dialog>
+                                    <DialogTrigger asChild>
+                                      <Button variant="ghost" size="sm">
+                                        <ExternalLink className="h-3 w-3" />
+                                      </Button>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                      <DialogHeader>
+                                        <DialogTitle>{standard.name}</DialogTitle>
+                                      </DialogHeader>
+                                      <div className="space-y-3">
+                                        <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                        <div className="space-y-2">
+                                          <p><strong>Code:</strong> {standard.code}</p>
+                                          <p><strong>Domain:</strong> {standard.domain}</p>
+                                          <Button asChild className="w-full">
+                                            <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                              Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                            </a>
+                                          </Button>
+                                        </div>
+                                      </div>
+                                    </DialogContent>
+                                  </Dialog>
+                                </div>
+                                <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                                <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Interoperability Standards */}
+                    {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
+                      <div>
+                        <h4 className="text-lg font-medium mb-3 flex items-center">
+                          <LinkIcon className="h-4 w-4 mr-2" />
+                          Interoperability Standards
+                        </h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
+                            <Card key={index} className="hover:shadow-md transition-shadow">
+                              <CardContent className="p-4">
+                                <div className="flex items-start justify-between mb-2">
+                                  <h5 className="font-medium">{standard.name}</h5>
+                                  <Dialog>
+                                    <DialogTrigger asChild>
+                                      <Button variant="ghost" size="sm">
+                                        <ExternalLink className="h-3 w-3" />
+                                      </Button>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                      <DialogHeader>
+                                        <DialogTitle>{standard.name}</DialogTitle>
+                                      </DialogHeader>
+                                      <div className="space-y-3">
+                                        <p className="text-sm text-muted-foreground">{standard.description}</p>
+                                        <div className="space-y-2">
+                                          <p><strong>Code:</strong> {standard.code}</p>
+                                          <p><strong>Type:</strong> {standard.type}</p>
+                                          <Button asChild className="w-full">
+                                            <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                              Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
+                                            </a>
+                                          </Button>
+                                        </div>
+                                      </div>
+                                    </DialogContent>
+                                  </Dialog>
+                                </div>
+                                <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
+                                <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
-            )}
-            
-            {/* Technical Standards and Interoperability Section */}
-            {hasTechnicalStandards() && (
-              <div className="space-y-6">
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Shield className="h-5 w-5 mr-2 text-primary" />
-                  Standards & Interoperability
-                </h3>
+              
+              {/* Column 2: SDGs, Climate and Health Integration */}
+              <div>
+                {/* SDGs Section */}
+                {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
+                  <div className="mb-8">
+                    <div className="space-y-2 mb-4">
+                      <h3 className="text-xl font-semibold flex items-center gap-2">
+                        Sustainable Development Goals (SDGs)
+                        <Button
+                          asChild
+                          variant="ghost"
+                          size="sm"
+                          className="h-auto p-1"
+                        >
+                          <a 
+                            href="https://sdgs.un.org/goals"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
+                          >
+                            <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </Button>
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        UN's blueprint for peace and prosperity for people and the planet by 2030
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {globalGood.Classifications.SDGs.map((sdg, index) => (
+                        <SDGClassificationCard 
+                          key={index} 
+                          sdg={sdg}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
                 
-                {/* Health Standards */}
-                {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
+                {/* Climate and Health Integration */}
+                {globalGood.ClimateAndHealthIntegration?.Description && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">
+                      Climate & Health Integration
+                    </h3>
+                    <Card>
+                      <CardContent className="p-6">
+                        <p className="text-muted-foreground">{globalGood.ClimateAndHealthIntegration.Description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+                
+                {/* WMO Classifications */}
+                {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">
+                      WMO Classifications
+                    </h3>
+                    <Card>
+                      <CardContent className="p-6">
+                        <div className="flex flex-wrap gap-2">
+                          {globalGood.Classifications.WMO.map((wmo, index) => (
+                            <EnhancedClassificationBadge 
+                              key={index} 
+                              code={wmo.code}
+                            />
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+                
+                {/* Climate Standards */}
+                {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
                   <div>
-                    <h4 className="text-lg font-medium mb-3 flex items-center">
-                      <FileText className="h-4 w-4 mr-2" />
-                      Health Standards
-                    </h4>
+                    <h3 className="text-xl font-semibold mb-4 flex items-center">
+                      <Shield className="h-5 w-5 mr-2 text-primary" />
+                      Climate Standards
+                    </h3>
                     <div className="grid grid-cols-1 gap-4">
-                      {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
+                      {globalGood.StandardsAndInteroperability.ClimateStandards.map((standard, index) => (
                         <Card key={index} className="hover:shadow-md transition-shadow">
                           <CardContent className="p-4">
                             <div className="flex items-start justify-between mb-2">
@@ -175,181 +354,10 @@ export default function GlobalGoodDetailsPageFlat() {
                     </div>
                   </div>
                 )}
-                
-                {/* Interoperability Standards */}
-                {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
-                  <div>
-                    <h4 className="text-lg font-medium mb-3 flex items-center">
-                      <LinkIcon className="h-4 w-4 mr-2" />
-                      Interoperability Standards
-                    </h4>
-                    <div className="grid grid-cols-1 gap-4">
-                      {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
-                        <Card key={index} className="hover:shadow-md transition-shadow">
-                          <CardContent className="p-4">
-                            <div className="flex items-start justify-between mb-2">
-                              <h5 className="font-medium">{standard.name}</h5>
-                              <Dialog>
-                                <DialogTrigger asChild>
-                                  <Button variant="ghost" size="sm">
-                                    <ExternalLink className="h-3 w-3" />
-                                  </Button>
-                                </DialogTrigger>
-                                <DialogContent>
-                                  <DialogHeader>
-                                    <DialogTitle>{standard.name}</DialogTitle>
-                                  </DialogHeader>
-                                  <div className="space-y-3">
-                                    <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                    <div className="space-y-2">
-                                      <p><strong>Code:</strong> {standard.code}</p>
-                                      <p><strong>Type:</strong> {standard.type}</p>
-                                      <Button asChild className="w-full">
-                                        <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                          Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                        </a>
-                                      </Button>
-                                    </div>
-                                  </div>
-                                </DialogContent>
-                              </Dialog>
-                            </div>
-                            <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                            <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
-            )}
-          </div>
-          
-          {/* Climate Column */}
-          {hasClimateData() && (
-            <div>
-              {/* Climate and Health Integration */}
-              {globalGood.ClimateAndHealthIntegration?.Description && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4">
-                    Climate & Health Integration
-                  </h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <p className="text-muted-foreground">{globalGood.ClimateAndHealthIntegration.Description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              )}
-              
-              {/* SDGs Section */}
-              {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
-                <div className="mb-8">
-                  <div className="space-y-2 mb-4">
-                    <h3 className="text-xl font-semibold flex items-center gap-2">
-                      Sustainable Development Goals (SDGs)
-                      <Button
-                        asChild
-                        variant="ghost"
-                        size="sm"
-                        className="h-auto p-1"
-                      >
-                        <a 
-                          href="https://sdgs.un.org/goals"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      UN's blueprint for peace and prosperity for people and the planet by 2030
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {globalGood.Classifications.SDGs.map((sdg, index) => (
-                      <SDGClassificationCard 
-                        key={index} 
-                        sdg={sdg}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {/* WMO Classifications */}
-              {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4">
-                    WMO Classifications
-                  </h3>
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex flex-wrap gap-2">
-                        {globalGood.Classifications.WMO.map((wmo, index) => (
-                          <EnhancedClassificationBadge 
-                            key={index} 
-                            code={wmo.code}
-                          />
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              )}
-              
-              {/* Climate Standards */}
-              {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <Shield className="h-5 w-5 mr-2 text-primary" />
-                    Climate Standards
-                  </h3>
-                  <div className="grid grid-cols-1 gap-4">
-                    {globalGood.StandardsAndInteroperability.ClimateStandards.map((standard, index) => (
-                      <Card key={index} className="hover:shadow-md transition-shadow">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h5 className="font-medium">{standard.name}</h5>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                  <ExternalLink className="h-3 w-3" />
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent>
-                                <DialogHeader>
-                                  <DialogTitle>{standard.name}</DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-3">
-                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                  <div className="space-y-2">
-                                    <p><strong>Code:</strong> {standard.code}</p>
-                                    <p><strong>Domain:</strong> {standard.domain}</p>
-                                    <Button asChild className="w-full">
-                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                      </a>
-                                    </Button>
-                                  </div>
-                                </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                          <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
-          )}
-        </div>
+          </div>
+        )}
         
         <Separator />
         
