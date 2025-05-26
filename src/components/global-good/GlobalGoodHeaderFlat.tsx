@@ -143,21 +143,6 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
               </Button>
             )}
             
-            {/* License Link */}
-            {globalGood.License?.url && (
-              <Button asChild variant="ghost" className="justify-start">
-                <a 
-                  href={globalGood.License.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-muted-foreground"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  License Details
-                </a>
-              </Button>
-            )}
-            
             {globalGood.Contact?.[0]?.email && (
               <Button asChild variant="ghost" className="justify-start">
                 <a 
