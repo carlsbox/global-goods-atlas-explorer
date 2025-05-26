@@ -535,16 +535,16 @@ export default function GlobalGoodDetailsPageFlat() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-3">
-                      {/* Show first 3 items */}
-                      {category.items.slice(0, 3).map((item, index) => (
-                        <div key={index} className="border rounded p-3 hover:bg-muted/50 transition-colors">
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1">
-                              <h4 className="text-sm font-medium mb-1 line-clamp-2">{item.description}</h4>
-                              <Badge variant="secondary" className="text-xs">{item.type}</Badge>
+                    <div className="space-y-2">
+                      {/* Show first 5 items */}
+                      {category.items.slice(0, 5).map((item, index) => (
+                        <div key={index} className="border rounded p-2 hover:bg-muted/50 transition-colors">
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-xs font-medium mb-1 line-clamp-2 leading-tight">{item.description}</h4>
+                              <Badge variant="secondary" className="text-xs px-1.5 py-0.5 h-auto">{item.type}</Badge>
                             </div>
-                            <Button asChild variant="ghost" size="sm" className="ml-2">
+                            <Button asChild variant="ghost" size="sm" className="ml-2 h-6 w-6 p-0 shrink-0">
                               <a href={item.url} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-3 w-3" />
                               </a>
@@ -553,8 +553,8 @@ export default function GlobalGoodDetailsPageFlat() {
                         </div>
                       ))}
                       
-                      {/* Show "View All" button if there are more than 3 items */}
-                      {category.items.length > 3 && (
+                      {/* Show "View All" button if there are more than 5 items */}
+                      {category.items.length > 5 && (
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button variant="outline" size="sm" className="w-full mt-3">
