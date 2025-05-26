@@ -7,7 +7,6 @@ import { Shield, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useState } from "react";
 import { MaturityRadarChart } from "./MaturityRadarChart";
-import { MaturityTrendsChart } from "./MaturityTrendsChart";
 
 interface MaturitySectionProps {
   globalGood: GlobalGoodFlat;
@@ -73,7 +72,7 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <div className="mb-6">
         {/* Radar Chart Card */}
         <Card>
           <CardHeader>
@@ -95,16 +94,6 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
           </CardHeader>
           <CardContent>
             <MaturityRadarChart data={displayYear} dimensions={dimensions} />
-          </CardContent>
-        </Card>
-
-        {/* Historical Trends Card */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Historical Trends</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <MaturityTrendsChart scores={scores} dimensions={dimensions} />
           </CardContent>
         </Card>
       </div>
