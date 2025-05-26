@@ -13,4 +13,8 @@ export const getAnalyticsId = () => {
   return config.analytics.googleAnalyticsId;
 };
 
+export const getMapGeoUrl = () => {
+  return config.map.geoJsonUrl;
+};
+
 export default config;

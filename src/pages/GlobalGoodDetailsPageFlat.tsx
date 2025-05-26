@@ -378,10 +378,14 @@ export default function GlobalGoodDetailsPageFlat() {
           {/* Hero Stats Row */}
           <HeroStats globalGood={globalGood} />
           
-          {/* Map & Countries Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            <InteractiveMapCard globalGood={globalGood} />
-            <EnhancedCountriesDisplay globalGood={globalGood} />
+          {/* Map & Countries Grid - Updated to 2/3 1/3 split */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div className="lg:col-span-2">
+              <InteractiveMapCard globalGood={globalGood} />
+            </div>
+            <div className="lg:col-span-1">
+              <EnhancedCountriesDisplay globalGood={globalGood} />
+            </div>
           </div>
         </div>
         
