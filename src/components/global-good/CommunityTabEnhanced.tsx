@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink, Leaf, Heart } from "lucide-react";
+import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGoodFlat;
@@ -335,59 +335,6 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             )}
           </CardContent>
         </Card>
-      </div>
-
-      {/* Environmental Impact and Inclusive Design Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Environmental Impact Card */}
-        {globalGood.EnvironmentalImpact?.LowCarbon && (
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center">
-                <Leaf className="h-4 w-4 mr-2 text-green-600" />
-                Environmental Impact
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div>
-                <h4 className="text-sm font-medium mb-2">Low Carbon</h4>
-                <p className="text-sm text-muted-foreground">{globalGood.EnvironmentalImpact.LowCarbon}</p>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Inclusive Design Card */}
-        {(globalGood.InclusiveDesign?.Description || globalGood.InclusiveDesign?.UserInput || globalGood.InclusiveDesign?.OfflineSupport) && (
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center">
-                <Heart className="h-4 w-4 mr-2 text-pink-600" />
-                Inclusive Design
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {globalGood.InclusiveDesign.Description && (
-                <div>
-                  <h4 className="text-sm font-medium mb-1">Description</h4>
-                  <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.Description}</p>
-                </div>
-              )}
-              {globalGood.InclusiveDesign.UserInput && (
-                <div>
-                  <h4 className="text-sm font-medium mb-1">User Input</h4>
-                  <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.UserInput}</p>
-                </div>
-              )}
-              {globalGood.InclusiveDesign.OfflineSupport && (
-                <div>
-                  <h4 className="text-sm font-medium mb-1">Offline Support</h4>
-                  <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.OfflineSupport}</p>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        )}
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Leaf } from "lucide-react";
+import { Users, Globe, BarChart3, Shield, MapPin, Tag, ExternalLink, FileText, Link as LinkIcon, Leaf, Heart } from "lucide-react";
 import { SDGClassificationCard } from "@/components/global-good/SDGClassificationCard";
 
 // Import new Global Reach components
@@ -71,9 +71,21 @@ export default function GlobalGoodDetailsPageFlat() {
     return hasClimateIntegration || hasWMO || hasClimateStandards || hasSDGs;
   };
 
+  // Helper function to check if environmental impact data exists
+  const hasEnvironmentalImpact = () => {
+    return globalGood.EnvironmentalImpact?.LowCarbon;
+  };
+
+  // Helper function to check if inclusive design data exists
+  const hasInclusiveDesign = () => {
+    return globalGood.InclusiveDesign?.Description || 
+           globalGood.InclusiveDesign?.UserInput || 
+           globalGood.InclusiveDesign?.OfflineSupport;
+  };
+
   // Helper function to check if we should show Technical Information section
   const hasTechnicalInformation = () => {
-    return hasTechnicalClassifications() || hasTechnicalStandards() || hasClimateData();
+    return hasTechnicalClassifications() || hasTechnicalStandards() || hasClimateData() || hasEnvironmentalImpact() || hasInclusiveDesign();
   };
 
   return (
@@ -241,7 +253,7 @@ export default function GlobalGoodDetailsPageFlat() {
                 )}
               </div>
               
-              {/* Column 2: SDGs, Climate and Health Integration */}
+              {/* Column 2: SDGs, Climate and Health Integration, Environmental Impact, Inclusive Design */}
               <div>
                 {/* SDGs Section */}
                 {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
@@ -317,7 +329,7 @@ export default function GlobalGoodDetailsPageFlat() {
                 
                 {/* Climate Standards */}
                 {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
-                  <div>
+                  <div className="mb-8">
                     <h3 className="text-xl font-semibold mb-4 flex items-center">
                       <Shield className="h-5 w-5 mr-2 text-primary" />
                       Climate Standards
@@ -359,6 +371,60 @@ export default function GlobalGoodDetailsPageFlat() {
                         </Card>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* Environmental Impact Card */}
+                {hasEnvironmentalImpact() && (
+                  <div className="mb-8">
+                    <Card>
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg flex items-center">
+                          <Leaf className="h-4 w-4 mr-2 text-green-600" />
+                          Environmental Impact
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div>
+                          <h4 className="text-sm font-medium mb-2">Low Carbon</h4>
+                          <p className="text-sm text-muted-foreground">{globalGood.EnvironmentalImpact.LowCarbon}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
+
+                {/* Inclusive Design Card */}
+                {hasInclusiveDesign() && (
+                  <div>
+                    <Card>
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg flex items-center">
+                          <Heart className="h-4 w-4 mr-2 text-pink-600" />
+                          Inclusive Design
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        {globalGood.InclusiveDesign.Description && (
+                          <div>
+                            <h4 className="text-sm font-medium mb-1">Description</h4>
+                            <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.Description}</p>
+                          </div>
+                        )}
+                        {globalGood.InclusiveDesign.UserInput && (
+                          <div>
+                            <h4 className="text-sm font-medium mb-1">User Input</h4>
+                            <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.UserInput}</p>
+                          </div>
+                        )}
+                        {globalGood.InclusiveDesign.OfflineSupport && (
+                          <div>
+                            <h4 className="text-sm font-medium mb-1">Offline Support</h4>
+                            <p className="text-sm text-muted-foreground">{globalGood.InclusiveDesign.OfflineSupport}</p>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
                   </div>
                 )}
               </div>
