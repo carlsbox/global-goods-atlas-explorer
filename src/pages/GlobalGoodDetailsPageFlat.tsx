@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
@@ -268,7 +267,7 @@ export default function GlobalGoodDetailsPageFlat() {
                               style={{ width: `${(Number(value) / 10) * 100}%` }}
                             ></div>
                           </div>
-                          <span className="text-sm font-medium">{value}/10</span>
+                          <span className="text-sm font-medium">{Number(value)}/10</span>
                         </div>
                       </div>
                     ))}
