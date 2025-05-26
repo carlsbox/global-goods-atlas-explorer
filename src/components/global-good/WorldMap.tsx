@@ -4,9 +4,10 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simp
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getMapGeoUrl } from "@/lib/config";
 
-// Use a reliable CDN-hosted world map from Natural Earth data
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@3/countries-110m.json";
+// Use centralized map data configuration
+const geoUrl = getMapGeoUrl();
 
 interface WorldMapProps {
   globalGood: GlobalGoodFlat;

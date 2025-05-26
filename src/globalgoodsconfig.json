@@ -12,5 +12,8 @@
   "social": {
     "twitter": "globalgoodsatlas",
     "github": "globalgoodsatlas"
+  },
+  "map": {
+    "geoJsonUrl": "https://cdn.jsdelivr.net/npm/world-atlas@3/countries-110m.json"
   }
 }

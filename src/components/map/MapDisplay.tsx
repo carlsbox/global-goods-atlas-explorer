@@ -8,9 +8,10 @@ import {
   ZoomableGroup 
 } from "react-simple-maps";
 import { useState } from "react";
+import { getMapGeoUrl } from "@/lib/config";
 
-// Fixed path to GeoJSON data using absolute path from public folder
-const geoUrl = "/world-countries-110m.json";
+// Use centralized map data configuration
+const geoUrl = getMapGeoUrl();
 
 interface MapDisplayProps {
   selectedGood: GlobalGood | null;
