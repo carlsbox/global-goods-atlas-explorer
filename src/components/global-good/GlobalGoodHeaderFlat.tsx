@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Globe, Github, Mail, ExternalLink, Monitor } from "lucide-react";
+import { Globe, Github, Mail, ExternalLink } from "lucide-react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -100,7 +100,7 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
                 rel="noopener noreferrer"
                 className="flex items-center"
               >
-                <Monitor className="mr-2 h-4 w-4" />
+                <ExternalLink className="mr-2 h-4 w-4" />
                 Demo
                 <ExternalLink className="ml-2 h-3 w-3 opacity-70" />
               </a>
