@@ -35,12 +35,12 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Community Size */}
-          {(community.sizeOfCommunity || community.size_estimate) && (
+          {(community.SizeOfCommunity || community.size_estimate) && (
             <div>
               <h3 className="text-sm font-medium mb-2">Community Size</h3>
               <div className="flex items-center gap-2">
                 <p className="text-2xl font-bold">
-                  {(community.sizeOfCommunity || community.size_estimate)?.toLocaleString()}
+                  {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
                 </p>
                 <span className="text-muted-foreground">members</span>
               </div>
@@ -48,34 +48,34 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
           )}
 
           {/* Inception */}
-          {community.inceptionYear && (
+          {community.InceptionYear && (
             <div>
               <h3 className="text-sm font-medium mb-2">Year Founded</h3>
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-muted-foreground" />
-                <p>{community.inceptionYear}</p>
+                <p>{community.InceptionYear}</p>
               </div>
             </div>
           )}
 
           {/* Host Organization */}
-          {community.hostAnchorOrganization && (
+          {community.HostAnchorOrganization && (
             <div>
               <h3 className="text-sm font-medium mb-2">Host Organization</h3>
               <Badge variant="outline" className="bg-green-50">
-                {community.hostAnchorOrganization.name}
+                {community.HostAnchorOrganization.name}
               </Badge>
-              {community.hostAnchorOrganization.description && (
-                <p className="text-sm text-muted-foreground mt-2">{community.hostAnchorOrganization.description}</p>
+              {community.HostAnchorOrganization.description && (
+                <p className="text-sm text-muted-foreground mt-2">{community.HostAnchorOrganization.description}</p>
               )}
             </div>
           )}
 
           {/* Overview Description */}
-          {community.descriptionOfCommunity && (
+          {community.DescriptionOfCommunity && (
             <div>
               <h3 className="text-sm font-medium mb-2">About</h3>
-              <p className="text-sm text-muted-foreground">{community.descriptionOfCommunity}</p>
+              <p className="text-sm text-muted-foreground">{community.DescriptionOfCommunity}</p>
             </div>
           )}
         </CardContent>
@@ -120,42 +120,38 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Community Links */}
-            {community.links?.community && community.links.community.length > 0 && (
+            {community.Links?.Community && (
               <div>
                 <h3 className="text-sm font-medium mb-2">Community Links</h3>
-                {community.links.community.map((link, index) => (
-                  <Button asChild key={index} variant="outline" size="sm" className="mr-2 mb-2">
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      {link.description || "Community Link"}
-                    </a>
-                  </Button>
-                ))}
+                <Button asChild variant="outline" size="sm" className="mr-2 mb-2">
+                  <a href={community.Links.Community.url} target="_blank" rel="noopener noreferrer">
+                    {community.Links.Community.description || "Community Link"}
+                  </a>
+                </Button>
               </div>
             )}
             
             {/* Mailing List */}
-            {community.links?.mailingList && community.links.mailingList.length > 0 && (
+            {community.Links?.MailingList && (
               <div>
                 <h3 className="text-sm font-medium mb-2">Mailing List</h3>
-                {community.links.mailingList.map((link, index) => (
-                  <Button asChild key={index} variant="outline" size="sm" className="mr-2 mb-2">
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      {link.description || "Subscribe to mailing list"}
-                    </a>
-                  </Button>
-                ))}
+                <Button asChild variant="outline" size="sm" className="mr-2 mb-2">
+                  <a href={community.Links.MailingList.url} target="_blank" rel="noopener noreferrer">
+                    {community.Links.MailingList.description || "Subscribe to mailing list"}
+                  </a>
+                </Button>
               </div>
             )}
             
             {/* Community Events */}
-            {community.events?.schedule && (
+            {community.Events?.schedule && (
               <>
                 <Separator />
                 <div>
                   <h3 className="text-sm font-medium mb-2">Events</h3>
-                  <p className="text-sm text-muted-foreground mb-2">{community.events.description}</p>
+                  <p className="text-sm text-muted-foreground mb-2">{community.Events.description}</p>
                   <Button asChild variant="outline" size="sm">
-                    <a href={community.events.schedule} target="_blank" rel="noopener noreferrer">
+                    <a href={community.Events.schedule} target="_blank" rel="noopener noreferrer">
                       <Calendar className="h-4 w-4 mr-2" />
                       View Event Schedule
                     </a>
@@ -165,11 +161,11 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
             )}
             
             {/* Recent Events */}
-            {community.events?.recent && community.events.recent.length > 0 && (
+            {community.Events?.recent && community.Events.recent.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium mb-2">Recent Events</h3>
                 <ul className="space-y-2">
-                  {community.events.recent.map((event, index) => (
+                  {community.Events.recent.map((event, index) => (
                     <li key={index} className="text-sm">
                       <p className="font-medium">{event.event}</p>
                       {event.date && <p className="text-xs text-muted-foreground">{event.date}</p>}
@@ -185,7 +181,7 @@ export function CommunityTab({ globalGood }: CommunityTabProps) {
             )}
             
             {/* No communication channels message */}
-            {!community.links?.community && !community.links?.mailingList && !community.events?.schedule && (
+            {!community.Links?.Community && !community.Links?.MailingList && !community.Events?.schedule && (
               <p className="text-sm text-muted-foreground">No communication channels listed for this global good.</p>
             )}
           </CardContent>

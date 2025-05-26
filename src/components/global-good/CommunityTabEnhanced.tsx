@@ -3,14 +3,14 @@ import { GlobalGood } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf, Accessibility } from "lucide-react";
+import { Users, Calendar, Globe, MessageSquare, Link as LinkIcon, Shield, Building, MapPin, ExternalLink, Leaf, UserCheck } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGood;
 }
 
 export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) {
-  const community = globalGood.Community;
+  const community = globalGood.community;
   
   // Check if we have community data
   if (!community) {
@@ -206,7 +206,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             <div>
               <h4 className="text-sm font-medium mb-2">Climate & Health</h4>
               <Badge variant="outline" className="text-xs">
-                {globalGood.climateAndHealthIntegration.enabled ? 'Enabled' : 'Not Enabled'}
+                Integrated
               </Badge>
             </div>
           )}
@@ -261,7 +261,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
           {globalGood.inclusiveDesign && (
             <div>
               <h4 className="text-sm font-medium mb-2 flex items-center">
-                <Accessibility className="h-3 w-3 mr-1 text-blue-500" />
+                <UserCheck className="h-3 w-3 mr-1 text-blue-500" />
                 Inclusive Design
               </h4>
               <div className="space-y-1">
