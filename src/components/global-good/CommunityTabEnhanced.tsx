@@ -10,7 +10,7 @@ interface CommunityTabEnhancedProps {
 }
 
 export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) {
-  const community = globalGood.community;
+  const community = globalGood.Community;
   
   // Check if we have community data
   if (!community) {
@@ -87,32 +87,29 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             </div>
           )}
 
-          {/* Members and Founded side by side */}
-          <div className="grid grid-cols-2 gap-3">
-            {/* Members */}
-            {(community.SizeOfCommunity || community.size_estimate) && (
-              <div>
-                <h4 className="text-sm font-medium mb-1">Members</h4>
-                <div className="text-center p-3 bg-muted/50 rounded">
-                  <div className="text-xl font-bold text-primary">
-                    {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
-                  </div>
-                  <div className="text-xs text-muted-foreground">Members</div>
+          {/* Members */}
+          {(community.SizeOfCommunity || community.size_estimate) && (
+            <div>
+              <h4 className="text-sm font-medium mb-1">Members</h4>
+              <div className="text-center p-3 bg-muted/50 rounded">
+                <div className="text-2xl font-bold text-primary">
+                  {(community.SizeOfCommunity || community.size_estimate)?.toLocaleString()}
                 </div>
+                <div className="text-xs text-muted-foreground">Members</div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Founded */}
-            {community.InceptionYear && (
-              <div>
-                <h4 className="text-sm font-medium mb-1">Founded</h4>
-                <div className="text-center p-3 bg-muted/50 rounded">
-                  <div className="text-xl font-bold text-primary">{community.InceptionYear}</div>
-                  <div className="text-xs text-muted-foreground">Year</div>
-                </div>
+          {/* Founded */}
+          {community.InceptionYear && (
+            <div>
+              <h4 className="text-sm font-medium mb-1">Founded</h4>
+              <div className="text-center p-3 bg-muted/50 rounded">
+                <div className="text-2xl font-bold text-primary">{community.InceptionYear}</div>
+                <div className="text-xs text-muted-foreground">Year</div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 
