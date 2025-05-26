@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -33,12 +33,29 @@ export function WorldMap({ globalGood }: WorldMapProps) {
     ])
   );
 
+  // Add timeout for loading
+  useEffect(() => {
+    console.log('WorldMap: Using GeoJSON URL:', geoUrl);
+    
+    const timeout = setTimeout(() => {
+      if (isLoading) {
+        console.error('WorldMap: Loading timeout after 10 seconds');
+        setIsLoading(false);
+        setHasError(true);
+      }
+    }, 10000);
+
+    return () => clearTimeout(timeout);
+  }, [isLoading]);
+
   const handleGeographiesLoad = () => {
+    console.log('WorldMap: Geographies loaded successfully');
     setIsLoading(false);
     setHasError(false);
   };
 
-  const handleGeographiesError = () => {
+  const handleGeographiesError = (error: any) => {
+    console.error('WorldMap: Error loading geographies:', error);
     setIsLoading(false);
     setHasError(true);
   };
@@ -49,6 +66,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
         <div className="text-center">
           <p className="text-muted-foreground mb-2">Unable to load world map</p>
           <p className="text-sm text-muted-foreground">Please check your internet connection</p>
+          <p className="text-xs text-muted-foreground mt-2">URL: {geoUrl}</p>
         </div>
       </div>
     );
