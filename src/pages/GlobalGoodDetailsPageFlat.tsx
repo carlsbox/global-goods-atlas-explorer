@@ -370,6 +370,11 @@ export default function GlobalGoodDetailsPageFlat() {
         <div>
           <h2 className="text-2xl font-bold mb-6">Global Reach</h2>
           
+          {/* Implementation Context moved here */}
+          <div className="mb-6">
+            <ImplementationContext globalGood={globalGood} />
+          </div>
+          
           {/* Hero Stats Row */}
           <HeroStats globalGood={globalGood} />
           
@@ -378,9 +383,6 @@ export default function GlobalGoodDetailsPageFlat() {
             <InteractiveMapCard globalGood={globalGood} />
             <EnhancedCountriesDisplay globalGood={globalGood} />
           </div>
-          
-          {/* Implementation Context */}
-          <ImplementationContext globalGood={globalGood} />
         </div>
         
         <Separator />
