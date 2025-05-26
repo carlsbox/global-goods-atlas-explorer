@@ -34,11 +34,10 @@ export default function GlobalGoodDetailsPageFlat() {
     return <ErrorState onRetry={() => refetch()} />;
   }
 
-  // Helper function to check if technical classifications have data (excluding WMO)
+  // Helper function to check if technical classifications have data (excluding WMO and SDGs)
   const hasTechnicalClassifications = () => {
     const classifications = globalGood.Classifications;
     return classifications && (
-      (classifications.SDGs && classifications.SDGs.length > 0) ||
       (classifications.DPI && classifications.DPI.length > 0) ||
       (classifications.WHO && classifications.WHO.length > 0)
     );
@@ -53,14 +52,15 @@ export default function GlobalGoodDetailsPageFlat() {
     );
   };
 
-  // Helper function to check if climate data exists
+  // Helper function to check if climate data exists (including SDGs)
   const hasClimateData = () => {
     const hasClimateIntegration = globalGood.ClimateAndHealthIntegration?.Description;
     const hasWMO = globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0;
     const hasClimateStandards = globalGood.StandardsAndInteroperability?.ClimateStandards && 
       globalGood.StandardsAndInteroperability.ClimateStandards.length > 0;
+    const hasSDGs = globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0;
     
-    return hasClimateIntegration || hasWMO || hasClimateStandards;
+    return hasClimateIntegration || hasWMO || hasClimateStandards || hasSDGs;
   };
 
   return (
@@ -106,45 +106,6 @@ export default function GlobalGoodDetailsPageFlat() {
                 </h3>
                 
                 <div className="grid grid-cols-1 gap-6">
-                  {/* SDGs */}
-                  {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
-                    <Card>
-                      <CardHeader className="pb-3">
-                        <div className="space-y-2">
-                          <CardTitle className="text-sm font-medium flex items-center gap-2">
-                            Sustainable Development Goals (SDGs)
-                            <Button
-                              asChild
-                              variant="ghost"
-                              size="sm"
-                              className="h-auto p-1"
-                            >
-                              <a 
-                                href="https://sdgs.un.org/goals"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
-                              >
-                                <ExternalLink className="h-3 w-3" />
-                              </a>
-                            </Button>
-                          </CardTitle>
-                          <p className="text-xs text-muted-foreground">
-                            UN's blueprint for peace and prosperity for people and the planet by 2030
-                          </p>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {globalGood.Classifications.SDGs.map((sdg, index) => (
-                          <SDGClassificationCard 
-                            key={index} 
-                            sdg={sdg}
-                          />
-                        ))}
-                      </CardContent>
-                    </Card>
-                  )}
-                  
                   {/* DPI */}
                   <GroupedClassifications 
                     classifications={globalGood.Classifications?.DPI || []}
@@ -284,6 +245,43 @@ export default function GlobalGoodDetailsPageFlat() {
                       <p className="text-muted-foreground">{globalGood.ClimateAndHealthIntegration.Description}</p>
                     </CardContent>
                   </Card>
+                </div>
+              )}
+              
+              {/* SDGs Section */}
+              {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
+                <div className="mb-8">
+                  <div className="space-y-2 mb-4">
+                    <h3 className="text-xl font-semibold flex items-center gap-2">
+                      Sustainable Development Goals (SDGs)
+                      <Button
+                        asChild
+                        variant="ghost"
+                        size="sm"
+                        className="h-auto p-1"
+                      >
+                        <a 
+                          href="https://sdgs.un.org/goals"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      </Button>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      UN's blueprint for peace and prosperity for people and the planet by 2030
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {globalGood.Classifications.SDGs.map((sdg, index) => (
+                      <SDGClassificationCard 
+                        key={index} 
+                        sdg={sdg}
+                      />
+                    ))}
+                  </div>
                 </div>
               )}
               
