@@ -127,12 +127,12 @@
 "Reach": {
   "SummaryOfReach": "Used in 25 countries by national supply chain programs.",
   "NumberOfImplementations": 37,
-  "ImplementationMapOverview": [
+  "ImplementationMapOverview": 
     {
       "url": "https://meditrack.org/map",
       "description": "Global reach map"
     }
-  ],
+  ,
   "ImplementationCountries": [
     {
       "iso_code": "ke",
@@ -465,12 +465,12 @@
   "Reach": {
     "SummaryOfReach": "Deployed in over 20 countries for national health data management.",
     "NumberOfImplementations": 20,
-    "ImplementationMapOverview": [
+    "ImplementationMapOverview": 
       {
         "url": "https://dhis2.org/map",
         "description": "Global reach map"
       }
-    ],
+    ,
     "ImplementationCountries": [
       {"iso_code": "ke", "type": "State", "names": {"en": {"short": "Kenya", "formal": "the Republic of Kenya"}}},
       {"iso_code": "ug", "type": "State", "names": {"en": {"short": "Uganda", "formal": "the Republic of Uganda"}}},
