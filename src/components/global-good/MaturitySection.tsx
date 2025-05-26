@@ -3,10 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Shield, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { Shield } from "lucide-react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useState } from "react";
 import { MaturityRadarChart } from "./MaturityRadarChart";
+import { MaturityScoresModal } from "./MaturityScoresModal";
 
 interface MaturitySectionProps {
   globalGood: GlobalGoodFlat;
@@ -37,21 +38,6 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
   const displayYear = selectedYear ? scores.find(s => s.year === selectedYear) || latestYearData : latestYearData;
   const availableYears = scores.map(s => s.year).sort((a, b) => b - a);
 
-  // Calculate year-over-year changes
-  const getChangeIndicator = (dimension: string, currentYear: number) => {
-    const currentIndex = scores.findIndex(s => s.year === currentYear);
-    const previousIndex = currentIndex + 1;
-    
-    if (previousIndex >= scores.length) return null;
-    
-    const current = scores[currentIndex][dimension as keyof typeof scores[0]] as number;
-    const previous = scores[previousIndex][dimension as keyof typeof scores[0]] as number;
-    
-    if (current > previous) return { type: 'up', change: current - previous };
-    if (current < previous) return { type: 'down', change: current - previous };
-    return { type: 'same', change: 0 };
-  };
-
   const dimensions = [
     { key: 'global_utility', label: 'Global Utility' },
     { key: 'community_support', label: 'Community Support' },
@@ -73,103 +59,86 @@ export function MaturitySection({ globalGood }: MaturitySectionProps) {
         )}
       </div>
 
-      <div className="mb-6">
-        {/* Radar Chart Card */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
-              <span>
-                Maturity Profile {showMultiYear ? '(All Years)' : displayYear.year}
-              </span>
-              <div className="flex gap-2">
-                <Button
-                  variant={showMultiYear ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setShowMultiYear(!showMultiYear)}
-                >
-                  Multi-Year View
-                </Button>
-                {!showMultiYear && availableYears.map(year => (
+      {/* Two-column layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        {/* Left column - Radar Chart (60%) */}
+        <div className="lg:col-span-3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span>
+                  Maturity Profile {showMultiYear ? '(All Years)' : displayYear.year}
+                </span>
+                <div className="flex gap-2">
                   <Button
-                    key={year}
-                    variant={selectedYear === year || (!selectedYear && year === latestYearData.year) ? "default" : "outline"}
+                    variant={showMultiYear ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setSelectedYear(selectedYear === year ? null : year)}
+                    onClick={() => setShowMultiYear(!showMultiYear)}
                   >
-                    {year}
+                    Multi-Year View
                   </Button>
-                ))}
-              </div>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <MaturityRadarChart 
-              data={showMultiYear ? null : displayYear}
-              allYearsData={showMultiYear ? scores : null}
-              dimensions={dimensions}
-              showMultiYear={showMultiYear}
-            />
-          </CardContent>
-        </Card>
-      </div>
+                  {!showMultiYear && availableYears.map(year => (
+                    <Button
+                      key={year}
+                      variant={selectedYear === year || (!selectedYear && year === latestYearData.year) ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedYear(selectedYear === year ? null : year)}
+                    >
+                      {year}
+                    </Button>
+                  ))}
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <MaturityRadarChart 
+                data={showMultiYear ? null : displayYear}
+                allYearsData={showMultiYear ? scores : null}
+                dimensions={dimensions}
+                showMultiYear={showMultiYear}
+              />
+            </CardContent>
+          </Card>
+        </div>
 
-      {/* Detailed Scores Table */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Detailed Maturity Scores</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Dimension</TableHead>
-                {availableYears.map(year => (
-                  <TableHead key={year} className="text-center">{year}</TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {dimensions.map(({ key, label }) => (
-                <TableRow key={key}>
-                  <TableCell className="font-medium">{label}</TableCell>
-                  {availableYears.map(year => {
-                    const yearData = scores.find(s => s.year === year);
-                    const score = yearData?.[key as keyof typeof yearData] as number;
-                    const change = getChangeIndicator(key, year);
+        {/* Right column - Latest Year Scores (40%) */}
+        <div className="lg:col-span-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between text-lg">
+                <span>Latest Scores ({latestYearData.year})</span>
+                <MaturityScoresModal scores={scores} dimensions={dimensions} />
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-sm">Dimension</TableHead>
+                    <TableHead className="text-center text-sm">Score</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {dimensions.map(({ key, label }) => {
+                    const score = latestYearData[key as keyof typeof latestYearData] as number;
                     
                     return (
-                      <TableCell key={year} className="text-center">
-                        <div className="flex items-center justify-center gap-2">
-                          <Badge variant="secondary" className="font-mono">
+                      <TableRow key={key}>
+                        <TableCell className="font-medium text-sm py-2">{label}</TableCell>
+                        <TableCell className="text-center py-2">
+                          <Badge variant="secondary" className="font-mono text-xs">
                             {score}/10
                           </Badge>
-                          {change && change.type !== 'same' && (
-                            <div className="flex items-center">
-                              {change.type === 'up' ? (
-                                <TrendingUp className="h-3 w-3 text-green-600" />
-                              ) : (
-                                <TrendingDown className="h-3 w-3 text-red-600" />
-                              )}
-                              <span className={`text-xs ml-1 ${
-                                change.type === 'up' ? 'text-green-600' : 'text-red-600'
-                              }`}>
-                                {change.type === 'up' ? '+' : ''}{change.change}
-                              </span>
-                            </div>
-                          )}
-                          {change && change.type === 'same' && (
-                            <Minus className="h-3 w-3 text-gray-400" />
-                          )}
-                        </div>
-                      </TableCell>
+                        </TableCell>
+                      </TableRow>
                     );
                   })}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
