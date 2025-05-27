@@ -58,19 +58,19 @@ export default function GlobalGoodsPageFlat() {
         wmoClassifications.add(classification.code);
       });
 
-      // Extract health standards
-      good.StandardsAndInteroperability?.healthStandards?.forEach(standard => {
+      // Extract health standards - Fixed property name
+      good.StandardsAndInteroperability?.HealthStandards?.forEach(standard => {
         healthStandards.add(standard.code);
       });
 
-      // Extract interoperability standards
-      good.StandardsAndInteroperability?.interoperability?.forEach(standard => {
+      // Extract interoperability standards - Fixed property name
+      good.StandardsAndInteroperability?.Interoperability?.forEach(standard => {
         interopStandards.add(standard.code);
       });
 
-      // Extract implementation countries
+      // Extract implementation countries - Fixed property access
       good.Reach?.ImplementationCountries?.forEach(country => {
-        countries.add(country.name);
+        countries.add(country.names.en.short);
       });
     });
 
@@ -116,15 +116,17 @@ export default function GlobalGoodsPageFlat() {
       const matchesWMO = selectedWMOClassifications.length === 0 ||
         selectedWMOClassifications.some(classification => goodWMOClassifications.includes(classification));
 
-      const goodHealthStandards = good.StandardsAndInteroperability?.healthStandards?.map(s => s.code) || [];
+      // Fixed property names for standards
+      const goodHealthStandards = good.StandardsAndInteroperability?.HealthStandards?.map(s => s.code) || [];
       const matchesHealthStandards = selectedHealthStandards.length === 0 ||
         selectedHealthStandards.some(standard => goodHealthStandards.includes(standard));
 
-      const goodInteropStandards = good.StandardsAndInteroperability?.interoperability?.map(s => s.code) || [];
+      const goodInteropStandards = good.StandardsAndInteroperability?.Interoperability?.map(s => s.code) || [];
       const matchesInteropStandards = selectedInteropStandards.length === 0 ||
         selectedInteropStandards.some(standard => goodInteropStandards.includes(standard));
 
-      const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.name) || [];
+      // Fixed property access for countries
+      const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.names.en.short) || [];
       const matchesCountries = selectedCountries.length === 0 ||
         selectedCountries.some(country => goodCountries.includes(country));
 
