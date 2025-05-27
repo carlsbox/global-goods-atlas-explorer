@@ -1,7 +1,6 @@
-
 export async function loadClassificationsData(language?: string) {
   try {
-    const module = await import('../../data/classifications/classifcations.json');
+    const module = await import('../../i18n/locales/en/classifcations.json');
     const baseData = module.default;
     
     // If no language specified or language is 'en', return base data
@@ -11,7 +10,7 @@ export async function loadClassificationsData(language?: string) {
     
     // Try to load translations for other languages
     try {
-      const translationModule = await import(`../../data/classifications/translations/${language}.json`);
+      const translationModule = await import(`../../i18n/locales/${language}/classifcations.json`);
       const translations = translationModule.default;
       
       // Merge base data with translations

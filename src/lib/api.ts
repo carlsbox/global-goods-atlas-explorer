@@ -1,21 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { GlobalGood, UseCase, CountryData, Classification } from "./types";
+import { UseCase } from "./types/useCase";
+import { CountryData } from "./types/country";
+import { Classification } from "./types/classifications";
 import { 
-  loadAllGlobalGoods, 
-  loadGlobalGood, 
+  loadAllGlobalGoodsFlat, 
+  loadGlobalGoodFlat, 
   loadAllUseCases, 
   loadUseCase, 
   loadCountriesData,
   loadClassificationsData
 } from "./dataLoader";
 import { useI18n } from "@/hooks/useI18n";
+import { GlobalGoodFlat } from "./types/globalGoodFlat";
 
 // Fetch global goods data
 export const useGlobalGoods = () => {
   return useQuery({
     queryKey: ['globalGoods'],
-    queryFn: async (): Promise<GlobalGood[]> => {
-      return loadAllGlobalGoods();
+    queryFn: async (): Promise<GlobalGoodFlat[]> => {
+      return loadAllGlobalGoodsFlat();
     }
   });
 };
@@ -26,9 +29,9 @@ export const useGlobalGood = (id: string | undefined, options = {}) => {
   
   return useQuery({
     queryKey: ['globalGood', id, language],
-    queryFn: async (): Promise<GlobalGood | undefined> => {
+    queryFn: async (): Promise<GlobalGoodFlat | undefined> => {
       if (!id) return undefined;
-      return loadGlobalGood(id, language);
+      return loadGlobalGoodFlat(id);
     },
     enabled: !!id,
     ...options
@@ -134,12 +137,4 @@ export const useDeleteGlobalGood = () => {
 // Instead of defining them again here, we just re-export them
 export { useCreateGlobalGood, useUpdateGlobalGood } from '@/hooks/useGlobalGoodMutations';
 
-// Export hybrid hooks alongside existing ones
-export {
-  useGlobalGoodsIndex,
-  useGlobalGoodsHybrid,
-  useGlobalGoodHybrid,
-  useCreateGlobalGoodHybrid,
-  useUpdateGlobalGoodHybrid,
-  useDeleteGlobalGoodHybrid
-} from './api/globalGoodsHybrid';
+

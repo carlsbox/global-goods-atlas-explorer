@@ -1,18 +1,17 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGlobalGoodsHybrid, useDeleteGlobalGoodHybrid } from '@/lib/api';
+import { useGlobalGoods, useDeleteGlobalGood } from '@/lib/api';
 import { Button } from '@/components/ui/button';
 import { AdminDataTable } from '@/components/admin/AdminDataTable';
 import { GlobalGoodRow } from '@/components/admin/GlobalGoodRow';
 import { useI18n } from '@/hooks/useI18n';
-import { GlobalGood } from '@/lib/types';
+import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 
 export default function GlobalGoodsListPage() {
-  const { data: globalGoods = [], isLoading } = useGlobalGoodsHybrid();
+  const { data: globalGoods = [], isLoading } = useGlobalGoods();
   const { getText } = useI18n();
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const deleteMutation = useDeleteGlobalGoodHybrid();
+  const deleteMutation = useDeleteGlobalGood();
 
   // Handle deletion
   const handleDelete = async (id: string) => {
@@ -26,14 +25,21 @@ export default function GlobalGoodsListPage() {
   // Process data to ensure we have all required fields for the component
   const processedGoods = globalGoods.map(good => ({
     ...good,
-    // Ensure these fields exist or have defaults
-    name: good.name || '',
-    description: good.description || '',
-    summary: good.summary || '',
-    details: good.details || '',
-    sector: good.sector || [],
-    countries: good.countries || [],
-    technologies: good.technologies || [],
+    Name: good.Name || '',
+    // ProductOverview is an object, ensure nested fields exist
+    ProductOverview: {
+      ...good.ProductOverview,
+      Summary: good.ProductOverview?.Summary || '',
+      Description: good.ProductOverview?.Description || '',
+    },
+    // GlobalGoodsType is an array (sector equivalent)
+    GlobalGoodsType: good.GlobalGoodsType || [],
+    // Countries: from Reach.ImplementationCountries
+    Reach: {
+      ...good.Reach,
+      ImplementationCountries: good.Reach?.ImplementationCountries || [],
+    },
+    // Technologies: not present in GlobalGoodFlat, so omit
   }));
 
   return (
@@ -50,15 +56,15 @@ export default function GlobalGoodsListPage() {
         isLoading={isLoading}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
-        renderRow={(good: GlobalGood) => (
+        renderRow={(good: GlobalGoodFlat) => (
           <GlobalGoodRow 
-            key={good.id}
+            key={good.ID}
             good={good}
-            isSelected={selectedItems.includes(good.id)}
+            isSelected={selectedItems.includes(good.ID)}
             onToggleSelect={() => {
-              const newSelectedItems = selectedItems.includes(good.id)
-                ? selectedItems.filter(id => id !== good.id)
-                : [...selectedItems, good.id];
+              const newSelectedItems = selectedItems.includes(good.ID)
+                ? selectedItems.filter(id => id !== good.ID)
+                : [...selectedItems, good.ID];
               setSelectedItems(newSelectedItems);
             }}
           />

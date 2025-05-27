@@ -4,8 +4,8 @@
 
 export {
   loadClassificationsData,
-  loadGlobalGood,
-  loadAllGlobalGoods,
+  loadGlobalGoodFlat,
+  loadAllGlobalGoodsFlat,
   loadUseCase,
   loadAllUseCases,
   loadCountriesData,

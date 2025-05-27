@@ -1,0 +1,19 @@
+[
+  { "code": "SDG-1", "title": "No Poverty", "group_code": "1", "group_name": "No Poverty", "authority": "SDG" },
+  { "code": "SDG-2", "title": "Zero Hunger", "group_code": "2", "group_name": "Zero Hunger", "authority": "SDG" },
+  { "code": "SDG-3", "title": "Good Health and Well-being", "group_code": "3", "group_name": "Good Health and Well-being", "authority": "SDG" },
+  { "code": "SDG-4", "title": "Quality Education", "group_code": "4", "group_name": "Quality Education", "authority": "SDG" },
+  { "code": "SDG-5", "title": "Gender Equality", "group_code": "5", "group_name": "Gender Equality", "authority": "SDG" },
+  { "code": "SDG-6", "title": "Clean Water and Sanitation", "group_code": "6", "group_name": "Clean Water and Sanitation", "authority": "SDG" },
+  { "code": "SDG-7", "title": "Affordable and Clean Energy", "group_code": "7", "group_name": "Affordable and Clean Energy", "authority": "SDG" },
+  { "code": "SDG-8", "title": "Decent Work and Economic Growth", "group_code": "8", "group_name": "Decent Work and Economic Growth", "authority": "SDG" },
+  { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure", "group_code": "9", "group_name": "Industry, Innovation and Infrastructure", "authority": "SDG" },
+  { "code": "SDG-10", "title": "Reduced Inequality", "group_code": "10", "group_name": "Reduced Inequality", "authority": "SDG" },
+  { "code": "SDG-11", "title": "Sustainable Cities and Communities", "group_code": "11", "group_name": "Sustainable Cities and Communities", "authority": "SDG" },
+  { "code": "SDG-12", "title": "Responsible Consumption and Production", "group_code": "12", "group_name": "Responsible Consumption and Production", "authority": "SDG" },
+  { "code": "SDG-13", "title": "Climate Action", "group_code": "13", "group_name": "Climate Action", "authority": "SDG" },
+  { "code": "SDG-14", "title": "Life Below Water", "group_code": "14", "group_name": "Life Below Water", "authority": "SDG" },
+  { "code": "SDG-15", "title": "Life on Land", "group_code": "15", "group_name": "Life on Land", "authority": "SDG" },
+  { "code": "SDG-16", "title": "Peace, Justice and Strong Institutions", "group_code": "16", "group_name": "Peace, Justice and Strong Institutions", "authority": "SDG" },
+  { "code": "SDG-17", "title": "Partnerships for the Goals", "group_code": "17", "group_name": "Partnerships for the Goals", "authority": "SDG" }
+]

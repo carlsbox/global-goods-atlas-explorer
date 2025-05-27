@@ -1,6 +1,6 @@
 // Re-export all loader functions
 export { loadClassificationsData } from "./classificationLoader";
-export { loadGlobalGood, loadAllGlobalGoods } from "./globalGoodLoader";
+export { loadGlobalGoodFlat, loadAllGlobalGoodsFlat } from "./globalGoodFlatLoader";
 export { loadUseCase, loadAllUseCases } from "./useCaseLoader";
 export { loadCountriesData } from "./countryLoader";
 export { loadSDGData } from "./sdgLoader";
