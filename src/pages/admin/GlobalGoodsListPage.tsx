@@ -8,6 +8,17 @@ import { GlobalGoodRow } from '@/components/admin/GlobalGoodRow';
 import { useI18n } from '@/hooks/useI18n';
 import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 
+// Helper to convert GlobalGoodFlat to expected format
+const convertFlatToExpectedFormat = (good: GlobalGoodFlat) => ({
+  ...good,
+  id: good.ID,
+  name: good.Name,
+  summary: good.ProductOverview?.Summary || '',
+  description: good.ProductOverview?.Description || '',
+  sectors: good.GlobalGoodsType?.map(type => type.title || type.code || '') || [],
+  countries: good.Reach?.ImplementationCountries?.map(country => country.names?.en?.short || '') || [],
+});
+
 export default function GlobalGoodsListPage() {
   const { data: globalGoods = [], isLoading } = useGlobalGoods();
   const { getText } = useI18n();
@@ -24,26 +35,7 @@ export default function GlobalGoodsListPage() {
   };
 
   // Process data to ensure we have all required fields for the component
-  const processedGoods = globalGoods.map(good => ({
-    ...good,
-    // Add id property using ID
-    id: good.ID,
-    Name: good.Name || '',
-    // ProductOverview is an object, ensure nested fields exist
-    ProductOverview: {
-      ...good.ProductOverview,
-      Summary: good.ProductOverview?.Summary || '',
-      Description: good.ProductOverview?.Description || '',
-    },
-    // GlobalGoodsType is an array (sector equivalent)
-    GlobalGoodsType: good.GlobalGoodsType || [],
-    // Countries: from Reach.ImplementationCountries
-    Reach: {
-      ...good.Reach,
-      ImplementationCountries: good.Reach?.ImplementationCountries || [],
-    },
-    // Technologies: not present in GlobalGoodFlat, so omit
-  }));
+  const processedGoods = globalGoods.map(good => convertFlatToExpectedFormat(good));
 
   return (
     <div>
@@ -59,7 +51,7 @@ export default function GlobalGoodsListPage() {
         isLoading={isLoading}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
-        renderRow={(good: GlobalGoodFlat & { id: string }) => (
+        renderRow={(good: any) => (
           <GlobalGoodRow 
             key={good.ID}
             good={good}

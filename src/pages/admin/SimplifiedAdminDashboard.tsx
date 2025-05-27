@@ -6,7 +6,6 @@ import {
   FileText, 
   Tag, 
   Shield, 
-  Share2,
   Plus,
   Eye,
   Edit,
@@ -160,7 +159,7 @@ export default function SimplifiedAdminDashboard() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center">
-              <Share2 className="h-5 w-5 mr-2" />
+              <BarChart3 className="h-5 w-5 mr-2" />
               Quick Actions
             </CardTitle>
           </CardHeader>

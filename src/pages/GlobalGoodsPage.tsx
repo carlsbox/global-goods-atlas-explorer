@@ -1,8 +1,9 @@
+
 import { useState } from "react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoods } from "@/lib/api";
 import { FilterBar } from "@/components/global-goods/FilterBar";
-import { GlobalGoodCard } from "@/components/global-goods/GlobalGoodCard";
+import { GlobalGoodCardFlat } from "@/components/global-goods/GlobalGoodCardFlat";
 import { NoResults } from "@/components/global-goods/NoResults";
 import { useI18n } from "@/hooks/useI18n";
 import { LoadingState } from "@/components/global-good/LoadingState";
@@ -80,7 +81,7 @@ export default function GlobalGoodsPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredGoods.map((good) => (
-          <GlobalGoodCard key={good.ID} good={good} />
+          <GlobalGoodCardFlat key={good.ID} good={good} />
         ))}
       </div>
       

@@ -8,11 +8,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Tag, 
   Shield, 
-  Share2, 
   Plus, 
   Edit, 
   Trash,
-  Search
+  Search,
+  BarChart3
 } from "lucide-react";
 
 export default function ReferenceDataPage() {
@@ -70,7 +70,7 @@ export default function ReferenceDataPage() {
           <span className="flex items-center">
             {type === 'classification' && <Tag className="h-5 w-5 mr-2" />}
             {type === 'standard' && <Shield className="h-5 w-5 mr-2" />}
-            {type === 'initiative' && <Share2 className="h-5 w-5 mr-2" />}
+            {type === 'initiative' && <BarChart3 className="h-5 w-5 mr-2" />}
             {title}
           </span>
           <Button size="sm" onClick={onAdd}>
@@ -194,7 +194,7 @@ export default function ReferenceDataPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="flex items-center">
-                  <Share2 className="h-5 w-5 mr-2" />
+                  <BarChart3 className="h-5 w-5 mr-2" />
                   Collection Initiatives
                 </span>
                 <Button size="sm">

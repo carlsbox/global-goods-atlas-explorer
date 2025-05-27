@@ -82,8 +82,8 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
         website: convertWebsiteArray(initialData?.coreMetadata?.website),
         globalGoodsType: convertGlobalGoodsTypeArray(initialData?.coreMetadata?.globalGoodsType),
         sourceCode: convertWebsiteArray(initialData?.coreMetadata?.sourceCode),
-        license: initialData?.coreMetadata?.license || [],
-        demoLink: initialData?.coreMetadata?.demoLink || [],
+        license: Array.isArray(initialData?.coreMetadata?.license) ? initialData.coreMetadata.license : [],
+        demoLink: Array.isArray(initialData?.coreMetadata?.demoLink) ? initialData.coreMetadata.demoLink : [],
         contact: initialData?.coreMetadata?.contact || [],
       },
       productOverview: {
