@@ -1,45 +1,30 @@
 
-import { LanguageType } from '@/contexts/LanguageContext';
-import { Classification, ClassificationTranslations } from '../types/globalGood/classification';
-
-// Load classifications data with translations
-export async function loadClassificationsData(language: LanguageType) {
+export async function loadClassificationsData(language?: string) {
   try {
-    // Load base classifications
-    const baseData = await import('../../data/classifications/classifcations.json');
-    const classifications: Classification[] = baseData.default;
+    const module = await import('../../data/classifications/classifcations.json');
+    const baseData = module.default;
     
-    // Try to load translations
-    let translations: ClassificationTranslations | null = null;
+    // If no language specified or language is 'en', return base data
+    if (!language || language === 'en') {
+      return baseData;
+    }
+    
+    // Try to load translations for other languages
     try {
-      const translationsModule = await import(`../../data/classifications/translations/${language}.json`);
-      translations = translationsModule.default;
-    } catch (e) {
-      console.warn(`No translations found for classifications in language: ${language}`);
-    }
-    
-    // Apply translations if available
-    if (translations) {
-      return classifications.map(item => {
-        const translatedItem = { ...item };
-        
-        // Apply title translation if available
-        if (translations[item.code]?.title) {
-          translatedItem.title = translations[item.code].title;
-        }
-        
-        // Apply group name translation if available
-        if (translations.group_names?.[item.group_code]) {
-          translatedItem.group_name = translations.group_names[item.group_code];
-        }
-        
-        return translatedItem;
+      const translationModule = await import(`../../data/classifications/translations/${language}.json`);
+      const translations = translationModule.default;
+      
+      // Merge base data with translations
+      return baseData.map(item => {
+        const translation = translations.find(t => t.code === item.code);
+        return translation ? { ...item, ...translation } : item;
       });
+    } catch (translationError) {
+      console.warn(`No translations found for language: ${language}, falling back to base data`);
+      return baseData;
     }
-    
-    return classifications;
-  } catch (err) {
-    console.error('Failed to load classifications data', err);
+  } catch (error) {
+    console.error('Failed to load classifications data:', error);
     return [];
   }
 }

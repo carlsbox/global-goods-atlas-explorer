@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useUseCases, useGlobalGoods } from "@/lib/api";
@@ -31,7 +30,7 @@ export default function UseCasesPage() {
     const loadData = async () => {
       try {
         const [classificationsData, standardsData] = await Promise.all([
-          loadClassificationsData(),
+          loadClassificationsData(language), // Pass language parameter
           loadStandardsData()
         ]);
         setClassifications(classificationsData || []);
@@ -41,7 +40,7 @@ export default function UseCasesPage() {
       }
     };
     loadData();
-  }, []);
+  }, [language]);
   
   // Update URL when filters change
   useEffect(() => {

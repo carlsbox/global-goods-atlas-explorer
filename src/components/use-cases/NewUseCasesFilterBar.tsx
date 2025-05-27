@@ -52,11 +52,26 @@ export function NewUseCasesFilterBar({
 }: NewUseCasesFilterBarProps) {
   const { getText } = useI18n();
   
-  // Get unique values for filters
-  const sdgOptions = [...new Set(classifications.filter(c => c.code.startsWith('SDG')).map(c => c.code))];
-  const whoOptions = [...new Set(classifications.filter(c => c.authority === 'WHO').map(c => c.code))];
-  const wmoOptions = [...new Set(classifications.filter(c => c.authority === 'WMO').map(c => c.code))];
-  const standardOptions = [...new Set(standards.map(s => s.code))];
+  // Get unique values for filters with validation to prevent empty strings
+  const sdgOptions = [...new Set(classifications
+    .filter(c => c.code && c.code.startsWith('SDG') && c.code.trim() !== '')
+    .map(c => c.code)
+  )];
+  
+  const whoOptions = [...new Set(classifications
+    .filter(c => c.authority === 'WHO' && c.code && c.code.trim() !== '')
+    .map(c => c.code)
+  )];
+  
+  const wmoOptions = [...new Set(classifications
+    .filter(c => c.authority === 'WMO' && c.code && c.code.trim() !== '')
+    .map(c => c.code)
+  )];
+  
+  const standardOptions = [...new Set(standards
+    .filter(s => s.code && s.code.trim() !== '')
+    .map(s => s.code)
+  )];
 
   const hasActiveFilters = sdgFilter !== "all" || whoSystemFilter !== "all" || wmoFilter !== "all" || 
                           globalGoodFilter !== "all" || standardFilter !== "all" || searchTerm !== "";
@@ -130,11 +145,13 @@ export function NewUseCasesFilterBar({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Global Goods</SelectItem>
-            {globalGoods.map(good => (
-              <SelectItem key={good.id} value={good.id}>
-                {getText(good.name)}
-              </SelectItem>
-            ))}
+            {globalGoods
+              .filter(good => good.id && good.id.trim() !== '')
+              .map(good => (
+                <SelectItem key={good.id} value={good.id}>
+                  {getText(good.name)}
+                </SelectItem>
+              ))}
           </SelectContent>
         </Select>
 
