@@ -1,3 +1,4 @@
+
 import { LanguageCode, GlobalGood } from '@/lib/types';
 
 // Interface for the lightweight index data
@@ -223,7 +224,11 @@ export async function loadAllGlobalGoods(language: LanguageCode = 'en'): Promise
           name: indexItem.name,
           logo: indexItem.logo || '',
           website: [],
-          globalGoodsType: indexItem.sectors?.map(s => ({ code: s, title: s })) || [],
+          globalGoodsType: indexItem.sectors?.map(s => ({ 
+            code: s, 
+            title: s, 
+            description: '' 
+          })) || [],
           sourceCode: [],
           license: [],
           contact: []
