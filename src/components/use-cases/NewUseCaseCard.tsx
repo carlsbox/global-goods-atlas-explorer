@@ -9,7 +9,7 @@ import {
   ArrowRight, 
   Globe,
   Settings,
-  Crosshair
+  Circle
 } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
@@ -43,7 +43,7 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between mb-2">
           <CardTitle className="text-lg leading-tight">{useCase.title}</CardTitle>
-          <Crosshair className="h-5 w-5 text-primary flex-shrink-0 ml-2" />
+          <Circle className="h-5 w-5 text-primary flex-shrink-0 ml-2" />
         </div>
         
         {/* Classification badges */}

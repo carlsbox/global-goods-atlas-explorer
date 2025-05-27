@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { useUseCases } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -5,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Users, Crosshair, Settings, Globe, AlertTriangle, Lightbulb } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -107,14 +108,14 @@ export default function UseCaseDetailsPage() {
                 )}
               </div>
             </div>
-            <Crosshair className="h-8 w-8 text-primary flex-shrink-0 ml-4" />
+            <Circle className="h-8 w-8 text-primary flex-shrink-0 ml-4" />
           </div>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
               <h3 className="text-lg font-semibold mb-2 flex items-center">
-                <Crosshair className="mr-2 h-5 w-5" />
+                <Circle className="mr-2 h-5 w-5" />
                 {purpose ? "Purpose" : "Overview"}
               </h3>
               {renderMarkdown(purpose)}
@@ -181,7 +182,7 @@ export default function UseCaseDetailsPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Target className="mr-2 h-5 w-5" />
+                    <Circle className="mr-2 h-5 w-5" />
                     Scope
                   </CardTitle>
                 </CardHeader>
