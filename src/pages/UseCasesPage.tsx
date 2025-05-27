@@ -8,6 +8,7 @@ import { UseCasesNoResults } from "@/components/use-cases/UseCasesNoResults";
 import { useI18n } from "@/hooks/useI18n";
 import { loadClassificationsData } from "@/lib/loaders";
 import { loadStandardsData } from "@/lib/loaders";
+import { loadSDGData } from "@/lib/loaders";
 
 export default function UseCasesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,23 +26,35 @@ export default function UseCasesPage() {
   const [standardFilter, setStandardFilter] = useState("all");
   const [classifications, setClassifications] = useState<any[]>([]);
   const [standards, setStandards] = useState<any[]>([]);
+  const [sdgData, setSdgData] = useState<any[]>([]);
   
-  // Load classifications and standards
+  // Load classifications, standards, and SDG data
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [classificationsData, standardsData] = await Promise.all([
+        const [classificationsData, standardsData, sdgDataLoaded] = await Promise.all([
           loadClassificationsData(language),
-          loadStandardsData()
+          loadStandardsData(),
+          loadSDGData(language)
         ]);
         setClassifications(classificationsData || []);
         setStandards(standardsData || []);
+        setSdgData(sdgDataLoaded || []);
+        
+        // Debug logging
+        console.log('Loaded data:', {
+          classifications: classificationsData?.length || 0,
+          standards: standardsData?.length || 0,
+          sdgs: sdgDataLoaded?.length || 0,
+          useCases: useCases.length,
+          globalGoods: globalGoods.length
+        });
       } catch (error) {
         console.error('Failed to load additional data:', error);
       }
     };
     loadData();
-  }, [language]);
+  }, [language, useCases.length, globalGoods.length]);
 
   // Calculate which filter options have associated use cases
   const availableFilterOptions = useMemo(() => {
@@ -51,8 +64,10 @@ export default function UseCasesPage() {
     const availableGlobalGoods = new Set<string>();
     const availableStandards = new Set<string>();
 
+    console.log('Calculating available filters for', useCases.length, 'use cases');
+
     useCases.forEach(useCase => {
-      // SDG availability
+      // SDG availability - directly from use case data
       if (useCase.classifications?.sdg) {
         availableSdgs.add(useCase.classifications.sdg);
       }
@@ -67,11 +82,28 @@ export default function UseCasesPage() {
         availableWmoCategories.add(useCase.classifications.wmo_category);
       }
       
-      // Global goods availability
+      // Global goods availability - check both id and name for better matching
       if (useCase.global_goods) {
         useCase.global_goods.forEach(good => {
-          if (good.id) availableGlobalGoods.add(good.id);
-          if (good.name) availableGlobalGoods.add(good.name); // Legacy support
+          if (good.id) {
+            availableGlobalGoods.add(good.id);
+            // Also try to match by name if IDs don't work
+            const matchingGlobalGood = globalGoods.find(gg => 
+              gg.id === good.id || gg.name === good.name
+            );
+            if (matchingGlobalGood) {
+              availableGlobalGoods.add(matchingGlobalGood.id);
+            }
+          }
+          if (good.name) {
+            // Try to find matching global good by name
+            const matchingGlobalGood = globalGoods.find(gg => 
+              gg.name === good.name || gg.id === good.name
+            );
+            if (matchingGlobalGood) {
+              availableGlobalGoods.add(matchingGlobalGood.id);
+            }
+          }
         });
       }
       
@@ -83,6 +115,14 @@ export default function UseCasesPage() {
       }
     });
 
+    console.log('Available filter options:', {
+      sdgs: Array.from(availableSdgs),
+      whoSystems: Array.from(availableWhoSystems),
+      wmoCategories: Array.from(availableWmoCategories),
+      globalGoods: Array.from(availableGlobalGoods),
+      standards: Array.from(availableStandards)
+    });
+
     return {
       sdgs: availableSdgs,
       whoSystems: availableWhoSystems,
@@ -90,7 +130,7 @@ export default function UseCasesPage() {
       globalGoods: availableGlobalGoods,
       standards: availableStandards
     };
-  }, [useCases]);
+  }, [useCases, globalGoods]);
   
   // Update URL when filters change
   useEffect(() => {
@@ -122,10 +162,20 @@ export default function UseCasesPage() {
     // WMO filter
     const matchesWmo = wmoFilter === "all" || useCase.classifications?.wmo_category === wmoFilter;
     
-    // Global good filter
+    // Global good filter - improved matching logic
     const matchesGlobalGood = globalGoodFilter === "all" || 
-      (useCase.global_goods && useCase.global_goods.some(good => good.id === globalGoodFilter)) ||
-      (useCase.global_goods && useCase.global_goods.some(good => good.name === globalGoodFilter)); // Legacy support
+      (useCase.global_goods && useCase.global_goods.some(good => {
+        // Direct ID match
+        if (good.id === globalGoodFilter) return true;
+        // Name-based matching
+        if (good.name === globalGoodFilter) return true;
+        // Check if global good with this filter ID exists and matches by name
+        const filterGlobalGood = globalGoods.find(gg => gg.id === globalGoodFilter);
+        if (filterGlobalGood && (good.name === filterGlobalGood.name || good.id === filterGlobalGood.name)) {
+          return true;
+        }
+        return false;
+      }));
     
     // Standard filter
     const matchesStandard = standardFilter === "all" || 
@@ -173,6 +223,7 @@ export default function UseCasesPage() {
         globalGoods={globalGoods}
         classifications={classifications}
         standards={standards}
+        sdgData={sdgData}
         availableFilterOptions={availableFilterOptions}
       />
 

@@ -38,6 +38,7 @@ interface NewUseCasesFilterBarProps {
   globalGoods?: any[];
   classifications?: any[];
   standards?: any[];
+  sdgData?: any[];
   availableFilterOptions?: AvailableFilterOptions;
 }
 
@@ -58,15 +59,15 @@ export function NewUseCasesFilterBar({
   globalGoods = [],
   classifications = [],
   standards = [],
+  sdgData = [],
   availableFilterOptions
 }: NewUseCasesFilterBarProps) {
   const { getText } = useI18n();
   
-  // Get unique values for filters with validation to prevent empty strings
-  const sdgOptions = [...new Set(classifications
-    .filter(c => c.code && c.code.startsWith('SDG') && c.code.trim() !== '')
-    .map(c => c.code)
-  )];
+  // Get SDG options from the loaded SDG data
+  const sdgOptions = sdgData
+    .filter(sdg => sdg.code && sdg.code.trim() !== '')
+    .map(sdg => ({ code: sdg.code, title: sdg.title }));
   
   const whoOptions = [...new Set(classifications
     .filter(c => c.authority === 'WHO' && c.code && c.code.trim() !== '')
@@ -85,6 +86,14 @@ export function NewUseCasesFilterBar({
 
   const hasActiveFilters = sdgFilter !== "all" || whoSystemFilter !== "all" || wmoFilter !== "all" || 
                           globalGoodFilter !== "all" || standardFilter !== "all" || searchTerm !== "";
+
+  console.log('Filter options:', {
+    sdgOptions: sdgOptions.length,
+    whoOptions: whoOptions.length,
+    wmoOptions: wmoOptions.length,
+    globalGoods: globalGoods.length,
+    standards: standardOptions.length
+  });
 
   return (
     <div className="bg-card shadow-sm rounded-lg p-6 mb-8 space-y-4">
@@ -108,14 +117,14 @@ export function NewUseCasesFilterBar({
           <SelectContent>
             <SelectItem value="all">All SDGs</SelectItem>
             {sdgOptions.map(sdg => {
-              const isAvailable = availableFilterOptions?.sdgs.has(sdg);
+              const isAvailable = availableFilterOptions?.sdgs.has(sdg.code);
               return (
                 <SelectItem 
-                  key={sdg} 
-                  value={sdg}
+                  key={sdg.code} 
+                  value={sdg.code}
                   className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
                 >
-                  {sdg}
+                  {sdg.title}
                 </SelectItem>
               );
             })}
@@ -175,8 +184,7 @@ export function NewUseCasesFilterBar({
             {globalGoods
               .filter(good => good.id && good.id.trim() !== '')
               .map(good => {
-                const isAvailable = availableFilterOptions?.globalGoods.has(good.id) || 
-                                  availableFilterOptions?.globalGoods.has(good.name);
+                const isAvailable = availableFilterOptions?.globalGoods.has(good.id);
                 return (
                   <SelectItem 
                     key={good.id} 
@@ -224,7 +232,7 @@ export function NewUseCasesFilterBar({
             )}
             {sdgFilter !== "all" && (
               <Badge variant="secondary" className="flex items-center gap-1">
-                SDG: {sdgFilter}
+                SDG: {sdgData.find(s => s.code === sdgFilter)?.title || sdgFilter}
                 <X className="h-3 w-3 cursor-pointer" onClick={() => setSdgFilter("all")} />
               </Badge>
             )}
