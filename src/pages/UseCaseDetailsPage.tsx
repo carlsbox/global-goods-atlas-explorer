@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle, Link as LinkIcon } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle2, Link as LinkIcon, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -107,7 +107,7 @@ export default function UseCaseDetailsPage() {
             <CardContent className="pt-0">
               <div className="bg-white/50 rounded-lg p-6 border">
                 <h3 className="text-xl font-semibold mb-3 flex items-center">
-                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  <CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
                   Executive Summary
                 </h3>
                 {renderMarkdown(purpose)}
@@ -243,7 +243,7 @@ export default function UseCaseDetailsPage() {
               Technical Details
             </h2>
 
-            {/* Card 1: Associated Global Goods */}
+            {/* Card 1: Associated Global Goods - Compact Layout */}
             {useCase.global_goods && useCase.global_goods.length > 0 && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
@@ -253,15 +253,39 @@ export default function UseCaseDetailsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
+                  <div className="grid gap-2">
                     {useCase.global_goods.map((good, index) => (
-                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                        <h4 className="font-medium text-green-800">{good.name}</h4>
-                        <Link to={good.url} className="text-sm text-green-600 hover:text-green-800 flex items-center mt-1">
-                          <LinkIcon className="h-3 w-3 mr-1" />
-                          View Details
-                        </Link>
-                      </div>
+                      <Dialog key={index}>
+                        <DialogTrigger asChild>
+                          <div className="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors cursor-pointer">
+                            <span className="font-medium text-green-800">{good.name}</span>
+                            <ExternalLink className="h-4 w-4 text-green-600" />
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-md">
+                          <DialogHeader>
+                            <DialogTitle className="text-green-800">{good.name}</DialogTitle>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <p className="text-sm text-muted-foreground">
+                              This global good is associated with the current use case implementation.
+                            </p>
+                            <div className="flex gap-2">
+                              <Button asChild size="sm" className="flex-1">
+                                <Link to={good.url} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink className="h-3 w-3 mr-1" />
+                                  View Details
+                                </Link>
+                              </Button>
+                              <Button asChild variant="outline" size="sm" className="flex-1">
+                                <Link to={`/global-goods/${good.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                                  Open in App
+                                </Link>
+                              </Button>
+                            </div>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     ))}
                   </div>
                 </CardContent>
