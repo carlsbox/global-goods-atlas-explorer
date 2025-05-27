@@ -15,7 +15,6 @@ interface EnhancedGlobalGoodCardProps {
 export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
   const countryCount = good.Reach?.ImplementationCountries?.length || 0;
   const sectors = good.GlobalGoodsType?.map(type => type.title) || [];
-  const sdgs = good.Classifications?.SDGs || [];
 
   return (
     <Link to={`/global-goods/${good.ID}`}>
@@ -61,22 +60,6 @@ export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
                 </Badge>
               )}
             </div>
-
-            {/* SDGs */}
-            {sdgs.length > 0 && (
-              <div className="flex flex-wrap gap-1 mb-4">
-                {sdgs.slice(0, 3).map((sdg) => (
-                  <Badge key={sdg.code} variant="outline" className="text-xs px-1.5 py-0.5">
-                    {sdg.code.replace('SDG-', '')}
-                  </Badge>
-                ))}
-                {sdgs.length > 3 && (
-                  <Badge variant="outline" className="text-xs px-1.5 py-0.5">
-                    +{sdgs.length - 3}
-                  </Badge>
-                )}
-              </div>
-            )}
             
             {/* Footer Stats */}
             <div className="flex items-center justify-between text-sm text-muted-foreground pt-2 border-t">
