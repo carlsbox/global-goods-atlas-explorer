@@ -153,9 +153,9 @@ export const useGlobalGoodHybrid = (id: string | undefined) => {
         summary: flatData.ProductOverview?.Summary || '',
         description: flatData.ProductOverview?.Description || '',
         logo: flatData.Logo || '',
-        website: flatData.Website || '',
-        sectors: flatData.GlobalGoodsType || [],
-        countries: flatData.Reach?.ImplementationCountries || [],
+        website: flatData.Website?.main?.url || '',
+        sectors: flatData.GlobalGoodsType?.map(type => type.code || type.title) || [],
+        countries: flatData.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
         lastUpdated: new Date().toISOString(),
         // Add other required fields with defaults
         sdgs: [],

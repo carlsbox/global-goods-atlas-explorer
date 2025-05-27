@@ -1,3 +1,4 @@
+
 import { GlobalGood } from "@/lib/types";
 import { TableRow, TableCell } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -53,16 +54,16 @@ export function GlobalGoodRow({ good, isSelected, onToggleSelect }: GlobalGoodRo
       </TableCell>
       <TableCell className="hidden md:table-cell">
         <div className="flex flex-wrap gap-1">
-          {good.sector.slice(0, 2).map(sector => (
+          {good.sectors?.slice(0, 2).map(sector => (
             <Badge key={sector} variant="outline">{sector}</Badge>
           ))}
-          {good.sector.length > 2 && (
-            <Badge variant="outline">+{good.sector.length - 2}</Badge>
+          {good.sectors && good.sectors.length > 2 && (
+            <Badge variant="outline">+{good.sectors.length - 2}</Badge>
           )}
         </div>
       </TableCell>
       <TableCell className="hidden lg:table-cell">
-        {good.countries.length > 0 
+        {good.countries && good.countries.length > 0 
           ? `${good.countries.length} countries` 
           : "Not specified"}
       </TableCell>

@@ -45,7 +45,7 @@ export function CountryDetails({
                   {getText(good.name)}
                 </div>
                 <div className="ml-auto flex gap-1">
-                  {good.sector?.slice(0, 1).map(sector => (
+                  {good.sectors?.slice(0, 1).map(sector => (
                     <Badge key={sector} variant="secondary" className="text-xs">
                       {sector}
                     </Badge>

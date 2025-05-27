@@ -128,32 +128,32 @@ export default function HomePage() {
               <p>{t('common.loading')}</p>
             ) : (
               globalGoods?.slice(0, 3).map((good) => (
-                <Link to={`/global-goods/${good.id}`} key={good.id}>
+                <Link to={`/global-goods/${good.ID}`} key={good.ID}>
                   <Card className="transition-all hover:shadow-md">
                     <CardContent className="pt-6">
                       <div className="flex flex-col h-full">
                         <div className="flex items-center mb-4">
-                          {good.logo ? (
+                          {good.Logo ? (
                             <img 
-                              src={good.logo} 
-                              alt={getText(good.name)} 
+                              src={good.Logo} 
+                              alt={good.Name} 
                               className="h-10 w-10 mr-3"
                             />
                           ) : (
                             <div className="h-10 w-10 bg-primary/10 rounded-full mr-3" />
                           )}
-                          <h3 className="font-semibold">{getText(good.name)}</h3>
+                          <h3 className="font-semibold">{good.Name}</h3>
                         </div>
                         <p className="text-muted-foreground text-sm mb-4 flex-1">
-                          {getText(good.description)}
+                          {good.ProductOverview?.Description || good.ProductOverview?.Summary || ''}
                         </p>
                         <div className="flex flex-wrap gap-1 mt-auto">
-                          {good.sectors?.slice(0, 2).map(sector => (
+                          {good.GlobalGoodsType?.slice(0, 2).map(type => (
                             <span 
-                              key={sector}
+                              key={type.code || type.title}
                               className="text-xs bg-secondary px-2 py-1 rounded-full"
                             >
-                              {sector}
+                              {type.title || type.code}
                             </span>
                           ))}
                         </div>

@@ -50,7 +50,24 @@ export default function MapPage() {
         good.Reach?.ImplementationCountries?.some(country => 
           country.iso_code === selectedCountryCode
         )
-      )
+      ).map(good => ({
+        id: good.ID,
+        name: good.Name,
+        summary: good.ProductOverview?.Summary || '',
+        description: good.ProductOverview?.Description || '',
+        logo: good.Logo,
+        sectors: good.GlobalGoodsType?.map(type => type.code || type.title) || [],
+        countries: good.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
+        lastUpdated: new Date().toISOString(),
+        sdgs: [],
+        classifications: [],
+        standards: [],
+        maturity: {},
+        technical: {},
+        licensing: {},
+        community: {},
+        sustainability: {}
+      }))
     : [];
 
   // Get selected country name
@@ -67,18 +84,62 @@ export default function MapPage() {
     setSelectedCountryCode(code);
   };
 
+  // Convert selected good to GlobalGood format for components
+  const selectedGoodAsGlobalGood = selectedGood ? {
+    id: selectedGood.ID,
+    name: selectedGood.Name,
+    summary: selectedGood.ProductOverview?.Summary || '',
+    description: selectedGood.ProductOverview?.Description || '',
+    logo: selectedGood.Logo,
+    sectors: selectedGood.GlobalGoodsType?.map(type => type.code || type.title) || [],
+    countries: selectedGood.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
+    lastUpdated: new Date().toISOString(),
+    sdgs: [],
+    classifications: [],
+    standards: [],
+    maturity: {},
+    technical: {},
+    licensing: {},
+    community: {},
+    sustainability: {}
+  } : null;
+
   return (
     <div className="grid grid-cols-12 gap-0 h-[calc(100vh-8rem)]">
       {/* Left sidebar */}
       <GlobalGoodsSidebar 
-        globalGoods={globalGoods} 
-        selectedGood={selectedGood}
-        onSelectGood={handleSelectGood}
+        globalGoods={globalGoods.map(good => ({
+          id: good.ID,
+          name: good.Name,
+          summary: good.ProductOverview?.Summary || '',
+          description: good.ProductOverview?.Description || '',
+          logo: good.Logo,
+          sectors: good.GlobalGoodsType?.map(type => type.code || type.title) || [],
+          countries: good.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
+          lastUpdated: new Date().toISOString(),
+          sdgs: [],
+          classifications: [],
+          standards: [],
+          maturity: {},
+          technical: {},
+          licensing: {},
+          community: {},
+          sustainability: {}
+        }))} 
+        selectedGood={selectedGoodAsGlobalGood}
+        onSelectGood={(good) => {
+          if (good) {
+            const flatGood = globalGoods.find(g => g.ID === good.id);
+            setSelectedGood(flatGood || null);
+          } else {
+            setSelectedGood(null);
+          }
+        }}
       />
       
       {/* Main map area */}
       <MapDisplay 
-        selectedGood={selectedGood}
+        selectedGood={selectedGoodAsGlobalGood}
         selectedCountryName={selectedCountryName}
         selectedGoodCountries={selectedGoodCountries}
         onSelectCountry={handleSelectCountry}
@@ -87,9 +148,9 @@ export default function MapPage() {
       
       {/* Right sidebar - details */}
       <div className="col-span-12 md:col-span-3 lg:col-span-3 bg-card border-l overflow-y-auto">
-        {selectedGood ? (
+        {selectedGoodAsGlobalGood ? (
           <GlobalGoodDetails
-            globalGood={selectedGood}
+            globalGood={selectedGoodAsGlobalGood}
             selectedCountryCode={selectedCountryCode}
             countries={countries}
             onSelectCountry={handleSelectCountry}
@@ -98,7 +159,10 @@ export default function MapPage() {
           <CountryDetails
             countryName={selectedCountryName || ''}
             countryGoods={selectedCountryGoods}
-            onSelectGood={setSelectedGood}
+            onSelectGood={(good) => {
+              const flatGood = globalGoods.find(g => g.ID === good.id);
+              setSelectedGood(flatGood || null);
+            }}
           />
         ) : (
           <EmptyDetails />

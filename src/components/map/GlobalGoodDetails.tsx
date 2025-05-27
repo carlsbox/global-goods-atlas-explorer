@@ -21,7 +21,7 @@ export function GlobalGoodDetails({
   const { getText } = useI18n();
   
   // Get countries for the selected global good
-  const selectedGoodCountries = globalGood.countries
+  const selectedGoodCountries = (globalGood.countries || [])
     .map(code => countries.find(c => c.code === code))
     .filter(Boolean) as CountryData[];
   
@@ -66,7 +66,7 @@ export function GlobalGoodDetails({
         </div>
         
         <div className="flex flex-wrap gap-2">
-          {globalGood.sector?.map(sector => (
+          {globalGood.sectors?.map(sector => (
             <Badge key={sector} variant="secondary" className="text-xs">
               {sector}
             </Badge>
