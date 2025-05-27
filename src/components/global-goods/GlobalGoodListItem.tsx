@@ -56,29 +56,29 @@ export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
                 {good.ProductOverview?.Summary || good.ProductOverview?.Description}
               </p>
 
-              {/* Metadata Row */}
+              {/* Metadata Row - Countries and Sectors */}
               <div className="flex flex-wrap items-center gap-4 mb-3">
                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                   <Globe className="h-4 w-4" />
                   <span>{countryCount} {countryCount === 1 ? 'country' : 'countries'}</span>
                 </div>
+                
+                {/* Sectors inline */}
+                {sectors.length > 0 && (
+                  <div className="flex flex-wrap gap-1">
+                    {sectors.slice(0, 2).map((sector) => (
+                      <Badge key={sector} variant="secondary" className="text-xs">
+                        {sector}
+                      </Badge>
+                    ))}
+                    {sectors.length > 2 && (
+                      <Badge variant="outline" className="text-xs">
+                        +{sectors.length - 2} sectors
+                      </Badge>
+                    )}
+                  </div>
+                )}
               </div>
-
-              {/* Sectors */}
-              {sectors.length > 0 && (
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {sectors.slice(0, 3).map((sector) => (
-                    <Badge key={sector} variant="secondary" className="text-xs">
-                      {sector}
-                    </Badge>
-                  ))}
-                  {sectors.length > 3 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{sectors.length - 3} sectors
-                    </Badge>
-                  )}
-                </div>
-              )}
 
               {/* Website and License */}
               {(website || license) && (
@@ -86,7 +86,7 @@ export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
                   {website && (
                     <Badge variant="outline" className="text-xs flex items-center gap-1">
                       <ExternalLink className="h-3 w-3" />
-                      Website
+                      {website.url}
                     </Badge>
                   )}
                   {license && (
