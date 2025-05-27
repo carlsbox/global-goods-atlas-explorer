@@ -51,40 +51,52 @@ export default function GlobalGoodsPageFlat() {
   }
 
   return (
-    <>
-      <div className="max-w-4xl mx-auto mb-12 text-center">
-        <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
-        <p className="text-xl text-muted-foreground">
-          {tPage('catalogDescription', 'globalGoods')}
-        </p>
-      </div>
-      
-      <FilterBar 
-        sectors={sectors}
-        searchTerm={searchTerm}
-        sectorFilter={sectorFilter}
-        setSearchTerm={setSearchTerm}
-        setSectorFilter={setSectorFilter}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header Section */}
+        <div className="max-w-4xl mx-auto mb-12 text-center">
+          <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
+          <p className="text-xl text-muted-foreground">
+            {tPage('catalogDescription', 'globalGoods')}
+          </p>
+        </div>
+        
+        {/* Sticky Filter Section */}
+        <div className="sticky top-4 z-10 mb-8">
+          <FilterBar 
+            sectors={sectors}
+            searchTerm={searchTerm}
+            sectorFilter={sectorFilter}
+            setSearchTerm={setSearchTerm}
+            setSectorFilter={setSectorFilter}
+          />
+        </div>
 
-      <div className="mb-4">
-        <p className="text-muted-foreground">
-          {tPage('showing', 'globalGoods', { 
-            filtered: filteredGoods.length, 
-            total: globalGoods.length 
-          })}
-        </p>
+        {/* Results Summary */}
+        <div className="bg-card rounded-lg border p-4 mb-6 shadow-sm">
+          <p className="text-muted-foreground">
+            {tPage('showing', 'globalGoods', { 
+              filtered: filteredGoods.length, 
+              total: globalGoods.length 
+            })}
+          </p>
+        </div>
+        
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredGoods.map((good) => (
+            <GlobalGoodCardFlat key={good.ID} good={good} />
+          ))}
+        </div>
+        
+        {/* No Results */}
+        {filteredGoods.length === 0 && (
+          <div className="mt-12">
+            <NoResults onClearFilters={handleClearFilters} />
+          </div>
+        )}
       </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredGoods.map((good) => (
-          <GlobalGoodCardFlat key={good.ID} good={good} />
-        ))}
-      </div>
-      
-      {filteredGoods.length === 0 && (
-        <NoResults onClearFilters={handleClearFilters} />
-      )}
-    </>
+    </div>
   );
 }
