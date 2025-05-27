@@ -39,102 +39,106 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
   };
 
   return (
-    <Card className="h-full transition-all hover:shadow-md overflow-hidden">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between mb-2">
-          <CardTitle className="text-lg leading-tight">{useCase.title}</CardTitle>
-          <Circle className="h-5 w-5 text-primary flex-shrink-0 ml-2" />
+    <Card className="h-full flex flex-col transition-all hover:shadow-md overflow-hidden">
+      <CardHeader className="pb-3 flex-shrink-0">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <CardTitle className="text-lg leading-tight line-clamp-2 flex-1">
+            {useCase.title}
+          </CardTitle>
+          <Circle className="h-5 w-5 text-primary flex-shrink-0" />
         </div>
         
         {/* Classification badges */}
-        <div className="flex flex-wrap gap-1 mb-3">
+        <div className="flex flex-wrap gap-1">
           {useCase.classifications?.sdg && (
             <ClassificationBadge 
               code={useCase.classifications.sdg} 
             />
           )}
           {useCase.classifications?.who_system && (
-            <Badge variant="outline" className="text-xs">
-              WHO: {getClassificationInfo(useCase.classifications.who_system)?.title || useCase.classifications.who_system}
-            </Badge>
+            <ClassificationBadge 
+              code={useCase.classifications.who_system} 
+            />
           )}
           {useCase.classifications?.wmo_category && (
-            <Badge variant="outline" className="text-xs">
-              WMO: {getClassificationInfo(useCase.classifications.wmo_category)?.title || useCase.classifications.wmo_category}
-            </Badge>
+            <ClassificationBadge 
+              code={useCase.classifications.wmo_category} 
+            />
           )}
         </div>
       </CardHeader>
 
-      <CardContent className="pt-0">
-        {/* Purpose preview */}
-        <p className="text-sm text-muted-foreground line-clamp-3 mb-4 min-h-[4.5rem]">
-          {useCase.purpose || useCase.description}
-        </p>
-        
-        {/* Actors */}
-        {actorTypes.length > 0 && (
-          <div className="mb-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Users className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">Key Actors:</span>
+      <CardContent className="pt-0 flex-1 flex flex-col">
+        <div className="flex-1 space-y-4">
+          {/* Purpose preview */}
+          <p className="text-sm text-muted-foreground line-clamp-3">
+            {useCase.purpose || useCase.description}
+          </p>
+          
+          {/* Actors */}
+          {actorTypes.length > 0 && (
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Users className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium">Key Actors</span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {actorTypes.map((actor, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs truncate max-w-[120px]">
+                    {actor}
+                  </Badge>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-1">
-              {actorTypes.map((actor, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
-                  {actor}
-                </Badge>
-              ))}
+          )}
+          
+          {/* Global Goods */}
+          {usedGoodsNames.length > 0 && (
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Globe className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium">Global Goods</span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {usedGoodsNames.slice(0, 2).map((name, index) => (
+                  <Badge key={index} className="text-xs truncate max-w-[100px]">
+                    {name}
+                  </Badge>
+                ))}
+                {usedGoodsNames.length > 2 && (
+                  <Badge variant="outline" className="text-xs">
+                    +{usedGoodsNames.length - 2}
+                  </Badge>
+                )}
+              </div>
             </div>
-          </div>
-        )}
-        
-        {/* Global Goods */}
-        {usedGoodsNames.length > 0 && (
-          <div className="mb-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Globe className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">Global Goods:</span>
-            </div>
-            <div className="flex flex-wrap gap-1">
-              {usedGoodsNames.slice(0, 3).map((name, index) => (
-                <Badge key={index} className="text-xs">
-                  {name}
-                </Badge>
-              ))}
-              {usedGoodsNames.length > 3 && (
-                <Badge variant="outline" className="text-xs">
-                  +{usedGoodsNames.length - 3} more
-                </Badge>
-              )}
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* Standards */}
-        {useCase.standards && useCase.standards.length > 0 && (
-          <div className="mb-4">
-            <div className="flex items-center gap-2 mb-2">
-              <Settings className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">Standards:</span>
+          {/* Standards */}
+          {useCase.standards && useCase.standards.length > 0 && (
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Settings className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm font-medium">Standards</span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {useCase.standards.slice(0, 2).map((standard, index) => (
+                  <Badge key={index} variant="outline" className="text-xs truncate max-w-[100px]">
+                    {standard.name}
+                  </Badge>
+                ))}
+                {useCase.standards.length > 2 && (
+                  <Badge variant="outline" className="text-xs">
+                    +{useCase.standards.length - 2}
+                  </Badge>
+                )}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-1">
-              {useCase.standards.slice(0, 2).map((standard, index) => (
-                <Badge key={index} variant="outline" className="text-xs">
-                  {standard.name}
-                </Badge>
-              ))}
-              {useCase.standards.length > 2 && (
-                <Badge variant="outline" className="text-xs">
-                  +{useCase.standards.length - 2} more
-                </Badge>
-              )}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
         
-        {/* Action button */}
-        <div className="flex justify-end mt-4 pt-4 border-t">
+        {/* Action button - pinned to bottom */}
+        <div className="flex justify-end mt-4 pt-4 border-t flex-shrink-0">
           <Button asChild size="sm">
             <Link to={`/use-cases/${useCase.id}`} className="flex items-center">
               View Details <ArrowRight className="ml-1 h-3 w-3" />
