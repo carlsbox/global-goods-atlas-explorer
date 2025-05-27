@@ -6,7 +6,7 @@ import {
   CardContent 
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, Globe, Users, Calendar } from "lucide-react";
+import { ArrowUpRight, Globe } from "lucide-react";
 
 interface EnhancedGlobalGoodCardProps {
   good: GlobalGoodFlat;
@@ -69,29 +69,12 @@ export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
             
             {/* Footer Stats */}
             <div className="flex items-center justify-between text-sm text-muted-foreground pt-2 border-t mt-auto">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1">
-                  <Globe className="h-3 w-3" />
-                  <span className="text-xs">
-                    {countryCount} {countryCount === 1 ? 'country' : 'countries'}
-                  </span>
-                </div>
-                {good.Community?.SizeOfCommunity && (
-                  <div className="flex items-center gap-1">
-                    <Users className="h-3 w-3" />
-                    <span className="text-xs">
-                      {good.Community.SizeOfCommunity.toLocaleString()}
-                    </span>
-                  </div>
-                )}
+              <div className="flex items-center gap-1">
+                <Globe className="h-3 w-3" />
+                <span className="text-xs">
+                  {countryCount} {countryCount === 1 ? 'country' : 'countries'}
+                </span>
               </div>
-              
-              {good.Community?.InceptionYear && (
-                <div className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
-                  <span className="text-xs">{good.Community.InceptionYear}</span>
-                </div>
-              )}
             </div>
           </div>
         </CardContent>
