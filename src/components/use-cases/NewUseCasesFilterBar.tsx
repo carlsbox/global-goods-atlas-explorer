@@ -13,6 +13,14 @@ import {
 import { useI18n } from "@/hooks/useI18n";
 import { Badge } from "@/components/ui/badge";
 
+interface AvailableFilterOptions {
+  sdgs: Set<string>;
+  whoSystems: Set<string>;
+  wmoCategories: Set<string>;
+  globalGoods: Set<string>;
+  standards: Set<string>;
+}
+
 interface NewUseCasesFilterBarProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
@@ -30,6 +38,7 @@ interface NewUseCasesFilterBarProps {
   globalGoods?: any[];
   classifications?: any[];
   standards?: any[];
+  availableFilterOptions?: AvailableFilterOptions;
 }
 
 export function NewUseCasesFilterBar({
@@ -48,7 +57,8 @@ export function NewUseCasesFilterBar({
   onClearAllFilters,
   globalGoods = [],
   classifications = [],
-  standards = []
+  standards = [],
+  availableFilterOptions
 }: NewUseCasesFilterBarProps) {
   const { getText } = useI18n();
   
@@ -97,11 +107,18 @@ export function NewUseCasesFilterBar({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All SDGs</SelectItem>
-            {sdgOptions.map(sdg => (
-              <SelectItem key={sdg} value={sdg}>
-                {sdg}
-              </SelectItem>
-            ))}
+            {sdgOptions.map(sdg => {
+              const isAvailable = availableFilterOptions?.sdgs.has(sdg);
+              return (
+                <SelectItem 
+                  key={sdg} 
+                  value={sdg}
+                  className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
+                >
+                  {sdg}
+                </SelectItem>
+              );
+            })}
           </SelectContent>
         </Select>
 
@@ -113,8 +130,13 @@ export function NewUseCasesFilterBar({
             <SelectItem value="all">All WHO Systems</SelectItem>
             {whoOptions.map(who => {
               const classification = classifications.find(c => c.code === who);
+              const isAvailable = availableFilterOptions?.whoSystems.has(who);
               return (
-                <SelectItem key={who} value={who}>
+                <SelectItem 
+                  key={who} 
+                  value={who}
+                  className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
+                >
                   {classification?.title || who}
                 </SelectItem>
               );
@@ -130,8 +152,13 @@ export function NewUseCasesFilterBar({
             <SelectItem value="all">All WMO Categories</SelectItem>
             {wmoOptions.map(wmo => {
               const classification = classifications.find(c => c.code === wmo);
+              const isAvailable = availableFilterOptions?.wmoCategories.has(wmo);
               return (
-                <SelectItem key={wmo} value={wmo}>
+                <SelectItem 
+                  key={wmo} 
+                  value={wmo}
+                  className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
+                >
                   {classification?.title || wmo}
                 </SelectItem>
               );
@@ -147,11 +174,19 @@ export function NewUseCasesFilterBar({
             <SelectItem value="all">All Global Goods</SelectItem>
             {globalGoods
               .filter(good => good.id && good.id.trim() !== '')
-              .map(good => (
-                <SelectItem key={good.id} value={good.id}>
-                  {getText(good.name)}
-                </SelectItem>
-              ))}
+              .map(good => {
+                const isAvailable = availableFilterOptions?.globalGoods.has(good.id) || 
+                                  availableFilterOptions?.globalGoods.has(good.name);
+                return (
+                  <SelectItem 
+                    key={good.id} 
+                    value={good.id}
+                    className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
+                  >
+                    {getText(good.name)}
+                  </SelectItem>
+                );
+              })}
           </SelectContent>
         </Select>
 
@@ -161,11 +196,18 @@ export function NewUseCasesFilterBar({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Standards</SelectItem>
-            {standardOptions.map(standard => (
-              <SelectItem key={standard} value={standard}>
-                {standard}
-              </SelectItem>
-            ))}
+            {standardOptions.map(standard => {
+              const isAvailable = availableFilterOptions?.standards.has(standard);
+              return (
+                <SelectItem 
+                  key={standard} 
+                  value={standard}
+                  className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
+                >
+                  {standard}
+                </SelectItem>
+              );
+            })}
           </SelectContent>
         </Select>
       </div>

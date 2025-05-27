@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useUseCases, useGlobalGoods } from "@/lib/api";
 import { NewUseCaseCard } from "@/components/use-cases/NewUseCaseCard";
@@ -30,7 +31,7 @@ export default function UseCasesPage() {
     const loadData = async () => {
       try {
         const [classificationsData, standardsData] = await Promise.all([
-          loadClassificationsData(language), // Pass language parameter
+          loadClassificationsData(language),
           loadStandardsData()
         ]);
         setClassifications(classificationsData || []);
@@ -41,6 +42,55 @@ export default function UseCasesPage() {
     };
     loadData();
   }, [language]);
+
+  // Calculate which filter options have associated use cases
+  const availableFilterOptions = useMemo(() => {
+    const availableSdgs = new Set<string>();
+    const availableWhoSystems = new Set<string>();
+    const availableWmoCategories = new Set<string>();
+    const availableGlobalGoods = new Set<string>();
+    const availableStandards = new Set<string>();
+
+    useCases.forEach(useCase => {
+      // SDG availability
+      if (useCase.classifications?.sdg) {
+        availableSdgs.add(useCase.classifications.sdg);
+      }
+      
+      // WHO system availability
+      if (useCase.classifications?.who_system) {
+        availableWhoSystems.add(useCase.classifications.who_system);
+      }
+      
+      // WMO category availability
+      if (useCase.classifications?.wmo_category) {
+        availableWmoCategories.add(useCase.classifications.wmo_category);
+      }
+      
+      // Global goods availability
+      if (useCase.global_goods) {
+        useCase.global_goods.forEach(good => {
+          if (good.id) availableGlobalGoods.add(good.id);
+          if (good.name) availableGlobalGoods.add(good.name); // Legacy support
+        });
+      }
+      
+      // Standards availability
+      if (useCase.standards) {
+        useCase.standards.forEach(standard => {
+          if (standard.code) availableStandards.add(standard.code);
+        });
+      }
+    });
+
+    return {
+      sdgs: availableSdgs,
+      whoSystems: availableWhoSystems,
+      wmoCategories: availableWmoCategories,
+      globalGoods: availableGlobalGoods,
+      standards: availableStandards
+    };
+  }, [useCases]);
   
   // Update URL when filters change
   useEffect(() => {
@@ -123,6 +173,7 @@ export default function UseCasesPage() {
         globalGoods={globalGoods}
         classifications={classifications}
         standards={standards}
+        availableFilterOptions={availableFilterOptions}
       />
 
       {useCasesLoading || globalGoodsLoading ? (
