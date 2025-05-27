@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { UseCase } from "./types/useCase";
 import { CountryData } from "./types/country";
 import { Classification } from "./types/classifications";
@@ -12,6 +12,7 @@ import {
 } from "./dataLoader";
 import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodFlat } from "./types/globalGoodFlat";
+import { GlobalGood } from "./types";
 
 // Fetch global goods data
 export const useGlobalGoods = () => {
@@ -133,8 +134,81 @@ export const useDeleteGlobalGood = () => {
   };
 };
 
+// Add the missing hybrid hooks
+export const useGlobalGoodHybrid = (id: string | undefined) => {
+  const { language } = useI18n();
+  
+  return useQuery({
+    queryKey: ['globalGoodHybrid', id, language],
+    queryFn: async (): Promise<GlobalGood | undefined> => {
+      if (!id) return undefined;
+      // For now, use the flat loader and convert to GlobalGood format
+      const flatData = await loadGlobalGoodFlat(id);
+      if (!flatData) return undefined;
+      
+      // Convert GlobalGoodFlat to GlobalGood format
+      return {
+        id: flatData.ID,
+        name: flatData.Name,
+        summary: flatData.ProductOverview?.Summary || '',
+        description: flatData.ProductOverview?.Description || '',
+        logo: flatData.Logo || '',
+        website: flatData.Website || '',
+        sectors: flatData.GlobalGoodsType || [],
+        countries: flatData.Reach?.ImplementationCountries || [],
+        lastUpdated: new Date().toISOString(),
+        // Add other required fields with defaults
+        sdgs: [],
+        classifications: [],
+        standards: [],
+        maturity: {},
+        technical: {},
+        licensing: {},
+        community: {},
+        sustainability: {}
+      } as GlobalGood;
+    },
+    enabled: !!id
+  });
+};
+
+export const useCreateGlobalGoodHybrid = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async (data: GlobalGood) => {
+      console.log('Creating global good (hybrid):', data);
+      // This is a mock implementation
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return { success: true, id: data.id };
+    },
+    onSuccess: () => {
+      // Invalidate and refetch global goods queries
+      queryClient.invalidateQueries({ queryKey: ['globalGoods'] });
+      queryClient.invalidateQueries({ queryKey: ['globalGoodsFlat'] });
+    }
+  });
+};
+
+export const useUpdateGlobalGoodHybrid = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async ({ id, data }: { id: string; data: GlobalGood }) => {
+      console.log('Updating global good (hybrid):', id, data);
+      // This is a mock implementation
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return { success: true, id };
+    },
+    onSuccess: (_, { id }) => {
+      // Invalidate and refetch global goods queries
+      queryClient.invalidateQueries({ queryKey: ['globalGoods'] });
+      queryClient.invalidateQueries({ queryKey: ['globalGoodsFlat'] });
+      queryClient.invalidateQueries({ queryKey: ['globalGoodHybrid', id] });
+    }
+  });
+};
+
 // Re-export the global good mutations from the hooks file
 // Instead of defining them again here, we just re-export them
 export { useCreateGlobalGood, useUpdateGlobalGood } from '@/hooks/useGlobalGoodMutations';
-
-
