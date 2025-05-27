@@ -18,6 +18,11 @@ export default function GlobalGoodsPageFlat() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedSDGs, setSelectedSDGs] = useState<string[]>([]);
   const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [selectedWHOClassifications, setSelectedWHOClassifications] = useState<string[]>([]);
+  const [selectedDPIClassifications, setSelectedDPIClassifications] = useState<string[]>([]);
+  const [selectedWMOClassifications, setSelectedWMOClassifications] = useState<string[]>([]);
+  const [selectedHealthStandards, setSelectedHealthStandards] = useState<string[]>([]);
+  const [selectedInteropStandards, setSelectedInteropStandards] = useState<string[]>([]);
   const [minMaturityScore, setMinMaturityScore] = useState(0);
   const { tPage } = useI18n();
   
@@ -27,6 +32,61 @@ export default function GlobalGoodsPageFlat() {
       good.GlobalGoodsType?.map(type => type.title) || []
     ))
   ).sort();
+
+  // Extract available filter options from the data
+  const availableFilterOptions = useMemo(() => {
+    const whoClassifications = new Set<string>();
+    const dpiClassifications = new Set<string>();
+    const wmoClassifications = new Set<string>();
+    const healthStandards = new Set<string>();
+    const interopStandards = new Set<string>();
+    const countries = new Set<string>();
+
+    globalGoods.forEach(good => {
+      // Extract WHO classifications
+      good.Classifications?.WHO?.forEach(classification => {
+        whoClassifications.add(classification.code);
+      });
+
+      // Extract DPI classifications
+      good.Classifications?.DPI?.forEach(classification => {
+        dpiClassifications.add(classification.code);
+      });
+
+      // Extract WMO classifications
+      good.Classifications?.WMO?.forEach(classification => {
+        wmoClassifications.add(classification.code);
+      });
+
+      // Extract health standards
+      good.StandardsAndInteroperability?.healthStandards?.forEach(standard => {
+        healthStandards.add(standard.code);
+      });
+
+      // Extract interoperability standards
+      good.StandardsAndInteroperability?.interoperability?.forEach(standard => {
+        interopStandards.add(standard.code);
+      });
+
+      // Extract implementation countries
+      good.Reach?.ImplementationCountries?.forEach(country => {
+        countries.add(country.name);
+      });
+    });
+
+    return {
+      classifications: {
+        who: Array.from(whoClassifications).sort(),
+        dpi: Array.from(dpiClassifications).sort(),
+        wmo: Array.from(wmoClassifications).sort()
+      },
+      standards: {
+        health: Array.from(healthStandards).sort(),
+        interop: Array.from(interopStandards).sort()
+      },
+      countries: Array.from(countries).sort()
+    };
+  }, [globalGoods]);
   
   // Filter and sort global goods
   const filteredAndSortedGoods = useMemo(() => {
@@ -44,6 +104,30 @@ export default function GlobalGoodsPageFlat() {
       const matchesSDGs = selectedSDGs.length === 0 || 
         selectedSDGs.some(sdg => goodSDGs.includes(sdg));
 
+      const goodWHOClassifications = good.Classifications?.WHO?.map(c => c.code) || [];
+      const matchesWHO = selectedWHOClassifications.length === 0 ||
+        selectedWHOClassifications.some(classification => goodWHOClassifications.includes(classification));
+
+      const goodDPIClassifications = good.Classifications?.DPI?.map(c => c.code) || [];
+      const matchesDPI = selectedDPIClassifications.length === 0 ||
+        selectedDPIClassifications.some(classification => goodDPIClassifications.includes(classification));
+
+      const goodWMOClassifications = good.Classifications?.WMO?.map(c => c.code) || [];
+      const matchesWMO = selectedWMOClassifications.length === 0 ||
+        selectedWMOClassifications.some(classification => goodWMOClassifications.includes(classification));
+
+      const goodHealthStandards = good.StandardsAndInteroperability?.healthStandards?.map(s => s.code) || [];
+      const matchesHealthStandards = selectedHealthStandards.length === 0 ||
+        selectedHealthStandards.some(standard => goodHealthStandards.includes(standard));
+
+      const goodInteropStandards = good.StandardsAndInteroperability?.interoperability?.map(s => s.code) || [];
+      const matchesInteropStandards = selectedInteropStandards.length === 0 ||
+        selectedInteropStandards.some(standard => goodInteropStandards.includes(standard));
+
+      const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.name) || [];
+      const matchesCountries = selectedCountries.length === 0 ||
+        selectedCountries.some(country => goodCountries.includes(country));
+
       const latestMaturity = good.Maturity?.Scores?.[good.Maturity.Scores.length - 1];
       const avgMaturityScore = latestMaturity ? 
         Math.round((latestMaturity.global_utility + latestMaturity.community_support + 
@@ -51,7 +135,9 @@ export default function GlobalGoodsPageFlat() {
                    latestMaturity.climate_resilience + latestMaturity.low_carbon) / 6) : 0;
       const matchesMaturity = avgMaturityScore >= minMaturityScore;
         
-      return matchesSearch && matchesSector && matchesSDGs && matchesMaturity;
+      return matchesSearch && matchesSector && matchesSDGs && matchesWHO && 
+             matchesDPI && matchesWMO && matchesHealthStandards && 
+             matchesInteropStandards && matchesCountries && matchesMaturity;
     });
 
     // Sort the filtered results
@@ -82,7 +168,9 @@ export default function GlobalGoodsPageFlat() {
     });
 
     return filtered;
-  }, [globalGoods, searchTerm, sectorFilter, selectedSDGs, minMaturityScore, sortBy]);
+  }, [globalGoods, searchTerm, sectorFilter, selectedSDGs, selectedCountries, 
+      selectedWHOClassifications, selectedDPIClassifications, selectedWMOClassifications,
+      selectedHealthStandards, selectedInteropStandards, minMaturityScore, sortBy]);
 
   // Clear filters handler
   const handleClearAllFilters = () => {
@@ -90,6 +178,11 @@ export default function GlobalGoodsPageFlat() {
     setSectorFilter("all");
     setSelectedSDGs([]);
     setSelectedCountries([]);
+    setSelectedWHOClassifications([]);
+    setSelectedDPIClassifications([]);
+    setSelectedWMOClassifications([]);
+    setSelectedHealthStandards([]);
+    setSelectedInteropStandards([]);
     setMinMaturityScore(0);
   };
 
@@ -123,6 +216,11 @@ export default function GlobalGoodsPageFlat() {
             viewMode={viewMode}
             selectedSDGs={selectedSDGs}
             selectedCountries={selectedCountries}
+            selectedWHOClassifications={selectedWHOClassifications}
+            selectedDPIClassifications={selectedDPIClassifications}
+            selectedWMOClassifications={selectedWMOClassifications}
+            selectedHealthStandards={selectedHealthStandards}
+            selectedInteropStandards={selectedInteropStandards}
             minMaturityScore={minMaturityScore}
             setSearchTerm={setSearchTerm}
             setSectorFilter={setSectorFilter}
@@ -130,8 +228,16 @@ export default function GlobalGoodsPageFlat() {
             setViewMode={setViewMode}
             setSelectedSDGs={setSelectedSDGs}
             setSelectedCountries={setSelectedCountries}
+            setSelectedWHOClassifications={setSelectedWHOClassifications}
+            setSelectedDPIClassifications={setSelectedDPIClassifications}
+            setSelectedWMOClassifications={setSelectedWMOClassifications}
+            setSelectedHealthStandards={setSelectedHealthStandards}
+            setSelectedInteropStandards={setSelectedInteropStandards}
             setMinMaturityScore={setMinMaturityScore}
             onClearFilters={handleClearAllFilters}
+            availableClassifications={availableFilterOptions.classifications}
+            availableStandards={availableFilterOptions.standards}
+            availableCountries={availableFilterOptions.countries}
           />
         </div>
 
