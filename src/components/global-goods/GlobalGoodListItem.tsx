@@ -1,14 +1,8 @@
 
 import { Link } from "react-router-dom";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
-import { ArrowUpRight } from "lucide-react";
-import { GlobalGoodHeader } from "./list-item/GlobalGoodHeader";
-import { GlobalGoodDescription } from "./list-item/GlobalGoodDescription";
-import { CountriesAndSectors } from "./list-item/CountriesAndSectors";
-import { WebsiteAndLicense } from "./list-item/WebsiteAndLicense";
-import { SDGBadges } from "./list-item/SDGBadges";
-import { ClassificationBadges } from "./list-item/ClassificationBadges";
-import { StandardsBadges } from "./list-item/StandardsBadges";
+import { ArrowUpRight, Globe } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface GlobalGoodListItemProps {
   good: GlobalGoodFlat;
@@ -16,62 +10,52 @@ interface GlobalGoodListItemProps {
 
 export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
   const countryCount = good.Reach?.ImplementationCountries?.length || 0;
-  const sectors = good.GlobalGoodsType?.map(type => type.title) || [];
-
-  // Extract badge data
-  const website = good.Website?.main;
-  const license = good.License;
-  const sdgs = good.Classifications?.SDGs || [];
-  const whoClassifications = good.Classifications?.WHO || [];
-  const dpiClassifications = good.Classifications?.DPI || [];
-  const wmoClassifications = good.Classifications?.WMO || [];
-  const healthStandards = good.StandardsAndInteroperability?.HealthStandards || [];
-  const interopStandards = good.StandardsAndInteroperability?.Interoperability || [];
+  const primarySector = good.GlobalGoodsType?.[0]?.title || '';
 
   return (
     <Link to={`/global-goods/${good.ID}`}>
-      <div className="bg-card hover:bg-accent/50 border rounded-lg p-4 transition-all hover:shadow-md hover:scale-[1.01] duration-200">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left Column - Main Content */}
-          <div className="flex items-start gap-4">
+      <div className="bg-card hover:bg-accent/50 border rounded-lg p-3 transition-all hover:shadow-md hover:scale-[1.01] duration-200">
+        <div className="flex items-center justify-between">
+          {/* Left side - Logo and basic info */}
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            {good.Logo ? (
+              <img 
+                src={good.Logo} 
+                alt={good.Name} 
+                className="h-8 w-8 rounded object-contain flex-shrink-0"
+              />
+            ) : (
+              <div className="h-8 w-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-semibold text-sm">
+                  {good.Name.charAt(0)}
+                </span>
+              </div>
+            )}
+            
             <div className="flex-1 min-w-0">
-              <GlobalGoodHeader name={good.Name} logo={good.Logo} />
-              
-              <GlobalGoodDescription 
-                summary={good.ProductOverview?.Summary}
-                description={good.ProductOverview?.Description}
-              />
-
-              <CountriesAndSectors 
-                countryCount={countryCount}
-                sectors={sectors}
-              />
-
-              <WebsiteAndLicense 
-                website={website}
-                license={license}
-              />
-
-              <SDGBadges sdgs={sdgs} />
+              <h3 className="font-semibold text-base leading-tight truncate">{good.Name}</h3>
+              <p className="text-sm text-muted-foreground truncate">
+                {good.ProductOverview?.Summary || good.ProductOverview?.Description || 'No description available'}
+              </p>
             </div>
           </div>
 
-          {/* Right Column - Classifications and Badges */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-end lg:justify-start">
-              <ArrowUpRight className="h-4 w-4 text-primary hidden lg:block" />
+          {/* Right side - Quick info and arrow */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Country count */}
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Globe className="h-3 w-3" />
+              <span>{countryCount}</span>
             </div>
-
-            <ClassificationBadges 
-              whoClassifications={whoClassifications}
-              dpiClassifications={dpiClassifications}
-              wmoClassifications={wmoClassifications}
-            />
-
-            <StandardsBadges 
-              healthStandards={healthStandards}
-              interopStandards={interopStandards}
-            />
+            
+            {/* Primary sector */}
+            {primarySector && (
+              <Badge variant="secondary" className="text-xs">
+                {primarySector}
+              </Badge>
+            )}
+            
+            <ArrowUpRight className="h-4 w-4 text-primary" />
           </div>
         </div>
       </div>
