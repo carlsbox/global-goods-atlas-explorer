@@ -9,6 +9,7 @@ interface GlobalGoodIndex {
   GlobalGoodsType?: Array<{
     code?: string;
     title?: string;
+    description?: string;
   }>;
   Countries?: string[];
 }
@@ -32,7 +33,6 @@ async function fetchGlobalGoodsIndex(): Promise<GlobalGoodIndex[]> {
 }
 
 async function fetchIndividualGlobalGood(id: string): Promise<GlobalGoodFlat | undefined> {
-  // Check cache first
   if (individualFileCache.has(id)) {
     return individualFileCache.get(id);
   }
@@ -45,7 +45,6 @@ async function fetchIndividualGlobalGood(id: string): Promise<GlobalGoodFlat | u
     }
     const data = await res.json();
     
-    // Cache the result
     individualFileCache.set(id, data);
     return data;
   } catch (err) {
@@ -61,14 +60,16 @@ export async function loadGlobalGoodFlat(id: string): Promise<GlobalGoodFlat | u
 export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
   const index = await fetchGlobalGoodsIndex();
   
-  // For the catalog view, we'll convert index entries to minimal GlobalGoodFlat objects
-  // This provides fast loading for listing pages
   return index.map(indexItem => ({
     ID: indexItem.ID,
     Name: indexItem.Name,
     Logo: indexItem.Logo,
     Website: {},
-    GlobalGoodsType: indexItem.GlobalGoodsType || [],
+    GlobalGoodsType: indexItem.GlobalGoodsType?.map(type => ({
+      code: type.code || '',
+      title: type.title || '',
+      description: type.description || ''
+    })) || [],
     License: { id: '', name: '', url: '', description: '' },
     Contact: [],
     Classifications: { SDGs: [], WHO: [], WMO: [], DPI: [] },
@@ -129,19 +130,15 @@ export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
   }));
 }
 
-// Enhanced function for getting full details with individual file loading
 export async function loadGlobalGoodFlatWithDetails(id: string): Promise<GlobalGoodFlat | undefined> {
-  // This will always load the individual file for complete data
   return await fetchIndividualGlobalGood(id);
 }
 
-// Function to preload multiple global goods (for performance optimization)
 export async function preloadGlobalGoods(ids: string[]): Promise<void> {
   const promises = ids.map(id => fetchIndividualGlobalGood(id));
   await Promise.allSettled(promises);
 }
 
-// Clear cache function (useful for development/testing)
 export function clearGlobalGoodsCache(): void {
   globalGoodsIndexCache = null;
   individualFileCache.clear();

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { Home, Package, FileText, Settings, Users, List, Wrench, LogOut } from 'lucide-react';
+import { Home, Package, FileText, Settings, Users, List, Wrench, LogOut, Tags } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import AdminLanguageSwitcher from './AdminLanguageSwitcher';
@@ -12,7 +12,6 @@ const AdminLayout = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Remove user info from localStorage
     localStorage.removeItem("cms_user");
     toast.success("You've been logged out successfully");
     navigate("/admin/login");
@@ -23,7 +22,7 @@ const AdminLayout = () => {
       {/* Sidebar */}
       <div className="w-64 bg-slate-800 text-white p-4">
         <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-xl font-bold">Admin Panel</h1>
           <AdminLanguageSwitcher />
         </div>
         
@@ -38,8 +37,8 @@ const AdminLayout = () => {
           </NavLink>
           
           <div className="pt-4">
-            <p className="px-3 pb-1 text-xs font-semibold text-slate-400 uppercase">Content</p>
-            <NavLink to="/admin/global-goods" className={({ isActive }) => 
+            <p className="px-3 pb-1 text-xs font-semibold text-slate-400 uppercase">Content Management</p>
+            <NavLink to="/admin/content/global-goods" className={({ isActive }) => 
               cn("flex items-center px-3 py-2 rounded-md transition-colors", 
                 isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
               )
@@ -48,16 +47,7 @@ const AdminLayout = () => {
               <span>Global Goods</span>
             </NavLink>
             
-            <NavLink to="/admin/global-goods/classifications" className={({ isActive }) => 
-              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
-                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
-              )
-            }>
-              <List className="mr-3 h-5 w-5" />
-              <span>Classifications</span>
-            </NavLink>
-            
-            <NavLink to="/admin/use-cases" className={({ isActive }) => 
+            <NavLink to="/admin/content/use-cases" className={({ isActive }) => 
               cn("flex items-center px-3 py-2 rounded-md transition-colors", 
                 isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
               )
@@ -68,7 +58,28 @@ const AdminLayout = () => {
           </div>
           
           <div className="pt-4">
-            <p className="px-3 pb-1 text-xs font-semibold text-slate-400 uppercase">Administration</p>
+            <p className="px-3 pb-1 text-xs font-semibold text-slate-400 uppercase">Reference Data</p>
+            <NavLink to="/admin/reference/classifications" className={({ isActive }) => 
+              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
+                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
+              )
+            }>
+              <Tags className="mr-3 h-5 w-5" />
+              <span>Classifications</span>
+            </NavLink>
+            
+            <NavLink to="/admin/reference/standards" className={({ isActive }) => 
+              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
+                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
+              )
+            }>
+              <List className="mr-3 h-5 w-5" />
+              <span>Standards</span>
+            </NavLink>
+          </div>
+          
+          <div className="pt-4">
+            <p className="px-3 pb-1 text-xs font-semibold text-slate-400 uppercase">System</p>
             <NavLink to="/admin/users" className={({ isActive }) => 
               cn("flex items-center px-3 py-2 rounded-md transition-colors", 
                 isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
@@ -78,15 +89,6 @@ const AdminLayout = () => {
               <span>Users</span>
             </NavLink>
             
-            <NavLink to="/admin/settings" className={({ isActive }) => 
-              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
-                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
-              )
-            }>
-              <Settings className="mr-3 h-5 w-5" />
-              <span>Settings</span>
-            </NavLink>
-
             <NavLink to="/admin/tools" className={({ isActive }) => 
               cn("flex items-center px-3 py-2 rounded-md transition-colors", 
                 isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
@@ -94,6 +96,15 @@ const AdminLayout = () => {
             }>
               <Wrench className="mr-3 h-5 w-5" />
               <span>Tools</span>
+            </NavLink>
+
+            <NavLink to="/admin/settings" className={({ isActive }) => 
+              cn("flex items-center px-3 py-2 rounded-md transition-colors", 
+                isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
+              )
+            }>
+              <Settings className="mr-3 h-5 w-5" />
+              <span>Settings</span>
             </NavLink>
           </div>
         </nav>
