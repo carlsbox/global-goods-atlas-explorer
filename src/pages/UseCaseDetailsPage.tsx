@@ -5,7 +5,8 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle2, Link as LinkIcon } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle, Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -106,7 +107,7 @@ export default function UseCaseDetailsPage() {
             <CardContent className="pt-0">
               <div className="bg-white/50 rounded-lg p-6 border">
                 <h3 className="text-xl font-semibold mb-3 flex items-center">
-                  <CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
                   Executive Summary
                 </h3>
                 {renderMarkdown(purpose)}
@@ -279,55 +280,73 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
-            {/* Card 3: Technology Components */}
-            {technologyComponents && (
+            {/* Card 3: Technology & Standards (Consolidated) */}
+            {(technologyComponents || (useCase.standards && useCase.standards.length > 0)) && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg flex items-center text-green-700">
                     <Settings className="mr-2 h-5 w-5" />
-                    Technology Components
+                    Technology & Standards
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  {renderMarkdown(technologyComponents)}
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Card 4: Standards & Interoperability */}
-            {useCase.standards && useCase.standards.length > 0 && (
-              <Card className="border-green-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-green-700">Standards & Interoperability</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {useCase.standards.map((standard, index) => (
-                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                        <h4 className="font-medium text-green-800">{standard.name}</h4>
-                        <p className="text-sm text-green-700 mt-1">{standard.description}</p>
-                        <div className="flex items-center justify-between mt-2">
-                          <Badge variant="outline" className="border-green-300">{standard.domain}</Badge>
-                          {standard.link && (
-                            <a 
-                              href={standard.link} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-sm text-green-600 hover:text-green-800 flex items-center"
-                            >
-                              <LinkIcon className="h-3 w-3 mr-1" />
-                              Learn more
-                            </a>
-                          )}
-                        </div>
+                <CardContent className="space-y-4">
+                  {technologyComponents && (
+                    <div>
+                      <h4 className="font-medium text-green-600 mb-2">Technology Components</h4>
+                      {renderMarkdown(technologyComponents)}
+                    </div>
+                  )}
+                  
+                  {useCase.standards && useCase.standards.length > 0 && (
+                    <div>
+                      <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {useCase.standards.map((standard, index) => (
+                          <Dialog key={index}>
+                            <DialogTrigger asChild>
+                              <Badge 
+                                variant="outline" 
+                                className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
+                              >
+                                {standard.name}
+                              </Badge>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-md">
+                              <DialogHeader>
+                                <DialogTitle className="flex items-center justify-between">
+                                  {standard.name}
+                                  <Badge variant="outline" className="ml-2">
+                                    {standard.domain}
+                                  </Badge>
+                                </DialogTitle>
+                              </DialogHeader>
+                              <div className="space-y-4">
+                                <p className="text-sm text-muted-foreground">
+                                  {standard.description}
+                                </p>
+                                {standard.link && (
+                                  <a 
+                                    href={standard.link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-sm text-primary hover:underline"
+                                  >
+                                    <LinkIcon className="h-3 w-3 mr-1" />
+                                    Learn more
+                                  </a>
+                                )}
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             )}
 
-            {/* Card 5: Quick Facts (Legacy data) */}
+            {/* Card 4: Quick Facts (Legacy data) */}
             {(useCase.organization || useCase.country || useCase.year || useCase.sector) && (
               <Card className="border-gray-200">
                 <CardHeader className="pb-3">
