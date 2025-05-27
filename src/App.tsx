@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
@@ -56,8 +55,8 @@ function App() {
               {/* Public routes with layout */}
               <Route path="/" element={<PageLayout />}>
                 <Route index element={<HomePage />} />
-                <Route path="global-goods" element={<GlobalGoodsPageHybrid />} />
-                <Route path="global-goods/:id" element={<GlobalGoodDetailsPageHybrid />} />
+                <Route path="global-goods" element={<GlobalGoodsPageFlat />} />
+                <Route path="global-goods/:id" element={<GlobalGoodDetailsPageFlat />} />
                 <Route path="use-cases" element={<UseCasesPage />} />
                 <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
                 <Route path="map" element={<EnhancedMapPage />} />

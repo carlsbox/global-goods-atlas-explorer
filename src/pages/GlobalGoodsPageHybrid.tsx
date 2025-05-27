@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useGlobalGoodsHybrid } from '@/lib/api';
 import { FilterBar } from '@/components/global-goods/FilterBar';
-import { GlobalGoodCard } from '@/components/global-goods/GlobalGoodCard';
+import { GlobalGoodCardFlat } from '@/components/global-goods/GlobalGoodCardFlat';
 import { NoResults } from '@/components/global-goods/NoResults';
 import { LoadingState } from '@/components/global-good/LoadingState';
 
@@ -14,11 +14,6 @@ export default function GlobalGoodsPageHybrid() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [sectorFilter, setSectorFilter] = useState('all');
-
-  // Add debugging
-  console.log('GlobalGoodsPageHybrid data:', globalGoods);
-  console.log('GlobalGoodsPageHybrid loading:', isLoading);
-  console.log('GlobalGoodsPageHybrid error:', isError);
 
   // Filter the global goods based on search and sector
   const filteredGoods = globalGoods.filter(good => {
@@ -59,17 +54,6 @@ export default function GlobalGoodsPageHybrid() {
     );
   }
 
-  if (isError) {
-    return (
-      <div className="container mx-auto py-8">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold mb-2">Error loading data</h2>
-          <p className="text-muted-foreground">Please try again later.</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="container mx-auto py-8">
       <div className="text-center mb-8">
@@ -95,9 +79,77 @@ export default function GlobalGoodsPageHybrid() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredGoods.map(good => (
-              <GlobalGoodCard key={good.id} good={good} />
-            ))}
+            {filteredGoods.map(good => {
+              // Convert GlobalGood to GlobalGoodFlat structure for the card
+              const flatGood = {
+                ID: good.id,
+                Name: typeof good.name === 'string' ? good.name : good.name.en || Object.values(good.name)[0] || '',
+                Logo: good.logo,
+                Website: {},
+                GlobalGoodsType: good.coreMetadata.globalGoodsType || [],
+                License: { id: '', name: '', url: '', description: '' },
+                Contact: [],
+                Classifications: { SDGs: [], WHO: [], WMO: [], DPI: [] },
+                StandardsAndInteroperability: { HealthStandards: [], Interoperability: [], ClimateStandards: [] },
+                ProductOverview: {
+                  Summary: typeof good.summary === 'string' ? good.summary : good.summary.en || Object.values(good.summary)[0] || '',
+                  Description: typeof good.description === 'string' ? good.description : good.description.en || Object.values(good.description)[0] || '',
+                  PrimaryFunctionality: '',
+                  Users: '',
+                  Languages: [],
+                  Screenshots: []
+                },
+                Reach: {
+                  SummaryOfReach: '',
+                  NumberOfImplementations: 0,
+                  ImplementationMapOverview: null,
+                  ImplementationCountries: good.countries?.map(iso => ({
+                    iso_code: iso,
+                    type: 'Country',
+                    names: { en: { short: iso, formal: iso } }
+                  })) || []
+                },
+                Maturity: { SummaryOfMaturity: '', Scores: [] },
+                ClimateAndHealthIntegration: { Description: '' },
+                Community: {
+                  DescriptionOfCommunity: '',
+                  HostAnchorOrganization: { name: '', url: '', description: '', country: [] },
+                  InceptionYear: 0,
+                  SizeOfCommunity: 0,
+                  Links: {},
+                  Events: { description: '', schedule: '', recent: [] },
+                  Policies: {
+                    Description: '',
+                    Governance: { url: '', description: '' },
+                    TermsOfUse: { url: '', description: '' },
+                    UserAgreement: { url: '', description: '' },
+                    PrivacyPolicy: { url: '', description: '' },
+                    DoNoHarm: { url: '', description: '' },
+                    PIICollected: { url: '', description: '' },
+                    NPIIUsed: { url: '', description: '' }
+                  }
+                },
+                InclusiveDesign: { Description: '', UserInput: '', OfflineSupport: '' },
+                EnvironmentalImpact: { LowCarbon: '' },
+                TotalCostOfOwnership: { Description: '', url: '' },
+                Sustainability: { Description: '', KeyFundersSupporters: [] },
+                Resources: {
+                  Articles: [],
+                  ProductDocumentation: [],
+                  UserRequirements: [],
+                  EndUserDocumentation: [],
+                  ImplementerDocumentation: [],
+                  DeveloperDocumentation: [],
+                  OperatorDocumentation: [],
+                  InstallationDocumentation: []
+                },
+                LinkedInitiatives: { Initiative: [] }
+              };
+              
+              return (
+                <GlobalGoodCardFlat key={good.id} good={flatGood} />
+              );
+            })}
           </div>
         </>
       ) : (

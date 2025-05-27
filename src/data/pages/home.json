@@ -1,0 +1,96 @@
+
+{
+  "en": {
+    "hero": {
+      "title": "Discover Digital Global Goods for Development",
+      "subtitle": "A comprehensive catalog of open-source digital public goods addressing global development challenges.",
+      "buttons": {
+        "catalog": "Explore Catalog",
+        "map": "View Global Map"
+      }
+    },
+    "features": {
+      "goods": {
+        "title": "Digital Global Goods",
+        "description": "Discover high-quality, open-source solutions supporting sustainable development across sectors.",
+        "button": "Explore Catalog"
+      },
+      "cases": {
+        "title": "Use Cases",
+        "description": "Learn how these tools are making a real impact in communities around the world.",
+        "button": "View Use Cases" 
+      },
+      "map": {
+        "title": "Global Map",
+        "description": "Visualize the adoption and impact of digital goods across different regions.",
+        "button": "Open Map"
+      }
+    },
+    "featuredGoods": {
+      "title": "Featured Global Goods",
+      "viewAll": "View All Global Goods"
+    }
+  },
+  "fr": {
+    "hero": {
+      "title": "Découvrez les Biens Numériques Mondiaux pour le Développement",
+      "subtitle": "Un catalogue complet de biens publics numériques open source répondant aux défis du développement mondial.",
+      "buttons": {
+        "catalog": "Explorer le Catalogue",
+        "map": "Voir la Carte Mondiale"
+      }
+    },
+    "features": {
+      "goods": {
+        "title": "Biens Numériques Mondiaux",
+        "description": "Découvrez des solutions open source de haute qualité soutenant le développement durable dans tous les secteurs.",
+        "button": "Explorer le Catalogue"
+      },
+      "cases": {
+        "title": "Cas d'Utilisation",
+        "description": "Découvrez comment ces outils ont un impact réel dans les communautés du monde entier.",
+        "button": "Voir les Cas d'Utilisation" 
+      },
+      "map": {
+        "title": "Carte Mondiale",
+        "description": "Visualisez l'adoption et l'impact des biens numériques dans différentes régions.",
+        "button": "Ouvrir la Carte"
+      }
+    },
+    "featuredGoods": {
+      "title": "Biens Mondiaux en Vedette",
+      "viewAll": "Voir Tous les Biens Mondiaux"
+    }
+  },
+  "es": {
+    "hero": {
+      "title": "Descubra Bienes Digitales Globales para el Desarrollo",
+      "subtitle": "Un catálogo completo de bienes públicos digitales de código abierto que abordan los desafíos del desarrollo global.",
+      "buttons": {
+        "catalog": "Explorar Catálogo",
+        "map": "Ver Mapa Global"
+      }
+    },
+    "features": {
+      "goods": {
+        "title": "Bienes Digitales Globales",
+        "description": "Descubra soluciones de código abierto de alta calidad que apoyan el desarrollo sostenible en todos los sectores.",
+        "button": "Explorar Catálogo"
+      },
+      "cases": {
+        "title": "Casos de Uso",
+        "description": "Conozca cómo estas herramientas están generando un impacto real en comunidades de todo el mundo.",
+        "button": "Ver Casos de Uso" 
+      },
+      "map": {
+        "title": "Mapa Global",
+        "description": "Visualice la adopción y el impacto de los bienes digitales en diferentes regiones.",
+        "button": "Abrir Mapa"
+      }
+    },
+    "featuredGoods": {
+      "title": "Bienes Globales Destacados",
+      "viewAll": "Ver Todos los Bienes Globales"
+    }
+  }
+}

@@ -1,0 +1,199 @@
+
+{
+  "id": "dhis2",
+  "name": "DHIS2",
+  "summary": "DHIS2 is the world's largest health information management system platform, in use in more than 70 countries.",
+  "description": "A flexible, web-based open-source information system with visualization features including GIS, charts and pivot tables.",
+  "details": "DHIS2 is the world's largest health information management system, used in more than 70 countries globally. The software helps governments and health organizations collect, manage, and analyze data to improve health outcomes.",
+  "logo": "/lovable-uploads/41aa56a1-d6ef-46b7-ac9b-1151e3d27e20.png",
+  "website": "https://dhis2.org",
+  "source_code": {
+    "primary": "https://github.com/dhis2",
+    "additional": []
+  },
+  "contact": {
+  "name": "DHIS2 Team",
+  "email": "info@dhis2.org"
+},
+  "demo_link": "https://play.dhis2.org/demo",
+  "sectors": ["Health", "Data Management"],
+  "features": [
+    "Flexible data collection",
+    "Visual analytics",
+    "Mobile support",
+    "Offline capabilities",
+    "Customizable dashboards"
+  ],
+  "impacts": [
+    "Used by ministries of health in over 70 countries",
+    "Supports COVID-19 surveillance in 36 countries",
+    "Used for maternal and child health monitoring in 23 countries"
+  ],
+  "technologies": ["Java", "React", "PostgreSQL"],
+  "classificationCodes": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_E2", "WHO_D8"],
+  "classifications": {
+    "who": {
+      "primary": {
+        "code": "WHO_D6",
+        "title": "Health Management Information systems (HMIS)",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      },
+      "additional": [
+        {
+          "code": "WHO_A2",
+          "title": "Community Health Information Systems",
+          "group_code": "A",
+          "group_name": "Point of Service",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_B6",
+          "title": "Logistics Management Information Systems (LMIS)",
+          "group_code": "B",
+          "group_name": "Health System/Provider Management",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_E2",
+          "title": "Public Health and Disease Surveillance System",
+          "group_code": "E",
+          "group_name": "Surveillance & Response",
+          "authority": "WHO"
+        },
+        {
+          "code": "WHO_D8",
+          "title": "Shared Health Record and Health Information Repositories",
+          "group_code": "D",
+          "group_name": "Data Management Systems",
+          "authority": "WHO"
+        }
+      ]
+    }
+  },
+  "sdgs": ["SDG3", "SDG17"],
+  "healthStandards": ["ADX", "FHIR", "CDA", "ICD-10"],
+  "standards": {
+    "health": ["ICD-10"],
+    "interoperability": ["FHIR", "ADX", "CDA"]
+  },
+  "licenses": ["BSD 3-Clause License"],
+  "implementers": ["HISP", "University of Oslo"],
+  "supporters": ["University of Oslo", "NORAD", "PEPFAR"],
+  "countries": ["tz", "gh", "in", "bd", "no"],
+  "reach": {
+    "summary": "DHIS2 is in use by ministries of health in 80 low and middle-income countries. 3.2 billion people (40% of the world's population) live in countries where DHIS2 is used.",
+    "implementations": 1000,
+    "countries": [
+      "af", "al", "dz", "ao", "ag", "ar", "am", "az", "bs", "bd",
+      "bb", "bj", "bt", "bo", "bw", "br", "bf", "bi", "kh", "cm",
+      "cv", "cf", "td", "cl", "co", "km", "cr", "cd", "dj", "dm",
+      "do", "tl", "ec", "eg", "sv", "gq", "er", "sz", "et", "ga",
+      "de", "gh", "gr", "gd", "gt", "gn", "gw", "gy", "ht", "hn",
+      "in", "id", "ir", "iq", "ci", "jm", "jo", "kz", "ke", "xk",
+      "kg", "la", "lb", "ls", "lr", "ly", "mg", "mw", "my", "mv",
+      "ml", "mr", "mu", "mx", "md", "mn", "ma", "mz", "mm", "na",
+      "np", "ni", "ne", "ng", "no", "pk", "pw", "ps", "pa", "pg",
+      "py", "pe", "ph", "qa", "cg", "rw", "lc", "st", "sn", "rs",
+      "sl", "sb", "so", "za", "ss", "lk", "vc", "sd", "sr", "sy",
+      "tj", "tz", "th", "gm", "tg", "to", "tt", "tn", "tr", "ug",
+      "ua", "uz", "vu", "ve", "vn", "ye", "zm", "zw"
+    ]
+  },
+  "maturity": {
+    "level": "Global Scale",
+    "scores": {
+      "global_utility": 8,
+      "community_support": 9,
+      "maturity_of_gg": 8,
+      "inclusive_design": 7,
+      "climate_resilience": 6,
+      "low_carbon": 5
+    }
+  },
+  "climate_integration": {
+    "enabled": true,
+    "description": "DHIS2 has climate data integration capabilities and can be used for climate-related health monitoring."
+  },
+  "types": [
+    {
+      "code": "software",
+      "title": "Software"
+    }
+  ],
+  "tags": ["HMIS", "Health Data", "Analytics"],
+  "languages": ["en", "fr", "es", "pt"],
+  "community": {
+    "overview": "",
+    "anchored": true,
+    "anchor_description": "",
+    "anchor_countries": [],
+    "inception_year": 2000,
+    "size_estimate": 10000,
+    "platform": {
+      "url": "https://community.dhis2.org/",
+      "governance": true,
+      "governance_link": "https://community.dhis2.org/about"
+    },
+    "engagement": "",
+    "events": {
+      "schedule": "https://dhis2.org/events/",
+      "recent": []
+    },
+    "mailing_list": {
+      "exists": true,
+      "link": ""
+    }
+  },
+  "inclusive_design": {
+    "user_input": true,
+    "description": "",
+    "offline_support": true,
+    "offline_support_description": ""
+  },
+  "low_carbon": {
+    "considered": true,
+    "description": ""
+  },
+  "cost_of_ownership": {
+    "has_model": true
+  },
+  "sustainability": {
+    "description": "",
+    "funders": []
+  },
+  "resources": {
+    "articles": [],
+    "documentation": {
+      "product": [],
+      "user_reqs": [],
+      "end_user": [],
+      "implementer": [],
+      "developer": [],
+      "operator": [],
+      "installer": []
+    },
+    "deployment_tools": {
+      "uses": true,
+      "description": "",
+      "link": ""
+    }
+  },
+  "policies": {
+    "terms": "",
+    "user_agreement": "",
+    "privacy": "",
+    "do_no_harm": false,
+    "pii_collected": false,
+    "npii_used": true
+  },
+  "linked_initiatives": [
+    {
+      "label": "DPGA",
+      "logo_url": "",
+      "site_url": "https://www.digitalpublicgoods.net/registry"
+    }
+  ],
+  "lastUpdated": "2023-11-20"
+}
