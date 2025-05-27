@@ -1,4 +1,4 @@
-import { LanguageType } from '@/contexts/LanguageContext';
+import { LanguageCode } from '@/lib/types';
 import { GlobalGood } from '../types/globalGood';
 
 let globalGoodsCache: any[] | null = null;
@@ -37,7 +37,7 @@ function extractSelectedLanguageFields(obj: any, language: string): any {
   return result;
 }
 
-export async function loadGlobalGood(id: string, language: LanguageType): Promise<GlobalGood | undefined> {
+export async function loadGlobalGood(id: string, language: LanguageCode): Promise<GlobalGood | undefined> {
   const db = await fetchGlobalGoodsDB();
   const item = db.find(good => good.CoreMetadata && good.CoreMetadata.ID === id);
   if (!item) return undefined;
@@ -112,7 +112,7 @@ export async function loadGlobalGood(id: string, language: LanguageType): Promis
   return result;
 }
 
-export async function loadAllGlobalGoods(language: LanguageType = 'en'): Promise<GlobalGood[]> {
+export async function loadAllGlobalGoods(language: LanguageCode = 'en'): Promise<GlobalGood[]> {
   const db = await fetchGlobalGoodsDB();
   return db.map(item => {
     // Process the item for the selected language

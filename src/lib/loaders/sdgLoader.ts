@@ -1,5 +1,5 @@
 
-import { LanguageType } from '@/contexts/LanguageContext';
+import { LanguageCode } from '@/lib/types';
 
 interface SDGData {
   [key: string]: {
@@ -8,7 +8,7 @@ interface SDGData {
   };
 }
 
-export async function loadSDGData(language: LanguageType = 'en') {
+export async function loadSDGData(language: LanguageCode = 'en') {
   try {
     // Load SDG data for the specified language
     const sdgModule = await import(`../../i18n/locales/${language}/sdg.json`);

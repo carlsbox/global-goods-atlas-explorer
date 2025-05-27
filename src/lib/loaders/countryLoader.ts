@@ -1,9 +1,9 @@
 
-import { LanguageType } from '@/contexts/LanguageContext';
+import { LanguageCode } from '@/lib/types';
 import { CountryData, CountryTranslations } from '../types/country';
 
 // Updated function to load countries data with translations
-export async function loadCountriesData(language: LanguageType = 'en') {
+export async function loadCountriesData(language: LanguageCode = 'en') {
   try {
     // Load base country data
     const baseData = await import('../../i18n/locales/en/country.json');

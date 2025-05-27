@@ -1,7 +1,7 @@
 
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { LanguageType } from "@/contexts/LanguageContext"
+import { LanguageCode } from "@/lib/types"
 import { MultilingualText } from "./types/commonTypes"
 
 export function cn(...inputs: ClassValue[]) {
@@ -13,7 +13,7 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function getMultilingualText(
   field: string | MultilingualText | undefined,
-  language: LanguageType = 'en'
+  language: LanguageCode = 'en'
 ): string {
   if (field === undefined || field === null) {
     return '';

@@ -1,9 +1,9 @@
 
-import { LanguageType } from '@/contexts/LanguageContext';
+import { LanguageCode } from '@/lib/types';
 import { UseCase } from '../types';
 
 // Function to load use case data
-export async function loadUseCase(id: string, language: LanguageType): Promise<UseCase | undefined> {
+export async function loadUseCase(id: string, language: LanguageCode): Promise<UseCase | undefined> {
   try {
     const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
     const filePath = `../../data/use-cases/${id}.json`;
@@ -41,7 +41,7 @@ export async function loadUseCase(id: string, language: LanguageType): Promise<U
 }
 
 // Function to load all use cases
-export async function loadAllUseCases(language: LanguageType = 'en'): Promise<UseCase[]> {
+export async function loadAllUseCases(language: LanguageCode = 'en'): Promise<UseCase[]> {
   try {
     const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
     const items = await Promise.all(

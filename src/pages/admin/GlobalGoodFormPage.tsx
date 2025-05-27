@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGlobalGood, useCreateGlobalGood, useUpdateGlobalGood } from '@/lib/api';
 import { GlobalGood } from '@/lib/types';
-import { ensureMultilingualText } from '@/lib/translationUtils';
+import { ensureMultilingualText } from '@/utils/defaultValues';
 import { toast } from '@/components/ui/use-toast';
 import { useI18n } from '@/hooks/useI18n';
 import { LoadingState } from '@/components/global-good/LoadingState';

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,7 +13,7 @@ import { MultilingualTextInput } from './MultilingualTextInput';
 import { ArrayFieldInput } from './ArrayFieldInput';
 import { UrlWithDescriptionInput } from './UrlWithDescriptionInput';
 import { toast } from '@/components/ui/use-toast';
-import { ensureMultilingualText } from '@/lib/translationUtils';
+import { ensureMultilingualText } from '@/utils/defaultValues';
 
 interface GlobalGoodFormProps {
   initialData?: Partial<GlobalGood>;
