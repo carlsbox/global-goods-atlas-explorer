@@ -23,7 +23,6 @@ export default function GlobalGoodsPageFlat() {
   const [selectedWMOClassifications, setSelectedWMOClassifications] = useState<string[]>([]);
   const [selectedHealthStandards, setSelectedHealthStandards] = useState<string[]>([]);
   const [selectedInteropStandards, setSelectedInteropStandards] = useState<string[]>([]);
-  const [minMaturityScore, setMinMaturityScore] = useState(0);
   const { tPage } = useI18n();
   
   // Extract unique sectors for filter
@@ -35,27 +34,33 @@ export default function GlobalGoodsPageFlat() {
 
   // Extract available filter options from the data
   const availableFilterOptions = useMemo(() => {
-    const whoClassifications = new Set<string>();
-    const dpiClassifications = new Set<string>();
-    const wmoClassifications = new Set<string>();
+    const whoClassifications = new Map<string, string>();
+    const dpiClassifications = new Map<string, string>();
+    const wmoClassifications = new Map<string, string>();
+    const sdgs = new Map<string, string>();
     const healthStandards = new Set<string>();
     const interopStandards = new Set<string>();
     const countries = new Set<string>();
 
     globalGoods.forEach(good => {
-      // Extract WHO classifications
+      // Extract SDGs with titles
+      good.Classifications?.SDGs?.forEach(sdg => {
+        sdgs.set(sdg.code, sdg.title);
+      });
+
+      // Extract WHO classifications with titles
       good.Classifications?.WHO?.forEach(classification => {
-        whoClassifications.add(classification.code);
+        whoClassifications.set(classification.code, classification.title);
       });
 
-      // Extract DPI classifications
+      // Extract DPI classifications with titles
       good.Classifications?.DPI?.forEach(classification => {
-        dpiClassifications.add(classification.code);
+        dpiClassifications.set(classification.code, classification.title);
       });
 
-      // Extract WMO classifications
+      // Extract WMO classifications with titles
       good.Classifications?.WMO?.forEach(classification => {
-        wmoClassifications.add(classification.code);
+        wmoClassifications.set(classification.code, classification.title);
       });
 
       // Extract health standards - Fixed property name
@@ -76,9 +81,10 @@ export default function GlobalGoodsPageFlat() {
 
     return {
       classifications: {
-        who: Array.from(whoClassifications).sort(),
-        dpi: Array.from(dpiClassifications).sort(),
-        wmo: Array.from(wmoClassifications).sort()
+        who: Array.from(whoClassifications.entries()).map(([code, title]) => ({ code, title })).sort((a, b) => a.title.localeCompare(b.title)),
+        dpi: Array.from(dpiClassifications.entries()).map(([code, title]) => ({ code, title })).sort((a, b) => a.title.localeCompare(b.title)),
+        wmo: Array.from(wmoClassifications.entries()).map(([code, title]) => ({ code, title })).sort((a, b) => a.title.localeCompare(b.title)),
+        sdgs: Array.from(sdgs.entries()).map(([code, title]) => ({ code, title })).sort((a, b) => a.code.localeCompare(b.code))
       },
       standards: {
         health: Array.from(healthStandards).sort(),
@@ -129,17 +135,10 @@ export default function GlobalGoodsPageFlat() {
       const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.names.en.short) || [];
       const matchesCountries = selectedCountries.length === 0 ||
         selectedCountries.some(country => goodCountries.includes(country));
-
-      const latestMaturity = good.Maturity?.Scores?.[good.Maturity.Scores.length - 1];
-      const avgMaturityScore = latestMaturity ? 
-        Math.round((latestMaturity.global_utility + latestMaturity.community_support + 
-                   latestMaturity.maturity_of_gg + latestMaturity.inclusive_design + 
-                   latestMaturity.climate_resilience + latestMaturity.low_carbon) / 6) : 0;
-      const matchesMaturity = avgMaturityScore >= minMaturityScore;
         
       return matchesSearch && matchesSector && matchesSDGs && matchesWHO && 
              matchesDPI && matchesWMO && matchesHealthStandards && 
-             matchesInteropStandards && matchesCountries && matchesMaturity;
+             matchesInteropStandards && matchesCountries;
     });
 
     // Sort the filtered results
@@ -172,7 +171,7 @@ export default function GlobalGoodsPageFlat() {
     return filtered;
   }, [globalGoods, searchTerm, sectorFilter, selectedSDGs, selectedCountries, 
       selectedWHOClassifications, selectedDPIClassifications, selectedWMOClassifications,
-      selectedHealthStandards, selectedInteropStandards, minMaturityScore, sortBy]);
+      selectedHealthStandards, selectedInteropStandards, sortBy]);
 
   // Clear filters handler
   const handleClearAllFilters = () => {
@@ -185,7 +184,6 @@ export default function GlobalGoodsPageFlat() {
     setSelectedWMOClassifications([]);
     setSelectedHealthStandards([]);
     setSelectedInteropStandards([]);
-    setMinMaturityScore(0);
   };
 
   if (isLoading) {
@@ -223,7 +221,6 @@ export default function GlobalGoodsPageFlat() {
             selectedWMOClassifications={selectedWMOClassifications}
             selectedHealthStandards={selectedHealthStandards}
             selectedInteropStandards={selectedInteropStandards}
-            minMaturityScore={minMaturityScore}
             setSearchTerm={setSearchTerm}
             setSectorFilter={setSectorFilter}
             setSortBy={setSortBy}
@@ -235,7 +232,6 @@ export default function GlobalGoodsPageFlat() {
             setSelectedWMOClassifications={setSelectedWMOClassifications}
             setSelectedHealthStandards={setSelectedHealthStandards}
             setSelectedInteropStandards={setSelectedInteropStandards}
-            setMinMaturityScore={setMinMaturityScore}
             onClearFilters={handleClearAllFilters}
             availableClassifications={availableFilterOptions.classifications}
             availableStandards={availableFilterOptions.standards}

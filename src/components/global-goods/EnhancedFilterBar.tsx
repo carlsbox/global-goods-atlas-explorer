@@ -38,7 +38,6 @@ interface EnhancedFilterBarProps {
   selectedWMOClassifications: string[];
   selectedHealthStandards: string[];
   selectedInteropStandards: string[];
-  minMaturityScore: number;
   setSearchTerm: (term: string) => void;
   setSectorFilter: (sector: string) => void;
   setSortBy: (sort: string) => void;
@@ -50,12 +49,12 @@ interface EnhancedFilterBarProps {
   setSelectedWMOClassifications: (classifications: string[]) => void;
   setSelectedHealthStandards: (standards: string[]) => void;
   setSelectedInteropStandards: (standards: string[]) => void;
-  setMinMaturityScore: (score: number) => void;
   onClearFilters: () => void;
   availableClassifications: {
-    who: string[];
-    dpi: string[];
-    wmo: string[];
+    who: Array<{ code: string; title: string }>;
+    dpi: Array<{ code: string; title: string }>;
+    wmo: Array<{ code: string; title: string }>;
+    sdgs: Array<{ code: string; title: string }>;
   };
   availableStandards: {
     health: string[];
@@ -71,11 +70,6 @@ const SORT_OPTIONS = [
   { value: 'recent', label: 'Recently Updated' }
 ];
 
-const SDG_OPTIONS = [
-  'SDG-1', 'SDG-2', 'SDG-3', 'SDG-4', 'SDG-5', 'SDG-6', 'SDG-7', 'SDG-8', 
-  'SDG-9', 'SDG-10', 'SDG-11', 'SDG-12', 'SDG-13', 'SDG-14', 'SDG-15', 'SDG-16', 'SDG-17'
-];
-
 export function EnhancedFilterBar({
   sectors,
   searchTerm,
@@ -89,7 +83,6 @@ export function EnhancedFilterBar({
   selectedWMOClassifications,
   selectedHealthStandards,
   selectedInteropStandards,
-  minMaturityScore,
   setSearchTerm,
   setSectorFilter,
   setSortBy,
@@ -101,7 +94,6 @@ export function EnhancedFilterBar({
   setSelectedWMOClassifications,
   setSelectedHealthStandards,
   setSelectedInteropStandards,
-  setMinMaturityScore,
   onClearFilters,
   availableClassifications,
   availableStandards,
@@ -111,6 +103,7 @@ export function EnhancedFilterBar({
   const [searchWHO, setSearchWHO] = useState("");
   const [searchDPI, setSearchDPI] = useState("");
   const [searchWMO, setSearchWMO] = useState("");
+  const [searchSDGs, setSearchSDGs] = useState("");
   const [searchCountries, setSearchCountries] = useState("");
   const [searchHealthStandards, setSearchHealthStandards] = useState("");
   const [searchInteropStandards, setSearchInteropStandards] = useState("");
@@ -119,12 +112,12 @@ export function EnhancedFilterBar({
                           selectedSDGs.length > 0 || selectedCountries.length > 0 ||
                           selectedWHOClassifications.length > 0 || selectedDPIClassifications.length > 0 ||
                           selectedWMOClassifications.length > 0 || selectedHealthStandards.length > 0 ||
-                          selectedInteropStandards.length > 0 || minMaturityScore > 0;
+                          selectedInteropStandards.length > 0;
 
   const totalAdvancedFilters = selectedSDGs.length + selectedCountries.length + 
                               selectedWHOClassifications.length + selectedDPIClassifications.length +
                               selectedWMOClassifications.length + selectedHealthStandards.length +
-                              selectedInteropStandards.length + (minMaturityScore > 0 ? 1 : 0);
+                              selectedInteropStandards.length;
 
   const handleSDGChange = (sdg: string, checked: boolean) => {
     if (checked) {
@@ -207,21 +200,25 @@ export function EnhancedFilterBar({
       case 'interop-standard':
         if (value) setSelectedInteropStandards(selectedInteropStandards.filter(s => s !== value));
         break;
-      case 'maturity':
-        setMinMaturityScore(0);
-        break;
     }
   };
 
   const filteredClassifications = {
-    who: availableClassifications.who.filter(c => c.toLowerCase().includes(searchWHO.toLowerCase())),
-    dpi: availableClassifications.dpi.filter(c => c.toLowerCase().includes(searchDPI.toLowerCase())),
-    wmo: availableClassifications.wmo.filter(c => c.toLowerCase().includes(searchWMO.toLowerCase()))
+    who: availableClassifications.who.filter(c => c.title.toLowerCase().includes(searchWHO.toLowerCase())),
+    dpi: availableClassifications.dpi.filter(c => c.title.toLowerCase().includes(searchDPI.toLowerCase())),
+    wmo: availableClassifications.wmo.filter(c => c.title.toLowerCase().includes(searchWMO.toLowerCase())),
+    sdgs: availableClassifications.sdgs.filter(c => c.title.toLowerCase().includes(searchSDGs.toLowerCase()))
   };
 
   const filteredCountries = availableCountries.filter(c => c.toLowerCase().includes(searchCountries.toLowerCase()));
   const filteredHealthStandards = availableStandards.health.filter(s => s.toLowerCase().includes(searchHealthStandards.toLowerCase()));
   const filteredInteropStandards = availableStandards.interop.filter(s => s.toLowerCase().includes(searchInteropStandards.toLowerCase()));
+
+  // Helper function to get classification title by code
+  const getClassificationTitle = (code: string, type: 'who' | 'dpi' | 'wmo' | 'sdgs') => {
+    const classification = availableClassifications[type].find(c => c.code === code);
+    return classification?.title || code;
+  };
 
   return (
     <div className="bg-card/95 backdrop-blur-sm shadow-lg rounded-xl border p-6 space-y-4">
@@ -318,19 +315,27 @@ export function EnhancedFilterBar({
                     SDGs {selectedSDGs.length > 0 && `(${selectedSDGs.length})`}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="grid grid-cols-3 gap-2 max-h-32 overflow-y-auto">
-                      {SDG_OPTIONS.map(sdg => (
-                        <div key={sdg} className="flex items-center space-x-2">
-                          <Checkbox
-                            id={sdg}
-                            checked={selectedSDGs.includes(sdg)}
-                            onCheckedChange={(checked) => handleSDGChange(sdg, checked as boolean)}
-                          />
-                          <label htmlFor={sdg} className="text-xs cursor-pointer">
-                            {sdg.replace('SDG-', '')}
-                          </label>
-                        </div>
-                      ))}
+                    <div className="space-y-2">
+                      <Input
+                        placeholder="Search SDGs..."
+                        value={searchSDGs}
+                        onChange={(e) => setSearchSDGs(e.target.value)}
+                        className="h-8 text-sm"
+                      />
+                      <div className="max-h-32 overflow-y-auto space-y-1">
+                        {filteredClassifications.sdgs.map(sdg => (
+                          <div key={sdg.code} className="flex items-center space-x-2">
+                            <Checkbox
+                              id={sdg.code}
+                              checked={selectedSDGs.includes(sdg.code)}
+                              onCheckedChange={(checked) => handleSDGChange(sdg.code, checked as boolean)}
+                            />
+                            <label htmlFor={sdg.code} className="text-xs cursor-pointer">
+                              {sdg.title}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -349,14 +354,14 @@ export function EnhancedFilterBar({
                       />
                       <div className="max-h-32 overflow-y-auto space-y-1">
                         {filteredClassifications.who.map(classification => (
-                          <div key={classification} className="flex items-center space-x-2">
+                          <div key={classification.code} className="flex items-center space-x-2">
                             <Checkbox
-                              id={`who-${classification}`}
-                              checked={selectedWHOClassifications.includes(classification)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification, checked as boolean, 'who')}
+                              id={`who-${classification.code}`}
+                              checked={selectedWHOClassifications.includes(classification.code)}
+                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'who')}
                             />
-                            <label htmlFor={`who-${classification}`} className="text-xs cursor-pointer">
-                              {classification}
+                            <label htmlFor={`who-${classification.code}`} className="text-xs cursor-pointer">
+                              {classification.title}
                             </label>
                           </div>
                         ))}
@@ -379,14 +384,14 @@ export function EnhancedFilterBar({
                       />
                       <div className="max-h-32 overflow-y-auto space-y-1">
                         {filteredClassifications.dpi.map(classification => (
-                          <div key={classification} className="flex items-center space-x-2">
+                          <div key={classification.code} className="flex items-center space-x-2">
                             <Checkbox
-                              id={`dpi-${classification}`}
-                              checked={selectedDPIClassifications.includes(classification)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification, checked as boolean, 'dpi')}
+                              id={`dpi-${classification.code}`}
+                              checked={selectedDPIClassifications.includes(classification.code)}
+                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'dpi')}
                             />
-                            <label htmlFor={`dpi-${classification}`} className="text-xs cursor-pointer">
-                              {classification}
+                            <label htmlFor={`dpi-${classification.code}`} className="text-xs cursor-pointer">
+                              {classification.title}
                             </label>
                           </div>
                         ))}
@@ -409,14 +414,14 @@ export function EnhancedFilterBar({
                       />
                       <div className="max-h-32 overflow-y-auto space-y-1">
                         {filteredClassifications.wmo.map(classification => (
-                          <div key={classification} className="flex items-center space-x-2">
+                          <div key={classification.code} className="flex items-center space-x-2">
                             <Checkbox
-                              id={`wmo-${classification}`}
-                              checked={selectedWMOClassifications.includes(classification)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification, checked as boolean, 'wmo')}
+                              id={`wmo-${classification.code}`}
+                              checked={selectedWMOClassifications.includes(classification.code)}
+                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'wmo')}
                             />
-                            <label htmlFor={`wmo-${classification}`} className="text-xs cursor-pointer">
-                              {classification}
+                            <label htmlFor={`wmo-${classification.code}`} className="text-xs cursor-pointer">
+                              {classification.title}
                             </label>
                           </div>
                         ))}
@@ -514,28 +519,6 @@ export function EnhancedFilterBar({
                     </div>
                   </AccordionContent>
                 </AccordionItem>
-
-                <AccordionItem value="maturity">
-                  <AccordionTrigger className="text-sm font-medium">
-                    Maturity Score {minMaturityScore > 0 && `(${minMaturityScore}+)`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Select 
-                      value={minMaturityScore.toString()} 
-                      onValueChange={(value) => setMinMaturityScore(Number(value))}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Any score" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="0">Any score</SelectItem>
-                        <SelectItem value="5">5+ (Above average)</SelectItem>
-                        <SelectItem value="7">7+ (High quality)</SelectItem>
-                        <SelectItem value="8">8+ (Excellent)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </AccordionContent>
-                </AccordionItem>
               </Accordion>
             </div>
           </PopoverContent>
@@ -576,7 +559,7 @@ export function EnhancedFilterBar({
           )}
           {selectedSDGs.map(sdg => (
             <Badge key={sdg} variant="secondary" className="flex items-center gap-1">
-              {sdg}
+              {getClassificationTitle(sdg, 'sdgs')}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('sdg', sdg)}
@@ -585,7 +568,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedWHOClassifications.map(classification => (
             <Badge key={classification} variant="secondary" className="flex items-center gap-1">
-              WHO: {classification}
+              WHO: {getClassificationTitle(classification, 'who')}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('who', classification)}
@@ -594,7 +577,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedDPIClassifications.map(classification => (
             <Badge key={classification} variant="secondary" className="flex items-center gap-1">
-              DPI: {classification}
+              DPI: {getClassificationTitle(classification, 'dpi')}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('dpi', classification)}
@@ -603,7 +586,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedWMOClassifications.map(classification => (
             <Badge key={classification} variant="secondary" className="flex items-center gap-1">
-              WMO: {classification}
+              WMO: {getClassificationTitle(classification, 'wmo')}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('wmo', classification)}
@@ -637,15 +620,6 @@ export function EnhancedFilterBar({
               />
             </Badge>
           ))}
-          {minMaturityScore > 0 && (
-            <Badge variant="secondary" className="flex items-center gap-1">
-              Maturity: {minMaturityScore}+
-              <X 
-                className="h-3 w-3 cursor-pointer" 
-                onClick={() => removeFilter('maturity')}
-              />
-            </Badge>
-          )}
         </div>
       )}
     </div>
