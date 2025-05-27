@@ -5,7 +5,7 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Crosshair, CheckCircle2, Link as LinkIcon } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle2, Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -106,7 +106,7 @@ export default function UseCaseDetailsPage() {
             <CardContent className="pt-0">
               <div className="bg-white/50 rounded-lg p-6 border">
                 <h3 className="text-xl font-semibold mb-3 flex items-center">
-                  <Crosshair className="mr-2 h-5 w-5 text-primary" />
+                  <CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
                   Executive Summary
                 </h3>
                 {renderMarkdown(purpose)}
@@ -242,7 +242,32 @@ export default function UseCaseDetailsPage() {
               Technical Details
             </h2>
 
-            {/* Card 6: Data Requirements */}
+            {/* Card 1: Associated Global Goods */}
+            {useCase.global_goods && useCase.global_goods.length > 0 && (
+              <Card className="border-green-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-green-700">
+                    <Globe className="mr-2 h-5 w-5" />
+                    Associated Global Goods
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {useCase.global_goods.map((good, index) => (
+                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <h4 className="font-medium text-green-800">{good.name}</h4>
+                        <Link to={good.url} className="text-sm text-green-600 hover:text-green-800 flex items-center mt-1">
+                          <LinkIcon className="h-3 w-3 mr-1" />
+                          View Details
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Card 2: Data Requirements */}
             {dataRequirements && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
@@ -254,7 +279,7 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
-            {/* Card 7: Technology Stack */}
+            {/* Card 3: Technology Components */}
             {technologyComponents && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
@@ -269,7 +294,7 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
-            {/* Card 8: Standards & Interoperability */}
+            {/* Card 4: Standards & Interoperability */}
             {useCase.standards && useCase.standards.length > 0 && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
@@ -302,32 +327,7 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
-            {/* Card 9: Global Goods Integration */}
-            {useCase.global_goods && useCase.global_goods.length > 0 && (
-              <Card className="border-green-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-green-700">
-                    <Globe className="mr-2 h-5 w-5" />
-                    Global Goods Integration
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {useCase.global_goods.map((good, index) => (
-                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                        <h4 className="font-medium text-green-800">{good.name}</h4>
-                        <Link to={good.url} className="text-sm text-green-600 hover:text-green-800 flex items-center mt-1">
-                          <LinkIcon className="h-3 w-3 mr-1" />
-                          View Details
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Card 10: Quick Facts (Legacy data) */}
+            {/* Card 5: Quick Facts (Legacy data) */}
             {(useCase.organization || useCase.country || useCase.year || useCase.sector) && (
               <Card className="border-gray-200">
                 <CardHeader className="pb-3">
