@@ -5,8 +5,7 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Cog, Target, CheckCircle, Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -62,7 +61,8 @@ export default function UseCaseDetailsPage() {
   const sustainability = useCase.sustainability_considerations || "";
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      {/* Back Navigation */}
       <div className="mb-6">
         <Link to="/use-cases">
           <Button variant="outline" size="sm">
@@ -72,116 +72,108 @@ export default function UseCaseDetailsPage() {
         </Link>
       </div>
 
-      {/* Header */}
-      <Card className="mb-8">
-        <CardHeader>
-          <div className="flex items-start justify-between">
-            <div className="flex-1">
-              <CardTitle className="text-3xl mb-4">{title}</CardTitle>
-              
-              {/* Classifications */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {useCase.classifications?.sdg && (
-                  <ClassificationBadge 
-                    code={useCase.classifications.sdg} 
-                  />
-                )}
-                {useCase.classifications?.who_system && (
-                  <Badge variant="outline">
-                    WHO: {useCase.classifications.who_system}
-                  </Badge>
-                )}
-                {useCase.classifications?.wmo_category && (
-                  <Badge variant="outline">
-                    WMO: {useCase.classifications.wmo_category}
-                  </Badge>
-                )}
-                {/* Legacy support */}
-                {useCase.country && (
-                  <Badge variant="secondary">{useCase.country}</Badge>
-                )}
-                {useCase.sector && (
-                  <Badge variant="secondary">{useCase.sector}</Badge>
-                )}
-                {useCase.year && (
-                  <Badge variant="outline">{useCase.year}</Badge>
-                )}
-              </div>
-            </div>
-            <Circle className="h-8 w-8 text-primary flex-shrink-0 ml-4" />
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-2">
-              <h3 className="text-lg font-semibold mb-2 flex items-center">
-                <Circle className="mr-2 h-5 w-5" />
-                {purpose ? "Purpose" : "Overview"}
-              </h3>
-              {renderMarkdown(purpose)}
-            </div>
-            <div>
-              {/* Quick stats */}
-              <div className="space-y-4">
-                {useCase.global_goods && useCase.global_goods.length > 0 && (
-                  <div>
-                    <h4 className="font-medium mb-2 flex items-center">
-                      <Globe className="mr-2 h-4 w-4" />
-                      Global Goods ({useCase.global_goods.length})
-                    </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {useCase.global_goods.map((good, index) => (
-                        <Badge key={index} className="text-xs">
-                          {good.name}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
+      {/* Enhanced Hero Section */}
+      <div className="mb-12">
+        <Card className="border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-primary/10">
+          <CardHeader className="pb-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex-1">
+                <CardTitle className="text-4xl font-bold mb-4 text-primary">{title}</CardTitle>
                 
-                {useCase.standards && useCase.standards.length > 0 && (
-                  <div>
-                    <h4 className="font-medium mb-2 flex items-center">
-                      <Settings className="mr-2 h-4 w-4" />
-                      Standards ({useCase.standards.length})
-                    </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {useCase.standards.map((standard, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {standard.name}
-                        </Badge>
-                      ))}
+                {/* Key Stats Row */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                  {useCase.organization && (
+                    <div className="flex items-center gap-2">
+                      <Building className="h-5 w-5 text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Organization</p>
+                        <p className="font-medium">{useCase.organization}</p>
+                      </div>
                     </div>
-                  </div>
-                )}
-
-                {useCase.organization && (
-                  <div>
-                    <h4 className="font-medium mb-2">Organization</h4>
-                    <p className="text-sm text-muted-foreground">{useCase.organization}</p>
-                  </div>
-                )}
+                  )}
+                  
+                  {useCase.country && (
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Location</p>
+                        <p className="font-medium">{useCase.country}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {useCase.year && (
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Year</p>
+                        <p className="font-medium">{useCase.year}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {useCase.sector && (
+                    <div className="flex items-center gap-2">
+                      <Circle className="h-5 w-5 text-primary" />
+                      <div>
+                        <p className="text-sm text-muted-foreground">Sector</p>
+                        <p className="font-medium">{useCase.sector}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Classifications */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {useCase.classifications?.sdg && (
+                    <ClassificationBadge code={useCase.classifications.sdg} />
+                  )}
+                  {useCase.classifications?.who_system && (
+                    <Badge variant="outline" className="border-blue-200 bg-blue-50">
+                      WHO: {useCase.classifications.who_system}
+                    </Badge>
+                  )}
+                  {useCase.classifications?.wmo_category && (
+                    <Badge variant="outline" className="border-green-200 bg-green-50">
+                      WMO: {useCase.classifications.wmo_category}
+                    </Badge>
+                  )}
+                </div>
               </div>
+              <Circle className="h-12 w-12 text-primary flex-shrink-0 ml-6" />
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardHeader>
+          
+          {/* Executive Summary */}
+          {purpose && (
+            <CardContent className="pt-0">
+              <div className="bg-white/50 rounded-lg p-6 border">
+                <h3 className="text-xl font-semibold mb-3 flex items-center">
+                  <Target className="mr-2 h-5 w-5 text-primary" />
+                  Executive Summary
+                </h3>
+                {renderMarkdown(purpose)}
+              </div>
+            </CardContent>
+          )}
+        </Card>
+      </div>
 
-      {/* Tabbed content */}
-      <Tabs defaultValue="overview" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="process">Process Flow</TabsTrigger>
-          <TabsTrigger value="technical">Technical Setup</TabsTrigger>
-          <TabsTrigger value="implementation">Implementation</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="overview" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Three-Column Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        
+        {/* Column 1: Stakeholders & Process */}
+        <div className="space-y-6">
+          <div className="sticky top-6">
+            <h2 className="text-2xl font-bold mb-4 text-blue-600 flex items-center">
+              <Users className="mr-2 h-6 w-6" />
+              Stakeholders & Process
+            </h2>
+            
             {scope && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
+              <Card className="mb-6 border-blue-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-blue-700">
                     <Circle className="mr-2 h-5 w-5" />
                     Scope
                   </CardTitle>
@@ -193,9 +185,9 @@ export default function UseCaseDetailsPage() {
             )}
 
             {actors && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
+              <Card className="mb-6 border-blue-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-blue-700">
                     <Users className="mr-2 h-5 w-5" />
                     Key Actors
                   </CardTitle>
@@ -207,9 +199,9 @@ export default function UseCaseDetailsPage() {
             )}
 
             {preconditions && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Preconditions</CardTitle>
+              <Card className="mb-6 border-blue-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-blue-700">Preconditions</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {renderMarkdown(preconditions)}
@@ -217,10 +209,48 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
+            {processSteps && (
+              <Card className="mb-6 border-blue-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-blue-700">
+                    <FileText className="mr-2 h-5 w-5" />
+                    Process Steps
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {renderMarkdown(processSteps)}
+                </CardContent>
+              </Card>
+            )}
+
+            {postconditions && (
+              <Card className="border-blue-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-blue-700">
+                    <CheckCircle className="mr-2 h-5 w-5" />
+                    Expected Outcomes
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {renderMarkdown(postconditions)}
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+
+        {/* Column 2: Technical Implementation */}
+        <div className="space-y-6">
+          <div className="sticky top-6">
+            <h2 className="text-2xl font-bold mb-4 text-green-600 flex items-center">
+              <Cog className="mr-2 h-6 w-6" />
+              Technical Implementation
+            </h2>
+
             {dataRequirements && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Data Requirements</CardTitle>
+              <Card className="mb-6 border-green-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-green-700">Data Requirements</CardTitle>
                 </CardHeader>
                 <CardContent>
                   {renderMarkdown(dataRequirements)}
@@ -228,11 +258,119 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
+            {technologyComponents && (
+              <Card className="mb-6 border-green-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-green-700">
+                    <Settings className="mr-2 h-5 w-5" />
+                    Technology Components
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {renderMarkdown(technologyComponents)}
+                </CardContent>
+              </Card>
+            )}
+
+            {useCase.standards && useCase.standards.length > 0 && (
+              <Card className="mb-6 border-green-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-green-700">Standards & Interoperability</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {useCase.standards.map((standard, index) => (
+                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <h4 className="font-medium text-green-800">{standard.name}</h4>
+                        <p className="text-sm text-green-700 mt-1">{standard.description}</p>
+                        <div className="flex items-center justify-between mt-2">
+                          <Badge variant="outline" className="border-green-300">{standard.domain}</Badge>
+                          {standard.link && (
+                            <a 
+                              href={standard.link} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-sm text-green-600 hover:text-green-800 flex items-center"
+                            >
+                              <LinkIcon className="h-3 w-3 mr-1" />
+                              Learn more
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {useCase.global_goods && useCase.global_goods.length > 0 && (
+              <Card className="border-green-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-green-700">
+                    <Globe className="mr-2 h-5 w-5" />
+                    Global Goods Integration
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {useCase.global_goods.map((good, index) => (
+                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <h4 className="font-medium text-green-800">{good.name}</h4>
+                        <Link to={good.url} className="text-sm text-green-600 hover:text-green-800 flex items-center mt-1">
+                          <LinkIcon className="h-3 w-3 mr-1" />
+                          View Details
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+
+        {/* Column 3: Integration & Sustainability */}
+        <div className="space-y-6">
+          <div className="sticky top-6">
+            <h2 className="text-2xl font-bold mb-4 text-orange-600 flex items-center">
+              <Lightbulb className="mr-2 h-6 w-6" />
+              Integration & Sustainability
+            </h2>
+
+            {challenges && (
+              <Card className="mb-6 border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-orange-700">
+                    <AlertTriangle className="mr-2 h-5 w-5" />
+                    Challenges
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {renderMarkdown(challenges)}
+                </CardContent>
+              </Card>
+            )}
+
+            {sustainability && (
+              <Card className="mb-6 border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg flex items-center text-orange-700">
+                    <Lightbulb className="mr-2 h-5 w-5" />
+                    Sustainability Considerations
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {renderMarkdown(sustainability)}
+                </CardContent>
+              </Card>
+            )}
+
             {/* Legacy fields */}
             {useCase.results && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Results</CardTitle>
+              <Card className="mb-6 border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-orange-700">Results</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{useCase.results}</p>
@@ -241,221 +379,111 @@ export default function UseCaseDetailsPage() {
             )}
 
             {useCase.impact && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Impact</CardTitle>
+              <Card className="mb-6 border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-orange-700">Impact</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{useCase.impact}</p>
                 </CardContent>
               </Card>
             )}
+
+            {useCase.solution && (
+              <Card className="mb-6 border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-orange-700">Solution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{useCase.solution}</p>
+                </CardContent>
+              </Card>
+            )}
+
+            {useCase.lessons && useCase.lessons.length > 0 && (
+              <Card className="border-orange-200">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg text-orange-700">Lessons Learned</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="list-disc pl-6 space-y-2">
+                    {useCase.lessons.map((lesson, index) => (
+                      <li key={index} className="text-muted-foreground">{lesson}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            )}
           </div>
-        </TabsContent>
+        </div>
+      </div>
 
-        <TabsContent value="process" className="space-y-6">
-          {processSteps && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Process Steps</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {renderMarkdown(processSteps)}
-              </CardContent>
-            </Card>
-          )}
-
-          {postconditions && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Expected Outcomes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {renderMarkdown(postconditions)}
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.lessons && useCase.lessons.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Lessons Learned</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-6 space-y-2">
-                  {useCase.lessons.map((lesson, index) => (
-                    <li key={index} className="text-muted-foreground">{lesson}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          )}
-        </TabsContent>
-
-        <TabsContent value="technical" className="space-y-6">
-          {technologyComponents && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Settings className="mr-2 h-5 w-5" />
-                  Technology Components
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {renderMarkdown(technologyComponents)}
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.standards && useCase.standards.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Standards & Interoperability</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {useCase.standards.map((standard, index) => (
-                    <div key={index} className="p-4 border rounded-lg">
-                      <h4 className="font-medium">{standard.name}</h4>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {standard.description}
-                      </p>
-                      <Badge variant="outline" className="mt-2">
-                        {standard.domain}
-                      </Badge>
-                      {standard.link && (
+      {/* Resources & Contacts Footer */}
+      {(useCase.resources || useCase.contacts) && (
+        <div className="border-t pt-8">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800">Resources & Contacts</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {useCase.resources && useCase.resources.length > 0 && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <FileText className="mr-2 h-5 w-5" />
+                    Resources
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {useCase.resources.map((resource, index) => (
+                      <div key={index} className="flex items-center justify-between p-3 border rounded hover:bg-gray-50">
+                        <div>
+                          <h4 className="font-medium">{resource.title}</h4>
+                          <Badge variant="outline" className="mt-1">{resource.type}</Badge>
+                        </div>
                         <a 
-                          href={standard.link} 
+                          href={resource.url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="block text-sm text-primary hover:underline mt-1"
+                          className="text-primary hover:underline flex items-center"
                         >
-                          Learn more →
+                          <LinkIcon className="h-4 w-4 mr-1" />
+                          Access
                         </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.global_goods && useCase.global_goods.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Globe className="mr-2 h-5 w-5" />
-                  Global Goods Integration
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {useCase.global_goods.map((good, index) => (
-                    <div key={index} className="p-4 border rounded-lg">
-                      <h4 className="font-medium">{good.name}</h4>
-                      <Link to={good.url} className="text-sm text-primary hover:underline">
-                        View Details →
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.resources && useCase.resources.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Resources</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {useCase.resources.map((resource, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 border rounded">
-                      <div>
-                        <h4 className="font-medium">{resource.title}</h4>
-                        <Badge variant="outline" className="mt-1">{resource.type}</Badge>
                       </div>
-                      <a 
-                        href={resource.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                      >
-                        Access →
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </TabsContent>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
 
-        <TabsContent value="implementation" className="space-y-6">
-          {challenges && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <AlertTriangle className="mr-2 h-5 w-5" />
-                  Challenges
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {renderMarkdown(challenges)}
-              </CardContent>
-            </Card>
-          )}
-
-          {sustainability && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Lightbulb className="mr-2 h-5 w-5" />
-                  Sustainability Considerations
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {renderMarkdown(sustainability)}
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.solution && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Solution</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{useCase.solution}</p>
-              </CardContent>
-            </Card>
-          )}
-
-          {useCase.contacts && useCase.contacts.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Contacts</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {useCase.contacts.map((contact, index) => (
-                    <div key={index} className="p-3 border rounded">
-                      <h4 className="font-medium">{contact.name}</h4>
-                      <p className="text-sm text-muted-foreground">{contact.role} at {contact.organization}</p>
-                      {contact.email && (
-                        <a href={`mailto:${contact.email}`} className="text-sm text-primary hover:underline">
-                          {contact.email}
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </TabsContent>
-      </Tabs>
+            {useCase.contacts && useCase.contacts.length > 0 && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Users className="mr-2 h-5 w-5" />
+                    Contacts
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {useCase.contacts.map((contact, index) => (
+                      <div key={index} className="p-3 border rounded hover:bg-gray-50">
+                        <h4 className="font-medium">{contact.name}</h4>
+                        <p className="text-sm text-muted-foreground">{contact.role} at {contact.organization}</p>
+                        {contact.email && (
+                          <a href={`mailto:${contact.email}`} className="text-sm text-primary hover:underline">
+                            {contact.email}
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
