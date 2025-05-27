@@ -66,7 +66,7 @@ export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
 
               {/* Sectors */}
               {sectors.length > 0 && (
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 mb-3">
                   {sectors.slice(0, 3).map((sector) => (
                     <Badge key={sector} variant="secondary" className="text-xs">
                       {sector}
@@ -79,6 +79,43 @@ export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
                   )}
                 </div>
               )}
+
+              {/* Website and License */}
+              {(website || license) && (
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {website && (
+                    <Badge variant="outline" className="text-xs flex items-center gap-1">
+                      <ExternalLink className="h-3 w-3" />
+                      Website
+                    </Badge>
+                  )}
+                  {license && (
+                    <Badge variant="outline" className="text-xs flex items-center gap-1">
+                      <Shield className="h-3 w-3" />
+                      {license.name}
+                    </Badge>
+                  )}
+                </div>
+              )}
+
+              {/* SDGs */}
+              {sdgs.length > 0 && (
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">SDGs</div>
+                  <div className="flex flex-wrap gap-1">
+                    {sdgs.slice(0, 4).map((sdg) => (
+                      <Badge key={sdg.code} variant="default" className="text-xs bg-blue-100 text-blue-800 hover:bg-blue-200">
+                        {sdg.code} - {sdg.title}
+                      </Badge>
+                    ))}
+                    {sdgs.length > 4 && (
+                      <Badge variant="outline" className="text-xs">
+                        +{sdgs.length - 4} more
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -87,41 +124,6 @@ export function GlobalGoodListItem({ good }: GlobalGoodListItemProps) {
             <div className="flex items-center justify-end lg:justify-start">
               <ArrowUpRight className="h-4 w-4 text-primary hidden lg:block" />
             </div>
-
-            {/* Website and License */}
-            <div className="flex flex-wrap gap-1">
-              {website && (
-                <Badge variant="outline" className="text-xs flex items-center gap-1">
-                  <ExternalLink className="h-3 w-3" />
-                  Website
-                </Badge>
-              )}
-              {license && (
-                <Badge variant="outline" className="text-xs flex items-center gap-1">
-                  <Shield className="h-3 w-3" />
-                  {license.name}
-                </Badge>
-              )}
-            </div>
-
-            {/* SDGs */}
-            {sdgs.length > 0 && (
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">SDGs</div>
-                <div className="flex flex-wrap gap-1">
-                  {sdgs.slice(0, 4).map((sdg) => (
-                    <Badge key={sdg.code} variant="default" className="text-xs bg-blue-100 text-blue-800 hover:bg-blue-200">
-                      {sdg.code}
-                    </Badge>
-                  ))}
-                  {sdgs.length > 4 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{sdgs.length - 4} more
-                    </Badge>
-                  )}
-                </div>
-              </div>
-            )}
 
             {/* WHO Classifications */}
             {whoClassifications.length > 0 && (
