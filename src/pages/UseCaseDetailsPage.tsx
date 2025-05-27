@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, CheckCircle, Link as LinkIcon, ExternalLink } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Check, Link as LinkIcon, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -86,14 +86,10 @@ export default function UseCaseDetailsPage() {
                     <ClassificationBadge code={useCase.classifications.sdg} />
                   )}
                   {useCase.classifications?.who_system && (
-                    <Badge variant="outline" className="border-blue-200 bg-blue-50">
-                      WHO: {useCase.classifications.who_system}
-                    </Badge>
+                    <ClassificationBadge code={useCase.classifications.who_system} />
                   )}
                   {useCase.classifications?.wmo_category && (
-                    <Badge variant="outline" className="border-green-200 bg-green-50">
-                      WMO: {useCase.classifications.wmo_category}
-                    </Badge>
+                    <ClassificationBadge code={useCase.classifications.wmo_category} />
                   )}
                 </div>
               </div>
@@ -106,7 +102,7 @@ export default function UseCaseDetailsPage() {
             <CardContent className="pt-0">
               <div className="bg-white/50 rounded-lg p-6 border">
                 <h3 className="text-xl font-semibold mb-3 flex items-center">
-                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  <Check className="mr-2 h-5 w-5 text-primary" />
                   Executive Summary
                 </h3>
                 {renderMarkdown(purpose)}

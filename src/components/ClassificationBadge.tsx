@@ -1,3 +1,4 @@
+
 import { Badge } from "@/components/ui/badge";
 import { useClassifications } from "@/lib/api";
 import { Classification } from "@/lib/types";
@@ -25,8 +26,31 @@ export function ClassificationBadge({
     return <Badge variant="outline">{code}</Badge>;
   }
   
-  // Extract authority from the code (e.g., "WHO" from "WHO_D6")
-  const authority = classification.authority;
+  // Parse the code to extract authority and code parts
+  const getFormattedBadgeText = (code: string, title: string, authority: string) => {
+    if (code.startsWith('SDG-')) {
+      // For SDG codes like "SDG-3", extract the number
+      const sdgNumber = code.replace('SDG-', '');
+      return `SDG: "${title}" [${sdgNumber}]`;
+    } else if (code.startsWith('WHO_')) {
+      // For WHO codes like "WHO_A2", extract the part after WHO_
+      const whoCode = code.replace('WHO_', '');
+      return `WHO: "${title}" [${whoCode}]`;
+    } else if (code.startsWith('WMO_')) {
+      // For WMO codes like "WMO_D1", extract the part after WMO_
+      const wmoCode = code.replace('WMO_', '');
+      return `WMO: "${title}" [${wmoCode}]`;
+    } else if (code.startsWith('DPI_')) {
+      // For DPI codes like "DPI_BD1", extract the part after DPI_
+      const dpiCode = code.replace('DPI_', '');
+      return `DPI-H: "${title}" [${dpiCode}]`;
+    } else {
+      // Fallback for any other format
+      return `${authority}: "${title}" [${code}]`;
+    }
+  };
+
+  const badgeText = getFormattedBadgeText(code, classification.title, classification.authority);
   
   // If expanded view is requested, show a detailed card instead of just a badge
   if (expanded) {
@@ -36,7 +60,7 @@ export function ClassificationBadge({
           <div>
             <h4 className="font-medium">{classification.title}</h4>
           </div>
-          <Badge variant="secondary">{authority}</Badge>
+          <Badge variant="secondary">{classification.authority}</Badge>
         </div>
         <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
           <span className="font-medium">Group:</span> 
@@ -56,13 +80,7 @@ export function ClassificationBadge({
               variant="outline" 
               className="cursor-help border-primary/30 hover:border-primary"
             >
-              {showFullDetails ? (
-                <span>
-                  {code} | {classification.title}
-                </span>
-              ) : (
-                <span>{code}</span>
-              )}
+              {showFullDetails ? badgeText : badgeText}
             </Badge>
           </div>
         </TooltipTrigger>
@@ -70,7 +88,7 @@ export function ClassificationBadge({
           <div className="space-y-1">
             <p className="font-medium">{classification.title}</p>
             <p className="text-xs text-muted-foreground">
-              {authority} · {classification.group_name}
+              {classification.authority} · {classification.group_name}
             </p>
           </div>
         </TooltipContent>
