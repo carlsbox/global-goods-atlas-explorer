@@ -2,17 +2,46 @@
 export interface UseCase {
   id: string;
   title: string;
-  description: string;
-  country: string;
-  sector: string;
-  globalGoods: string[]; // References global goods by ID
-  organization: string;
-  year: string;
+  purpose: string; // markdown supported
+  classifications: {
+    sdg?: string;
+    who_system?: string;
+    wmo_category?: string;
+  };
+  scope: string; // markdown supported
+  actors: string; // markdown supported
+  preconditions: string; // markdown supported
+  process_steps: string; // markdown supported
+  postconditions: string; // markdown supported
+  data_requirements: string; // markdown supported
+  standards: Array<{
+    code: string;
+    domain: string;
+    link: string;
+    name: string;
+    description: string;
+    name_fr?: string;
+    description_fr?: string;
+    name_es?: string;
+    description_es?: string;
+    type: string;
+  }>;
+  technology_components: string; // markdown supported
+  global_goods: Array<{
+    id: string;
+    name: string;
+    url: string;
+  }>;
+  challenges: string; // markdown supported
+  sustainability_considerations: string; // markdown supported
+  // Legacy fields for backwards compatibility during transition
+  country?: string;
+  sector?: string;
+  organization?: string;
+  year?: string;
   link?: string;
   results?: string;
-  // New fields for the detailed use case page
-  challenge?: string;
-  solution?: string;
+  description?: string;
   impact?: string;
   lessons?: string[];
   contacts?: {
@@ -29,4 +58,6 @@ export interface UseCase {
   sdgs?: string[];
   images?: string[];
   featuredImage?: string;
+  challenge?: string;
+  solution?: string;
 }

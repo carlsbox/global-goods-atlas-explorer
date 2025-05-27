@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,10 @@ import { UseCase } from "@/lib/types";
 import { toast } from "sonner";
 import { AdminFilterBar } from "@/components/admin/AdminFilterBar";
 import { AdminDataTable } from "@/components/admin/AdminDataTable";
-import { UseCaseRow } from "@/components/admin/UseCaseRow";
+import { TableRow, TableCell } from "@/components/ui/table";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
+import { Pencil, Trash, Eye } from "lucide-react";
 
 // Mock data loader for demonstration
 async function loadUseCases(): Promise<UseCase[]> {
@@ -17,47 +19,135 @@ async function loadUseCases(): Promise<UseCase[]> {
       // Mock data - in real app would come from your API
       resolve([
         {
-          id: "1",
-          title: "COVID-19 Response in Kenya",
-          description: "Using DHIS2 to track COVID-19 cases and coordinate response",
-          country: "Kenya",
+          id: "senegal-heat-alert",
+          title: "Automated Heat Alert System for Community Health Resilience in Senegal",
+          purpose: "This use case addresses the rising health risks posed by extreme heat events in Senegal, particularly for vulnerable populations such as the elderly, children, and people with chronic illnesses.",
+          classifications: {
+            sdg: "SDG-3",
+            who_system: "WHO_A2",
+            wmo_category: "WMO_D1"
+          },
+          scope: "This use case covers the generation, dissemination, and response to heat alerts based on weather forecasts and health thresholds.",
+          actors: "Community Health Workers, District Health Authorities, Ministry of Health and Ministry of Environment",
+          preconditions: "Access to reliable weather forecast and temperature/humidity data, Defined heat health thresholds",
+          process_steps: "1. Meteorological Agency publishes daily forecasts\n2. System calculates heat index and checks thresholds",
+          postconditions: "Alerts are delivered on time, Outreach reduces health risks",
+          data_requirements: "Daily weather forecasts (temperature, humidity, heat index), Defined heat-health thresholds",
+          standards: [
+            {
+              code: "HL7 FHIR",
+              domain: "Health",
+              link: "https://www.hl7.org/fhir/",
+              name: "HL7 FHIR",
+              description: "Fast Healthcare Interoperability Resources",
+              type: "exchange"
+            }
+          ],
+          technology_components: "Weather data API, Alert platform, Dashboards, Mobile phones for CHWs",
+          global_goods: [
+            { id: "dhis2", name: "DHIS2", url: "/global-goods/dhis2" }
+          ],
+          challenges: "Gaps in weather data granularity, Limited mobile access in remote areas",
+          sustainability_considerations: "Scalable to other regions in West Africa, Needs cross-sector collaboration",
+          // Legacy compatibility
+          country: "Senegal",
           sector: "Health",
-          globalGoods: ["dhis2"],
           organization: "Ministry of Health",
-          year: "2023",
-          link: "https://example.com/case1",
-          results: "Improved case tracking and response coordination",
-          challenge: "Rapid tracking and response to COVID-19 cases",
-          solution: "Implementation of DHIS2 COVID-19 package",
-          impact: "Reduced response time by 50%",
-          lessons: ["Early data collection is crucial", "Training is essential"],
-          contacts: [{
-            name: "John Doe",
-            email: "john@example.com",
-            organization: "Ministry of Health",
-            role: "Project Manager"
-          }],
-          sdgs: ["SDG3"],
-          featuredImage: "/images/case1.jpg"
-        },
-        {
-          id: "2",
-          title: "Maternal Health in Tanzania",
-          description: "Implementing digital health solutions for maternal health monitoring",
-          country: "Tanzania",
-          sector: "Health",
-          globalGoods: ["dhis2", "openimis"],
-          organization: "Tanzania Health Department",
           year: "2024",
-          link: "https://example.com/case2",
-          challenge: "High maternal mortality rates",
-          solution: "Digital tracking of pregnancy and postnatal care",
-          impact: "20% reduction in maternal mortality"
-        },
-        // Add more mock use cases as needed
+          description: "Heat alert system for health resilience"
+        }
       ]);
     }, 1000);
   });
+}
+
+// New UseCaseRow component to replace the deleted one
+function UseCaseRow({ useCase, isSelected, onToggleSelect }: {
+  useCase: UseCase;
+  isSelected: boolean;
+  onToggleSelect: () => void;
+}) {
+  return (
+    <TableRow key={useCase.id}>
+      <TableCell>
+        <Checkbox 
+          checked={isSelected} 
+          onCheckedChange={onToggleSelect}
+        />
+      </TableCell>
+      <TableCell>
+        <div>
+          <p className="font-medium">{useCase.title}</p>
+          <p className="text-xs text-muted-foreground hidden sm:block">
+            {(useCase.purpose || useCase.description || "").length > 50
+              ? `${(useCase.purpose || useCase.description || "").slice(0, 50)}...`
+              : (useCase.purpose || useCase.description || "")}
+          </p>
+          <div className="mt-1 hidden sm:flex flex-wrap gap-1">
+            {useCase.classifications?.sdg && (
+              <Badge variant="outline" className="text-xs">
+                {useCase.classifications.sdg}
+              </Badge>
+            )}
+            {useCase.classifications?.who_system && (
+              <Badge variant="outline" className="text-xs">
+                WHO: {useCase.classifications.who_system}
+              </Badge>
+            )}
+            {useCase.global_goods?.slice(0, 2).map(good => (
+              <Badge key={good.id} variant="outline" className="text-xs">
+                {good.name}
+              </Badge>
+            )) || useCase.globalGoods?.slice(0, 2).map(goodId => (
+              <Badge key={goodId} variant="outline" className="text-xs">
+                {goodId}
+              </Badge>
+            ))}
+            {((useCase.global_goods?.length || 0) + (useCase.globalGoods?.length || 0)) > 2 && (
+              <Badge variant="outline" className="text-xs">
+                +{((useCase.global_goods?.length || 0) + (useCase.globalGoods?.length || 0)) - 2}
+              </Badge>
+            )}
+          </div>
+        </div>
+      </TableCell>
+      <TableCell className="hidden md:table-cell">
+        {useCase.country || "Global"}
+      </TableCell>
+      <TableCell className="hidden lg:table-cell">
+        <Badge variant="secondary">{useCase.sector || "Multiple"}</Badge>
+      </TableCell>
+      <TableCell className="hidden lg:table-cell">
+        {useCase.year || "Current"}
+      </TableCell>
+      <TableCell className="text-right space-x-1">
+        <Button variant="ghost" size="icon" asChild>
+          <Link to={`/use-cases/${useCase.id}`} target="_blank">
+            <Eye className="h-4 w-4" />
+            <span className="sr-only">View</span>
+          </Link>
+        </Button>
+        <Button variant="ghost" size="icon" asChild>
+          <Link to={`/admin/use-cases/edit/${useCase.id}`}>
+            <Pencil className="h-4 w-4" />
+            <span className="sr-only">Edit</span>
+          </Link>
+        </Button>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => {
+            toast.warning(`This would delete "${useCase.title}" in a real application`, {
+              description: "Mock functionality for demonstration",
+            });
+          }}
+        >
+          <Trash className="h-4 w-4" />
+          <span className="sr-only">Delete</span>
+        </Button>
+      </TableCell>
+    </TableRow>
+  );
 }
 
 export default function UseCasesListPage() {
@@ -88,15 +178,15 @@ export default function UseCasesListPage() {
   // Filter use cases based on search query and sector filter
   const filteredUseCases = useCases.filter(useCase => {
     const matchesSearch = useCase.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         useCase.description.toLowerCase().includes(searchQuery.toLowerCase());
+                         (useCase.purpose || useCase.description || "").toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesSector = !selectedSector || useCase.sector === selectedSector;
+    const matchesSector = !selectedSector || (useCase.sector === selectedSector);
     
     return matchesSearch && matchesSector;
   });
   
   // Extract unique sectors for filter dropdown
-  const sectors = [...new Set(useCases.map(useCase => useCase.sector))].sort();
+  const sectors = [...new Set(useCases.map(useCase => useCase.sector).filter(Boolean))].sort();
   const sectorOptions = sectors.map(sector => ({ label: sector, value: sector }));
   
   // Define table columns

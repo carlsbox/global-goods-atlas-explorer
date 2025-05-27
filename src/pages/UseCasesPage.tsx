@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useUseCases, useGlobalGoods } from "@/lib/api";
-import { UseCaseCard } from "@/components/use-cases/UseCaseCard";
-import { UseCasesFilterBar } from "@/components/use-cases/UseCasesFilterBar";
-import { SelectedGoodFilter } from "@/components/use-cases/SelectedGoodFilter";
+import { NewUseCaseCard } from "@/components/use-cases/NewUseCaseCard";
+import { NewUseCasesFilterBar } from "@/components/use-cases/NewUseCasesFilterBar";
 import { UseCasesNoResults } from "@/components/use-cases/UseCasesNoResults";
 import { useI18n } from "@/hooks/useI18n";
+import { loadClassificationsData } from "@/lib/loaders";
+import { loadStandardsData } from "@/lib/loaders";
 
 export default function UseCasesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,11 +15,33 @@ export default function UseCasesPage() {
 
   const { data: useCases = [], isLoading: useCasesLoading } = useUseCases();
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
-  const { getText, tPage } = useI18n();
+  const { getText, tPage, language } = useI18n();
   
   const [searchTerm, setSearchTerm] = useState("");
-  const [sectorFilter, setSectorFilter] = useState("all");
+  const [sdgFilter, setSdgFilter] = useState("all");
+  const [whoSystemFilter, setWhoSystemFilter] = useState("all");
+  const [wmoFilter, setWmoFilter] = useState("all");
   const [globalGoodFilter, setGlobalGoodFilter] = useState(globalGoodFilterParam || "all");
+  const [standardFilter, setStandardFilter] = useState("all");
+  const [classifications, setClassifications] = useState<any[]>([]);
+  const [standards, setStandards] = useState<any[]>([]);
+  
+  // Load classifications and standards
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [classificationsData, standardsData] = await Promise.all([
+          loadClassificationsData(),
+          loadStandardsData()
+        ]);
+        setClassifications(classificationsData || []);
+        setStandards(standardsData || []);
+      } catch (error) {
+        console.error('Failed to load additional data:', error);
+      }
+    };
+    loadData();
+  }, []);
   
   // Update URL when filters change
   useEffect(() => {
@@ -29,66 +52,78 @@ export default function UseCasesPage() {
     setSearchParams(params, { replace: true });
   }, [globalGoodFilter, setSearchParams]);
   
-  // Extract unique sectors for filter
-  const sectors = Array.from(
-    new Set(useCases.map(useCase => useCase.sector))
-  ).sort();
-  
   // Filter use cases
   const filteredUseCases = useCases.filter(useCase => {
-    const matchesSearch = searchTerm === "" || 
-      useCase.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      useCase.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
-    const matchesSector = sectorFilter === "all" || useCase.sector === sectorFilter;
+    // Search filter - check multiple fields
+    const matchesSearch = searchTerm === "" || [
+      useCase.title,
+      useCase.purpose || useCase.description || "",
+      useCase.scope || "",
+      useCase.actors || "",
+      useCase.challenges || "",
+      useCase.sustainability_considerations || ""
+    ].some(field => field.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    // SDG filter
+    const matchesSdg = sdgFilter === "all" || useCase.classifications?.sdg === sdgFilter;
+    
+    // WHO system filter
+    const matchesWho = whoSystemFilter === "all" || useCase.classifications?.who_system === whoSystemFilter;
+    
+    // WMO filter
+    const matchesWmo = wmoFilter === "all" || useCase.classifications?.wmo_category === wmoFilter;
+    
+    // Global good filter
     const matchesGlobalGood = globalGoodFilter === "all" || 
-      (useCase.globalGoods && useCase.globalGoods.includes(globalGoodFilter));
+      (useCase.global_goods && useCase.global_goods.some(good => good.id === globalGoodFilter)) ||
+      (useCase.globalGoods && useCase.globalGoods.includes(globalGoodFilter)); // Legacy support
+    
+    // Standard filter
+    const matchesStandard = standardFilter === "all" || 
+      (useCase.standards && useCase.standards.some(standard => standard.code === standardFilter));
       
-    return matchesSearch && matchesSector && matchesGlobalGood;
+    return matchesSearch && matchesSdg && matchesWho && matchesWmo && matchesGlobalGood && matchesStandard;
   });
 
   // Clear all filters handler
   const handleClearAllFilters = () => {
     setSearchTerm("");
-    setSectorFilter("all");
+    setSdgFilter("all");
+    setWhoSystemFilter("all");
+    setWmoFilter("all");
     setGlobalGoodFilter("all");
+    setStandardFilter("all");
   };
 
-  // Get global good name for display - using getText to handle multilingual names
-  const selectedGood = globalGoodFilter !== "all" 
-    ? globalGoods.find(g => g.id === globalGoodFilter) 
-    : null;
-  
-  const selectedGoodName = selectedGood 
-    ? getText(selectedGood.name) 
-    : "";
+  const hasActiveFilters = sdgFilter !== "all" || whoSystemFilter !== "all" || wmoFilter !== "all" || 
+                          globalGoodFilter !== "all" || standardFilter !== "all" || searchTerm !== "";
 
   return (
     <>
       <div className="max-w-4xl mx-auto mb-12 text-center">
         <h1 className="mb-6">{tPage("title", "useCases")}</h1>
         <p className="text-xl text-muted-foreground">
-          {tPage("description", "useCases")}
+          Explore comprehensive workflow documentation and implementation guides for digital health solutions.
         </p>
       </div>
       
-      {globalGoodFilter && globalGoodFilter !== "all" && (
-        <SelectedGoodFilter 
-          selectedGoodName={selectedGoodName} 
-          onClear={() => setGlobalGoodFilter("all")} 
-        />
-      )}
-      
-      <UseCasesFilterBar
-        sectors={sectors}
-        globalGoods={globalGoods}
+      <NewUseCasesFilterBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        sectorFilter={sectorFilter}
-        setSectorFilter={setSectorFilter}
+        sdgFilter={sdgFilter}
+        setSdgFilter={setSdgFilter}
+        whoSystemFilter={whoSystemFilter}
+        setWhoSystemFilter={setWhoSystemFilter}
+        wmoFilter={wmoFilter}
+        setWmoFilter={setWmoFilter}
         globalGoodFilter={globalGoodFilter}
         setGlobalGoodFilter={setGlobalGoodFilter}
+        standardFilter={standardFilter}
+        setStandardFilter={setStandardFilter}
         onClearAllFilters={handleClearAllFilters}
+        globalGoods={globalGoods}
+        classifications={classifications}
+        standards={standards}
       />
 
       {useCasesLoading || globalGoodsLoading ? (
@@ -100,15 +135,21 @@ export default function UseCasesPage() {
           <div className="mb-4">
             <p className="text-muted-foreground">
               {tPage("showing", "useCases", { filtered: filteredUseCases.length, total: useCases.length })}
+              {hasActiveFilters && (
+                <span className="ml-2 text-primary">
+                  (filtered results)
+                </span>
+              )}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredUseCases.map((useCase) => (
-              <UseCaseCard 
+              <NewUseCaseCard 
                 key={useCase.id} 
                 useCase={useCase}
                 globalGoods={globalGoods}
+                classifications={classifications}
               />
             ))}
           </div>

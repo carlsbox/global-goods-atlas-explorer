@@ -1,0 +1,132 @@
+
+{
+  "en": {
+    "id": "senegal-heat-alert",
+    "title": "Automated Heat Alert System for Community Health Resilience in Senegal",
+    "purpose": "This use case addresses the rising health risks posed by extreme heat events in Senegal, particularly for vulnerable populations such as the elderly, children, and people with chronic illnesses. The objective is to provide timely, automated heat alerts to health workers and community members to enable proactive public health responses, reduce heat-related morbidity and mortality, and improve community resilience to climate change.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_A2",
+      "wmo_category": "WMO_D1"
+    },
+    "scope": "This use case covers the generation, dissemination, and response to heat alerts based on weather forecasts and health thresholds. It includes:\n\n- Integration of meteorological and health data\n- Automated alert generation and dissemination via SMS, app, or radio\n- Guidance for community-level interventions\n\nIt does **not** include long-term infrastructure upgrades or broader climate adaptation policies.",
+    "actors": "- **Community Health Workers (CHWs)** – Receive alerts and conduct risk communication\n- **District Health Authorities** – Coordinate local response actions\n- **Ministry of Health and Ministry of Environment** – National oversight\n- **Community Members** – Act on alerts\n- **Meteorological Agency** – Provides weather forecasts\n- **Digital Health Systems** – Disseminate alerts (e.g., DHIS2, RapidPro)",
+    "preconditions": "- Access to reliable weather forecast and temperature/humidity data\n- Defined heat health thresholds\n- Contact information for CHWs and leaders\n- Trained CHWs on heat health protocols\n- Alert dissemination platform (SMS, WhatsApp, IVR)",
+    "process_steps": "1. **Meteorological Agency** publishes daily forecasts\n2. **System** calculates heat index and checks thresholds\n3. **If exceeded**, an automated alert is triggered\n4. **Alerts sent** via SMS, app, or radio\n5. **CHWs perform** outreach\n6. **District Health Authorities** coordinate clinic response\n7. **Logs recorded** in digital dashboard",
+    "postconditions": "- Alerts are delivered on time\n- Outreach reduces health risks\n- Communities take preventive actions\n- Fewer heat-related hospital visits\n- Event data supports learning and M&E",
+    "data_requirements": "- Daily weather forecasts (temperature, humidity, heat index)\n- Defined heat-health thresholds\n- CHW and community contact databases\n- Health facility data (optional)",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically.",
+        "name_fr": "HL7 FHIR",
+        "description_fr": "Fast Healthcare Interoperability Resources, une norme moderne pour l'échange électronique d'informations de santé.",
+        "name_es": "HL7 FHIR",
+        "description_es": "Fast Healthcare Interoperability Resources, un estándar moderno para el intercambio electrónico de información sanitaria.",
+        "type": "exchange"
+      },
+      {
+        "code": "ADX",
+        "domain": "Health",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis.",
+        "name_fr": "ADX",
+        "description_fr": "Standard d'échange de données agrégées pour l'échange de données de santé agrégées, couramment utilisé dans les rapports de santé publique et l'analyse statistique.",
+        "name_es": "ADX",
+        "description_es": "Estándar de intercambio de datos agregados para el intercambio de datos de salud agregados, comúnmente utilizado en informes de salud pública y análisis estadístico.",
+        "type": "exchange"
+      }
+    ],
+    "technology_components": "- **Weather data API** (e.g., NOAA, local agency)\n- **Alert platform** (e.g., RapidPro)\n- **Dashboards** (e.g., DHIS2, PowerBI)\n- **Mobile phones** for CHWs\n- **Optional**: ML model for predictions",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "/global-goods/dhis2"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "/global-goods/openmrs"
+      }
+    ],
+    "challenges": "- **Gaps in weather data granularity**\n- **Limited mobile access** in remote areas\n- **Low digital literacy**\n- **SMS/tech cost sustainability**\n- **Trust and timely response**",
+    "sustainability_considerations": "- **Scalable** to other regions in West Africa\n- **Needs cross-sector collaboration**\n- **Requires local language adaptation**\n- **Embedding** into CHW workflows and digital strategy\n- **Funding** from donors or government"
+  },
+  "fr": {
+    "id": "senegal-heat-alert",
+    "title": "Système d'Alerte Automatisé à la Chaleur pour la Résilience Sanitaire Communautaire au Sénégal",
+    "purpose": "Ce cas d'usage aborde les risques sanitaires croissants posés par les événements de chaleur extrême au Sénégal, particulièrement pour les populations vulnérables telles que les personnes âgées, les enfants et les personnes atteintes de maladies chroniques. L'objectif est de fournir des alertes de chaleur automatisées et opportunes aux agents de santé et aux membres de la communauté pour permettre des réponses proactives de santé publique, réduire la morbidité et la mortalité liées à la chaleur, et améliorer la résilience communautaire au changement climatique.",
+    "classifications": {
+      "sdg": "ODD-3",
+      "who_system": "OMS_A2",
+      "wmo_category": "OMM_D1"
+    },
+    "scope": "Ce cas d'usage couvre la génération, la diffusion et la réponse aux alertes de chaleur basées sur les prévisions météorologiques et les seuils de santé.",
+    "actors": "- **Agents de Santé Communautaire (ASC)** – Reçoivent les alertes et conduisent la communication des risques",
+    "preconditions": "- Accès à des prévisions météorologiques fiables et aux données de température/humidité",
+    "process_steps": "1. **L'Agence Météorologique** publie les prévisions quotidiennes",
+    "postconditions": "- Les alertes sont livrées à temps",
+    "data_requirements": "- Prévisions météorologiques quotidiennes (température, humidité, indice de chaleur)",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Santé",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Fast Healthcare Interoperability Resources, une norme moderne pour l'échange électronique d'informations de santé.",
+        "type": "exchange"
+      }
+    ],
+    "technology_components": "- **API de données météorologiques** (ex: NOAA, agence locale)",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "/global-goods/dhis2"
+      }
+    ],
+    "challenges": "- **Lacunes dans la granularité des données météorologiques**",
+    "sustainability_considerations": "- **Évolutif** vers d'autres régions d'Afrique de l'Ouest"
+  },
+  "es": {
+    "id": "senegal-heat-alert",
+    "title": "Sistema de Alerta Automatizada de Calor para la Resiliencia de Salud Comunitaria en Senegal",
+    "purpose": "Este caso de uso aborda los crecientes riesgos de salud planteados por eventos de calor extremo en Senegal, particularmente para poblaciones vulnerables como ancianos, niños y personas con enfermedades crónicas.",
+    "classifications": {
+      "sdg": "ODS-3",
+      "who_system": "OMS_A2",
+      "wmo_category": "OMM_D1"
+    },
+    "scope": "Este caso de uso cubre la generación, difusión y respuesta a alertas de calor basadas en pronósticos meteorológicos y umbrales de salud.",
+    "actors": "- **Trabajadores de Salud Comunitaria (TSC)** – Reciben alertas y realizan comunicación de riesgos",
+    "preconditions": "- Acceso a pronósticos meteorológicos confiables y datos de temperatura/humedad",
+    "process_steps": "1. **La Agencia Meteorológica** publica pronósticos diarios",
+    "postconditions": "- Las alertas se entregan a tiempo",
+    "data_requirements": "- Pronósticos meteorológicos diarios (temperatura, humedad, índice de calor)",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Salud",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Fast Healthcare Interoperability Resources, un estándar moderno para el intercambio electrónico de información sanitaria.",
+        "type": "exchange"
+      }
+    ],
+    "technology_components": "- **API de datos meteorológicos** (ej: NOAA, agencia local)",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "/global-goods/dhis2"
+      }
+    ],
+    "challenges": "- **Brechas en la granularidad de datos meteorológicos**",
+    "sustainability_considerations": "- **Escalable** a otras regiones de África Occidental"
+  }
+}
