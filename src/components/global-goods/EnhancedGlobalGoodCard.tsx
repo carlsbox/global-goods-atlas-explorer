@@ -6,8 +6,7 @@ import {
   CardContent 
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { ArrowUpRight, Globe, Users, Calendar, Wifi, WifiOff } from "lucide-react";
+import { ArrowUpRight, Globe, Users, Calendar } from "lucide-react";
 
 interface EnhancedGlobalGoodCardProps {
   good: GlobalGoodFlat;
@@ -17,16 +16,6 @@ export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
   const countryCount = good.Reach?.ImplementationCountries?.length || 0;
   const sectors = good.GlobalGoodsType?.map(type => type.title) || [];
   const sdgs = good.Classifications?.SDGs || [];
-  
-  // Calculate average maturity score
-  const latestMaturity = good.Maturity?.Scores?.[good.Maturity.Scores.length - 1];
-  const avgMaturityScore = latestMaturity ? 
-    Math.round((latestMaturity.global_utility + latestMaturity.community_support + 
-               latestMaturity.maturity_of_gg + latestMaturity.inclusive_design + 
-               latestMaturity.climate_resilience + latestMaturity.low_carbon) / 6) : 0;
-
-  const hasOfflineSupport = good.InclusiveDesign?.OfflineSupport?.toLowerCase().includes('yes') || 
-                           good.InclusiveDesign?.OfflineSupport?.toLowerCase().includes('support');
 
   return (
     <Link to={`/global-goods/${good.ID}`}>
@@ -51,31 +40,13 @@ export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
                 )}
                 <h3 className="font-semibold text-base leading-tight truncate">{good.Name}</h3>
               </div>
-              <div className="flex items-center gap-1 ml-2 flex-shrink-0">
-                {hasOfflineSupport ? (
-                  <WifiOff className="h-4 w-4 text-green-600" title="Offline support" />
-                ) : (
-                  <Wifi className="h-4 w-4 text-muted-foreground" title="Online only" />
-                )}
-                <ArrowUpRight className="h-4 w-4 text-primary" />
-              </div>
+              <ArrowUpRight className="h-4 w-4 text-primary ml-2 flex-shrink-0" />
             </div>
             
             {/* Description */}
             <p className="text-muted-foreground text-sm line-clamp-3 mb-4 h-[4.5rem]">
               {good.ProductOverview?.Summary || good.ProductOverview?.Description}
             </p>
-
-            {/* Maturity Score */}
-            {avgMaturityScore > 0 && (
-              <div className="mb-4">
-                <div className="flex items-center justify-between text-xs mb-1">
-                  <span className="text-muted-foreground">Maturity Score</span>
-                  <span className="font-medium">{avgMaturityScore}/10</span>
-                </div>
-                <Progress value={avgMaturityScore * 10} className="h-2" />
-              </div>
-            )}
             
             {/* Sectors */}
             <div className="flex flex-wrap gap-1 mb-4">
