@@ -1,0 +1,130 @@
+
+{
+  "en": {
+    "id": "rural-telemedicine-platform",
+    "title": "Rural Telemedicine and Remote Consultation Platform",
+    "purpose": "Establish a comprehensive telemedicine platform to bridge healthcare access gaps in rural and remote areas by connecting patients with specialist healthcare providers through secure video consultations and remote monitoring capabilities.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_C2",
+      "wmo_category": "WMO_A2"
+    },
+    "scope": "This use case encompasses the deployment of a telemedicine platform that:\n\n- Enables secure video consultations between rural patients and urban specialists\n- Supports remote patient monitoring through connected health devices\n- Facilitates electronic prescription and medication management\n- Provides clinical decision support tools for rural healthcare workers\n- Integrates with existing health information systems",
+    "actors": "**Healthcare Providers:**\n- **Rural Healthcare Workers** – Facilitate patient consultations and provide primary care\n- **Specialist Physicians** – Provide remote consultations and expert opinions\n- **Nurses and Technicians** – Support telemedicine sessions and patient monitoring\n- **Pharmacists** – Manage electronic prescriptions and medication counseling\n\n**Technology Support:**\n- **IT Administrators** – Maintain platform infrastructure and security\n- **Training Coordinators** – Provide ongoing education and support\n\n**Patients:**\n- **Rural Residents** – Primary beneficiaries of telemedicine services\n- **Chronic Disease Patients** – Recipients of remote monitoring services",
+    "preconditions": "**Infrastructure Requirements:**\n- Reliable broadband internet connectivity in rural health centers\n- Video conferencing equipment and secure communication tools\n- Electronic health record system integration capabilities\n- Basic diagnostic equipment for remote examinations\n\n**Regulatory Prerequisites:**\n- Telemedicine licensing and practice regulations\n- Patient privacy and data protection compliance\n- Cross-jurisdictional practice agreements\n- Quality assurance and clinical governance frameworks",
+    "process_steps": "**Phase 1: Infrastructure Setup (Months 1-4)**\n1. Assess internet connectivity and upgrade network infrastructure\n2. Install video conferencing equipment and diagnostic tools\n3. Configure secure communication platforms and data encryption\n4. Establish integration with existing health information systems\n\n**Phase 2: Platform Development and Testing (Months 5-8)**\n1. Develop telemedicine application with scheduling and consultation features\n2. Implement remote monitoring capabilities for chronic diseases\n3. Create clinical decision support tools and treatment protocols\n4. Conduct security testing and regulatory compliance validation\n\n**Phase 3: Training and Pilot Implementation (Months 9-12)**\n1. Train healthcare workers on telemedicine platform usage\n2. Pilot consultations with selected specialist physicians\n3. Test remote monitoring workflows with chronic disease patients\n4. Refine platform based on user feedback and performance metrics",
+    "postconditions": "**Immediate Healthcare Access Improvements:**\n- Reduced travel time and costs for patients seeking specialist care\n- Increased frequency of specialist consultations in rural areas\n- Enhanced clinical decision-making through expert consultation\n- Improved medication adherence through remote monitoring\n\n**System-Level Outcomes:**\n- Strengthened healthcare delivery capacity in rural regions\n- Better integration between primary and specialist care services\n- Enhanced health outcomes for chronic disease patients\n- Reduced healthcare disparities between urban and rural populations",
+    "data_requirements": "**Patient Information:**\n- Electronic health records and medical history\n- Real-time vital signs and diagnostic data\n- Medication records and treatment adherence\n- Patient-reported outcomes and symptom tracking\n\n**Consultation Data:**\n- Video consultation recordings and clinical notes\n- Specialist recommendations and treatment plans\n- Follow-up scheduling and care coordination\n- Quality metrics and patient satisfaction scores",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "For interoperable health data exchange between systems"
+      },
+      {
+        "code": "DICOM",
+        "domain": "Health",
+        "link": "https://www.dicomstandard.org/",
+        "name": "DICOM",
+        "description": "For medical imaging data exchange and storage"
+      }
+    ],
+    "technology_components": "**Core Telemedicine Platform:**\n- **OpenMRS** enhanced with telemedicine modules\n- Secure video conferencing with end-to-end encryption\n- Mobile applications for patient engagement and monitoring\n- Integration APIs for diagnostic equipment and wearable devices\n\n**Communication Infrastructure:**\n- High-definition video conferencing systems\n- Secure messaging and file sharing capabilities\n- Real-time data transmission for vital signs monitoring\n- Cloud-based storage with backup and disaster recovery",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Technical Infrastructure Challenges:**\n- Ensuring reliable internet connectivity in remote rural areas\n- Managing bandwidth limitations for high-quality video consultations\n- Integrating diverse diagnostic equipment and health monitoring devices\n- Maintaining cybersecurity and patient data protection\n\n**Healthcare Delivery Challenges:**\n- Training rural healthcare workers on new technology platforms\n- Establishing trust and rapport in virtual patient-provider relationships\n- Coordinating care across different healthcare systems and jurisdictions\n- Ensuring clinical quality and safety in remote consultation settings",
+    "sustainability_considerations": "**Financial Sustainability:**\n- Developing sustainable reimbursement models for telemedicine services\n- Sharing infrastructure costs across multiple rural health facilities\n- Leveraging government funding and international development support\n- Creating value-based payment models tied to health outcomes\n\n**Technical and Operational Sustainability:**\n- Building local technical capacity for platform maintenance and support\n- Establishing ongoing training programs for healthcare providers\n- Creating governance structures for quality assurance and continuous improvement\n- Planning for technology upgrades and platform evolution"
+  },
+  "fr": {
+    "id": "rural-telemedicine-platform",
+    "title": "Plateforme de Télémédecine et Consultation à Distance Rurale",
+    "purpose": "Établir une plateforme de télémédecine complète pour combler les lacunes d'accès aux soins dans les zones rurales et éloignées en connectant les patients avec des prestataires spécialisés.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_C2",
+      "wmo_category": "WMO_A2"
+    },
+    "scope": "Ce cas d'usage englobe le déploiement d'une plateforme de télémédecine qui :\n\n- Permet des consultations vidéo sécurisées entre patients ruraux et spécialistes urbains\n- Soutient la surveillance à distance des patients\n- Facilite la prescription électronique\n- Fournit des outils d'aide à la décision clinique",
+    "actors": "**Prestataires de Soins :**\n- **Agents de Santé Ruraux** – Facilitent les consultations patients\n- **Médecins Spécialistes** – Fournissent des consultations à distance\n- **Infirmiers et Techniciens** – Soutiennent les sessions de télémédecine",
+    "preconditions": "**Exigences d'Infrastructure :**\n- Connectivité internet haut débit fiable\n- Équipement de visioconférence et outils de communication sécurisés\n- Capacités d'intégration avec les systèmes existants",
+    "process_steps": "**Phase 1 : Configuration Infrastructure (Mois 1-4)**\n1. Évaluer la connectivité et améliorer l'infrastructure réseau\n2. Installer équipement de visioconférence\n3. Configurer plateformes de communication sécurisées\n4. Établir intégration avec systèmes existants",
+    "postconditions": "**Améliorations Immédiates d'Accès :**\n- Réduction du temps et coûts de voyage pour patients\n- Fréquence accrue des consultations spécialisées\n- Prise de décision clinique améliorée\n- Adhésion médicamenteuse améliorée",
+    "data_requirements": "**Information Patients :**\n- Dossiers de santé électroniques\n- Signes vitaux et données diagnostiques en temps réel\n- Dossiers de médication\n- Résultats rapportés par patients",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Santé",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Pour l'échange interopérable de données de santé"
+      }
+    ],
+    "technology_components": "**Plateforme Télémédecine :**\n- **OpenMRS** amélioré avec modules télémédecine\n- Visioconférence sécurisée\n- Applications mobiles pour engagement patient",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Défis d'Infrastructure :**\n- Assurer connectivité internet fiable en zones rurales\n- Gérer limitations de bande passante\n- Intégrer équipements diagnostiques divers",
+    "sustainability_considerations": "**Durabilité Financière :**\n- Développer modèles de remboursement durables\n- Partager coûts d'infrastructure\n- Tirer parti du financement gouvernemental"
+  },
+  "es": {
+    "id": "rural-telemedicine-platform",
+    "title": "Plataforma de Telemedicina y Consulta Remota Rural",
+    "purpose": "Establecer una plataforma integral de telemedicina para cerrar brechas de acceso a atención médica en áreas rurales y remotas conectando pacientes con proveedores especializados.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_C2",
+      "wmo_category": "WMO_A2"
+    },
+    "scope": "Este caso de uso abarca el despliegue de una plataforma de telemedicina que:\n\n- Permite consultas de video seguras entre pacientes rurales y especialistas urbanos\n- Apoya monitoreo remoto de pacientes\n- Facilita prescripción electrónica\n- Proporciona herramientas de apoyo a decisiones clínicas",
+    "actors": "**Proveedores de Atención:**\n- **Trabajadores de Salud Rural** – Facilitan consultas de pacientes\n- **Médicos Especialistas** – Proporcionan consultas remotas\n- **Enfermeros y Técnicos** – Apoyan sesiones de telemedicina",
+    "preconditions": "**Requisitos de Infraestructura:**\n- Conectividad internet banda ancha confiable\n- Equipo de videoconferencia y herramientas de comunicación seguras\n- Capacidades de integración con sistemas existentes",
+    "process_steps": "**Fase 1: Configuración Infraestructura (Meses 1-4)**\n1. Evaluar conectividad y mejorar infraestructura de red\n2. Instalar equipo de videoconferencia\n3. Configurar plataformas de comunicación seguras\n4. Establecer integración con sistemas existentes",
+    "postconditions": "**Mejoras Inmediatas de Acceso:**\n- Reducción de tiempo y costos de viaje para pacientes\n- Frecuencia aumentada de consultas especializadas\n- Toma de decisiones clínicas mejorada\n- Adherencia a medicamentos mejorada",
+    "data_requirements": "**Información de Pacientes:**\n- Registros de salud electrónicos\n- Signos vitales y datos diagnósticos en tiempo real\n- Registros de medicación\n- Resultados reportados por pacientes",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Salud",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Para intercambio interoperable de datos de salud"
+      }
+    ],
+    "technology_components": "**Plataforma Telemedicina:**\n- **OpenMRS** mejorado con módulos de telemedicina\n- Videoconferencia segura\n- Aplicaciones móviles para compromiso del paciente",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Desafíos de Infraestructura:**\n- Asegurar conectividad internet confiable en áreas rurales\n- Gestionar limitaciones de ancho de banda\n- Integrar equipos diagnósticos diversos",
+    "sustainability_considerations": "**Sostenibilidad Financiera:**\n- Desarrollar modelos de reembolso sostenibles\n- Compartir costos de infraestructura\n- Aprovechar financiamiento gubernamental"
+  }
+}

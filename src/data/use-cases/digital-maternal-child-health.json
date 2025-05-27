@@ -1,0 +1,130 @@
+
+{
+  "en": {
+    "id": "digital-maternal-child-health",
+    "title": "Digital Maternal and Child Health Platform",
+    "purpose": "Deploy a comprehensive digital platform to improve maternal and child health outcomes through integrated care coordination, real-time monitoring, and evidence-based interventions across the continuum of care.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_B1",
+      "wmo_category": "WMO_A1"
+    },
+    "scope": "This use case covers the implementation of an integrated digital maternal and child health platform that:\n\n- Manages pregnancy care from antenatal visits through postnatal follow-up\n- Integrates immunization tracking and growth monitoring for children\n- Supports community health workers with mobile tools for home visits\n- Provides real-time analytics for program monitoring and quality improvement\n- Enables patient engagement through mobile health applications",
+    "actors": "**Primary Healthcare Providers:**\n- **Midwives and Nurses** – Provide maternal care and delivery services\n- **Pediatricians** – Deliver child health services and preventive care\n- **Community Health Workers** – Conduct home visits and health education\n- **Program Coordinators** – Oversee MCH program implementation\n\n**Patients and Families:**\n- **Pregnant Women** – Primary beneficiaries of maternal health services\n- **Mothers and Caregivers** – Recipients of child health services",
+    "preconditions": "**Infrastructure Requirements:**\n- Reliable internet connectivity at health facilities\n- Mobile network coverage for community-based services\n- Basic computing equipment for healthcare workers\n- Established referral networks\n\n**Technical Prerequisites:**\n- Functional health information management system\n- Integration capabilities with existing systems\n- Mobile application development infrastructure",
+    "process_steps": "**Phase 1: System Design and Development (Months 1-6)**\n1. Conduct stakeholder consultations and requirements gathering\n2. Design user interfaces for different healthcare worker types\n3. Develop core modules for maternal and child health care\n4. Create mobile applications for community health workers\n\n**Phase 2: Pilot Implementation (Months 7-12)**\n1. Deploy system in selected pilot sites\n2. Train healthcare workers on new digital workflows\n3. Begin patient enrollment and data collection\n4. Monitor system performance and gather feedback",
+    "postconditions": "**Immediate Outcomes:**\n- Comprehensive MCH data collection and reporting\n- Improved care coordination between providers\n- Enhanced tracking of maternal and child health indicators\n- Reduced duplication of services\n\n**Long-term Impact:**\n- Improved maternal and child health outcomes\n- Evidence-based program planning and resource allocation\n- Strengthened health information systems",
+    "data_requirements": "**Patient Data:**\n- Demographics and registration information\n- Medical history and risk factors\n- Antenatal visit records and screening results\n- Immunization records and growth measurements\n\n**Program Data:**\n- Healthcare provider information\n- Facility capacity and service availability\n- Quality indicators and performance metrics",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "For maternal and child health data exchange"
+      },
+      {
+        "code": "ICD-10",
+        "domain": "Health",
+        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+        "name": "ICD-10",
+        "description": "For standardized coding of health conditions"
+      }
+    ],
+    "technology_components": "**Core Platform:**\n- **OpenMRS** configured for maternal and child health workflows\n- Custom modules for antenatal care and child health tracking\n- Integration with laboratory and imaging systems\n\n**Mobile Applications:**\n- Android/iOS apps for community health workers\n- Offline data collection capabilities\n- SMS integration for patient communication",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Technical Challenges:**\n- Ensuring system reliability under high user loads\n- Managing complex data flows between systems\n- Implementing robust security for health information\n\n**Implementation Challenges:**\n- Training diverse user groups with varying technical skills\n- Coordinating with multiple stakeholders\n- Ensuring sustainable financing for long-term operation",
+    "sustainability_considerations": "**Financial Sustainability:**\n- Integration with existing health system budgets\n- Cost-sharing mechanisms between stakeholders\n- Leveraging economies of scale through shared infrastructure\n\n**Technical Sustainability:**\n- Building local capacity for system support\n- Establishing governance structures\n- Planning for regular system updates"
+  },
+  "fr": {
+    "id": "digital-maternal-child-health",
+    "title": "Plateforme Numérique de Santé Maternelle et Infantile",
+    "purpose": "Déployer une plateforme numérique complète pour améliorer les résultats de santé maternelle et infantile grâce à la coordination des soins intégrés et au suivi en temps réel.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_B1",
+      "wmo_category": "WMO_A1"
+    },
+    "scope": "Ce cas d'usage couvre la mise en œuvre d'une plateforme numérique intégrée de santé maternelle et infantile qui :\n\n- Gère les soins de grossesse des visites prénatales au suivi postnatal\n- Intègre le suivi des vaccinations et la surveillance de la croissance\n- Soutient les agents de santé communautaire avec des outils mobiles",
+    "actors": "**Prestataires de Soins Primaires :**\n- **Sages-femmes et Infirmières** – Fournissent des soins maternels\n- **Pédiatres** – Délivrent les services de santé infantile\n- **Agents de Santé Communautaire** – Conduisent les visites à domicile",
+    "preconditions": "**Exigences d'Infrastructure :**\n- Connectivité internet fiable dans les établissements\n- Couverture réseau mobile pour les services communautaires\n- Équipement informatique de base pour les agents",
+    "process_steps": "**Phase 1 : Conception et Développement (Mois 1-6)**\n1. Conduire les consultations des parties prenantes\n2. Concevoir les interfaces utilisateur\n3. Développer les modules principaux\n4. Créer des applications mobiles",
+    "postconditions": "**Résultats Immédiats :**\n- Collecte complète des données SMI\n- Coordination améliorée des soins\n- Suivi renforcé des indicateurs\n- Réduction de la duplication des services",
+    "data_requirements": "**Données Patients :**\n- Démographie et enregistrement\n- Histoire médicale et facteurs de risque\n- Dossiers de visites prénatales\n- Dossiers de vaccination et mesures de croissance",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Santé",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Pour l'échange de données de santé maternelle et infantile"
+      }
+    ],
+    "technology_components": "**Plateforme Principale :**\n- **OpenMRS** configuré pour les flux de travail SMI\n- Modules personnalisés pour les soins prénataux\n- Intégration avec les systèmes de laboratoire",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Défis Techniques :**\n- Assurer la fiabilité du système\n- Gérer les flux de données complexes\n- Implémenter une sécurité robuste",
+    "sustainability_considerations": "**Durabilité Financière :**\n- Intégration avec les budgets existants\n- Mécanismes de partage des coûts\n- Économies d'échelle par infrastructure partagée"
+  },
+  "es": {
+    "id": "digital-maternal-child-health",
+    "title": "Plataforma Digital de Salud Materno-Infantil",
+    "purpose": "Implementar una plataforma digital integral para mejorar los resultados de salud materno-infantil a través de coordinación de atención integrada y monitoreo en tiempo real.",
+    "classifications": {
+      "sdg": "SDG-3",
+      "who_system": "WHO_B1",
+      "wmo_category": "WMO_A1"
+    },
+    "scope": "Este caso de uso cubre la implementación de una plataforma digital integrada de salud materno-infantil que:\n\n- Gestiona atención del embarazo desde visitas prenatales hasta seguimiento postnatal\n- Integra seguimiento de inmunizaciones y monitoreo del crecimiento\n- Apoya trabajadores de salud comunitaria con herramientas móviles",
+    "actors": "**Proveedores de Atención Primaria:**\n- **Parteras y Enfermeras** – Proporcionan atención materna\n- **Pediatras** – Brindan servicios de salud infantil\n- **Trabajadores de Salud Comunitaria** – Realizan visitas domiciliarias",
+    "preconditions": "**Requisitos de Infraestructura:**\n- Conectividad internet confiable en establecimientos\n- Cobertura de red móvil para servicios comunitarios\n- Equipo informático básico para trabajadores",
+    "process_steps": "**Fase 1: Diseño y Desarrollo (Meses 1-6)**\n1. Realizar consultas con partes interesadas\n2. Diseñar interfaces de usuario\n3. Desarrollar módulos principales\n4. Crear aplicaciones móviles",
+    "postconditions": "**Resultados Inmediatos:**\n- Recolección integral de datos SMI\n- Coordinación mejorada de atención\n- Seguimiento mejorado de indicadores\n- Reducción de duplicación de servicios",
+    "data_requirements": "**Datos de Pacientes:**\n- Demografía y registro\n- Historia médica y factores de riesgo\n- Registros de visitas prenatales\n- Registros de vacunación y medidas de crecimiento",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Salud",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Para intercambio de datos de salud materno-infantil"
+      }
+    ],
+    "technology_components": "**Plataforma Principal:**\n- **OpenMRS** configurado para flujos de trabajo SMI\n- Módulos personalizados para atención prenatal\n- Integración con sistemas de laboratorio",
+    "global_goods": [
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      }
+    ],
+    "challenges": "**Desafíos Técnicos:**\n- Asegurar confiabilidad del sistema\n- Gestionar flujos de datos complejos\n- Implementar seguridad robusta",
+    "sustainability_considerations": "**Sostenibilidad Financiera:**\n- Integración con presupuestos existentes\n- Mecanismos de compartición de costos\n- Economías de escala por infraestructura compartida"
+  }
+}
