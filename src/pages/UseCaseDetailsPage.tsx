@@ -5,7 +5,7 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Cog, Target, CheckCircle, Link as LinkIcon } from "lucide-react";
+import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Crosshair, CheckCircle2, Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -72,56 +72,13 @@ export default function UseCaseDetailsPage() {
         </Link>
       </div>
 
-      {/* Enhanced Hero Section */}
+      {/* Hero Section */}
       <div className="mb-12">
         <Card className="border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-primary/10">
           <CardHeader className="pb-6">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <CardTitle className="text-4xl font-bold mb-4 text-primary">{title}</CardTitle>
-                
-                {/* Key Stats Row */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                  {useCase.organization && (
-                    <div className="flex items-center gap-2">
-                      <Building className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Organization</p>
-                        <p className="font-medium">{useCase.organization}</p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {useCase.country && (
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Location</p>
-                        <p className="font-medium">{useCase.country}</p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {useCase.year && (
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Year</p>
-                        <p className="font-medium">{useCase.year}</p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {useCase.sector && (
-                    <div className="flex items-center gap-2">
-                      <Circle className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="text-sm text-muted-foreground">Sector</p>
-                        <p className="font-medium">{useCase.sector}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
                 
                 {/* Classifications */}
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -149,7 +106,7 @@ export default function UseCaseDetailsPage() {
             <CardContent className="pt-0">
               <div className="bg-white/50 rounded-lg p-6 border">
                 <h3 className="text-xl font-semibold mb-3 flex items-center">
-                  <Target className="mr-2 h-5 w-5 text-primary" />
+                  <Crosshair className="mr-2 h-5 w-5 text-primary" />
                   Executive Summary
                 </h3>
                 {renderMarkdown(purpose)}
@@ -159,96 +116,135 @@ export default function UseCaseDetailsPage() {
         </Card>
       </div>
 
-      {/* Three-Column Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      {/* Two-Column Main Content Grid (60/40 split) */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
         
-        {/* Column 1: Stakeholders & Process */}
-        <div className="space-y-6">
-          <div className="sticky top-6">
-            <h2 className="text-2xl font-bold mb-4 text-blue-600 flex items-center">
-              <Users className="mr-2 h-6 w-6" />
-              Stakeholders & Process
-            </h2>
-            
-            {scope && (
-              <Card className="mb-6 border-blue-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-blue-700">
-                    <Circle className="mr-2 h-5 w-5" />
-                    Scope
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(scope)}
-                </CardContent>
-              </Card>
-            )}
+        {/* Left Column: Primary Narrative (60% - 3 columns) */}
+        <div className="lg:col-span-3 space-y-6">
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 flex items-center">
+            <Users className="mr-2 h-6 w-6" />
+            Use Case Overview
+          </h2>
+          
+          {/* Card 1: Scope & Context */}
+          {scope && (
+            <Card className="border-blue-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-blue-700">
+                  <Circle className="mr-2 h-5 w-5" />
+                  Scope & Context
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {renderMarkdown(scope)}
+              </CardContent>
+            </Card>
+          )}
 
-            {actors && (
-              <Card className="mb-6 border-blue-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-blue-700">
-                    <Users className="mr-2 h-5 w-5" />
-                    Key Actors
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(actors)}
-                </CardContent>
-              </Card>
-            )}
+          {/* Card 2: Key Actors */}
+          {actors && (
+            <Card className="border-blue-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-blue-700">
+                  <Users className="mr-2 h-5 w-5" />
+                  Key Actors & Stakeholders
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {renderMarkdown(actors)}
+              </CardContent>
+            </Card>
+          )}
 
-            {preconditions && (
-              <Card className="mb-6 border-blue-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-blue-700">Preconditions</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(preconditions)}
-                </CardContent>
-              </Card>
-            )}
+          {/* Card 3: Process Flow */}
+          {(preconditions || processSteps || postconditions) && (
+            <Card className="border-blue-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-blue-700">
+                  <FileText className="mr-2 h-5 w-5" />
+                  Implementation Process
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {preconditions && (
+                  <div>
+                    <h4 className="font-medium text-blue-600 mb-2">Preconditions</h4>
+                    {renderMarkdown(preconditions)}
+                  </div>
+                )}
+                {processSteps && (
+                  <div>
+                    <h4 className="font-medium text-blue-600 mb-2">Process Steps</h4>
+                    {renderMarkdown(processSteps)}
+                  </div>
+                )}
+                {postconditions && (
+                  <div>
+                    <h4 className="font-medium text-blue-600 mb-2">Expected Outcomes</h4>
+                    {renderMarkdown(postconditions)}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
 
-            {processSteps && (
-              <Card className="mb-6 border-blue-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-blue-700">
-                    <FileText className="mr-2 h-5 w-5" />
-                    Process Steps
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(processSteps)}
-                </CardContent>
-              </Card>
-            )}
+          {/* Card 4: Challenges & Lessons */}
+          {(challenges || useCase.lessons) && (
+            <Card className="border-orange-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-orange-700">
+                  <AlertTriangle className="mr-2 h-5 w-5" />
+                  Challenges & Lessons Learned
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {challenges && (
+                  <div>
+                    <h4 className="font-medium text-orange-600 mb-2">Key Challenges</h4>
+                    {renderMarkdown(challenges)}
+                  </div>
+                )}
+                {useCase.lessons && useCase.lessons.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-orange-600 mb-2">Lessons Learned</h4>
+                    <ul className="list-disc pl-6 space-y-2">
+                      {useCase.lessons.map((lesson, index) => (
+                        <li key={index} className="text-muted-foreground">{lesson}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
 
-            {postconditions && (
-              <Card className="border-blue-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-blue-700">
-                    <CheckCircle className="mr-2 h-5 w-5" />
-                    Expected Outcomes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(postconditions)}
-                </CardContent>
-              </Card>
-            )}
-          </div>
+          {/* Card 5: Sustainability */}
+          {sustainability && (
+            <Card className="border-orange-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-orange-700">
+                  <Lightbulb className="mr-2 h-5 w-5" />
+                  Sustainability & Future Outlook
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {renderMarkdown(sustainability)}
+              </CardContent>
+            </Card>
+          )}
         </div>
 
-        {/* Column 2: Technical Implementation */}
-        <div className="space-y-6">
-          <div className="sticky top-6">
+        {/* Right Column: Supporting Details (40% - 2 columns) */}
+        <div className="lg:col-span-2 space-y-6">
+          <div className="sticky top-6 space-y-6">
             <h2 className="text-2xl font-bold mb-4 text-green-600 flex items-center">
-              <Cog className="mr-2 h-6 w-6" />
-              Technical Implementation
+              <Settings className="mr-2 h-6 w-6" />
+              Technical Details
             </h2>
 
+            {/* Card 6: Data Requirements */}
             {dataRequirements && (
-              <Card className="mb-6 border-green-200">
+              <Card className="border-green-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-green-700">Data Requirements</CardTitle>
                 </CardHeader>
@@ -258,8 +254,9 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
+            {/* Card 7: Technology Stack */}
             {technologyComponents && (
-              <Card className="mb-6 border-green-200">
+              <Card className="border-green-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg flex items-center text-green-700">
                     <Settings className="mr-2 h-5 w-5" />
@@ -272,8 +269,9 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
+            {/* Card 8: Standards & Interoperability */}
             {useCase.standards && useCase.standards.length > 0 && (
-              <Card className="mb-6 border-green-200">
+              <Card className="border-green-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-green-700">Standards & Interoperability</CardTitle>
                 </CardHeader>
@@ -304,6 +302,7 @@ export default function UseCaseDetailsPage() {
               </Card>
             )}
 
+            {/* Card 9: Global Goods Integration */}
             {useCase.global_goods && useCase.global_goods.length > 0 && (
               <Card className="border-green-200">
                 <CardHeader className="pb-3">
@@ -327,48 +326,57 @@ export default function UseCaseDetailsPage() {
                 </CardContent>
               </Card>
             )}
-          </div>
-        </div>
 
-        {/* Column 3: Integration & Sustainability */}
-        <div className="space-y-6">
-          <div className="sticky top-6">
-            <h2 className="text-2xl font-bold mb-4 text-orange-600 flex items-center">
-              <Lightbulb className="mr-2 h-6 w-6" />
-              Integration & Sustainability
-            </h2>
-
-            {challenges && (
-              <Card className="mb-6 border-orange-200">
+            {/* Card 10: Quick Facts (Legacy data) */}
+            {(useCase.organization || useCase.country || useCase.year || useCase.sector) && (
+              <Card className="border-gray-200">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-orange-700">
-                    <AlertTriangle className="mr-2 h-5 w-5" />
-                    Challenges
-                  </CardTitle>
+                  <CardTitle className="text-lg text-gray-700">Quick Facts</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  {renderMarkdown(challenges)}
+                <CardContent className="space-y-3">
+                  {useCase.organization && (
+                    <div className="flex items-center gap-2">
+                      <Building className="h-4 w-4 text-gray-500" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Organization</p>
+                        <p className="text-sm font-medium">{useCase.organization}</p>
+                      </div>
+                    </div>
+                  )}
+                  {useCase.country && (
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-gray-500" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Location</p>
+                        <p className="text-sm font-medium">{useCase.country}</p>
+                      </div>
+                    </div>
+                  )}
+                  {useCase.year && (
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-gray-500" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Year</p>
+                        <p className="text-sm font-medium">{useCase.year}</p>
+                      </div>
+                    </div>
+                  )}
+                  {useCase.sector && (
+                    <div className="flex items-center gap-2">
+                      <Circle className="h-4 w-4 text-gray-500" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Sector</p>
+                        <p className="text-sm font-medium">{useCase.sector}</p>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             )}
 
-            {sustainability && (
-              <Card className="mb-6 border-orange-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-orange-700">
-                    <Lightbulb className="mr-2 h-5 w-5" />
-                    Sustainability Considerations
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(sustainability)}
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Legacy fields */}
+            {/* Legacy cards for backward compatibility */}
             {useCase.results && (
-              <Card className="mb-6 border-orange-200">
+              <Card className="border-orange-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-orange-700">Results</CardTitle>
                 </CardHeader>
@@ -379,7 +387,7 @@ export default function UseCaseDetailsPage() {
             )}
 
             {useCase.impact && (
-              <Card className="mb-6 border-orange-200">
+              <Card className="border-orange-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-orange-700">Impact</CardTitle>
                 </CardHeader>
@@ -390,27 +398,12 @@ export default function UseCaseDetailsPage() {
             )}
 
             {useCase.solution && (
-              <Card className="mb-6 border-orange-200">
+              <Card className="border-orange-200">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg text-orange-700">Solution</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{useCase.solution}</p>
-                </CardContent>
-              </Card>
-            )}
-
-            {useCase.lessons && useCase.lessons.length > 0 && (
-              <Card className="border-orange-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-orange-700">Lessons Learned</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc pl-6 space-y-2">
-                    {useCase.lessons.map((lesson, index) => (
-                      <li key={index} className="text-muted-foreground">{lesson}</li>
-                    ))}
-                  </ul>
                 </CardContent>
               </Card>
             )}
