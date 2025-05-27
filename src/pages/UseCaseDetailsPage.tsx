@@ -234,118 +234,116 @@ export default function UseCaseDetailsPage() {
           )}
         </div>
 
-        {/* Right Column: Supporting Details (40% - 2 columns) */}
+        {/* Right Column: Technical Implementation (40% - 2 columns) */}
         <div className="lg:col-span-2 space-y-6">
           <div className="sticky top-6 space-y-6">
             <h2 className="text-2xl font-bold mb-4 text-green-600 flex items-center">
               <Settings className="mr-2 h-6 w-6" />
-              Technical Details
+              Technical Implementation
             </h2>
 
-            {/* Card 1: Associated Global Goods */}
-            {useCase.global_goods && useCase.global_goods.length > 0 && (
-              <Card className="border-green-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-green-700">
-                    <Globe className="mr-2 h-5 w-5" />
-                    Associated Global Goods
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {useCase.global_goods.map((good, index) => (
-                      <div key={index} className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                        <h4 className="font-medium text-green-800">{good.name}</h4>
-                        <Link to={good.url} className="text-sm text-green-600 hover:text-green-800 flex items-center mt-1">
-                          <LinkIcon className="h-3 w-3 mr-1" />
-                          View Details
+            {/* Consolidated Technical Details Card */}
+            <Card className="border-green-200">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center text-green-700">
+                  <Settings className="mr-2 h-5 w-5" />
+                  Implementation Details
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                
+                {/* Associated Global Goods - Compact badges */}
+                {useCase.global_goods && useCase.global_goods.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-green-600 mb-3 flex items-center">
+                      <Globe className="mr-2 h-4 w-4" />
+                      Associated Global Goods
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {useCase.global_goods.map((good, index) => (
+                        <Link 
+                          key={index} 
+                          to={good.url}
+                          className="inline-block"
+                        >
+                          <Badge 
+                            variant="outline" 
+                            className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
+                          >
+                            {good.name}
+                          </Badge>
                         </Link>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            )}
+                )}
 
-            {/* Card 2: Data Requirements */}
-            {dataRequirements && (
-              <Card className="border-green-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg text-green-700">Data Requirements</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {renderMarkdown(dataRequirements)}
-                </CardContent>
-              </Card>
-            )}
+                {/* Data Requirements */}
+                {dataRequirements && (
+                  <div>
+                    <h4 className="font-medium text-green-600 mb-2">Data Requirements</h4>
+                    {renderMarkdown(dataRequirements)}
+                  </div>
+                )}
 
-            {/* Card 3: Technology & Standards (Consolidated) */}
-            {(technologyComponents || (useCase.standards && useCase.standards.length > 0)) && (
-              <Card className="border-green-200">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center text-green-700">
-                    <Settings className="mr-2 h-5 w-5" />
-                    Technology & Standards
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {technologyComponents && (
-                    <div>
-                      <h4 className="font-medium text-green-600 mb-2">Technology Components</h4>
-                      {renderMarkdown(technologyComponents)}
-                    </div>
-                  )}
-                  
-                  {useCase.standards && useCase.standards.length > 0 && (
-                    <div>
-                      <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.standards.map((standard, index) => (
-                          <Dialog key={index}>
-                            <DialogTrigger asChild>
-                              <Badge 
-                                variant="outline" 
-                                className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
-                              >
+                {/* Technology Components */}
+                {technologyComponents && (
+                  <div>
+                    <h4 className="font-medium text-green-600 mb-2">Technology Components</h4>
+                    {renderMarkdown(technologyComponents)}
+                  </div>
+                )}
+                
+                {/* Standards & Interoperability */}
+                {useCase.standards && useCase.standards.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {useCase.standards.map((standard, index) => (
+                        <Dialog key={index}>
+                          <DialogTrigger asChild>
+                            <Badge 
+                              variant="outline" 
+                              className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
+                            >
+                              {standard.name}
+                            </Badge>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-md">
+                            <DialogHeader>
+                              <DialogTitle className="flex items-center justify-between">
                                 {standard.name}
-                              </Badge>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-md">
-                              <DialogHeader>
-                                <DialogTitle className="flex items-center justify-between">
-                                  {standard.name}
-                                  <Badge variant="outline" className="ml-2">
-                                    {standard.domain}
-                                  </Badge>
-                                </DialogTitle>
-                              </DialogHeader>
-                              <div className="space-y-4">
-                                <p className="text-sm text-muted-foreground">
-                                  {standard.description}
-                                </p>
-                                {standard.link && (
-                                  <a 
-                                    href={standard.link} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center text-sm text-primary hover:underline"
-                                  >
-                                    <LinkIcon className="h-3 w-3 mr-1" />
-                                    Learn more
-                                  </a>
-                                )}
-                              </div>
-                            </DialogContent>
-                          </Dialog>
-                        ))}
-                      </div>
+                                <Badge variant="outline" className="ml-2">
+                                  {standard.domain}
+                                </Badge>
+                              </DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-4">
+                              <p className="text-sm text-muted-foreground">
+                                {standard.description}
+                              </p>
+                              {standard.link && (
+                                <a 
+                                  href={standard.link} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center text-sm text-primary hover:underline"
+                                >
+                                  <LinkIcon className="h-3 w-3 mr-1" />
+                                  Learn more
+                                </a>
+                              )}
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      ))}
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            )}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
 
-            {/* Card 4: Quick Facts (Legacy data) */}
+            {/* Legacy Quick Facts Card - Keep for backward compatibility */}
             {(useCase.organization || useCase.country || useCase.year || useCase.sector) && (
               <Card className="border-gray-200">
                 <CardHeader className="pb-3">
