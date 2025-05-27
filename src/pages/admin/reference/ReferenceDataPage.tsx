@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  Tags, 
+  Tag, 
   Shield, 
-  Network, 
+  Share2, 
   Plus, 
   Edit, 
   Trash,
@@ -68,9 +68,9 @@ export default function ReferenceDataPage() {
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <span className="flex items-center">
-            {type === 'classification' && <Tags className="h-5 w-5 mr-2" />}
+            {type === 'classification' && <Tag className="h-5 w-5 mr-2" />}
             {type === 'standard' && <Shield className="h-5 w-5 mr-2" />}
-            {type === 'initiative' && <Network className="h-5 w-5 mr-2" />}
+            {type === 'initiative' && <Share2 className="h-5 w-5 mr-2" />}
             {title}
           </span>
           <Button size="sm" onClick={onAdd}>
@@ -110,7 +110,7 @@ export default function ReferenceDataPage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold flex items-center">
-            <Tags className="h-8 w-8 mr-3 text-purple-600" />
+            <Tag className="h-8 w-8 mr-3 text-purple-600" />
             Reference Data Management
           </h1>
           <p className="text-muted-foreground">Manage classifications, standards, and initiatives</p>
@@ -194,7 +194,7 @@ export default function ReferenceDataPage() {
             <CardHeader>
               <CardTitle className="flex items-center justify-between">
                 <span className="flex items-center">
-                  <Network className="h-5 w-5 mr-2" />
+                  <Share2 className="h-5 w-5 mr-2" />
                   Collection Initiatives
                 </span>
                 <Button size="sm">

@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { 
   Globe, 
   FileText, 
-  Tags, 
+  Tag, 
   Shield, 
-  Network,
+  Share2,
   Plus,
   Eye,
   Edit,
@@ -46,7 +46,7 @@ export default function SimplifiedAdminDashboard() {
     {
       title: "Classifications",
       count: 85,
-      icon: Tags,
+      icon: Tag,
       color: "text-purple-600",
       bg: "bg-purple-50",
       description: "WHO, DPI, WMO classifications",
@@ -160,7 +160,7 @@ export default function SimplifiedAdminDashboard() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center">
-              <Network className="h-5 w-5 mr-2" />
+              <Share2 className="h-5 w-5 mr-2" />
               Quick Actions
             </CardTitle>
           </CardHeader>

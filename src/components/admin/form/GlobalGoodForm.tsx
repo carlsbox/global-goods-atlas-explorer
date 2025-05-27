@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -43,6 +44,28 @@ const convertToUrlArray = (arr: string[] | { url: string, description: string }[
   return arr as { url: string, description: string }[];
 };
 
+// Helper to convert GlobalGoodsType array properly
+const convertGlobalGoodsTypeArray = (arr: string[] | { title?: string; description?: string; code?: string; }[] | undefined): { title?: string; description?: string; code?: string; }[] => {
+  if (!arr) return [];
+  
+  if (arr.length > 0 && typeof arr[0] === 'string') {
+    return (arr as string[]).map(item => ({ title: item, description: '', code: '' }));
+  }
+  
+  return arr as { title?: string; description?: string; code?: string; }[];
+};
+
+// Helper to convert website/sourceCode arrays properly
+const convertWebsiteArray = (arr: string[] | { id?: string; name?: string; description?: string; url?: string; }[] | undefined): { id?: string; name?: string; description?: string; url?: string; }[] => {
+  if (!arr) return [];
+  
+  if (arr.length > 0 && typeof arr[0] === 'string') {
+    return (arr as string[]).map(item => ({ id: '', name: '', url: item, description: '' }));
+  }
+  
+  return arr as { id?: string; name?: string; description?: string; url?: string; }[];
+};
+
 export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: GlobalGoodFormProps) {
   const { t } = useI18n();
   
@@ -56,9 +79,9 @@ export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: 
                ensureMultilingualText(initialData.name) : initialData.name) 
                : { en: '', fr: '', es: '' },
         logo: initialData?.logo || '',
-        website: initialData?.coreMetadata?.website || [],
-        globalGoodsType: initialData?.coreMetadata?.globalGoodsType || [],
-        sourceCode: initialData?.coreMetadata?.sourceCode || [],
+        website: convertWebsiteArray(initialData?.coreMetadata?.website),
+        globalGoodsType: convertGlobalGoodsTypeArray(initialData?.coreMetadata?.globalGoodsType),
+        sourceCode: convertWebsiteArray(initialData?.coreMetadata?.sourceCode),
         license: initialData?.coreMetadata?.license || [],
         demoLink: initialData?.coreMetadata?.demoLink || [],
         contact: initialData?.coreMetadata?.contact || [],

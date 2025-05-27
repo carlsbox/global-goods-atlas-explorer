@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { Home, Package, FileText, Settings, Users, List, Wrench, LogOut, Tags } from 'lucide-react';
+import { Home, Package, FileText, Settings, Users, List, Wrench, LogOut, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import AdminLanguageSwitcher from './AdminLanguageSwitcher';
@@ -64,7 +64,7 @@ const AdminLayout = () => {
                 isActive ? "bg-slate-700 text-white" : "text-slate-300 hover:bg-slate-700 hover:text-white"
               )
             }>
-              <Tags className="mr-3 h-5 w-5" />
+              <Tag className="mr-3 h-5 w-5" />
               <span>Classifications</span>
             </NavLink>
             

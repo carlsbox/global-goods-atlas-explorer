@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { PlusCircle, Edit, Trash } from 'lucide-react';
@@ -25,7 +26,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/components/ui/use-toast';
 import { useClassifications } from '@/lib/api';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
-import { Classification } from '@/lib/types';
+import { Classification } from '@/lib/types/classifications';
 
 interface ClassificationWithSubcategories {
   id: string;
@@ -214,10 +215,10 @@ const ClassificationsPage = () => {
                 <Input 
                   id="id" 
                   value={currentClassification?.id || ''}
-                  onChange={(e) => setCurrentClassification({
-                    ...currentClassification, 
+                  onChange={(e) => setCurrentClassification(prev => prev ? {
+                    ...prev, 
                     id: e.target.value
-                  })}
+                  } : null)}
                 />
               </div>
               <div className="space-y-2">
@@ -225,10 +226,10 @@ const ClassificationsPage = () => {
                 <Input 
                   id="name" 
                   value={currentClassification?.name || ''}
-                  onChange={(e) => setCurrentClassification({
-                    ...currentClassification, 
+                  onChange={(e) => setCurrentClassification(prev => prev ? {
+                    ...prev, 
                     name: e.target.value
-                  })}
+                  } : null)}
                 />
               </div>
             </div>
@@ -238,10 +239,10 @@ const ClassificationsPage = () => {
               <Input 
                 id="description" 
                 value={currentClassification?.description || ''}
-                onChange={(e) => setCurrentClassification({
-                  ...currentClassification, 
+                onChange={(e) => setCurrentClassification(prev => prev ? {
+                  ...prev, 
                   description: e.target.value
-                })}
+                } : null)}
               />
             </div>
             
@@ -255,6 +256,7 @@ const ClassificationsPage = () => {
                         placeholder="ID" 
                         value={sub.id || ''}
                         onChange={(e) => {
+                          if (!currentClassification) return;
                           const updated = [...currentClassification.subcategories];
                           updated[idx] = { ...updated[idx], id: e.target.value };
                           setCurrentClassification({
@@ -267,6 +269,7 @@ const ClassificationsPage = () => {
                         placeholder="Name" 
                         value={sub.name || ''}
                         onChange={(e) => {
+                          if (!currentClassification) return;
                           const updated = [...currentClassification.subcategories];
                           updated[idx] = { ...updated[idx], name: e.target.value };
                           setCurrentClassification({
@@ -280,6 +283,7 @@ const ClassificationsPage = () => {
                       placeholder="Description" 
                       value={sub.description || ''}
                       onChange={(e) => {
+                        if (!currentClassification) return;
                         const updated = [...currentClassification.subcategories];
                         updated[idx] = { ...updated[idx], description: e.target.value };
                         setCurrentClassification({
@@ -294,6 +298,7 @@ const ClassificationsPage = () => {
                   variant="outline" 
                   size="sm" 
                   onClick={() => {
+                    if (!currentClassification) return;
                     const updated = [...(currentClassification.subcategories || [])];
                     updated.push({ id: '', name: '', description: '' });
                     setCurrentClassification({
