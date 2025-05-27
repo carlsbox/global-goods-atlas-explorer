@@ -157,7 +157,11 @@ export async function loadGlobalGood(id: string, language: LanguageCode): Promis
       name: mapped.CoreMetadata?.Name || mapped.Name || '',
       logo: mapped.CoreMetadata?.Logo || mapped.Logo || '',
       website: mapped.CoreMetadata?.Website || [],
-      globalGoodsType: mapped.CoreMetadata?.GlobalGoodsType || [],
+      globalGoodsType: mapped.CoreMetadata?.GlobalGoodsType?.map((type: any) => ({
+        code: typeof type === 'string' ? type : type.code || type.title,
+        title: typeof type === 'string' ? type : type.title,
+        description: typeof type === 'string' ? '' : type.description || ''
+      })) || [],
       sourceCode: mapped.CoreMetadata?.SourceCode || [],
       license: mapped.CoreMetadata?.License || [],
       demoLink: mapped.CoreMetadata?.DemoLink,

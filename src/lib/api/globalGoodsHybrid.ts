@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { GlobalGood, LanguageCode } from '@/lib/types';
 import { 
@@ -16,7 +15,7 @@ export function useGlobalGoodsIndex() {
     queryKey: ['globalGoodsIndex'],
     queryFn: loadGlobalGoodsIndex,
     staleTime: 5 * 60 * 1000, // 5 minutes
-    cacheTime: 30 * 60 * 1000, // 30 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes (was cacheTime)
   });
 }
 
@@ -28,7 +27,7 @@ export function useGlobalGoodsHybrid() {
     queryKey: ['globalGoodsHybrid', language],
     queryFn: () => loadAllGlobalGoods(language),
     staleTime: 5 * 60 * 1000,
-    cacheTime: 30 * 60 * 1000,
+    gcTime: 30 * 60 * 1000, // 30 minutes (was cacheTime)
   });
 }
 
@@ -41,7 +40,7 @@ export function useGlobalGoodHybrid(id: string | undefined) {
     queryFn: () => id ? loadGlobalGood(id, language) : Promise.resolve(undefined),
     enabled: !!id,
     staleTime: 10 * 60 * 1000, // 10 minutes for individual items
-    cacheTime: 60 * 60 * 1000, // 1 hour
+    gcTime: 60 * 60 * 1000, // 1 hour (was cacheTime)
   });
 }
 

@@ -6,7 +6,6 @@ import { useGlobalGoodsHybrid } from '@/lib/api';
 import { FilterBar } from '@/components/global-goods/FilterBar';
 import { GlobalGoodCardFlat } from '@/components/global-goods/GlobalGoodCardFlat';
 import { NoResults } from '@/components/global-goods/NoResults';
-import { PageLayout } from '@/components/layout/PageLayout';
 import { LoadingState } from '@/components/global-good/LoadingState';
 
 export default function GlobalGoodsPageHybrid() {
@@ -49,48 +48,46 @@ export default function GlobalGoodsPageHybrid() {
 
   if (isLoading) {
     return (
-      <PageLayout>
+      <div className="container mx-auto py-8">
         <LoadingState message={t('loadingCatalog')} />
-      </PageLayout>
+      </div>
     );
   }
 
   return (
-    <PageLayout>
-      <div className="container mx-auto py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold">{t('catalogTitle')} (Hybrid)</h1>
-          <p className="text-lg mt-2">{t('catalogDescription')}</p>
-        </div>
-        
-        <FilterBar
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          selectedSector={selectedSector}
-          onSectorChange={setSelectedSector}
-          sectors={sectors}
-          onClearFilters={clearFilters}
-        />
-        
-        {filteredGoods.length > 0 ? (
-          <>
-            <div className="text-sm text-gray-500 mb-4">
-              {t('showing', {
-                filtered: filteredGoods.length,
-                total: globalGoods.length,
-              })}
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredGoods.map(good => (
-                <GlobalGoodCardFlat key={good.id} globalGood={good} />
-              ))}
-            </div>
-          </>
-        ) : (
-          <NoResults onClearFilters={clearFilters} />
-        )}
+    <div className="container mx-auto py-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold">{t('catalogTitle')} (Hybrid)</h1>
+        <p className="text-lg mt-2">{t('catalogDescription')}</p>
       </div>
-    </PageLayout>
+      
+      <FilterBar
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        selectedSector={selectedSector}
+        onSectorChange={setSelectedSector}
+        sectors={sectors}
+        onClearFilters={clearFilters}
+      />
+      
+      {filteredGoods.length > 0 ? (
+        <>
+          <div className="text-sm text-gray-500 mb-4">
+            {t('showing', {
+              filtered: filteredGoods.length,
+              total: globalGoods.length,
+            })}
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredGoods.map(good => (
+              <GlobalGoodCardFlat key={good.id} good={good} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <NoResults onClearFilters={clearFilters} />
+      )}
+    </div>
   );
 }
