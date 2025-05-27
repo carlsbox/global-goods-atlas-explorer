@@ -1,12 +1,39 @@
 
 import { LanguageType } from '@/contexts/LanguageContext';
 import { UseCase } from '../types';
-import { loadWithTranslations } from '../translationUtils';
 
 // Function to load use case data
 export async function loadUseCase(id: string, language: LanguageType): Promise<UseCase | undefined> {
   try {
-    return loadWithTranslations<UseCase>(`use-cases/${id}`, `use-cases/translations/${id}`, language);
+    const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
+    const filePath = `../../data/use-cases/${id}.json`;
+    
+    if (!context[filePath]) {
+      console.error(`Use case file not found: ${id}`);
+      return undefined;
+    }
+    
+    const module = context[filePath] as any;
+    const data = module.default;
+    
+    // Handle new multilingual format
+    if (data[language]) {
+      return { ...data[language], id };
+    }
+    
+    // Fallback to English if requested language not available
+    if (data.en) {
+      console.warn(`Language ${language} not available for use case ${id}, falling back to English`);
+      return { ...data.en, id };
+    }
+    
+    // Handle legacy flat format (backward compatibility)
+    if (data.title) {
+      return { ...data, id };
+    }
+    
+    console.error(`Invalid use case format for: ${id}`);
+    return undefined;
   } catch (err) {
     console.error(`Failed to load use case: ${id}`, err);
     return undefined;
@@ -19,17 +46,12 @@ export async function loadAllUseCases(language: LanguageType = 'en'): Promise<Us
     const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
     const items = await Promise.all(
       Object.keys(context).map(async (key) => {
-        if (key.includes('/translations/')) {
-          return null; // Skip translation files
-        }
-        
         const module = context[key] as any;
         const id = key.split('/').pop()?.replace('.json', '');
         
         if (!id) return null;
         
         try {
-          // Try to load with proper translations
           return await loadUseCase(id, language);
         } catch (e) {
           console.error(`Failed to load use case ${id}:`, e);

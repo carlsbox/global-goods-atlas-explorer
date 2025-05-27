@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
@@ -35,12 +36,14 @@ export const useGlobalGood = (id: string | undefined, options = {}) => {
   });
 };
 
-// Fetch use cases data
+// Fetch use cases data with language support
 export const useUseCases = () => {
+  const { language } = useLanguage();
+  
   return useQuery({
-    queryKey: ['useCases'],
+    queryKey: ['useCases', language],
     queryFn: async (): Promise<UseCase[]> => {
-      return loadAllUseCases();
+      return loadAllUseCases(language);
     }
   });
 };
