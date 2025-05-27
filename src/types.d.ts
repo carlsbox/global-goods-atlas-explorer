@@ -82,4 +82,9 @@ declare module 'lucide-react' {
   export const Lightbulb: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const PlusCircle: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
   export const Edit: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  
+  // Network connectivity icons (corrected names)
+  export const Wifi: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const WifiOff: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  export const Sliders: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 }

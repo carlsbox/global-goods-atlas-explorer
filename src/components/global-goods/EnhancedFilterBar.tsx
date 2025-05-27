@@ -16,7 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Search, Filter, X, Grid3X3, List, SlidersHorizontal } from "lucide-react";
+import { Search, Filter, X, Grid3X3, List, Sliders } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 
 interface EnhancedFilterBarProps {
@@ -177,7 +177,7 @@ export function EnhancedFilterBar({
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline" className="h-11">
-              <SlidersHorizontal className="h-4 w-4 mr-2" />
+              <Sliders className="h-4 w-4 mr-2" />
               More Filters
               {(selectedSDGs.length > 0 || minMaturityScore > 0) && (
                 <Badge variant="secondary" className="ml-2 text-xs">
