@@ -1,0 +1,144 @@
+
+{
+  "en": {
+    "id": "digital-health-equity-platform",
+    "title": "Digital Health Equity and Social Determinants Platform",
+    "purpose": "Develop an integrated platform that addresses health equity by identifying and addressing social determinants of health, reducing healthcare disparities, and ensuring equitable access to digital health services for marginalized and vulnerable populations.",
+    "classifications": {
+      "sdg": "SDG-10",
+      "who_system": "WHO_A1",
+      "wmo_category": "WMO_C1"
+    },
+    "scope": "This use case covers the implementation of a comprehensive digital health equity platform that:\n\n- Identifies and monitors social determinants of health across different population groups\n- Provides culturally appropriate and linguistically accessible digital health services\n- Addresses digital divides and ensures equitable access to health technologies\n- Supports community-driven health interventions and empowerment initiatives\n- Integrates health data with social, economic, and environmental indicators\n- Facilitates advocacy and policy development for health equity advancement\n- Enables participatory research and community-based health improvement programs",
+    "actors": "**Community and Advocacy Organizations:**\n- **Community Health Advocates** – Champion health equity and represent community interests\n- **Social Workers** – Address social determinants and connect patients with resources\n- **Community Leaders** – Facilitate community engagement and cultural competency\n- **Patient Navigators** – Help vulnerable populations access and use health services\n\n**Healthcare and Public Health Professionals:**\n- **Primary Care Providers** – Deliver culturally competent care to diverse populations\n- **Public Health Epidemiologists** – Monitor health disparities and population health trends\n- **Health Education Specialists** – Develop and implement community health education programs\n- **Mental Health Counselors** – Provide culturally appropriate mental health services\n\n**Policy and Research Stakeholders:**\n- **Health Policy Analysts** – Research and develop policies to address health inequities\n- **Community-Based Researchers** – Conduct participatory research with affected communities\n- **Health Equity Officers** – Lead institutional efforts to advance health equity\n- **Data Scientists** – Analyze complex datasets to identify patterns of health disparities",
+    "preconditions": "**Community Engagement Infrastructure:**\n- Established relationships with community organizations and leaders\n- Cultural competency training for healthcare providers and staff\n- Community advisory committees and participatory governance structures\n- Trust-building initiatives and historical trauma-informed approaches\n\n**Data and Technology Infrastructure:**\n- Comprehensive health and social data collection systems\n- Multilingual and culturally appropriate user interfaces\n- Accessible technology platforms for users with disabilities\n- Community-based internet access and digital literacy programs\n\n**Policy and Institutional Support:**\n- Organizational commitment to health equity and social justice\n- Policies supporting community engagement and participatory decision-making\n- Funding mechanisms for community-driven health initiatives\n- Legal frameworks protecting patient privacy and community data sovereignty\n\n**Workforce and Capacity Building:**\n- Diverse healthcare workforce reflecting community demographics\n- Training programs on cultural humility and anti-racism\n- Community health worker programs and peer support networks\n- Leadership development programs for community members",
+    "process_steps": "**Phase 1: Community Assessment and Engagement (Months 1-6)**\n1. Conduct comprehensive community health needs assessments\n2. Establish community advisory committees and governance structures\n3. Map existing community assets, resources, and social networks\n4. Identify priority health equity issues and intervention targets\n5. Develop culturally appropriate communication and engagement strategies\n6. Build partnerships with community organizations and leaders\n\n**Phase 2: Platform Development and Customization (Months 7-12)**\n1. Design user interfaces with community input and cultural considerations\n2. Develop multilingual content and culturally appropriate health resources\n3. Create accessibility features for users with disabilities\n4. Integrate social determinants data with health information systems\n5. Build community dashboard and data visualization tools\n6. Develop mobile applications for community health workers and residents\n\n**Phase 3: Pilot Implementation and Community Testing (Months 13-18)**\n1. Launch pilot programs in selected communities with high health disparities\n2. Train community health workers and peer advocates on platform use\n3. Implement community-driven health interventions and programs\n4. Test platform accessibility and usability with diverse user groups\n5. Collect feedback from community members and adjust platform features\n6. Monitor early indicators of health equity improvement\n\n**Phase 4: Scale-up and Policy Integration (Months 19-30)**\n1. Expand platform to additional communities and population groups\n2. Integrate findings into health policy and institutional practices\n3. Develop sustainable financing mechanisms for community programs\n4. Create evaluation frameworks for measuring health equity outcomes\n5. Build regional networks for sharing best practices and innovations\n6. Advocate for systemic changes based on platform evidence and community voice",
+    "postconditions": "**Improved Health Equity Outcomes:**\n- Reduced health disparities across racial, ethnic, and socioeconomic groups\n- Increased access to culturally appropriate healthcare services\n- Enhanced community empowerment and health advocacy capacity\n- Better integration of social services with healthcare delivery\n\n**Strengthened Community Capacity:**\n- Increased community leadership and decision-making power in health issues\n- Enhanced digital literacy and technology access in underserved communities\n- Improved social cohesion and collective efficacy for health\n- Greater community ownership of health improvement initiatives\n\n**System-Level Changes:**\n- Institutionalized practices for addressing social determinants of health\n- Policy changes that advance health equity and social justice\n- Improved cultural competency and anti-racism practices in healthcare\n- Enhanced data systems for monitoring and addressing health disparities\n\n**Research and Innovation:**\n- Evidence base for effective health equity interventions\n- Community-driven research and innovation in health improvement\n- Best practices for participatory technology development\n- Policy recommendations for advancing health equity through digital health",
+    "data_requirements": "**Social Determinants Data:**\n- Housing quality, affordability, and stability indicators\n- Educational attainment and literacy levels\n- Employment status, income, and economic security measures\n- Food security and access to healthy food options\n- Transportation access and mobility indicators\n- Social support networks and community connection measures\n\n**Health Disparities Data:**\n- Health outcomes disaggregated by race, ethnicity, gender, and socioeconomic status\n- Healthcare access and utilization patterns\n- Quality of care indicators across different population groups\n- Patient experience and satisfaction measures\n- Preventive care and health screening participation rates\n\n**Community Asset and Resource Data:**\n- Community-based organizations and service providers\n- Cultural and faith-based institutions\n- Educational and recreational facilities\n- Economic development and business resources\n- Environmental health and safety indicators\n\n**Digital Equity Data:**\n- Internet access and broadband availability\n- Device ownership and technology literacy levels\n- Digital health service utilization patterns\n- Barriers to technology adoption and use",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "For interoperable health data exchange with social determinants integration"
+      },
+      {
+        "code": "ADX",
+        "domain": "Health",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "For population health data reporting and health equity monitoring"
+      }
+    ],
+    "technology_components": "**Community Engagement Platform:**\n- Community portal with multilingual and accessible user interfaces\n- Social networking features for community building and peer support\n- Digital storytelling and community voice amplification tools\n- Participatory mapping and community asset visualization\n\n**Health Equity Analytics:**\n- **DHIS2** configured for health equity monitoring and reporting\n- Social determinants data integration and analysis capabilities\n- Health disparities dashboards and visualization tools\n- Community-level indicators and outcome tracking\n\n**Community Health Support:**\n- **OpenMRS** adapted for community health worker workflows\n- Mobile applications for community health education and outreach\n- Peer support networks and mentorship platforms\n- Resource navigation and service coordination tools\n\n**Digital Inclusion Infrastructure:**\n- Low-bandwidth mobile applications for areas with limited connectivity\n- Offline capabilities for intermittent internet access\n- Multi-modal communication options (SMS, voice, web)\n- Device lending and digital literacy training programs",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      }
+    ],
+    "challenges": "**Community Trust and Engagement:**\n- Building trust with communities that have experienced historical medical racism\n- Ensuring authentic community participation and avoiding tokenism\n- Addressing power imbalances between institutions and communities\n- Respecting community data sovereignty and self-determination\n\n**Cultural and Linguistic Barriers:**\n- Providing truly culturally competent and linguistically appropriate services\n- Addressing diverse literacy levels and health knowledge\n- Navigating complex cultural beliefs and practices around health\n- Ensuring accessibility for users with different abilities and needs\n\n**Digital Divide and Technology Access:**\n- Addressing unequal access to broadband internet and devices\n- Supporting users with limited digital literacy and technical skills\n- Designing inclusive technology that works across different platforms\n- Ensuring affordability and sustainability of technology access\n\n**Systemic and Structural Barriers:**\n- Addressing deeply rooted structural racism and discrimination\n- Changing institutional policies and practices that perpetuate inequities\n- Securing sustainable funding for community-driven initiatives\n- Navigating complex regulatory and policy environments",
+    "sustainability_considerations": "**Community Ownership and Leadership:**\n- Transferring platform ownership and governance to community organizations\n- Building sustainable leadership development and succession planning\n- Creating community-controlled funding mechanisms and resource mobilization\n- Ensuring long-term community voice in platform evolution and decision-making\n\n**Institutional Commitment and Policy Change:**\n- Embedding health equity principles in organizational policies and practices\n- Creating accountability mechanisms for health equity outcomes\n- Advocating for policy changes that address root causes of health disparities\n- Building coalitions and partnerships for sustained advocacy and action\n\n**Financial Sustainability and Resource Mobilization:**\n- Diversifying funding sources including community foundations and social investors\n- Developing community-based social enterprises and revenue generation\n- Advocating for public funding and policy support for health equity initiatives\n- Creating shared resource models and collaborative funding approaches\n\n**Knowledge Sharing and Movement Building:**\n- Creating networks for sharing best practices and innovations across communities\n- Building movements for health equity and social justice\n- Developing research and evaluation frameworks that center community knowledge\n- Supporting community-led advocacy and policy change efforts"
+  },
+  "fr": {
+    "id": "digital-health-equity-platform",
+    "title": "Plateforme Numérique d'Équité en Santé et de Déterminants Sociaux",
+    "purpose": "Développer une plateforme intégrée qui aborde l'équité en santé en identifiant et traitant les déterminants sociaux de la santé, réduisant les disparités de soins et assurant un accès équitable aux services de santé numériques.",
+    "classifications": {
+      "sdg": "SDG-10",
+      "who_system": "WHO_A1",
+      "wmo_category": "WMO_C1"
+    },
+    "scope": "Ce cas d'usage couvre la mise en œuvre d'une plateforme complète d'équité en santé numérique qui :\n\n- Identifie et surveille les déterminants sociaux de la santé\n- Fournit des services de santé numériques culturellement appropriés\n- Aborde les fractures numériques et assure un accès équitable\n- Soutient les interventions de santé communautaires",
+    "actors": "**Organisations Communautaires et de Plaidoyer :**\n- **Défenseurs de la Santé Communautaire** – Champions de l'équité en santé\n- **Travailleurs Sociaux** – Abordent les déterminants sociaux\n- **Leaders Communautaires** – Facilitent l'engagement communautaire\n- **Navigateurs de Patients** – Aident les populations vulnérables",
+    "preconditions": "**Infrastructure d'Engagement Communautaire :**\n- Relations établies avec les organisations et leaders communautaires\n- Formation en compétence culturelle pour les prestataires\n- Comités consultatifs communautaires et structures participatives\n- Initiatives de construction de confiance",
+    "process_steps": "**Phase 1 : Évaluation et Engagement Communautaire (Mois 1-6)**\n1. Conduire des évaluations complètes des besoins de santé communautaire\n2. Établir des comités consultatifs et structures de gouvernance\n3. Cartographier les atouts et réseaux sociaux existants\n4. Identifier les questions prioritaires d'équité en santé",
+    "postconditions": "**Résultats d'Équité en Santé Améliorés :**\n- Disparités de santé réduites entre groupes raciaux et socioéconomiques\n- Accès accru aux services de santé culturellement appropriés\n- Autonomisation communautaire et capacité de plaidoyer renforcées\n- Meilleure intégration des services sociaux avec la prestation de soins",
+    "data_requirements": "**Données de Déterminants Sociaux :**\n- Indicateurs de qualité, abordabilité et stabilité du logement\n- Niveaux d'éducation et d'alphabétisation\n- Statut d'emploi, revenu et mesures de sécurité économique\n- Sécurité alimentaire et accès aux options alimentaires saines",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Santé",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Pour l'échange interopérable de données de santé avec intégration des déterminants sociaux"
+      },
+      {
+        "code": "ADX",
+        "domain": "Santé",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Pour le rapport de données de santé populationnelle et le suivi de l'équité"
+      }
+    ],
+    "technology_components": "**Plateforme d'Engagement Communautaire :**\n- Portail communautaire avec interfaces multilingues et accessibles\n- Fonctionnalités de réseautage social pour la construction communautaire\n- Outils de narration numérique et d'amplification de la voix\n- Cartographie participative et visualisation des atouts",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      }
+    ],
+    "challenges": "**Confiance et Engagement Communautaire :**\n- Construire la confiance avec les communautés ayant vécu le racisme médical\n- Assurer une participation communautaire authentique\n- Aborder les déséquilibres de pouvoir entre institutions et communautés\n- Respecter la souveraineté des données communautaires",
+    "sustainability_considerations": "**Propriété et Leadership Communautaire :**\n- Transférer la propriété de la plateforme aux organisations communautaires\n- Construire un développement de leadership durable\n- Créer des mécanismes de financement contrôlés par la communauté\n- Assurer la voix communautaire à long terme dans l'évolution"
+  },
+  "es": {
+    "id": "digital-health-equity-platform",
+    "title": "Plataforma Digital de Equidad en Salud y Determinantes Sociales",
+    "purpose": "Desarrollar una plataforma integrada que aborde la equidad en salud identificando y tratando los determinantes sociales de la salud, reduciendo las disparidades de atención médica y asegurando acceso equitativo a servicios de salud digital.",
+    "classifications": {
+      "sdg": "SDG-10",
+      "who_system": "WHO_A1",
+      "wmo_category": "WMO_C1"
+    },
+    "scope": "Este caso de uso cubre la implementación de una plataforma integral de equidad en salud digital que:\n\n- Identifica y monitorea determinantes sociales de la salud\n- Proporciona servicios de salud digital culturalmente apropiados\n- Aborda brechas digitales y asegura acceso equitativo\n- Apoya intervenciones de salud impulsadas por la comunidad",
+    "actors": "**Organizaciones Comunitarias y de Defensa:**\n- **Defensores de Salud Comunitaria** – Campeones de equidad en salud\n- **Trabajadores Sociales** – Abordan determinantes sociales\n- **Líderes Comunitarios** – Facilitan compromiso comunitario\n- **Navegadores de Pacientes** – Ayudan a poblaciones vulnerables",
+    "preconditions": "**Infraestructura de Compromiso Comunitario:**\n- Relaciones establecidas con organizaciones y líderes comunitarios\n- Entrenamiento en competencia cultural para proveedores\n- Comités asesores comunitarios y estructuras participativas\n- Iniciativas de construcción de confianza",
+    "process_steps": "**Fase 1: Evaluación y Compromiso Comunitario (Meses 1-6)**\n1. Realizar evaluaciones integrales de necesidades de salud comunitaria\n2. Establecer comités asesores y estructuras de gobernanza\n3. Mapear activos y redes sociales existentes\n4. Identificar temas prioritarios de equidad en salud",
+    "postconditions": "**Resultados de Equidad en Salud Mejorados:**\n- Disparidades de salud reducidas entre grupos raciales y socioeconómicos\n- Mayor acceso a servicios de salud culturalmente apropiados\n- Empoderamiento comunitario y capacidad de defensa mejorados\n- Mejor integración de servicios sociales con entrega de atención",
+    "data_requirements": "**Datos de Determinantes Sociales:**\n- Indicadores de calidad, asequibilidad y estabilidad de vivienda\n- Niveles de logro educativo y alfabetización\n- Estado de empleo, ingresos y medidas de seguridad económica\n- Seguridad alimentaria y acceso a opciones de comida saludable",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Salud",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Para intercambio interoperable de datos de salud con integración de determinantes sociales"
+      },
+      {
+        "code": "ADX",
+        "domain": "Salud",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Para reporte de datos de salud poblacional y monitoreo de equidad"
+      }
+    ],
+    "technology_components": "**Plataforma de Compromiso Comunitario:**\n- Portal comunitario con interfaces multilingües y accesibles\n- Características de redes sociales para construcción comunitaria\n- Herramientas de narrativa digital y amplificación de voz\n- Mapeo participativo y visualización de activos",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      }
+    ],
+    "challenges": "**Confianza y Compromiso Comunitario:**\n- Construir confianza con comunidades que han experimentado racismo médico\n- Asegurar participación comunitaria auténtica\n- Abordar desequilibrios de poder entre instituciones y comunidades\n- Respetar soberanía de datos comunitarios",
+    "sustainability_considerations": "**Propiedad y Liderazgo Comunitario:**\n- Transferir propiedad de plataforma a organizaciones comunitarias\n- Construir desarrollo de liderazgo sostenible\n- Crear mecanismos de financiamiento controlados por comunidad\n- Asegurar voz comunitaria a largo plazo en evolución"
+  }
+}

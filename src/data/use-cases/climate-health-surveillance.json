@@ -1,0 +1,159 @@
+
+{
+  "en": {
+    "id": "climate-health-surveillance",
+    "title": "Climate-Sensitive Disease Surveillance System",
+    "purpose": "Establish an integrated surveillance system that monitors climate-sensitive diseases by combining meteorological data with health records to enable early warning and rapid response to climate-related health threats.",
+    "classifications": {
+      "sdg": "SDG-13",
+      "who_system": "WHO_A3",
+      "wmo_category": "WMO_B2"
+    },
+    "scope": "This use case covers the implementation of a comprehensive climate-health surveillance system that:\n\n- Integrates meteorological data (temperature, humidity, rainfall) with disease surveillance data\n- Monitors vector-borne diseases (malaria, dengue, chikungunya) and water-borne diseases (cholera, diarrheal diseases)\n- Provides automated alerts when climate conditions favor disease outbreaks\n- Supports decision-making for public health interventions and resource allocation\n- Covers national, sub-national, and community levels of implementation",
+    "actors": "**Primary Actors:**\n- **National Meteorological Services** – Provide real-time weather data and climate forecasts\n- **Ministry of Health Epidemiologists** – Analyze disease patterns and issue health alerts\n- **District Health Officers** – Implement prevention measures and coordinate local response\n- **Community Health Workers** – Conduct active case finding and community education\n- **Vector Control Teams** – Execute targeted interventions based on climate predictions\n\n**Secondary Actors:**\n- **WHO Country Office** – Provide technical guidance and support\n- **Research Institutions** – Validate predictive models and improve algorithms\n- **Emergency Response Coordinators** – Coordinate multi-sectoral response efforts",
+    "preconditions": "**Technical Prerequisites:**\n- Functional DHIS2 instance for health data management\n- Access to real-time meteorological data feeds\n- Established disease surveillance protocols and case definitions\n- Trained staff on climate-health linkages\n\n**Infrastructure Requirements:**\n- Reliable internet connectivity at health facilities\n- Mobile devices for community health workers\n- Data sharing agreements between health and meteorological agencies\n\n**Institutional Prerequisites:**\n- Multi-sectoral coordination mechanisms established\n- Standard operating procedures for climate-health alerts\n- Budget allocation for enhanced surveillance activities",
+    "process_steps": "**Phase 1: System Setup and Integration (Months 1-3)**\n1. Configure DHIS2 modules for climate-sensitive disease reporting\n2. Establish data feeds from meteorological services\n3. Develop climate-health risk algorithms and thresholds\n4. Train surveillance officers on new protocols\n\n**Phase 2: Pilot Implementation (Months 4-6)**\n1. Deploy system in selected high-risk districts\n2. Test automated alert mechanisms\n3. Validate predictive models with historical data\n4. Refine data collection and reporting procedures\n\n**Phase 3: Scale-up and Optimization (Months 7-12)**\n1. Expand to all priority districts\n2. Integrate community-level reporting through mobile platforms\n3. Establish feedback loops for continuous improvement\n4. Develop capacity for local data analysis and response\n\n**Phase 4: Institutionalization (Months 13-18)**\n1. Embed procedures in national surveillance guidelines\n2. Establish sustainable financing mechanisms\n3. Create knowledge management and sharing platforms\n4. Develop regional collaboration frameworks",
+    "postconditions": "**Immediate Outcomes:**\n- Real-time climate-health surveillance system operational\n- Automated early warning alerts functioning\n- Enhanced capacity for climate-sensitive disease prediction\n- Improved coordination between health and meteorological sectors\n\n**Medium-term Impact:**\n- Reduced disease outbreak response time by 50%\n- Increased preparedness for climate-related health emergencies\n- Evidence-based resource allocation for prevention activities\n- Strengthened health system resilience to climate variability\n\n**Long-term Goals:**\n- Measurable reduction in climate-sensitive disease burden\n- Integration with broader disaster risk reduction frameworks\n- Regional knowledge sharing and best practice dissemination",
+    "data_requirements": "**Meteorological Data:**\n- Daily temperature (min/max), humidity, rainfall measurements\n- Weather forecasts and seasonal climate predictions\n- Historical climate data for model development\n\n**Health Data:**\n- Disease surveillance data (cases, deaths, laboratory results)\n- Population denominators and demographic data\n- Healthcare facility capacity and resource availability\n\n**Geographic Data:**\n- Administrative boundaries and population distribution\n- Vector breeding site locations and characteristics\n- Water source mapping and quality monitoring data\n\n**Data Quality Requirements:**\n- Real-time or near real-time data availability\n- Standardized data formats and metadata\n- Quality assurance protocols for data validation",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "For standardized health data exchange and interoperability"
+      },
+      {
+        "code": "ADX",
+        "domain": "Health",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "For aggregate health data reporting and exchange"
+      }
+    ],
+    "technology_components": "**Core Platform:**\n- **DHIS2** as the primary health information management system\n- **OpenMRS** for clinical data management at health facilities\n- **MediTrack** for supply chain management of medical countermeasures\n\n**Data Integration:**\n- RESTful APIs for meteorological data integration\n- ETL processes for data transformation and validation\n- Real-time data streaming capabilities\n\n**Analytics and Visualization:**\n- R/Python-based predictive modeling engines\n- GIS mapping and spatial analysis tools\n- Dashboard and reporting interfaces\n\n**Communication Systems:**\n- SMS/USSD for mobile alerts and reporting\n- Email and web-based notification systems\n- Mobile applications for field data collection",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "meditrack",
+        "name": "MediTrack",
+        "url": "https://meditrack.org"
+      }
+    ],
+    "challenges": "**Technical Challenges:**\n- Ensuring data quality and completeness from multiple sources\n- Developing accurate predictive models for local contexts\n- Managing real-time data processing and system performance\n- Maintaining system security and data privacy\n\n**Institutional Challenges:**\n- Coordinating between health and meteorological agencies\n- Securing sustained political and financial commitment\n- Building technical capacity across different sectors\n- Overcoming resistance to new workflows and procedures\n\n**Operational Challenges:**\n- Ensuring reliable internet connectivity in remote areas\n- Managing false positive alerts and maintaining user trust\n- Balancing sensitivity and specificity of warning systems\n- Adapting to local disease patterns and climate variations",
+    "sustainability_considerations": "**Financial Sustainability:**\n- Integration with existing health information systems to reduce costs\n- Leveraging open-source platforms to minimize licensing fees\n- Developing cost-sharing agreements between sectors\n- Seeking long-term donor commitment and government budget allocation\n\n**Technical Sustainability:**\n- Building local technical capacity for system maintenance\n- Establishing clear governance and data stewardship roles\n- Creating robust backup and disaster recovery procedures\n- Planning for technology upgrades and system evolution\n\n**Institutional Sustainability:**\n- Embedding procedures in national policies and guidelines\n- Establishing multi-sectoral coordination mechanisms\n- Creating incentive structures for sustained participation\n- Developing regional networks for knowledge sharing and support"
+  },
+  "fr": {
+    "id": "climate-health-surveillance",
+    "title": "Système de surveillance des maladies sensibles au climat",
+    "purpose": "Établir un système de surveillance intégré qui surveille les maladies sensibles au climat en combinant les données météorologiques avec les dossiers de santé pour permettre une alerte précoce et une réponse rapide aux menaces sanitaires liées au climat.",
+    "classifications": {
+      "sdg": "SDG-13",
+      "who_system": "WHO_A3",
+      "wmo_category": "WMO_B2"
+    },
+    "scope": "Ce cas d'usage couvre la mise en œuvre d'un système complet de surveillance climat-santé qui :\n\n- Intègre les données météorologiques avec les données de surveillance des maladies\n- Surveille les maladies à transmission vectorielle et hydrique\n- Fournit des alertes automatisées lors de conditions climatiques favorables aux épidémies\n- Soutient la prise de décision pour les interventions de santé publique\n- Couvre les niveaux national, sous-national et communautaire",
+    "actors": "**Acteurs Principaux :**\n- **Services Météorologiques Nationaux** – Fournissent des données météo en temps réel\n- **Épidémiologistes du Ministère de la Santé** – Analysent les tendances des maladies\n- **Agents de Santé de District** – Mettent en œuvre les mesures de prévention\n- **Agents de Santé Communautaire** – Conduisent la recherche active de cas\n- **Équipes de Lutte Antivectorielle** – Exécutent les interventions ciblées",
+    "preconditions": "**Prérequis Techniques :**\n- Instance DHIS2 fonctionnelle pour la gestion des données de santé\n- Accès aux flux de données météorologiques en temps réel\n- Protocoles de surveillance établis et définitions de cas\n- Personnel formé sur les liens climat-santé",
+    "process_steps": "**Phase 1 : Configuration et Intégration du Système (Mois 1-3)**\n1. Configurer les modules DHIS2 pour le signalement des maladies sensibles au climat\n2. Établir les flux de données des services météorologiques\n3. Développer les algorithmes et seuils de risque climat-santé\n4. Former les agents de surveillance sur les nouveaux protocoles",
+    "postconditions": "**Résultats Immédiats :**\n- Système de surveillance climat-santé opérationnel en temps réel\n- Alertes précoces automatisées fonctionnelles\n- Capacité renforcée pour la prédiction des maladies sensibles au climat\n- Coordination améliorée entre les secteurs santé et météorologie",
+    "data_requirements": "**Données Météorologiques :**\n- Mesures quotidiennes de température, humidité, précipitations\n- Prévisions météorologiques et prédictions climatiques saisonnières\n- Données climatiques historiques pour le développement de modèles",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Santé",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Pour l'échange standardisé de données de santé et l'interopérabilité"
+      },
+      {
+        "code": "ADX",
+        "domain": "Santé",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Pour le signalement et l'échange de données agrégées de santé"
+      }
+    ],
+    "technology_components": "**Plateforme Core :**\n- **DHIS2** comme système principal de gestion de l'information sanitaire\n- **OpenMRS** pour la gestion des données cliniques dans les établissements\n- **MediTrack** pour la gestion de la chaîne d'approvisionnement",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "meditrack",
+        "name": "MediTrack",
+        "url": "https://meditrack.org"
+      }
+    ],
+    "challenges": "**Défis Techniques :**\n- Assurer la qualité et l'exhaustivité des données de sources multiples\n- Développer des modèles prédictifs précis pour les contextes locaux\n- Gérer le traitement de données en temps réel et les performances du système",
+    "sustainability_considerations": "**Durabilité Financière :**\n- Intégration avec les systèmes d'information sanitaire existants\n- Utilisation de plateformes open-source pour minimiser les coûts\n- Développement d'accords de partage des coûts entre secteurs"
+  },
+  "es": {
+    "id": "climate-health-surveillance",
+    "title": "Sistema de Vigilancia de Enfermedades Sensibles al Clima",
+    "purpose": "Establecer un sistema de vigilancia integrado que monitoree enfermedades sensibles al clima combinando datos meteorológicos con registros de salud para permitir alerta temprana y respuesta rápida a amenazas sanitarias relacionadas con el clima.",
+    "classifications": {
+      "sdg": "SDG-13",
+      "who_system": "WHO_A3",
+      "wmo_category": "WMO_B2"
+    },
+    "scope": "Este caso de uso cubre la implementación de un sistema integral de vigilancia clima-salud que:\n\n- Integra datos meteorológicos con datos de vigilancia de enfermedades\n- Monitorea enfermedades transmitidas por vectores e hídricas\n- Proporciona alertas automatizadas cuando las condiciones climáticas favorecen brotes\n- Apoya la toma de decisiones para intervenciones de salud pública\n- Cubre niveles nacional, subnacional y comunitario",
+    "actors": "**Actores Principales:**\n- **Servicios Meteorológicos Nacionales** – Proporcionan datos meteorológicos en tiempo real\n- **Epidemiólogos del Ministerio de Salud** – Analizan patrones de enfermedades\n- **Oficiales de Salud de Distrito** – Implementan medidas de prevención\n- **Trabajadores de Salud Comunitaria** – Realizan búsqueda activa de casos\n- **Equipos de Control Vectorial** – Ejecutan intervenciones dirigidas",
+    "preconditions": "**Prerrequisitos Técnicos:**\n- Instancia DHIS2 funcional para gestión de datos de salud\n- Acceso a flujos de datos meteorológicos en tiempo real\n- Protocolos de vigilancia establecidos y definiciones de casos\n- Personal capacitado en vínculos clima-salud",
+    "process_steps": "**Fase 1: Configuración e Integración del Sistema (Meses 1-3)**\n1. Configurar módulos DHIS2 para reporte de enfermedades sensibles al clima\n2. Establecer flujos de datos de servicios meteorológicos\n3. Desarrollar algoritmos y umbrales de riesgo clima-salud\n4. Capacitar oficiales de vigilancia en nuevos protocolos",
+    "postconditions": "**Resultados Inmediatos:**\n- Sistema de vigilancia clima-salud operacional en tiempo real\n- Alertas tempranas automatizadas funcionando\n- Capacidad mejorada para predicción de enfermedades sensibles al clima\n- Coordinación mejorada entre sectores salud y meteorología",
+    "data_requirements": "**Datos Meteorológicos:**\n- Mediciones diarias de temperatura, humedad, precipitación\n- Pronósticos meteorológicos y predicciones climáticas estacionales\n- Datos climáticos históricos para desarrollo de modelos",
+    "standards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Salud",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "HL7 FHIR",
+        "description": "Para intercambio estandarizado de datos de salud e interoperabilidad"
+      },
+      {
+        "code": "ADX",
+        "domain": "Salud",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Para reporte e intercambio de datos agregados de salud"
+      }
+    ],
+    "technology_components": "**Plataforma Principal:**\n- **DHIS2** como sistema principal de gestión de información sanitaria\n- **OpenMRS** para gestión de datos clínicos en establecimientos\n- **MediTrack** para gestión de cadena de suministro",
+    "global_goods": [
+      {
+        "id": "dhis2",
+        "name": "DHIS2",
+        "url": "https://dhis2.org"
+      },
+      {
+        "id": "openmrs",
+        "name": "OpenMRS",
+        "url": "https://openmrs.org"
+      },
+      {
+        "id": "meditrack",
+        "name": "MediTrack",
+        "url": "https://meditrack.org"
+      }
+    ],
+    "challenges": "**Desafíos Técnicos:**\n- Asegurar calidad e integridad de datos de múltiples fuentes\n- Desarrollar modelos predictivos precisos para contextos locales\n- Gestionar procesamiento de datos en tiempo real y rendimiento del sistema",
+    "sustainability_considerations": "**Sostenibilidad Financiera:**\n- Integración con sistemas de información sanitaria existentes\n- Uso de plataformas de código abierto para minimizar costos\n- Desarrollo de acuerdos de compartición de costos entre sectores"
+  }
+}
