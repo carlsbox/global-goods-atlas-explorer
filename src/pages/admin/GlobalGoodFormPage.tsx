@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useGlobalGood, useCreateGlobalGood, useUpdateGlobalGood } from '@/lib/api';
+import { useGlobalGoodHybrid, useCreateGlobalGoodHybrid, useUpdateGlobalGoodHybrid } from '@/lib/api';
 import { GlobalGood } from '@/lib/types';
 import { ensureMultilingualText } from '@/utils/defaultValues';
 import { toast } from '@/components/ui/use-toast';
@@ -17,12 +18,12 @@ export default function GlobalGoodFormPage() {
   const isEditing = Boolean(id);
   const { t, language } = useI18n();
   
-  // Fetch global good data if editing
-  const { data: globalGoodData, isLoading, error, refetch } = useGlobalGood(id);
+  // Fetch global good data if editing using hybrid loader
+  const { data: globalGoodData, isLoading, error, refetch } = useGlobalGoodHybrid(id);
   
-  // Update and create mutations
-  const createMutation = useCreateGlobalGood();
-  const updateMutation = useUpdateGlobalGood();
+  // Update and create mutations using hybrid approach
+  const createMutation = useCreateGlobalGoodHybrid();
+  const updateMutation = useUpdateGlobalGoodHybrid();
   const isSubmitting = createMutation.isPending || updateMutation.isPending;
 
   // Form submission handler
@@ -81,7 +82,7 @@ export default function GlobalGoodFormPage() {
       <Card>
         <CardHeader>
           <CardTitle>
-            {isEditing ? t('admin.globalGoods.edit') : t('admin.globalGoods.create')}
+            {isEditing ? t('admin.globalGoods.edit') : t('admin.globalGoods.create')} (Hybrid)
           </CardTitle>
         </CardHeader>
         <CardContent>

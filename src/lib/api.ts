@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { GlobalGood, UseCase, CountryData, Classification } from "./types";
 import { 
@@ -134,3 +133,13 @@ export const useDeleteGlobalGood = () => {
 // Re-export the global good mutations from the hooks file
 // Instead of defining them again here, we just re-export them
 export { useCreateGlobalGood, useUpdateGlobalGood } from '@/hooks/useGlobalGoodMutations';
+
+// Export hybrid hooks alongside existing ones
+export {
+  useGlobalGoodsIndex,
+  useGlobalGoodsHybrid,
+  useGlobalGoodHybrid,
+  useCreateGlobalGoodHybrid,
+  useUpdateGlobalGoodHybrid,
+  useDeleteGlobalGoodHybrid
+} from './api/globalGoodsHybrid';

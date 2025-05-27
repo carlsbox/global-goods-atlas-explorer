@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": "meditrack",
+    "name": "MediTrack",
+    "summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
+    "logo": "https://meditrack.org/logo.svg",
+    "sectors": ["software"],
+    "countries": ["ke", "ug"],
+    "lastUpdated": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "dhis2",
+    "name": "DHIS2", 
+    "summary": "A flexible, web-based open-source information system with visualization features.",
+    "logo": "https://dhis2.org/logo.svg",
+    "sectors": ["software"],
+    "countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw"],
+    "lastUpdated": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "openmrs",
+    "name": "OpenMRS",
+    "summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
+    "logo": "https://openmrs.org/images/logo.svg", 
+    "sectors": ["software"],
+    "countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw", "zm", "mw", "ls", "zw", "mg", "cm", "sn", "ml", "ci", "cd", "ao", "mz", "tg", "bj", "gm", "sl", "lr", "gn", "bf", "ne", "eg", "ma", "dz", "tn", "sd", "ss", "gh", "co", "pe", "br", "mx", "ar", "cl", "bo", "py", "ec", "ve", "ph", "id", "pk", "np", "lk", "th", "vn", "kh", "mm"],
+    "lastUpdated": "2024-01-15T10:00:00Z"
+  }
+]

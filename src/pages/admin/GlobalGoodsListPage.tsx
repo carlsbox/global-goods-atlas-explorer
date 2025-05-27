@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useGlobalGoods, useDeleteGlobalGood } from '@/lib/api';
+import { useGlobalGoodsHybrid, useDeleteGlobalGoodHybrid } from '@/lib/api';
 import { Button } from '@/components/ui/button';
 import { AdminDataTable } from '@/components/admin/AdminDataTable';
 import { GlobalGoodRow } from '@/components/admin/GlobalGoodRow';
@@ -9,10 +9,10 @@ import { useI18n } from '@/hooks/useI18n';
 import { GlobalGood } from '@/lib/types';
 
 export default function GlobalGoodsListPage() {
-  const { data: globalGoods = [], isLoading } = useGlobalGoods();
+  const { data: globalGoods = [], isLoading } = useGlobalGoodsHybrid();
   const { getText } = useI18n();
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const deleteMutation = useDeleteGlobalGood();
+  const deleteMutation = useDeleteGlobalGoodHybrid();
 
   // Handle deletion
   const handleDelete = async (id: string) => {
@@ -39,7 +39,7 @@ export default function GlobalGoodsListPage() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1>Manage Global Goods</h1>
+        <h1>Manage Global Goods (Hybrid)</h1>
         <Button asChild>
           <Link to="/admin/global-goods/new">Add New Global Good</Link>
         </Button>

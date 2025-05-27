@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
@@ -32,6 +31,10 @@ import AdminToolsPage from "@/pages/admin/AdminToolsPage";
 // Layout components
 import { PageLayout } from "@/components/layout/PageLayout";
 import AdminLayout from "@/components/admin/AdminLayout";
+
+// Import our hybrid pages
+import GlobalGoodsPageHybrid from './pages/GlobalGoodsPageHybrid';
+import GlobalGoodDetailsPageHybrid from './pages/GlobalGoodDetailsPageHybrid';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -76,6 +79,10 @@ function App() {
                 <Route path="settings" element={<SiteSettingsPage />} />
                 <Route path="tools" element={<AdminToolsPage />} />
               </Route>
+
+              {/* Add routes for hybrid implementation */}
+              <Route path="/global-goods-hybrid" element={<GlobalGoodsPageHybrid />} />
+              <Route path="/global-goods-hybrid/:id" element={<GlobalGoodDetailsPageHybrid />} />
 
               {/* 404 route */}
               <Route path="*" element={<NotFound />} />

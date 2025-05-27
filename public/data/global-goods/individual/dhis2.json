@@ -1,0 +1,156 @@
+
+{
+  "CoreMetadata": {
+    "ID": "dhis2",
+    "Name": "DHIS2",
+    "Logo": "https://dhis2.org/logo.svg",
+    "Website": {
+      "main": {
+        "name": "DHIS2 Website",
+        "url": "https://dhis2.org",
+        "description": "Official site for DHIS2"
+      },
+      "docs": {
+        "name": "Documentation",
+        "url": "https://docs.dhis2.org",
+        "description": "User and developer documentation"
+      },
+      "source_code": {
+        "name": "Source Code",
+        "url": "https://github.com/dhis2/dhis2-core",
+        "description": "Main code repository"
+      },
+      "demo": {
+        "name": "Demo",
+        "url": "https://play.dhis2.org",
+        "description": "Test DHIS2 online"
+      }
+    },
+    "GlobalGoodsType": [
+      {
+        "code": "software",
+        "title": "Software",
+        "description": "Open-source health management data platform."
+      }
+    ],
+    "License": {
+      "id": "bsd-3-clause",
+      "name": "BSD 3-Clause License",
+      "url": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Permissive open source license"
+    },
+    "Contact": [
+      {
+        "name": "DHIS2 Team",
+        "email": "info@dhis2.org",
+        "role": "Project Team"
+      }
+    ]
+  },
+  "Classifications": {
+    "SDGs": [
+      { "code": "SDG-3", "title": "Good Health and Well-being" },
+      { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure" }
+    ],
+    "WHO": [],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7 FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "type": "exchange",
+        "name": "HL7 FHIR",
+        "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
+      },
+      {
+        "code": "GS1",
+        "domain": "Health",
+        "link": "https://www.gs1.org/healthcare",
+        "type": "identifier",
+        "name": "GS1",
+        "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare."
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "ADX",
+        "domain": "Health",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "type": "exchange",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "A flexible, web-based open-source information system with visualization features.",
+    "Description": "DHIS2 is used to collect, manage, and analyze health data.",
+    "Details": "DHIS2 provides a comprehensive platform for health information management and analytics.",
+    "PrimaryFunctionality": "Health data management and analytics",
+    "Users": "Ministries of health, NGOs, researchers",
+    "Languages": [
+      { "code": "en", "name": "English" },
+      { "code": "fr", "name": "French" }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Deployed in over 20 countries for national health data management.",
+    "NumberOfImplementations": 20,
+    "ImplementationMapOverview": {
+      "url": "https://dhis2.org/map",
+      "description": "Global reach map"
+    },
+    "ImplementationCountries": [
+      {"iso_code": "ke", "type": "State", "names": {"en": {"short": "Kenya", "formal": "the Republic of Kenya"}}},
+      {"iso_code": "ug", "type": "State", "names": {"en": {"short": "Uganda", "formal": "the Republic of Uganda"}}},
+      {"iso_code": "in", "type": "State", "names": {"en": {"short": "India", "formal": "the Republic of India"}}},
+      {"iso_code": "ng", "type": "State", "names": {"en": {"short": "Nigeria", "formal": "the Federal Republic of Nigeria"}}},
+      {"iso_code": "za", "type": "State", "names": {"en": {"short": "South Africa", "formal": "the Republic of South Africa"}}},
+      {"iso_code": "bd", "type": "State", "names": {"en": {"short": "Bangladesh", "formal": "the People's Republic of Bangladesh"}}},
+      {"iso_code": "et", "type": "State", "names": {"en": {"short": "Ethiopia", "formal": "the Federal Democratic Republic of Ethiopia"}}},
+      {"iso_code": "tz", "type": "State", "names": {"en": {"short": "Tanzania", "formal": "the United Republic of Tanzania"}}},
+      {"iso_code": "gh", "type": "State", "names": {"en": {"short": "Ghana", "formal": "the Republic of Ghana"}}},
+      {"iso_code": "rw", "type": "State", "names": {"en": {"short": "Rwanda", "formal": "the Republic of Rwanda"}}}
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "Widely adopted and mature.",
+    "Scores": []
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "Supports integration with climate data for health analytics."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Large, active global community.",
+    "HostAnchorOrganization": {
+      "name": "HISP Centre, University of Oslo",
+      "url": "https://www.uio.no/english/",
+      "description": "Academic anchor",
+      "country": ["no"]
+    },
+    "InceptionYear": 2006,
+    "SizeOfCommunity": 5000,
+    "Links": {},
+    "Events": {},
+    "Policies": {}
+  },
+  "InclusiveDesign": {
+    "Description": "Accessible and localizable interface."
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Web-based, can be hosted on green infrastructure."
+  },
+  "TotalCostOfOwnership": {
+    "Description": "Free and open-source, with optional paid support."
+  },
+  "Sustainability": {
+    "Description": "Supported by global donors and governments.",
+    "KeyFundersSupporters": []
+  }
+}
