@@ -2,32 +2,48 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useGlobalGoodsHybrid } from '@/lib/api';
+import { useGlobalGoods } from '@/lib/api';
 import { FilterBar } from '@/components/global-goods/FilterBar';
 import { GlobalGoodCardFlat } from '@/components/global-goods/GlobalGoodCardFlat';
 import { NoResults } from '@/components/global-goods/NoResults';
 import { LoadingState } from '@/components/global-good/LoadingState';
+import { GlobalGood } from '@/lib/types/globalGood';
 
 export default function GlobalGoodsPageHybrid() {
   const { t } = useTranslation('pages/globalGoods');
-  const { data: globalGoods = [], isLoading, isError } = useGlobalGoodsHybrid();
+  const { data: globalGoods = [], isLoading, isError } = useGlobalGoods();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [sectorFilter, setSectorFilter] = useState('all');
 
+  // Convert GlobalGoodFlat to GlobalGood format for processing
+  const convertedGoods: GlobalGood[] = globalGoods.map(good => ({
+    id: good.ID,
+    name: good.Name,
+    summary: good.ProductOverview?.Summary || '',
+    description: good.ProductOverview?.Description || '',
+    logo: good.Logo,
+    sectors: good.GlobalGoodsType?.map(type => type.code || type.title || type) || [],
+    countries: good.Reach?.ImplementationCountries?.map(country => country.iso_code) || [],
+    lastUpdated: new Date().toISOString(),
+    sdgs: [],
+    classifications: [],
+    standards: [],
+    maturity: {},
+    technical: {},
+    licensing: {},
+    community: {},
+    sustainability: {}
+  }));
+
   // Filter the global goods based on search and sector
-  const filteredGoods = globalGoods.filter(good => {
+  const filteredGoods = convertedGoods.filter(good => {
+    const goodName = typeof good.name === 'string' ? good.name : good.name.en || Object.values(good.name)[0] || '';
+    const goodSummary = typeof good.summary === 'string' ? good.summary : good.summary.en || Object.values(good.summary)[0] || '';
+    
     const matchesSearch = !searchTerm || 
-      (typeof good.name === 'string' 
-        ? good.name.toLowerCase().includes(searchTerm.toLowerCase())
-        : Object.values(good.name).some(value => 
-            value.toLowerCase().includes(searchTerm.toLowerCase())
-          )) ||
-      (typeof good.summary === 'string'
-        ? good.summary.toLowerCase().includes(searchTerm.toLowerCase())
-        : Object.values(good.summary).some(value => 
-            value.toLowerCase().includes(searchTerm.toLowerCase())
-          ));
+      goodName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      goodSummary.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesSector = sectorFilter === 'all' || 
       (good.sectors && good.sectors.includes(sectorFilter));
@@ -36,8 +52,8 @@ export default function GlobalGoodsPageHybrid() {
   });
 
   // Extract unique sectors for the filter
-  const sectors = Array.from(new Set(
-    globalGoods.flatMap(good => good.sectors || [])
+  const sectors: string[] = Array.from(new Set(
+    convertedGoods.flatMap(good => good.sectors || [])
   ));
 
   // Clear filters
@@ -74,19 +90,19 @@ export default function GlobalGoodsPageHybrid() {
           <div className="text-sm text-gray-500 mb-4">
             {t('showing', {
               filtered: filteredGoods.length,
-              total: globalGoods.length,
+              total: convertedGoods.length,
             })}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredGoods.map(good => {
-              // Convert GlobalGood to GlobalGoodFlat structure for the card
+              // Convert back to GlobalGoodFlat structure for the card component
               const flatGood = {
                 ID: good.id,
                 Name: typeof good.name === 'string' ? good.name : good.name.en || Object.values(good.name)[0] || '',
                 Logo: good.logo,
                 Website: {},
-                GlobalGoodsType: good.coreMetadata.globalGoodsType || [],
+                GlobalGoodsType: [],
                 License: { id: '', name: '', url: '', description: '' },
                 Contact: [],
                 Classifications: { SDGs: [], WHO: [], WMO: [], DPI: [] },

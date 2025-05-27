@@ -31,13 +31,23 @@ export function useUseCasesData() {
           loadSDGData(language)
         ]);
         setClassifications(classificationsData || []);
-        setStandards(standardsData || []);
+        
+        // Handle standards data which might be an object or array
+        if (Array.isArray(standardsData)) {
+          setStandards(standardsData);
+        } else if (standardsData && typeof standardsData === 'object') {
+          // Convert object to array
+          setStandards(Object.values(standardsData));
+        } else {
+          setStandards([]);
+        }
+        
         setSdgData(sdgDataLoaded || []);
         
         // Debug logging
         console.log('Loaded data:', {
           classifications: classificationsData?.length || 0,
-          standards: standardsData?.length || 0,
+          standards: Array.isArray(standardsData) ? standardsData.length : Object.keys(standardsData || {}).length,
           sdgs: sdgDataLoaded?.length || 0,
           useCases: useCases.length,
           globalGoods: globalGoods.length
@@ -75,26 +85,26 @@ export function useUseCasesData() {
         availableWmoCategories.add(useCase.classifications.wmo_category);
       }
       
-      // Global goods availability - check both id and name for better matching
+      // Global goods availability - check both ID and Name for better matching
       if (useCase.global_goods) {
         useCase.global_goods.forEach(good => {
           if (good.id) {
             availableGlobalGoods.add(good.id);
             // Also try to match by name if IDs don't work
             const matchingGlobalGood = globalGoods.find(gg => 
-              gg.id === good.id || gg.name === good.name
+              gg.ID === good.id || gg.Name === good.name
             );
             if (matchingGlobalGood) {
-              availableGlobalGoods.add(matchingGlobalGood.id);
+              availableGlobalGoods.add(matchingGlobalGood.ID);
             }
           }
           if (good.name) {
             // Try to find matching global good by name
             const matchingGlobalGood = globalGoods.find(gg => 
-              gg.name === good.name || gg.id === good.name
+              gg.Name === good.name || gg.ID === good.name
             );
             if (matchingGlobalGood) {
-              availableGlobalGoods.add(matchingGlobalGood.id);
+              availableGlobalGoods.add(matchingGlobalGood.ID);
             }
           }
         });

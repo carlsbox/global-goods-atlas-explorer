@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalGoods, useDeleteGlobalGood } from '@/lib/api';
@@ -25,6 +26,8 @@ export default function GlobalGoodsListPage() {
   // Process data to ensure we have all required fields for the component
   const processedGoods = globalGoods.map(good => ({
     ...good,
+    // Add id property using ID
+    id: good.ID,
     Name: good.Name || '',
     // ProductOverview is an object, ensure nested fields exist
     ProductOverview: {
@@ -56,7 +59,7 @@ export default function GlobalGoodsListPage() {
         isLoading={isLoading}
         selectedItems={selectedItems}
         setSelectedItems={setSelectedItems}
-        renderRow={(good: GlobalGoodFlat) => (
+        renderRow={(good: GlobalGoodFlat & { id: string }) => (
           <GlobalGoodRow 
             key={good.ID}
             good={good}

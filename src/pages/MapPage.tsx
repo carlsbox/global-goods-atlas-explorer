@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalGoods, useCountries } from "@/lib/api";
-import { GlobalGood, CountryData } from "@/lib/types";
+import { GlobalGoodFlat, CountryData } from "@/lib/types";
 import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodsSidebar } from "@/components/map/GlobalGoodsSidebar";
 import { MapDisplay } from "@/components/map/MapDisplay";
@@ -18,7 +18,7 @@ export default function MapPage() {
   const { data: globalGoods = [] } = useGlobalGoods();
   const { data: countries = [] } = useCountries();
   
-  const [selectedGood, setSelectedGood] = useState<GlobalGood | null>(null);
+  const [selectedGood, setSelectedGood] = useState<GlobalGoodFlat | null>(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
   
   // Map of country codes to country objects for quick lookups
@@ -30,7 +30,7 @@ export default function MapPage() {
   // Set highlight from URL param
   useEffect(() => {
     if (highlightParam) {
-      const goodToHighlight = globalGoods.find(g => g.id === highlightParam);
+      const goodToHighlight = globalGoods.find(g => g.ID === highlightParam);
       if (goodToHighlight) {
         setSelectedGood(goodToHighlight);
       }
@@ -39,15 +39,17 @@ export default function MapPage() {
   
   // Get countries for the selected global good
   const selectedGoodCountries = selectedGood
-    ? selectedGood.countries
-        .map(code => countryMap[code])
-        .filter(Boolean)
+    ? selectedGood.Reach?.ImplementationCountries
+        ?.map(country => countryMap[country.iso_code])
+        ?.filter(Boolean) || []
     : [];
     
   // Get global goods for the selected country
   const selectedCountryGoods = selectedCountryCode
     ? globalGoods.filter(good => 
-        good.countries && good.countries.includes(selectedCountryCode)
+        good.Reach?.ImplementationCountries?.some(country => 
+          country.iso_code === selectedCountryCode
+        )
       )
     : [];
 
@@ -56,7 +58,7 @@ export default function MapPage() {
     ? countryMap[selectedCountryCode]?.name.short 
     : null;
 
-  const handleSelectGood = (good: GlobalGood | null) => {
+  const handleSelectGood = (good: GlobalGoodFlat | null) => {
     setSelectedGood(good);
     setSelectedCountryCode(null);
   };

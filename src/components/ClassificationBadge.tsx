@@ -1,7 +1,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { useClassifications } from "@/lib/api";
-import { Classification } from "@/lib/types";
+import { Classification } from "@/lib/types/classifications";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useI18n } from "@/hooks/useI18n";
 

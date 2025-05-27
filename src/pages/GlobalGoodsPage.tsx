@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { GlobalGood } from "@/lib/types";
+import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoods } from "@/lib/api";
 import { FilterBar } from "@/components/global-goods/FilterBar";
 import { GlobalGoodCard } from "@/components/global-goods/GlobalGoodCard";
@@ -15,22 +15,26 @@ export default function GlobalGoodsPage() {
   const [sectorFilter, setSectorFilter] = useState("all");
   const { getText, tPage } = useI18n();
   
-  // Extract unique sectors for filter
+  // Extract unique sectors for filter from GlobalGoodsType
   const sectors = Array.from(
-    new Set(globalGoods.flatMap(good => good.sector || []))
+    new Set(globalGoods.flatMap(good => 
+      good.GlobalGoodsType?.map(type => type.code || type.title || type) || []
+    ))
   ).sort();
   
   // Filter global goods
   const filteredGoods = globalGoods.filter(good => {
-    const goodName = getText(good.name);
-    const goodDescription = getText(good.description);
+    const goodName = good.Name || '';
+    const goodDescription = good.ProductOverview?.Summary || good.ProductOverview?.Description || '';
     
     const matchesSearch = searchTerm === "" || 
       goodName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       goodDescription.toLowerCase().includes(searchTerm.toLowerCase());
       
     const matchesSector = sectorFilter === "all" || 
-      (good.sector && good.sector.includes(sectorFilter));
+      (good.GlobalGoodsType && good.GlobalGoodsType.some(type => 
+        (type.code || type.title || type) === sectorFilter
+      ));
       
     return matchesSearch && matchesSector;
   });
@@ -77,7 +81,7 @@ export default function GlobalGoodsPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredGoods.map((good) => (
-          <GlobalGoodCard key={good.id} good={good} />
+          <GlobalGoodCard key={good.ID} good={good} />
         ))}
       </div>
       
