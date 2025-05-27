@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from "react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
@@ -257,7 +256,7 @@ export default function GlobalGoodsPageFlat() {
             ))}
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3">
             {filteredAndSortedGoods.map((good) => (
               <GlobalGoodListItem key={good.ID} good={good} />
             ))}
