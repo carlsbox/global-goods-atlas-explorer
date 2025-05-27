@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoods } from "@/lib/api";
@@ -18,7 +17,7 @@ export default function GlobalGoodsPage() {
   // Extract unique sectors for filter from GlobalGoodsType
   const sectors = Array.from(
     new Set(globalGoods.flatMap(good => 
-      good.GlobalGoodsType?.map(type => type.code || type.title || type) || []
+      good.GlobalGoodsType?.map(type => type.title || type.code || '') || []
     ))
   ).sort();
   
@@ -33,7 +32,7 @@ export default function GlobalGoodsPage() {
       
     const matchesSector = sectorFilter === "all" || 
       (good.GlobalGoodsType && good.GlobalGoodsType.some(type => 
-        (type.code || type.title || type) === sectorFilter
+        (type.title || type.code || '') === sectorFilter
       ));
       
     return matchesSearch && matchesSector;

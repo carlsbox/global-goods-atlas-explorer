@@ -1,6 +1,6 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { loadGlobalGoodFlat, loadAllGlobalGoodsFlat } from '../loaders/globalGoodFlatLoader';
+import { loadGlobalGoodFlatWithDetails, loadAllGlobalGoodsFlat } from '../loaders/globalGoodFlatLoader';
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
 
 export function useGlobalGoodsFlat() {
@@ -14,8 +14,18 @@ export function useGlobalGoodsFlat() {
 export function useGlobalGoodFlat(id: string | undefined) {
   return useQuery({
     queryKey: ['globalGoodFlat', id],
-    queryFn: () => id ? loadGlobalGoodFlat(id) : Promise.resolve(undefined),
+    queryFn: () => id ? loadGlobalGoodFlatWithDetails(id) : Promise.resolve(undefined),
     enabled: !!id,
     staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+}
+
+// New hook for getting detailed data (uses individual files)
+export function useGlobalGoodFlatDetailed(id: string | undefined) {
+  return useQuery({
+    queryKey: ['globalGoodFlatDetailed', id],
+    queryFn: () => id ? loadGlobalGoodFlatWithDetails(id) : Promise.resolve(undefined),
+    enabled: !!id,
+    staleTime: 10 * 60 * 1000, // 10 minutes - longer cache for detailed data
   });
 }

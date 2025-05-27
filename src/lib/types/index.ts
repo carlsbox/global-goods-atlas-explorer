@@ -11,4 +11,4 @@ export * from './globalGood/environmentalImpact';
 export * from './globalGood/maturity';
 
 // Create alias for Classification
-export { ClassificationData as Classification } from './globalGood/classification';
+export type { ClassificationData as Classification } from './globalGood/classification';

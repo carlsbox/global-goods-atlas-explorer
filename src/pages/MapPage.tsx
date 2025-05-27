@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalGoods, useCountries } from "@/lib/api";
@@ -56,7 +55,7 @@ export default function MapPage() {
         summary: good.ProductOverview?.Summary || '',
         description: good.ProductOverview?.Description || '',
         logo: good.Logo,
-        sectors: good.GlobalGoodsType?.map(type => type.code || type.title) || [],
+        sectors: good.GlobalGoodsType?.map(type => type.title || type.code || '') || [],
         countries: good.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
         lastUpdated: new Date().toISOString(),
         sdgs: [],

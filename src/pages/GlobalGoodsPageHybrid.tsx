@@ -23,7 +23,7 @@ export default function GlobalGoodsPageHybrid() {
     summary: good.ProductOverview?.Summary || '',
     description: good.ProductOverview?.Description || '',
     logo: good.Logo,
-    sectors: good.GlobalGoodsType?.map(type => type.code || type.title || type) || [],
+    sectors: good.GlobalGoodsType?.map(type => type.title || type.code || '') || [],
     countries: good.Reach?.ImplementationCountries?.map(country => country.iso_code) || [],
     lastUpdated: new Date().toISOString(),
     sdgs: [],

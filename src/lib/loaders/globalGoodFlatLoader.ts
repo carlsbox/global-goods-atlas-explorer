@@ -1,27 +1,148 @@
 
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
 
-let globalGoodsCache: GlobalGoodFlat[] | null = null;
+interface GlobalGoodIndex {
+  ID: string;
+  Name: string;
+  Summary?: string;
+  Logo?: string;
+  GlobalGoodsType?: Array<{
+    code?: string;
+    title?: string;
+  }>;
+  Countries?: string[];
+}
 
-async function fetchGlobalGoodsDB(): Promise<GlobalGoodFlat[]> {
-  if (globalGoodsCache) return globalGoodsCache;
+let globalGoodsIndexCache: GlobalGoodIndex[] | null = null;
+const individualFileCache = new Map<string, GlobalGoodFlat>();
+
+async function fetchGlobalGoodsIndex(): Promise<GlobalGoodIndex[]> {
+  if (globalGoodsIndexCache) return globalGoodsIndexCache;
+  
   try {
-    const res = await fetch('/data/global-goods/globalgood_db.json');
-    if (!res.ok) throw new Error('Failed to fetch global goods DB');
+    const res = await fetch('/data/global-goods/index.json');
+    if (!res.ok) throw new Error('Failed to fetch global goods index');
     const data = await res.json();
-    globalGoodsCache = data;
+    globalGoodsIndexCache = data;
     return data;
   } catch (err) {
-    console.error('Error fetching global goods DB:', err);
+    console.error('Error fetching global goods index:', err);
     return [];
   }
 }
 
+async function fetchIndividualGlobalGood(id: string): Promise<GlobalGoodFlat | undefined> {
+  // Check cache first
+  if (individualFileCache.has(id)) {
+    return individualFileCache.get(id);
+  }
+  
+  try {
+    const res = await fetch(`/data/global-goods/individual/${id}.json`);
+    if (!res.ok) {
+      console.warn(`Individual file not found for global good: ${id}`);
+      return undefined;
+    }
+    const data = await res.json();
+    
+    // Cache the result
+    individualFileCache.set(id, data);
+    return data;
+  } catch (err) {
+    console.error(`Error fetching individual global good ${id}:`, err);
+    return undefined;
+  }
+}
+
 export async function loadGlobalGoodFlat(id: string): Promise<GlobalGoodFlat | undefined> {
-  const db = await fetchGlobalGoodsDB();
-  return db.find(good => good.ID === id);
+  return await fetchIndividualGlobalGood(id);
 }
 
 export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
-  return await fetchGlobalGoodsDB();
+  const index = await fetchGlobalGoodsIndex();
+  
+  // For the catalog view, we'll convert index entries to minimal GlobalGoodFlat objects
+  // This provides fast loading for listing pages
+  return index.map(indexItem => ({
+    ID: indexItem.ID,
+    Name: indexItem.Name,
+    Logo: indexItem.Logo,
+    Website: {},
+    GlobalGoodsType: indexItem.GlobalGoodsType || [],
+    License: { id: '', name: '', url: '', description: '' },
+    Contact: [],
+    Classifications: { SDGs: [], WHO: [], WMO: [], DPI: [] },
+    StandardsAndInteroperability: { HealthStandards: [], Interoperability: [], ClimateStandards: [] },
+    ProductOverview: {
+      Summary: indexItem.Summary || '',
+      Description: '',
+      PrimaryFunctionality: '',
+      Users: '',
+      Languages: [],
+      Screenshots: []
+    },
+    Reach: {
+      SummaryOfReach: '',
+      NumberOfImplementations: 0,
+      ImplementationMapOverview: null,
+      ImplementationCountries: indexItem.Countries?.map(code => ({
+        iso_code: code,
+        type: 'Country',
+        names: { en: { short: code, formal: code } }
+      })) || []
+    },
+    Maturity: { SummaryOfMaturity: '', Scores: [] },
+    ClimateAndHealthIntegration: { Description: '' },
+    Community: {
+      DescriptionOfCommunity: '',
+      HostAnchorOrganization: { name: '', url: '', description: '', country: [] },
+      InceptionYear: 0,
+      SizeOfCommunity: 0,
+      Links: {},
+      Events: { description: '', schedule: '', recent: [] },
+      Policies: {
+        Description: '',
+        Governance: { url: '', description: '' },
+        TermsOfUse: { url: '', description: '' },
+        UserAgreement: { url: '', description: '' },
+        PrivacyPolicy: { url: '', description: '' },
+        DoNoHarm: { url: '', description: '' },
+        PIICollected: { url: '', description: '' },
+        NPIIUsed: { url: '', description: '' }
+      }
+    },
+    InclusiveDesign: { Description: '', UserInput: '', OfflineSupport: '' },
+    EnvironmentalImpact: { LowCarbon: '' },
+    TotalCostOfOwnership: { Description: '', url: '' },
+    Sustainability: { Description: '', KeyFundersSupporters: [] },
+    Resources: {
+      Articles: [],
+      ProductDocumentation: [],
+      UserRequirements: [],
+      EndUserDocumentation: [],
+      ImplementerDocumentation: [],
+      DeveloperDocumentation: [],
+      OperatorDocumentation: [],
+      InstallationDocumentation: []
+    },
+    LinkedInitiatives: { Initiative: [] }
+  }));
+}
+
+// Enhanced function for getting full details with individual file loading
+export async function loadGlobalGoodFlatWithDetails(id: string): Promise<GlobalGoodFlat | undefined> {
+  // This will always load the individual file for complete data
+  return await fetchIndividualGlobalGood(id);
+}
+
+// Function to preload multiple global goods (for performance optimization)
+export async function preloadGlobalGoods(ids: string[]): Promise<void> {
+  const promises = ids.map(id => fetchIndividualGlobalGood(id));
+  await Promise.allSettled(promises);
+}
+
+// Clear cache function (useful for development/testing)
+export function clearGlobalGoodsCache(): void {
+  globalGoodsIndexCache = null;
+  individualFileCache.clear();
 }

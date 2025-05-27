@@ -142,8 +142,9 @@ export const useGlobalGoodHybrid = (id: string | undefined) => {
     queryKey: ['globalGoodHybrid', id, language],
     queryFn: async (): Promise<GlobalGood | undefined> => {
       if (!id) return undefined;
-      // For now, use the flat loader and convert to GlobalGood format
-      const flatData = await loadGlobalGoodFlat(id);
+      // Use the detailed loader for complete data
+      const { loadGlobalGoodFlatWithDetails } = await import('./loaders/globalGoodFlatLoader');
+      const flatData = await loadGlobalGoodFlatWithDetails(id);
       if (!flatData) return undefined;
       
       // Convert GlobalGoodFlat to GlobalGood format
@@ -154,7 +155,7 @@ export const useGlobalGoodHybrid = (id: string | undefined) => {
         description: flatData.ProductOverview?.Description || '',
         logo: flatData.Logo || '',
         website: flatData.Website?.main?.url || '',
-        sectors: flatData.GlobalGoodsType?.map(type => type.code || type.title) || [],
+        sectors: flatData.GlobalGoodsType?.map(type => type.title || type.code || '') || [],
         countries: flatData.Reach?.ImplementationCountries?.map(c => c.iso_code) || [],
         lastUpdated: new Date().toISOString(),
         // Add other required fields with defaults
