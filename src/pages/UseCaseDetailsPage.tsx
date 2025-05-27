@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Users, Target, Settings, Globe, AlertTriangle, Lightbulb } from "lucide-react";
+import { ArrowLeft, Users, Crosshair, Settings, Globe, AlertTriangle, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import ReactMarkdown from "react-markdown";
@@ -43,9 +43,9 @@ export default function UseCaseDetailsPage() {
   }
 
   const renderMarkdown = (content: string) => (
-    <ReactMarkdown className="prose prose-sm max-w-none dark:prose-invert">
-      {content}
-    </ReactMarkdown>
+    <div className="prose prose-sm max-w-none dark:prose-invert">
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </div>
   );
 
   // Handle both new and legacy data structures
@@ -84,7 +84,6 @@ export default function UseCaseDetailsPage() {
                 {useCase.classifications?.sdg && (
                   <ClassificationBadge 
                     code={useCase.classifications.sdg} 
-                    type="SDG" 
                   />
                 )}
                 {useCase.classifications?.who_system && (
@@ -109,14 +108,14 @@ export default function UseCaseDetailsPage() {
                 )}
               </div>
             </div>
-            <Target className="h-8 w-8 text-primary flex-shrink-0 ml-4" />
+            <Crosshair className="h-8 w-8 text-primary flex-shrink-0 ml-4" />
           </div>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
               <h3 className="text-lg font-semibold mb-2 flex items-center">
-                <Target className="mr-2 h-5 w-5" />
+                <Crosshair className="mr-2 h-5 w-5" />
                 {purpose ? "Purpose" : "Overview"}
               </h3>
               {renderMarkdown(purpose)}
@@ -124,20 +123,20 @@ export default function UseCaseDetailsPage() {
             <div>
               {/* Quick stats */}
               <div className="space-y-4">
-                {((useCase.global_goods && useCase.global_goods.length > 0) || (useCase.globalGoods && useCase.globalGoods.length > 0)) && (
+                {((useCase.global_goods && useCase.global_goods.length > 0) || (useCase.global_goods && useCase.global_goods.length > 0)) && (
                   <div>
                     <h4 className="font-medium mb-2 flex items-center">
                       <Globe className="mr-2 h-4 w-4" />
-                      Global Goods ({(useCase.global_goods?.length || useCase.globalGoods?.length || 0)})
+                      Global Goods ({(useCase.global_goods?.length || useCase.global_goods?.length || 0)})
                     </h4>
                     <div className="flex flex-wrap gap-1">
                       {useCase.global_goods?.map((good, index) => (
                         <Badge key={index} className="text-xs">
                           {good.name}
                         </Badge>
-                      )) || useCase.globalGoods?.map((goodId, index) => (
+                      )) || useCase.global_goods?.map((good, index) => (
                         <Badge key={index} className="text-xs">
-                          {goodId}
+                          {good.name || good.id}
                         </Badge>
                       ))}
                     </div>
@@ -187,7 +186,7 @@ export default function UseCaseDetailsPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Target className="mr-2 h-5 w-5" />
+                    <Crosshair className="mr-2 h-5 w-5" />
                     Scope
                   </CardTitle>
                 </CardHeader>
@@ -345,7 +344,7 @@ export default function UseCaseDetailsPage() {
             </Card>
           )}
 
-          {((useCase.global_goods && useCase.global_goods.length > 0) || (useCase.globalGoods && useCase.globalGoods.length > 0)) && (
+          {((useCase.global_goods && useCase.global_goods.length > 0) || (useCase.global_goods && useCase.global_goods.length > 0)) && (
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
@@ -362,9 +361,9 @@ export default function UseCaseDetailsPage() {
                         View Details →
                       </Link>
                     </div>
-                  )) || useCase.globalGoods?.map((goodId, index) => (
+                  )) || useCase.global_goods?.map((good, index) => (
                     <div key={index} className="p-4 border rounded-lg">
-                      <h4 className="font-medium">{goodId}</h4>
+                      <h4 className="font-medium">{good.name || good.id}</h4>
                       <span className="text-sm text-muted-foreground">Global Good</span>
                     </div>
                   ))}

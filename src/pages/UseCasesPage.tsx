@@ -76,7 +76,7 @@ export default function UseCasesPage() {
     // Global good filter
     const matchesGlobalGood = globalGoodFilter === "all" || 
       (useCase.global_goods && useCase.global_goods.some(good => good.id === globalGoodFilter)) ||
-      (useCase.globalGoods && useCase.globalGoods.includes(globalGoodFilter)); // Legacy support
+      (useCase.global_goods && useCase.global_goods.some(good => good.name === globalGoodFilter)); // Legacy support
     
     // Standard filter
     const matchesStandard = standardFilter === "all" || 

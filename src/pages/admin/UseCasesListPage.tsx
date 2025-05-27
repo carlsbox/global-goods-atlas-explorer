@@ -98,14 +98,14 @@ function UseCaseRow({ useCase, isSelected, onToggleSelect }: {
               <Badge key={good.id} variant="outline" className="text-xs">
                 {good.name}
               </Badge>
-            )) || useCase.globalGoods?.slice(0, 2).map(goodId => (
-              <Badge key={goodId} variant="outline" className="text-xs">
-                {goodId}
+            )) || useCase.global_goods?.slice(0, 2).map(good => (
+              <Badge key={good.id || good.name} variant="outline" className="text-xs">
+                {good.name || good.id}
               </Badge>
             ))}
-            {((useCase.global_goods?.length || 0) + (useCase.globalGoods?.length || 0)) > 2 && (
+            {((useCase.global_goods?.length || 0) + (useCase.global_goods?.length || 0)) > 2 && (
               <Badge variant="outline" className="text-xs">
-                +{((useCase.global_goods?.length || 0) + (useCase.globalGoods?.length || 0)) - 2}
+                +{((useCase.global_goods?.length || 0) + (useCase.global_goods?.length || 0)) - 2}
               </Badge>
             )}
           </div>
