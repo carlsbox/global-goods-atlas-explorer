@@ -2,7 +2,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Toaster } from "@/components/ui/toaster";
 
 // Import pages
@@ -47,45 +46,43 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <LanguageProvider>
-          <Router>
-            <div className="min-h-screen bg-background">
-              <Routes>
-                {/* Public routes with layout */}
-                <Route path="/" element={<PageLayout />}>
-                  <Route index element={<HomePage />} />
-                  <Route path="global-goods" element={<GlobalGoodsPageFlat />} />
-                  <Route path="global-goods/:id" element={<GlobalGoodDetailsPageFlat />} />
-                  <Route path="use-cases" element={<UseCasesPage />} />
-                  <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
-                  <Route path="map" element={<EnhancedMapPage />} />
-                  <Route path="about" element={<AboutPage />} />
-                  <Route path="contact" element={<ContactPage />} />
-                  <Route path="privacy" element={<PrivacyPolicyPage />} />
-                  <Route path="terms" element={<TermsOfServicePage />} />
-                </Route>
+        <Router>
+          <div className="min-h-screen bg-background">
+            <Routes>
+              {/* Public routes with layout */}
+              <Route path="/" element={<PageLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="global-goods" element={<GlobalGoodsPageFlat />} />
+                <Route path="global-goods/:id" element={<GlobalGoodDetailsPageFlat />} />
+                <Route path="use-cases" element={<UseCasesPage />} />
+                <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
+                <Route path="map" element={<EnhancedMapPage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="contact" element={<ContactPage />} />
+                <Route path="privacy" element={<PrivacyPolicyPage />} />
+                <Route path="terms" element={<TermsOfServicePage />} />
+              </Route>
 
-                {/* Admin routes */}
-                <Route path="/admin/login" element={<AdminLoginPage />} />
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<AdminDashboardPage />} />
-                  <Route path="global-goods" element={<GlobalGoodsListPage />} />
-                  <Route path="global-goods/new" element={<GlobalGoodFormPage />} />
-                  <Route path="global-goods/:id/edit" element={<GlobalGoodFormPage />} />
-                  <Route path="use-cases" element={<UseCasesListPage />} />
-                  <Route path="classifications" element={<ClassificationsPage />} />
-                  <Route path="users" element={<UsersPage />} />
-                  <Route path="settings" element={<SiteSettingsPage />} />
-                  <Route path="tools" element={<AdminToolsPage />} />
-                </Route>
+              {/* Admin routes */}
+              <Route path="/admin/login" element={<AdminLoginPage />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboardPage />} />
+                <Route path="global-goods" element={<GlobalGoodsListPage />} />
+                <Route path="global-goods/new" element={<GlobalGoodFormPage />} />
+                <Route path="global-goods/:id/edit" element={<GlobalGoodFormPage />} />
+                <Route path="use-cases" element={<UseCasesListPage />} />
+                <Route path="classifications" element={<ClassificationsPage />} />
+                <Route path="users" element={<UsersPage />} />
+                <Route path="settings" element={<SiteSettingsPage />} />
+                <Route path="tools" element={<AdminToolsPage />} />
+              </Route>
 
-                {/* 404 route */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-          </Router>
-          <Toaster />
-        </LanguageProvider>
+              {/* 404 route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </Router>
+        <Toaster />
       </ThemeProvider>
     </QueryClientProvider>
   );

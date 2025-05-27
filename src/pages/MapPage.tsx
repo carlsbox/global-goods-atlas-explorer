@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalGoods, useCountries } from "@/lib/api";
 import { GlobalGood, CountryData } from "@/lib/types";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodsSidebar } from "@/components/map/GlobalGoodsSidebar";
 import { MapDisplay } from "@/components/map/MapDisplay";
 import { GlobalGoodDetails } from "@/components/map/GlobalGoodDetails";
@@ -13,7 +13,7 @@ import { EmptyDetails } from "@/components/map/EmptyDetails";
 export default function MapPage() {
   const [searchParams] = useSearchParams();
   const highlightParam = searchParams.get("highlight");
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   const { data: globalGoods = [] } = useGlobalGoods();
   const { data: countries = [] } = useCountries();

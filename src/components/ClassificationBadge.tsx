@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { useClassifications } from "@/lib/api";
 import { Classification } from "@/lib/types";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 
 interface ClassificationBadgeProps {
   code: string;
@@ -38,7 +38,7 @@ export function ClassificationBadge({
   expanded = false 
 }: ClassificationBadgeProps) {
   const { data: classifications = [] } = useClassifications();
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   // Find the classification by code
   const classification = classifications.find(c => c.code === code);

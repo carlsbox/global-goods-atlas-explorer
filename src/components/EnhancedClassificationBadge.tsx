@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { useClassifications } from "@/lib/api";
 import { loadSDGData } from "@/lib/loaders";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 import { useQuery } from "@tanstack/react-query";
 
 interface EnhancedClassificationBadgeProps {
@@ -18,7 +18,7 @@ export function EnhancedClassificationBadge({
   expanded = false 
 }: EnhancedClassificationBadgeProps) {
   const { data: classifications = [] } = useClassifications();
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   // Load SDG data
   const { data: sdgData = [] } = useQuery({

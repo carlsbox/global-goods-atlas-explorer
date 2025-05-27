@@ -9,7 +9,7 @@ import {
   loadCountriesData,
   loadClassificationsData
 } from "./dataLoader";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useI18n } from "@/hooks/useI18n";
 
 // Fetch global goods data
 export const useGlobalGoods = () => {
@@ -23,7 +23,7 @@ export const useGlobalGoods = () => {
 
 // Fetch a single global good by ID
 export const useGlobalGood = (id: string | undefined, options = {}) => {
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   return useQuery({
     queryKey: ['globalGood', id, language],
@@ -38,7 +38,7 @@ export const useGlobalGood = (id: string | undefined, options = {}) => {
 
 // Fetch use cases data with language support
 export const useUseCases = () => {
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   return useQuery({
     queryKey: ['useCases', language],
@@ -50,7 +50,7 @@ export const useUseCases = () => {
 
 // Fetch a single use case by ID
 export const useUseCase = (id: string | undefined) => {
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   return useQuery({
     queryKey: ['useCase', id, language],
@@ -64,7 +64,7 @@ export const useUseCase = (id: string | undefined) => {
 
 // Updated to use language for countries data
 export const useCountries = () => {
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   return useQuery({
     queryKey: ['countries', language],
@@ -76,7 +76,7 @@ export const useCountries = () => {
 
 // Updated function to fetch classifications data
 export const useClassifications = () => {
-  const { language } = useLanguage();
+  const { language } = useI18n();
   
   return useQuery({
     queryKey: ['classifications', language],
