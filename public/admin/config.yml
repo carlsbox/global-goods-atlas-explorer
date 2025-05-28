@@ -211,31 +211,31 @@ collections:
     i18n: true
     fields:
       - {label: "ID", name: "id", widget: "string"}
-      - {label: "Title", name: "title", widget: "string", i18n: translate}
-      - {label: "Purpose", name: "purpose", widget: "markdown", i18n: translate}
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Purpose", name: "purpose", widget: "markdown", i18n: true}
       
       # Classifications
       - label: "Classifications"
         name: "classifications"
         widget: "object"
-        i18n: duplicate
+        i18n: false
         fields:
           - {label: "SDG", name: "sdg", widget: "select", options: ["SDG01", "SDG02", "SDG03", "SDG04", "SDG05", "SDG06", "SDG07", "SDG08", "SDG09", "SDG10", "SDG11", "SDG12", "SDG13", "SDG14", "SDG15", "SDG16", "SDG17"], required: false}
           - {label: "WHO System", name: "who_system", widget: "string", required: false}
           - {label: "WMO Category", name: "wmo_category", widget: "string", required: false}
 
-      - {label: "Scope", name: "scope", widget: "markdown", i18n: translate}
-      - {label: "Actors", name: "actors", widget: "markdown", i18n: translate}
-      - {label: "Preconditions", name: "preconditions", widget: "markdown", i18n: translate}
-      - {label: "Process Steps", name: "process_steps", widget: "markdown", i18n: translate}
-      - {label: "Postconditions", name: "postconditions", widget: "markdown", i18n: translate}
-      - {label: "Data Requirements", name: "data_requirements", widget: "markdown", i18n: translate}
+      - {label: "Scope", name: "scope", widget: "markdown", i18n: true}
+      - {label: "Actors", name: "actors", widget: "markdown", i18n: true}
+      - {label: "Preconditions", name: "preconditions", widget: "markdown", i18n: true}
+      - {label: "Process Steps", name: "process_steps", widget: "markdown", i18n: true}
+      - {label: "Postconditions", name: "postconditions", widget: "markdown", i18n: true}
+      - {label: "Data Requirements", name: "data_requirements", widget: "markdown", i18n: true}
       
       # Standards
       - label: "Standards"
         name: "standards"
         widget: "list"
-        i18n: duplicate
+        i18n: false
         fields:
           - {label: "Code", name: "code", widget: "string"}
           - {label: "Domain", name: "domain", widget: "string"}
@@ -244,20 +244,20 @@ collections:
           - {label: "Description", name: "description", widget: "text"}
           - {label: "Type", name: "type", widget: "string"}
 
-      - {label: "Technology Components", name: "technology_components", widget: "markdown", i18n: translate}
+      - {label: "Technology Components", name: "technology_components", widget: "markdown", i18n: true}
       
       # Global Goods
       - label: "Global Goods"
         name: "global_goods"
         widget: "list"
-        i18n: duplicate
+        i18n: false
         fields:
           - {label: "Global Good ID", name: "id", widget: "string"}
           - {label: "Name", name: "name", widget: "string"}
           - {label: "URL", name: "url", widget: "string", required: false}
 
-      - {label: "Challenges", name: "challenges", widget: "markdown", i18n: translate}
-      - {label: "Sustainability Considerations", name: "sustainability_considerations", widget: "markdown", i18n: translate}
+      - {label: "Challenges", name: "challenges", widget: "markdown", i18n: true}
+      - {label: "Sustainability Considerations", name: "sustainability_considerations", widget: "markdown", i18n: true}
 
   # Reference Data Collections (No i18n)
   - name: "sdgs"
