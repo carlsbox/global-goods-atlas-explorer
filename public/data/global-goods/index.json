@@ -9,6 +9,14 @@
     "Countries": ["ke", "ug"]
   },
   {
+    "ID": "commcare",
+    "Name": "CommCare",
+    "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
+    "Logo": "https://www.dimagi.com/static/style/img/dimagi-logo.svg",
+    "GlobalGoodType": ["software"],
+    "Countries": ["in", "ng", "et", "bd"]
+  },
+  {
     "ID": "dhis2",
     "Name": "DHIS2",
     "Summary": "A flexible, web-based open-source information system with visualization features.",

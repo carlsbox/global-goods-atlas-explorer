@@ -1,0 +1,373 @@
+
+{
+  "ID": "commcare",
+  "Name": "CommCare",
+  "Logo": "https://www.dimagi.com/static/style/img/dimagi-logo.svg",
+  "Website": {
+    "main": {
+      "name": "CommCare Website",
+      "url": "https://www.dimagi.com/commcare/",
+      "description": "Official CommCare platform website"
+    },
+    "docs": {
+      "name": "Documentation",
+      "url": "https://confluence.dimagi.com/display/commcarepublic/CommCare+Public+Home",
+      "description": "CommCare documentation and user guides"
+    },
+    "source_code": {
+      "name": "Source Code",
+      "url": "https://github.com/dimagi/commcare-hq",
+      "description": "CommCare HQ repository"
+    },
+    "demo": {
+      "name": "Demo",
+      "url": "https://www.commcarehq.org/demo/",
+      "description": "Try CommCare demo"
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "Mobile data collection and case management platform for frontline workers."
+    }
+  ],
+  "License": {
+    "id": "bsd-3-clause",
+    "name": "BSD 3-Clause License",
+    "url": "https://github.com/dimagi/commcare-hq/blob/master/LICENSE",
+    "description": "Open source license allowing modification and redistribution"
+  },
+  "Contact": [
+    {
+      "name": "Dimagi Support",
+      "email": "support@dimagi.com",
+      "role": "Technical Support"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being"
+      },
+      {
+        "code": "SDG-1",
+        "title": "No Poverty"
+      },
+      {
+        "code": "SDG-5",
+        "title": "Gender Equality"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_B4",
+        "title": "Community health information systems",
+        "group_code": "B",
+        "group_name": "Health System / Provider administration",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": [
+      {
+        "code": "DPI_BD2",
+        "title": "Community Health Information Services",
+        "group_code": "BD",
+        "group_name": "Business Domain Services",
+        "authority": "DPI-H"
+      }
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "FHIR",
+        "domain": "Health",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "FHIR",
+        "description": "Fast Healthcare Interoperability Resources standard"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "REST",
+        "type": "API",
+        "link": "https://confluence.dimagi.com/display/commcarepublic/CommCare+API",
+        "name": "REST API",
+        "description": "RESTful API for data integration"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
+    "Description": "CommCare is designed to be used by frontline workers with basic mobile phone or smartphone literacy. It provides tools for case management, data collection, and decision support through mobile applications.",
+    "PrimaryFunctionality": "Mobile data collection and case management",
+    "Users": "Community health workers, social workers, field staff, program managers",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "hi",
+        "name": "Hindi"
+      },
+      {
+        "code": "sw",
+        "name": "Swahili"
+      }
+    ],
+    "Screenshots": [
+      {
+        "url": "https://www.dimagi.com/static/style/img/commcare-screenshot-1.png",
+        "description": "CommCare mobile app interface"
+      },
+      {
+        "url": "https://www.dimagi.com/static/style/img/commcare-screenshot-2.png",
+        "description": "CommCare web dashboard"
+      }
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Used in over 60 countries by 300,000+ frontline workers serving millions of beneficiaries.",
+    "NumberOfImplementations": 200,
+    "ImplementationMapOverview": {
+      "url": "https://www.dimagi.com/commcare/global-reach/",
+      "description": "Global CommCare implementations map"
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "in",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "India",
+            "formal": "the Republic of India"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "et",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "Ethiopia",
+            "formal": "the Federal Democratic Republic of Ethiopia"
+          }
+        }
+      },
+      {
+        "iso_code": "bd",
+        "type": "State",
+        "names": {
+          "en": {
+            "short": "Bangladesh",
+            "formal": "the People's Republic of Bangladesh"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "Mature platform with over 15 years of development and widespread deployment.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 9,
+        "community_support": 8,
+        "maturity_of_gg": 9,
+        "inclusive_design": 8,
+        "climate_resilience": 6,
+        "low_carbon": 7
+      },
+      {
+        "year": 2022,
+        "global_utility": 8,
+        "community_support": 8,
+        "maturity_of_gg": 9,
+        "inclusive_design": 7,
+        "climate_resilience": 5,
+        "low_carbon": 7
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "Can be configured to collect climate and environmental health data for community health monitoring."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Large, active community of implementers, developers, and users with regular training programs and conferences.",
+    "HostAnchorOrganization": {
+      "name": "Dimagi",
+      "url": "https://www.dimagi.com",
+      "description": "Social enterprise focused on technology for global development",
+      "country": [
+        "us"
+      ]
+    },
+    "InceptionYear": 2009,
+    "SizeOfCommunity": 5000,
+    "Links": {
+      "Community": {
+        "url": "https://forum.dimagi.com/",
+        "description": "CommCare user forum"
+      },
+      "MailingList": {
+        "url": "https://www.dimagi.com/newsletter/",
+        "description": "Subscribe to updates"
+      }
+    },
+    "Events": {
+      "description": "Annual CommCare Conference and quarterly training webinars.",
+      "schedule": "https://www.dimagi.com/events/",
+      "recent": [
+        {
+          "event": "CommCare Conference 2024",
+          "date": "2024-09-15",
+          "url": "https://www.dimagi.com/commcare-conference-2024/"
+        }
+      ]
+    },
+    "Policies": {
+      "Description": "Committed to data privacy, security, and ethical use of technology in global development.",
+      "Governance": {
+        "url": "https://www.dimagi.com/governance/",
+        "description": "Governance framework"
+      },
+      "TermsOfUse": {
+        "url": "https://www.dimagi.com/terms/",
+        "description": "Terms of service"
+      },
+      "UserAgreement": {
+        "url": "https://www.dimagi.com/user-agreement/",
+        "description": "User agreement"
+      },
+      "PrivacyPolicy": {
+        "url": "https://www.dimagi.com/privacy/",
+        "description": "Privacy policy"
+      },
+      "DoNoHarm": {
+        "url": "https://www.dimagi.com/do-no-harm/",
+        "description": "Do no harm principles"
+      },
+      "PIICollected": {
+        "url": "https://www.dimagi.com/data-collection/",
+        "description": "PII collection policies"
+      },
+      "NPIIUsed": {
+        "url": "https://www.dimagi.com/npii-use/",
+        "description": "Non-PII usage policies"
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "Designed for low-literacy users with offline functionality and works on basic smartphones.",
+    "UserInput": "Regular user research and feedback collection through community forums and surveys.",
+    "OfflineSupport": "Yes"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Mobile-first design reduces need for paper forms and travel for data collection."
+  },
+  "TotalCostOfOwnership": {
+    "Description": "Free community version available, with paid hosting and support options for large-scale deployments.",
+    "url": "https://www.dimagi.com/pricing/"
+  },
+  "Sustainability": {
+    "Description": "Sustainable business model with enterprise clients supporting continued development and free community access.",
+    "KeyFundersSupporters": [
+      {
+        "name": "USAID",
+        "url": "https://www.usaid.gov",
+        "description": "United States Agency for International Development"
+      },
+      {
+        "name": "Bill & Melinda Gates Foundation",
+        "url": "https://www.gatesfoundation.org",
+        "description": "Global health and development funding"
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "CommCare case studies and impact reports",
+        "url": "https://www.dimagi.com/case-studies/"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "CommCare Product Documentation",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "System Requirements",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/System+Requirements"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Manual",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/CommCare+User+Manual"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Implementation Guide",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/Implementation+Guide"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/Developer+Resources"
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "description": "Administrator Guide",
+        "url": "https://confluence.dimagi.com/display/commcarepublic/Administrator+Guide"
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "description": "Installation Instructions",
+        "url": "https://github.com/dimagi/commcare-hq/blob/master/README.md"
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net",
+          "description": "Global digital public goods registry"
+        },
+        "tool_url": "https://digitalpublicgoods.net/registry/commcare.html"
+      }
+    ]
+  }
+}
