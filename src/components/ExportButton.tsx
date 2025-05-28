@@ -14,7 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Download, FileText, Database, Info, ClipboardCopy } from 'lucide-react';
+import { Download, FileText, Database, Info } from 'lucide-react';
 import { useUseCaseExport, ExportOptions, ExportData } from '@/hooks/useUseCaseExport';
 import { UseCase } from '@/lib/types/useCase';
 import { useToast } from '@/hooks/use-toast';
@@ -105,7 +105,6 @@ export function ExportButton({ useCase, variant = 'outline', size = 'sm' }: Expo
               <span>Export Preview - {currentExportData?.format}</span>
               <div className="flex gap-2">
                 <Button onClick={handleCopyToClipboard} variant="outline" size="sm">
-                  <ClipboardCopy className="h-4 w-4 mr-2" />
                   Copy
                 </Button>
                 <Button onClick={handleDownload} size="sm">
