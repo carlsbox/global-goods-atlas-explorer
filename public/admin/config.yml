@@ -118,21 +118,19 @@ collections:
         widget: "object"
         i18n: true
         fields:
-          - {label: "Summary", name: "summary", widget: "text", i18n: true}
-          - {label: "Description", name: "description", widget: "markdown", i18n: true}
-          - {label: "Primary Functionality", name: "primary_functionality", widget: "text", i18n: true}
-          - {label: "Users", name: "users", widget: "text", i18n: true}
+          - {label: "Summary", name: "summary", widget: "text"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Primary Functionality", name: "primary_functionality", widget: "text"}
+          - {label: "Users", name: "users", widget: "text"}
           - label: "Languages"
             name: "languages"
             widget: "list"
-            i18n: duplicate
             fields:
               - {label: "Language Code", name: "code", widget: "string"}
               - {label: "Language Name", name: "name", widget: "string"}
           - label: "Screenshots"
             name: "screenshots"
             widget: "list"
-            i18n: duplicate
             fields:
               - {label: "Image URL", name: "url", widget: "image"}
               - {label: "Description", name: "description", widget: "string"}
@@ -168,12 +166,11 @@ collections:
         widget: "object"
         i18n: true
         fields:
-          - {label: "Summary of Reach", name: "summary_of_reach", widget: "text", i18n: true}
-          - {label: "Number of Implementations", name: "number_of_implementations", widget: "number", default: 0, i18n: duplicate}
+          - {label: "Summary of Reach", name: "summary_of_reach", widget: "text"}
+          - {label: "Number of Implementations", name: "number_of_implementations", widget: "number", default: 0}
           - label: "Implementation Countries"
             name: "implementation_countries"
             widget: "list"
-            i18n: duplicate
             field: {label: "Country ISO Code", name: "iso_code", widget: "string"}
 
       # Community Information
@@ -182,11 +179,10 @@ collections:
         widget: "object"
         i18n: true
         fields:
-          - {label: "Description of Community", name: "description_of_community", widget: "markdown", i18n: true}
+          - {label: "Description of Community", name: "description_of_community", widget: "markdown"}
           - label: "Host/Anchor Organization"
             name: "host_anchor_organization"
             widget: "object"
-            i18n: duplicate
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
@@ -195,8 +191,8 @@ collections:
                 name: "country"
                 widget: "list"
                 field: {label: "Country", name: "country", widget: "string"}
-          - {label: "Inception Year", name: "inception_year", widget: "number", i18n: duplicate}
-          - {label: "Size of Community", name: "size_of_community", widget: "number", i18n: duplicate}
+          - {label: "Inception Year", name: "inception_year", widget: "number"}
+          - {label: "Size of Community", name: "size_of_community", widget: "number"}
 
       # Sustainability
       - label: "Sustainability"
@@ -204,11 +200,10 @@ collections:
         widget: "object"
         i18n: true
         fields:
-          - {label: "Description", name: "description", widget: "markdown", i18n: true}
+          - {label: "Description", name: "description", widget: "markdown"}
           - label: "Key Funders/Supporters"
             name: "key_funders_supporters"
             widget: "list"
-            i18n: duplicate
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "URL", name: "url", widget: "string", required: false}
