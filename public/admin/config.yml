@@ -307,7 +307,7 @@ collections:
 
   # SDG Direct File 
   - name: "sdg"
-    label: "SDGs"
+    label: "SDGs v2"
     files:
       - file: "src/i18n/locales/en/sdg.json"
         label: "Sustainable Development Goals"
