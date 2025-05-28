@@ -44,11 +44,6 @@ import mapEN from './locales/en/pages/map.json';
 import mapFR from './locales/fr/pages/map.json';
 import mapES from './locales/es/pages/map.json';
 
-// Import Admin pages translations
-import adminEN from './locales/en/pages/admin.json';
-import adminFR from './locales/fr/pages/admin.json';
-import adminES from './locales/es/pages/admin.json';
-
 // Import Cookie Consent translations
 import cookieEN from './locales/en/pages/cookie.json';
 import cookieFR from './locales/fr/pages/cookie.json';
@@ -85,7 +80,6 @@ const resources = {
     globalGoodDetails: globalGoodDetailsEN,
     useCases: useCasesEN,
     map: mapEN,
-    admin: adminEN,
     cookie: cookieEN,
     contact: contactEN,
     privacy: privacyEN,
@@ -101,7 +95,6 @@ const resources = {
     globalGoodDetails: globalGoodDetailsFR,
     useCases: useCasesFR,
     map: mapFR,
-    admin: adminFR,
     cookie: cookieFR,
     contact: contactFR,
     privacy: privacyFR,
@@ -117,7 +110,6 @@ const resources = {
     globalGoodDetails: globalGoodDetailsES,
     useCases: useCasesES,
     map: mapES,
-    admin: adminES,
     cookie: cookieES,
     contact: contactES,
     privacy: privacyES,
@@ -137,7 +129,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'admin', 'cookie', 'contact', 'privacy', 'terms', 'navigation'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'contact', 'privacy', 'terms', 'navigation'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
