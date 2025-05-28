@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { useUseCases } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -8,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { ArrowLeft, Users, Circle, Settings, Globe, AlertTriangle, Lightbulb, MapPin, Building, Calendar, FileText, Check, Link as LinkIcon, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
+import { ExportButton } from "@/components/ExportButton";
 import ReactMarkdown from "react-markdown";
 
 export default function UseCaseDetailsPage() {
@@ -78,7 +80,10 @@ export default function UseCaseDetailsPage() {
           <CardHeader className="pb-6">
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <CardTitle className="text-4xl font-bold mb-4 text-primary">{title}</CardTitle>
+                <div className="flex items-center justify-between mb-4">
+                  <CardTitle className="text-4xl font-bold text-primary">{title}</CardTitle>
+                  <ExportButton useCase={useCase} />
+                </div>
                 
                 {/* Classifications */}
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -233,10 +238,13 @@ export default function UseCaseDetailsPage() {
         {/* Right Column: Technical Implementation (40% - 2 columns) */}
         <div className="lg:col-span-2 space-y-6">
           <div className="sticky top-6 space-y-6">
-            <h2 className="text-2xl font-bold mb-4 text-green-600 flex items-center">
-              <Settings className="mr-2 h-6 w-6" />
-              Technical Implementation
-            </h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-green-600 flex items-center">
+                <Settings className="mr-2 h-6 w-6" />
+                Technical Implementation
+              </h2>
+              <ExportButton useCase={useCase} variant="ghost" size="sm" />
+            </div>
 
             {/* Consolidated Technical Details Card */}
             <Card className="border-green-200">
