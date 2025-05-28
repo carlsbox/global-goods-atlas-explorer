@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Upload } from 'lucide-react';
+import { upload } from 'lucide-react';
 
 interface FileUploaderProps {
   onChange: (url: string) => void;
@@ -29,6 +29,8 @@ export function FileUploader({ onChange, value }: FileUploaderProps) {
     }
   };
 
+  const UploadIcon = upload;
+
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2">
@@ -39,7 +41,7 @@ export function FileUploader({ onChange, value }: FileUploaderProps) {
           disabled={uploading}
         />
         <Button type="button" variant="outline" disabled={uploading}>
-          <Upload className="h-4 w-4 mr-2" />
+          <UploadIcon className="h-4 w-4 mr-2" />
           {uploading ? 'Uploading...' : 'Upload'}
         </Button>
       </div>

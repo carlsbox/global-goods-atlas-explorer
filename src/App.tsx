@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
@@ -22,6 +23,7 @@ import AdminLoginPage from "@/pages/AdminLoginPage";
 import AdminDashboardPage from "@/pages/AdminDashboardPage";
 import GlobalGoodsListPage from "@/pages/admin/GlobalGoodsListPage";
 import GlobalGoodFormPage from "@/pages/admin/GlobalGoodFormPage";
+import GlobalGoodsContentPage from "@/pages/admin/content/GlobalGoodsContentPage";
 import UseCasesListPage from "@/pages/admin/UseCasesListPage";
 import ClassificationsPage from "@/pages/admin/ClassificationsPage";
 import UsersPage from "@/pages/admin/UsersPage";
@@ -70,9 +72,17 @@ function App() {
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<AdminDashboardPage />} />
+                
+                {/* Content management routes */}
+                <Route path="content/global-goods" element={<GlobalGoodsContentPage />} />
+                <Route path="content/global-goods/new" element={<GlobalGoodFormPage />} />
+                <Route path="content/global-goods/edit/:id" element={<GlobalGoodFormPage />} />
+                
+                {/* Legacy routes for backward compatibility */}
                 <Route path="global-goods" element={<GlobalGoodsListPage />} />
                 <Route path="global-goods/new" element={<GlobalGoodFormPage />} />
                 <Route path="global-goods/:id/edit" element={<GlobalGoodFormPage />} />
+                
                 <Route path="use-cases" element={<UseCasesListPage />} />
                 <Route path="classifications" element={<ClassificationsPage />} />
                 <Route path="users" element={<UsersPage />} />
