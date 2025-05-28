@@ -1,0 +1,16 @@
+{
+  "id": "tom",
+  "website": {
+    "main_name": "{{fields.name}} Website",
+    "docs_name": "Documentaiton",
+    "source_name": "Source Code",
+    "demo_name": "Demo"
+  },
+  "reach": {
+    "number_of_implementations": 0
+  },
+  "name": "Toms tool",
+  "community": {
+    "description_of_community": "lorem pisspocadagd"
+  }
+}
