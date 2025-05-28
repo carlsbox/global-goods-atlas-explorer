@@ -1,17 +1,20 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useFieldArray } from 'react-hook-form';
 import { Plus, Trash } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useReferenceData } from '@/hooks/useReferenceData';
 
 interface StandardsFormProps {
   form: any;
 }
 
 export function StandardsForm({ form }: StandardsFormProps) {
+  const { standards, loading } = useReferenceData();
+  
   const { fields: healthFields, append: appendHealth, remove: removeHealth } = useFieldArray({
     control: form.control,
     name: 'StandardsAndInteroperability.HealthStandards',
@@ -21,6 +24,23 @@ export function StandardsForm({ form }: StandardsFormProps) {
     control: form.control,
     name: 'StandardsAndInteroperability.Interoperability',
   });
+
+  // Get health and climate standards
+  const healthStandards = Object.values(standards).filter(s => s.domain === 'Health');
+  const climateStandards = Object.values(standards).filter(s => s.domain === 'Weather and Climate');
+
+  if (loading) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Standards and Interoperability</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div>Loading standards data...</div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card>
@@ -32,61 +52,52 @@ export function StandardsForm({ form }: StandardsFormProps) {
         <div className="space-y-4">
           <FormLabel>Health Standards</FormLabel>
           {healthFields.map((field, index) => (
-            <div key={field.id} className="space-y-2 border p-3 rounded">
-              <div className="flex justify-end">
-                <Button 
-                  type="button" 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={() => removeHealth(index)}
-                >
-                  <Trash className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.HealthStandards.${index}.code`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Code" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.HealthStandards.${index}.domain`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Domain" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.HealthStandards.${index}.name`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Name" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.HealthStandards.${index}.link`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Link" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.HealthStandards.${index}.description`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Description" className="col-span-2" />
-                  )}
-                />
-              </div>
+            <div key={field.id} className="flex gap-2 items-center border p-3 rounded">
+              <FormField
+                control={form.control}
+                name={`StandardsAndInteroperability.HealthStandards.${index}.code`}
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <Select onValueChange={(value) => {
+                      const selectedStandard = healthStandards.find(s => s.code === value);
+                      if (selectedStandard) {
+                        field.onChange(selectedStandard.code);
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.domain`, selectedStandard.domain);
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.name`, selectedStandard.name);
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.link`, selectedStandard.link);
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.description`, selectedStandard.description);
+                      }
+                    }} value={field.value}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Health Standard" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
+                        {healthStandards.map((standard) => (
+                          <SelectItem key={standard.code} value={standard.code}>
+                            {standard.code}: {standard.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button 
+                type="button" 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => removeHealth(index)}
+              >
+                <Trash className="h-4 w-4" />
+              </Button>
             </div>
           ))}
           <Button
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => appendHealth({ code: '', domain: '', link: '', name: '', description: '' })}
+            onClick={() => appendHealth({ code: '', domain: 'Health', link: '', name: '', description: '' })}
           >
             <Plus className="mr-2 h-4 w-4" />
             Add Health Standard
@@ -97,54 +108,45 @@ export function StandardsForm({ form }: StandardsFormProps) {
         <div className="space-y-4">
           <FormLabel>Interoperability Standards</FormLabel>
           {interopFields.map((field, index) => (
-            <div key={field.id} className="space-y-2 border p-3 rounded">
-              <div className="flex justify-end">
-                <Button 
-                  type="button" 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={() => removeInterop(index)}
-                >
-                  <Trash className="h-4 w-4" />
-                </Button>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.Interoperability.${index}.code`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Code" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.Interoperability.${index}.type`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Type" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.Interoperability.${index}.name`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Name" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.Interoperability.${index}.link`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Link" />
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`StandardsAndInteroperability.Interoperability.${index}.description`}
-                  render={({ field }) => (
-                    <Input {...field} placeholder="Description" className="col-span-2" />
-                  )}
-                />
-              </div>
+            <div key={field.id} className="flex gap-2 items-center border p-3 rounded">
+              <FormField
+                control={form.control}
+                name={`StandardsAndInteroperability.Interoperability.${index}.code`}
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <Select onValueChange={(value) => {
+                      const selectedStandard = climateStandards.find(s => s.code === value);
+                      if (selectedStandard) {
+                        field.onChange(selectedStandard.code);
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.type`, selectedStandard.type);
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.name`, selectedStandard.name);
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.link`, selectedStandard.link);
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.description`, selectedStandard.description);
+                      }
+                    }} value={field.value}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Interoperability Standard" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
+                        {climateStandards.map((standard) => (
+                          <SelectItem key={standard.code} value={standard.code}>
+                            {standard.code}: {standard.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button 
+                type="button" 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => removeInterop(index)}
+              >
+                <Trash className="h-4 w-4" />
+              </Button>
             </div>
           ))}
           <Button
