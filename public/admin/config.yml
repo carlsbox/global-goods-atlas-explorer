@@ -1,0 +1,318 @@
+
+backend:
+  name: github
+  repo: your-username/your-repo-name # Replace with your actual repo
+  branch: main
+  auth_type: pkce
+  open_authoring: true
+
+# Enable local development
+local_backend: true
+
+# Media and public folders
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Site configuration
+site_url: https://globalgoodsatlas.org
+
+# Internationalization settings
+i18n:
+  structure: multiple_folders
+  locales: [en, fr, es]
+  default_locale: en
+
+collections:
+  # Global Goods Collection (Multilingual)
+  - name: "global-goods"
+    label: "Global Goods"
+    label_singular: "Global Good"
+    folder: "public/data/global-goods/cms"
+    create: true
+    delete: true
+    format: json
+    extension: json
+    slug: "{{fields.id}}"
+    i18n: true
+    fields:
+      - {label: "ID", name: "id", widget: "string", i18n: duplicate}
+      - {label: "Name", name: "name", widget: "string", i18n: true}
+      - {label: "Logo", name: "logo", widget: "image", required: false, i18n: duplicate}
+      
+      # Website Information
+      - label: "Website"
+        name: "website"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "Main Website Name", name: "main_name", widget: "string", required: false}
+          - {label: "Main Website URL", name: "main_url", widget: "string", required: false}
+          - {label: "Main Website Description", name: "main_description", widget: "text", required: false}
+          - {label: "Documentation Name", name: "docs_name", widget: "string", required: false}
+          - {label: "Documentation URL", name: "docs_url", widget: "string", required: false}
+          - {label: "Documentation Description", name: "docs_description", widget: "text", required: false}
+          - {label: "Source Code Name", name: "source_name", widget: "string", required: false}
+          - {label: "Source Code URL", name: "source_url", widget: "string", required: false}
+          - {label: "Source Code Description", name: "source_description", widget: "text", required: false}
+          - {label: "Demo Name", name: "demo_name", widget: "string", required: false}
+          - {label: "Demo URL", name: "demo_url", widget: "string", required: false}
+          - {label: "Demo Description", name: "demo_description", widget: "text", required: false}
+
+      # Global Goods Type
+      - label: "Global Goods Type"
+        name: "global_goods_type"
+        widget: "list"
+        i18n: true
+        fields:
+          - {label: "Code", name: "code", widget: "string"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+
+      # License Information
+      - label: "License"
+        name: "license"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "License ID", name: "id", widget: "string"}
+          - {label: "License Name", name: "name", widget: "string"}
+          - {label: "License URL", name: "url", widget: "string", required: false}
+          - {label: "License Description", name: "description", widget: "text", required: false}
+
+      # Contact Information
+      - label: "Contact"
+        name: "contact"
+        widget: "list"
+        i18n: true
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Role", name: "role", widget: "string"}
+
+      # Classifications
+      - label: "Classifications"
+        name: "classifications"
+        widget: "object"
+        i18n: duplicate
+        fields:
+          - label: "SDGs"
+            name: "sdgs"
+            widget: "list"
+            field: {label: "SDG Code", name: "sdg_code", widget: "select", options: ["SDG01", "SDG02", "SDG03", "SDG04", "SDG05", "SDG06", "SDG07", "SDG08", "SDG09", "SDG10", "SDG11", "SDG12", "SDG13", "SDG14", "SDG15", "SDG16", "SDG17"]}
+          - label: "WHO Classifications"
+            name: "who"
+            widget: "list"
+            field: {label: "WHO Code", name: "who_code", widget: "string"}
+          - label: "WMO Classifications"
+            name: "wmo"
+            widget: "list"
+            field: {label: "WMO Code", name: "wmo_code", widget: "string"}
+          - label: "DPI Classifications"
+            name: "dpi"
+            widget: "list"
+            field: {label: "DPI Code", name: "dpi_code", widget: "string"}
+
+      # Product Overview
+      - label: "Product Overview"
+        name: "product_overview"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "Summary", name: "summary", widget: "text"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Primary Functionality", name: "primary_functionality", widget: "text"}
+          - {label: "Users", name: "users", widget: "text"}
+          - label: "Languages"
+            name: "languages"
+            widget: "list"
+            fields:
+              - {label: "Language Code", name: "code", widget: "string"}
+              - {label: "Language Name", name: "name", widget: "string"}
+          - label: "Screenshots"
+            name: "screenshots"
+            widget: "list"
+            fields:
+              - {label: "Image URL", name: "url", widget: "image"}
+              - {label: "Description", name: "description", widget: "string"}
+
+      # Standards and Interoperability
+      - label: "Standards and Interoperability"
+        name: "standards_interoperability"
+        widget: "object"
+        i18n: true
+        fields:
+          - label: "Health Standards"
+            name: "health_standards"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string"}
+              - {label: "Domain", name: "domain", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", required: false}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          - label: "Interoperability Standards"
+            name: "interoperability"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string"}
+              - {label: "Type", name: "type", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", required: false}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+      # Global Reach
+      - label: "Reach"
+        name: "reach"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "Summary of Reach", name: "summary_of_reach", widget: "text"}
+          - {label: "Number of Implementations", name: "number_of_implementations", widget: "number", default: 0}
+          - label: "Implementation Countries"
+            name: "implementation_countries"
+            widget: "list"
+            field: {label: "Country ISO Code", name: "iso_code", widget: "string"}
+
+      # Community Information
+      - label: "Community"
+        name: "community"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "Description of Community", name: "description_of_community", widget: "markdown"}
+          - label: "Host/Anchor Organization"
+            name: "host_anchor_organization"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Countries"
+                name: "country"
+                widget: "list"
+                field: {label: "Country", name: "country", widget: "string"}
+          - {label: "Inception Year", name: "inception_year", widget: "number"}
+          - {label: "Size of Community", name: "size_of_community", widget: "number"}
+
+      # Sustainability
+      - label: "Sustainability"
+        name: "sustainability"
+        widget: "object"
+        i18n: true
+        fields:
+          - {label: "Description", name: "description", widget: "markdown"}
+          - label: "Key Funders/Supporters"
+            name: "key_funders_supporters"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "Description", name: "description", widget: "text"}
+
+  # Use Cases Collection (Multilingual)
+  - name: "use-cases"
+    label: "Use Cases"
+    label_singular: "Use Case"
+    folder: "src/data/use-cases/cms"
+    create: true
+    delete: true
+    format: json
+    extension: json
+    slug: "{{fields.id}}"
+    i18n: true
+    fields:
+      - {label: "ID", name: "id", widget: "string", i18n: duplicate}
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Purpose", name: "purpose", widget: "markdown", i18n: true}
+      
+      # Classifications
+      - label: "Classifications"
+        name: "classifications"
+        widget: "object"
+        i18n: duplicate
+        fields:
+          - {label: "SDG", name: "sdg", widget: "select", options: ["SDG01", "SDG02", "SDG03", "SDG04", "SDG05", "SDG06", "SDG07", "SDG08", "SDG09", "SDG10", "SDG11", "SDG12", "SDG13", "SDG14", "SDG15", "SDG16", "SDG17"], required: false}
+          - {label: "WHO System", name: "who_system", widget: "string", required: false}
+          - {label: "WMO Category", name: "wmo_category", widget: "string", required: false}
+
+      - {label: "Scope", name: "scope", widget: "markdown", i18n: true}
+      - {label: "Actors", name: "actors", widget: "markdown", i18n: true}
+      - {label: "Preconditions", name: "preconditions", widget: "markdown", i18n: true}
+      - {label: "Process Steps", name: "process_steps", widget: "markdown", i18n: true}
+      - {label: "Postconditions", name: "postconditions", widget: "markdown", i18n: true}
+      - {label: "Data Requirements", name: "data_requirements", widget: "markdown", i18n: true}
+      
+      # Standards
+      - label: "Standards"
+        name: "standards"
+        widget: "list"
+        i18n: true
+        fields:
+          - {label: "Code", name: "code", widget: "string"}
+          - {label: "Domain", name: "domain", widget: "string"}
+          - {label: "Link", name: "link", widget: "string", required: false}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Type", name: "type", widget: "string"}
+
+      - {label: "Technology Components", name: "technology_components", widget: "markdown", i18n: true}
+      
+      # Global Goods
+      - label: "Global Goods"
+        name: "global_goods"
+        widget: "list"
+        i18n: duplicate
+        fields:
+          - {label: "Global Good ID", name: "id", widget: "string"}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "URL", name: "url", widget: "string", required: false}
+
+      - {label: "Challenges", name: "challenges", widget: "markdown", i18n: true}
+      - {label: "Sustainability Considerations", name: "sustainability_considerations", widget: "markdown", i18n: true}
+
+  # Reference Data Collections
+  - name: "sdgs"
+    label: "SDGs"
+    folder: "src/i18n/locales/{{locale}}/cms"
+    create: false
+    delete: false
+    format: json
+    extension: json
+    slug: "sdg"
+    i18n: true
+    files:
+      - label: "SDG Reference Data"
+        name: "sdg"
+        file: "src/i18n/locales/{{locale}}/cms/sdg.json"
+        fields:
+          - label: "SDGs"
+            name: "sdgs"
+            widget: "object"
+            fields:
+              - {label: "SDG01 Title", name: "SDG01_title", widget: "string"}
+              - {label: "SDG02 Title", name: "SDG02_title", widget: "string"}
+              - {label: "SDG03 Title", name: "SDG03_title", widget: "string"}
+              - {label: "SDG04 Title", name: "SDG04_title", widget: "string"}
+              - {label: "SDG05 Title", name: "SDG05_title", widget: "string"}
+              - {label: "SDG06 Title", name: "SDG06_title", widget: "string"}
+              - {label: "SDG07 Title", name: "SDG07_title", widget: "string"}
+              - {label: "SDG08 Title", name: "SDG08_title", widget: "string"}
+              - {label: "SDG09 Title", name: "SDG09_title", widget: "string"}
+              - {label: "SDG10 Title", name: "SDG10_title", widget: "string"}
+              - {label: "SDG11 Title", name: "SDG11_title", widget: "string"}
+              - {label: "SDG12 Title", name: "SDG12_title", widget: "string"}
+              - {label: "SDG13 Title", name: "SDG13_title", widget: "string"}
+              - {label: "SDG14 Title", name: "SDG14_title", widget: "string"}
+              - {label: "SDG15 Title", name: "SDG15_title", widget: "string"}
+              - {label: "SDG16 Title", name: "SDG16_title", widget: "string"}
+              - {label: "SDG17 Title", name: "SDG17_title", widget: "string"}
+
+# Editorial workflow
+publish_mode: editorial_workflow
+
+# Role-based access control
+roles:
+  - name: admin
+    label: Administrator
+  - name: editor
+    label: Editor
