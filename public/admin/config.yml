@@ -23,7 +23,7 @@ i18n:
   default_locale: en
 
 collections:
-  # Global Goods Collection (Multilingual)
+  # Global Goods Collection (No i18n)
   - name: "global-goods"
     label: "Global Goods"
     label_singular: "Global Good"
@@ -33,17 +33,15 @@ collections:
     format: json
     extension: json
     slug: "{{fields.id}}"
-    i18n: duplicate
     fields:
-      - {label: "ID", name: "id", widget: "string", i18n: duplicate}
-      - {label: "Name", name: "name", widget: "string", i18n: true}
-      - {label: "Logo", name: "logo", widget: "image", required: false, i18n: duplicate}
+      - {label: "ID", name: "id", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Logo", name: "logo", widget: "image", required: false}
       
       # Website Information
       - label: "Website"
         name: "website"
         widget: "object"
-        i18n: duplicate
         fields:
           - {label: "Main Website Name", name: "main_name", widget: "string", required: false}
           - {label: "Main Website URL", name: "main_url", widget: "string", required: false}
@@ -62,7 +60,6 @@ collections:
       - label: "Global Goods Type"
         name: "global_goods_type"
         widget: "list"
-        i18n: duplicate
         fields:
           - {label: "Code", name: "code", widget: "string"}
           - {label: "Title", name: "title", widget: "string"}
@@ -72,7 +69,6 @@ collections:
       - label: "License"
         name: "license"
         widget: "object"
-        i18n: duplicate
         fields:
           - {label: "License ID", name: "id", widget: "string"}
           - {label: "License Name", name: "name", widget: "string"}
@@ -83,7 +79,6 @@ collections:
       - label: "Contact"
         name: "contact"
         widget: "list"
-        i18n: duplicate
         fields:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Email", name: "email", widget: "string"}
@@ -93,7 +88,6 @@ collections:
       - label: "Classifications"
         name: "classifications"
         widget: "object"
-        i18n: duplicate
         fields:
           - label: "SDGs"
             name: "sdgs"
@@ -116,7 +110,6 @@ collections:
       - label: "Product Overview"
         name: "product_overview"
         widget: "object"
-        i18n: true
         fields:
           - {label: "Summary", name: "summary", widget: "text"}
           - {label: "Description", name: "description", widget: "markdown"}
@@ -139,7 +132,6 @@ collections:
       - label: "Standards and Interoperability"
         name: "standards_interoperability"
         widget: "object"
-        i18n: duplicate
         fields:
           - label: "Health Standards"
             name: "health_standards"
@@ -164,7 +156,6 @@ collections:
       - label: "Reach"
         name: "reach"
         widget: "object"
-        i18n: true
         fields:
           - {label: "Summary of Reach", name: "summary_of_reach", widget: "text"}
           - {label: "Number of Implementations", name: "number_of_implementations", widget: "number", default: 0}
@@ -177,7 +168,6 @@ collections:
       - label: "Community"
         name: "community"
         widget: "object"
-        i18n: true
         fields:
           - {label: "Description of Community", name: "description_of_community", widget: "markdown"}
           - label: "Host/Anchor Organization"
@@ -198,7 +188,6 @@ collections:
       - label: "Sustainability"
         name: "sustainability"
         widget: "object"
-        i18n: true
         fields:
           - {label: "Description", name: "description", widget: "markdown"}
           - label: "Key Funders/Supporters"

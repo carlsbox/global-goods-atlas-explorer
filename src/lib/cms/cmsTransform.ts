@@ -3,10 +3,10 @@ import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 import { UseCase } from '@/lib/types/useCase';
 import { LanguageCode } from '@/lib/types';
 
-// CMS Global Good format (multilingual)
+// CMS Global Good format (non-multilingual)
 export interface CMSGlobalGood {
   id: string;
-  name: { [key in LanguageCode]: string };
+  name: string;
   logo?: string;
   website: {
     main_name?: string;
@@ -45,10 +45,10 @@ export interface CMSGlobalGood {
     dpi: string[];
   };
   product_overview: {
-    summary: { [key in LanguageCode]: string };
-    description: { [key in LanguageCode]: string };
-    primary_functionality: { [key in LanguageCode]: string };
-    users: { [key in LanguageCode]: string };
+    summary: string;
+    description: string;
+    primary_functionality: string;
+    users: string;
     languages: Array<{
       code: string;
       name: string;
@@ -75,12 +75,12 @@ export interface CMSGlobalGood {
     }>;
   };
   reach: {
-    summary_of_reach: { [key in LanguageCode]: string };
+    summary_of_reach: string;
     number_of_implementations: number;
     implementation_countries: string[];
   };
   community: {
-    description_of_community: { [key in LanguageCode]: string };
+    description_of_community: string;
     host_anchor_organization: {
       name: string;
       url?: string;
@@ -91,7 +91,7 @@ export interface CMSGlobalGood {
     size_of_community: number;
   };
   sustainability: {
-    description: { [key in LanguageCode]: string };
+    description: string;
     key_funders_supporters: Array<{
       name: string;
       url?: string;
@@ -141,15 +141,9 @@ export function transformCMSGlobalGoodToFlat(
   cmsGood: CMSGlobalGood,
   language: LanguageCode = 'en'
 ): GlobalGoodFlat {
-  // Get text for the specified language with fallback to English
-  const getText = (field: { [key in LanguageCode]: string } | undefined): string => {
-    if (!field) return '';
-    return field[language] || field.en || '';
-  };
-
   return {
     ID: cmsGood.id,
-    Name: getText(cmsGood.name),
+    Name: cmsGood.name,
     Logo: cmsGood.logo,
     Website: {
       main: cmsGood.website.main_url ? {
@@ -211,15 +205,15 @@ export function transformCMSGlobalGoodToFlat(
       ClimateStandards: []
     },
     ProductOverview: {
-      Summary: getText(cmsGood.product_overview.summary),
-      Description: getText(cmsGood.product_overview.description),
-      PrimaryFunctionality: getText(cmsGood.product_overview.primary_functionality),
-      Users: getText(cmsGood.product_overview.users),
+      Summary: cmsGood.product_overview.summary,
+      Description: cmsGood.product_overview.description,
+      PrimaryFunctionality: cmsGood.product_overview.primary_functionality,
+      Users: cmsGood.product_overview.users,
       Languages: cmsGood.product_overview.languages || [],
       Screenshots: cmsGood.product_overview.screenshots || []
     },
     Reach: {
-      SummaryOfReach: getText(cmsGood.reach.summary_of_reach),
+      SummaryOfReach: cmsGood.reach.summary_of_reach,
       NumberOfImplementations: cmsGood.reach.number_of_implementations || 0,
       ImplementationMapOverview: null,
       ImplementationCountries: cmsGood.reach.implementation_countries.map(iso_code => ({
@@ -231,7 +225,7 @@ export function transformCMSGlobalGoodToFlat(
     Maturity: { SummaryOfMaturity: '', Scores: [] },
     ClimateAndHealthIntegration: { Description: '' },
     Community: {
-      DescriptionOfCommunity: getText(cmsGood.community.description_of_community),
+      DescriptionOfCommunity: cmsGood.community.description_of_community,
       HostAnchorOrganization: {
         name: cmsGood.community.host_anchor_organization.name,
         url: cmsGood.community.host_anchor_organization.url || '',
@@ -257,7 +251,7 @@ export function transformCMSGlobalGoodToFlat(
     EnvironmentalImpact: { LowCarbon: '' },
     TotalCostOfOwnership: { Description: '', url: '' },
     Sustainability: {
-      Description: getText(cmsGood.sustainability.description),
+      Description: cmsGood.sustainability.description,
       KeyFundersSupporters: cmsGood.sustainability.key_funders_supporters.map(supporter => ({
         name: supporter.name,
         url: supporter.url || '',
@@ -323,18 +317,11 @@ export function transformCMSUseCaseToApp(
  * Transform application Global Good to CMS format
  */
 export function transformAppGlobalGoodToCMS(
-  appGood: GlobalGoodFlat,
-  multilingualData?: { [key in LanguageCode]: Partial<GlobalGoodFlat> }
+  appGood: GlobalGoodFlat
 ): CMSGlobalGood {
-  const createMultilingualField = (field: string): { [key in LanguageCode]: string } => ({
-    en: field,
-    fr: multilingualData?.fr?.[field as keyof GlobalGoodFlat] as string || field,
-    es: multilingualData?.es?.[field as keyof GlobalGoodFlat] as string || field
-  });
-
   return {
     id: appGood.ID,
-    name: createMultilingualField(appGood.Name),
+    name: appGood.Name,
     logo: appGood.Logo,
     website: {
       main_name: appGood.Website.main?.name,
@@ -360,10 +347,10 @@ export function transformAppGlobalGoodToCMS(
       dpi: appGood.Classifications.DPI.map(dpi => dpi.code)
     },
     product_overview: {
-      summary: createMultilingualField(appGood.ProductOverview.Summary),
-      description: createMultilingualField(appGood.ProductOverview.Description),
-      primary_functionality: createMultilingualField(appGood.ProductOverview.PrimaryFunctionality),
-      users: createMultilingualField(appGood.ProductOverview.Users),
+      summary: appGood.ProductOverview.Summary,
+      description: appGood.ProductOverview.Description,
+      primary_functionality: appGood.ProductOverview.PrimaryFunctionality,
+      users: appGood.ProductOverview.Users,
       languages: appGood.ProductOverview.Languages || [],
       screenshots: appGood.ProductOverview.Screenshots || []
     },
@@ -372,18 +359,18 @@ export function transformAppGlobalGoodToCMS(
       interoperability: appGood.StandardsAndInteroperability.Interoperability || []
     },
     reach: {
-      summary_of_reach: createMultilingualField(appGood.Reach.SummaryOfReach),
+      summary_of_reach: appGood.Reach.SummaryOfReach,
       number_of_implementations: appGood.Reach.NumberOfImplementations || 0,
       implementation_countries: appGood.Reach.ImplementationCountries.map(country => country.iso_code)
     },
     community: {
-      description_of_community: createMultilingualField(appGood.Community.DescriptionOfCommunity),
+      description_of_community: appGood.Community.DescriptionOfCommunity,
       host_anchor_organization: appGood.Community.HostAnchorOrganization,
       inception_year: appGood.Community.InceptionYear || 0,
       size_of_community: appGood.Community.SizeOfCommunity || 0
     },
     sustainability: {
-      description: createMultilingualField(appGood.Sustainability.Description),
+      description: appGood.Sustainability.Description,
       key_funders_supporters: appGood.Sustainability.KeyFundersSupporters || []
     }
   };
