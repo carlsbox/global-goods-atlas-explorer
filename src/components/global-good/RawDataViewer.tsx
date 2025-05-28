@@ -24,13 +24,13 @@ export const RawDataViewer: React.FC<RawDataViewerProps> = ({
           View Raw Data
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl h-[80vh]">
+      <DialogContent className="max-w-[90vw] w-full max-h-[90vh] h-full">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
         
-        <Tabs defaultValue="pretty">
-          <TabsList className="grid w-full grid-cols-3">
+        <Tabs defaultValue="pretty" className="flex flex-col h-full">
+          <TabsList className="grid w-full grid-cols-3 flex-shrink-0">
             <TabsTrigger value="pretty" className="gap-2">
               <Eye className="h-4 w-4" />
               Pretty View
@@ -45,23 +45,25 @@ export const RawDataViewer: React.FC<RawDataViewerProps> = ({
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="pretty" className="mt-4">
-            <ScrollArea className="h-[60vh]">
-              <AllFieldsTab globalGood={data} />
+          <TabsContent value="pretty" className="flex-1 mt-4">
+            <ScrollArea className="h-[60vh] w-full">
+              <div className="pr-4">
+                <AllFieldsTab globalGood={data} />
+              </div>
             </ScrollArea>
           </TabsContent>
           
-          <TabsContent value="json" className="mt-4">
-            <ScrollArea className="h-[60vh]">
-              <pre className="whitespace-pre-wrap text-xs p-4 bg-muted rounded-md overflow-auto">
+          <TabsContent value="json" className="flex-1 mt-4">
+            <ScrollArea className="h-[60vh] w-full">
+              <pre className="whitespace-pre-wrap text-xs p-4 bg-muted rounded-md overflow-auto break-all">
                 {JSON.stringify(data, null, 2)}
               </pre>
             </ScrollArea>
           </TabsContent>
           
-          <TabsContent value="code" className="mt-4">
-            <ScrollArea className="h-[60vh]">
-              <pre className="whitespace-pre-wrap text-xs p-4 bg-muted rounded-md overflow-auto">
+          <TabsContent value="code" className="flex-1 mt-4">
+            <ScrollArea className="h-[60vh] w-full">
+              <pre className="whitespace-pre-wrap text-xs p-4 bg-muted rounded-md overflow-auto break-all">
                 {`const data = ${JSON.stringify(data, null, 2)}`}
               </pre>
             </ScrollArea>
