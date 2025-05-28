@@ -9,8 +9,7 @@ import {
   Grid3X3,
   FileText,
   Info,
-  Mail,
-  UserCog
+  Mail
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -55,18 +54,6 @@ export function MainNav() {
               {tPage(item.translationKey, 'navigation')}
             </NavLink>
           ))}
-          
-          {/* Admin Link */}
-          <NavLink
-            to="/admin"
-            className={({ isActive }) => cn(
-              "text-sm font-medium transition-colors hover:text-primary flex items-center gap-1",
-              isActive ? "text-primary font-semibold" : "text-muted-foreground"
-            )}
-          >
-            <UserCog className="h-4 w-4" />
-            <span>{tPage('nav.admin', 'navigation')}</span>
-          </NavLink>
         </nav>
         
         {/* Language selector */}
@@ -100,19 +87,6 @@ export function MainNav() {
                 {tPage(item.translationKey, 'navigation')}
               </NavLink>
             ))}
-            
-            {/* Admin Link in mobile menu */}
-            <NavLink
-              to="/admin"
-              onClick={() => setIsMobileOpen(false)}
-              className={({ isActive }) => cn(
-                "flex items-center py-2 text-base font-medium transition-colors hover:text-primary",
-                isActive ? "text-primary font-semibold" : "text-muted-foreground"
-              )}
-            >
-              <UserCog className="mr-2 h-5 w-5" />
-              <span>{tPage('nav.admin', 'navigation')}</span>
-            </NavLink>
           </nav>
         </SheetContent>
       </Sheet>
