@@ -1,404 +1,337 @@
-
-import React from 'react';
-import { useForm, FormProvider } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Separator } from '@/components/ui/separator';
-import { useI18n } from '@/hooks/useI18n';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { GlobalGoodFormValues, globalGoodFormSchema } from '@/lib/schemas/globalGoodFormSchema';
 import { GlobalGood } from '@/lib/types';
-import { globalGoodFormSchema, GlobalGoodFormValues } from '@/lib/schemas/globalGoodFormSchema';
-import { MultilingualTextInput } from './MultilingualTextInput';
-import { ArrayFieldInput } from './ArrayFieldInput';
-import { UrlWithDescriptionInput } from './UrlWithDescriptionInput';
-import { toast } from '@/components/ui/use-toast';
-import { ensureMultilingualText } from '@/utils/defaultValues';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
+import { useI18n } from '@/hooks/useI18n';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { MultiSelect } from './MultiSelect';
+import { InputWithCounter } from './InputWithCounter';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { TagsInput } from './TagsInput';
+import { FileUploader } from './FileUploader';
+import { ArrayForm } from './ArrayForm';
+import { WebsiteForm } from './WebsiteForm';
+import { ScoresForm } from './ScoresForm';
+import { LanguagesForm } from './LanguagesForm';
+import { ScreenshotsForm } from './ScreenshotsForm';
+import { ImplementationCountriesForm } from './ImplementationCountriesForm';
+import { GlobalGoodsTypeForm } from './GlobalGoodsTypeForm';
 
 interface GlobalGoodFormProps {
-  initialData?: Partial<GlobalGood>;
+  initialData?: GlobalGood | null;
   onSubmit: (data: GlobalGoodFormValues) => Promise<void>;
-  isSubmitting?: boolean;
+  isSubmitting: boolean;
 }
 
-// Helper to convert string arrays to object arrays with required structure
-const convertToLanguagesArray = (arr: string[] | { code: string, name: string }[] | undefined): { code: string, name: string }[] => {
-  if (!arr) return [];
-  
-  if (arr.length > 0 && typeof arr[0] === 'string') {
-    return (arr as string[]).map(item => ({ code: item, name: item }));
-  }
-  
-  return arr as { code: string, name: string }[];
-};
+export const GlobalGoodForm: React.FC<GlobalGoodFormProps> = ({ initialData, onSubmit, isSubmitting }) => {
+  const { t, language } = useI18n();
 
-// Helper to convert string arrays to object arrays with url description structure
-const convertToUrlArray = (arr: string[] | { url: string, description: string }[] | undefined): { url: string, description: string }[] => {
-  if (!arr) return [];
-  
-  if (arr.length > 0 && typeof arr[0] === 'string') {
-    return (arr as string[]).map(item => ({ url: item, description: '' }));
-  }
-  
-  return arr as { url: string, description: string }[];
-};
+  // Default values for the form
+  const defaultValues: GlobalGoodFormValues = {
+    id: '',
+    name: { en: '' },
+    summary: { en: '' },
+    description: { en: '' },
+    globalGoodsType: [],
+    licenses: [],
+    repositories: [],
+    primaryFunctionality: '',
+    users: '',
+    languages: [],
+    screenshots: [],
+    implementationCountries: [],
+    scores: [],
+    website: { name: '', url: '', description: '' },
+    logo: '',
+    trl: 1,
+    lastUpdated: new Date().toISOString(),
+  };
 
-// Helper to convert GlobalGoodsType array properly
-const convertGlobalGoodsTypeArray = (arr: string[] | { title?: string; description?: string; code?: string; }[] | undefined): { title?: string; description?: string; code?: string; }[] => {
-  if (!arr) return [];
-  
-  if (arr.length > 0 && typeof arr[0] === 'string') {
-    return (arr as string[]).map(item => ({ title: item, description: '', code: '' }));
-  }
-  
-  return arr as { title?: string; description?: string; code?: string; }[];
-};
+  // Populate default values with initial data if available
+  const initialFormValues: GlobalGoodFormValues = initialData ? {
+    id: initialData.id || '',
+    name: initialData.name || { en: '' },
+    summary: initialData.summary || { en: '' },
+    description: initialData.description || { en: '' },
+    globalGoodsType: initialData.coreMetadata?.globalGoodsType || [],
+    licenses: initialData.licenses || [],
+    repositories: initialData.repositories || [],
+    primaryFunctionality: initialData.productOverview?.primaryFunctionality || '',
+    users: initialData.productOverview?.users || '',
+    languages: initialData.productOverview?.languages || [],
+    screenshots: initialData.productOverview?.screenshots || [],
+    implementationCountries: initialData.reach?.ImplementationCountries || [],
+    scores: initialData.maturity?.Scores || [],
+    website: initialData.coreMetadata?.website?.[0] || { name: '', url: '', description: '' },
+    logo: initialData.logo || '',
+    trl: initialData.maturity?.trl || 1,
+    lastUpdated: initialData.lastUpdated || new Date().toISOString(),
+  } : defaultValues;
 
-// Helper to convert website/sourceCode arrays properly
-const convertWebsiteArray = (arr: string[] | { id?: string; name?: string; description?: string; url?: string; }[] | undefined): { id?: string; name?: string; description?: string; url?: string; }[] => {
-  if (!arr) return [];
-  
-  if (arr.length > 0 && typeof arr[0] === 'string') {
-    return (arr as string[]).map(item => ({ id: '', name: '', url: item, description: '' }));
-  }
-  
-  return arr as { id?: string; name?: string; description?: string; url?: string; }[];
-};
-
-export function GlobalGoodForm({ initialData, onSubmit, isSubmitting = false }: GlobalGoodFormProps) {
-  const { t } = useI18n();
-  
-  // Create form with react-hook-form and zod validation
-  const methods = useForm<GlobalGoodFormValues>({
+  const form = useForm<GlobalGoodFormValues>({
     resolver: zodResolver(globalGoodFormSchema),
-    defaultValues: {
-      coreMetadata: {
-        id: initialData?.coreMetadata?.id || initialData?.id || '',
-        name: initialData?.name ? (typeof initialData.name === 'string' ? 
-               ensureMultilingualText(initialData.name) : initialData.name) 
-               : { en: '', fr: '', es: '' },
-        logo: initialData?.logo || '',
-        website: convertWebsiteArray(initialData?.coreMetadata?.website),
-        globalGoodsType: convertGlobalGoodsTypeArray(initialData?.coreMetadata?.globalGoodsType),
-        sourceCode: convertWebsiteArray(initialData?.coreMetadata?.sourceCode),
-        license: Array.isArray(initialData?.coreMetadata?.license) ? initialData.coreMetadata.license : [],
-        demoLink: Array.isArray(initialData?.coreMetadata?.demoLink) ? initialData.coreMetadata.demoLink : [],
-        contact: initialData?.coreMetadata?.contact || [],
-      },
-      productOverview: {
-        summary: initialData?.summary ? (typeof initialData.summary === 'string' ? 
-                 ensureMultilingualText(initialData.summary) : initialData.summary) 
-                 : { en: '', fr: '', es: '' },
-        description: initialData?.description ? (typeof initialData.description === 'string' ? 
-                     ensureMultilingualText(initialData.description) : initialData.description) 
-                     : { en: '', fr: '', es: '' },
-        details: initialData?.details ? (typeof initialData.details === 'string' ? 
-                 ensureMultilingualText(initialData.details) : initialData.details) 
-                 : { en: '', fr: '', es: '' },
-        primaryFunctionality: initialData?.productOverview?.primaryFunctionality || '',
-        users: initialData?.productOverview?.users || '',
-        languages: convertToLanguagesArray(initialData?.productOverview?.languages),
-        screenshots: convertToUrlArray(initialData?.productOverview?.screenshots),
-      },
-      id: initialData?.id || '',
-      name: initialData?.name ? (typeof initialData.name === 'string' ? 
-             ensureMultilingualText(initialData.name) : initialData.name) 
-             : { en: '', fr: '', es: '' },
-      summary: initialData?.summary ? (typeof initialData.summary === 'string' ? 
-               ensureMultilingualText(initialData.summary) : initialData.summary) 
-               : { en: '', fr: '', es: '' },
-      description: initialData?.description ? (typeof initialData.description === 'string' ? 
-                   ensureMultilingualText(initialData.description) : initialData.description) 
-                   : { en: '', fr: '', es: '' },
-      details: initialData?.details ? (typeof initialData.details === 'string' ? 
-               ensureMultilingualText(initialData.details) : initialData.details) 
-               : { en: '', fr: '', es: '' },
-    },
+    defaultValues: initialFormValues,
+    mode: "onChange"
   });
 
-  const handleFormSubmit = async (values: GlobalGoodFormValues) => {
-    try {
-      await onSubmit(values);
-    } catch (error) {
-      console.error('Form submission error:', error);
-      toast({
-        title: t('admin.error', 'Error'),
-        description: t('admin.failedToSave', 'Failed to save global good'),
-        variant: "destructive"
-      });
+  useEffect(() => {
+    if (initialData) {
+      const processedData: GlobalGoodFormValues = {
+        id: initialData.id || '',
+        name: initialData.name || { en: '' },
+        summary: initialData.summary || { en: '' },
+        description: initialData.description || { en: '' },
+        globalGoodsType: initialData.coreMetadata?.globalGoodsType || [],
+        
+        // Convert string arrays to proper object arrays for licenses and repositories
+        licenses: Array.isArray(initialData.licenses) 
+          ? initialData.licenses.map((license: any) => 
+              typeof license === 'string' 
+                ? { id: license, name: license, url: '', description: '' }
+                : license
+            )
+          : [],
+        repositories: Array.isArray(initialData.repositories)
+          ? initialData.repositories.map((repo: any) =>
+              typeof repo === 'string'
+                ? { id: repo, name: repo, url: '', description: '' }
+                : repo
+            )
+          : [],
+        
+        primaryFunctionality: initialData.productOverview?.primaryFunctionality || '',
+        users: initialData.productOverview?.users || '',
+        languages: initialData.productOverview?.languages || [],
+        screenshots: initialData.productOverview?.screenshots || [],
+        implementationCountries: initialData.reach?.ImplementationCountries || [],
+        scores: initialData.maturity?.Scores || [],
+        website: initialData.coreMetadata?.website?.[0] || { name: '', url: '', description: '' },
+        logo: initialData.logo || '',
+        trl: initialData.maturity?.trl || 1,
+        lastUpdated: initialData.lastUpdated || new Date().toISOString(),
+      };
+      form.reset(processedData);
     }
-  };
+  }, [initialData, form]);
 
-  // Create a Contact Fields input component
-  const renderContactFields = (baseName: string) => {
-    return (
-      <div className="space-y-3">
-        <Input 
-          placeholder="Name" 
-          {...methods.register(`${baseName}.name` as any)} 
-        />
-        <Input 
-          placeholder="Email" 
-          {...methods.register(`${baseName}.email` as any)} 
-        />
-        <Input 
-          placeholder="Role" 
-          {...methods.register(`${baseName}.role` as any)} 
-        />
-      </div>
-    );
-  };
-
-  // Create a Language Fields input component
-  const renderLanguageFields = (baseName: string) => {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <Input 
-          placeholder="Language Code (e.g., en)" 
-          {...methods.register(`${baseName}.code` as any)} 
-        />
-        <Input 
-          placeholder="Language Name (e.g., English)" 
-          {...methods.register(`${baseName}.name` as any)} 
-        />
-      </div>
-    );
+  const onSubmitHandler = (values: GlobalGoodFormValues) => {
+    onSubmit(values);
   };
 
   return (
-    <FormProvider {...methods}>
-      <Form {...methods}>
-        <form onSubmit={methods.handleSubmit(handleFormSubmit)} className="space-y-8">
-          <Tabs defaultValue="core" className="space-y-4">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4">
-              <TabsTrigger value="core">Core Metadata</TabsTrigger>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="standards">Standards</TabsTrigger>
-              <TabsTrigger value="reach">Reach & Impact</TabsTrigger>
-            </TabsList>
-            
-            {/* Core Metadata Tab */}
-            <TabsContent value="core" className="space-y-6">
-              <div>
-                <h3 className="text-lg font-medium">Core Metadata</h3>
-                <p className="text-sm text-muted-foreground">
-                  Basic information about the global good.
-                </p>
-              </div>
-              <Separator />
-              
-              <FormField
-                control={methods.control}
-                name="coreMetadata.id"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>ID<span className="text-destructive ml-1">*</span></FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="Unique identifier (e.g., dhis2)" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <MultilingualTextInput
-                name="name"
-                label="Name"
-                control={methods.control}
-                placeholder="Global Good Name"
-                required={true}
-              />
-              
-              <FormField
-                control={methods.control}
-                name="coreMetadata.logo"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Logo URL</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="Logo URL (e.g., https://example.org/logo.png)" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <ArrayFieldInput
-                name="coreMetadata.website"
-                label="Websites"
-                control={methods.control}
-                addLabel="Add Website"
-                renderItem={(name) => (
-                  <UrlWithDescriptionInput baseName={name} control={methods.control} />
-                )}
-                defaultValue={{
-                  id: '',
-                  name: '',
-                  url: '',
-                  description: ''
-                }}
-              />
-              
-              <ArrayFieldInput
-                name="coreMetadata.sourceCode"
-                label="Source Code Repositories"
-                control={methods.control}
-                addLabel="Add Repository"
-                renderItem={(name) => (
-                  <UrlWithDescriptionInput baseName={name} control={methods.control} />
-                )}
-                defaultValue={{
-                  id: '',
-                  name: '',
-                  url: '',
-                  description: ''
-                }}
-              />
-              
-              <ArrayFieldInput
-                name="coreMetadata.contact"
-                label="Contact Information"
-                control={methods.control}
-                addLabel="Add Contact"
-                renderItem={(name) => renderContactFields(name)}
-                defaultValue={{
-                  name: '',
-                  email: '',
-                  role: ''
-                }}
-              />
-            </TabsContent>
-            
-            {/* Product Overview Tab */}
-            <TabsContent value="overview" className="space-y-6">
-              <div>
-                <h3 className="text-lg font-medium">Product Overview</h3>
-                <p className="text-sm text-muted-foreground">
-                  Detailed information about the global good.
-                </p>
-              </div>
-              <Separator />
-              
-              <MultilingualTextInput
-                name="summary"
-                label="Summary"
-                control={methods.control}
-                placeholder="Brief summary of the global good"
-                required={true}
-              />
-              
-              <MultilingualTextInput
-                name="description"
-                label="Description"
-                control={methods.control}
-                placeholder="Detailed description of the global good"
-                multiline={true}
-                required={true}
-              />
-              
-              <MultilingualTextInput
-                name="details"
-                label="Additional Details"
-                control={methods.control}
-                placeholder="Additional details about the global good"
-                multiline={true}
-              />
-              
-              <FormField
-                control={methods.control}
-                name="productOverview.primaryFunctionality"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Primary Functionality</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="Main functions (e.g., Health Information Management)" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={methods.control}
-                name="productOverview.users"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Target Users</FormLabel>
-                    <FormControl>
-                      <Input 
-                        placeholder="Target users (e.g., Ministries of Health, NGOs)" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <ArrayFieldInput
-                name="productOverview.languages"
-                label="Supported Languages"
-                control={methods.control}
-                addLabel="Add Language"
-                renderItem={(name) => renderLanguageFields(name)}
-                defaultValue={{
-                  code: '',
-                  name: ''
-                }}
-              />
-            </TabsContent>
-            
-            {/* Standards Tab */}
-            <TabsContent value="standards" className="space-y-6">
-              <div>
-                <h3 className="text-lg font-medium">Standards & Interoperability</h3>
-                <p className="text-sm text-muted-foreground">
-                  Information about standards and interoperability.
-                </p>
-              </div>
-              <Separator />
-              
-              {/* Standards content will go here */}
-              <p className="text-muted-foreground">Standards section is under development.</p>
-            </TabsContent>
-            
-            {/* Reach Tab */}
-            <TabsContent value="reach" className="space-y-6">
-              <div>
-                <h3 className="text-lg font-medium">Reach & Impact</h3>
-                <p className="text-sm text-muted-foreground">
-                  Information about the global good's deployment and impact.
-                </p>
-              </div>
-              <Separator />
-              
-              {/* Reach content will go here */}
-              <p className="text-muted-foreground">Reach section is under development.</p>
-            </TabsContent>
-          </Tabs>
-          
-          <div className="flex justify-end gap-3">
-            <Button variant="outline" type="button" disabled={isSubmitting}>
-              {t('admin.common.cancel', 'Cancel')}
-            </Button>
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting 
-                ? t('admin.forms.saving', 'Saving...') 
-                : t('admin.forms.save', 'Save')}
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </FormProvider>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmitHandler)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="id"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('admin.globalGoods.id')}</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder={t('admin.globalGoods.idPlaceholder')} disabled={!!initialData} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="name.en"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('admin.globalGoods.name')}</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder={t('admin.globalGoods.namePlaceholder')} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="summary.en"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('admin.globalGoods.summary')}</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder={t('admin.globalGoods.summaryPlaceholder')}
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="description.en"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('admin.globalGoods.description')}</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder={t('admin.globalGoods.descriptionPlaceholder')}
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Sections</AccordionTrigger>
+            <AccordionContent>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Core Metadata</CardTitle>
+                  <CardDescription>Manage core metadata.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                  <GlobalGoodsTypeForm form={form} />
+                  <ArrayForm
+                    form={form}
+                    name="licenses"
+                    label="Licenses"
+                    itemLabel="License"
+                    fields={['name', 'url', 'description']}
+                  />
+                  <ArrayForm
+                    form={form}
+                    name="repositories"
+                    label="Repositories"
+                    itemLabel="Repository"
+                    fields={['name', 'url', 'description']}
+                  />
+                  <WebsiteForm form={form} />
+                  <FormField
+                    control={form.control}
+                    name="logo"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Logo</FormLabel>
+                        <FormControl>
+                          <FileUploader
+                            onChange={(url: string) => field.onChange(url)}
+                            value={field.value}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Product Overview</CardTitle>
+                  <CardDescription>Manage product overview.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                  <FormField
+                    control={form.control}
+                    name="primaryFunctionality"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Primary Functionality</FormLabel>
+                        <FormControl>
+                          <Input {...field} placeholder="Enter primary functionality" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="users"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Users</FormLabel>
+                        <FormControl>
+                          <Input {...field} placeholder="Enter users" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <LanguagesForm form={form} />
+                  <ScreenshotsForm form={form} />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Reach</CardTitle>
+                  <CardDescription>Manage reach.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                  <ImplementationCountriesForm form={form} />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Maturity</CardTitle>
+                  <CardDescription>Manage maturity.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                  <FormField
+                    control={form.control}
+                    name="trl"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>TRL</FormLabel>
+                        <FormControl>
+                          <Input type="number" {...field} placeholder="Enter TRL" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <ScoresForm form={form} />
+                </CardContent>
+              </Card>
+
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? t('admin.submitting') : t('admin.submit')}
+        </Button>
+      </form>
+    </Form>
   );
-}
+};
