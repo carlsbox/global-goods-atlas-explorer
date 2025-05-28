@@ -33,7 +33,7 @@ collections:
     format: json
     extension: json
     slug: "{{fields.id}}"
-    i18n: true
+    i18n: duplicate
     fields:
       - {label: "ID", name: "id", widget: "string", i18n: duplicate}
       - {label: "Name", name: "name", widget: "string", i18n: true}
