@@ -6,6 +6,14 @@ backend:
   auth_type: pkce
   open_authoring: true
 
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” by {{author-name}}
+    update: Update {{collection}} “{{slug}}” by {{author-name}}
+    delete: Delete {{collection}} “{{slug}}” by {{author-name}}
+    uploadMedia: Upload “{{path}}” by {{author-name}}
+    deleteMedia: Delete “{{path}}” by {{author-name}}
+    openAuthoring: '{{message}}'
+
 # Enable local development
 local_backend: true
 
@@ -15,6 +23,7 @@ public_folder: "/uploads"
 
 # Site configuration
 site_url: https://inquisitive-cactus-851117.netlify.app
+display_url: https://inquisitive-cactus-851117.netlify.app
 
 # Internationalization settings
 i18n:
@@ -25,6 +34,7 @@ i18n:
 collections:
   # Global Goods Collection (No i18n)
   - name: "global-goods"
+    identifier_field: "name"
     label: "Global Goods"
     label_singular: "Global Good"
     folder: "public/data/global-goods/cms"
@@ -34,7 +44,7 @@ collections:
     extension: json
     slug: "{{fields.id}}"
     fields:
-      - {label: "ID", name: "id", widget: "string"}
+      - {label: "ID", name: "id", widget: "string", default: "{{fields.name}}"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Logo", name: "logo", widget: "image", required: false}
       
@@ -43,16 +53,16 @@ collections:
         name: "website"
         widget: "object"
         fields:
-          - {label: "Main Website Name", name: "main_name", widget: "string", required: false}
+          - {label: "Main Website Name", name: "main_name", widget: "string", default: "{{fields.name}} Website", required: false}
           - {label: "Main Website URL", name: "main_url", widget: "string", required: false}
           - {label: "Main Website Description", name: "main_description", widget: "text", required: false}
-          - {label: "Documentation Name", name: "docs_name", widget: "string", required: false}
+          - {label: "Documentation Name", name: "docs_name", widget: "string", default: "Documentaiton", required: false}
           - {label: "Documentation URL", name: "docs_url", widget: "string", required: false}
           - {label: "Documentation Description", name: "docs_description", widget: "text", required: false}
-          - {label: "Source Code Name", name: "source_name", widget: "string", required: false}
+          - {label: "Source Code Name", name: "source_name", widget: "string", default: "Source Code", required: false}
           - {label: "Source Code URL", name: "source_url", widget: "string", required: false}
           - {label: "Source Code Description", name: "source_description", widget: "text", required: false}
-          - {label: "Demo Name", name: "demo_name", widget: "string", required: false}
+          - {label: "Demo Name", name: "demo_name", widget: "string", default: "Demo", required: false}
           - {label: "Demo URL", name: "demo_url", widget: "string", required: false}
           - {label: "Demo Description", name: "demo_description", widget: "text", required: false}
 
