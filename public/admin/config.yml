@@ -14,7 +14,7 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 # Site configuration
-site_url: https://global-goods-atlas-explorer.lovable.app
+site_url: https://inquisitive-cactus-851117.netlify.app
 
 # Internationalization settings
 i18n:
