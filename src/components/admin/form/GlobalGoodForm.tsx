@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { useI18n } from '@/hooks/useI18n';
 import {
   Card,
@@ -26,11 +27,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { MultiSelect } from './MultiSelect';
-import { InputWithCounter } from './InputWithCounter';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { TagsInput } from './TagsInput';
 import { FileUploader } from './FileUploader';
 import { ArrayForm } from './ArrayForm';
 import { WebsiteForm } from './WebsiteForm';
@@ -45,6 +43,13 @@ interface GlobalGoodFormProps {
   onSubmit: (data: GlobalGoodFormValues) => Promise<void>;
   isSubmitting: boolean;
 }
+
+// Helper function to convert multilingual text to string
+const getTextValue = (value: string | { en?: string; fr?: string; es?: string } | undefined): { en: string } => {
+  if (!value) return { en: '' };
+  if (typeof value === 'string') return { en: value };
+  return { en: value.en || value.fr || value.es || '' };
+};
 
 export const GlobalGoodForm: React.FC<GlobalGoodFormProps> = ({ initialData, onSubmit, isSubmitting }) => {
   const { t, language } = useI18n();
@@ -73,21 +78,41 @@ export const GlobalGoodForm: React.FC<GlobalGoodFormProps> = ({ initialData, onS
   // Populate default values with initial data if available
   const initialFormValues: GlobalGoodFormValues = initialData ? {
     id: initialData.id || '',
-    name: initialData.name || { en: '' },
-    summary: initialData.summary || { en: '' },
-    description: initialData.description || { en: '' },
-    globalGoodsType: initialData.coreMetadata?.globalGoodsType || [],
-    licenses: initialData.licenses || [],
-    repositories: initialData.repositories || [],
+    name: getTextValue(initialData.name),
+    summary: getTextValue(initialData.summary),
+    description: getTextValue(initialData.description),
+    globalGoodsType: initialData.coreMetadata?.globalGoodsType?.map(type => ({
+      code: type,
+      title: type,
+      description: ''
+    })) || [],
+    licenses: Array.isArray(initialData.coreMetadata?.license) 
+      ? initialData.coreMetadata.license.map((license: any) => 
+          typeof license === 'string' 
+            ? { id: license, name: license, url: '', description: '' }
+            : license
+        )
+      : [],
+    repositories: Array.isArray(initialData.coreMetadata?.sourceCode)
+      ? initialData.coreMetadata.sourceCode.map((repo: any) =>
+          typeof repo === 'string'
+            ? { id: repo, name: repo, url: '', description: '' }
+            : repo
+        )
+      : [],
     primaryFunctionality: initialData.productOverview?.primaryFunctionality || '',
     users: initialData.productOverview?.users || '',
     languages: initialData.productOverview?.languages || [],
     screenshots: initialData.productOverview?.screenshots || [],
-    implementationCountries: initialData.reach?.ImplementationCountries || [],
-    scores: initialData.maturity?.Scores || [],
+    implementationCountries: initialData.reach?.countries?.map(country => ({
+      iso_code: country,
+      type: '',
+      names: { en: { short: country, formal: country }}
+    })) || [],
+    scores: [],
     website: initialData.coreMetadata?.website?.[0] || { name: '', url: '', description: '' },
     logo: initialData.logo || '',
-    trl: initialData.maturity?.trl || 1,
+    trl: 1,
     lastUpdated: initialData.lastUpdated || new Date().toISOString(),
   } : defaultValues;
 
@@ -99,41 +124,7 @@ export const GlobalGoodForm: React.FC<GlobalGoodFormProps> = ({ initialData, onS
 
   useEffect(() => {
     if (initialData) {
-      const processedData: GlobalGoodFormValues = {
-        id: initialData.id || '',
-        name: initialData.name || { en: '' },
-        summary: initialData.summary || { en: '' },
-        description: initialData.description || { en: '' },
-        globalGoodsType: initialData.coreMetadata?.globalGoodsType || [],
-        
-        // Convert string arrays to proper object arrays for licenses and repositories
-        licenses: Array.isArray(initialData.licenses) 
-          ? initialData.licenses.map((license: any) => 
-              typeof license === 'string' 
-                ? { id: license, name: license, url: '', description: '' }
-                : license
-            )
-          : [],
-        repositories: Array.isArray(initialData.repositories)
-          ? initialData.repositories.map((repo: any) =>
-              typeof repo === 'string'
-                ? { id: repo, name: repo, url: '', description: '' }
-                : repo
-            )
-          : [],
-        
-        primaryFunctionality: initialData.productOverview?.primaryFunctionality || '',
-        users: initialData.productOverview?.users || '',
-        languages: initialData.productOverview?.languages || [],
-        screenshots: initialData.productOverview?.screenshots || [],
-        implementationCountries: initialData.reach?.ImplementationCountries || [],
-        scores: initialData.maturity?.Scores || [],
-        website: initialData.coreMetadata?.website?.[0] || { name: '', url: '', description: '' },
-        logo: initialData.logo || '',
-        trl: initialData.maturity?.trl || 1,
-        lastUpdated: initialData.lastUpdated || new Date().toISOString(),
-      };
-      form.reset(processedData);
+      form.reset(initialFormValues);
     }
   }, [initialData, form]);
 
@@ -314,7 +305,12 @@ export const GlobalGoodForm: React.FC<GlobalGoodFormProps> = ({ initialData, onS
                       <FormItem>
                         <FormLabel>TRL</FormLabel>
                         <FormControl>
-                          <Input type="number" {...field} placeholder="Enter TRL" />
+                          <Input 
+                            type="number" 
+                            {...field} 
+                            placeholder="Enter TRL"
+                            onChange={(e) => field.onChange(parseInt(e.target.value) || 1)}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

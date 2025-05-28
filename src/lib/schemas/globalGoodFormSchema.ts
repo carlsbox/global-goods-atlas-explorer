@@ -14,7 +14,7 @@ const multilingualText = z.object({
 const urlItem = z.object({
   id: z.string().optional(),
   name: z.string().optional(),
-  url: z.string().url("Invalid URL format").min(1, "URL is required"),
+  url: z.string().url("Invalid URL format").optional(),
   description: z.string().optional(),
 });
 
@@ -32,50 +32,59 @@ const globalGoodType = z.object({
   description: z.string().optional(),
 });
 
-// Define the core metadata schema
-export const coreMetadataSchema = z.object({
-  id: z.string().min(1, "ID is required"),
-  name: multilingualText,
-  logo: z.string().optional(),
-  website: z.array(urlItem).optional(),
-  globalGoodsType: z.array(globalGoodType).optional(),
-  sourceCode: z.array(urlItem).optional(),
-  license: z.array(urlItem).optional(),
-  demoLink: z.array(urlItem).optional(),
-  contact: z.array(contact).optional(),
+// Language item
+const languageItem = z.object({
+  code: z.string(),
+  name: z.string(),
 });
 
-// Define the product overview schema
-export const productOverviewSchema = z.object({
+// Screenshot item
+const screenshotItem = z.object({
+  url: z.string().url("Invalid URL format").optional(),
+  description: z.string().optional(),
+});
+
+// Implementation country
+const implementationCountry = z.object({
+  iso_code: z.string(),
+  type: z.string().optional(),
+  names: z.object({
+    en: z.object({
+      short: z.string(),
+      formal: z.string().optional(),
+    }),
+  }),
+});
+
+// Score item
+const scoreItem = z.object({
+  year: z.number(),
+  global_utility: z.number().optional(),
+  community_support: z.number().optional(),
+  maturity_of_gg: z.number().optional(),
+  inclusive_design: z.number().optional(),
+  climate_resilience: z.number().optional(),
+  low_carbon: z.number().optional(),
+});
+
+// Main global good form schema with flat structure
+export const globalGoodFormSchema = z.object({
+  id: z.string().min(1, "ID is required"),
+  name: multilingualText,
   summary: multilingualText,
   description: multilingualText,
-  details: multilingualText,
+  globalGoodsType: z.array(globalGoodType).optional(),
+  licenses: z.array(urlItem).optional(),
+  repositories: z.array(urlItem).optional(),
   primaryFunctionality: z.string().optional(),
   users: z.string().optional(),
-  languages: z.array(
-    z.object({
-      code: z.string(),
-      name: z.string(),
-    })
-  ).optional(),
-  screenshots: z.array(
-    z.object({
-      url: z.string().url("Invalid URL format").optional(),
-      description: z.string().optional(),
-    })
-  ).optional(),
-});
-
-// Main global good schema
-export const globalGoodFormSchema = z.object({
-  coreMetadata: coreMetadataSchema,
-  productOverview: productOverviewSchema,
-  // We'll add other sections as needed
-  id: z.string().min(1, "ID is required"),
-  name: multilingualText,
-  summary: multilingualText,
-  description: multilingualText,
-  details: multilingualText,
+  languages: z.array(languageItem).optional(),
+  screenshots: z.array(screenshotItem).optional(),
+  implementationCountries: z.array(implementationCountry).optional(),
+  scores: z.array(scoreItem).optional(),
+  website: urlItem.optional(),
+  logo: z.string().optional(),
+  trl: z.number().min(1).max(9).optional(),
   lastUpdated: z.string().optional(),
 });
 
