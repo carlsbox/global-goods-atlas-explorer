@@ -12,6 +12,19 @@ interface ClassificationsFormProps {
   form: any;
 }
 
+interface SDG {
+  code: string;
+  title: string;
+}
+
+interface Classification {
+  code: string;
+  title: string;
+  authority: string;
+  group_code?: string;
+  group_name?: string;
+}
+
 export function ClassificationsForm({ form }: ClassificationsFormProps) {
   const { sdgs, classifications, loading } = useReferenceData();
   
@@ -30,9 +43,11 @@ export function ClassificationsForm({ form }: ClassificationsFormProps) {
     name: 'Classifications.DPI',
   });
 
-  // Filter classifications by authority
-  const whoClassifications = classifications.filter(c => c.authority === 'WHO');
-  const dpiClassifications = classifications.filter(c => c.authority === 'DPI');
+  // Safely filter classifications by authority with proper typing
+  const safeClassifications = Array.isArray(classifications) ? classifications : [];
+  const whoClassifications = safeClassifications.filter((c: Classification) => c.authority === 'WHO');
+  const dpiClassifications = safeClassifications.filter((c: Classification) => c.authority === 'DPI');
+  const safeSDGs = Array.isArray(sdgs) ? sdgs : [];
 
   if (loading) {
     return (
@@ -64,17 +79,17 @@ export function ClassificationsForm({ form }: ClassificationsFormProps) {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <Select onValueChange={(value) => {
-                      const selectedSDG = sdgs.find(sdg => sdg.code === value);
+                      const selectedSDG = safeSDGs.find((sdg: SDG) => sdg.code === value);
                       if (selectedSDG) {
                         field.onChange(selectedSDG.code);
-                        form.setValue(`Classifications.SDGs.${index}.title`, selectedSDG.title);
+                        form.setValue(`Classifications.SDGs.${index}.title`, selectedSDG.title || '');
                       }
                     }} value={field.value}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select SDG" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                        {sdgs.map((sdg) => (
+                        {safeSDGs.map((sdg: SDG) => (
                           <SelectItem key={sdg.code} value={sdg.code}>
                             {sdg.code}: {sdg.title}
                           </SelectItem>
@@ -117,20 +132,20 @@ export function ClassificationsForm({ form }: ClassificationsFormProps) {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <Select onValueChange={(value) => {
-                      const selectedWHO = whoClassifications.find(who => who.code === value);
+                      const selectedWHO = whoClassifications.find((who: Classification) => who.code === value);
                       if (selectedWHO) {
                         field.onChange(selectedWHO.code);
-                        form.setValue(`Classifications.WHO.${index}.title`, selectedWHO.title);
-                        form.setValue(`Classifications.WHO.${index}.group_code`, selectedWHO.group_code);
-                        form.setValue(`Classifications.WHO.${index}.group_name`, selectedWHO.group_name);
-                        form.setValue(`Classifications.WHO.${index}.authority`, selectedWHO.authority);
+                        form.setValue(`Classifications.WHO.${index}.title`, selectedWHO.title || '');
+                        form.setValue(`Classifications.WHO.${index}.group_code`, selectedWHO.group_code || '');
+                        form.setValue(`Classifications.WHO.${index}.group_name`, selectedWHO.group_name || '');
+                        form.setValue(`Classifications.WHO.${index}.authority`, selectedWHO.authority || 'WHO');
                       }
                     }} value={field.value}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select WHO Classification" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                        {whoClassifications.map((who) => (
+                        {whoClassifications.map((who: Classification) => (
                           <SelectItem key={who.code} value={who.code}>
                             {who.code}: {who.title}
                           </SelectItem>
@@ -173,20 +188,20 @@ export function ClassificationsForm({ form }: ClassificationsFormProps) {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <Select onValueChange={(value) => {
-                      const selectedDPI = dpiClassifications.find(dpi => dpi.code === value);
+                      const selectedDPI = dpiClassifications.find((dpi: Classification) => dpi.code === value);
                       if (selectedDPI) {
                         field.onChange(selectedDPI.code);
-                        form.setValue(`Classifications.DPI.${index}.title`, selectedDPI.title);
-                        form.setValue(`Classifications.DPI.${index}.group_code`, selectedDPI.group_code);
-                        form.setValue(`Classifications.DPI.${index}.group_name`, selectedDPI.group_name);
-                        form.setValue(`Classifications.DPI.${index}.authority`, selectedDPI.authority);
+                        form.setValue(`Classifications.DPI.${index}.title`, selectedDPI.title || '');
+                        form.setValue(`Classifications.DPI.${index}.group_code`, selectedDPI.group_code || '');
+                        form.setValue(`Classifications.DPI.${index}.group_name`, selectedDPI.group_name || '');
+                        form.setValue(`Classifications.DPI.${index}.authority`, selectedDPI.authority || 'DPI');
                       }
                     }} value={field.value}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select DPI Classification" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                        {dpiClassifications.map((dpi) => (
+                        {dpiClassifications.map((dpi: Classification) => (
                           <SelectItem key={dpi.code} value={dpi.code}>
                             {dpi.code}: {dpi.title}
                           </SelectItem>

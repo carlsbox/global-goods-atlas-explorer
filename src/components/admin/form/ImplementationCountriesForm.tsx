@@ -11,6 +11,21 @@ interface ImplementationCountriesFormProps {
   form: any;
 }
 
+interface Country {
+  iso_code: string;
+  type?: string;
+  names?: {
+    en?: {
+      short?: string;
+      formal?: string;
+    };
+  };
+  name?: {
+    short?: string;
+    official?: string;
+  };
+}
+
 export function ImplementationCountriesForm({ form }: ImplementationCountriesFormProps) {
   const { countries, loading } = useReferenceData();
   
@@ -18,6 +33,8 @@ export function ImplementationCountriesForm({ form }: ImplementationCountriesFor
     control: form.control,
     name: 'Reach.ImplementationCountries',
   });
+
+  const safeCountries = Array.isArray(countries) ? countries : [];
 
   if (loading) {
     return <div>Loading countries data...</div>;
@@ -35,19 +52,21 @@ export function ImplementationCountriesForm({ form }: ImplementationCountriesFor
               render={({ field }) => (
                 <FormItem className="flex-1">
                   <Select onValueChange={(value) => {
-                    const selectedCountry = countries.find(country => country.iso_code === value);
+                    const selectedCountry = safeCountries.find((country: Country) => country.iso_code === value);
                     if (selectedCountry) {
                       field.onChange(selectedCountry.iso_code);
                       form.setValue(`Reach.ImplementationCountries.${index}.type`, selectedCountry.type || 'State');
-                      form.setValue(`Reach.ImplementationCountries.${index}.names.en.short`, selectedCountry.names?.en?.short || selectedCountry.name?.short || '');
-                      form.setValue(`Reach.ImplementationCountries.${index}.names.en.formal`, selectedCountry.names?.en?.formal || selectedCountry.name?.official || '');
+                      form.setValue(`Reach.ImplementationCountries.${index}.names.en.short`, 
+                        selectedCountry.names?.en?.short || selectedCountry.name?.short || '');
+                      form.setValue(`Reach.ImplementationCountries.${index}.names.en.formal`, 
+                        selectedCountry.names?.en?.formal || selectedCountry.name?.official || '');
                     }
                   }} value={field.value}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select Country" />
                     </SelectTrigger>
                     <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                      {countries.map((country) => (
+                      {safeCountries.map((country: Country) => (
                         <SelectItem key={country.iso_code} value={country.iso_code}>
                           {country.names?.en?.short || country.name?.short || country.iso_code}
                         </SelectItem>

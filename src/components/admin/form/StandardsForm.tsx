@@ -12,6 +12,15 @@ interface StandardsFormProps {
   form: any;
 }
 
+interface Standard {
+  code: string;
+  domain?: string;
+  type?: string;
+  name: string;
+  link?: string;
+  description?: string;
+}
+
 export function StandardsForm({ form }: StandardsFormProps) {
   const { standards, loading } = useReferenceData();
   
@@ -25,9 +34,10 @@ export function StandardsForm({ form }: StandardsFormProps) {
     name: 'StandardsAndInteroperability.Interoperability',
   });
 
-  // Get health and climate standards
-  const healthStandards = Object.values(standards).filter(s => s.domain === 'Health');
-  const climateStandards = Object.values(standards).filter(s => s.domain === 'Weather and Climate');
+  // Safely get standards arrays with proper typing
+  const allStandards = Object.values(standards || {}) as Standard[];
+  const healthStandards = allStandards.filter((s: Standard) => s.domain === 'Health');
+  const climateStandards = allStandards.filter((s: Standard) => s.domain === 'Weather and Climate');
 
   if (loading) {
     return (
@@ -59,20 +69,20 @@ export function StandardsForm({ form }: StandardsFormProps) {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <Select onValueChange={(value) => {
-                      const selectedStandard = healthStandards.find(s => s.code === value);
+                      const selectedStandard = healthStandards.find((s: Standard) => s.code === value);
                       if (selectedStandard) {
                         field.onChange(selectedStandard.code);
-                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.domain`, selectedStandard.domain);
-                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.name`, selectedStandard.name);
-                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.link`, selectedStandard.link);
-                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.description`, selectedStandard.description);
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.domain`, selectedStandard.domain || 'Health');
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.name`, selectedStandard.name || '');
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.link`, selectedStandard.link || '');
+                        form.setValue(`StandardsAndInteroperability.HealthStandards.${index}.description`, selectedStandard.description || '');
                       }
                     }} value={field.value}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Health Standard" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                        {healthStandards.map((standard) => (
+                        {healthStandards.map((standard: Standard) => (
                           <SelectItem key={standard.code} value={standard.code}>
                             {standard.code}: {standard.name}
                           </SelectItem>
@@ -115,20 +125,20 @@ export function StandardsForm({ form }: StandardsFormProps) {
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <Select onValueChange={(value) => {
-                      const selectedStandard = climateStandards.find(s => s.code === value);
+                      const selectedStandard = climateStandards.find((s: Standard) => s.code === value);
                       if (selectedStandard) {
                         field.onChange(selectedStandard.code);
-                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.type`, selectedStandard.type);
-                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.name`, selectedStandard.name);
-                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.link`, selectedStandard.link);
-                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.description`, selectedStandard.description);
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.type`, selectedStandard.type || '');
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.name`, selectedStandard.name || '');
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.link`, selectedStandard.link || '');
+                        form.setValue(`StandardsAndInteroperability.Interoperability.${index}.description`, selectedStandard.description || '');
                       }
                     }} value={field.value}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select Interoperability Standard" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border shadow-lg max-h-60 overflow-y-auto z-50">
-                        {climateStandards.map((standard) => (
+                        {climateStandards.map((standard: Standard) => (
                           <SelectItem key={standard.code} value={standard.code}>
                             {standard.code}: {standard.name}
                           </SelectItem>

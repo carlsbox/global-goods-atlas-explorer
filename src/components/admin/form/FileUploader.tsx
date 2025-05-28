@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { UploadCloud } from 'lucide-react';
+import { Upload } from 'lucide-react';
 
 interface FileUploaderProps {
   onChange: (url: string) => void;
@@ -39,7 +39,7 @@ export function FileUploader({ onChange, value }: FileUploaderProps) {
           disabled={uploading}
         />
         <Button type="button" variant="outline" disabled={uploading}>
-          <UploadCloud className="h-4 w-4 mr-2" />
+          <Upload className="h-4 w-4 mr-2" />
           {uploading ? 'Uploading...' : 'Upload'}
         </Button>
       </div>
