@@ -305,6 +305,122 @@ collections:
               - {label: "SDG16 Title", name: "SDG16_title", widget: "string"}
               - {label: "SDG17 Title", name: "SDG17_title", widget: "string"}
 
+  # SDG Direct File 
+  - name: "sdg"
+    label: "SDGs"
+    files:
+      - file: "src/i18n/locales/en/sdg.json"
+        label: "Sustainable Development Goals"
+        name: "sdgs"
+        format: "json"
+        fields:
+          - label: "SDGs"
+            name: "sdgs"
+            widget: "object"
+            fields:
+              - label: "SDG 1 - No Poverty"
+                name: "SDG-1"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 2 - Zero Hunger"
+                name: "SDG-2"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 3 - Good Health and Well-being"
+                name: "SDG-3"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 4 - Quality Education"
+                name: "SDG-4"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 5 - Gender Equality"
+                name: "SDG-5"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 6 - Clean Water and Sanitation"
+                name: "SDG-6"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 7 - Affordable and Clean Energy"
+                name: "SDG-7"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 8 - Decent Work and Economic Growth"
+                name: "SDG-8"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 9 - Industry, Innovation and Infrastructure"
+                name: "SDG-9"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 10 - Reduced Inequality"
+                name: "SDG-10"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 11 - Sustainable Cities and Communities"
+                name: "SDG-11"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 12 - Responsible Consumption and Production"
+                name: "SDG-12"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 13 - Climate Action"
+                name: "SDG-13"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 14 - Life Below Water"
+                name: "SDG-14"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 15 - Life on Land"
+                name: "SDG-15"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 16 - Peace, Justice and Strong Institutions"
+                name: "SDG-16"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "SDG 17 - Partnerships for the Goals"
+                name: "SDG-17"
+                widget: "object"
+                fields:
+                  - { label: "Code", name: "code", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+
 # Editorial workflow
 publish_mode: editorial_workflow
 
