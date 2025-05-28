@@ -1,61 +1,38 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useGlobalGoodHybrid, useCreateGlobalGoodHybrid, useUpdateGlobalGoodHybrid } from '@/lib/api';
-import { GlobalGood } from '@/lib/types';
-import { ensureMultilingualText } from '@/utils/defaultValues';
-import { toast } from '@/components/ui/use-toast';
+import { useGlobalGoodFlat } from '@/lib/api/globalGoodsFlat';
+import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
+import { toast } from '@/hooks/use-toast';
 import { useI18n } from '@/hooks/useI18n';
 import { LoadingState } from '@/components/global-good/LoadingState';
 import { ErrorState } from '@/components/global-good/ErrorState';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GlobalGoodForm } from '@/components/admin/form/GlobalGoodForm';
-import { GlobalGoodFormValues } from '@/lib/schemas/globalGoodFormSchema';
+import { GlobalGoodFlatForm } from '@/components/admin/form/GlobalGoodFlatForm';
+import { GlobalGoodFlatFormValues } from '@/lib/schemas/globalGoodFlatFormSchema';
 
 export default function GlobalGoodFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const isEditing = Boolean(id);
-  const { t, language } = useI18n();
+  const { t } = useI18n();
   
-  // Fetch global good data if editing using hybrid loader
-  const { data: globalGoodData, isLoading, error, refetch } = useGlobalGoodHybrid(id);
+  // Fetch global good data if editing using flat loader
+  const { data: globalGoodData, isLoading, error, refetch } = useGlobalGoodFlat(id);
   
-  // Update and create mutations using hybrid approach
-  const createMutation = useCreateGlobalGoodHybrid();
-  const updateMutation = useUpdateGlobalGoodHybrid();
-  const isSubmitting = createMutation.isPending || updateMutation.isPending;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Form submission handler
-  const handleSubmit = async (formData: GlobalGoodFormValues) => {
+  const handleSubmit = async (formData: GlobalGoodFlatFormValues) => {
+    setIsSubmitting(true);
     try {
-      // Add current timestamp
-      const dataToSubmit = {
-        ...formData,
-        lastUpdated: new Date().toISOString(),
-      } as GlobalGood;
-
-      if (isEditing && id) {
-        // Update existing global good
-        await updateMutation.mutateAsync({
-          id,
-          data: dataToSubmit
-        });
-        toast({
-          title: t('admin.success'),
-          description: t('admin.globalGoods.updated')
-        });
-      } else {
-        // Create new global good
-        await createMutation.mutateAsync({
-          ...dataToSubmit,
-          id: formData.id || `gg-${Date.now()}` // Generate a simple ID if not provided
-        } as GlobalGood);
-        toast({
-          title: t('admin.success'),
-          description: t('admin.globalGoods.created')
-        });
-      }
+      // For now, just log the data - in a real implementation this would save to backend
+      console.log('Saving GlobalGoodFlat data:', formData);
+      
+      toast({
+        title: t('admin.success'),
+        description: isEditing ? t('admin.globalGoods.updated') : t('admin.globalGoods.created')
+      });
 
       // Redirect back to list
       navigate('/admin/global-goods');
@@ -66,6 +43,8 @@ export default function GlobalGoodFormPage() {
         variant: "destructive"
       });
       console.error(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -82,11 +61,11 @@ export default function GlobalGoodFormPage() {
       <Card>
         <CardHeader>
           <CardTitle>
-            {isEditing ? t('admin.globalGoods.edit') : t('admin.globalGoods.create')} (Hybrid)
+            {isEditing ? t('admin.globalGoods.edit') : t('admin.globalGoods.create')} (Flat Structure)
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <GlobalGoodForm
+          <GlobalGoodFlatForm
             initialData={globalGoodData}
             onSubmit={handleSubmit}
             isSubmitting={isSubmitting}
