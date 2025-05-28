@@ -174,7 +174,12 @@ export function transformCMSGlobalGoodToFlat(
       } : undefined
     },
     GlobalGoodsType: cmsGood.global_goods_type || [],
-    License: cmsGood.license,
+    License: {
+      id: cmsGood.license.id,
+      name: cmsGood.license.name,
+      url: cmsGood.license.url || '',
+      description: cmsGood.license.description || ''
+    },
     Contact: cmsGood.contact || [],
     Classifications: {
       SDGs: cmsGood.classifications.sdgs.map(code => ({ code, title: '' })),
@@ -195,8 +200,14 @@ export function transformCMSGlobalGoodToFlat(
       }))
     },
     StandardsAndInteroperability: {
-      HealthStandards: cmsGood.standards_interoperability.health_standards || [],
-      Interoperability: cmsGood.standards_interoperability.interoperability || [],
+      HealthStandards: cmsGood.standards_interoperability.health_standards.map(standard => ({
+        ...standard,
+        link: standard.link || ''
+      })),
+      Interoperability: cmsGood.standards_interoperability.interoperability.map(standard => ({
+        ...standard,
+        link: standard.link || ''
+      })),
       ClimateStandards: []
     },
     ProductOverview: {
@@ -221,7 +232,12 @@ export function transformCMSGlobalGoodToFlat(
     ClimateAndHealthIntegration: { Description: '' },
     Community: {
       DescriptionOfCommunity: getText(cmsGood.community.description_of_community),
-      HostAnchorOrganization: cmsGood.community.host_anchor_organization,
+      HostAnchorOrganization: {
+        name: cmsGood.community.host_anchor_organization.name,
+        url: cmsGood.community.host_anchor_organization.url || '',
+        description: cmsGood.community.host_anchor_organization.description,
+        country: cmsGood.community.host_anchor_organization.country
+      },
       InceptionYear: cmsGood.community.inception_year || 0,
       SizeOfCommunity: cmsGood.community.size_of_community || 0,
       Links: {},
@@ -242,7 +258,11 @@ export function transformCMSGlobalGoodToFlat(
     TotalCostOfOwnership: { Description: '', url: '' },
     Sustainability: {
       Description: getText(cmsGood.sustainability.description),
-      KeyFundersSupporters: cmsGood.sustainability.key_funders_supporters || []
+      KeyFundersSupporters: cmsGood.sustainability.key_funders_supporters.map(supporter => ({
+        name: supporter.name,
+        url: supporter.url || '',
+        description: supporter.description
+      }))
     },
     Resources: {
       Articles: [],
@@ -284,11 +304,16 @@ export function transformCMSUseCaseToApp(
     data_requirements: getText(cmsUseCase.data_requirements),
     standards: cmsUseCase.standards.map(standard => ({
       ...standard,
+      link: standard.link || '',
       name: getText(standard.name),
       description: getText(standard.description)
     })),
     technology_components: getText(cmsUseCase.technology_components),
-    global_goods: cmsUseCase.global_goods || [],
+    global_goods: cmsUseCase.global_goods.map(good => ({
+      id: good.id,
+      name: good.name,
+      url: good.url || ''
+    })),
     challenges: getText(cmsUseCase.challenges),
     sustainability_considerations: getText(cmsUseCase.sustainability_considerations)
   };
