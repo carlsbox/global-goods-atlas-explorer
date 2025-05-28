@@ -1,7 +1,7 @@
 
 backend:
   name: github
-  repo: your-username/your-repo-name # Replace with your actual repo
+  repo: carlsbox/global-goods-atlas-explorer # Replace with your actual repo
   branch: main
   auth_type: pkce
   open_authoring: true
@@ -14,7 +14,7 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 # Site configuration
-site_url: https://globalgoodsatlas.org
+site_url: https://global-goods-atlas-explorer.lovable.app
 
 # Internationalization settings
 i18n:
