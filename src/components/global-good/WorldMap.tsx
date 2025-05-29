@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { feature } from "topojson-client";
@@ -47,9 +48,18 @@ export function WorldMap({ globalGood }: WorldMapProps) {
 
   // Initialize the UN code to ISO2 mapping
   useEffect(() => {
-    const mapping = createUnCodeToIso2Mapping();
-    setUnCodeToIso2Map(mapping);
-    console.log('WorldMap: UN code to ISO2 mapping initialized with', mapping.size, 'entries');
+    const initializeMapping = async () => {
+      try {
+        const mapping = await createUnCodeToIso2Mapping();
+        setUnCodeToIso2Map(mapping);
+        console.log('WorldMap: UN code to ISO2 mapping initialized with', mapping.size, 'entries');
+      } catch (error) {
+        console.error('WorldMap: Error initializing UN code mapping:', error);
+        setUnCodeToIso2Map(new Map());
+      }
+    };
+    
+    initializeMapping();
   }, []);
 
   // Fetch and convert TopoJSON to GeoJSON

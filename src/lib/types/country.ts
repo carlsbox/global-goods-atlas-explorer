@@ -4,15 +4,19 @@ export interface CountryData {
   code: string;
   /** ISO 3-letter code */
   iso_code?: string;
+  /** Country type */
+  type?: string;
   /** Country name */
   name: {
     /** Common name */
-    common: string;
+    common?: string;
     /** Official name */
     official: string;
     /** Short name */
     short: string;
   };
+  /** UN code */
+  un_code?: string;
   /** Country coordinates */
   coordinates?: [number, number];
   /** Country flag URL */

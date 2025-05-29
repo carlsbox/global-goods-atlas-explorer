@@ -17,7 +17,8 @@ export async function loadCountriesData(language: LanguageCode = 'en') {
       type: country.type,
       name: {
         short: country.short,
-        official: country.formal
+        official: country.formal,
+        common: country.short // Add common field for backward compatibility
       },
       un_code: country.un_code
     }));

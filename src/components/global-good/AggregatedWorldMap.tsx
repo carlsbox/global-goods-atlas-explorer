@@ -39,8 +39,17 @@ export function AggregatedWorldMap({ globalGoods, onCountryClick, selectedCountr
 
   // Initialize the UN code to ISO2 mapping
   useEffect(() => {
-    const mapping = createUnCodeToIso2Mapping();
-    setUnCodeToIso2Map(mapping);
+    const initializeMapping = async () => {
+      try {
+        const mapping = await createUnCodeToIso2Mapping();
+        setUnCodeToIso2Map(mapping);
+      } catch (error) {
+        console.error('AggregatedWorldMap: Error initializing UN code mapping:', error);
+        setUnCodeToIso2Map(new Map());
+      }
+    };
+    
+    initializeMapping();
   }, []);
 
   // Aggregate implementation data by country
