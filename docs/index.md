@@ -110,19 +110,6 @@ These five documents form the core technical specification:
 - **Reference Data** ↔ **All Documents**: Reference systems used throughout the platform
 - **CMS Setup** ↔ **Schema/Validation**: CMS configuration must align with data requirements
 
-## Superseded Documentation
-
-### ⚠️ Files Recommended for Removal
-
-#### [CMS Setup](./CMS_SETUP.md) - **SUPERSEDED**
-This file has been replaced by the more comprehensive [Enhanced CMS Setup](./ENHANCED_CMS_SETUP.md). The enhanced version includes:
-- More detailed configuration instructions
-- Updated authentication procedures
-- Complete workflow documentation
-- Current best practices
-
-**Recommendation**: Remove `CMS_SETUP.md` to avoid confusion and maintain documentation clarity.
-
 ---
 
 ## Getting Help
