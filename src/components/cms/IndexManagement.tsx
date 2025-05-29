@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { RotateCw, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
+import { Download, Check, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { rebuildIndex, validateIndexConsistency, getIndexStatus } from '@/lib/cms/indexManager';
 
@@ -90,7 +90,7 @@ export function IndexManagement() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <RotateCw className="h-5 w-5" />
+            <Download className="h-5 w-5" />
             Global Goods Index Management
           </CardTitle>
           <CardDescription>
@@ -114,12 +114,12 @@ export function IndexManagement() {
             <div className="flex items-center gap-2">
               {indexStatus?.isStale ? (
                 <Badge variant="destructive" className="flex items-center gap-1">
-                  <AlertTriangle className="h-3 w-3" />
+                  <AlertCircle className="h-3 w-3" />
                   Stale
                 </Badge>
               ) : (
                 <Badge variant="default" className="flex items-center gap-1">
-                  <CheckCircle className="h-3 w-3" />
+                  <Check className="h-3 w-3" />
                   Current
                 </Badge>
               )}
@@ -133,7 +133,7 @@ export function IndexManagement() {
               disabled={isRebuilding}
               className="flex items-center gap-2"
             >
-              <RotateCw className={`h-4 w-4 ${isRebuilding ? 'animate-spin' : ''}`} />
+              <Download className={`h-4 w-4 ${isRebuilding ? 'animate-spin' : ''}`} />
               {isRebuilding ? 'Rebuilding...' : 'Rebuild Index'}
             </Button>
             
@@ -143,7 +143,7 @@ export function IndexManagement() {
               disabled={isValidating}
               className="flex items-center gap-2"
             >
-              <CheckCircle className={`h-4 w-4 ${isValidating ? 'animate-spin' : ''}`} />
+              <Check className={`h-4 w-4 ${isValidating ? 'animate-spin' : ''}`} />
               {isValidating ? 'Validating...' : 'Validate Index'}
             </Button>
           </div>
