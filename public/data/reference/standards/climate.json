@@ -1,0 +1,35 @@
+
+[
+  {
+    "code": "CF",
+    "name": "Climate and Forecast Metadata Conventions",
+    "description": "Conventions for climate and forecast data stored in netCDF files",
+    "domain": "Climate",
+    "type": "metadata",
+    "link": "https://cfconventions.org/"
+  },
+  {
+    "code": "NetCDF",
+    "name": "Network Common Data Form",
+    "description": "Set of software libraries and self-describing, machine-independent data formats for array-oriented scientific data",
+    "domain": "Climate",
+    "type": "format",
+    "link": "https://www.unidata.ucar.edu/software/netcdf/"
+  },
+  {
+    "code": "WMS",
+    "name": "Web Map Service",
+    "description": "Standard protocol for serving georeferenced map images over the Internet",
+    "domain": "Climate",
+    "type": "service",
+    "link": "https://www.ogc.org/standards/wms"
+  },
+  {
+    "code": "WFS",
+    "name": "Web Feature Service",
+    "description": "Web service that allows querying and retrieval of geographical features",
+    "domain": "Climate",
+    "type": "service",
+    "link": "https://www.ogc.org/standards/wfs"
+  }
+]

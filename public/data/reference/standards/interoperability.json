@@ -1,0 +1,43 @@
+
+[
+  {
+    "code": "REST",
+    "name": "Representational State Transfer",
+    "description": "Architectural style for designing networked applications using standard HTTP methods",
+    "domain": "Interoperability",
+    "type": "architectural",
+    "link": "https://restfulapi.net/"
+  },
+  {
+    "code": "JSON",
+    "name": "JavaScript Object Notation",
+    "description": "Lightweight data interchange format that is easy for humans to read and write",
+    "domain": "Interoperability",
+    "type": "format",
+    "link": "https://www.json.org/"
+  },
+  {
+    "code": "XML",
+    "name": "Extensible Markup Language",
+    "description": "Markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable",
+    "domain": "Interoperability",
+    "type": "format",
+    "link": "https://www.w3.org/XML/"
+  },
+  {
+    "code": "OAuth",
+    "name": "Open Authorization",
+    "description": "Open standard for access delegation, commonly used for token-based authentication",
+    "domain": "Interoperability",
+    "type": "authentication",
+    "link": "https://oauth.net/"
+  },
+  {
+    "code": "OpenAPI",
+    "name": "OpenAPI Specification",
+    "description": "Specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services",
+    "domain": "Interoperability",
+    "type": "specification",
+    "link": "https://www.openapis.org/"
+  }
+]

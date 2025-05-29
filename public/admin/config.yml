@@ -1,3 +1,4 @@
+
 backend:
   name: git-gateway
   branch: main
@@ -26,7 +27,7 @@ collections:
     format: "json"
     extension: "json"
     fields:
-      - {label: "ID", name: "ID", widget: "string", required: true}
+      - {label: "ID", name: "ID", widget: "string", required: true, pattern: ['^[a-z0-9-]+$', 'ID must contain only lowercase letters, numbers, and hyphens']}
       - {label: "Name", name: "Name", widget: "string", required: true}
       - {label: "Logo", name: "Logo", widget: "image", required: false}
       
@@ -34,6 +35,7 @@ collections:
       - label: "Website"
         name: "Website"
         widget: "object"
+        collapsed: false
         fields:
           - label: "Main Website"
             name: "main"
@@ -41,7 +43,7 @@ collections:
             required: false
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
           - label: "Documentation"
             name: "docs"
@@ -49,7 +51,7 @@ collections:
             required: false
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
           - label: "Source Code"
             name: "source_code"
@@ -57,7 +59,7 @@ collections:
             required: false
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
           - label: "Demo"
             name: "demo"
@@ -65,27 +67,34 @@ collections:
             required: false
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
 
-      # Global Goods Type
+      # Enhanced Global Goods Type with Reference Integration
       - label: "Global Goods Type"
         name: "GlobalGoodsType"
         widget: "list"
+        min: 1
         fields:
-          - {label: "Code", name: "code", widget: "select", options: ["software", "content", "service", "climate", "data", "ai"]}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - label: "Type"
+            name: "code"
+            widget: "relation"
+            collection: "reference-global-goods-types"
+            file: "types"
+            search_fields: ["types.*.code", "types.*.title"]
+            display_fields: ["types.*.code", "types.*.title"]
+            value_field: "types.*.code"
 
-      # License
+      # Enhanced License with Reference Integration
       - label: "License"
         name: "License"
-        widget: "object"
-        fields:
-          - {label: "ID", name: "id", widget: "string"}
-          - {label: "Name", name: "name", widget: "string"}
-          - {label: "URL", name: "url", widget: "string", required: false}
-          - {label: "Description", name: "description", widget: "text", required: false}
+        widget: "relation"
+        collection: "reference-licenses"
+        file: "licenses"
+        search_fields: ["licenses.*.name", "licenses.*.id"]
+        display_fields: ["licenses.*.name", "licenses.*.description"]
+        value_field: "licenses.*.id"
+        required: true
 
       # Contact
       - label: "Contact"
@@ -93,153 +102,195 @@ collections:
         widget: "list"
         fields:
           - {label: "Name", name: "name", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Email", name: "email", widget: "string", pattern: ['^[^@]+@[^@]+\.[^@]+$', 'Must be a valid email']}
           - {label: "Role", name: "role", widget: "string"}
 
-      # Classifications
+      # Enhanced Classifications with Reference Integration
       - label: "Classifications"
         name: "Classifications"
         widget: "object"
+        collapsed: false
         fields:
-          - label: "SDGs"
+          - label: "Sustainable Development Goals (SDGs)"
             name: "SDGs"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "select", options: ["SDG-1", "SDG-2", "SDG-3", "SDG-4", "SDG-5", "SDG-6", "SDG-7", "SDG-8", "SDG-9", "SDG-10", "SDG-11", "SDG-12", "SDG-13", "SDG-14", "SDG-15", "SDG-16", "SDG-17"]}
-              - {label: "Title", name: "title", widget: "string"}
-          - label: "WHO"
+              - label: "SDG"
+                name: "code"
+                widget: "relation"
+                collection: "reference-classifications"
+                file: "sdgs"
+                search_fields: ["classifications.*.code", "classifications.*.title"]
+                display_fields: ["classifications.*.code", "classifications.*.title"]
+                value_field: "classifications.*.code"
+          - label: "World Health Organization (WHO)"
             name: "WHO"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Group Code", name: "group_code", widget: "string"}
-              - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "WHO"}
-          - label: "WMO"
-            name: "WMO"
-            widget: "list"
-            default: []
-          - label: "DPI"
+              - label: "WHO Classification"
+                name: "code"
+                widget: "relation"
+                collection: "reference-classifications"
+                file: "who"
+                search_fields: ["classifications.*.code", "classifications.*.title"]
+                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
+                value_field: "classifications.*.code"
+          - label: "Digital Public Infrastructure (DPI)"
             name: "DPI"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Group Code", name: "group_code", widget: "string"}
-              - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "DPI-H"}
+              - label: "DPI Classification"
+                name: "code"
+                widget: "relation"
+                collection: "reference-classifications"
+                file: "dpi"
+                search_fields: ["classifications.*.code", "classifications.*.title"]
+                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
+                value_field: "classifications.*.code"
+          - label: "World Meteorological Organization (WMO)"
+            name: "WMO"
+            widget: "list"
+            fields:
+              - label: "WMO Classification"
+                name: "code"
+                widget: "relation"
+                collection: "reference-classifications"
+                file: "wmo"
+                search_fields: ["classifications.*.code", "classifications.*.title"]
+                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
+                value_field: "classifications.*.code"
 
-      # Standards and Interoperability
+      # Enhanced Standards with Reference Integration
       - label: "Standards and Interoperability"
         name: "StandardsAndInteroperability"
         widget: "object"
+        collapsed: true
         fields:
           - label: "Health Standards"
             name: "HealthStandards"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Domain", name: "domain", widget: "string", default: "Health"}
-              - {label: "Link", name: "link", widget: "string", required: false}
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-          - label: "Interoperability"
+              - label: "Standard"
+                name: "code"
+                widget: "relation"
+                collection: "reference-standards"
+                file: "health"
+                search_fields: ["standards.*.code", "standards.*.name"]
+                display_fields: ["standards.*.code", "standards.*.name", "standards.*.description"]
+                value_field: "standards.*.code"
+          - label: "Interoperability Standards"
             name: "Interoperability"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Type", name: "type", widget: "string"}
-              - {label: "Link", name: "link", widget: "string", required: false}
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
+              - label: "Standard"
+                name: "code"
+                widget: "relation"
+                collection: "reference-standards"
+                file: "interoperability"
+                search_fields: ["standards.*.code", "standards.*.name"]
+                display_fields: ["standards.*.code", "standards.*.name", "standards.*.type"]
+                value_field: "standards.*.code"
           - label: "Climate Standards"
             name: "ClimateStandards"
             widget: "list"
-            default: []
+            fields:
+              - label: "Standard"
+                name: "code"
+                widget: "relation"
+                collection: "reference-standards"
+                file: "climate"
+                search_fields: ["standards.*.code", "standards.*.name"]
+                display_fields: ["standards.*.code", "standards.*.name"]
+                value_field: "standards.*.code"
 
-      # Product Overview
+      # Enhanced Product Overview
       - label: "Product Overview"
         name: "ProductOverview"
         widget: "object"
+        collapsed: false
         fields:
-          - {label: "Summary", name: "Summary", widget: "text"}
-          - {label: "Description", name: "Description", widget: "text"}
+          - {label: "Summary", name: "Summary", widget: "text", required: true}
+          - {label: "Description", name: "Description", widget: "text", required: true}
           - {label: "Primary Functionality", name: "PrimaryFunctionality", widget: "string"}
           - {label: "Users", name: "Users", widget: "string"}
           - label: "Languages"
             name: "Languages"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Name", name: "name", widget: "string"}
+              - label: "Language"
+                name: "code"
+                widget: "relation"
+                collection: "reference-languages"
+                file: "languages"
+                search_fields: ["languages.*.code", "languages.*.name", "languages.*.nativeName"]
+                display_fields: ["languages.*.name", "languages.*.nativeName"]
+                value_field: "languages.*.code"
           - label: "Screenshots"
             name: "Screenshots"
             widget: "list"
             fields:
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "image"}
               - {label: "Description", name: "description", widget: "text"}
 
-      # Reach
+      # Enhanced Reach with Country Integration
       - label: "Reach"
         name: "Reach"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Summary of Reach", name: "SummaryOfReach", widget: "text"}
-          - {label: "Number of Implementations", name: "NumberOfImplementations", widget: "number", value_type: "int"}
+          - {label: "Number of Implementations", name: "NumberOfImplementations", widget: "number", value_type: "int", min: 0}
           - label: "Implementation Map Overview"
             name: "ImplementationMapOverview"
             widget: "object"
             required: false
             fields:
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
           - label: "Implementation Countries"
             name: "ImplementationCountries"
             widget: "list"
             fields:
-              - {label: "ISO Code", name: "iso_code", widget: "string"}
-              - {label: "Type", name: "type", widget: "string", default: "State"}
-              - label: "Names"
-                name: "names"
-                widget: "object"
-                fields:
-                  - label: "English"
-                    name: "en"
-                    widget: "object"
-                    fields:
-                      - {label: "Short", name: "short", widget: "string"}
-                      - {label: "Formal", name: "formal", widget: "string"}
+              - label: "Country"
+                name: "iso_code"
+                widget: "relation"
+                collection: "reference-countries"
+                file: "countries"
+                search_fields: ["countries.*.iso_code", "countries.*.short", "countries.*.formal"]
+                display_fields: ["countries.*.short", "countries.*.formal"]
+                value_field: "countries.*.iso_code"
 
-      # Maturity
+      # Enhanced Maturity with Validation
       - label: "Maturity"
         name: "Maturity"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Summary of Maturity", name: "SummaryOfMaturity", widget: "text"}
           - label: "Scores"
             name: "Scores"
             widget: "list"
             fields:
-              - {label: "Year", name: "year", widget: "number", value_type: "int"}
-              - {label: "Global Utility", name: "global_utility", widget: "number", value_type: "int", min: 0, max: 10}
-              - {label: "Community Support", name: "community_support", widget: "number", value_type: "int", min: 0, max: 10}
-              - {label: "Maturity of Global Good", name: "maturity_of_gg", widget: "number", value_type: "int", min: 0, max: 10}
-              - {label: "Inclusive Design", name: "inclusive_design", widget: "number", value_type: "int", min: 0, max: 10}
-              - {label: "Climate Resilience", name: "climate_resilience", widget: "number", value_type: "int", min: 0, max: 10}
-              - {label: "Low Carbon", name: "low_carbon", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Year", name: "year", widget: "number", value_type: "int", min: 2000, max: 2030}
+              - {label: "Global Utility (0-10)", name: "global_utility", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Community Support (0-10)", name: "community_support", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Maturity of Global Good (0-10)", name: "maturity_of_gg", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Inclusive Design (0-10)", name: "inclusive_design", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Climate Resilience (0-10)", name: "climate_resilience", widget: "number", value_type: "int", min: 0, max: 10}
+              - {label: "Low Carbon (0-10)", name: "low_carbon", widget: "number", value_type: "int", min: 0, max: 10}
 
-      # Climate and Health Integration
+      # Remaining sections with enhanced validation...
       - label: "Climate and Health Integration"
         name: "ClimateAndHealthIntegration"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Description", name: "Description", widget: "text"}
 
-      # Community
       - label: "Community"
         name: "Community"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Description of Community", name: "DescriptionOfCommunity", widget: "text"}
           - label: "Host Anchor Organization"
@@ -247,11 +298,22 @@ collections:
             widget: "object"
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "URL", name: "url", widget: "string", required: false, pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "Country", name: "country", widget: "list", field: {label: "Country Code", name: "country", widget: "string"}}
-          - {label: "Inception Year", name: "InceptionYear", widget: "number", value_type: "int"}
-          - {label: "Size of Community", name: "SizeOfCommunity", widget: "number", value_type: "int"}
+              - label: "Country"
+                name: "country"
+                widget: "list"
+                fields:
+                  - label: "Country"
+                    name: "country"
+                    widget: "relation"
+                    collection: "reference-countries"
+                    file: "countries"
+                    search_fields: ["countries.*.iso_code", "countries.*.short"]
+                    display_fields: ["countries.*.short"]
+                    value_field: "countries.*.iso_code"
+          - {label: "Inception Year", name: "InceptionYear", widget: "number", value_type: "int", min: 1990, max: 2030}
+          - {label: "Size of Community", name: "SizeOfCommunity", widget: "number", value_type: "int", min: 0}
           - label: "Links"
             name: "Links"
             widget: "object"
@@ -261,14 +323,14 @@ collections:
                 widget: "object"
                 required: false
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "Mailing List"
                 name: "MailingList"
                 widget: "object"
                 required: false
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
           - label: "Events"
             name: "Events"
@@ -282,7 +344,7 @@ collections:
                 fields:
                   - {label: "Event", name: "event", widget: "string"}
                   - {label: "Date", name: "date", widget: "datetime"}
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Policies"
             name: "Policies"
             widget: "object"
@@ -292,73 +354,73 @@ collections:
                 name: "Governance"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "Terms of Use"
                 name: "TermsOfUse"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "User Agreement"
                 name: "UserAgreement"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "Privacy Policy"
                 name: "PrivacyPolicy"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "Do No Harm"
                 name: "DoNoHarm"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "PII Collected"
                 name: "PIICollected"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
               - label: "NPII Used"
                 name: "NPIIUsed"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
                   - {label: "Description", name: "description", widget: "text"}
 
-      # Inclusive Design
       - label: "Inclusive Design"
         name: "InclusiveDesign"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Description", name: "Description", widget: "text"}
           - {label: "User Input", name: "UserInput", widget: "text"}
           - {label: "Offline Support", name: "OfflineSupport", widget: "string"}
 
-      # Environmental Impact
       - label: "Environmental Impact"
         name: "EnvironmentalImpact"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Low Carbon", name: "LowCarbon", widget: "text"}
 
-      # Total Cost of Ownership
       - label: "Total Cost of Ownership"
         name: "TotalCostOfOwnership"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Description", name: "Description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
+          - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
 
-      # Sustainability
       - label: "Sustainability"
         name: "Sustainability"
         widget: "object"
+        collapsed: true
         fields:
           - {label: "Description", name: "Description", widget: "text"}
           - label: "Key Funders Supporters"
@@ -366,67 +428,67 @@ collections:
             widget: "list"
             fields:
               - {label: "Name", name: "name", widget: "string"}
-              - {label: "URL", name: "url", widget: "string", required: false}
+              - {label: "URL", name: "url", widget: "string", required: false, pattern: ['^https?://.+', 'Must be a valid URL']}
               - {label: "Description", name: "description", widget: "text"}
 
-      # Resources
       - label: "Resources"
         name: "Resources"
         widget: "object"
+        collapsed: true
         fields:
           - label: "Articles"
             name: "Articles"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Product Documentation"
             name: "ProductDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "User Requirements"
             name: "UserRequirements"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "End User Documentation"
             name: "EndUserDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Implementer Documentation"
             name: "ImplementerDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Developer Documentation"
             name: "DeveloperDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Operator Documentation"
             name: "OperatorDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
           - label: "Installation Documentation"
             name: "InstallationDocumentation"
             widget: "list"
             fields:
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
 
-      # Linked Initiatives
       - label: "Linked Initiatives"
         name: "LinkedInitiatives"
         widget: "object"
+        collapsed: true
         fields:
           - label: "Initiative"
             name: "Initiative"
@@ -434,59 +496,206 @@ collections:
             fields:
               - label: "Collection Initiative"
                 name: "collectionInitiative"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "Logo URL", name: "logo_url", widget: "string"}
-                  - {label: "Site URL", name: "site_url", widget: "string"}
-                  - {label: "Description", name: "description", widget: "text"}
-              - {label: "Tool URL", name: "tool_url", widget: "string"}
+                widget: "relation"
+                collection: "reference-initiatives"
+                file: "initiatives"
+                search_fields: ["initiatives.*.id", "initiatives.*.label"]
+                display_fields: ["initiatives.*.label", "initiatives.*.description"]
+                value_field: "initiatives.*.id"
+              - {label: "Tool URL", name: "tool_url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
 
-  # Reference Data Collections
-  - name: "reference-sdgs"
-    label: "SDG Reference Data"
+  # Reference Data Management Collections
+  - name: "reference-licenses"
+    label: "📄 License Reference Data"
+    files:
+      - label: "Licenses"
+        name: "licenses"
+        file: "public/data/reference/licenses.json"
+        fields:
+          - label: "Licenses"
+            name: "licenses"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "URL", name: "url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+              - {label: "Description", name: "description", widget: "text", required: true}
+
+  - name: "reference-global-goods-types"
+    label: "🏷️ Global Goods Types"
+    files:
+      - label: "Types"
+        name: "types"
+        file: "public/data/reference/globalGoodsTypes.json"
+        fields:
+          - label: "Types"
+            name: "types"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+
+  - name: "reference-languages"
+    label: "🌐 Product Languages"
+    files:
+      - label: "Languages"
+        name: "languages"
+        file: "public/data/reference/productLanguages.json"
+        fields:
+          - label: "Languages"
+            name: "languages"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Native Name", name: "nativeName", widget: "string", required: true}
+
+  - name: "reference-countries"
+    label: "🌍 Countries"
+    files:
+      - label: "Countries"
+        name: "countries"
+        file: "public/data/reference/countries.json"
+        fields:
+          - label: "Countries"
+            name: "countries"
+            widget: "list"
+            fields:
+              - {label: "ISO Code", name: "iso_code", widget: "string", required: true}
+              - {label: "Type", name: "type", widget: "string", required: true}
+              - {label: "Short Name", name: "short", widget: "string", required: true}
+              - {label: "Formal Name", name: "formal", widget: "string", required: true}
+              - {label: "UN Code", name: "un_code", widget: "string", required: false}
+
+  - name: "reference-classifications"
+    label: "📊 Classifications"
     files:
       - label: "SDGs"
         name: "sdgs"
-        file: "public/sdg_new.json"
+        file: "public/data/reference/classifications/sdgs.json"
         fields:
-          - label: "SDGs"
-            name: "sdgs"
+          - label: "Classifications"
+            name: "classifications"
             widget: "list"
             fields:
-              - {label: "Code", name: "code", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Authority", name: "authority", widget: "string", default: "SDG"}
+      - label: "WHO Classifications"
+        name: "who"
+        file: "public/data/reference/classifications/who.json"
+        fields:
+          - label: "Classifications"
+            name: "classifications"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
               - {label: "Group Code", name: "group_code", widget: "string"}
               - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "SDG"}
-
-  - name: "reference-global-goods-types"
-    label: "Global Goods Types"
-    files:
-      - label: "Global Goods Types (English)"
-        name: "global-goods-types-en"
-        file: "src/i18n/locales/en/globalGoodsType.json"
+              - {label: "Authority", name: "authority", widget: "string", default: "WHO"}
+              - {label: "Description", name: "description", widget: "text"}
+      - label: "DPI Classifications"
+        name: "dpi"
+        file: "public/data/reference/classifications/dpi.json"
         fields:
-          - {label: "Software Title", name: "software.title", widget: "string"}
-          - {label: "Software Description", name: "software.description", widget: "text"}
-          - {label: "Content Title", name: "content.title", widget: "string"}
-          - {label: "Content Description", name: "content.description", widget: "text"}
-          - {label: "Service Title", name: "service.title", widget: "string"}
-          - {label: "Service Description", name: "service.description", widget: "text"}
-          - {label: "Climate Title", name: "climate.title", widget: "string"}
-          - {label: "Climate Description", name: "climate.description", widget: "text"}
-          - {label: "Data Title", name: "data.title", widget: "string"}
-          - {label: "Data Description", name: "data.description", widget: "text"}
-          - {label: "AI Title", name: "ai.title", widget: "string"}
-          - {label: "AI Description", name: "ai.description", widget: "text"}
+          - label: "Classifications"
+            name: "classifications"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Group Code", name: "group_code", widget: "string"}
+              - {label: "Group Name", name: "group_name", widget: "string"}
+              - {label: "Authority", name: "authority", widget: "string", default: "DPI-H"}
+              - {label: "Description", name: "description", widget: "text"}
+      - label: "WMO Classifications"
+        name: "wmo"
+        file: "public/data/reference/classifications/wmo.json"
+        fields:
+          - label: "Classifications"
+            name: "classifications"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Group Code", name: "group_code", widget: "string"}
+              - {label: "Group Name", name: "group_name", widget: "string"}
+              - {label: "Authority", name: "authority", widget: "string", default: "WMO"}
+              - {label: "Description", name: "description", widget: "text"}
 
-  # New: Index Management Collection
+  - name: "reference-standards"
+    label: "📋 Standards"
+    files:
+      - label: "Health Standards"
+        name: "health"
+        file: "public/data/reference/standards/health.json"
+        fields:
+          - label: "Standards"
+            name: "standards"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Domain", name: "domain", widget: "string", default: "Health"}
+              - {label: "Type", name: "type", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+      - label: "Interoperability Standards"
+        name: "interoperability"
+        file: "public/data/reference/standards/interoperability.json"
+        fields:
+          - label: "Standards"
+            name: "standards"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Domain", name: "domain", widget: "string", default: "Interoperability"}
+              - {label: "Type", name: "type", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+      - label: "Climate Standards"
+        name: "climate"
+        file: "public/data/reference/standards/climate.json"
+        fields:
+          - label: "Standards"
+            name: "standards"
+            widget: "list"
+            fields:
+              - {label: "Code", name: "code", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Domain", name: "domain", widget: "string", default: "Climate"}
+              - {label: "Type", name: "type", widget: "string"}
+              - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+
+  - name: "reference-initiatives"
+    label: "🤝 Collection Initiatives"
+    files:
+      - label: "Initiatives"
+        name: "initiatives"
+        file: "public/data/reference/collectionInitiatives.json"
+        fields:
+          - label: "Initiatives"
+            name: "initiatives"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string", required: true}
+              - {label: "Label", name: "label", widget: "string", required: true}
+              - {label: "Logo URL", name: "logo_url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+              - {label: "Site URL", name: "site_url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
+              - {label: "Description", name: "description", widget: "text", required: true}
+
+  # Index Management Collection
   - name: "index-management"
-    label: "Index Management"
+    label: "⚙️ Index Management"
     files:
       - label: "Index Operations"
         name: "index-ops"
-        file: "src/data/cms/index-management.json"
+        file: "public/data/cms/index-management.json"
         fields:
           - {label: "Last Rebuild", name: "lastRebuild", widget: "datetime", required: false}
           - {label: "Auto Rebuild Enabled", name: "autoRebuild", widget: "boolean", default: true}
