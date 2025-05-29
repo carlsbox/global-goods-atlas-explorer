@@ -1,11 +1,114 @@
-
-{
-  "WMO_C1": {
+[
+  {
+    "code": "WMO_A1",
+    "title": "Modelling & Reanalysis (merging of multisource data)",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_A2",
+    "title": "Observations",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_A3",
+    "title": "Climate Data Repositories",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_A4",
+    "title": "Open Data Platforms",
+    "group_code": "A",
+    "group_name": "Climate data sources",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_B1",
+    "title": "Climate data integration and interoperability",
+    "group_code": "B",
+    "group_name": "Climate Data Processing",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_B2",
+    "title": "Statistical analysis & modelling",
+    "group_code": "B",
+    "group_name": "Climate Data Processing",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
     "code": "WMO_C1",
-    "title": "Climate and Health Data Integration",
+    "title": "Programming-based",
     "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_C2",
+    "title": "Interactive dashboard",
+    "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_C3",
+    "title": "GIS",
+    "group_code": "C",
+    "group_name": "Climate data visualization",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_D1",
+    "title": "Decision Support Systems",
+    "group_code": "D",
     "group_name": "Climate Services",
     "authority": "WMO",
-    "description": "Integration of climate data with health systems for improved health outcomes"
+    "description": ""
+  },
+  {
+    "code": "WMO_D2",
+    "title": "Climate Risk Platforms",
+    "group_code": "D",
+    "group_name": "Climate Services",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_E1",
+    "title": "Climate ontologies",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_E2",
+    "title": "Climate frameworks",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO",
+    "description": ""
+  },
+  {
+    "code": "WMO_E3",
+    "title": "Climate standards",
+    "group_code": "E",
+    "group_name": "Climate standards and guidelines",
+    "authority": "WMO",
+    "description": ""
   }
-}
+]

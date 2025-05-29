@@ -1,4 +1,3 @@
-
 [
   {
     "id": "apache-2.0",
@@ -8,32 +7,116 @@
   },
   {
     "id": "mit",
-    "name": "MIT License", 
+    "name": "MIT License",
     "url": "https://opensource.org/licenses/MIT",
     "description": "Simple permissive license with conditions only requiring preservation of copyright and license notices"
+  },
+  {
+    "id": "bsd-2-clause",
+    "name": "BSD 2-Clause License",
+    "url": "https://opensource.org/licenses/BSD-2-Clause",
+    "description": "A permissive license with minimal requirements for redistribution"
   },
   {
     "id": "bsd-3-clause",
     "name": "BSD 3-Clause License",
     "url": "https://opensource.org/licenses/BSD-3-Clause",
-    "description": "Permissive license similar to the BSD 2-Clause License, but with a 3rd clause"
+    "description": "Permissive license similar to the BSD 2-Clause License, but with a 3rd clause prohibiting endorsement"
+  },
+  {
+    "id": "gpl-2.0",
+    "name": "GNU General Public License v2.0",
+    "url": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+    "description": "Strong copyleft license requiring derivative works to also be licensed under GPL v2"
   },
   {
     "id": "gpl-3.0",
     "name": "GNU General Public License v3.0",
     "url": "https://www.gnu.org/licenses/gpl-3.0.html",
-    "description": "Copyleft license that requires derivative works to be open source under the same license"
+    "description": "Copyleft license that requires derivative works to be open source under the same license, with added protections against patent litigation and tivoization"
   },
   {
-    "id": "lgpl-2.1",
-    "name": "GNU Lesser General Public License v2.1",
-    "url": "https://www.gnu.org/licenses/lgpl-2.1.html",
-    "description": "Copyleft license for libraries that allows linking with proprietary software"
+    "id": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/lgpl-3.0.html",
+    "description": "Copyleft license primarily for libraries, allowing them to be used within proprietary software under certain conditions"
+  },
+  {
+    "id": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "description": "Strong copyleft license requiring source code disclosure for software used over a network"
   },
   {
     "id": "mpl-2.0",
     "name": "Mozilla Public License 2.0",
-    "url": "https://mozilla.org/MPL/2.0/",
-    "description": "Weak copyleft license that requires modifications to be open source"
+    "url": "https://www.mozilla.org/MPL/2.0/",
+    "description": "Weak copyleft license that allows proprietary and open source code to coexist within the same project"
+  },
+  {
+    "id": "epl-2.0",
+    "name": "Eclipse Public License 2.0",
+    "url": "https://www.eclipse.org/legal/epl-2.0/",
+    "description": "Weak copyleft license used for software projects, particularly from the Eclipse Foundation"
+  },
+  {
+    "id": "artistic-2.0",
+    "name": "Artistic License 2.0",
+    "url": "https://opensource.org/licenses/Artistic-2.0",
+    "description": "Flexible open source license commonly used for Perl projects"
+  },
+  {
+    "id": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "description": "Public domain dedication allowing anyone to use the work without restrictions"
+  },
+  {
+    "id": "cc-by-4.0",
+    "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Allows redistribution and adaptation, even commercially, with credit to the original author"
+  },
+  {
+    "id": "cc-by-sa-4.0",
+    "name": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "description": "Allows remixing and commercial use as long as adaptations are licensed under the same terms"
+  },
+  {
+    "id": "cc-by-nd-4.0",
+    "name": "Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nd/4.0/",
+    "description": "Allows for redistribution, commercial and non-commercial, but no derivatives or adaptations"
+  },
+  {
+    "id": "cc-by-nc-4.0",
+    "name": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "description": "Allows non-commercial use with attribution; no commercial use allowed"
+  },
+  {
+    "id": "cc-by-nc-sa-4.0",
+    "name": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "description": "Non-commercial use allowed; adaptations must be shared under the same license"
+  },
+  {
+    "id": "cc-by-nc-nd-4.0",
+    "name": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)",
+    "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "description": "Most restrictive CC license: allows downloading and sharing with attribution, but no modifications or commercial use"
+  },
+  {
+    "id": "unlicense",
+    "name": "The Unlicense",
+    "url": "https://opensource.org/licenses/unlicense",
+    "description": "A public domain dedication with an explicit waiver of rights"
+  },
+  {
+    "id": "openmrs-1.1",
+    "name": "OpenMRS Public License 1.1",
+    "url": "https://openmrs.org/license/",
+    "description": "A modified Mozilla Public License tailored for the OpenMRS project, balancing openness and protection of contributions"
   }
 ]

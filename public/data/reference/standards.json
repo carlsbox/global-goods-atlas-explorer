@@ -1,123 +1,186 @@
-
 {
-  "FHIR": {
-    "code": "FHIR",
-    "name": "Fast Healthcare Interoperability Resources",
-    "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records",
+  "ADX": {
+    "code": "ADX",
     "domain": "Health",
-    "type": "health",
-    "link": "https://www.hl7.org/fhir/"
+    "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+    "type": "exchange",
+    "name": "ADX",
+    "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
   },
-  "HL7": {
-    "code": "HL7",
-    "name": "Health Level Seven International",
-    "description": "A set of international standards for transfer of clinical and administrative data between software applications used by various healthcare providers",
+  "CIEL": {
+    "code": "CIEL",
     "domain": "Health",
-    "type": "health",
-    "link": "https://www.hl7.org/"
-  },
-  "HL7 FHIR": {
-    "code": "HL7 FHIR",
-    "name": "HL7 Fast Healthcare Interoperability Resources",
-    "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically",
-    "domain": "Health",
-    "type": "health",
-    "link": "https://www.hl7.org/fhir/"
-  },
-  "SNOMED": {
-    "code": "SNOMED",
-    "name": "Systematized Nomenclature of Medicine Clinical Terms",
-    "description": "A systematically organized computer processable collection of medical terms providing codes, terms, synonyms and definitions used in clinical documentation and reporting",
-    "domain": "Health",
-    "type": "health",
-    "link": "https://www.snomed.org/"
-  },
-  "ICD": {
-    "code": "ICD",
-    "name": "International Classification of Diseases",
-    "description": "The standard diagnostic tool for epidemiology, health management and clinical purposes maintained by the World Health Organization",
-    "domain": "Health",
-    "type": "health",
-    "link": "https://www.who.int/standards/classifications/classification-of-diseases"
-  },
-  "LOINC": {
-    "code": "LOINC",
-    "name": "Logical Observation Identifiers Names and Codes",
-    "description": "A database and universal standard for identifying medical laboratory observations",
-    "domain": "Health",
-    "type": "health",
-    "link": "https://loinc.org/"
-  },
-  "DICOM": {
-    "code": "DICOM",
-    "name": "Digital Imaging and Communications in Medicine",
-    "description": "The standard for the communication and management of medical imaging information and related data",
-    "domain": "Health",
-    "type": "health",
-    "link": "https://www.dicomstandard.org/"
+    "link": "https://openconceptlab.org/orgs/CIEL/sources/CIEL/",
+    "type": "terminology",
+    "name": "CIEL",
+    "description": "Columbia International eHealth Laboratory dictionary, a comprehensive clinical terminology system designed for use in low-resource settings."
   },
   "GS1": {
     "code": "GS1",
-    "name": "GS1 Global Standards",
-    "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare",
     "domain": "Health",
-    "type": "health",
-    "link": "https://www.gs1.org/healthcare"
+    "link": "https://www.gs1.org/healthcare",
+    "type": "identifier",
+    "name": "GS1",
+    "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare."
   },
-  "REST": {
-    "code": "REST",
-    "name": "Representational State Transfer",
-    "description": "An architectural style for designing networked applications, particularly web services",
-    "domain": "Technology",
-    "type": "interoperability",
-    "link": "https://restfulapi.net/"
-  },
-  "SOAP": {
-    "code": "SOAP",
-    "name": "Simple Object Access Protocol",
-    "description": "A messaging protocol specification for exchanging structured information in web services",
-    "domain": "Technology",
-    "type": "interoperability",
-    "link": "https://www.w3.org/TR/soap/"
-  },
-  "JSON": {
-    "code": "JSON",
-    "name": "JavaScript Object Notation",
-    "description": "A lightweight data-interchange format that is easy for humans to read and write",
-    "domain": "Technology",
-    "type": "data_format",
-    "link": "https://www.json.org/"
-  },
-  "XML": {
-    "code": "XML",
-    "name": "eXtensible Markup Language",
-    "description": "A markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable",
-    "domain": "Technology",
-    "type": "data_format",
-    "link": "https://www.w3.org/XML/"
-  },
-  "OAuth": {
-    "code": "OAuth",
-    "name": "Open Authorization",
-    "description": "An open standard for access delegation, commonly used for token-based authentication and authorization",
-    "domain": "Security",
-    "type": "interoperability",
-    "link": "https://oauth.net/"
-  },
-  "OpenAPI": {
-    "code": "OpenAPI",
-    "name": "OpenAPI Specification",
-    "description": "A specification for building APIs, formerly known as Swagger",
-    "domain": "Technology",
-    "type": "interoperability",
-    "link": "https://www.openapis.org/"
-  },
-  "ADX": {
-    "code": "ADX",
-    "name": "Aggregate Data Exchange",
-    "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis",
+  "HL7 FHIR": {
+    "code": "HL7 FHIR",
     "domain": "Health",
-    "type": "interoperability",
-    "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange"
+    "link": "https://www.hl7.org/fhir/",
+    "type": "exchange",
+    "name": "HL7 FHIR",
+    "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
+  },
+  "HL7 V2": {
+    "code": "HL7 V2",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+    "type": "exchange",
+    "name": "HL7 V2",
+    "description": "Health Level 7 Version 2, a messaging standard for exchanging clinical and administrative data in healthcare settings."
+  },
+  "HL7 V3": {
+    "code": "HL7 V3",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
+    "type": "exchange",
+    "name": "HL7 V3",
+    "description": "Health Level 7 Version 3, an XML-based messaging framework for health data exchange and interoperability."
+  },
+  "ICD-9": {
+    "code": "ICD-9",
+    "domain": "Health",
+    "link": "https://www.cdc.gov/nchs/icd/icd9.htm",
+    "type": "terminology",
+    "name": "ICD-9",
+    "description": "International Classification of Diseases, 9th Revision, for coding and classifying mortality and morbidity data."
+  },
+  "ICD-10": {
+    "code": "ICD-10",
+    "domain": "Health",
+    "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+    "type": "terminology",
+    "name": "ICD-10",
+    "description": "International Classification of Diseases, 10th Revision, WHO's standard diagnostic classification for epidemiology and health management."
+  },
+  "ICD-11": {
+    "code": "ICD-11",
+    "domain": "Health",
+    "link": "https://icd.who.int/en",
+    "type": "terminology",
+    "name": "ICD-11",
+    "description": "International Classification of Diseases, 11th Revision, the latest WHO classification for mortality, morbidity statistics and clinical documentation."
+  },
+  "LOINC": {
+    "code": "LOINC",
+    "domain": "Health",
+    "link": "https://loinc.org/",
+    "type": "terminology",
+    "name": "LOINC",
+    "description": "Logical Observation Identifiers Names and Codes, a universal standard for identifying medical laboratory observations."
+  },
+  "SNOMED": {
+    "code": "SNOMED",
+    "domain": "Health",
+    "link": "https://www.snomed.org/",
+    "type": "terminology",
+    "name": "SNOMED",
+    "description": "Systematized Nomenclature of Medicine Clinical Terms, a comprehensive clinical terminology for electronic health records."
+  },
+  "Not Applicable": {
+    "code": "Not Applicable",
+    "domain": "Health",
+    "link": "",
+    "type": "not_applicable",
+    "name": "Not Applicable",
+    "description": "Indicates that no specific health standard is applicable to the given context."
+  },
+  "Other": {
+    "code": "Other",
+    "domain": "Health",
+    "link": "",
+    "type": "other",
+    "name": "Other",
+    "description": "Refers to health standards not listed in the current classification system."
+  },
+  "GRIB": {
+    "code": "GRIB",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf",
+    "type": "data_format",
+    "name": "GRIB",
+    "description": "GRIdded Binary format, a standard for encoding meteorological and oceanographic data."
+  },
+  "NetCDF": {
+    "code": "NetCDF",
+    "domain": "Weather and Climate",
+    "link": "https://www.unidata.ucar.edu/software/netcdf/",
+    "type": "data_format",
+    "name": "NetCDF",
+    "description": "Network Common Data Form, a set of software libraries and machine-independent data formats for array-oriented scientific data."
+  },
+  "GML": {
+    "code": "GML",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/gml",
+    "type": "data_format",
+    "name": "GML",
+    "description": "Geography Markup Language, an XML grammar for expressing geographical features."
+  },
+  "WFS": {
+    "code": "WFS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wfs",
+    "type": "exchange",
+    "name": "WFS",
+    "description": "Web Feature Service, provides an interface allowing requests for geographical features across the web."
+  },
+  "WCS": {
+    "code": "WCS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wcs",
+    "type": "exchange",
+    "name": "WCS",
+    "description": "Web Coverage Service, provides access to coverage data in forms useful for client-side rendering."
+  },
+  "WMS": {
+    "code": "WMS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wms",
+    "type": "exchange",
+    "name": "WMS",
+    "description": "Web Map Service, provides map images from a geographic information system database."
+  },
+  "HDF": {
+    "code": "HDF",
+    "domain": "Weather and Climate",
+    "link": "https://www.hdfgroup.org/solutions/hdf5/",
+    "type": "data_format",
+    "name": "HDF",
+    "description": "Hierarchical Data Format, a set of file formats designed to store and organize large amounts of numerical data."
+  },
+  "BUFR": {
+    "code": "BUFR",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/VolumeI.2.html",
+    "type": "data_format",
+    "name": "BUFR",
+    "description": "Binary Universal Form for the Representation of meteorological data, a binary data format for meteorological observations."
+  },
+  "Not Applicable Weather": {
+    "code": "Not Applicable",
+    "domain": "Weather and Climate",
+    "link": "",
+    "type": "not_applicable",
+    "name": "Not Applicable",
+    "description": "Indicates that no specific weather or climate standard is applicable to the given context."
+  },
+  "Other Weather": {
+    "code": "Other",
+    "domain": "Weather and Climate",
+    "link": "",
+    "type": "other",
+    "name": "Other",
+    "description": "Refers to weather and climate standards not listed in the current classification system."
   }
-}
+} 

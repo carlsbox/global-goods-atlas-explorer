@@ -3,41 +3,32 @@
   {
     "code": "software",
     "title": "Software",
-    "description": "Digital software applications and platforms"
-  },
-  {
-    "code": "hardware",
-    "title": "Hardware",
-    "description": "Physical devices and equipment"
-  },
-  {
-    "code": "platform",
-    "title": "Platform",
-    "description": "Digital platforms and services"
-  },
-  {
-    "code": "framework",
-    "title": "Framework",
-    "description": "Development frameworks and libraries"
-  },
-  {
-    "code": "standard",
-    "title": "Standard",
-    "description": "Technical standards and protocols"
-  },
-  {
-    "code": "data",
-    "title": "Data",
-    "description": "Datasets and data resources"
+    "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
   },
   {
     "code": "content",
     "title": "Content",
-    "description": "Educational and informational content"
+    "description": "A resource, toolkit, or data standard available under an open license, used to improve or analyze health data management processes."
+  },
+  {
+    "code": "service",
+    "title": "Service",
+    "description": "A software-as-a-service tool used to manage, transmit, or analyze health-related data, freely accessible and adhering to open data principles."
+  },
+  {
+    "code": "climate",
+    "title": "Climate Data Product",
+    "description": "Open data sets or platforms providing analysis-ready, global, geospatial data reporting about the presence of population and human settlements."
+  },
+  {
+    "code": "data",
+    "title": "Data",
+    "description": "Open data collections that are accessible, reusable, and adhere to privacy and other applicable laws and best practices, contributing to the attainment of the Sustainable Development Goals (SDGs)."
+
   },
   {
     "code": "ai_model",
     "title": "AI Model",
-    "description": "Artificial intelligence and machine learning models"
+    "description": "Open artificial intelligence models that adhere to privacy and other applicable laws and best practices, designed to do no harm and help attain the SDGs."
   }
 ]

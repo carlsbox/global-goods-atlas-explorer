@@ -1,19 +1,74 @@
-
-{
-  "DPI_BD2": {
-    "code": "DPI_BD2",
-    "title": "Community Health Information Services",
+[
+  {
+    "code": "DPI_BD1",
+    "title": "Logistics Management Information Services",
     "group_code": "BD",
     "group_name": "Business Domain Services",
     "authority": "DPI-H",
-    "description": "Digital public infrastructure for community health information management"
+    "description": ""
   },
-  "DPI_HC1": {
-    "code": "DPI_HC1",
-    "title": "Health Care Information Services",
-    "group_code": "HC",
-    "group_name": "Health Care Services",
+  {
+    "code": "DPI_BD2",
+    "title": "Shared Health Record",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
     "authority": "DPI-H",
-    "description": "Digital public infrastructure for healthcare information services"
+    "description": ""
+  },
+  {
+    "code": "DPI_BD3",
+    "title": "Health Management Information System",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_BD4",
+    "title": "Finance and Insurance System",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG1",
+    "title": "Terminology Services",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG2",
+    "title": "Client Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG3",
+    "title": "Facility Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG4",
+    "title": "Health Workforce Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG5",
+    "title": "Product Catalogue",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
   }
-}
+]
