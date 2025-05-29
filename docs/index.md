@@ -76,12 +76,6 @@ These five documents form the core technical specification:
 - Content workflow management
 - Editorial procedures
 
-#### [Reference Data Documentation](./Reference%20Data%20Documentation.md)
-**Reference data mapping guide**
-- File location mappings
-- Reference data relationships
-- Map data specifications
-
 ## Specialized Tools
 
 ### [AI Extraction Template](./ai-extraction-template.md)
