@@ -32,9 +32,9 @@
     ],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-9"],
-      "WHO": [],
-      "WMO": [],
-      "DPI": []
+      "WHO": ["WHO_B3"],
+      "WMO": ["WMO_B1"],
+      "DPI": ["DPI_BD3"]
     },
     "StandardsAndInteroperability": {
       "HealthStandards": ["HL7 FHIR", "GS1"],
@@ -47,105 +47,219 @@
       "PrimaryFunctionality": "Health data management and analytics",
       "Users": "Ministries of health, NGOs, researchers",
       "Languages": ["en", "fr"],
-      "Screenshots": []
+      "Screenshots": [
+        {
+          "url": "https://dhis2.org/images/dashboard-screenshot.png",
+          "description": "DHIS2 analytics dashboard"
+        },
+        {
+          "url": "https://dhis2.org/images/data-entry-screenshot.png", 
+          "description": "Data entry interface"
+        }
+      ]
     },
     "Reach": {
-      "SummaryOfReach": "Deployed in over 20 countries for national health data management.",
-      "NumberOfImplementations": 20,
-      "ImplementationMapOverview": 
-        {
-          "url": "https://dhis2.org/map",
-          "description": "Global reach map"
-        }
-      ,
+      "SummaryOfReach": "Deployed in over 73 countries for national health data management.",
+      "NumberOfImplementations": 100,
+      "ImplementationMapOverview": {
+        "url": "https://dhis2.org/map",
+        "description": "Global reach map"
+      },
       "ImplementationCountries": ["hu", "bj", "sy", "pa", "sg", "iq", "lu", "ps", "cf", "fi", "kr", "mc", "cv", "sd", "do", "na", "es", "th", "cl", "it", "af", "lt", "tz", "cy", "pe", "lr", "ro", "gt", "ni", "bo", "mg", "np", "py", "se", "ec", "mt", "zm", "ma", "am", "ve", "ml", "gh", "rs", "br", "pl", "is", "om", "ph", "jm", "tv", "bf", "my", "sn", "ao", "tn", "by", "et", "id", "ad", "gn", "ne", "ke", "nz", "in", "tj", "ba", "ws", "mn", "sk", "sm", "ie", "mw", "ga", "bg", "tr", "ug", "dz", "vn", "al", "ae", "pk", "cz", "bh", "la", "dm", "az", "md", "zw", "ar", "no", "gy", "kg", "mr", "me", "bz", "co", "kp", "jo", "fm", "ht", "km", "sr", "cd", "ng", "ge", "cn", "sl", "sc", "to", "gd", "bs", "mk", "ag", "mx", "kh", "ru", "bd", "il", "mu", "fr"]
     },
     "Maturity": {
-      "SummaryOfMaturity": "Widely adopted and mature.",
-      "Scores": []
+      "SummaryOfMaturity": "Widely adopted and mature platform with 20+ years of development.",
+      "Scores": [
+        {
+          "year": 2023,
+          "global_utility": 9,
+          "community_support": 8,
+          "maturity_of_gg": 9,
+          "inclusive_design": 7,
+          "climate_resilience": 6,
+          "low_carbon": 7
+        },
+        {
+          "year": 2022,
+          "global_utility": 9,
+          "community_support": 8,
+          "maturity_of_gg": 8,
+          "inclusive_design": 7,
+          "climate_resilience": 5,
+          "low_carbon": 6
+        },
+        {
+          "year": 2021,
+          "global_utility": 8,
+          "community_support": 7,
+          "maturity_of_gg": 8,
+          "inclusive_design": 6,
+          "climate_resilience": 4,
+          "low_carbon": 6
+        }
+      ]
     },
     "ClimateAndHealthIntegration": {
-      "Description": "Supports integration with climate data for health analytics."
+      "Description": "Supports integration with climate data for health analytics and disease surveillance."
     },
     "Community": {
-      "DescriptionOfCommunity": "Large, active global community.",
+      "DescriptionOfCommunity": "Large, active global community with regional networks and annual conferences.",
       "HostAnchorOrganization": {
         "name": "HISP Centre, University of Oslo",
         "url": "https://www.uio.no/english/",
-        "description": "Academic anchor",
+        "description": "Academic anchor organization for DHIS2",
         "country": ["no"]
       },
       "InceptionYear": 2006,
       "SizeOfCommunity": 5000,
-      "Links": {},
+      "Links": {
+        "Community": {
+          "url": "https://community.dhis2.org",
+          "description": "DHIS2 community forum"
+        },
+        "MailingList": {
+          "url": "https://dhis2.org/newsletter",
+          "description": "Subscribe to DHIS2 updates"
+        }
+      },
       "Events": {
-        "description": "",
-        "schedule": "",
-        "recent": []
+        "description": "Annual DHIS2 conferences and quarterly community webinars.",
+        "schedule": "https://dhis2.org/events",
+        "recent": [
+          {
+            "event": "DHIS2 Annual Conference 2024",
+            "date": "2024-06-20",
+            "url": "https://dhis2.org/annual-conference-2024"
+          }
+        ]
       },
       "Policies": {
-        "Description": "",
+        "Description": "Committed to open source principles and responsible data governance.",
         "Governance": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/governance",
+          "description": "DHIS2 governance framework"
         },
         "TermsOfUse": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/terms",
+          "description": "Terms of use"
         },
         "UserAgreement": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/user-agreement",
+          "description": "User agreement"
         },
         "PrivacyPolicy": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/privacy",
+          "description": "Privacy policy"
         },
         "DoNoHarm": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/do-no-harm",
+          "description": "Do no harm principles"
         },
         "PIICollected": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/pii-policy",
+          "description": "PII collection policies"
         },
         "NPIIUsed": {
-          "url": "",
-          "description": ""
+          "url": "https://dhis2.org/npii-usage",
+          "description": "Non-PII usage policies"
         }
       }
     },
     "InclusiveDesign": {
-      "Description": "Accessible and localizable interface.",
-      "UserInput": "",
-      "OfflineSupport": ""
+      "Description": "Accessible and localizable interface with multi-language support.",
+      "UserInput": "Collected through community forums, GitHub issues, and annual conferences.",
+      "OfflineSupport": "Limited offline capabilities through mobile apps"
     },
     "EnvironmentalImpact": {
-      "LowCarbon": "Web-based, can be hosted on green infrastructure."
+      "LowCarbon": "Web-based platform optimized for low-bandwidth environments and can be hosted on green infrastructure."
     },
     "TotalCostOfOwnership": {
-      "Description": "Free and open-source, with optional paid support.",
-      "url": ""
+      "Description": "Free and open-source software with optional paid support and hosting services.",
+      "url": "https://dhis2.org/cost-ownership"
     },
     "Sustainability": {
-      "Description": "Supported by global donors and governments.",
-      "KeyFundersSupporters": []
+      "Description": "Sustained by global partnerships, government funding, and donor support.",
+      "KeyFundersSupporters": [
+        {
+          "name": "PEPFAR",
+          "url": "https://www.pepfar.gov",
+          "description": "U.S. President's Emergency Plan for AIDS Relief"
+        },
+        {
+          "name": "The Global Fund",
+          "url": "https://www.theglobalfund.org",
+          "description": "Partnership to fight AIDS, tuberculosis and malaria"
+        },
+        {
+          "name": "Gavi Alliance",
+          "url": "https://www.gavi.org",
+          "description": "Vaccine alliance for global health"
+        }
+      ]
     },
     "Resources": {
-      "Articles": [],
-      "ProductDocumentation": [],
-      "UserRequirements": [],
-      "EndUserDocumentation": [],
-      "ImplementerDocumentation": [],
-      "DeveloperDocumentation": [],
-      "OperatorDocumentation": [],
-      "InstallationDocumentation": []
+      "Articles": [
+        {
+          "description": "DHIS2 implementation case studies",
+          "url": "https://dhis2.org/case-studies"
+        },
+        {
+          "description": "Research papers on DHIS2 impact",
+          "url": "https://dhis2.org/research"
+        }
+      ],
+      "ProductDocumentation": [
+        {
+          "description": "DHIS2 Product Documentation",
+          "url": "https://docs.dhis2.org/en/home.html"
+        }
+      ],
+      "UserRequirements": [
+        {
+          "description": "System Requirements",
+          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html#install_server_requirements"
+        }
+      ],
+      "EndUserDocumentation": [
+        {
+          "description": "End User Manual",
+          "url": "https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/understanding-the-data-model/about-data-dimensions.html"
+        }
+      ],
+      "ImplementerDocumentation": [
+        {
+          "description": "Implementation Guide",
+          "url": "https://docs.dhis2.org/en/implement/implementing-dhis2/dhis2-implementation-guide.html"
+        }
+      ],
+      "DeveloperDocumentation": [
+        {
+          "description": "Developer Documentation",
+          "url": "https://docs.dhis2.org/en/develop/developing-with-the-android-sdk/dhis2-android-sdk-developer-guide.html"
+        }
+      ],
+      "OperatorDocumentation": [
+        {
+          "description": "System Administration Guide",
+          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html"
+        }
+      ],
+      "InstallationDocumentation": [
+        {
+          "description": "Installation Guide",
+          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html"
+        }
+      ]
     },
     "LinkedInitiatives": {
       "Initiative": [
         {
           "collectionInitiative": "dpga",
           "tool_url": "https://digitalpublicgoods.net/registry/dhis2.html"
+        },
+        {
+          "collectionInitiative": "dial-exchange",
+          "tool_url": "https://exchange.dial.global/a/products/dhis2"
         }
       ]
     }
