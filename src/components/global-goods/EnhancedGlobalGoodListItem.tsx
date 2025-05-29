@@ -1,6 +1,7 @@
+
 import { Link } from "react-router-dom";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
-import { ArrowUpRight, Globe, Building2, Shield, Zap } from "lucide-react";
+import { ArrowUpRight, Globe, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { SDGBadges } from "./list-item/SDGBadges";
 import { ClassificationBadges } from "./list-item/ClassificationBadges";
