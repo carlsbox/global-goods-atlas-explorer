@@ -8,41 +8,71 @@ interface GlobalGoodSummary {
   Name: string;
   Summary?: string;
   Logo?: string;
-  GlobalGoodType?: Array<{
-    code?: string;
-    title?: string;
-    description?: string;
-  }>;
-  Countries?: string[];
+  GlobalGoodType?: string[]; // Changed to just codes
+  Countries?: string[]; // Just ISO codes
   Classifications?: {
-    SDGs?: Array<{ code: string; title: string; }>;
-    WHO?: Array<{ code: string; title: string; group_code: string; group_name: string; authority: string; }>;
-    WMO?: Array<any>;
-    DPI?: Array<{ code: string; title: string; group_code: string; group_name: string; authority: string; }>;
+    SDGs?: string[]; // Just codes
+    WHO?: string[]; // Just codes
+    WMO?: string[]; // Just codes
+    DPI?: string[]; // Just codes
   };
-  StandardsAndInteroperability?: {
-    HealthStandards?: Array<{ code: string; domain: string; link: string; name: string; description: string; }>;
-    Interoperability?: Array<{ code: string; type: string; link: string; name: string; description: string; }>;
-    ClimateStandards?: Array<any>;
+  Standards?: {
+    Health?: string[]; // Just codes
+    Interop?: string[]; // Just codes
+    Climate?: string[]; // Just codes
   };
-  ImplementationCountries?: Array<{
-    iso_code: string;
-    type: string;
-    names: { en: { short: string; formal: string; } };
-  }>;
 }
 
 async function extractSummaryFromGlobalGood(globalGood: any): Promise<GlobalGoodSummary> {
+  // Extract GlobalGoodType codes
+  const globalGoodTypeCodes = globalGood.GlobalGoodsType?.map((type: any) => 
+    typeof type === 'string' ? type : type.code
+  ) || [];
+
+  // Extract classification codes
+  const classifications = globalGood.Classifications ? {
+    SDGs: globalGood.Classifications.SDGs?.map((sdg: any) => 
+      typeof sdg === 'string' ? sdg : sdg.code
+    ) || [],
+    WHO: globalGood.Classifications.WHO?.map((who: any) => 
+      typeof who === 'string' ? who : who.code
+    ) || [],
+    WMO: globalGood.Classifications.WMO?.map((wmo: any) => 
+      typeof wmo === 'string' ? wmo : wmo.code
+    ) || [],
+    DPI: globalGood.Classifications.DPI?.map((dpi: any) => 
+      typeof dpi === 'string' ? dpi : dpi.code
+    ) || []
+  } : undefined;
+
+  // Extract standards codes
+  const standards = globalGood.StandardsAndInteroperability ? {
+    Health: globalGood.StandardsAndInteroperability.HealthStandards?.map((standard: any) => 
+      typeof standard === 'string' ? standard : standard.code
+    ) || [],
+    Interop: globalGood.StandardsAndInteroperability.Interoperability?.map((standard: any) => 
+      typeof standard === 'string' ? standard : standard.code
+    ) || [],
+    Climate: globalGood.StandardsAndInteroperability.ClimateStandards?.map((standard: any) => 
+      typeof standard === 'string' ? standard : standard.code
+    ) || []
+  } : undefined;
+
+  // Extract country ISO codes
+  const countries = globalGood.Reach?.ImplementationCountries?.map((country: any) => {
+    if (typeof country === 'string') return country;
+    return country.iso_code || country.code;
+  }) || [];
+
   return {
     ID: globalGood.ID,
     Name: globalGood.Name,
     Summary: globalGood.ProductOverview?.Summary,
     Logo: globalGood.Logo,
-    GlobalGoodType: globalGood.GlobalGoodsType,
-    Countries: globalGood.Reach?.ImplementationCountries?.map((country: any) => country.iso_code),
-    Classifications: globalGood.Classifications,
-    StandardsAndInteroperability: globalGood.StandardsAndInteroperability,
-    ImplementationCountries: globalGood.Reach?.ImplementationCountries
+    GlobalGoodType: globalGoodTypeCodes,
+    Countries: countries,
+    Classifications: classifications,
+    Standards: standards
   };
 }
 
