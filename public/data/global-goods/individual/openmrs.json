@@ -4,22 +4,18 @@
     "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
     "Website": {
       "main": {
-        "name": "OpenMRS Website",
         "url": "https://openmrs.org",
         "description": "Official site for OpenMRS"
       },
       "docs": {
-        "name": "Documentation",
         "url": "https://wiki.openmrs.org/display/docs",
         "description": "User and developer documentation"
       },
       "source_code": {
-        "name": "Source Code",
         "url": "https://github.com/openmrs/openmrs-core",
         "description": "Main code repository"
       },
       "demo": {
-        "name": "Demo",
         "url": "https://demo.openmrs.org",
         "description": "Test OpenMRS online"
       }
@@ -62,64 +58,7 @@
         "url": "https://openmrs.org/map",
         "description": "Global reach map"
       },
-      "ImplementationCountries": [
-        { "iso_code": "ke", "type": "State", "names": { "en": { "short": "Kenya", "formal": "the Republic of Kenya" } } },
-        { "iso_code": "ug", "type": "State", "names": { "en": { "short": "Uganda", "formal": "the Republic of Uganda" } } },
-        { "iso_code": "in", "type": "State", "names": { "en": { "short": "India", "formal": "the Republic of India" } } },
-        { "iso_code": "ng", "type": "State", "names": { "en": { "short": "Nigeria", "formal": "the Federal Republic of Nigeria" } } },
-        { "iso_code": "za", "type": "State", "names": { "en": { "short": "South Africa", "formal": "the Republic of South Africa" } } },
-        { "iso_code": "bd", "type": "State", "names": { "en": { "short": "Bangladesh", "formal": "the People's Republic of Bangladesh" } } },
-        { "iso_code": "et", "type": "State", "names": { "en": { "short": "Ethiopia", "formal": "the Federal Democratic Republic of Ethiopia" } } },
-        { "iso_code": "tz", "type": "State", "names": { "en": { "short": "Tanzania", "formal": "the United Republic of Tanzania" } } },
-        { "iso_code": "gh", "type": "State", "names": { "en": { "short": "Ghana", "formal": "the Republic of Ghana" } } },
-        { "iso_code": "rw", "type": "State", "names": { "en": { "short": "Rwanda", "formal": "the Republic of Rwanda" } } },
-        { "iso_code": "zm", "type": "State", "names": { "en": { "short": "Zambia", "formal": "the Republic of Zambia" } } },
-        { "iso_code": "mw", "type": "State", "names": { "en": { "short": "Malawi", "formal": "the Republic of Malawi" } } },
-        { "iso_code": "ls", "type": "State", "names": { "en": { "short": "Lesotho", "formal": "the Kingdom of Lesotho" } } },
-        { "iso_code": "zw", "type": "State", "names": { "en": { "short": "Zimbabwe", "formal": "the Republic of Zimbabwe" } } },
-        { "iso_code": "mg", "type": "State", "names": { "en": { "short": "Madagascar", "formal": "the Republic of Madagascar" } } },
-        { "iso_code": "cm", "type": "State", "names": { "en": { "short": "Cameroon", "formal": "the Republic of Cameroon" } } },
-        { "iso_code": "sn", "type": "State", "names": { "en": { "short": "Senegal", "formal": "the Republic of Senegal" } } },
-        { "iso_code": "ml", "type": "State", "names": { "en": { "short": "Mali", "formal": "the Republic of Mali" } } },
-        { "iso_code": "ci", "type": "State", "names": { "en": { "short": "Côte d'Ivoire", "formal": "the Republic of Côte d'Ivoire" } } },
-        { "iso_code": "cd", "type": "State", "names": { "en": { "short": "DR Congo", "formal": "the Democratic Republic of the Congo" } } },
-        { "iso_code": "ao", "type": "State", "names": { "en": { "short": "Angola", "formal": "the Republic of Angola" } } },
-        { "iso_code": "mz", "type": "State", "names": { "en": { "short": "Mozambique", "formal": "the Republic of Mozambique" } } },
-        { "iso_code": "tg", "type": "State", "names": { "en": { "short": "Togo", "formal": "the Togolese Republic" } } },
-        { "iso_code": "bj", "type": "State", "names": { "en": { "short": "Benin", "formal": "the Republic of Benin" } } },
-        { "iso_code": "gm", "type": "State", "names": { "en": { "short": "Gambia", "formal": "the Republic of the Gambia" } } },
-        { "iso_code": "sl", "type": "State", "names": { "en": { "short": "Sierra Leone", "formal": "the Republic of Sierra Leone" } } },
-        { "iso_code": "lr", "type": "State", "names": { "en": { "short": "Liberia", "formal": "the Republic of Liberia" } } },
-        { "iso_code": "gn", "type": "State", "names": { "en": { "short": "Guinea", "formal": "the Republic of Guinea" } } },
-        { "iso_code": "bf", "type": "State", "names": { "en": { "short": "Burkina Faso", "formal": "Burkina Faso" } } },
-        { "iso_code": "ne", "type": "State", "names": { "en": { "short": "Niger", "formal": "the Republic of the Niger" } } },
-        { "iso_code": "eg", "type": "State", "names": { "en": { "short": "Egypt", "formal": "the Arab Republic of Egypt" } } },
-        { "iso_code": "ma", "type": "State", "names": { "en": { "short": "Morocco", "formal": "the Kingdom of Morocco" } } },
-        { "iso_code": "dz", "type": "State", "names": { "en": { "short": "Algeria", "formal": "the People's Democratic Republic of Algeria" } } },
-        { "iso_code": "tn", "type": "State", "names": { "en": { "short": "Tunisia", "formal": "the Republic of Tunisia" } } },
-        { "iso_code": "sd", "type": "State", "names": { "en": { "short": "Sudan", "formal": "the Republic of the Sudan" } } },
-        { "iso_code": "ss", "type": "State", "names": { "en": { "short": "South Sudan", "formal": "the Republic of South Sudan" } } },
-        { "iso_code": "gh", "type": "State", "names": { "en": { "short": "Ghana", "formal": "the Republic of Ghana" } } },
-        { "iso_code": "co", "type": "State", "names": { "en": { "short": "Colombia", "formal": "the Republic of Colombia" } } },
-        { "iso_code": "pe", "type": "State", "names": { "en": { "short": "Peru", "formal": "the Republic of Peru" } } },
-        { "iso_code": "br", "type": "State", "names": { "en": { "short": "Brazil", "formal": "the Federative Republic of Brazil" } } },
-        { "iso_code": "mx", "type": "State", "names": { "en": { "short": "Mexico", "formal": "the United Mexican States" } } },
-        { "iso_code": "ar", "type": "State", "names": { "en": { "short": "Argentina", "formal": "the Argentine Republic" } } },
-        { "iso_code": "cl", "type": "State", "names": { "en": { "short": "Chile", "formal": "the Republic of Chile" } } },
-        { "iso_code": "bo", "type": "State", "names": { "en": { "short": "Bolivia", "formal": "the Plurinational State of Bolivia" } } },
-        { "iso_code": "py", "type": "State", "names": { "en": { "short": "Paraguay", "formal": "the Republic of Paraguay" } } },
-        { "iso_code": "ec", "type": "State", "names": { "en": { "short": "Ecuador", "formal": "the Republic of Ecuador" } } },
-        { "iso_code": "ve", "type": "State", "names": { "en": { "short": "Venezuela", "formal": "the Bolivarian Republic of Venezuela" } } },
-        { "iso_code": "ph", "type": "State", "names": { "en": { "short": "Philippines", "formal": "the Republic of the Philippines" } } },
-        { "iso_code": "id", "type": "State", "names": { "en": { "short": "Indonesia", "formal": "the Republic of Indonesia" } } },
-        { "iso_code": "pk", "type": "State", "names": { "en": { "short": "Pakistan", "formal": "the Islamic Republic of Pakistan" } } },
-        { "iso_code": "np", "type": "State", "names": { "en": { "short": "Nepal", "formal": "the Federal Democratic Republic of Nepal" } } },
-        { "iso_code": "lk", "type": "State", "names": { "en": { "short": "Sri Lanka", "formal": "the Democratic Socialist Republic of Sri Lanka" } } },
-        { "iso_code": "th", "type": "State", "names": { "en": { "short": "Thailand", "formal": "the Kingdom of Thailand" } } },
-        { "iso_code": "vn", "type": "State", "names": { "en": { "short": "Vietnam", "formal": "the Socialist Republic of Vietnam" } } },
-        { "iso_code": "kh", "type": "State", "names": { "en": { "short": "Cambodia", "formal": "the Kingdom of Cambodia" } } },
-        { "iso_code": "mm", "type": "State", "names": { "en": { "short": "Myanmar", "formal": "the Republic of the Union of Myanmar" } } }
-      ]
+      "ImplementationCountries": ["tt", "py", "tr", "cv", "pg", "cf", "bt", "fj", "ph", "bs", "mk", "vn", "ae", "bo", "qa", "cz", "so", "bh", "bd", "lr", "id", "ro", "sd", "ke", "gt", "mm", "sm", "va", "se", "br", "am", "lt", "si", "lk", "ht", "dm", "az", "dz", "no", "ga", "kr", "md", "gy", "et", "by", "mv", "pa", "gm", "au", "er", "ni", "nl", "mu", "mn", "in", "tv", "jo", "al", "pe", "ge", "za", "mt", "gn", "ng", "do", "jo", "es", "ag", "cn", "bg", "nz", "cy", "ne", "ma", "uz", "is", "ae", "il", "bz", "pk", "gh", "lr", "me", "cz", "cl", "ua", "la", "tg", "md", "dk", "tz", "mg", "sn", "lu", "ao", "tn", "rs", "na", "ec", "rw"]
     },
     "Maturity": {
       "SummaryOfMaturity": "Highly mature, with a large and active global community and proven deployments.",

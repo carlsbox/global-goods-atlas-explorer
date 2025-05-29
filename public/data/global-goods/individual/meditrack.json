@@ -5,22 +5,18 @@
   "Logo": "/uploads/meditrack_logo_fake.png",
   "Website": {
     "main": {
-      "name": "MediTrack Website",
       "url": "https://meditrack.org",
       "description": "Official site for MediTrack"
     },
     "docs": {
-      "name": "Documentation",
       "url": "https://docs.meditrack.org",
       "description": "User and developer documentation"
     },
     "source_code": {
-      "name": "Source Code",
       "url": "https://github.com/meditrack/meditrack-core",
       "description": "Main code repository"
     },
     "demo": {
-      "name": "Demo",
       "url": "https://demo.meditrack.org",
       "description": "Test the tool online"
     }
@@ -37,13 +33,13 @@
   "Classifications": {
     "SDGs": ["SDG-3", "SDG-9"],
     "WHO": ["WHO_B6"],
-    "WMO": [],
+    "WMO": ["WMO_A3"],
     "DPI": ["DPI_BD1"]
   },
   "StandardsAndInteroperability": {
     "HealthStandards": ["GS1"],
     "Interoperability": ["ADX"],
-    "ClimateStandards": []
+    "ClimateStandards": ["GRIB"]
   },
   "ProductOverview": {
     "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
@@ -69,28 +65,7 @@
       "url": "https://meditrack.org/map",
       "description": "Global reach map"
     },
-    "ImplementationCountries": [
-      {
-        "iso_code": "ke",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "Kenya",
-            "formal": "the Republic of Kenya"
-          }
-        }
-      },
-      {
-        "iso_code": "ug",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "Uganda",
-            "formal": "the Republic of Uganda"
-          }
-        }
-      }
-    ]
+    "ImplementationCountries": ["am", "gt", "bd", "fi", "ml", "mm", "do", "bo", "it", "sk", "py", "ug", "de", "bs", "ng", "sd", "mc", "lr", "om", "bn", "bg", "tj", "mk", "za", "ke"]
   },
   "Maturity": {
     "SummaryOfMaturity": "Mature and proven in multiple supply chain deployments.",

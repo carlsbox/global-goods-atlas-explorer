@@ -5,33 +5,23 @@
   "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
   "Website": {
     "main": {
-      "name": "CommCare Website",
       "url": "https://www.dimagi.com/commcare/",
       "description": "Official CommCare platform website"
     },
     "docs": {
-      "name": "Documentation",
       "url": "https://confluence.dimagi.com/display/commcarepublic/CommCare+Public+Home",
       "description": "CommCare documentation and user guides"
     },
     "source_code": {
-      "name": "Source Code",
       "url": "https://github.com/dimagi/commcare-hq",
       "description": "CommCare HQ repository"
     },
     "demo": {
-      "name": "Demo",
       "url": "https://www.commcarehq.org/demo/",
       "description": "Try CommCare demo"
     }
   },
-  "GlobalGoodsType": [
-    {
-      "code": "software",
-      "title": "Software",
-      "description": "Mobile data collection and case management platform for frontline workers."
-    }
-  ],
+  "GlobalGoodsType": ["software"],
   "License": "bsd-3-clause",
   "Contact": [
     {
@@ -75,48 +65,7 @@
       "url": "https://www.dimagi.com/commcare/global-reach/",
       "description": "Global CommCare implementations map"
     },
-    "ImplementationCountries": [
-      {
-        "iso_code": "in",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "India",
-            "formal": "the Republic of India"
-          }
-        }
-      },
-      {
-        "iso_code": "ng",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "Nigeria",
-            "formal": "the Federal Republic of Nigeria"
-          }
-        }
-      },
-      {
-        "iso_code": "et",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "Ethiopia",
-            "formal": "the Federal Democratic Republic of Ethiopia"
-          }
-        }
-      },
-      {
-        "iso_code": "bd",
-        "type": "State",
-        "names": {
-          "en": {
-            "short": "Bangladesh",
-            "formal": "the People's Republic of Bangladesh"
-          }
-        }
-      }
-    ]
+    "ImplementationCountries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "sd", "dz", "ma", "km", "td", "gm", "mu", "tz", "sn", "ng", "et", "ao", "zw", "ug", "ga", "lr", "mz", "sl", "bj", "cd", "cv", "ml", "rw", "bf", "gh", "zm", "mw", "ne", "ke", "gn", "ci", "cm", "tg", "tn"]
   },
   "Maturity": {
     "SummaryOfMaturity": "Mature platform with over 15 years of development and widespread deployment.",

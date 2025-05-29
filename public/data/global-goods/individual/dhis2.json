@@ -4,22 +4,18 @@
     "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
     "Website": {
       "main": {
-        "name": "DHIS2 Website",
         "url": "https://dhis2.org",
         "description": "Official site for DHIS2"
       },
       "docs": {
-        "name": "Documentation",
         "url": "https://docs.dhis2.org",
         "description": "User and developer documentation"
       },
       "source_code": {
-        "name": "Source Code",
         "url": "https://github.com/dhis2/dhis2-core",
         "description": "Main code repository"
       },
       "demo": {
-        "name": "Demo",
         "url": "https://play.dhis2.org",
         "description": "Test DHIS2 online"
       }
@@ -61,18 +57,7 @@
           "description": "Global reach map"
         }
       ,
-      "ImplementationCountries": [
-        {"iso_code": "ke", "type": "State", "names": {"en": {"short": "Kenya", "formal": "the Republic of Kenya"}}},
-        {"iso_code": "ug", "type": "State", "names": {"en": {"short": "Uganda", "formal": "the Republic of Uganda"}}},
-        {"iso_code": "in", "type": "State", "names": {"en": {"short": "India", "formal": "the Republic of India"}}},
-        {"iso_code": "ng", "type": "State", "names": {"en": {"short": "Nigeria", "formal": "the Federal Republic of Nigeria"}}},
-        {"iso_code": "za", "type": "State", "names": {"en": {"short": "South Africa", "formal": "the Republic of South Africa"}}},
-        {"iso_code": "bd", "type": "State", "names": {"en": {"short": "Bangladesh", "formal": "the People's Republic of Bangladesh"}}},
-        {"iso_code": "et", "type": "State", "names": {"en": {"short": "Ethiopia", "formal": "the Federal Democratic Republic of Ethiopia"}}},
-        {"iso_code": "tz", "type": "State", "names": {"en": {"short": "Tanzania", "formal": "the United Republic of Tanzania"}}},
-        {"iso_code": "gh", "type": "State", "names": {"en": {"short": "Ghana", "formal": "the Republic of Ghana"}}},
-        {"iso_code": "rw", "type": "State", "names": {"en": {"short": "Rwanda", "formal": "the Republic of Rwanda"}}}
-      ]
+      "ImplementationCountries": ["hu", "bj", "sy", "pa", "sg", "iq", "lu", "ps", "cf", "fi", "kr", "mc", "cv", "sd", "do", "na", "es", "th", "cl", "it", "af", "lt", "tz", "cy", "pe", "lr", "ro", "gt", "ni", "bo", "mg", "np", "py", "se", "ec", "mt", "zm", "ma", "am", "ve", "ml", "gh", "rs", "br", "pl", "is", "om", "ph", "jm", "tv", "bf", "my", "sn", "ao", "tn", "by", "et", "id", "ad", "sd", "gn", "gn", "ne", "ke", "nz", "in", "tj", "ba", "ws", "mn", "sk", "sm", "ie", "mw", "tj", "ga", "bg", "tr", "ug", "dz", "vn", "al", "ae", "pk", "cz", "bh", "la", "dm", "az", "md", "md", "zw", "ar", "cz", "no", "gy", "tj", "kg", "mr", "me", "bz", "co", "kp", "jo", "fm", "ht", "km", "sr", "gn", "cd", "ng", "ge", "cn", "sl", "sc", "to", "gd", "bs", "mk", "am", "ag", "mx", "kh", "ru", "bd", "il", "tz", "tj", "mu", "lr", "fr"]
     },
     "Maturity": {
       "SummaryOfMaturity": "Widely adopted and mature.",
