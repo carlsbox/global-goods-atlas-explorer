@@ -127,7 +127,7 @@
     "ID": "dhis2",
     "Name": "DHIS2",
     "Summary": "A flexible, web-based open-source information system with visualization features.",
-    "Logo": "https://dhis2.org/logo.svg",
+    "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
     "GlobalGoodType": [{"code": "software", "title": "Software", "description": "Health information management system"}],
     "Countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw"],
     "Classifications": {
