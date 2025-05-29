@@ -6,6 +6,7 @@ import {
   EnhancedCMSGlobalGood,
   validateGlobalGoodData
 } from './enhancedCmsTransform';
+import { rebuildIndex } from './indexManager';
 
 /**
  * Load Global Good from enhanced CMS format
@@ -75,7 +76,8 @@ export async function loadAllEnhancedCMSGlobalGoods(
  * Save Global Good to CMS format (for future CMS integration)
  */
 export async function saveGlobalGoodToCMS(
-  globalGood: GlobalGoodFlat
+  globalGood: GlobalGoodFlat,
+  triggerIndexRebuild: boolean = true
 ): Promise<{ success: boolean; errors?: string[] }> {
   try {
     // Validate before saving
@@ -87,6 +89,19 @@ export async function saveGlobalGoodToCMS(
     // In a real CMS integration, this would save to the CMS backend
     // For now, we'll just validate and return success
     console.log('Global Good would be saved to CMS:', globalGood.ID);
+    
+    // Trigger index rebuild if requested
+    if (triggerIndexRebuild) {
+      try {
+        const rebuildResult = await rebuildIndex();
+        if (!rebuildResult.success) {
+          console.warn('Index rebuild failed after save:', rebuildResult.error);
+        }
+      } catch (error) {
+        console.warn('Failed to trigger index rebuild:', error);
+        // Don't fail the save operation if index rebuild fails
+      }
+    }
     
     return { success: true };
   } catch (error) {
@@ -109,5 +124,54 @@ export async function getAvailableGlobalGoodIds(): Promise<string[]> {
   } catch (error) {
     console.error('Error loading global good IDs:', error);
     return [];
+  }
+}
+
+/**
+ * Check if index needs rebuilding
+ */
+export async function checkIndexHealth(): Promise<{
+  needsRebuild: boolean;
+  issues: string[];
+  lastModified?: string;
+}> {
+  try {
+    const indexResponse = await fetch('/data/global-goods/index.json');
+    const issues: string[] = [];
+    
+    if (!indexResponse.ok) {
+      return {
+        needsRebuild: true,
+        issues: ['Index file not accessible'],
+      };
+    }
+    
+    const index = await indexResponse.json();
+    const lastModified = indexResponse.headers.get('last-modified');
+    
+    // Basic health checks
+    if (!Array.isArray(index)) {
+      issues.push('Index is not an array');
+    } else if (index.length === 0) {
+      issues.push('Index is empty');
+    }
+    
+    // Check for required fields in index entries
+    for (const item of index.slice(0, 5)) { // Check first 5 items
+      if (!item.ID) issues.push(`Index entry missing ID: ${JSON.stringify(item).substring(0, 50)}`);
+      if (!item.Name) issues.push(`Index entry ${item.ID || 'unknown'} missing Name`);
+    }
+    
+    return {
+      needsRebuild: issues.length > 0,
+      issues,
+      lastModified: lastModified || undefined,
+    };
+    
+  } catch (error) {
+    return {
+      needsRebuild: true,
+      issues: [`Error checking index health: ${error}`],
+    };
   }
 }
