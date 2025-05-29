@@ -1,13 +1,13 @@
 
 import { useParams, Link } from "react-router-dom";
+import { useGlobalGoodFlat } from "@/lib/api/globalGoodsFlat";
 import { ArrowLeft } from "lucide-react";
-import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
-import { ProgressiveLoadingSkeleton } from "@/components/global-good/ProgressiveLoadingSkeleton";
 
 // Import flat structure components
 import { GlobalGoodHeaderFlat } from "@/components/global-good/GlobalGoodHeaderFlat";
 import { OverviewTabFlat } from "@/components/global-good/OverviewTabFlat";
 import { CommunityTabEnhanced } from "@/components/global-good/CommunityTabEnhanced";
+import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { RawDataViewer } from "@/components/global-good/RawDataViewer";
 
@@ -20,36 +20,20 @@ import { SustainabilityEconomicsSection } from "@/components/global-good/Sustain
 
 import { useI18n } from "@/hooks/useI18n";
 import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
+  const { data: globalGood, isLoading, error, refetch } = useGlobalGoodFlat(id);
   const { tPage } = useI18n();
-  
-  const {
-    basicData,
-    detailedData,
-    loadingPhase,
-    error,
-    isBasicLoaded,
-    isDetailedLoaded
-  } = useProgressiveGlobalGood(id);
 
-  // Show full skeleton while initial loading
-  if (loadingPhase === 'initial') {
-    return <ProgressiveLoadingSkeleton />;
+  // Handle loading state
+  if (isLoading) {
+    return <LoadingState message={tPage('loading', 'globalGoodDetails')} />;
   }
 
   // Handle error state
-  if (error || loadingPhase === 'error') {
-    return <ErrorState onRetry={() => window.location.reload()} />;
-  }
-
-  // Use detailed data if available, otherwise fall back to basic data
-  const displayData = detailedData || basicData;
-  
-  if (!displayData) {
-    return <ProgressiveLoadingSkeleton />;
+  if (error || !globalGood) {
+    return <ErrorState onRetry={() => refetch()} />;
   }
 
   return (
@@ -64,112 +48,52 @@ export default function GlobalGoodDetailsPageFlat() {
           {tPage('backToGlobalGoods', 'globalGoodDetails')}
         </Link>
         
-        {isDetailedLoaded && (
-          <RawDataViewer data={detailedData} title={`Raw Data: ${displayData.Name}`} />
-        )}
+        <RawDataViewer data={globalGood} title={`Raw Data: ${globalGood.Name}`} />
       </div>
       
-      {/* Header Section - Shows immediately with basic data */}
-      <GlobalGoodHeaderFlat globalGood={displayData} />
+      {/* Header Section */}
+      <GlobalGoodHeaderFlat globalGood={globalGood} />
       
-      {/* Main Content - Progressive loading sections */}
+      {/* Main Content - All sections displayed vertically */}
       <div className="mt-8 space-y-10">
-        {/* Overview Section - Priority content */}
+        {/* Overview Section */}
         <div>
           <h2 className="text-2xl font-bold mb-4">{tPage('tabs.overview', 'globalGoodDetails')}</h2>
-          {isBasicLoaded ? (
-            <OverviewTabFlat globalGood={displayData} />
-          ) : (
-            <Skeleton className="h-32 w-full" />
-          )}
+          <OverviewTabFlat globalGood={globalGood} />
         </div>
         
         <Separator />
         
-        {/* Technical Information Section - Priority content */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Technical Information</h2>
-          {isDetailedLoaded ? (
-            <TechnicalInformationSection globalGood={displayData} />
-          ) : (
-            <div className="space-y-4">
-              <Skeleton className="h-24 w-full" />
-              <Skeleton className="h-24 w-full" />
-            </div>
-          )}
-        </div>
+        {/* Technical Information Section */}
+        <TechnicalInformationSection globalGood={globalGood} />
         
         <Separator />
         
-        {/* Global Reach Section - Lazy loaded */}
-        {isDetailedLoaded ? (
-          <>
-            <GlobalReachSection globalGood={displayData} />
-            <Separator />
-          </>
-        ) : (
-          <>
-            <div>
-              <Skeleton className="h-8 w-48 mb-4" />
-              <Skeleton className="h-32 w-full" />
-            </div>
-            <Separator />
-          </>
-        )}
+        {/* Global Reach Section */}
+        <GlobalReachSection globalGood={globalGood} />
         
-        {/* Resources Section - Lazy loaded */}
-        {isDetailedLoaded ? (
-          <>
-            <ResourcesSection globalGood={displayData} />
-            <Separator />
-          </>
-        ) : (
-          <>
-            <div>
-              <Skeleton className="h-8 w-32 mb-4" />
-              <Skeleton className="h-24 w-full" />
-            </div>
-            <Separator />
-          </>
-        )}
+        <Separator />
         
-        {/* Community Section - Lazy loaded */}
+        {/* Resources Section */}
+        <ResourcesSection globalGood={globalGood} />
+        
+        <Separator />
+        
+        {/* Community Section - Using Enhanced Component */}
         <div>
           <h2 className="text-2xl font-bold mb-4">Community</h2>
-          {isDetailedLoaded ? (
-            <CommunityTabEnhanced globalGood={displayData} />
-          ) : (
-            <Skeleton className="h-40 w-full" />
-          )}
+          <CommunityTabEnhanced globalGood={globalGood} />
         </div>
         
         <Separator />
         
-        {/* Maturity Section - Lazy loaded */}
-        {isDetailedLoaded ? (
-          <>
-            <MaturitySection globalGood={displayData} />
-            <Separator />
-          </>
-        ) : (
-          <>
-            <div>
-              <Skeleton className="h-8 w-32 mb-4" />
-              <Skeleton className="h-48 w-full" />
-            </div>
-            <Separator />
-          </>
-        )}
+        {/* Maturity Section */}
+        <MaturitySection globalGood={globalGood} />
         
-        {/* Sustainability & Economics Section - Lazy loaded */}
-        {isDetailedLoaded ? (
-          <SustainabilityEconomicsSection globalGood={displayData} />
-        ) : (
-          <div>
-            <Skeleton className="h-8 w-48 mb-4" />
-            <Skeleton className="h-32 w-full" />
-          </div>
-        )}
+        <Separator />
+        
+        {/* Sustainability & Economics Section */}
+        <SustainabilityEconomicsSection globalGood={globalGood} />
       </div>
     </div>
   );
