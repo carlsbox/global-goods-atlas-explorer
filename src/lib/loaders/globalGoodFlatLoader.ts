@@ -1,5 +1,7 @@
 
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
+import { getLicenseById } from './referenceDataLoader';
+import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 
 interface GlobalGoodIndexEnhanced {
   ID: string;
@@ -91,14 +93,177 @@ async function fetchIndividualGlobalGood(id: string): Promise<GlobalGoodFlat | u
       console.warn(`Individual file not found for global good: ${id}`);
       return undefined;
     }
-    const data = await res.json();
+    const rawData = await res.json();
     
-    individualFileCache.set(id, data);
-    return data;
+    // Transform the raw data to resolve references
+    const transformedData = await transformRawDataToFlat(rawData);
+    
+    individualFileCache.set(id, transformedData);
+    return transformedData;
   } catch (err) {
     console.error(`Error fetching individual global good ${id}:`, err);
     return undefined;
   }
+}
+
+async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
+  // Resolve license reference if it's a string
+  let license = rawData.License;
+  if (typeof license === 'string') {
+    const licenseData = await getLicenseById(license);
+    license = licenseData ? {
+      id: licenseData.id,
+      name: licenseData.name,
+      url: licenseData.url,
+      description: licenseData.description
+    } : {
+      id: license,
+      name: license,
+      url: '',
+      description: ''
+    };
+  }
+
+  // Resolve classification references if they're string arrays
+  let classifications = rawData.Classifications;
+  if (classifications && 
+      (Array.isArray(classifications.SDGs) || 
+       Array.isArray(classifications.WHO) || 
+       Array.isArray(classifications.WMO) || 
+       Array.isArray(classifications.DPI))) {
+    
+    const classificationCodes = {
+      SDGs: Array.isArray(classifications.SDGs) ? classifications.SDGs : [],
+      WHO: Array.isArray(classifications.WHO) ? classifications.WHO : [],
+      WMO: Array.isArray(classifications.WMO) ? classifications.WMO : [],
+      DPI: Array.isArray(classifications.DPI) ? classifications.DPI : []
+    };
+    
+    classifications = await resolveClassificationsByAuthority(classificationCodes);
+  }
+
+  // Return the transformed data
+  return {
+    ID: rawData.ID || '',
+    Name: rawData.Name || '',
+    Logo: rawData.Logo,
+    Website: rawData.Website || {},
+    GlobalGoodsType: rawData.GlobalGoodsType || [],
+    License: license,
+    Contact: rawData.Contact || [],
+    Classifications: classifications || {
+      SDGs: [],
+      WHO: [],
+      WMO: [],
+      DPI: []
+    },
+    StandardsAndInteroperability: {
+      HealthStandards: rawData.StandardsAndInteroperability?.HealthStandards || [],
+      Interoperability: rawData.StandardsAndInteroperability?.Interoperability || [],
+      ClimateStandards: rawData.StandardsAndInteroperability?.ClimateStandards || []
+    },
+    ProductOverview: {
+      Summary: rawData.ProductOverview?.Summary || '',
+      Description: rawData.ProductOverview?.Description || '',
+      PrimaryFunctionality: rawData.ProductOverview?.PrimaryFunctionality || '',
+      Users: rawData.ProductOverview?.Users || '',
+      Languages: rawData.ProductOverview?.Languages || [],
+      Screenshots: rawData.ProductOverview?.Screenshots || []
+    },
+    Reach: {
+      SummaryOfReach: rawData.Reach?.SummaryOfReach || '',
+      NumberOfImplementations: rawData.Reach?.NumberOfImplementations || 0,
+      ImplementationMapOverview: rawData.Reach?.ImplementationMapOverview || null,
+      ImplementationCountries: rawData.Reach?.ImplementationCountries || []
+    },
+    Maturity: {
+      SummaryOfMaturity: rawData.Maturity?.SummaryOfMaturity || '',
+      Scores: rawData.Maturity?.Scores || []
+    },
+    ClimateAndHealthIntegration: {
+      Description: rawData.ClimateAndHealthIntegration?.Description || ''
+    },
+    Community: {
+      DescriptionOfCommunity: rawData.Community?.DescriptionOfCommunity || '',
+      HostAnchorOrganization: {
+        name: rawData.Community?.HostAnchorOrganization?.name || '',
+        url: rawData.Community?.HostAnchorOrganization?.url || '',
+        description: rawData.Community?.HostAnchorOrganization?.description || '',
+        country: rawData.Community?.HostAnchorOrganization?.country || []
+      },
+      InceptionYear: rawData.Community?.InceptionYear || 0,
+      SizeOfCommunity: rawData.Community?.SizeOfCommunity || 0,
+      Links: {
+        Community: rawData.Community?.Links?.Community,
+        MailingList: rawData.Community?.Links?.MailingList
+      },
+      Events: {
+        description: rawData.Community?.Events?.description || '',
+        schedule: rawData.Community?.Events?.schedule || '',
+        recent: rawData.Community?.Events?.recent || []
+      },
+      Policies: {
+        Description: rawData.Community?.Policies?.Description || '',
+        Governance: {
+          url: rawData.Community?.Policies?.Governance?.url || '',
+          description: rawData.Community?.Policies?.Governance?.description || ''
+        },
+        TermsOfUse: {
+          url: rawData.Community?.Policies?.TermsOfUse?.url || '',
+          description: rawData.Community?.Policies?.TermsOfUse?.description || ''
+        },
+        UserAgreement: {
+          url: rawData.Community?.Policies?.UserAgreement?.url || '',
+          description: rawData.Community?.Policies?.UserAgreement?.description || ''
+        },
+        PrivacyPolicy: {
+          url: rawData.Community?.Policies?.PrivacyPolicy?.url || '',
+          description: rawData.Community?.Policies?.PrivacyPolicy?.description || ''
+        },
+        DoNoHarm: {
+          url: rawData.Community?.Policies?.DoNoHarm?.url || '',
+          description: rawData.Community?.Policies?.DoNoHarm?.description || ''
+        },
+        PIICollected: {
+          url: rawData.Community?.Policies?.PIICollected?.url || '',
+          description: rawData.Community?.Policies?.PIICollected?.description || ''
+        },
+        NPIIUsed: {
+          url: rawData.Community?.Policies?.NPIIUsed?.url || '',
+          description: rawData.Community?.Policies?.NPIIUsed?.description || ''
+        }
+      }
+    },
+    InclusiveDesign: {
+      Description: rawData.InclusiveDesign?.Description || '',
+      UserInput: rawData.InclusiveDesign?.UserInput || '',
+      OfflineSupport: rawData.InclusiveDesign?.OfflineSupport || ''
+    },
+    EnvironmentalImpact: {
+      LowCarbon: rawData.EnvironmentalImpact?.LowCarbon || ''
+    },
+    TotalCostOfOwnership: {
+      Description: rawData.TotalCostOfOwnership?.Description || '',
+      url: rawData.TotalCostOfOwnership?.url || ''
+    },
+    Sustainability: {
+      Description: rawData.Sustainability?.Description || '',
+      KeyFundersSupporters: rawData.Sustainability?.KeyFundersSupporters || []
+    },
+    Resources: {
+      Articles: rawData.Resources?.Articles || [],
+      ProductDocumentation: rawData.Resources?.ProductDocumentation || [],
+      UserRequirements: rawData.Resources?.UserRequirements || [],
+      EndUserDocumentation: rawData.Resources?.EndUserDocumentation || [],
+      ImplementerDocumentation: rawData.Resources?.ImplementerDocumentation || [],
+      DeveloperDocumentation: rawData.Resources?.DeveloperDocumentation || [],
+      OperatorDocumentation: rawData.Resources?.OperatorDocumentation || [],
+      InstallationDocumentation: rawData.Resources?.InstallationDocumentation || []
+    },
+    LinkedInitiatives: {
+      Initiative: rawData.LinkedInitiatives?.Initiative || []
+    }
+  };
 }
 
 export async function loadGlobalGoodFlat(id: string): Promise<GlobalGoodFlat | undefined> {
