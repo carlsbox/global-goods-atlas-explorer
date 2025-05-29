@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { RefreshCw, CheckCircle, AlertTriangle, Clock } from 'lucide-react';
+import { RotateCw, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { rebuildIndex, validateIndexConsistency, getIndexStatus } from '@/lib/cms/indexManager';
 
@@ -90,7 +90,7 @@ export function IndexManagement() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <RefreshCw className="h-5 w-5" />
+            <RotateCw className="h-5 w-5" />
             Global Goods Index Management
           </CardTitle>
           <CardDescription>
@@ -133,7 +133,7 @@ export function IndexManagement() {
               disabled={isRebuilding}
               className="flex items-center gap-2"
             >
-              <RefreshCw className={`h-4 w-4 ${isRebuilding ? 'animate-spin' : ''}`} />
+              <RotateCw className={`h-4 w-4 ${isRebuilding ? 'animate-spin' : ''}`} />
               {isRebuilding ? 'Rebuilding...' : 'Rebuild Index'}
             </Button>
             
