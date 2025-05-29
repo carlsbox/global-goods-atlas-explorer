@@ -3,7 +3,7 @@ import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { EnhancedFilterBar } from "@/components/global-goods/EnhancedFilterBar";
 import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobalGoodCard";
-import { GlobalGoodListItem } from "@/components/global-goods/GlobalGoodListItem";
+import { EnhancedGlobalGoodListItem } from "@/components/global-goods/EnhancedGlobalGoodListItem";
 import { NoResults } from "@/components/global-goods/NoResults";
 import { useI18n } from "@/hooks/useI18n";
 import { LoadingState } from "@/components/global-good/LoadingState";
@@ -256,9 +256,9 @@ export default function GlobalGoodsPageFlat() {
             ))}
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {filteredAndSortedGoods.map((good) => (
-              <GlobalGoodListItem key={good.ID} good={good} />
+              <EnhancedGlobalGoodListItem key={good.ID} good={good} />
             ))}
           </div>
         )}
