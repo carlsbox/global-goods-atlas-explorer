@@ -1,89 +1,306 @@
 [
-{
-  "SDG-1": {
-    "code": "SDG-1",
-    "title": "No Poverty",
-    "description": "End poverty in all its forms everywhere"
+  {
+    "code": "WHO_A1",
+    "title": "Communication systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-2": {
-    "code": "SDG-2",
-    "title": "Zero Hunger",
-    "description": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
+  {
+    "code": "WHO_A2",
+    "title": "Community-based information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-3": {
-    "code": "SDG-3",
-    "title": "Good Health and Well-being",
-    "description": "Ensure healthy lives and promote well-being for all at all ages"
+  {
+    "code": "WHO_A3",
+    "title": "Decision support systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-4": {
-    "code": "SDG-4",
-    "title": "Quality Education",
-    "description": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all"
+  {
+    "code": "WHO_A4",
+    "title": "Diagnostics information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-5": {
-    "code": "SDG-5",
-    "title": "Gender Equality",
-    "description": "Achieve gender equality and empower all women and girls"
+  {
+    "code": "WHO_A5",
+    "title": "Electronic medical record systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-6": {
-    "code": "SDG-6",
-    "title": "Clean Water and Sanitation",
-    "description": "Ensure availability and sustainable management of water and sanitation for all"
+  {
+    "code": "WHO_A6",
+    "title": "Laboratory information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-7": {
-    "code": "SDG-7",
-    "title": "Affordable and Clean Energy",
-    "description": "Ensure access to affordable, reliable, sustainable and modern energy for all"
+  {
+    "code": "WHO_A7",
+    "title": "Personal health records",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-8": {
-    "code": "SDG-8",
-    "title": "Decent Work and Economic Growth",
-    "description": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all"
+  {
+    "code": "WHO_A8",
+    "title": "Pharmacy information systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-9": {
-    "code": "SDG-9",
-    "title": "Industry, Innovation and Infrastructure",
-    "description": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation"
+  {
+    "code": "WHO_A9",
+    "title": "Telehealth systems",
+    "group_code": "A",
+    "group_name": "Point of Service",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-10": {
-    "code": "SDG-10",
-    "title": "Reduced Inequality",
-    "description": "Reduce inequality within and among countries"
+  {
+    "code": "WHO_B1",
+    "title": "Blood bank information management systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-11": {
-    "code": "SDG-11",
-    "title": "Sustainable Cities and Communities",
-    "description": "Make cities and human settlements inclusive, safe, resilient and sustainable"
+  {
+    "code": "WHO_B2",
+    "title": "Health finance-related information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-12": {
-    "code": "SDG-12",
-    "title": "Responsible Consumption and Production",
-    "description": "Ensure sustainable consumption and production patterns"
+  {
+    "code": "WHO_B3",
+    "title": "Health program monitoring systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-13": {
-    "code": "SDG-13",
-    "title": "Climate Action",
-    "description": "Take urgent action to combat climate change and its impacts"
+  {
+    "code": "WHO_B4",
+    "title": "Human resource information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-14": {
-    "code": "SDG-14",
-    "title": "Life Below Water",
-    "description": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development"
+  {
+    "code": "WHO_B5",
+    "title": "Learning and training systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-15": {
-    "code": "SDG-15",
-    "title": "Life on Land",
-    "description": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss"
+  {
+    "code": "WHO_B6",
+    "title": "Logistics management information systems (LMIS)",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-16": {
-    "code": "SDG-16",
-    "title": "Peace, Justice and Strong Institutions",
-    "description": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels"
+  {
+    "code": "WHO_B7",
+    "title": "Patient Administration systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
   },
-  "SDG-17": {
-    "code": "SDG-17",
-    "title": "Partnerships for the Goals",
-    "description": "Strengthen the means of implementation and revitalize the global partnership for sustainable development"
+  {
+    "code": "WHO_B8",
+    "title": "Research information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C1",
+    "title": "Census and population information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C2",
+    "title": "Civil registration and vital statistics (CRVS) systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C3",
+    "title": "Facility management information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C4",
+    "title": "(Health) Facility registries",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C5",
+    "title": "Health worker registry",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C6",
+    "title": "Identification registries and directories",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C7",
+    "title": "Immunization information systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C8",
+    "title": "Master patient index",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C9",
+    "title": "Product catalogues",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C10",
+    "title": "Public Key directories",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_C11",
+    "title": "Terminology and classification systems",
+    "group_code": "C",
+    "group_name": "Registries and Directories",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D1",
+    "title": "Analytics Systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D2",
+    "title": "Data interchange and interoperability",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D3",
+    "title": "Data warehouses",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D4",
+    "title": "Environmental monitoring systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D5",
+    "title": "Geographic information systems (GIS)",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D6",
+    "title": "Health Management Information systems (HMIS)",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D7",
+    "title": "Knowledge management systems",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_D8",
+    "title": "Shared Health Record and Health Information Repository",
+    "group_code": "D",
+    "group_name": "Data Management Systems",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_E1",
+    "title": "Emergency preparedness and response systems",
+    "group_code": "E",
+    "group_name": "Surveillance and Response",
+    "authority": "WHO",
+    "description": ""
+  },
+  {
+    "code": "WHO_E2",
+    "title": "Public health and disease surveillance systems",
+    "group_code": "E",
+    "group_name": "Surveillance and Response",
+    "authority": "WHO",
+    "description": ""
   }
-}
 ]
