@@ -30,7 +30,7 @@ export async function loadEnhancedCMSGlobalGood(
         // Continue with transform but log warnings
       }
       
-      return transformEnhancedCMSGlobalGoodToFlat(cmsData, language);
+      return await transformEnhancedCMSGlobalGoodToFlat(cmsData, language);
     }
 
     console.warn(`Global Good not found: ${id}`);

@@ -1,0 +1,39 @@
+
+[
+  {
+    "id": "apache-2.0",
+    "name": "Apache License 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Permissive open source license that allows commercial use, modification, distribution, and patent use"
+  },
+  {
+    "id": "mit",
+    "name": "MIT License", 
+    "url": "https://opensource.org/licenses/MIT",
+    "description": "Simple permissive license with conditions only requiring preservation of copyright and license notices"
+  },
+  {
+    "id": "bsd-3-clause",
+    "name": "BSD 3-Clause License",
+    "url": "https://opensource.org/licenses/BSD-3-Clause",
+    "description": "Permissive license similar to the BSD 2-Clause License, but with a 3rd clause"
+  },
+  {
+    "id": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "description": "Copyleft license that requires derivative works to be open source under the same license"
+  },
+  {
+    "id": "lgpl-2.1",
+    "name": "GNU Lesser General Public License v2.1",
+    "url": "https://www.gnu.org/licenses/lgpl-2.1.html",
+    "description": "Copyleft license for libraries that allows linking with proprietary software"
+  },
+  {
+    "id": "mpl-2.0",
+    "name": "Mozilla Public License 2.0",
+    "url": "https://mozilla.org/MPL/2.0/",
+    "description": "Weak copyleft license that requires modifications to be open source"
+  }
+]

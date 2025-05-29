@@ -1,22 +1,288 @@
 
 import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 import { LanguageCode } from '@/lib/types';
+import { 
+  getLicenseById, 
+  getProductLanguageByCode, 
+  getCollectionInitiativeById 
+} from '@/lib/loaders/referenceDataLoader';
 
-// Enhanced CMS Global Good format that matches the complete structure
-export interface EnhancedCMSGlobalGood extends GlobalGoodFlat {
-  // This interface now directly extends GlobalGoodFlat to ensure 1:1 mapping
+// Enhanced CMS Global Good format that now uses reference IDs
+export interface EnhancedCMSGlobalGood {
+  ID: string;
+  Name: string;
+  Logo?: string;
+  Website: {
+    main?: {
+      name: string;
+      url: string;
+      description: string;
+    };
+    docs?: {
+      name: string;
+      url: string;
+      description: string;
+    };
+    source_code?: {
+      name: string;
+      url: string;
+      description: string;
+    };
+    demo?: {
+      name: string;
+      url: string;
+      description: string;
+    };
+  };
+  GlobalGoodsType: Array<{
+    code: string;
+    title: string;
+    description: string;
+  }>;
+  License: string; // Changed to reference ID
+  Contact: Array<{
+    name: string;
+    email: string;
+    role: string;
+  }>;
+  Classifications: {
+    SDGs: Array<{
+      code: string;
+      title: string;
+    }>;
+    WHO: Array<{
+      code: string;
+      title: string;
+      group_code: string;
+      group_name: string;
+      authority: string;
+    }>;
+    WMO: Array<any>;
+    DPI: Array<{
+      code: string;
+      title: string;
+      group_code: string;
+      group_name: string;
+      authority: string;
+    }>;
+  };
+  StandardsAndInteroperability: {
+    HealthStandards: Array<{
+      code: string;
+      domain: string;
+      link: string;
+      name: string;
+      description: string;
+    }>;
+    Interoperability: Array<{
+      code: string;
+      type: string;
+      link: string;
+      name: string;
+      description: string;
+    }>;
+    ClimateStandards: Array<any>;
+  };
+  ProductOverview: {
+    Summary: string;
+    Description: string;
+    PrimaryFunctionality: string;
+    Users: string;
+    Languages: string[]; // Changed to array of language codes
+    Screenshots: Array<{
+      url: string;
+      description: string;
+    }>;
+  };
+  Reach: {
+    SummaryOfReach: string;
+    NumberOfImplementations: number;
+    ImplementationMapOverview: {
+      url: string;
+      description: string;
+    } | null;
+    ImplementationCountries: Array<{
+      iso_code: string;
+      type: string;
+      names: {
+        en: {
+          short: string;
+          formal: string;
+        };
+      };
+    }>;
+  };
+  Maturity: {
+    SummaryOfMaturity: string;
+    Scores: Array<{
+      year: number;
+      global_utility: number;
+      community_support: number;
+      maturity_of_gg: number;
+      inclusive_design: number;
+      climate_resilience: number;
+      low_carbon: number;
+    }>;
+  };
+  ClimateAndHealthIntegration: {
+    Description: string;
+  };
+  Community: {
+    DescriptionOfCommunity: string;
+    HostAnchorOrganization: {
+      name: string;
+      url: string;
+      description: string;
+      country: string[];
+    };
+    InceptionYear: number;
+    SizeOfCommunity: number;
+    Links: {
+      Community?: {
+        url: string;
+        description: string;
+      };
+      MailingList?: {
+        url: string;
+        description: string;
+      };
+    };
+    Events: {
+      description: string;
+      schedule: string;
+      recent: Array<{
+        event: string;
+        date: string;
+        url: string;
+      }>;
+    };
+    Policies: {
+      Description: string;
+      Governance: {
+        url: string;
+        description: string;
+      };
+      TermsOfUse: {
+        url: string;
+        description: string;
+      };
+      UserAgreement: {
+        url: string;
+        description: string;
+      };
+      PrivacyPolicy: {
+        url: string;
+        description: string;
+      };
+      DoNoHarm: {
+        url: string;
+        description: string;
+      };
+      PIICollected: {
+        url: string;
+        description: string;
+      };
+      NPIIUsed: {
+        url: string;
+        description: string;
+      };
+    };
+  };
+  InclusiveDesign: {
+    Description: string;
+    UserInput: string;
+    OfflineSupport: string;
+  };
+  EnvironmentalImpact: {
+    LowCarbon: string;
+  };
+  TotalCostOfOwnership: {
+    Description: string;
+    url: string;
+  };
+  Sustainability: {
+    Description: string;
+    KeyFundersSupporters: Array<{
+      name: string;
+      url: string;
+      description: string;
+    }>;
+  };
+  Resources: {
+    Articles: Array<{
+      description: string;
+      url: string;
+    }>;
+    ProductDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+    UserRequirements: Array<{
+      description: string;
+      url: string;
+    }>;
+    EndUserDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+    ImplementerDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+    DeveloperDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+    OperatorDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+    InstallationDocumentation: Array<{
+      description: string;
+      url: string;
+    }>;
+  };
+  LinkedInitiatives: {
+    Initiative: Array<{
+      collectionInitiative: string; // Changed to reference ID
+      tool_url: string;
+    }>;
+  };
 }
 
 /**
- * Enhanced transform from CMS to application format
- * Now handles the complete data structure without loss
+ * Enhanced transform from CMS to application format with reference resolution
  */
-export function transformEnhancedCMSGlobalGoodToFlat(
+export async function transformEnhancedCMSGlobalGoodToFlat(
   cmsGood: EnhancedCMSGlobalGood,
   language: LanguageCode = 'en'
-): GlobalGoodFlat {
-  // Since the CMS format now matches the app format exactly,
-  // we can do a direct pass-through with validation
+): Promise<GlobalGoodFlat> {
+  // Resolve license reference
+  const license = await getLicenseById(cmsGood.License);
+  
+  // Resolve language references
+  const languages = await Promise.all(
+    cmsGood.ProductOverview.Languages.map(async (code) => {
+      const lang = await getProductLanguageByCode(code);
+      return lang ? { code: lang.code, name: lang.name } : { code, name: code };
+    })
+  );
+  
+  // Resolve collection initiative references
+  const initiatives = await Promise.all(
+    cmsGood.LinkedInitiatives.Initiative.map(async (initiative) => {
+      const collectionInitiative = await getCollectionInitiativeById(initiative.collectionInitiative);
+      return {
+        collectionInitiative: collectionInitiative || {
+          label: initiative.collectionInitiative,
+          logo_url: '',
+          site_url: '',
+          description: ''
+        },
+        tool_url: initiative.tool_url
+      };
+    })
+  );
   
   const transformed: GlobalGoodFlat = {
     ID: cmsGood.ID || '',
@@ -29,11 +295,16 @@ export function transformEnhancedCMSGlobalGoodToFlat(
       demo: cmsGood.Website?.demo
     },
     GlobalGoodsType: cmsGood.GlobalGoodsType || [],
-    License: {
-      id: cmsGood.License?.id || '',
-      name: cmsGood.License?.name || '',
-      url: cmsGood.License?.url || '',
-      description: cmsGood.License?.description || ''
+    License: license ? {
+      id: license.id,
+      name: license.name,
+      url: license.url,
+      description: license.description
+    } : {
+      id: cmsGood.License,
+      name: cmsGood.License,
+      url: '',
+      description: ''
     },
     Contact: cmsGood.Contact || [],
     Classifications: {
@@ -52,7 +323,7 @@ export function transformEnhancedCMSGlobalGoodToFlat(
       Description: cmsGood.ProductOverview?.Description || '',
       PrimaryFunctionality: cmsGood.ProductOverview?.PrimaryFunctionality || '',
       Users: cmsGood.ProductOverview?.Users || '',
-      Languages: cmsGood.ProductOverview?.Languages || [],
+      Languages: languages,
       Screenshots: cmsGood.ProductOverview?.Screenshots || []
     },
     Reach: {
@@ -146,7 +417,7 @@ export function transformEnhancedCMSGlobalGoodToFlat(
       InstallationDocumentation: cmsGood.Resources?.InstallationDocumentation || []
     },
     LinkedInitiatives: {
-      Initiative: cmsGood.LinkedInitiatives?.Initiative || []
+      Initiative: initiatives
     }
   };
 
