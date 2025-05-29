@@ -35,6 +35,12 @@ const SDG_COLORS = {
 };
 
 export function SDGClassificationCard({ sdg }: SDGClassificationCardProps) {
+  // Safety check for undefined code
+  if (!sdg || !sdg.code) {
+    console.warn('SDG object missing code property:', sdg);
+    return null;
+  }
+
   const colors = SDG_COLORS[sdg.code as keyof typeof SDG_COLORS] || { bg: '#6B7280', text: '#FFFFFF' };
   const sdgNumber = sdg.code.replace('SDG-', '');
   
