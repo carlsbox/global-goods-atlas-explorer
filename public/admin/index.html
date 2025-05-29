@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Goods Atlas - Content Management</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    
+    <!-- Custom widgets and configurations -->
+    <script>
+      // Custom preview templates
+      CMS.registerPreviewTemplate("global-goods", ({ entry, widgetFor, widgetsFor }) => {
+        const data = entry.getIn(['data']).toJS();
+        return `
+          <div style="padding: 20px; font-family: Arial, sans-serif;">
+            <h1>${data.Name}</h1>
+            <p><strong>ID:</strong> ${data.ID}</p>
+            <p><strong>Summary:</strong> ${data.ProductOverview?.Summary || 'No summary available'}</p>
+            <p><strong>Primary Functionality:</strong> ${data.ProductOverview?.PrimaryFunctionality || 'Not specified'}</p>
+            ${data.Logo ? `<img src="${data.Logo}" alt="${data.Name} logo" style="max-width: 200px; height: auto;">` : ''}
+            <div style="margin-top: 20px;">
+              <h3>Contact Information</h3>
+              ${data.Contact?.map(contact => `
+                <p><strong>${contact.name}</strong> (${contact.role}): ${contact.email}</p>
+              `).join('') || 'No contact information'}
+            </div>
+          </div>
+        `;
+      });
+
+      // Custom field validation
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          const data = entry.get('data').toJS();
+          
+          // Validate required fields
+          if (!data.ID) {
+            throw new Error('ID is required');
+          }
+          
+          if (!data.Name) {
+            throw new Error('Name is required');
+          }
+          
+          // Validate ID format (no spaces, lowercase, hyphens allowed)
+          if (!/^[a-z0-9-]+$/.test(data.ID)) {
+            throw new Error('ID must contain only lowercase letters, numbers, and hyphens');
+          }
+          
+          return entry;
+        }
+      });
+    </script>
+  </body>
+</html>
