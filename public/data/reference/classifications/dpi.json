@@ -1,51 +1,74 @@
-
-{
-  "DPI_BD1": {
+[
+  {
     "code": "DPI_BD1",
-    "title": "Digital Identity",
-    "description": "Systems for digital identity management and verification",
-    "authority": "DPI",
+    "title": "Logistics Management Information Services",
     "group_code": "BD",
-    "group_name": "Basic Digital Infrastructure"
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
   },
-  "DPI_BD2": {
+  {
     "code": "DPI_BD2",
-    "title": "Digital Payments",
-    "description": "Digital payment systems and financial inclusion platforms",
-    "authority": "DPI",
+    "title": "Shared Health Record",
     "group_code": "BD",
-    "group_name": "Basic Digital Infrastructure"
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
   },
-  "DPI_BD3": {
+  {
     "code": "DPI_BD3",
-    "title": "Data Exchange",
-    "description": "Interoperable data sharing and exchange platforms",
-    "authority": "DPI",
+    "title": "Health Management Information System",
     "group_code": "BD",
-    "group_name": "Basic Digital Infrastructure"
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
   },
-  "DPI_HC1": {
-    "code": "DPI_HC1",
-    "title": "Health Data Infrastructure",
-    "description": "Digital health data management and sharing systems",
-    "authority": "DPI",
-    "group_code": "HC",
-    "group_name": "Healthcare DPI"
+  {
+    "code": "DPI_BD4",
+    "title": "Finance and Insurance System",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": ""
   },
-  "DPI_HC2": {
-    "code": "DPI_HC2",
-    "title": "Health Service Delivery",
-    "description": "Digital platforms for health service delivery",
-    "authority": "DPI",
-    "group_code": "HC",
-    "group_name": "Healthcare DPI"
+  {
+    "code": "DPI_RG1",
+    "title": "Terminology Services",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
   },
-  "DPI_ED1": {
-    "code": "DPI_ED1",
-    "title": "Education Delivery Platforms",
-    "description": "Digital platforms for education content and delivery",
-    "authority": "DPI",
-    "group_code": "ED",
-    "group_name": "Education DPI"
+  {
+    "code": "DPI_RG2",
+    "title": "Client Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG3",
+    "title": "Facility Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG4",
+    "title": "Health Workforce Registry",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_RG5",
+    "title": "Product Catalogue",
+    "group_code": "RG",
+    "group_name": "Registry Services",
+    "authority": "DPI-H",
+    "description": ""
   }
-}
+]
