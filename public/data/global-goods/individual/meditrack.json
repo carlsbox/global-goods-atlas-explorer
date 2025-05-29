@@ -108,9 +108,7 @@
       "name": "HealthWare Foundation",
       "url": "https://healthware.org",
       "description": "Global health non-profit",
-      "country": [
-        "nl"
-      ]
+      "country": ["nl"]
     },
     "InceptionYear": 2016,
     "SizeOfCommunity": 1200,
@@ -128,16 +126,6 @@
       "description": "Annual stakeholder summit and quarterly webinars.",
       "schedule": "https://meditrack.org/events",
       "recent": [
-        {
-          "event": "MediTrack Summit 2024",
-          "date": "2024-10-12",
-          "url": "https://meditrack.org/summit2024"
-        },
-        {
-          "event": "MediTrack Summit 2024",
-          "date": "2024-10-12",
-          "url": "https://meditrack.org/summit2024"
-        },
         {
           "event": "MediTrack Summit 2024",
           "date": "2024-10-12",

@@ -65,7 +65,7 @@
       "url": "https://www.dimagi.com/commcare/global-reach/",
       "description": "Global CommCare implementations map"
     },
-    "ImplementationCountries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "sd", "dz", "ma", "km", "td", "gm", "mu", "tz", "sn", "ng", "et", "ao", "zw", "ug", "ga", "lr", "mz", "sl", "bj", "cd", "cv", "ml", "rw", "bf", "gh", "zm", "mw", "ne", "ke", "gn", "ci", "cm", "tg", "tn"]
+    "ImplementationCountries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "mu", "mz", "lr", "tg"]
   },
   "Maturity": {
     "SummaryOfMaturity": "Mature platform with over 15 years of development and widespread deployment.",
@@ -99,9 +99,7 @@
       "name": "Dimagi",
       "url": "https://www.dimagi.com",
       "description": "Social enterprise focused on technology for global development",
-      "country": [
-        "us"
-      ]
+      "country": ["us"]
     },
     "InceptionYear": 2009,
     "SizeOfCommunity": 5000,
