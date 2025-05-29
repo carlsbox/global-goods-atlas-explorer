@@ -1,6 +1,7 @@
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
 import { getLicenseById, getProductLanguageByCode, getStandardByCode, getGlobalGoodsTypeByCode, getCollectionInitiativeById } from './referenceDataLoader';
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
+import { loadCountriesData } from './countryLoader';
 
 interface GlobalGoodIndexEnhanced {
   ID: string;
@@ -279,6 +280,60 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     climateStandards = resolvedClimateStandards;
   }
 
+  // Transform ImplementationCountries from ISO codes to country objects
+  let implementationCountries = rawData.Reach?.ImplementationCountries || [];
+  if (Array.isArray(implementationCountries) && implementationCountries.length > 0) {
+    // Check if the first item is a string (ISO code) - if so, transform all
+    if (typeof implementationCountries[0] === 'string') {
+      try {
+        const countriesData = await loadCountriesData('en');
+        const countryMap = new Map(countriesData.map(country => [country.iso_code || country.code, country]));
+        
+        implementationCountries = implementationCountries
+          .map((isoCode: string) => {
+            const countryData = countryMap.get(isoCode);
+            if (countryData) {
+              return {
+                iso_code: countryData.iso_code || countryData.code,
+                type: countryData.type || 'State',
+                names: {
+                  en: {
+                    short: countryData.name.short,
+                    formal: countryData.name.official
+                  }
+                }
+              };
+            }
+            // Fallback for unknown ISO codes
+            return {
+              iso_code: isoCode,
+              type: 'State',
+              names: {
+                en: {
+                  short: isoCode.toUpperCase(),
+                  formal: isoCode.toUpperCase()
+                }
+              }
+            };
+          })
+          .filter(Boolean); // Remove any null/undefined entries
+      } catch (error) {
+        console.warn('Failed to transform implementation countries:', error);
+        // Fallback transformation if country data loading fails
+        implementationCountries = implementationCountries.map((isoCode: string) => ({
+          iso_code: isoCode,
+          type: 'State',
+          names: {
+            en: {
+              short: isoCode.toUpperCase(),
+              formal: isoCode.toUpperCase()
+            }
+          }
+        }));
+      }
+    }
+  }
+
   // Return the transformed data
   return {
     ID: rawData.ID || '',
@@ -311,7 +366,7 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
       SummaryOfReach: rawData.Reach?.SummaryOfReach || '',
       NumberOfImplementations: rawData.Reach?.NumberOfImplementations || 0,
       ImplementationMapOverview: rawData.Reach?.ImplementationMapOverview || null,
-      ImplementationCountries: rawData.Reach?.ImplementationCountries || []
+      ImplementationCountries: implementationCountries
     },
     Maturity: {
       SummaryOfMaturity: rawData.Maturity?.SummaryOfMaturity || '',
