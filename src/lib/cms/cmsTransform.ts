@@ -1,4 +1,3 @@
-
 import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 import { UseCase } from '@/lib/types/useCase';
 import { LanguageCode } from '@/lib/types';
@@ -184,7 +183,13 @@ export function transformCMSGlobalGoodToFlat(
         group_name: '', 
         authority: '' 
       })),
-      WMO: cmsGood.classifications.wmo.map(code => ({ code })),
+      WMO: cmsGood.classifications.wmo.map(code => ({ 
+        code, 
+        title: '', 
+        group_code: '', 
+        group_name: '', 
+        authority: '' 
+      })),
       DPI: cmsGood.classifications.dpi.map(code => ({ 
         code, 
         title: '', 
