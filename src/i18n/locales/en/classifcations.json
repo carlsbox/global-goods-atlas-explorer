@@ -1,0 +1,48 @@
+
+[
+  {
+    "code": "SDG-1",
+    "title": "No Poverty",
+    "description": "End poverty in all its forms everywhere"
+  },
+  {
+    "code": "SDG-2", 
+    "title": "Zero Hunger",
+    "description": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
+  },
+  {
+    "code": "SDG-3",
+    "title": "Good Health and Well-being",
+    "description": "Ensure healthy lives and promote well-being for all at all ages"
+  },
+  {
+    "code": "WHO_B1",
+    "title": "Health Information Systems",
+    "description": "Systems for health data collection, analysis and reporting"
+  },
+  {
+    "code": "WHO_B6",
+    "title": "Leadership and Governance", 
+    "description": "Health system governance and stewardship"
+  },
+  {
+    "code": "WMO_A3",
+    "title": "Hydrological Observations",
+    "description": "Water cycle and freshwater monitoring systems"
+  },
+  {
+    "code": "WMO_C1",
+    "title": "Climate Monitoring",
+    "description": "Long-term climate observation and analysis"
+  },
+  {
+    "code": "DPI_BD1",
+    "title": "Digital Identity",
+    "description": "Systems for digital identity management and verification"
+  },
+  {
+    "code": "DPI_HC1",
+    "title": "Health Data Infrastructure",
+    "description": "Digital health data management and sharing systems"
+  }
+]

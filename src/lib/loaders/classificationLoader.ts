@@ -1,27 +1,30 @@
+
+import { loadClassificationsByAuthority } from './classificationsReferenceLoader';
+
 export async function loadClassificationsData(language?: string) {
   try {
-    const module = await import('../../i18n/locales/en/classifcations.json');
-    const baseData = module.default;
-    
-    // If no language specified or language is 'en', return base data
-    if (!language || language === 'en') {
-      return baseData;
+    // Load all classification authorities
+    const [sdgs, who, wmo, dpi] = await Promise.all([
+      loadClassificationsByAuthority('sdgs'),
+      loadClassificationsByAuthority('who'),
+      loadClassificationsByAuthority('wmo'),
+      loadClassificationsByAuthority('dpi')
+    ]);
+
+    // Convert to flat array format for backward compatibility
+    const classifications = [
+      ...Object.values(sdgs).map(item => ({ ...item, authority: 'SDG' })),
+      ...Object.values(who).map(item => ({ ...item, authority: 'WHO' })),
+      ...Object.values(wmo).map(item => ({ ...item, authority: 'WMO' })),
+      ...Object.values(dpi).map(item => ({ ...item, authority: 'DPI' }))
+    ];
+
+    // TODO: Apply language translations when i18n files are available
+    if (language && language !== 'en') {
+      console.log(`Language ${language} translations not yet implemented for classifications`);
     }
-    
-    // Try to load translations for other languages
-    try {
-      const translationModule = await import(`../../i18n/locales/${language}/classifcations.json`);
-      const translations = translationModule.default;
-      
-      // Merge base data with translations
-      return baseData.map(item => {
-        const translation = translations.find(t => t.code === item.code);
-        return translation ? { ...item, ...translation } : item;
-      });
-    } catch (translationError) {
-      console.warn(`No translations found for language: ${language}, falling back to base data`);
-      return baseData;
-    }
+
+    return classifications;
   } catch (error) {
     console.error('Failed to load classifications data:', error);
     return [];

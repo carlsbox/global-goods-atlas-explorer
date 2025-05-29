@@ -5,8 +5,8 @@ export { loadGlobalGoodFlat, loadAllGlobalGoodsFlat } from "./globalGoodFlatLoad
 export { loadUseCase, loadAllUseCases } from "./useCaseLoader";
 export { loadCountriesData } from "./countryLoader";
 export { loadSDGData } from "./sdgLoader";
-export { useContentLoader } from "@/hooks/useContentLoader";
 export { loadStandardsData } from './standardsLoader';
+export { useContentLoader } from "@/hooks/useContentLoader";
 export { 
   loadLicenses, 
   loadProductLanguages, 

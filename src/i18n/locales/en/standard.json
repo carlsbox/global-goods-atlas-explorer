@@ -1,0 +1,45 @@
+
+{
+  "HL7-FHIR": {
+    "code": "HL7 FHIR",
+    "name": "HL7 Fast Healthcare Interoperability Resources",
+    "description": "Standard for health information exchange",
+    "domain": "health",
+    "type": "HealthStandards"
+  },
+  "GS1": {
+    "code": "GS1",
+    "name": "GS1 Standards",
+    "description": "Global standards for supply chain visibility",
+    "domain": "supply-chain",
+    "type": "HealthStandards"
+  },
+  "ICD-10": {
+    "code": "ICD-10",
+    "name": "International Classification of Diseases",
+    "description": "Medical classification standard",
+    "domain": "health",
+    "type": "HealthStandards"
+  },
+  "ADX": {
+    "code": "ADX",
+    "name": "Aggregate Data Exchange",
+    "description": "Standard for aggregate health data exchange",
+    "domain": "health",
+    "type": "Interoperability"
+  },
+  "REST": {
+    "code": "REST",
+    "name": "Representational State Transfer",
+    "description": "Architectural style for web services",
+    "domain": "technology",
+    "type": "Interoperability"
+  },
+  "GRIB": {
+    "code": "GRIB",
+    "name": "General Regularly-distributed Information in Binary",
+    "description": "Standard for meteorological data",
+    "domain": "climate",
+    "type": "ClimateStandards"
+  }
+}

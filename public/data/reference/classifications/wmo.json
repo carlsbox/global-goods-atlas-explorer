@@ -1,114 +1,59 @@
-[
-  {
+
+{
+  "WMO_A1": {
     "code": "WMO_A1",
-    "title": "Modelling & Reanalysis (merging of multisource data)",
-    "group_code": "A",
-    "group_name": "Climate data sources",
+    "title": "Atmospheric Observations",
+    "description": "Weather and atmospheric monitoring systems",
     "authority": "WMO",
-    "description": ""
+    "group_code": "A",
+    "group_name": "Observational Systems"
   },
-  {
+  "WMO_A2": {
     "code": "WMO_A2",
-    "title": "Observations",
-    "group_code": "A",
-    "group_name": "Climate data sources",
+    "title": "Ocean Observations",
+    "description": "Marine and oceanographic monitoring systems",
     "authority": "WMO",
-    "description": ""
+    "group_code": "A",
+    "group_name": "Observational Systems"
   },
-  {
+  "WMO_A3": {
     "code": "WMO_A3",
-    "title": "Climate Data Repositories",
+    "title": "Hydrological Observations",
+    "description": "Water cycle and freshwater monitoring systems",
+    "authority": "WMO",
     "group_code": "A",
-    "group_name": "Climate data sources",
-    "authority": "WMO",
-    "description": ""
+    "group_name": "Observational Systems"
   },
-  {
-    "code": "WMO_A4",
-    "title": "Open Data Platforms",
-    "group_code": "A",
-    "group_name": "Climate data sources",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_B1",
-    "title": "Climate data integration and interoperability",
-    "group_code": "B",
-    "group_name": "Climate Data Processing",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_B2",
-    "title": "Statistical analysis & modelling",
-    "group_code": "B",
-    "group_name": "Climate Data Processing",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
+  "WMO_C1": {
     "code": "WMO_C1",
-    "title": "Programming-based",
-    "group_code": "C",
-    "group_name": "Climate data visualization",
+    "title": "Climate Monitoring",
+    "description": "Long-term climate observation and analysis",
     "authority": "WMO",
-    "description": ""
+    "group_code": "C",
+    "group_name": "Climate Services"
   },
-  {
+  "WMO_C2": {
     "code": "WMO_C2",
-    "title": "Interactive dashboard",
+    "title": "Climate Prediction",
+    "description": "Climate forecasting and projection services",
+    "authority": "WMO",
     "group_code": "C",
-    "group_name": "Climate data visualization",
-    "authority": "WMO",
-    "description": ""
+    "group_name": "Climate Services"
   },
-  {
-    "code": "WMO_C3",
-    "title": "GIS",
-    "group_code": "C",
-    "group_name": "Climate data visualization",
+  "WMO_W1": {
+    "code": "WMO_W1",
+    "title": "Weather Forecasting",
+    "description": "Short to medium-term weather prediction services",
     "authority": "WMO",
-    "description": ""
+    "group_code": "W",
+    "group_name": "Weather Services"
   },
-  {
-    "code": "WMO_D1",
-    "title": "Decision Support Systems",
-    "group_code": "D",
-    "group_name": "Climate Services",
+  "WMO_W2": {
+    "code": "WMO_W2",
+    "title": "Early Warning Systems",
+    "description": "Warning systems for severe weather and natural hazards",
     "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_D2",
-    "title": "Climate Risk Platforms",
-    "group_code": "D",
-    "group_name": "Climate Services",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_E1",
-    "title": "Climate ontologies",
-    "group_code": "E",
-    "group_name": "Climate standards and guidelines",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_E2",
-    "title": "Climate frameworks",
-    "group_code": "E",
-    "group_name": "Climate standards and guidelines",
-    "authority": "WMO",
-    "description": ""
-  },
-  {
-    "code": "WMO_E3",
-    "title": "Climate standards",
-    "group_code": "E",
-    "group_name": "Climate standards and guidelines",
-    "authority": "WMO",
-    "description": ""
+    "group_code": "W",
+    "group_name": "Weather Services"
   }
-]
+}

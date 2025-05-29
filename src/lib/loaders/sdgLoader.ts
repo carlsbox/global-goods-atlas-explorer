@@ -1,34 +1,21 @@
 
-import { LanguageCode } from '@/lib/types';
+import { loadClassificationsByAuthority } from './classificationsReferenceLoader';
 
-interface SDGData {
-  [key: string]: {
-    code?: string;
-    title: string;
-  };
-}
-
-export async function loadSDGData(language: LanguageCode = 'en') {
+export async function loadSDGData(language?: string) {
   try {
-    // Load SDG data for the specified language
-    const sdgModule = await import(`../../i18n/locales/${language}/sdg.json`);
-    const sdgData: SDGData = sdgModule.default;
+    const sdgs = await loadClassificationsByAuthority('sdgs');
     
-    // Convert to array format with consistent structure
-    return Object.entries(sdgData).map(([code, data]) => ({
-      code,
-      title: data.title,
-      // Add these for consistency with other classifications
-      group_code: 'SDG',
-      group_name: 'Sustainable Development Goals',
-      authority: 'UN'
-    }));
-  } catch (err) {
-    console.error(`Failed to load SDG data for language: ${language}`, err);
-    // Fallback to English if the requested language fails
-    if (language !== 'en') {
-      return loadSDGData('en');
+    // Convert to array format for SDG components
+    const sdgArray = Object.values(sdgs);
+
+    // TODO: Apply language translations when i18n files are available
+    if (language && language !== 'en') {
+      console.log(`Language ${language} translations not yet implemented for SDGs`);
     }
+
+    return sdgArray;
+  } catch (error) {
+    console.error('Failed to load SDG data:', error);
     return [];
   }
 }
