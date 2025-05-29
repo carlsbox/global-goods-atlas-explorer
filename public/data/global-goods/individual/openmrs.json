@@ -41,58 +41,15 @@
       }
     ],
     "Classifications": {
-      "SDGs": [
-        { "code": "SDG-3", "title": "Good Health and Well-being" },
-        { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure" },
-        { "code": "SDG-17", "title": "Partnerships for the Goals" }
-      ],
-      "WHO": [
-        { "code": "WHO_B1", "title": "Electronic medical record systems (EMR)", "group_code": "B", "group_name": "Health System / Provider administration", "authority": "WHO" }
-      ],
-      "WMO": [
-        { "code": "WMO_C1", "title": "Climate and Health Data Integration", "group_code": "C", "group_name": "Climate Services", "authority": "WMO" }
-      ],
-      "DPI": [
-        { "code": "DPI_HC1", "title": "Health Care Information Services", "group_code": "HC", "group_name": "Health Care Services", "authority": "DPI-H" }
-      ]
+      "SDGs": ["SDG-3", "SDG-9", "SDG-17"],
+      "WHO": ["WHO_B1"],
+      "WMO": ["WMO_C1"],
+      "DPI": ["DPI_HC1"]
     },
     "StandardsAndInteroperability": {
-      "HealthStandards": [
-        {
-          "code": "HL7 FHIR",
-          "domain": "Health",
-          "link": "https://www.hl7.org/fhir/",
-          "type": "exchange",
-          "name": "HL7 FHIR",
-          "description": "Modern standard for exchanging healthcare information electronically."
-        },
-        {
-          "code": "ICD-10",
-          "domain": "Health",
-          "link": "https://www.who.int/standards/classifications/classification-of-diseases",
-          "type": "classification",
-          "name": "ICD-10",
-          "description": "International Classification of Diseases, 10th Revision."
-        }
-      ],
-      "Interoperability": [
-        {
-          "code": "OpenHIE",
-          "type": "architecture",
-          "link": "https://ohie.org/",
-          "name": "OpenHIE",
-          "description": "Open Health Information Exchange architecture."
-        }
-      ],
-      "ClimateStandards": [
-        {
-          "code": "WMO-GUIDE",
-          "domain": "Climate",
-          "link": "https://library.wmo.int/index.php?lvl=notice_display&id=12407",
-          "name": "WMO Guide",
-          "description": "WMO Guide to Climatological Practices."
-        }
-      ]
+      "HealthStandards": ["HL7 FHIR", "ICD"],
+      "Interoperability": ["REST"],
+      "ClimateStandards": []
     },
     "ProductOverview": {
       "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
@@ -108,9 +65,10 @@
     "Reach": {
       "SummaryOfReach": "Implemented in over 50 countries across Africa, Asia, and Latin America.",
       "NumberOfImplementations": 120,
-      "ImplementationMapOverview": [
-        { "url": "https://openmrs.org/map", "description": "Global reach map" }
-      ],
+      "ImplementationMapOverview": {
+        "url": "https://openmrs.org/map",
+        "description": "Global reach map"
+      },
       "ImplementationCountries": [
         { "iso_code": "ke", "type": "State", "names": { "en": { "short": "Kenya", "formal": "the Republic of Kenya" } } },
         { "iso_code": "ug", "type": "State", "names": { "en": { "short": "Uganda", "formal": "the Republic of Uganda" } } },
