@@ -1,3 +1,4 @@
+
 [
   {
     "ID": "meditrack",
@@ -261,7 +262,7 @@
     "ID": "openmrs",
     "Name": "OpenMRS",
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
-    "Logo": "https://openmrs.org/images/logo.svg",
+    "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
     "GlobalGoodType": [{"code": "software", "title": "Software", "description": "Electronic medical records platform"}],
     "Countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw", "zm", "mw", "ls", "zw", "mg", "cm", "sn", "ml", "ci", "cd", "ao", "mz", "tg", "bj", "gm", "sl", "lr", "gn", "bf", "ne", "eg", "ma", "dz", "tn", "sd", "ss", "co", "pe", "br", "mx", "ar", "cl", "bo", "py", "ec", "ve", "ph", "id", "pk", "np", "lk", "th", "vn", "kh", "mm"],
     "Classifications": {
