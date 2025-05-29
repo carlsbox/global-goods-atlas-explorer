@@ -6,8 +6,8 @@
   "showing": "Showing {{filtered}} of {{total}} global goods",
   "filters": {
     "searchPlaceholder": "Search global goods...",
-    "sectorLabel": "Filter by sector",
-    "allSectors": "All sectors",
+    "sectorLabel": "Filter by type",
+    "allSectors": "All Global Goods Types",
     "clearFilters": "Clear filters"
   },
   "noResults": {

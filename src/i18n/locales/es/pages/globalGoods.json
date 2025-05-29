@@ -6,8 +6,8 @@
   "showing": "Mostrando {{filtered}} de {{total}} bienes globales",
   "filters": {
     "searchPlaceholder": "Buscar bienes globales...",
-    "sectorLabel": "Filtrar por sector",
-    "allSectors": "Todos los sectores",
+    "sectorLabel": "Filtrar por tipo",
+    "allSectors": "Todos los Tipos de Bienes Globales",
     "clearFilters": "Borrar filtros"
   },
   "noResults": {
