@@ -8,6 +8,7 @@
     "searchPlaceholder": "Search global goods...",
     "sectorLabel": "Filter by type",
     "allSectors": "All Global Goods Types",
+    "sortLabel": "Sort by",
     "clearFilters": "Clear filters"
   },
   "noResults": {

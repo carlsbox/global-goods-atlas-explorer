@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { 
@@ -283,7 +282,7 @@ export function EnhancedFilterBar({
 
         <Select value={sortBy} onValueChange={setSortBy}>
           <SelectTrigger className="h-11 sm:w-48">
-            <SelectValue placeholder="Sort by..." />
+            <SelectValue placeholder={tPage("filters.sortLabel", "globalGoods")} />
           </SelectTrigger>
           <SelectContent>
             {SORT_OPTIONS.map(option => (

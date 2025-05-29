@@ -8,6 +8,7 @@
     "searchPlaceholder": "Rechercher des biens mondiaux...",
     "sectorLabel": "Filtrer par type",
     "allSectors": "Tous les Types de Biens Mondiaux",
+    "sortLabel": "Trier par",
     "clearFilters": "Effacer les filtres"
   },
   "noResults": {
