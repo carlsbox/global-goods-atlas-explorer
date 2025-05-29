@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,12 +7,33 @@ import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { EnhancedClassificationBadge } from "@/components/EnhancedClassificationBadge";
 import { GroupedClassifications } from "@/components/global-good/GroupedClassifications";
 import { SDGClassificationCard } from "@/components/global-good/SDGClassificationCard";
+import { useReferenceData } from "@/hooks/useReferenceData";
+import { useEffect, useState } from "react";
 
 interface TechnicalInformationSectionProps {
   globalGood: GlobalGoodFlat;
 }
 
 export function TechnicalInformationSection({ globalGood }: TechnicalInformationSectionProps) {
+  const { resolveClassifications } = useReferenceData();
+  const [resolvedSDGs, setResolvedSDGs] = useState<any[]>([]);
+
+  // Resolve SDG codes to full objects
+  useEffect(() => {
+    const resolveSdgs = async () => {
+      if (globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0) {
+        // Convert SDG objects to codes if needed
+        const sdgCodes = globalGood.Classifications.SDGs.map(sdg => 
+          typeof sdg === 'string' ? sdg : sdg.code
+        );
+        const resolved = await resolveClassifications(sdgCodes);
+        setResolvedSDGs(resolved);
+      }
+    };
+
+    resolveSdgs();
+  }, [globalGood.Classifications?.SDGs, resolveClassifications]);
+
   // Helper function to check if technical classifications have data (excluding WMO and SDGs)
   const hasTechnicalClassifications = () => {
     const classifications = globalGood.Classifications;
@@ -38,7 +58,7 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
     const hasWMO = globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0;
     const hasClimateStandards = globalGood.StandardsAndInteroperability?.ClimateStandards && 
       globalGood.StandardsAndInteroperability.ClimateStandards.length > 0;
-    const hasSDGs = globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0;
+    const hasSDGs = resolvedSDGs.length > 0;
     
     return hasClimateIntegration || hasWMO || hasClimateStandards || hasSDGs;
   };
@@ -203,7 +223,7 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
         {/* Column 2: SDGs, Climate and Health Integration, Environmental Impact, Inclusive Design */}
         <div>
           {/* SDGs Section */}
-          {globalGood.Classifications?.SDGs && globalGood.Classifications.SDGs.length > 0 && (
+          {resolvedSDGs.length > 0 && (
             <div className="mb-8">
               <div className="space-y-2 mb-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
@@ -229,7 +249,7 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {globalGood.Classifications.SDGs.map((sdg, index) => (
+                {resolvedSDGs.map((sdg, index) => (
                   <SDGClassificationCard 
                     key={index} 
                     sdg={sdg}
