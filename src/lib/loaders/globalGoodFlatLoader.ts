@@ -1,6 +1,6 @@
 
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
-import { getLicenseById } from './referenceDataLoader';
+import { getLicenseById, getProductLanguageByCode } from './referenceDataLoader';
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 
 interface GlobalGoodIndexEnhanced {
@@ -142,6 +142,26 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     classifications = await resolveClassificationsByAuthority(classificationCodes);
   }
 
+  // Resolve language codes to full language objects
+  let languages = rawData.ProductOverview?.Languages || [];
+  if (Array.isArray(languages) && languages.length > 0 && typeof languages[0] === 'string') {
+    const resolvedLanguages = await Promise.all(
+      languages.map(async (langCode: string) => {
+        const languageData = await getProductLanguageByCode(langCode);
+        return languageData ? {
+          code: languageData.code,
+          name: languageData.name,
+          nativeName: languageData.nativeName
+        } : {
+          code: langCode,
+          name: langCode,
+          nativeName: langCode
+        };
+      })
+    );
+    languages = resolvedLanguages;
+  }
+
   // Return the transformed data
   return {
     ID: rawData.ID || '',
@@ -167,7 +187,7 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
       Description: rawData.ProductOverview?.Description || '',
       PrimaryFunctionality: rawData.ProductOverview?.PrimaryFunctionality || '',
       Users: rawData.ProductOverview?.Users || '',
-      Languages: rawData.ProductOverview?.Languages || [],
+      Languages: languages,
       Screenshots: rawData.ProductOverview?.Screenshots || []
     },
     Reach: {
