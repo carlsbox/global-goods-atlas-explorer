@@ -1,4 +1,3 @@
-
 [
   {
     "ID": "meditrack",
@@ -55,7 +54,7 @@
     "ID": "commcare",
     "Name": "CommCare",
     "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
-    "Logo": "https://www.dimagi.com/static/style/img/dimagi-logo.svg",
+    "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
     "GlobalGoodType": [{"code": "software", "title": "Software", "description": "Mobile data collection and case management platform"}],
     "Countries": ["in", "ng", "et", "bd"],
     "Classifications": {
