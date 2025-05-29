@@ -4,6 +4,7 @@ import { loadSDGData } from '@/lib/loaders/sdgLoader';
 import { loadClassificationsData } from '@/lib/loaders/classificationLoader';
 import { loadStandardsData } from '@/lib/loaders/standardsLoader';
 import { loadCountriesData } from '@/lib/loaders/countryLoader';
+import { resolveClassificationCodes, getClassificationByCode } from '@/lib/loaders/classificationsReferenceLoader';
 import { useI18n } from '@/hooks/useI18n';
 
 export function useReferenceData() {
@@ -50,5 +51,41 @@ export function useReferenceData() {
     loadData();
   }, [language]);
 
-  return data;
+  // Helper functions for classification resolution
+  const resolveClassifications = async (codes: string[]) => {
+    try {
+      return await resolveClassificationCodes(codes);
+    } catch (error) {
+      console.error('Failed to resolve classification codes:', error);
+      return [];
+    }
+  };
+
+  const getClassification = async (code: string) => {
+    try {
+      return await getClassificationByCode(code);
+    } catch (error) {
+      console.error('Failed to get classification by code:', error);
+      return null;
+    }
+  };
+
+  const findClassificationByCode = (code: string) => {
+    return data.classifications.find(c => c.code === code) || null;
+  };
+
+  const getClassificationsByAuthority = (authority: string) => {
+    return data.classifications.filter(c => 
+      c.authority === authority || 
+      c.authority === authority.toUpperCase()
+    );
+  };
+
+  return {
+    ...data,
+    resolveClassifications,
+    getClassification,
+    findClassificationByCode,
+    getClassificationsByAuthority,
+  };
 }

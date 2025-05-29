@@ -13,10 +13,10 @@ export async function loadClassificationsData(language?: string) {
 
     // Convert to flat array format for backward compatibility
     const classifications = [
-      ...Object.values(sdgs).map(item => ({ ...item, authority: 'SDG' })),
-      ...Object.values(who).map(item => ({ ...item, authority: 'WHO' })),
-      ...Object.values(wmo).map(item => ({ ...item, authority: 'WMO' })),
-      ...Object.values(dpi).map(item => ({ ...item, authority: 'DPI' }))
+      ...sdgs,
+      ...who,
+      ...wmo,
+      ...dpi
     ];
 
     // TODO: Apply language translations when i18n files are available

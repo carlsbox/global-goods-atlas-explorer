@@ -42,8 +42,18 @@ export function GroupedClassifications({ classifications, title }: GroupedClassi
             </div>
             <div className="space-y-2 ml-4">
               {groupClassifications.map((classification, index) => (
-                <div key={index} className="flex items-start gap-3 p-2 rounded-md bg-muted/30">
-                  <span className="text-sm">{classification.title}</span>
+                <div key={classification.code || index} className="flex items-start gap-3 p-2 rounded-md bg-muted/30">
+                  <div className="flex-1">
+                    <span className="text-sm font-medium">{classification.title}</span>
+                    {classification.description && (
+                      <p className="text-xs text-muted-foreground mt-1">{classification.description}</p>
+                    )}
+                  </div>
+                  {classification.code && (
+                    <Badge variant="outline" className="text-xs">
+                      {classification.code}
+                    </Badge>
+                  )}
                 </div>
               ))}
             </div>

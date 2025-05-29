@@ -8,17 +8,13 @@ interface ClassificationItem {
   authority?: string;
 }
 
-interface ClassificationData {
-  [key: string]: ClassificationItem;
-}
-
 // Cache for classification data
-const classificationCache: { [key: string]: ClassificationData } = {};
+const classificationCache: { [key: string]: ClassificationItem[] } = {};
 
 /**
  * Load classification data by authority (sdgs, who, wmo, dpi)
  */
-export async function loadClassificationsByAuthority(authority: string): Promise<ClassificationData> {
+export async function loadClassificationsByAuthority(authority: string): Promise<ClassificationItem[]> {
   if (classificationCache[authority]) {
     return classificationCache[authority];
   }
@@ -27,15 +23,33 @@ export async function loadClassificationsByAuthority(authority: string): Promise
     const response = await fetch(`/data/reference/classifications/${authority}.json`);
     if (!response.ok) {
       console.warn(`Failed to load ${authority} classifications:`, response.status);
-      return {};
+      return [];
     }
     
     const data = await response.json();
-    classificationCache[authority] = data;
-    return data;
+    
+    // Handle both array and object formats for backward compatibility
+    let classifications: ClassificationItem[];
+    if (Array.isArray(data)) {
+      classifications = data;
+    } else if (data && typeof data === 'object') {
+      // Convert object format to array (for legacy data)
+      classifications = Object.values(data);
+    } else {
+      classifications = [];
+    }
+
+    // Ensure authority field is set if missing
+    classifications = classifications.map(item => ({
+      ...item,
+      authority: item.authority || getAuthorityDisplayName(authority)
+    }));
+
+    classificationCache[authority] = classifications;
+    return classifications;
   } catch (error) {
     console.error(`Error loading ${authority} classifications:`, error);
-    return {};
+    return [];
   }
 }
 
@@ -48,7 +62,7 @@ export async function getClassificationByCode(code: string): Promise<Classificat
   if (!authority) return null;
 
   const data = await loadClassificationsByAuthority(authority);
-  return data[code] || null;
+  return data.find(item => item.code === code) || null;
 }
 
 /**
@@ -94,6 +108,19 @@ function getAuthorityFromCode(code: string): string | null {
   if (code.startsWith('WMO_')) return 'wmo';
   if (code.startsWith('DPI_')) return 'dpi';
   return null;
+}
+
+/**
+ * Get display name for authority
+ */
+function getAuthorityDisplayName(authority: string): string {
+  switch (authority) {
+    case 'sdgs': return 'SDG';
+    case 'who': return 'WHO';
+    case 'wmo': return 'WMO';
+    case 'dpi': return 'DPI-H';
+    default: return authority.toUpperCase();
+  }
 }
 
 /**

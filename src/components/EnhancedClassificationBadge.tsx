@@ -1,10 +1,8 @@
 
 import { Badge } from "@/components/ui/badge";
-import { useClassifications } from "@/lib/api";
-import { loadSDGData } from "@/lib/loaders";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useI18n } from "@/hooks/useI18n";
-import { useQuery } from "@tanstack/react-query";
+import { useReferenceData } from "@/hooks/useReferenceData";
 
 interface EnhancedClassificationBadgeProps {
   code: string;
@@ -17,14 +15,8 @@ export function EnhancedClassificationBadge({
   showFullDetails = false,
   expanded = false 
 }: EnhancedClassificationBadgeProps) {
-  const { data: classifications = [] } = useClassifications();
+  const { sdgs, classifications, findClassificationByCode } = useReferenceData();
   const { language } = useI18n();
-  
-  // Load SDG data
-  const { data: sdgData = [] } = useQuery({
-    queryKey: ['sdg-data', language],
-    queryFn: () => loadSDGData(language),
-  });
   
   // Check if this is an SDG code
   const isSDG = code.startsWith('SDG-');
@@ -32,9 +24,9 @@ export function EnhancedClassificationBadge({
   // Find the classification by code
   let classification;
   if (isSDG) {
-    classification = sdgData.find(s => s.code === code);
+    classification = sdgs.find(s => s.code === code);
   } else {
-    classification = classifications.find(c => c.code === code);
+    classification = findClassificationByCode(code);
   }
   
   if (!classification) {
@@ -54,10 +46,12 @@ export function EnhancedClassificationBadge({
           </div>
           <Badge variant="secondary">{authority}</Badge>
         </div>
-        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
-          <span className="font-medium">Group:</span> 
-          <span>{classification.group_code} - {classification.group_name}</span>
-        </div>
+        {classification.group_code && classification.group_name && (
+          <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
+            <span className="font-medium">Group:</span> 
+            <span>{classification.group_code} - {classification.group_name}</span>
+          </div>
+        )}
       </div>
     );
   }
@@ -86,7 +80,8 @@ export function EnhancedClassificationBadge({
           <div className="space-y-1">
             <p className="font-medium">{classification.title}</p>
             <p className="text-xs text-muted-foreground">
-              {authority} · {classification.group_name}
+              {authority}
+              {classification.group_name && ` · ${classification.group_name}`}
             </p>
           </div>
         </TooltipContent>
