@@ -1,4 +1,3 @@
-
 import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 import { LanguageCode } from '@/lib/types';
 import { 
@@ -430,8 +429,36 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
 export function transformAppGlobalGoodToEnhancedCMS(
   appGood: GlobalGoodFlat
 ): EnhancedCMSGlobalGood {
-  // Direct mapping since formats now match
-  return { ...appGood };
+  return {
+    ID: appGood.ID,
+    Name: appGood.Name,
+    Logo: appGood.Logo,
+    Website: appGood.Website,
+    GlobalGoodsType: appGood.GlobalGoodsType,
+    License: appGood.License.id, // Extract just the ID
+    Contact: appGood.Contact,
+    Classifications: appGood.Classifications,
+    StandardsAndInteroperability: appGood.StandardsAndInteroperability,
+    ProductOverview: {
+      ...appGood.ProductOverview,
+      Languages: appGood.ProductOverview.Languages.map(lang => lang.code) // Extract just the codes
+    },
+    Reach: appGood.Reach,
+    Maturity: appGood.Maturity,
+    ClimateAndHealthIntegration: appGood.ClimateAndHealthIntegration,
+    Community: appGood.Community,
+    InclusiveDesign: appGood.InclusiveDesign,
+    EnvironmentalImpact: appGood.EnvironmentalImpact,
+    TotalCostOfOwnership: appGood.TotalCostOfOwnership,
+    Sustainability: appGood.Sustainability,
+    Resources: appGood.Resources,
+    LinkedInitiatives: {
+      Initiative: appGood.LinkedInitiatives.Initiative.map(initiative => ({
+        collectionInitiative: initiative.collectionInitiative.label, // Extract just the ID (using label as ID for now)
+        tool_url: initiative.tool_url
+      }))
+    }
+  };
 }
 
 /**
