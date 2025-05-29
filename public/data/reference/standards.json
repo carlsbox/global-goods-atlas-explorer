@@ -16,6 +16,14 @@
     "type": "health",
     "link": "https://www.hl7.org/"
   },
+  "HL7 FHIR": {
+    "code": "HL7 FHIR",
+    "name": "HL7 Fast Healthcare Interoperability Resources",
+    "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically",
+    "domain": "Health",
+    "type": "health",
+    "link": "https://www.hl7.org/fhir/"
+  },
   "SNOMED": {
     "code": "SNOMED",
     "name": "Systematized Nomenclature of Medicine Clinical Terms",
@@ -47,6 +55,14 @@
     "domain": "Health",
     "type": "health",
     "link": "https://www.dicomstandard.org/"
+  },
+  "GS1": {
+    "code": "GS1",
+    "name": "GS1 Global Standards",
+    "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare",
+    "domain": "Health",
+    "type": "health",
+    "link": "https://www.gs1.org/healthcare"
   },
   "REST": {
     "code": "REST",
@@ -95,5 +111,13 @@
     "domain": "Technology",
     "type": "interoperability",
     "link": "https://www.openapis.org/"
+  },
+  "ADX": {
+    "code": "ADX",
+    "name": "Aggregate Data Exchange",
+    "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis",
+    "domain": "Health",
+    "type": "interoperability",
+    "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange"
   }
 }

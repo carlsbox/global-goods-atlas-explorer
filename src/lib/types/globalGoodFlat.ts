@@ -88,7 +88,13 @@ export interface GlobalGoodFlat {
       name: string;
       description: string;
     }>;
-    ClimateStandards: Array<any>;
+    ClimateStandards: Array<{
+      code: string;
+      domain: string;
+      link: string;
+      name: string;
+      description: string;
+    }>;
   };
   ProductOverview: {
     Summary: string;

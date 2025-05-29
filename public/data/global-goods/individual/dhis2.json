@@ -41,43 +41,14 @@
       }
     ],
     "Classifications": {
-      "SDGs": [
-        { "code": "SDG-3", "title": "Good Health and Well-being" },
-        { "code": "SDG-9", "title": "Industry, Innovation and Infrastructure" }
-      ],
+      "SDGs": ["SDG-3", "SDG-9"],
       "WHO": [],
       "WMO": [],
       "DPI": []
     },
     "StandardsAndInteroperability": {
-      "HealthStandards": [
-        {
-          "code": "HL7 FHIR",
-          "domain": "Health",
-          "link": "https://www.hl7.org/fhir/",
-          "type": "exchange",
-          "name": "HL7 FHIR",
-          "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
-        },
-        {
-          "code": "GS1",
-          "domain": "Health",
-          "link": "https://www.gs1.org/healthcare",
-          "type": "identifier",
-          "name": "GS1",
-          "description": "Global Standards One, an international standard for supply chain management and product identification in healthcare."
-        }
-      ],
-      "Interoperability": [
-        {
-          "code": "ADX",
-          "domain": "Health",
-          "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
-          "type": "exchange",
-          "name": "ADX",
-          "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
-        }
-      ],
+      "HealthStandards": ["HL7 FHIR", "GS1"],
+      "Interoperability": ["ADX"],
       "ClimateStandards": []
     },
     "ProductOverview": {
@@ -128,23 +99,69 @@
       "InceptionYear": 2006,
       "SizeOfCommunity": 5000,
       "Links": {},
-      "Events": {},
-      "Policies": {}
+      "Events": {
+        "description": "",
+        "schedule": "",
+        "recent": []
+      },
+      "Policies": {
+        "Description": "",
+        "Governance": {
+          "url": "",
+          "description": ""
+        },
+        "TermsOfUse": {
+          "url": "",
+          "description": ""
+        },
+        "UserAgreement": {
+          "url": "",
+          "description": ""
+        },
+        "PrivacyPolicy": {
+          "url": "",
+          "description": ""
+        },
+        "DoNoHarm": {
+          "url": "",
+          "description": ""
+        },
+        "PIICollected": {
+          "url": "",
+          "description": ""
+        },
+        "NPIIUsed": {
+          "url": "",
+          "description": ""
+        }
+      }
     },
     "InclusiveDesign": {
-      "Description": "Accessible and localizable interface."
+      "Description": "Accessible and localizable interface.",
+      "UserInput": "",
+      "OfflineSupport": ""
     },
     "EnvironmentalImpact": {
       "LowCarbon": "Web-based, can be hosted on green infrastructure."
     },
     "TotalCostOfOwnership": {
-      "Description": "Free and open-source, with optional paid support."
+      "Description": "Free and open-source, with optional paid support.",
+      "url": ""
     },
     "Sustainability": {
       "Description": "Supported by global donors and governments.",
       "KeyFundersSupporters": []
     },
-    "Resources": {},
+    "Resources": {
+      "Articles": [],
+      "ProductDocumentation": [],
+      "UserRequirements": [],
+      "EndUserDocumentation": [],
+      "ImplementerDocumentation": [],
+      "DeveloperDocumentation": [],
+      "OperatorDocumentation": [],
+      "InstallationDocumentation": []
+    },
     "LinkedInitiatives": {
       "Initiative": [
         {

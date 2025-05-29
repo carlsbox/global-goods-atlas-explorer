@@ -41,55 +41,14 @@
     }
   ],
   "Classifications": {
-    "SDGs": [
-      {
-        "code": "SDG-3",
-        "title": "Good Health and Well-being"
-      },
-      {
-        "code": "SDG-9",
-        "title": "Industry, Innovation and Infrastructure"
-      }
-    ],
-    "WHO": [
-      {
-        "code": "WHO_B6",
-        "title": "Logistics management information systems (LMIS)",
-        "group_code": "B",
-        "group_name": "Health System / Provider administration",
-        "authority": "WHO"
-      }
-    ],
+    "SDGs": ["SDG-3", "SDG-9"],
+    "WHO": ["WHO_B6"],
     "WMO": [],
-    "DPI": [
-      {
-        "code": "DPI_BD1",
-        "title": "Logistics Management Information Services",
-        "group_code": "BD",
-        "group_name": "Business Domain Services",
-        "authority": "DPI-H"
-      }
-    ]
+    "DPI": ["DPI_BD1"]
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": [
-      {
-        "code": "GS1",
-        "domain": "Health",
-        "link": "https://www.gs1.org/healthcare",
-        "name": "GS1",
-        "description": "Standard for supply chain data in healthcare"
-      }
-    ],
-    "Interoperability": [
-      {
-        "code": "ADX",
-        "type": "exchange",
-        "link": "https://www.ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_ADX.pdf",
-        "name": "ADX",
-        "description": "Aggregate Data Exchange standard"
-      }
-    ],
+    "HealthStandards": ["GS1"],
+    "Interoperability": ["ADX"],
     "ClimateStandards": []
   },
   "ProductOverview": {
