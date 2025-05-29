@@ -1,0 +1,19 @@
+
+{
+  "DPI_BD2": {
+    "code": "DPI_BD2",
+    "title": "Community Health Information Services",
+    "group_code": "BD",
+    "group_name": "Business Domain Services",
+    "authority": "DPI-H",
+    "description": "Digital public infrastructure for community health information management"
+  },
+  "DPI_HC1": {
+    "code": "DPI_HC1",
+    "title": "Health Care Information Services",
+    "group_code": "HC",
+    "group_name": "Health Care Services",
+    "authority": "DPI-H",
+    "description": "Digital public infrastructure for healthcare information services"
+  }
+}

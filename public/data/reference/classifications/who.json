@@ -1,0 +1,19 @@
+
+{
+  "WHO_B1": {
+    "code": "WHO_B1",
+    "title": "Electronic medical record systems (EMR)",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": "Systems for managing patient medical records electronically"
+  },
+  "WHO_B4": {
+    "code": "WHO_B4",
+    "title": "Community health information systems",
+    "group_code": "B",
+    "group_name": "Health System / Provider administration",
+    "authority": "WHO",
+    "description": "Information systems supporting community health programs and workers"
+  }
+}

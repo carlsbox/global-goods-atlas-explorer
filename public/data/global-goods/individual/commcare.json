@@ -1,4 +1,3 @@
-
 {
   "ID": "commcare",
   "Name": "CommCare",
@@ -41,39 +40,10 @@
     }
   ],
   "Classifications": {
-    "SDGs": [
-      {
-        "code": "SDG-3",
-        "title": "Good Health and Well-being"
-      },
-      {
-        "code": "SDG-1",
-        "title": "No Poverty"
-      },
-      {
-        "code": "SDG-5",
-        "title": "Gender Equality"
-      }
-    ],
-    "WHO": [
-      {
-        "code": "WHO_B4",
-        "title": "Community health information systems",
-        "group_code": "B",
-        "group_name": "Health System / Provider administration",
-        "authority": "WHO"
-      }
-    ],
+    "SDGs": ["SDG-3", "SDG-1", "SDG-5"],
+    "WHO": ["WHO_B4"],
     "WMO": [],
-    "DPI": [
-      {
-        "code": "DPI_BD2",
-        "title": "Community Health Information Services",
-        "group_code": "BD",
-        "group_name": "Business Domain Services",
-        "authority": "DPI-H"
-      }
-    ]
+    "DPI": ["DPI_BD2"]
   },
   "StandardsAndInteroperability": {
     "HealthStandards": [

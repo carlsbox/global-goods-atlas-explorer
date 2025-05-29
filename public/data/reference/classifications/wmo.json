@@ -1,0 +1,11 @@
+
+{
+  "WMO_C1": {
+    "code": "WMO_C1",
+    "title": "Climate and Health Data Integration",
+    "group_code": "C",
+    "group_name": "Climate Services",
+    "authority": "WMO",
+    "description": "Integration of climate data with health systems for improved health outcomes"
+  }
+}

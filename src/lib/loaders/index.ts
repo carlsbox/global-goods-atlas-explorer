@@ -16,3 +16,10 @@ export {
   getCollectionInitiativeById,
   clearReferenceDataCache
 } from './referenceDataLoader';
+export {
+  loadClassificationsByAuthority,
+  getClassificationByCode,
+  resolveClassificationCodes,
+  resolveClassificationsByAuthority,
+  clearClassificationCache
+} from './classificationsReferenceLoader';

@@ -5,6 +5,7 @@ import {
   getProductLanguageByCode, 
   getCollectionInitiativeById 
 } from '@/lib/loaders/referenceDataLoader';
+import { resolveClassificationsByAuthority } from '@/lib/loaders/classificationsReferenceLoader';
 
 // Enhanced CMS Global Good format that now uses reference IDs
 export interface EnhancedCMSGlobalGood {
@@ -38,32 +39,17 @@ export interface EnhancedCMSGlobalGood {
     title: string;
     description: string;
   }>;
-  License: string; // Changed to reference ID
+  License: string;
   Contact: Array<{
     name: string;
     email: string;
     role: string;
   }>;
   Classifications: {
-    SDGs: Array<{
-      code: string;
-      title: string;
-    }>;
-    WHO: Array<{
-      code: string;
-      title: string;
-      group_code: string;
-      group_name: string;
-      authority: string;
-    }>;
-    WMO: Array<any>;
-    DPI: Array<{
-      code: string;
-      title: string;
-      group_code: string;
-      group_name: string;
-      authority: string;
-    }>;
+    SDGs: string[];
+    WHO: string[];
+    WMO: string[];
+    DPI: string[];
   };
   StandardsAndInteroperability: {
     HealthStandards: Array<{
@@ -87,7 +73,7 @@ export interface EnhancedCMSGlobalGood {
     Description: string;
     PrimaryFunctionality: string;
     Users: string;
-    Languages: string[]; // Changed to array of language codes
+    Languages: string[];
     Screenshots: Array<{
       url: string;
       description: string;
@@ -243,7 +229,7 @@ export interface EnhancedCMSGlobalGood {
   };
   LinkedInitiatives: {
     Initiative: Array<{
-      collectionInitiative: string; // Changed to reference ID
+      collectionInitiative: string;
       tool_url: string;
     }>;
   };
@@ -266,6 +252,9 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
       return lang ? { code: lang.code, name: lang.name } : { code, name: code };
     })
   );
+  
+  // Resolve classification references
+  const resolvedClassifications = await resolveClassificationsByAuthority(cmsGood.Classifications);
   
   // Resolve collection initiative references
   const initiatives = await Promise.all(
@@ -306,12 +295,7 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
       description: ''
     },
     Contact: cmsGood.Contact || [],
-    Classifications: {
-      SDGs: cmsGood.Classifications?.SDGs || [],
-      WHO: cmsGood.Classifications?.WHO || [],
-      WMO: cmsGood.Classifications?.WMO || [],
-      DPI: cmsGood.Classifications?.DPI || []
-    },
+    Classifications: resolvedClassifications,
     StandardsAndInteroperability: {
       HealthStandards: cmsGood.StandardsAndInteroperability?.HealthStandards || [],
       Interoperability: cmsGood.StandardsAndInteroperability?.Interoperability || [],
@@ -435,13 +419,18 @@ export function transformAppGlobalGoodToEnhancedCMS(
     Logo: appGood.Logo,
     Website: appGood.Website,
     GlobalGoodsType: appGood.GlobalGoodsType,
-    License: appGood.License.id, // Extract just the ID
+    License: appGood.License.id,
     Contact: appGood.Contact,
-    Classifications: appGood.Classifications,
+    Classifications: {
+      SDGs: appGood.Classifications.SDGs.map(sdg => sdg.code),
+      WHO: appGood.Classifications.WHO.map(who => who.code),
+      WMO: appGood.Classifications.WMO.map((wmo: any) => wmo.code || ''),
+      DPI: appGood.Classifications.DPI.map(dpi => dpi.code)
+    },
     StandardsAndInteroperability: appGood.StandardsAndInteroperability,
     ProductOverview: {
       ...appGood.ProductOverview,
-      Languages: appGood.ProductOverview.Languages.map(lang => lang.code) // Extract just the codes
+      Languages: appGood.ProductOverview.Languages.map(lang => lang.code)
     },
     Reach: appGood.Reach,
     Maturity: appGood.Maturity,
@@ -454,7 +443,7 @@ export function transformAppGlobalGoodToEnhancedCMS(
     Resources: appGood.Resources,
     LinkedInitiatives: {
       Initiative: appGood.LinkedInitiatives.Initiative.map(initiative => ({
-        collectionInitiative: initiative.collectionInitiative.label, // Extract just the ID (using label as ID for now)
+        collectionInitiative: initiative.collectionInitiative.label,
         tool_url: initiative.tool_url
       }))
     }
@@ -482,6 +471,22 @@ export function validateGlobalGoodData(data: any): { isValid: boolean; errors: s
   }
   if (!data.License) errors.push('License object is required');
   if (!data.ProductOverview) errors.push('ProductOverview object is required');
+
+  // Validate Classifications structure
+  if (data.Classifications) {
+    if (!Array.isArray(data.Classifications.SDGs)) {
+      errors.push('Classifications.SDGs must be an array');
+    }
+    if (!Array.isArray(data.Classifications.WHO)) {
+      errors.push('Classifications.WHO must be an array');
+    }
+    if (!Array.isArray(data.Classifications.WMO)) {
+      errors.push('Classifications.WMO must be an array');
+    }
+    if (!Array.isArray(data.Classifications.DPI)) {
+      errors.push('Classifications.DPI must be an array');
+    }
+  }
 
   // Validate maturity scores
   if (data.Maturity?.Scores) {
