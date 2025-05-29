@@ -17,6 +17,8 @@ interface TechnicalInformationSectionProps {
 export function TechnicalInformationSection({ globalGood }: TechnicalInformationSectionProps) {
   const { resolveClassifications } = useReferenceData();
   const [resolvedSDGs, setResolvedSDGs] = useState<any[]>([]);
+  const [resolvedWHO, setResolvedWHO] = useState<any[]>([]);
+  const [resolvedWMO, setResolvedWMO] = useState<any[]>([]);
 
   // Resolve SDG codes to full objects
   useEffect(() => {
@@ -34,12 +36,42 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
     resolveSdgs();
   }, [globalGood.Classifications?.SDGs, resolveClassifications]);
 
+  // Resolve WHO codes to full objects
+  useEffect(() => {
+    const resolveWho = async () => {
+      if (globalGood.Classifications?.WHO && globalGood.Classifications.WHO.length > 0) {
+        const whoCodes = globalGood.Classifications.WHO.map(who => 
+          typeof who === 'string' ? who : who.code
+        );
+        const resolved = await resolveClassifications(whoCodes);
+        setResolvedWHO(resolved);
+      }
+    };
+
+    resolveWho();
+  }, [globalGood.Classifications?.WHO, resolveClassifications]);
+
+  // Resolve WMO codes to full objects
+  useEffect(() => {
+    const resolveWmo = async () => {
+      if (globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0) {
+        const wmoCodes = globalGood.Classifications.WMO.map(wmo => 
+          typeof wmo === 'string' ? wmo : wmo.code
+        );
+        const resolved = await resolveClassifications(wmoCodes);
+        setResolvedWMO(resolved);
+      }
+    };
+
+    resolveWmo();
+  }, [globalGood.Classifications?.WMO, resolveClassifications]);
+
   // Helper function to check if technical classifications have data (excluding WMO and SDGs)
   const hasTechnicalClassifications = () => {
     const classifications = globalGood.Classifications;
     return classifications && (
       (classifications.DPI && classifications.DPI.length > 0) ||
-      (classifications.WHO && classifications.WHO.length > 0)
+      (resolvedWHO.length > 0)
     );
   };
 
@@ -52,10 +84,10 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
     );
   };
 
-  // Helper function to check if climate data exists (including SDGs)
+  // Helper function to check if climate data exists (including SDGs and WMO)
   const hasClimateData = () => {
     const hasClimateIntegration = globalGood.ClimateAndHealthIntegration?.Description;
-    const hasWMO = globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0;
+    const hasWMO = resolvedWMO.length > 0;
     const hasClimateStandards = globalGood.StandardsAndInteroperability?.ClimateStandards && 
       globalGood.StandardsAndInteroperability.ClimateStandards.length > 0;
     const hasSDGs = resolvedSDGs.length > 0;
@@ -108,7 +140,7 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
                 
                 {/* WHO */}
                 <GroupedClassifications 
-                  classifications={globalGood.Classifications?.WHO || []}
+                  classifications={resolvedWHO}
                   title="World Health Organization"
                 />
               </div>
@@ -220,7 +252,7 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
           )}
         </div>
         
-        {/* Column 2: SDGs, Climate and Health Integration, Environmental Impact, Inclusive Design */}
+        {/* Column 2: SDGs, Climate and Health Integration, WMO, Environmental Impact, Inclusive Design */}
         <div>
           {/* SDGs Section */}
           {resolvedSDGs.length > 0 && (
@@ -274,23 +306,12 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
           )}
           
           {/* WMO Classifications */}
-          {globalGood.Classifications?.WMO && globalGood.Classifications.WMO.length > 0 && (
+          {resolvedWMO.length > 0 && (
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">
-                WMO Classifications
-              </h3>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex flex-wrap gap-2">
-                    {globalGood.Classifications.WMO.map((wmo, index) => (
-                      <EnhancedClassificationBadge 
-                        key={index} 
-                        code={wmo.code}
-                      />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <GroupedClassifications 
+                classifications={resolvedWMO}
+                title="World Meteorological Organization (WMO)"
+              />
             </div>
           )}
           
