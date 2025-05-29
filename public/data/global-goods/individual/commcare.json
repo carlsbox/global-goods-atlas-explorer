@@ -37,7 +37,7 @@
     "DPI": ["DPI_BD2"]
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["FHIR"],
+    "HealthStandards": ["HL7 FHIR"],
     "Interoperability": ["REST"],
     "ClimateStandards": []
   },
