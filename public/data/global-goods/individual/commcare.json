@@ -1,8 +1,7 @@
-
 {
   "ID": "commcare",
   "Name": "CommCare",
-  "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
+  "Logo": "https://aif-commcaresync.dimagi.com/static/images/commcare-logo.png",
   "Website": {
     "main": {
       "name": "CommCare Website",
