@@ -21,7 +21,7 @@
       "description": "Test the tool online"
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": ["software","climate"],
   "License": "apache-2.0",
   "Contact": [
     {
