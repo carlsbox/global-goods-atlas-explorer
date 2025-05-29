@@ -1,3 +1,4 @@
+
 {
   "ID": "commcare",
   "Name": "CommCare",
@@ -31,12 +32,7 @@
       "description": "Mobile data collection and case management platform for frontline workers."
     }
   ],
-  "License": {
-    "id": "bsd-3-clause",
-    "name": "BSD 3-Clause License",
-    "url": "https://github.com/dimagi/commcare-hq/blob/master/LICENSE",
-    "description": "Open source license allowing modification and redistribution"
-  },
+  "License": "bsd-3-clause",
   "Contact": [
     {
       "name": "Dimagi Support",
@@ -105,28 +101,7 @@
     "Description": "CommCare is designed to be used by frontline workers with basic mobile phone or smartphone literacy. It provides tools for case management, data collection, and decision support through mobile applications.",
     "PrimaryFunctionality": "Mobile data collection and case management",
     "Users": "Community health workers, social workers, field staff, program managers",
-    "Languages": [
-      {
-        "code": "en",
-        "name": "English"
-      },
-      {
-        "code": "fr",
-        "name": "French"
-      },
-      {
-        "code": "es",
-        "name": "Spanish"
-      },
-      {
-        "code": "hi",
-        "name": "Hindi"
-      },
-      {
-        "code": "sw",
-        "name": "Swahili"
-      }
-    ],
+    "Languages": ["en", "fr", "es", "hi", "sw"],
     "Screenshots": [
       {
         "url": "https://www.dimagi.com/static/style/img/commcare-screenshot-1.png",
@@ -359,12 +334,7 @@
   "LinkedInitiatives": {
     "Initiative": [
       {
-        "collectionInitiative": {
-          "label": "Digital Public Goods Alliance",
-          "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
-          "site_url": "https://digitalpublicgoods.net",
-          "description": "Global digital public goods registry"
-        },
+        "collectionInitiative": "dpga",
         "tool_url": "https://digitalpublicgoods.net/registry/commcare.html"
       }
     ]

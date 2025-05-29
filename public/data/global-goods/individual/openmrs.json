@@ -1,3 +1,4 @@
+
 {
     "ID": "openmrs",
     "Name": "OpenMRS",
@@ -31,12 +32,7 @@
         "description": "Open-source electronic medical record platform."
       }
     ],
-    "License": {
-      "id": "mpl-2.0",
-      "name": "Mozilla Public License 2.0",
-      "url": "https://www.mozilla.org/en-US/MPL/2.0/",
-      "description": "Permissive open source license."
-    },
+    "License": "mpl-2.0",
     "Contact": [
       {
         "name": "OpenMRS Community",
@@ -103,12 +99,7 @@
       "Description": "OpenMRS enables the design of a customized medical records system with no programming knowledge. It is used to manage patient records, support clinical care, and improve health outcomes.",
       "PrimaryFunctionality": "Electronic medical records management",
       "Users": "Clinicians, hospitals, ministries of health, NGOs",
-      "Languages": [
-        { "code": "en", "name": "English" },
-        { "code": "fr", "name": "French" },
-        { "code": "es", "name": "Spanish" },
-        { "code": "pt", "name": "Portuguese" }
-      ],
+      "Languages": ["en", "fr", "es", "pt"],
       "Screenshots": [
         { "url": "https://openmrs.org/images/screenshot1.png", "description": "OpenMRS dashboard screenshot" },
         { "url": "https://openmrs.org/images/screenshot2.png", "description": "Patient record view" }
@@ -272,22 +263,12 @@
     "LinkedInitiatives": {
       "Initiative": [
         {
-          "collectionInitiative": {
-            "label": "Digital Public Goods Alliance",
-            "logo_url": "https://digitalpublicgoods.net/images/logo.svg",
-            "site_url": "https://digitalpublicgoods.net",
-            "description": "Global digital public goods registry"
-          },
+          "collectionInitiative": "dpga",
           "tool_url": "https://digitalpublicgoods.net/registry/openmrs.html"
         },
         {
-          "collectionInitiative": {
-            "label": "OpenHIE",
-            "logo_url": "https://ohie.org/images/logo.svg",
-            "site_url": "https://ohie.org",
-            "description": "Open Health Information Exchange community"
-          },
-          "tool_url": "https://ohie.org/registry/openmrs.html"
+          "collectionInitiative": "dial-exchange",
+          "tool_url": "https://exchange.dial.global/a/products/openmrs"
         }
       ]
     }

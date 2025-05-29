@@ -1,3 +1,4 @@
+
 {
     "ID": "dhis2",
     "Name": "DHIS2",
@@ -31,12 +32,7 @@
         "description": "Open-source health management data platform."
       }
     ],
-    "License": {
-      "id": "bsd-3-clause",
-      "name": "BSD 3-Clause License",
-      "url": "https://opensource.org/licenses/BSD-3-Clause",
-      "description": "Permissive open source license"
-    },
+    "License": "bsd-3-clause",
     "Contact": [
       {
         "name": "DHIS2 Team",
@@ -89,10 +85,7 @@
       "Description": "DHIS2 is used to collect, manage, and analyze health data.",
       "PrimaryFunctionality": "Health data management and analytics",
       "Users": "Ministries of health, NGOs, researchers",
-      "Languages": [
-        { "code": "en", "name": "English" },
-        { "code": "fr", "name": "French" }
-      ],
+      "Languages": ["en", "fr"],
       "Screenshots": []
     },
     "Reach": {
@@ -152,5 +145,12 @@
       "KeyFundersSupporters": []
     },
     "Resources": {},
-    "LinkedInitiatives": {}
+    "LinkedInitiatives": {
+      "Initiative": [
+        {
+          "collectionInitiative": "dpga",
+          "tool_url": "https://digitalpublicgoods.net/registry/dhis2.html"
+        }
+      ]
+    }
   }
