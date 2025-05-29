@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { 
   Select,
   SelectContent,
@@ -265,273 +266,289 @@ export function EnhancedFilterBar({
       </div>
 
       {/* Filter Row */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Select value={sectorFilter} onValueChange={setSectorFilter}>
-          <SelectTrigger className="h-11 sm:w-48">
-            <SelectValue placeholder={tPage("filters.sectorLabel", "globalGoods")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">{tPage("filters.allSectors", "globalGoods")}</SelectItem>
-            {sectors.map(sector => (
-              <SelectItem key={sector} value={sector}>
-                {sector}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+      <div className="flex flex-col sm:flex-row gap-4">
+        {/* Sector Filter with Label */}
+        <div className="space-y-2 sm:w-48">
+          <Label htmlFor="sector-filter" className="text-sm font-medium">
+            {tPage("filters.sectorLabel", "globalGoods")}
+          </Label>
+          <Select value={sectorFilter} onValueChange={setSectorFilter}>
+            <SelectTrigger className="h-11" id="sector-filter">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">{tPage("filters.allSectors", "globalGoods")}</SelectItem>
+              {sectors.map(sector => (
+                <SelectItem key={sector} value={sector}>
+                  {sector}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
-        <Select value={sortBy} onValueChange={setSortBy}>
-          <SelectTrigger className="h-11 sm:w-48">
-            <SelectValue placeholder={tPage("filters.sortLabel", "globalGoods")} />
-          </SelectTrigger>
-          <SelectContent>
-            {SORT_OPTIONS.map(option => (
-              <SelectItem key={option.value} value={option.value}>
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {/* Sort Filter with Label */}
+        <div className="space-y-2 sm:w-48">
+          <Label htmlFor="sort-filter" className="text-sm font-medium">
+            {tPage("filters.sortLabel", "globalGoods")}
+          </Label>
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger className="h-11" id="sort-filter">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {SORT_OPTIONS.map(option => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
         {/* Advanced Filters */}
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button variant="outline" className="h-11">
-              <Sliders className="h-4 w-4 mr-2" />
-              More Filters
-              {totalAdvancedFilters > 0 && (
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  {totalAdvancedFilters}
-                </Badge>
-              )}
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-96" align="start">
-            <div className="space-y-4 max-h-96 overflow-y-auto">
-              <Accordion type="multiple" className="w-full">
-                <AccordionItem value="sdgs">
-                  <AccordionTrigger className="text-sm font-medium">
-                    SDGs {selectedSDGs.length > 0 && `(${selectedSDGs.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search SDGs..."
-                        value={searchSDGs}
-                        onChange={(e) => setSearchSDGs(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredClassifications.sdgs.map(sdg => (
-                          <div key={sdg.code} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={sdg.code}
-                              checked={selectedSDGs.includes(sdg.code)}
-                              onCheckedChange={(checked) => handleSDGChange(sdg.code, checked as boolean)}
-                            />
-                            <label htmlFor={sdg.code} className="text-xs cursor-pointer">
-                              {sdg.title}
-                            </label>
-                          </div>
-                        ))}
+        <div className="flex items-end">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" className="h-11">
+                <Sliders className="h-4 w-4 mr-2" />
+                More Filters
+                {totalAdvancedFilters > 0 && (
+                  <Badge variant="secondary" className="ml-2 text-xs">
+                    {totalAdvancedFilters}
+                  </Badge>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-96" align="start">
+              <div className="space-y-4 max-h-96 overflow-y-auto">
+                <Accordion type="multiple" className="w-full">
+                  <AccordionItem value="sdgs">
+                    <AccordionTrigger className="text-sm font-medium">
+                      SDGs {selectedSDGs.length > 0 && `(${selectedSDGs.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search SDGs..."
+                          value={searchSDGs}
+                          onChange={(e) => setSearchSDGs(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredClassifications.sdgs.map(sdg => (
+                            <div key={sdg.code} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={sdg.code}
+                                checked={selectedSDGs.includes(sdg.code)}
+                                onCheckedChange={(checked) => handleSDGChange(sdg.code, checked as boolean)}
+                              />
+                              <label htmlFor={sdg.code} className="text-xs cursor-pointer">
+                                {sdg.title}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="who-classifications">
-                  <AccordionTrigger className="text-sm font-medium">
-                    WHO Classifications {selectedWHOClassifications.length > 0 && `(${selectedWHOClassifications.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search WHO classifications..."
-                        value={searchWHO}
-                        onChange={(e) => setSearchWHO(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredClassifications.who.map(classification => (
-                          <div key={classification.code} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`who-${classification.code}`}
-                              checked={selectedWHOClassifications.includes(classification.code)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'who')}
-                            />
-                            <label htmlFor={`who-${classification.code}`} className="text-xs cursor-pointer">
-                              {classification.title}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="who-classifications">
+                    <AccordionTrigger className="text-sm font-medium">
+                      WHO Classifications {selectedWHOClassifications.length > 0 && `(${selectedWHOClassifications.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search WHO classifications..."
+                          value={searchWHO}
+                          onChange={(e) => setSearchWHO(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredClassifications.who.map(classification => (
+                            <div key={classification.code} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`who-${classification.code}`}
+                                checked={selectedWHOClassifications.includes(classification.code)}
+                                onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'who')}
+                              />
+                              <label htmlFor={`who-${classification.code}`} className="text-xs cursor-pointer">
+                                {classification.title}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="dpi-classifications">
-                  <AccordionTrigger className="text-sm font-medium">
-                    DPI Classifications {selectedDPIClassifications.length > 0 && `(${selectedDPIClassifications.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search DPI classifications..."
-                        value={searchDPI}
-                        onChange={(e) => setSearchDPI(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredClassifications.dpi.map(classification => (
-                          <div key={classification.code} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`dpi-${classification.code}`}
-                              checked={selectedDPIClassifications.includes(classification.code)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'dpi')}
-                            />
-                            <label htmlFor={`dpi-${classification.code}`} className="text-xs cursor-pointer">
-                              {classification.title}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="dpi-classifications">
+                    <AccordionTrigger className="text-sm font-medium">
+                      DPI Classifications {selectedDPIClassifications.length > 0 && `(${selectedDPIClassifications.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search DPI classifications..."
+                          value={searchDPI}
+                          onChange={(e) => setSearchDPI(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredClassifications.dpi.map(classification => (
+                            <div key={classification.code} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`dpi-${classification.code}`}
+                                checked={selectedDPIClassifications.includes(classification.code)}
+                                onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'dpi')}
+                              />
+                              <label htmlFor={`dpi-${classification.code}`} className="text-xs cursor-pointer">
+                                {classification.title}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="wmo-classifications">
-                  <AccordionTrigger className="text-sm font-medium">
-                    WMO Classifications {selectedWMOClassifications.length > 0 && `(${selectedWMOClassifications.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search WMO classifications..."
-                        value={searchWMO}
-                        onChange={(e) => setSearchWMO(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredClassifications.wmo.map(classification => (
-                          <div key={classification.code} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`wmo-${classification.code}`}
-                              checked={selectedWMOClassifications.includes(classification.code)}
-                              onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'wmo')}
-                            />
-                            <label htmlFor={`wmo-${classification.code}`} className="text-xs cursor-pointer">
-                              {classification.title}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="wmo-classifications">
+                    <AccordionTrigger className="text-sm font-medium">
+                      WMO Classifications {selectedWMOClassifications.length > 0 && `(${selectedWMOClassifications.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search WMO classifications..."
+                          value={searchWMO}
+                          onChange={(e) => setSearchWMO(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredClassifications.wmo.map(classification => (
+                            <div key={classification.code} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`wmo-${classification.code}`}
+                                checked={selectedWMOClassifications.includes(classification.code)}
+                                onCheckedChange={(checked) => handleClassificationChange(classification.code, checked as boolean, 'wmo')}
+                              />
+                              <label htmlFor={`wmo-${classification.code}`} className="text-xs cursor-pointer">
+                                {classification.title}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="health-standards">
-                  <AccordionTrigger className="text-sm font-medium">
-                    Health Standards {selectedHealthStandards.length > 0 && `(${selectedHealthStandards.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search health standards..."
-                        value={searchHealthStandards}
-                        onChange={(e) => setSearchHealthStandards(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredHealthStandards.map(standard => (
-                          <div key={standard} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`health-${standard}`}
-                              checked={selectedHealthStandards.includes(standard)}
-                              onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'health')}
-                            />
-                            <label htmlFor={`health-${standard}`} className="text-xs cursor-pointer">
-                              {standard}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="health-standards">
+                    <AccordionTrigger className="text-sm font-medium">
+                      Health Standards {selectedHealthStandards.length > 0 && `(${selectedHealthStandards.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search health standards..."
+                          value={searchHealthStandards}
+                          onChange={(e) => setSearchHealthStandards(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredHealthStandards.map(standard => (
+                            <div key={standard} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`health-${standard}`}
+                                checked={selectedHealthStandards.includes(standard)}
+                                onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'health')}
+                              />
+                              <label htmlFor={`health-${standard}`} className="text-xs cursor-pointer">
+                                {standard}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="interop-standards">
-                  <AccordionTrigger className="text-sm font-medium">
-                    Interoperability Standards {selectedInteropStandards.length > 0 && `(${selectedInteropStandards.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search interop standards..."
-                        value={searchInteropStandards}
-                        onChange={(e) => setSearchInteropStandards(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredInteropStandards.map(standard => (
-                          <div key={standard} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`interop-${standard}`}
-                              checked={selectedInteropStandards.includes(standard)}
-                              onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'interop')}
-                            />
-                            <label htmlFor={`interop-${standard}`} className="text-xs cursor-pointer">
-                              {standard}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="interop-standards">
+                    <AccordionTrigger className="text-sm font-medium">
+                      Interoperability Standards {selectedInteropStandards.length > 0 && `(${selectedInteropStandards.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search interop standards..."
+                          value={searchInteropStandards}
+                          onChange={(e) => setSearchInteropStandards(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredInteropStandards.map(standard => (
+                            <div key={standard} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`interop-${standard}`}
+                                checked={selectedInteropStandards.includes(standard)}
+                                onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'interop')}
+                              />
+                              <label htmlFor={`interop-${standard}`} className="text-xs cursor-pointer">
+                                {standard}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionContent>
+                  </AccordionItem>
 
-                <AccordionItem value="countries">
-                  <AccordionTrigger className="text-sm font-medium">
-                    Implementation Countries {selectedCountries.length > 0 && `(${selectedCountries.length})`}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <div className="space-y-2">
-                      <Input
-                        placeholder="Search countries..."
-                        value={searchCountries}
-                        onChange={(e) => setSearchCountries(e.target.value)}
-                        className="h-8 text-sm"
-                      />
-                      <div className="max-h-32 overflow-y-auto space-y-1">
-                        {filteredCountries.map(country => (
-                          <div key={country} className="flex items-center space-x-2">
-                            <Checkbox
-                              id={`country-${country}`}
-                              checked={selectedCountries.includes(country)}
-                              onCheckedChange={(checked) => handleCountryChange(country, checked as boolean)}
-                            />
-                            <label htmlFor={`country-${country}`} className="text-xs cursor-pointer">
-                              {country}
-                            </label>
-                          </div>
-                        ))}
+                  <AccordionItem value="countries">
+                    <AccordionTrigger className="text-sm font-medium">
+                      Implementation Countries {selectedCountries.length > 0 && `(${selectedCountries.length})`}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="space-y-2">
+                        <Input
+                          placeholder="Search countries..."
+                          value={searchCountries}
+                          onChange={(e) => setSearchCountries(e.target.value)}
+                          className="h-8 text-sm"
+                        />
+                        <div className="max-h-32 overflow-y-auto space-y-1">
+                          {filteredCountries.map(country => (
+                            <div key={country} className="flex items-center space-x-2">
+                              <Checkbox
+                                id={`country-${country}`}
+                                checked={selectedCountries.includes(country)}
+                                onCheckedChange={(checked) => handleCountryChange(country, checked as boolean)}
+                              />
+                              <label htmlFor={`country-${country}`} className="text-xs cursor-pointer">
+                                {country}
+                              </label>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </PopoverContent>
-        </Popover>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
 
         {hasActiveFilters && (
-          <Button 
-            variant="outline" 
-            onClick={onClearFilters}
-            className="h-11 px-4 flex items-center gap-2 shrink-0"
-          >
-            <Filter className="h-4 w-4" />
-            Clear All
-          </Button>
+          <div className="flex items-end">
+            <Button 
+              variant="outline" 
+              onClick={onClearFilters}
+              className="h-11 px-4 flex items-center gap-2 shrink-0"
+            >
+              <Filter className="h-4 w-4" />
+              Clear All
+            </Button>
+          </div>
         )}
       </div>
 
