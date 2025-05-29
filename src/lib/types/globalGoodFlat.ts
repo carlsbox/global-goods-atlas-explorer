@@ -1,3 +1,4 @@
+
 // New type definition that matches the exact JSON structure
 export interface GlobalGoodFlat {
   ID: string;
@@ -45,21 +46,31 @@ export interface GlobalGoodFlat {
     SDGs: Array<{
       code: string;
       title: string;
+      description?: string;
     }>;
     WHO: Array<{
       code: string;
       title: string;
-      group_code: string;
-      group_name: string;
-      authority: string;
+      description?: string;
+      group_code?: string;
+      group_name?: string;
+      authority?: string;
     }>;
-    WMO: Array<any>;
+    WMO: Array<{
+      code: string;
+      title: string;
+      description?: string;
+      group_code?: string;
+      group_name?: string;
+      authority?: string;
+    }>;
     DPI: Array<{
       code: string;
       title: string;
-      group_code: string;
-      group_name: string;
-      authority: string;
+      description?: string;
+      group_code?: string;
+      group_name?: string;
+      authority?: string;
     }>;
   };
   StandardsAndInteroperability: {
