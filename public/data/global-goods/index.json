@@ -1,10 +1,9 @@
-
 [
   {
     "ID": "meditrack",
     "Name": "MediTrack",
     "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
-    "Logo": "https://meditrack.org/logo.svg",
+    "Logo": "/uploads/meditrack_logo_fake.png",
     "GlobalGoodType": [{"code": "software", "title": "Software", "description": "Digital health platform"}],
     "Countries": ["ke", "ug"],
     "Classifications": {

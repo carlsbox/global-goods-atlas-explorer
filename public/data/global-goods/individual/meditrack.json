@@ -2,7 +2,7 @@
   
     "ID": "meditrack",
     "Name": "MediTrack",
-    "Logo": "https://meditrack.org/logo.svg",
+    "Logo": "/uploads/meditrack_logo_fake.png",
     "Website": {
       "main": {
         "name": "MediTrack Website",
