@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 
 interface Standard {
   code: string;
+  domain?: string;
+  type?: string;
 }
 
 interface StandardsBadgesProps {
@@ -34,7 +36,7 @@ export function StandardsBadges({ healthStandards, interopStandards }: Standards
         {/* Show overflow count for standards */}
         {(healthStandards.length + interopStandards.length > 4) && (
           <Badge variant="outline" className="text-xs">
-            +{(healthStandards.length - 2) + (interopStandards.length - 2)} standards
+            +{Math.max(0, (healthStandards.length - 2)) + Math.max(0, (interopStandards.length - 2))} standards
           </Badge>
         )}
       </div>

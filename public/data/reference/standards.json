@@ -1,3 +1,4 @@
+
 {
   "ADX": {
     "code": "ADX",
@@ -31,6 +32,14 @@
     "name": "HL7 FHIR",
     "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
   },
+  "FHIR": {
+    "code": "FHIR",
+    "domain": "Health",
+    "link": "https://www.hl7.org/fhir/",
+    "type": "exchange",
+    "name": "FHIR",
+    "description": "Alias for HL7 FHIR - Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically."
+  },
   "HL7 V2": {
     "code": "HL7 V2",
     "domain": "Health",
@@ -63,6 +72,14 @@
     "name": "ICD-10",
     "description": "International Classification of Diseases, 10th Revision, WHO's standard diagnostic classification for epidemiology and health management."
   },
+  "ICD": {
+    "code": "ICD",
+    "domain": "Health",
+    "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+    "type": "terminology",
+    "name": "ICD",
+    "description": "Alias for ICD-10 - International Classification of Diseases, WHO's standard diagnostic classification."
+  },
   "ICD-11": {
     "code": "ICD-11",
     "domain": "Health",
@@ -87,7 +104,31 @@
     "name": "SNOMED",
     "description": "Systematized Nomenclature of Medicine Clinical Terms, a comprehensive clinical terminology for electronic health records."
   },
-  "Not Applicable": {
+  "REST": {
+    "code": "REST",
+    "domain": "Interoperability",
+    "link": "https://restfulapi.net/",
+    "type": "exchange",
+    "name": "REST",
+    "description": "Representational State Transfer, an architectural style for designing networked applications and web services."
+  },
+  "HTTP": {
+    "code": "HTTP",
+    "domain": "Interoperability",
+    "link": "https://tools.ietf.org/html/rfc7231",
+    "type": "exchange",
+    "name": "HTTP",
+    "description": "Hypertext Transfer Protocol, the foundation protocol for data communication on the World Wide Web."
+  },
+  "HTTPS": {
+    "code": "HTTPS",
+    "domain": "Interoperability",
+    "link": "https://tools.ietf.org/html/rfc2818",
+    "type": "exchange",
+    "name": "HTTPS",
+    "description": "HTTP Secure, an extension of HTTP that uses encryption for secure communication over networks."
+  },
+  "Not Applicable Health": {
     "code": "Not Applicable",
     "domain": "Health",
     "link": "",
@@ -95,7 +136,7 @@
     "name": "Not Applicable",
     "description": "Indicates that no specific health standard is applicable to the given context."
   },
-  "Other": {
+  "Other Health": {
     "code": "Other",
     "domain": "Health",
     "link": "",
@@ -183,4 +224,4 @@
     "name": "Other",
     "description": "Refers to weather and climate standards not listed in the current classification system."
   }
-} 
+}

@@ -34,7 +34,8 @@ export interface EnhancedCMSGlobalGood {
       description: string;
     };
   };
-  GlobalGoodsType: Array<{
+  // GlobalGoodsType can be either array of strings or array of objects for backward compatibility
+  GlobalGoodsType: string[] | Array<{
     code: string;
     title: string;
     description: string;
@@ -52,14 +53,14 @@ export interface EnhancedCMSGlobalGood {
     DPI: string[];
   };
   StandardsAndInteroperability: {
-    HealthStandards: Array<{
+    HealthStandards: string[] | Array<{
       code: string;
       domain: string;
       link: string;
       name: string;
       description: string;
     }>;
-    Interoperability: Array<{
+    Interoperability: string[] | Array<{
       code: string;
       type: string;
       link: string;
@@ -271,6 +272,64 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
       };
     })
   );
+
+  // Handle GlobalGoodsType transformation - support both formats
+  let globalGoodsType: Array<{ code: string; title: string; description: string; }> = [];
+  if (Array.isArray(cmsGood.GlobalGoodsType)) {
+    if (cmsGood.GlobalGoodsType.length > 0) {
+      if (typeof cmsGood.GlobalGoodsType[0] === 'string') {
+        // Array of strings - convert to objects
+        globalGoodsType = (cmsGood.GlobalGoodsType as string[]).map(code => ({
+          code,
+          title: code.charAt(0).toUpperCase() + code.slice(1),
+          description: `${code.charAt(0).toUpperCase() + code.slice(1)} type global good`
+        }));
+      } else {
+        // Array of objects - use as is
+        globalGoodsType = cmsGood.GlobalGoodsType as Array<{ code: string; title: string; description: string; }>;
+      }
+    }
+  }
+
+  // Handle standards transformation - support both formats
+  let healthStandards: Array<{ code: string; domain: string; link: string; name: string; description: string; }> = [];
+  let interoperabilityStandards: Array<{ code: string; type: string; link: string; name: string; description: string; }> = [];
+
+  if (Array.isArray(cmsGood.StandardsAndInteroperability?.HealthStandards)) {
+    if (cmsGood.StandardsAndInteroperability.HealthStandards.length > 0) {
+      if (typeof cmsGood.StandardsAndInteroperability.HealthStandards[0] === 'string') {
+        // Array of strings - convert to objects
+        healthStandards = (cmsGood.StandardsAndInteroperability.HealthStandards as string[]).map(code => ({
+          code,
+          domain: 'Health',
+          link: '',
+          name: code,
+          description: `${code} health standard`
+        }));
+      } else {
+        // Array of objects - use as is
+        healthStandards = cmsGood.StandardsAndInteroperability.HealthStandards as Array<{ code: string; domain: string; link: string; name: string; description: string; }>;
+      }
+    }
+  }
+
+  if (Array.isArray(cmsGood.StandardsAndInteroperability?.Interoperability)) {
+    if (cmsGood.StandardsAndInteroperability.Interoperability.length > 0) {
+      if (typeof cmsGood.StandardsAndInteroperability.Interoperability[0] === 'string') {
+        // Array of strings - convert to objects
+        interoperabilityStandards = (cmsGood.StandardsAndInteroperability.Interoperability as string[]).map(code => ({
+          code,
+          type: 'exchange',
+          link: '',
+          name: code,
+          description: `${code} interoperability standard`
+        }));
+      } else {
+        // Array of objects - use as is
+        interoperabilityStandards = cmsGood.StandardsAndInteroperability.Interoperability as Array<{ code: string; type: string; link: string; name: string; description: string; }>;
+      }
+    }
+  }
   
   const transformed: GlobalGoodFlat = {
     ID: cmsGood.ID || '',
@@ -282,7 +341,7 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
       source_code: cmsGood.Website?.source_code,
       demo: cmsGood.Website?.demo
     },
-    GlobalGoodsType: cmsGood.GlobalGoodsType || [],
+    GlobalGoodsType: globalGoodsType,
     License: license ? {
       id: license.id,
       name: license.name,
@@ -297,8 +356,8 @@ export async function transformEnhancedCMSGlobalGoodToFlat(
     Contact: cmsGood.Contact || [],
     Classifications: resolvedClassifications,
     StandardsAndInteroperability: {
-      HealthStandards: cmsGood.StandardsAndInteroperability?.HealthStandards || [],
-      Interoperability: cmsGood.StandardsAndInteroperability?.Interoperability || [],
+      HealthStandards: healthStandards,
+      Interoperability: interoperabilityStandards,
       ClimateStandards: cmsGood.StandardsAndInteroperability?.ClimateStandards || []
     },
     ProductOverview: {
@@ -418,7 +477,7 @@ export function transformAppGlobalGoodToEnhancedCMS(
     Name: appGood.Name,
     Logo: appGood.Logo,
     Website: appGood.Website,
-    GlobalGoodsType: appGood.GlobalGoodsType,
+    GlobalGoodsType: appGood.GlobalGoodsType.map(type => type.code),
     License: appGood.License.id,
     Contact: appGood.Contact,
     Classifications: {
@@ -427,7 +486,11 @@ export function transformAppGlobalGoodToEnhancedCMS(
       WMO: appGood.Classifications.WMO.map((wmo: any) => wmo.code || ''),
       DPI: appGood.Classifications.DPI.map(dpi => dpi.code)
     },
-    StandardsAndInteroperability: appGood.StandardsAndInteroperability,
+    StandardsAndInteroperability: {
+      HealthStandards: appGood.StandardsAndInteroperability.HealthStandards.map(std => std.code),
+      Interoperability: appGood.StandardsAndInteroperability.Interoperability.map(std => std.code),
+      ClimateStandards: appGood.StandardsAndInteroperability.ClimateStandards
+    },
     ProductOverview: {
       ...appGood.ProductOverview,
       Languages: appGood.ProductOverview.Languages.map(lang => lang.code)

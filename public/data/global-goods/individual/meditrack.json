@@ -25,13 +25,7 @@
       "description": "Test the tool online"
     }
   },
-  "GlobalGoodsType": [
-    {
-      "code": "software",
-      "title": "Software",
-      "description": "An open-source logistics tracking platform for health supply chains."
-    }
-  ],
+  "GlobalGoodsType": ["software"],
   "License": "apache-2.0",
   "Contact": [
     {
