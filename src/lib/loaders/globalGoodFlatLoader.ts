@@ -1,6 +1,5 @@
-
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
-import { getLicenseById, getProductLanguageByCode } from './referenceDataLoader';
+import { getLicenseById, getProductLanguageByCode, getStandardByCode } from './referenceDataLoader';
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 
 interface GlobalGoodIndexEnhanced {
@@ -162,6 +161,76 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     languages = resolvedLanguages;
   }
 
+  // Resolve standards codes to full standard objects
+  let healthStandards = rawData.StandardsAndInteroperability?.HealthStandards || [];
+  if (Array.isArray(healthStandards) && healthStandards.length > 0 && typeof healthStandards[0] === 'string') {
+    const resolvedHealthStandards = await Promise.all(
+      healthStandards.map(async (standardCode: string) => {
+        const standardData = await getStandardByCode(standardCode);
+        return standardData ? {
+          code: standardData.code,
+          domain: standardData.domain,
+          link: standardData.link,
+          name: standardData.name,
+          description: standardData.description
+        } : {
+          code: standardCode,
+          domain: 'Health',
+          link: '',
+          name: standardCode,
+          description: ''
+        };
+      })
+    );
+    healthStandards = resolvedHealthStandards;
+  }
+
+  let interoperabilityStandards = rawData.StandardsAndInteroperability?.Interoperability || [];
+  if (Array.isArray(interoperabilityStandards) && interoperabilityStandards.length > 0 && typeof interoperabilityStandards[0] === 'string') {
+    const resolvedInteropStandards = await Promise.all(
+      interoperabilityStandards.map(async (standardCode: string) => {
+        const standardData = await getStandardByCode(standardCode);
+        return standardData ? {
+          code: standardData.code,
+          type: standardData.type,
+          link: standardData.link,
+          name: standardData.name,
+          description: standardData.description
+        } : {
+          code: standardCode,
+          type: 'interoperability',
+          link: '',
+          name: standardCode,
+          description: ''
+        };
+      })
+    );
+    interoperabilityStandards = resolvedInteropStandards;
+  }
+
+  let climateStandards = rawData.StandardsAndInteroperability?.ClimateStandards || [];
+  if (Array.isArray(climateStandards) && climateStandards.length > 0 && typeof climateStandards[0] === 'string') {
+    const resolvedClimateStandards = await Promise.all(
+      climateStandards.map(async (standardCode: string) => {
+        const standardData = await getStandardByCode(standardCode);
+        return standardData ? {
+          code: standardData.code,
+          domain: standardData.domain,
+          link: standardData.link,
+          name: standardData.name,
+          description: standardData.description
+        } : {
+          code: standardCode,
+          domain: 'Climate',
+          link: '',
+          name: standardCode,
+          description: ''
+        };
+      })
+    );
+    climateStandards = resolvedClimateStandards;
+  }
+
   // Return the transformed data
   return {
     ID: rawData.ID || '',
@@ -178,9 +247,9 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
       DPI: []
     },
     StandardsAndInteroperability: {
-      HealthStandards: rawData.StandardsAndInteroperability?.HealthStandards || [],
-      Interoperability: rawData.StandardsAndInteroperability?.Interoperability || [],
-      ClimateStandards: rawData.StandardsAndInteroperability?.ClimateStandards || []
+      HealthStandards: healthStandards,
+      Interoperability: interoperabilityStandards,
+      ClimateStandards: climateStandards
     },
     ProductOverview: {
       Summary: rawData.ProductOverview?.Summary || '',

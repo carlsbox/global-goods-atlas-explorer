@@ -20,9 +20,19 @@ interface CollectionInitiative {
   description: string;
 }
 
+interface Standard {
+  code: string;
+  name: string;
+  description: string;
+  domain: string;
+  type: string;
+  link: string;
+}
+
 let licensesCache: License[] | null = null;
 let productLanguagesCache: ProductLanguage[] | null = null;
 let collectionInitiativesCache: CollectionInitiative[] | null = null;
+let standardsCache: Record<string, Standard> | null = null;
 
 export async function loadLicenses(): Promise<License[]> {
   if (licensesCache) return licensesCache;
@@ -66,6 +76,20 @@ export async function loadCollectionInitiatives(): Promise<CollectionInitiative[
   }
 }
 
+export async function loadStandards(): Promise<Record<string, Standard>> {
+  if (standardsCache) return standardsCache;
+  
+  try {
+    const response = await fetch('/data/reference/standards.json');
+    if (!response.ok) throw new Error('Failed to load standards');
+    standardsCache = await response.json();
+    return standardsCache;
+  } catch (error) {
+    console.error('Error loading standards:', error);
+    return {};
+  }
+}
+
 export async function getLicenseById(id: string): Promise<License | undefined> {
   const licenses = await loadLicenses();
   return licenses.find(license => license.id === id);
@@ -81,8 +105,19 @@ export async function getCollectionInitiativeById(id: string): Promise<Collectio
   return initiatives.find(initiative => initiative.id === id);
 }
 
+export async function getStandardByCode(code: string): Promise<Standard | undefined> {
+  const standards = await loadStandards();
+  return standards[code];
+}
+
+export async function getStandardsByType(type: string): Promise<Standard[]> {
+  const standards = await loadStandards();
+  return Object.values(standards).filter(standard => standard.type === type);
+}
+
 export function clearReferenceDataCache(): void {
   licensesCache = null;
   productLanguagesCache = null;
   collectionInitiativesCache = null;
+  standardsCache = null;
 }

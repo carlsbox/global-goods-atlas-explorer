@@ -1,3 +1,4 @@
+
 {
   "ID": "commcare",
   "Name": "CommCare",
@@ -46,24 +47,8 @@
     "DPI": ["DPI_BD2"]
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": [
-      {
-        "code": "FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "FHIR",
-        "description": "Fast Healthcare Interoperability Resources standard"
-      }
-    ],
-    "Interoperability": [
-      {
-        "code": "REST",
-        "type": "API",
-        "link": "https://confluence.dimagi.com/display/commcarepublic/CommCare+API",
-        "name": "REST API",
-        "description": "RESTful API for data integration"
-      }
-    ],
+    "HealthStandards": ["FHIR"],
+    "Interoperability": ["REST"],
     "ClimateStandards": []
   },
   "ProductOverview": {

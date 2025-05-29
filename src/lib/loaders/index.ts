@@ -11,9 +11,12 @@ export {
   loadLicenses, 
   loadProductLanguages, 
   loadCollectionInitiatives,
+  loadStandards,
   getLicenseById,
   getProductLanguageByCode,
   getCollectionInitiativeById,
+  getStandardByCode,
+  getStandardsByType,
   clearReferenceDataCache
 } from './referenceDataLoader';
 export {
