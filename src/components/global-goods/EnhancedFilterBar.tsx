@@ -64,7 +64,7 @@ interface EnhancedFilterBarProps {
 }
 
 const SORT_OPTIONS = [
-  { value: 'name', label: 'Order by...' },
+  { value: 'name', label: 'Name A-Z' },
   { value: 'countries', label: 'Most Countries' },
   { value: 'maturity', label: 'Highest Maturity' },
   { value: 'recent', label: 'Recently Updated' }
