@@ -1,14 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-interface Classification {
-  code: string;
-  title: string;
-  group_code: string;
-  group_name: string;
-  authority: string;
-}
+import { Classification } from "@/lib/types/classifications";
 
 interface GroupedClassificationsProps {
   classifications: Classification[];
@@ -16,9 +9,10 @@ interface GroupedClassificationsProps {
 }
 
 export function GroupedClassifications({ classifications, title }: GroupedClassificationsProps) {
-  // Group classifications by group_name
-  const grouped = classifications.reduce((acc, classification) => {
-    const groupKey = classification.group_name;
+  // Filter out classifications without group information and group by group_name
+  const classificationsWithGroups = classifications.filter(c => c.group_name);
+  const grouped = classificationsWithGroups.reduce((acc, classification) => {
+    const groupKey = classification.group_name!;
     if (!acc[groupKey]) {
       acc[groupKey] = [];
     }
@@ -26,7 +20,7 @@ export function GroupedClassifications({ classifications, title }: GroupedClassi
     return acc;
   }, {} as Record<string, Classification[]>);
 
-  if (classifications.length === 0) {
+  if (classificationsWithGroups.length === 0) {
     return null;
   }
 
@@ -39,9 +33,11 @@ export function GroupedClassifications({ classifications, title }: GroupedClassi
         {Object.entries(grouped).map(([groupName, groupClassifications]) => (
           <div key={groupName} className="space-y-3">
             <div className="flex items-center gap-2">
-              <Badge variant="secondary" className="text-xs">
-                {groupClassifications[0].group_code}
-              </Badge>
+              {groupClassifications[0].group_code && (
+                <Badge variant="secondary" className="text-xs">
+                  {groupClassifications[0].group_code}
+                </Badge>
+              )}
               <h4 className="text-sm font-medium text-muted-foreground">{groupName}</h4>
             </div>
             <div className="space-y-2 ml-4">
