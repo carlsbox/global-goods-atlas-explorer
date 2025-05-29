@@ -1,4 +1,3 @@
-
 {
     "ID": "openmrs",
     "Name": "OpenMRS",
@@ -25,13 +24,7 @@
         "description": "Test OpenMRS online"
       }
     },
-    "GlobalGoodsType": [
-      {
-        "code": "software",
-        "title": "Software",
-        "description": "Open-source electronic medical record platform."
-      }
-    ],
+    "GlobalGoodsType": ["software"],
     "License": "mpl-2.0",
     "Contact": [
       {

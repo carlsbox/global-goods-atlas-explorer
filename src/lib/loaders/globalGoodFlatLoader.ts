@@ -1,5 +1,5 @@
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
-import { getLicenseById, getProductLanguageByCode, getStandardByCode } from './referenceDataLoader';
+import { getLicenseById, getProductLanguageByCode, getStandardByCode, getGlobalGoodsTypeByCode, getCollectionInitiativeById } from './referenceDataLoader';
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 
 interface GlobalGoodIndexEnhanced {
@@ -141,6 +141,26 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     classifications = await resolveClassificationsByAuthority(classificationCodes);
   }
 
+  // Resolve GlobalGoodsType codes to full objects
+  let globalGoodsType = rawData.GlobalGoodsType || [];
+  if (Array.isArray(globalGoodsType) && globalGoodsType.length > 0 && typeof globalGoodsType[0] === 'string') {
+    const resolvedTypes = await Promise.all(
+      globalGoodsType.map(async (typeCode: string) => {
+        const typeData = await getGlobalGoodsTypeByCode(typeCode);
+        return typeData ? {
+          code: typeData.code,
+          title: typeData.title,
+          description: typeData.description
+        } : {
+          code: typeCode,
+          title: typeCode,
+          description: ''
+        };
+      })
+    );
+    globalGoodsType = resolvedTypes;
+  }
+
   // Resolve language codes to full language objects
   let languages = rawData.ProductOverview?.Languages || [];
   if (Array.isArray(languages) && languages.length > 0 && typeof languages[0] === 'string') {
@@ -159,6 +179,34 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
       })
     );
     languages = resolvedLanguages;
+  }
+
+  // Resolve LinkedInitiatives collection initiative IDs to full objects
+  let linkedInitiatives = rawData.LinkedInitiatives?.Initiative || [];
+  if (Array.isArray(linkedInitiatives) && linkedInitiatives.length > 0) {
+    const resolvedInitiatives = await Promise.all(
+      linkedInitiatives.map(async (initiative: any) => {
+        if (typeof initiative.collectionInitiative === 'string') {
+          const initiativeData = await getCollectionInitiativeById(initiative.collectionInitiative);
+          return {
+            collectionInitiative: initiativeData ? {
+              label: initiativeData.label,
+              logo_url: initiativeData.logo_url,
+              site_url: initiativeData.site_url,
+              description: initiativeData.description
+            } : {
+              label: initiative.collectionInitiative,
+              logo_url: '',
+              site_url: '',
+              description: ''
+            },
+            tool_url: initiative.tool_url
+          };
+        }
+        return initiative;
+      })
+    );
+    linkedInitiatives = resolvedInitiatives;
   }
 
   // Resolve standards codes to full standard objects
@@ -237,7 +285,7 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     Name: rawData.Name || '',
     Logo: rawData.Logo,
     Website: rawData.Website || {},
-    GlobalGoodsType: rawData.GlobalGoodsType || [],
+    GlobalGoodsType: globalGoodsType,
     License: license,
     Contact: rawData.Contact || [],
     Classifications: classifications || {
@@ -350,7 +398,7 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
       InstallationDocumentation: rawData.Resources?.InstallationDocumentation || []
     },
     LinkedInitiatives: {
-      Initiative: rawData.LinkedInitiatives?.Initiative || []
+      Initiative: linkedInitiatives
     }
   };
 }

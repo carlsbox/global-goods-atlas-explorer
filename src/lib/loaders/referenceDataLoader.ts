@@ -29,10 +29,17 @@ interface Standard {
   link: string;
 }
 
+interface GlobalGoodsType {
+  code: string;
+  title: string;
+  description: string;
+}
+
 let licensesCache: License[] | null = null;
 let productLanguagesCache: ProductLanguage[] | null = null;
 let collectionInitiativesCache: CollectionInitiative[] | null = null;
 let standardsCache: Record<string, Standard> | null = null;
+let globalGoodsTypesCache: GlobalGoodsType[] | null = null;
 
 export async function loadLicenses(): Promise<License[]> {
   if (licensesCache) return licensesCache;
@@ -90,6 +97,20 @@ export async function loadStandards(): Promise<Record<string, Standard>> {
   }
 }
 
+export async function loadGlobalGoodsTypes(): Promise<GlobalGoodsType[]> {
+  if (globalGoodsTypesCache) return globalGoodsTypesCache;
+  
+  try {
+    const response = await fetch('/data/reference/globalGoodsTypes.json');
+    if (!response.ok) throw new Error('Failed to load global goods types');
+    globalGoodsTypesCache = await response.json();
+    return globalGoodsTypesCache;
+  } catch (error) {
+    console.error('Error loading global goods types:', error);
+    return [];
+  }
+}
+
 export async function getLicenseById(id: string): Promise<License | undefined> {
   const licenses = await loadLicenses();
   return licenses.find(license => license.id === id);
@@ -115,9 +136,15 @@ export async function getStandardsByType(type: string): Promise<Standard[]> {
   return Object.values(standards).filter(standard => standard.type === type);
 }
 
+export async function getGlobalGoodsTypeByCode(code: string): Promise<GlobalGoodsType | undefined> {
+  const types = await loadGlobalGoodsTypes();
+  return types.find(type => type.code === code);
+}
+
 export function clearReferenceDataCache(): void {
   licensesCache = null;
   productLanguagesCache = null;
   collectionInitiativesCache = null;
   standardsCache = null;
+  globalGoodsTypesCache = null;
 }

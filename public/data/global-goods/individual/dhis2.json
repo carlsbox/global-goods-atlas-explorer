@@ -1,4 +1,3 @@
-
 {
     "ID": "dhis2",
     "Name": "DHIS2",
@@ -25,13 +24,7 @@
         "description": "Test DHIS2 online"
       }
     },
-    "GlobalGoodsType": [
-      {
-        "code": "software",
-        "title": "Software",
-        "description": "Open-source health management data platform."
-      }
-    ],
+    "GlobalGoodsType": ["software"],
     "License": "bsd-3-clause",
     "Contact": [
       {
