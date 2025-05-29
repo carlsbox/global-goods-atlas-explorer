@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
+import { ReferenceDataProvider } from "@/contexts/ReferenceDataContext";
 
 // Import pages
 import HomePage from "@/pages/HomePage";
@@ -33,28 +34,30 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <Router>
-          <div className="min-h-screen bg-background">
-            <Routes>
-              {/* Public routes with layout */}
-              <Route path="/" element={<PageLayout />}>
-                <Route index element={<HomePage />} />
-                <Route path="global-goods" element={<GlobalGoodsPageFlat />} />
-                <Route path="global-goods/:id" element={<GlobalGoodDetailsPageFlat />} />
-                <Route path="use-cases" element={<UseCasesPage />} />
-                <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
-                <Route path="map" element={<EnhancedMapPage />} />
-                <Route path="about" element={<AboutPage />} />
-                <Route path="contact" element={<ContactPage />} />
-                <Route path="privacy" element={<PrivacyPolicyPage />} />
-                <Route path="terms" element={<TermsOfServicePage />} />
-              </Route>
+        <ReferenceDataProvider>
+          <Router>
+            <div className="min-h-screen bg-background">
+              <Routes>
+                {/* Public routes with layout */}
+                <Route path="/" element={<PageLayout />}>
+                  <Route index element={<HomePage />} />
+                  <Route path="global-goods" element={<GlobalGoodsPageFlat />} />
+                  <Route path="global-goods/:id" element={<GlobalGoodDetailsPageFlat />} />
+                  <Route path="use-cases" element={<UseCasesPage />} />
+                  <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
+                  <Route path="map" element={<EnhancedMapPage />} />
+                  <Route path="about" element={<AboutPage />} />
+                  <Route path="contact" element={<ContactPage />} />
+                  <Route path="privacy" element={<PrivacyPolicyPage />} />
+                  <Route path="terms" element={<TermsOfServicePage />} />
+                </Route>
 
-              {/* 404 route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </Router>
+                {/* 404 route */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </Router>
+        </ReferenceDataProvider>
         <Toaster />
       </ThemeProvider>
     </QueryClientProvider>
