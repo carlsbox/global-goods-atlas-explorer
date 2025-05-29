@@ -13,12 +13,14 @@ export {
   loadCollectionInitiatives,
   loadStandards,
   loadGlobalGoodsTypes,
+  loadCountries,
   getLicenseById,
   getProductLanguageByCode,
   getCollectionInitiativeById,
   getStandardByCode,
   getStandardsByType,
   getGlobalGoodsTypeByCode,
+  getCountryByCode,
   clearReferenceDataCache
 } from './referenceDataLoader';
 export {

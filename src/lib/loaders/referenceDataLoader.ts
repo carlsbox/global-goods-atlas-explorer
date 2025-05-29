@@ -35,11 +35,20 @@ interface GlobalGoodsType {
   description: string;
 }
 
+interface Country {
+  iso_code: string;
+  type: string;
+  short: string;
+  formal: string;
+  un_code?: string;
+}
+
 let licensesCache: License[] | null = null;
 let productLanguagesCache: ProductLanguage[] | null = null;
 let collectionInitiativesCache: CollectionInitiative[] | null = null;
 let standardsCache: Record<string, Standard> | null = null;
 let globalGoodsTypesCache: GlobalGoodsType[] | null = null;
+let countriesCache: Record<string, Country> | null = null;
 
 export async function loadLicenses(): Promise<License[]> {
   if (licensesCache) return licensesCache;
@@ -111,6 +120,20 @@ export async function loadGlobalGoodsTypes(): Promise<GlobalGoodsType[]> {
   }
 }
 
+export async function loadCountries(): Promise<Record<string, Country>> {
+  if (countriesCache) return countriesCache;
+  
+  try {
+    const response = await fetch('/data/reference/countries.json');
+    if (!response.ok) throw new Error('Failed to load countries');
+    countriesCache = await response.json();
+    return countriesCache;
+  } catch (error) {
+    console.error('Error loading countries:', error);
+    return {};
+  }
+}
+
 export async function getLicenseById(id: string): Promise<License | undefined> {
   const licenses = await loadLicenses();
   return licenses.find(license => license.id === id);
@@ -141,10 +164,16 @@ export async function getGlobalGoodsTypeByCode(code: string): Promise<GlobalGood
   return types.find(type => type.code === code);
 }
 
+export async function getCountryByCode(code: string): Promise<Country | undefined> {
+  const countries = await loadCountries();
+  return countries[code.toLowerCase()];
+}
+
 export function clearReferenceDataCache(): void {
   licensesCache = null;
   productLanguagesCache = null;
   collectionInitiativesCache = null;
   standardsCache = null;
   globalGoodsTypesCache = null;
+  countriesCache = null;
 }
