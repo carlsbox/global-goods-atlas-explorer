@@ -77,23 +77,34 @@ collections:
         min: 1
         fields:
           - label: "Type"
-            name: "code"
-            widget: "relation"
-            collection: "reference-global-goods-types"
-            file: "types"
-            search_fields: ["types.*.code", "types.*.title"]
-            display_fields: ["types.*.code", "types.*.title"]
-            value_field: "types.*.code"
+            name: "type"
+            widget: "select"
+            options:
+              - {label: "Software", value: "software"}
+              - {label: "Content", value: "content"}
+              - {label: "Service", value: "service"}
+              - {label: "Climate Data Product", value: "climate"}
+              - {label: "Data", value: "data"}
+              - {label: "AI Model", value: "ai_model"}
 
       # Enhanced License with Reference Integration
       - label: "License"
         name: "License"
-        widget: "relation"
-        collection: "reference-licenses"
-        file: "licenses"
-        search_fields: ["licenses.*.name", "licenses.*.id"]
-        display_fields: ["licenses.*.name", "licenses.*.description"]
-        value_field: "licenses.*.id"
+        widget: "select"
+        options:
+          - {label: "Apache License 2.0", value: "apache-2.0"}
+          - {label: "MIT License", value: "mit"}
+          - {label: "BSD 2-Clause License", value: "bsd-2-clause"}
+          - {label: "BSD 3-Clause License", value: "bsd-3-clause"}
+          - {label: "GNU General Public License v2.0", value: "gpl-2.0"}
+          - {label: "GNU General Public License v3.0", value: "gpl-3.0"}
+          - {label: "GNU Lesser General Public License v3.0", value: "lgpl-3.0"}
+          - {label: "GNU Affero General Public License v3.0", value: "agpl-3.0"}
+          - {label: "Mozilla Public License 2.0", value: "mpl-2.0"}
+          - {label: "Eclipse Public License 2.0", value: "epl-2.0"}
+          - {label: "Creative Commons Zero v1.0 Universal", value: "cc0-1.0"}
+          - {label: "Creative Commons Attribution 4.0 International", value: "cc-by-4.0"}
+          - {label: "OpenMRS Public License 1.1", value: "openmrs-1.1"}
         required: true
 
       # Contact
@@ -105,7 +116,7 @@ collections:
           - {label: "Email", name: "email", widget: "string", pattern: ['^[^@]+@[^@]+\.[^@]+$', 'Must be a valid email']}
           - {label: "Role", name: "role", widget: "string"}
 
-      # Enhanced Classifications with Reference Integration
+      # Enhanced Classifications with simplified structure
       - label: "Classifications"
         name: "Classifications"
         widget: "object"
@@ -115,52 +126,63 @@ collections:
             name: "SDGs"
             widget: "list"
             fields:
-              - label: "SDG"
+              - label: "SDG Code"
                 name: "code"
-                widget: "relation"
-                collection: "reference-classifications"
-                file: "sdgs"
-                search_fields: ["classifications.*.code", "classifications.*.title"]
-                display_fields: ["classifications.*.code", "classifications.*.title"]
-                value_field: "classifications.*.code"
+                widget: "select"
+                options:
+                  - {label: "SDG-1: No Poverty", value: "SDG-1"}
+                  - {label: "SDG-2: Zero Hunger", value: "SDG-2"}
+                  - {label: "SDG-3: Good Health and Well-being", value: "SDG-3"}
+                  - {label: "SDG-4: Quality Education", value: "SDG-4"}
+                  - {label: "SDG-5: Gender Equality", value: "SDG-5"}
+                  - {label: "SDG-6: Clean Water and Sanitation", value: "SDG-6"}
+                  - {label: "SDG-7: Affordable and Clean Energy", value: "SDG-7"}
+                  - {label: "SDG-8: Decent Work and Economic Growth", value: "SDG-8"}
+                  - {label: "SDG-9: Industry, Innovation and Infrastructure", value: "SDG-9"}
+                  - {label: "SDG-10: Reduced Inequality", value: "SDG-10"}
+                  - {label: "SDG-11: Sustainable Cities and Communities", value: "SDG-11"}
+                  - {label: "SDG-12: Responsible Consumption and Production", value: "SDG-12"}
+                  - {label: "SDG-13: Climate Action", value: "SDG-13"}
+                  - {label: "SDG-14: Life Below Water", value: "SDG-14"}
+                  - {label: "SDG-15: Life on Land", value: "SDG-15"}
+                  - {label: "SDG-16: Peace and Justice Strong Institutions", value: "SDG-16"}
+                  - {label: "SDG-17: Partnerships to achieve the Goal", value: "SDG-17"}
           - label: "World Health Organization (WHO)"
             name: "WHO"
             widget: "list"
             fields:
               - label: "WHO Classification"
                 name: "code"
-                widget: "relation"
-                collection: "reference-classifications"
-                file: "who"
-                search_fields: ["classifications.*.code", "classifications.*.title"]
-                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
-                value_field: "classifications.*.code"
+                widget: "select"
+                options:
+                  - {label: "WHO_B1: Health Information Systems", value: "WHO_B1"}
+                  - {label: "WHO_B2: Health Service Delivery", value: "WHO_B2"}
+                  - {label: "WHO_B3: Health Workforce Management", value: "WHO_B3"}
+                  - {label: "WHO_B4: Health Financing and Insurance", value: "WHO_B4"}
           - label: "Digital Public Infrastructure (DPI)"
             name: "DPI"
             widget: "list"
             fields:
               - label: "DPI Classification"
                 name: "code"
-                widget: "relation"
-                collection: "reference-classifications"
-                file: "dpi"
-                search_fields: ["classifications.*.code", "classifications.*.title"]
-                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
-                value_field: "classifications.*.code"
+                widget: "select"
+                options:
+                  - {label: "DPI_BD1: Identity Management", value: "DPI_BD1"}
+                  - {label: "DPI_BD2: Payment Systems", value: "DPI_BD2"}
+                  - {label: "DPI_RG1: Registry Services", value: "DPI_RG1"}
           - label: "World Meteorological Organization (WMO)"
             name: "WMO"
             widget: "list"
             fields:
               - label: "WMO Classification"
                 name: "code"
-                widget: "relation"
-                collection: "reference-classifications"
-                file: "wmo"
-                search_fields: ["classifications.*.code", "classifications.*.title"]
-                display_fields: ["classifications.*.code", "classifications.*.title", "classifications.*.group_name"]
-                value_field: "classifications.*.code"
+                widget: "select"
+                options:
+                  - {label: "WMO_A: Observational Data", value: "WMO_A"}
+                  - {label: "WMO_B: Climate Monitoring", value: "WMO_B"}
+                  - {label: "WMO_C: Weather Forecasting", value: "WMO_C"}
 
-      # Enhanced Standards with Reference Integration
+      # Enhanced Standards with simplified structure
       - label: "Standards and Interoperability"
         name: "StandardsAndInteroperability"
         widget: "object"
@@ -172,36 +194,38 @@ collections:
             fields:
               - label: "Standard"
                 name: "code"
-                widget: "relation"
-                collection: "reference-standards"
-                file: "health"
-                search_fields: ["standards.*.code", "standards.*.name"]
-                display_fields: ["standards.*.code", "standards.*.name", "standards.*.description"]
-                value_field: "standards.*.code"
+                widget: "select"
+                options:
+                  - {label: "FHIR - Fast Healthcare Interoperability Resources", value: "FHIR"}
+                  - {label: "HL7 - Health Level 7", value: "HL7"}
+                  - {label: "ICD-10 - International Classification of Diseases", value: "ICD-10"}
+                  - {label: "SNOMED-CT - Systematized Nomenclature of Medicine", value: "SNOMED-CT"}
+                  - {label: "LOINC - Logical Observation Identifiers Names and Codes", value: "LOINC"}
           - label: "Interoperability Standards"
             name: "Interoperability"
             widget: "list"
             fields:
               - label: "Standard"
                 name: "code"
-                widget: "relation"
-                collection: "reference-standards"
-                file: "interoperability"
-                search_fields: ["standards.*.code", "standards.*.name"]
-                display_fields: ["standards.*.code", "standards.*.name", "standards.*.type"]
-                value_field: "standards.*.code"
+                widget: "select"
+                options:
+                  - {label: "REST - Representational State Transfer", value: "REST"}
+                  - {label: "JSON - JavaScript Object Notation", value: "JSON"}
+                  - {label: "XML - Extensible Markup Language", value: "XML"}
+                  - {label: "OAuth - Open Authorization", value: "OAuth"}
+                  - {label: "OpenAPI - OpenAPI Specification", value: "OpenAPI"}
           - label: "Climate Standards"
             name: "ClimateStandards"
             widget: "list"
             fields:
               - label: "Standard"
                 name: "code"
-                widget: "relation"
-                collection: "reference-standards"
-                file: "climate"
-                search_fields: ["standards.*.code", "standards.*.name"]
-                display_fields: ["standards.*.code", "standards.*.name"]
-                value_field: "standards.*.code"
+                widget: "select"
+                options:
+                  - {label: "CF - Climate and Forecast Metadata Conventions", value: "CF"}
+                  - {label: "NetCDF - Network Common Data Form", value: "NetCDF"}
+                  - {label: "WMS - Web Map Service", value: "WMS"}
+                  - {label: "WFS - Web Feature Service", value: "WFS"}
 
       # Enhanced Product Overview
       - label: "Product Overview"
@@ -219,12 +243,20 @@ collections:
             fields:
               - label: "Language"
                 name: "code"
-                widget: "relation"
-                collection: "reference-languages"
-                file: "languages"
-                search_fields: ["languages.*.code", "languages.*.name", "languages.*.nativeName"]
-                display_fields: ["languages.*.name", "languages.*.nativeName"]
-                value_field: "languages.*.code"
+                widget: "select"
+                options:
+                  - {label: "English", value: "en"}
+                  - {label: "French (Français)", value: "fr"}
+                  - {label: "Spanish (Español)", value: "es"}
+                  - {label: "Portuguese (Português)", value: "pt"}
+                  - {label: "Arabic (العربية)", value: "ar"}
+                  - {label: "Chinese (中文)", value: "zh"}
+                  - {label: "Hindi (हिन्दी)", value: "hi"}
+                  - {label: "Swahili (Kiswahili)", value: "sw"}
+                  - {label: "German (Deutsch)", value: "de"}
+                  - {label: "Russian (Русский)", value: "ru"}
+                  - {label: "Japanese (日本語)", value: "ja"}
+                  - {label: "Korean (한국어)", value: "ko"}
           - label: "Screenshots"
             name: "Screenshots"
             widget: "list"
@@ -253,12 +285,28 @@ collections:
             fields:
               - label: "Country"
                 name: "iso_code"
-                widget: "relation"
-                collection: "reference-countries"
-                file: "countries"
-                search_fields: ["countries.*.iso_code", "countries.*.short", "countries.*.formal"]
-                display_fields: ["countries.*.short", "countries.*.formal"]
-                value_field: "countries.*.iso_code"
+                widget: "select"
+                options:
+                  - {label: "Kenya", value: "ke"}
+                  - {label: "Uganda", value: "ug"}
+                  - {label: "Tanzania", value: "tz"}
+                  - {label: "Nigeria", value: "ng"}
+                  - {label: "India", value: "in"}
+                  - {label: "Bangladesh", value: "bd"}
+                  - {label: "Pakistan", value: "pk"}
+                  - {label: "Afghanistan", value: "af"}
+                  - {label: "Ethiopia", value: "et"}
+                  - {label: "Rwanda", value: "rw"}
+                  - {label: "Ghana", value: "gh"}
+                  - {label: "Malawi", value: "mw"}
+                  - {label: "Zambia", value: "zm"}
+                  - {label: "Zimbabwe", value: "zw"}
+                  - {label: "United States", value: "us"}
+                  - {label: "Canada", value: "ca"}
+                  - {label: "United Kingdom", value: "gb"}
+                  - {label: "France", value: "fr"}
+                  - {label: "Germany", value: "de"}
+                  - {label: "Netherlands", value: "nl"}
 
       # Enhanced Maturity with Validation
       - label: "Maturity"
@@ -279,7 +327,7 @@ collections:
               - {label: "Climate Resilience (0-10)", name: "climate_resilience", widget: "number", value_type: "int", min: 0, max: 10}
               - {label: "Low Carbon (0-10)", name: "low_carbon", widget: "number", value_type: "int", min: 0, max: 10}
 
-      # Remaining sections with enhanced validation...
+      # Remaining sections...
       - label: "Climate and Health Integration"
         name: "ClimateAndHealthIntegration"
         widget: "object"
@@ -306,12 +354,28 @@ collections:
                 fields:
                   - label: "Country"
                     name: "country"
-                    widget: "relation"
-                    collection: "reference-countries"
-                    file: "countries"
-                    search_fields: ["countries.*.iso_code", "countries.*.short"]
-                    display_fields: ["countries.*.short"]
-                    value_field: "countries.*.iso_code"
+                    widget: "select"
+                    options:
+                      - {label: "Kenya", value: "ke"}
+                      - {label: "Uganda", value: "ug"}
+                      - {label: "Tanzania", value: "tz"}
+                      - {label: "Nigeria", value: "ng"}
+                      - {label: "India", value: "in"}
+                      - {label: "Bangladesh", value: "bd"}
+                      - {label: "Pakistan", value: "pk"}
+                      - {label: "Afghanistan", value: "af"}
+                      - {label: "Ethiopia", value: "et"}
+                      - {label: "Rwanda", value: "rw"}
+                      - {label: "Ghana", value: "gh"}
+                      - {label: "Malawi", value: "mw"}
+                      - {label: "Zambia", value: "zm"}
+                      - {label: "Zimbabwe", value: "zw"}
+                      - {label: "United States", value: "us"}
+                      - {label: "Canada", value: "ca"}
+                      - {label: "United Kingdom", value: "gb"}
+                      - {label: "France", value: "fr"}
+                      - {label: "Germany", value: "de"}
+                      - {label: "Netherlands", value: "nl"}
           - {label: "Inception Year", name: "InceptionYear", widget: "number", value_type: "int", min: 1990, max: 2030}
           - {label: "Size of Community", name: "SizeOfCommunity", widget: "number", value_type: "int", min: 0}
           - label: "Links"
@@ -496,12 +560,12 @@ collections:
             fields:
               - label: "Collection Initiative"
                 name: "collectionInitiative"
-                widget: "relation"
-                collection: "reference-initiatives"
-                file: "initiatives"
-                search_fields: ["initiatives.*.id", "initiatives.*.label"]
-                display_fields: ["initiatives.*.label", "initiatives.*.description"]
-                value_field: "initiatives.*.id"
+                widget: "select"
+                options:
+                  - {label: "Digital Health Atlas", value: "digital-health-atlas"}
+                  - {label: "WHO Digital Health", value: "who-digital-health"}
+                  - {label: "PATH Digital Square", value: "path-digital-square"}
+                  - {label: "USAID Global Health", value: "usaid-global-health"}
               - {label: "Tool URL", name: "tool_url", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
 
   # Reference Data Management Collections
@@ -560,7 +624,7 @@ collections:
         fields:
           - label: "Countries"
             name: "countries"
-            widget: "list"
+            widget: "object"
             fields:
               - {label: "ISO Code", name: "iso_code", widget: "string", required: true}
               - {label: "Type", name: "type", widget: "string", required: true}
@@ -568,107 +632,21 @@ collections:
               - {label: "Formal Name", name: "formal", widget: "string", required: true}
               - {label: "UN Code", name: "un_code", widget: "string", required: false}
 
-  - name: "reference-classifications"
-    label: "📊 Classifications"
-    files:
-      - label: "SDGs"
-        name: "sdgs"
-        file: "public/data/reference/classifications/sdgs.json"
-        fields:
-          - label: "Classifications"
-            name: "classifications"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Title", name: "title", widget: "string", required: true}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "Authority", name: "authority", widget: "string", default: "SDG"}
-      - label: "WHO Classifications"
-        name: "who"
-        file: "public/data/reference/classifications/who.json"
-        fields:
-          - label: "Classifications"
-            name: "classifications"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Title", name: "title", widget: "string", required: true}
-              - {label: "Group Code", name: "group_code", widget: "string"}
-              - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "WHO"}
-              - {label: "Description", name: "description", widget: "text"}
-      - label: "DPI Classifications"
-        name: "dpi"
-        file: "public/data/reference/classifications/dpi.json"
-        fields:
-          - label: "Classifications"
-            name: "classifications"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Title", name: "title", widget: "string", required: true}
-              - {label: "Group Code", name: "group_code", widget: "string"}
-              - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "DPI-H"}
-              - {label: "Description", name: "description", widget: "text"}
-      - label: "WMO Classifications"
-        name: "wmo"
-        file: "public/data/reference/classifications/wmo.json"
-        fields:
-          - label: "Classifications"
-            name: "classifications"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Title", name: "title", widget: "string", required: true}
-              - {label: "Group Code", name: "group_code", widget: "string"}
-              - {label: "Group Name", name: "group_name", widget: "string"}
-              - {label: "Authority", name: "authority", widget: "string", default: "WMO"}
-              - {label: "Description", name: "description", widget: "text"}
-
   - name: "reference-standards"
     label: "📋 Standards"
     files:
-      - label: "Health Standards"
-        name: "health"
-        file: "public/data/reference/standards/health.json"
+      - label: "Standards Collection"
+        name: "standards"
+        file: "public/data/reference/standards.json"
         fields:
           - label: "Standards"
             name: "standards"
-            widget: "list"
+            widget: "object"
             fields:
               - {label: "Code", name: "code", widget: "string", required: true}
               - {label: "Name", name: "name", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Domain", name: "domain", widget: "string", default: "Health"}
-              - {label: "Type", name: "type", widget: "string"}
-              - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
-      - label: "Interoperability Standards"
-        name: "interoperability"
-        file: "public/data/reference/standards/interoperability.json"
-        fields:
-          - label: "Standards"
-            name: "standards"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Name", name: "name", widget: "string", required: true}
-              - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Domain", name: "domain", widget: "string", default: "Interoperability"}
-              - {label: "Type", name: "type", widget: "string"}
-              - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
-      - label: "Climate Standards"
-        name: "climate"
-        file: "public/data/reference/standards/climate.json"
-        fields:
-          - label: "Standards"
-            name: "standards"
-            widget: "list"
-            fields:
-              - {label: "Code", name: "code", widget: "string", required: true}
-              - {label: "Name", name: "name", widget: "string", required: true}
-              - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Domain", name: "domain", widget: "string", default: "Climate"}
+              - {label: "Domain", name: "domain", widget: "string"}
               - {label: "Type", name: "type", widget: "string"}
               - {label: "Link", name: "link", widget: "string", pattern: ['^https?://.+', 'Must be a valid URL']}
 

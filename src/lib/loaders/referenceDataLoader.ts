@@ -159,6 +159,11 @@ export async function getStandardsByType(type: string): Promise<Standard[]> {
   return Object.values(standards).filter(standard => standard.type === type);
 }
 
+export async function getStandardsByDomain(domain: string): Promise<Standard[]> {
+  const standards = await loadStandards();
+  return Object.values(standards).filter(standard => standard.domain === domain);
+}
+
 export async function getGlobalGoodsTypeByCode(code: string): Promise<GlobalGoodsType | undefined> {
   const types = await loadGlobalGoodsTypes();
   return types.find(type => type.code === code);
