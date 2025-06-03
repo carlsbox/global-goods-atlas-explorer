@@ -12,6 +12,7 @@ import GlobalGoodDetailsPageFlat from "@/pages/GlobalGoodDetailsPageFlat";
 import UseCasesPage from "@/pages/UseCasesPage";
 import UseCaseDetailsPage from "@/pages/UseCaseDetailsPage";
 import EnhancedMapPage from "@/pages/EnhancedMapPage";
+import ReferencePage from "@/pages/ReferencePage";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
@@ -46,6 +47,7 @@ function App() {
                   <Route path="use-cases" element={<UseCasesPage />} />
                   <Route path="use-cases/:id" element={<UseCaseDetailsPage />} />
                   <Route path="map" element={<EnhancedMapPage />} />
+                  <Route path="reference" element={<ReferencePage />} />
                   <Route path="about" element={<AboutPage />} />
                   <Route path="contact" element={<ContactPage />} />
                   <Route path="privacy" element={<PrivacyPolicyPage />} />
