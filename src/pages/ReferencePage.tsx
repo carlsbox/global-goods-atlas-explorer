@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Database, Globe, Shield, Zap, Map, Languages, Users } from 'lucide-react';
+import { Search, Database, Globe, Shield, Bolt, MapPin, Languages, Users } from 'lucide-react';
 import { useI18n } from '@/hooks/useI18n';
 
 export default function ReferencePage() {
@@ -51,7 +51,7 @@ export default function ReferencePage() {
     {
       id: 'classifications',
       name: 'Classifications',
-      icon: Zap,
+      icon: Bolt,
       count: classifications.length,
       description: 'International taxonomies and frameworks'
     },
@@ -65,7 +65,7 @@ export default function ReferencePage() {
     {
       id: 'countries',
       name: 'Countries',
-      icon: Map,
+      icon: MapPin,
       count: countries.length,
       description: 'Geographic implementation locations'
     },
