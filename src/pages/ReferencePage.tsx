@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useReferenceData } from '@/contexts/ReferenceDataContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Search, Database, Globe, Shield, MapPin, Languages, Users } from 'lucide-react';
 import { useI18n } from '@/hooks/useI18n';
 
@@ -85,6 +85,41 @@ export default function ReferencePage() {
     }
   ];
 
+  const filteredGlobalGoodsTypes = globalGoodsTypes.filter(type => 
+    !searchTerm || type.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    type.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredLicenses = licenses.filter(license => 
+    !searchTerm || license.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    license.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredClassifications = classifications.filter(classification => 
+    !searchTerm || classification.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    classification.code.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredStandards = Object.values(standards).filter((standard: any) => 
+    !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    standard.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredLanguages = languages.filter(language => 
+    !searchTerm || language.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    language.nativeName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredInitiatives = initiatives.filter(initiative => 
+    !searchTerm || initiative.label.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    initiative.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredCountries = countries.filter(country => 
+    !searchTerm || country.name?.short?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    country.name?.official?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
@@ -109,202 +144,437 @@ export default function ReferencePage() {
         </div>
       </div>
 
-      {/* Category Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-        {categories.map((category) => {
-          const IconComponent = category.icon;
-          return (
-            <Card 
-              key={category.id} 
-              className="cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => setActiveCategory(category.id)}
-            >
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <IconComponent className="h-8 w-8 text-primary" />
-                  <Badge variant="secondary">{category.count}</Badge>
-                </div>
-                <CardTitle className="text-lg">{category.name}</CardTitle>
-                <CardDescription className="text-sm">
-                  {category.description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          );
-        })}
-      </div>
-
-      {/* Detailed Content Tabs */}
+      {/* Main Content Tabs */}
       <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="types">Types</TabsTrigger>
-          <TabsTrigger value="licenses">Licenses</TabsTrigger>
-          <TabsTrigger value="classifications">Classifications</TabsTrigger>
-          <TabsTrigger value="standards">Standards</TabsTrigger>
-          <TabsTrigger value="countries">Countries</TabsTrigger>
-          <TabsTrigger value="languages">Languages</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-3 lg:grid-cols-3">
+          <TabsTrigger value="all">Overview</TabsTrigger>
+          <TabsTrigger value="cards">Card View</TabsTrigger>
+          <TabsTrigger value="table">Table View</TabsTrigger>
         </TabsList>
 
         <TabsContent value="all" className="mt-6">
-          <div className="text-center py-8">
-            <p className="text-muted-foreground">
-              Select a category above to explore specific reference data, or use the search to find specific items.
-            </p>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="types" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {globalGoodsTypes
-              .filter(type => !searchTerm || type.title.toLowerCase().includes(searchTerm.toLowerCase()) || type.description.toLowerCase().includes(searchTerm.toLowerCase()))
-              .map((type) => (
-                <Card key={type.code}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {type.title}
-                      <Badge variant="outline">{type.code}</Badge>
-                    </CardTitle>
-                    <CardDescription>{type.description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              ))}
-          </div>
-        </TabsContent>
-
-        <TabsContent value="licenses" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {licenses
-              .filter(license => !searchTerm || license.name.toLowerCase().includes(searchTerm.toLowerCase()) || license.description.toLowerCase().includes(searchTerm.toLowerCase()))
-              .map((license) => (
-                <Card key={license.id}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {license.name}
-                      <Badge variant="outline">{license.id}</Badge>
-                    </CardTitle>
-                    <CardDescription>{license.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button variant="outline" size="sm" asChild>
-                      <a href={license.url} target="_blank" rel="noopener noreferrer">
-                        View License
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-          </div>
-        </TabsContent>
-
-        <TabsContent value="classifications" className="mt-6">
-          <div className="space-y-6">
-            {['SDG', 'WHO', 'WMO', 'DPI-H'].map(authority => {
-              const authorityClassifications = classifications.filter(c => c.authority === authority);
-              if (authorityClassifications.length === 0) return null;
-              
+          {/* Category Overview */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {categories.map((category) => {
+              const IconComponent = category.icon;
               return (
-                <div key={authority}>
-                  <h3 className="text-lg font-semibold mb-3">{authority}</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {authorityClassifications
-                      .filter(classification => !searchTerm || classification.title.toLowerCase().includes(searchTerm.toLowerCase()) || classification.code.toLowerCase().includes(searchTerm.toLowerCase()))
-                      .map((classification) => (
-                        <Card key={classification.code} className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <Badge variant="secondary">{classification.code}</Badge>
-                            {classification.group_name && (
-                              <Badge variant="outline" className="text-xs">{classification.group_name}</Badge>
-                            )}
-                          </div>
-                          <h4 className="font-medium mb-1">{classification.title}</h4>
-                          {classification.description && (
-                            <p className="text-sm text-muted-foreground">{classification.description}</p>
-                          )}
-                        </Card>
-                      ))}
-                  </div>
-                </div>
+                <Card 
+                  key={category.id} 
+                  className="cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => setActiveCategory('cards')}
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <IconComponent className="h-8 w-8 text-primary" />
+                      <Badge variant="secondary">{category.count}</Badge>
+                    </div>
+                    <CardTitle className="text-lg">{category.name}</CardTitle>
+                    <CardDescription className="text-sm">
+                      {category.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
               );
             })}
           </div>
         </TabsContent>
 
-        <TabsContent value="standards" className="mt-6">
-          <div className="space-y-6">
-            {['Health', 'Interoperability', 'Climate'].map(domain => {
-              const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
-              if (domainStandards.length === 0) return null;
-              
-              return (
-                <div key={domain}>
-                  <h3 className="text-lg font-semibold mb-3">{domain} Standards</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {domainStandards
-                      .filter((standard: any) => !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || standard.description.toLowerCase().includes(searchTerm.toLowerCase()))
-                      .map((standard: any) => (
-                        <Card key={standard.code}>
-                          <CardHeader>
-                            <CardTitle className="flex items-center justify-between">
-                              {standard.name}
-                              <div className="flex gap-1">
-                                <Badge variant="outline">{standard.code}</Badge>
-                                <Badge variant="secondary">{standard.type}</Badge>
+        <TabsContent value="table" className="mt-6">
+          <div className="space-y-8">
+            {/* Global Goods Types Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Global Goods Types ({filteredGlobalGoodsTypes.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Code</TableHead>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Description</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredGlobalGoodsTypes.map((type) => (
+                    <TableRow key={type.code}>
+                      <TableCell className="font-mono">{type.code}</TableCell>
+                      <TableCell className="font-medium">{type.title}</TableCell>
+                      <TableCell className="text-sm text-muted-foreground">{type.description}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Licenses Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Licenses ({filteredLicenses.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>ID</TableHead>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Description</TableHead>
+                    <TableHead>URL</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredLicenses.map((license) => (
+                    <TableRow key={license.id}>
+                      <TableCell className="font-mono">{license.id}</TableCell>
+                      <TableCell className="font-medium">{license.name}</TableCell>
+                      <TableCell className="text-sm text-muted-foreground">{license.description}</TableCell>
+                      <TableCell>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={license.url} target="_blank" rel="noopener noreferrer" className="text-xs">
+                            View
+                          </a>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Classifications Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Classifications ({filteredClassifications.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Code</TableHead>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Authority</TableHead>
+                    <TableHead>Group</TableHead>
+                    <TableHead>Description</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredClassifications.map((classification) => (
+                    <TableRow key={classification.code}>
+                      <TableCell className="font-mono">{classification.code}</TableCell>
+                      <TableCell className="font-medium">{classification.title}</TableCell>
+                      <TableCell>
+                        <Badge variant="secondary">{classification.authority}</Badge>
+                      </TableCell>
+                      <TableCell className="text-sm">{classification.group_name}</TableCell>
+                      <TableCell className="text-sm text-muted-foreground">{classification.description}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Standards Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Code</TableHead>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Type</TableHead>
+                    <TableHead>Domain</TableHead>
+                    <TableHead>Description</TableHead>
+                    <TableHead>Link</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredStandards.map((standard: any) => (
+                    <TableRow key={standard.code}>
+                      <TableCell className="font-mono">{standard.code}</TableCell>
+                      <TableCell className="font-medium">{standard.name}</TableCell>
+                      <TableCell>
+                        <Badge variant="outline">{standard.type}</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary">{standard.domain}</Badge>
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground">{standard.description}</TableCell>
+                      <TableCell>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={standard.link} target="_blank" rel="noopener noreferrer" className="text-xs">
+                            View
+                          </a>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Languages Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Languages ({filteredLanguages.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Code</TableHead>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Native Name</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredLanguages.map((language) => (
+                    <TableRow key={language.code}>
+                      <TableCell className="font-mono">{language.code}</TableCell>
+                      <TableCell className="font-medium">{language.name}</TableCell>
+                      <TableCell>{language.nativeName}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Initiatives Table */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Initiatives ({filteredInitiatives.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>ID</TableHead>
+                    <TableHead>Label</TableHead>
+                    <TableHead>Description</TableHead>
+                    <TableHead>Site URL</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredInitiatives.map((initiative) => (
+                    <TableRow key={initiative.id}>
+                      <TableCell className="font-mono">{initiative.id}</TableCell>
+                      <TableCell className="font-medium">{initiative.label}</TableCell>
+                      <TableCell className="text-sm text-muted-foreground">{initiative.description}</TableCell>
+                      <TableCell>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={initiative.site_url} target="_blank" rel="noopener noreferrer" className="text-xs">
+                            Visit
+                          </a>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Countries Table - Last as requested */}
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Countries ({filteredCountries.length})</h3>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>ISO Code</TableHead>
+                    <TableHead>Short Name</TableHead>
+                    <TableHead>Official Name</TableHead>
+                    <TableHead>UN Code</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredCountries.map((country) => (
+                    <TableRow key={country.code}>
+                      <TableCell className="font-mono">{country.code?.toUpperCase()}</TableCell>
+                      <TableCell className="font-medium">{country.name?.short}</TableCell>
+                      <TableCell className="text-sm">{country.name?.official}</TableCell>
+                      <TableCell className="font-mono">{country.un_code}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="cards" className="mt-6">
+          {/* Category Selection Tabs */}
+          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+            <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
+              <TabsTrigger value="types">Types</TabsTrigger>
+              <TabsTrigger value="licenses">Licenses</TabsTrigger>
+              <TabsTrigger value="classifications">Classifications</TabsTrigger>
+              <TabsTrigger value="standards">Standards</TabsTrigger>
+              <TabsTrigger value="languages">Languages</TabsTrigger>
+              <TabsTrigger value="initiatives">Initiatives</TabsTrigger>
+              <TabsTrigger value="countries">Countries</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="types" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredGlobalGoodsTypes
+                  .filter(type => !searchTerm || type.title.toLowerCase().includes(searchTerm.toLowerCase()) || type.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                  .map((type) => (
+                    <Card key={type.code}>
+                      <CardHeader>
+                        <CardTitle className="flex items-center justify-between">
+                          {type.title}
+                          <Badge variant="outline">{type.code}</Badge>
+                        </CardTitle>
+                        <CardDescription>{type.description}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="licenses" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredLicenses
+                  .filter(license => !searchTerm || license.name.toLowerCase().includes(searchTerm.toLowerCase()) || license.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                  .map((license) => (
+                    <Card key={license.id}>
+                      <CardHeader>
+                        <CardTitle className="flex items-center justify-between">
+                          {license.name}
+                          <Badge variant="outline">{license.id}</Badge>
+                        </CardTitle>
+                        <CardDescription>{license.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={license.url} target="_blank" rel="noopener noreferrer">
+                            View License
+                          </a>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="classifications" className="mt-6">
+              <div className="space-y-6">
+                {['SDG', 'WHO', 'WMO', 'DPI-H'].map(authority => {
+                  const authorityClassifications = classifications.filter(c => c.authority === authority);
+                  if (authorityClassifications.length === 0) return null;
+                  
+                  return (
+                    <div key={authority}>
+                      <h3 className="text-lg font-semibold mb-3">{authority}</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {authorityClassifications
+                          .filter(classification => !searchTerm || classification.title.toLowerCase().includes(searchTerm.toLowerCase()) || classification.code.toLowerCase().includes(searchTerm.toLowerCase()))
+                          .map((classification) => (
+                            <Card key={classification.code} className="p-4">
+                              <div className="flex items-start justify-between mb-2">
+                                <Badge variant="secondary">{classification.code}</Badge>
+                                {classification.group_name && (
+                                  <Badge variant="outline" className="text-xs">{classification.group_name}</Badge>
+                                )}
                               </div>
-                            </CardTitle>
-                            <CardDescription>{standard.description}</CardDescription>
-                          </CardHeader>
-                          <CardContent>
-                            <Button variant="outline" size="sm" asChild>
-                              <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                Learn More
-                              </a>
-                            </Button>
-                          </CardContent>
-                        </Card>
-                      ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </TabsContent>
+                              <h4 className="font-medium mb-1">{classification.title}</h4>
+                              {classification.description && (
+                                <p className="text-sm text-muted-foreground">{classification.description}</p>
+                              )}
+                            </Card>
+                          ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </TabsContent>
 
-        <TabsContent value="countries" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {countries
-              .filter(country => !searchTerm || country.name?.short?.toLowerCase().includes(searchTerm.toLowerCase()) || country.name?.official?.toLowerCase().includes(searchTerm.toLowerCase()))
-              .map((country) => (
-                <Card key={country.code} className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="outline">{country.code?.toUpperCase()}</Badge>
-                    {country.un_code && (
-                      <Badge variant="secondary" className="text-xs">UN: {country.un_code}</Badge>
-                    )}
-                  </div>
-                  <h4 className="font-medium">{country.name?.short}</h4>
-                  {country.name?.official !== country.name?.short && (
-                    <p className="text-sm text-muted-foreground">{country.name?.official}</p>
-                  )}
-                </Card>
-              ))}
-          </div>
-        </TabsContent>
+            <TabsContent value="standards" className="mt-6">
+              <div className="space-y-6">
+                {['Health', 'Interoperability', 'Climate'].map(domain => {
+                  const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
+                  if (domainStandards.length === 0) return null;
+                  
+                  return (
+                    <div key={domain}>
+                      <h3 className="text-lg font-semibold mb-3">{domain} Standards</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {domainStandards
+                          .filter((standard: any) => !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || standard.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                          .map((standard: any) => (
+                            <Card key={standard.code}>
+                              <CardHeader>
+                                <CardTitle className="flex items-center justify-between">
+                                  {standard.name}
+                                  <div className="flex gap-1">
+                                    <Badge variant="outline">{standard.code}</Badge>
+                                    <Badge variant="secondary">{standard.type}</Badge>
+                                  </div>
+                                </CardTitle>
+                                <CardDescription>{standard.description}</CardDescription>
+                              </CardHeader>
+                              <CardContent>
+                                <Button variant="outline" size="sm" asChild>
+                                  <a href={standard.link} target="_blank" rel="noopener noreferrer">
+                                    Learn More
+                                  </a>
+                                </Button>
+                              </CardContent>
+                            </Card>
+                          ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </TabsContent>
 
-        <TabsContent value="languages" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {languages
-              .filter(language => !searchTerm || language.name.toLowerCase().includes(searchTerm.toLowerCase()) || language.nativeName.toLowerCase().includes(searchTerm.toLowerCase()))
-              .map((language) => (
-                <Card key={language.code} className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="outline">{language.code}</Badge>
-                  </div>
-                  <h4 className="font-medium">{language.name}</h4>
-                  <p className="text-sm text-muted-foreground">{language.nativeName}</p>
-                </Card>
-              ))}
-          </div>
+            <TabsContent value="languages" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredLanguages
+                  .filter(language => !searchTerm || language.name.toLowerCase().includes(searchTerm.toLowerCase()) || language.nativeName.toLowerCase().includes(searchTerm.toLowerCase()))
+                  .map((language) => (
+                    <Card key={language.code} className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge variant="outline">{language.code}</Badge>
+                      </div>
+                      <h4 className="font-medium">{language.name}</h4>
+                      <p className="text-sm text-muted-foreground">{language.nativeName}</p>
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="initiatives" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredInitiatives
+                  .filter(initiative => !searchTerm || initiative.label.toLowerCase().includes(searchTerm.toLowerCase()) || initiative.description.toLowerCase().includes(searchTerm.toLowerCase()))
+                  .map((initiative) => (
+                    <Card key={initiative.id}>
+                      <CardHeader>
+                        <CardTitle className="flex items-center justify-between">
+                          {initiative.label}
+                          <Badge variant="outline">{initiative.id}</Badge>
+                        </CardTitle>
+                        <CardDescription>{initiative.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href={initiative.site_url} target="_blank" rel="noopener noreferrer">
+                            Visit Initiative
+                          </a>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="countries" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                {filteredCountries
+                  .filter(country => !searchTerm || country.name?.short?.toLowerCase().includes(searchTerm.toLowerCase()) || country.name?.official?.toLowerCase().includes(searchTerm.toLowerCase()))
+                  .map((country) => (
+                    <Card key={country.code} className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge variant="outline">{country.code?.toUpperCase()}</Badge>
+                        {country.un_code && (
+                          <Badge variant="secondary" className="text-xs">UN: {country.un_code}</Badge>
+                        )}
+                      </div>
+                      <h4 className="font-medium">{country.name?.short}</h4>
+                      {country.name?.official !== country.name?.short && (
+                        <p className="text-sm text-muted-foreground">{country.name?.official}</p>
+                      )}
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </TabsContent>
       </Tabs>
     </div>
