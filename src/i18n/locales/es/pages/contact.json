@@ -9,11 +9,11 @@
   "email": {
     "title": "Envíenos un Email",
     "general": {
-      "address": "info@globalgoodsatlas.org",
+      "address": "info@globalgoodsguidebook.org",
       "label": "Consultas generales"
     },
     "support": {
-      "address": "support@globalgoodsatlas.org",
+      "address": "support@globalgoodsguidebook.org",
       "label": "Soporte técnico"
     }
   },

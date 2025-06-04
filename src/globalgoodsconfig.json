@@ -1,17 +1,17 @@
 
 {
-  "siteName": "Global Goods Atlas",
-  "domain": "globalgoodsatlas.org",
+  "siteName": "Global Goods Guidebook",
+  "domain": "globalgoodsguidebook.org",
   "emails": {
-    "contact": "info@globalgoodsatlas.org",
-    "support": "support@globalgoodsatlas.org"
+    "contact": "info@globalgoodsguidebook.org",
+    "support": "support@globalgoodsguidebook.org"
   },
   "analytics": {
     "googleAnalyticsId": "G-XXXXXXXXXX"
   },
   "social": {
-    "twitter": "globalgoodsatlas",
-    "github": "globalgoodsatlas"
+    "twitter": "globalgoodsguidebook",
+    "github": "globalgoodsguidebook"
   },
   "map": {
     "geoJsonUrl": "/data/map_country-data-110m.json"
