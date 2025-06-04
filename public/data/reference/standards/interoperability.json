@@ -39,5 +39,36 @@
     "domain": "Interoperability",
     "type": "specification",
     "link": "https://www.openapis.org/"
+  },
+  {
+    "code": "FHIR",
+    "name": "Fast Healthcare Interoperability Resources",
+    "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records",
+    "domain": "Health",
+    "type": "exchange",
+    "link": "https://www.hl7.org/fhir/"
+  },
+  {
+    "code": "HL7 V3",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
+    "type": "exchange",
+    "name": "HL7 V3",
+    "description": "Health Level 7 Version 3, an XML-based messaging framework for health data exchange and interoperability."
+  },
+  {
+    "code": "HL7 V2",
+    "domain": "Health",
+    "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+    "type": "exchange",
+    "name": "HL7 V2",
+    "description": "Health Level 7 Version 2, a messaging standard for exchanging clinical and administrative data in healthcare settings."
+  },{
+    "code": "ADX",
+    "domain": "Health",
+    "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+    "type": "exchange",
+    "name": "ADX",
+    "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
   }
 ]

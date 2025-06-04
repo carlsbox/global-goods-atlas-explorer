@@ -31,5 +31,45 @@
     "domain": "Climate",
     "type": "service",
     "link": "https://www.ogc.org/standards/wfs"
+  },
+  {
+    "code": "GRIB",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf",
+    "type": "data_format",
+    "name": "GRIB",
+    "description": "GRIdded Binary format, a standard for encoding meteorological and oceanographic data."
+  },
+  {
+    "code": "WCS",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/wcs",
+    "type": "exchange",
+    "name": "WCS",
+    "description": "Web Coverage Service, provides access to coverage data in forms useful for client-side rendering."
+  },
+  {
+    "code": "GML",
+    "domain": "Weather and Climate",
+    "link": "https://www.ogc.org/standards/gml",
+    "type": "data_format",
+    "name": "GML",
+    "description": "Geography Markup Language, an XML grammar for expressing geographical features."
+  },
+  {
+    "code": "HDF",
+    "domain": "Weather and Climate",
+    "link": "https://www.hdfgroup.org/solutions/hdf5/",
+    "type": "data_format",
+    "name": "HDF",
+    "description": "Hierarchical Data Format, a set of file formats designed to store and organize large amounts of numerical data."
+  },
+  {
+    "code": "BUFR",
+    "domain": "Weather and Climate",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/VolumeI.2.html",
+    "type": "data_format",
+    "name": "BUFR",
+    "description": "Binary Universal Form for the Representation of meteorological data, a binary data format for meteorological observations."
   }
 ]

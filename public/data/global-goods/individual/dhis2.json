@@ -1,4 +1,3 @@
-
 {
     "ID": "dhis2",
     "Name": "DHIS2",
@@ -13,7 +12,7 @@
         "description": "User and developer documentation"
       },
       "source_code": {
-        "url": "https://github.com/dhis2/dhis2-core",
+        "url": "https://github.com/dhis2",
         "description": "Main code repository"
       },
       "demo": {
@@ -25,28 +24,28 @@
     "License": "bsd-3-clause",
     "Contact": [
       {
-        "name": "DHIS2 Team",
-        "email": "info@dhis2.org",
+        "name": "Max Krafft",
+        "email": "max@dhis2.org",
         "role": "Project Team"
       }
     ],
     "Classifications": {
-      "SDGs": ["SDG-3", "SDG-9"],
-      "WHO": ["WHO_B3"],
-      "WMO": ["WMO_B1"],
+      "SDGs": ["SDG-3", "SDG-13"],
+      "WHO": ["WHO_D6", "WHO_A2"],
+      "WMO": ["WMO_A2","WMO_D1"],
       "DPI": ["DPI_BD3"]
     },
     "StandardsAndInteroperability": {
-      "HealthStandards": ["HL7 FHIR", "GS1"],
-      "Interoperability": ["ADX"],
+      "HealthStandards": ["ICD-9", "ICD-10","ICD-11","LOINC","SNOMED"],
+      "Interoperability": ["ADX","FHIR"],
       "ClimateStandards": []
     },
     "ProductOverview": {
-      "Summary": "A flexible, web-based open-source information system with visualization features.",
-      "Description": "DHIS2 is used to collect, manage, and analyze health data.",
+      "Summary": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
+      "Description": "DHIS2 is a platform for data collection, analysis, visualization, and sharing used by governments and organizations globally for health program management.",
       "PrimaryFunctionality": "Health data management and analytics",
       "Users": "Ministries of health, NGOs, researchers",
-      "Languages": ["en", "fr"],
+      "Languages": ["en", "fr", "es", "pt","hi","vi","zh","no"],
       "Screenshots": [
         {
           "url": "https://dhis2.org/images/dashboard-screenshot.png",
@@ -59,13 +58,13 @@
       ]
     },
     "Reach": {
-      "SummaryOfReach": "Deployed in over 73 countries for national health data management.",
-      "NumberOfImplementations": 100,
+      "SummaryOfReach": "Deployed in over 90 countries for national health data, disease surveillance, and logistics across public health programs and partners.",
+      "NumberOfImplementations": 1000,
       "ImplementationMapOverview": {
         "url": "https://dhis2.org/map",
         "description": "Global reach map"
       },
-      "ImplementationCountries": ["hu", "bj", "sy", "pa", "sg", "iq", "lu", "ps", "cf", "fi", "kr", "mc", "cv", "sd", "do", "na", "es", "th", "cl", "it", "af", "lt", "tz", "cy", "pe", "lr", "ro", "gt", "ni", "bo", "mg", "np", "py", "se", "ec", "mt", "zm", "ma", "am", "ve", "ml", "gh", "rs", "br", "pl", "is", "om", "ph", "jm", "tv", "bf", "my", "sn", "ao", "tn", "by", "et", "id", "ad", "gn", "ne", "ke", "nz", "in", "tj", "ba", "ws", "mn", "sk", "sm", "ie", "mw", "ga", "bg", "tr", "ug", "dz", "vn", "al", "ae", "pk", "cz", "bh", "la", "dm", "az", "md", "zw", "ar", "no", "gy", "kg", "mr", "me", "bz", "co", "kp", "jo", "fm", "ht", "km", "sr", "cd", "ng", "ge", "cn", "sl", "sc", "to", "gd", "bs", "mk", "ag", "mx", "kh", "ru", "bd", "il", "mu", "fr"]
+      "ImplementationCountries": ["dz", "ao", "bj", "bw", "bf", "bi", "cv", "cm", "cf", "td", "km", "cg", "ci", "cd", "er", "sz", "et", "ga", "gm", "gh", "gn", "gw", "ke", "ls", "lr", "mg", "mw", "ml", "mr", "mu", "mz", "na", "ne", "ng", "rw", "st", "sn", "sl", "za", "ss", "tg", "ug", "tz", "zm", "zw", "af", "dj", "eg", "iq", "jo", "lb", "ly", "ma", "pk", "so", "sd", "sy", "ye", "ag", "cl", "co", "dm", "ec", "gd", "gt", "ht", "hn", "jm", "pa", "lc", "vc", "sr", "ve", "bd", "bt", "in", "id", "mv", "mm", "np", "lk", "tl", "kh", "la", "pw", "pg", "sb", "to", "vu", "vn"]
     },
     "Maturity": {
       "SummaryOfMaturity": "Widely adopted and mature platform with 20+ years of development.",
@@ -100,26 +99,26 @@
       ]
     },
     "ClimateAndHealthIntegration": {
-      "Description": "Supports integration with climate data for health analytics and disease surveillance."
-    },
+  "Description": "Enables import, analysis, and modeling of climate data (e.g., temperature, precipitation, air quality) alongside health data in DHIS2 to support climate-sensitive disease forecasting and surveillance."
+},
     "Community": {
       "DescriptionOfCommunity": "Large, active global community with regional networks and annual conferences.",
       "HostAnchorOrganization": {
         "name": "HISP Centre, University of Oslo",
-        "url": "https://www.uio.no/english/",
+        "url": "https://www.uio.no/english/services/it/research/hisp/",
         "description": "Academic anchor organization for DHIS2",
         "country": ["no"]
       },
       "InceptionYear": 2006,
-      "SizeOfCommunity": 5000,
+      "SizeOfCommunity": 50000,
       "Links": {
         "Community": {
           "url": "https://community.dhis2.org",
           "description": "DHIS2 community forum"
         },
         "MailingList": {
-          "url": "https://dhis2.org/newsletter",
-          "description": "Subscribe to DHIS2 updates"
+          "url": "https://pub.dialogapi.no/s/MjE5NDg6YjQ3NmUyZWQtMzA4ZC00ODUwLWJmZGQtNDRmMDg3MTA3M2Y3",
+          "description": "Community Newsletter"
         }
       },
       "Events": {
@@ -140,7 +139,7 @@
           "description": "DHIS2 governance framework"
         },
         "TermsOfUse": {
-          "url": "https://dhis2.org/terms",
+          "url": "https://dhis2.org/terms_and_conditions",
           "description": "Terms of use"
         },
         "UserAgreement": {
@@ -174,16 +173,22 @@
       "LowCarbon": "Web-based platform optimized for low-bandwidth environments and can be hosted on green infrastructure."
     },
     "TotalCostOfOwnership": {
-      "Description": "Free and open-source software with optional paid support and hosting services.",
-      "url": "https://dhis2.org/cost-ownership"
+      "Description": "Open-source and free to use; support and implementation costs vary.",
+      "url": ""
     },
     "Sustainability": {
       "Description": "Sustained by global partnerships, government funding, and donor support.",
       "KeyFundersSupporters": [
+        
         {
-          "name": "PEPFAR",
-          "url": "https://www.pepfar.gov",
-          "description": "U.S. President's Emergency Plan for AIDS Relief"
+          "name": "Norwegian Agency for Development Cooperation (Norad)",
+          "url": "https://www.norad.no",
+          "description": "Major donor and supporter"
+        },
+        {
+          "name": "Gavi Alliance",
+          "url": "https://www.gavi.org",
+          "description": "Vaccine alliance for global health"
         },
         {
           "name": "The Global Fund",
@@ -191,9 +196,14 @@
           "description": "Partnership to fight AIDS, tuberculosis and malaria"
         },
         {
-          "name": "Gavi Alliance",
-          "url": "https://www.gavi.org",
-          "description": "Vaccine alliance for global health"
+          "name": "Centers for Disease Control and Prevention (CDC)",
+          "url": "https://www.cdc.gov",
+          "description": "U.S. public health agency"
+        },
+        {
+          "name": "Wellcome Trus",
+          "url": "https://wellcome.org",
+          "description": "UK-based global health research charity"
         }
       ]
     },
