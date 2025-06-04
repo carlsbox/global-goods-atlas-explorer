@@ -1,143 +1,1375 @@
 
 {
-  "ke": {
-    "iso_code": "ke",
-    "type": "Country",
-    "short": "Kenya",
-    "formal": "Republic of Kenya",
-    "un_code": "404"
+  "af": {
+    "iso_code": "af",
+    "type": "State",
+    "short": "Afghanistan",
+    "formal": "the Islamic Republic of Afghanistan",
+    "un_code": "004"
   },
-  "ug": {
-    "iso_code": "ug",
-    "type": "Country",
-    "short": "Uganda",
-    "formal": "Republic of Uganda",
-    "un_code": "800"
+  "al": {
+    "iso_code": "al",
+    "type": "State",
+    "short": "Albania",
+    "formal": "the Republic of Albania",
+    "un_code": "008"
   },
-  "tz": {
-    "iso_code": "tz",
-    "type": "Country",
-    "short": "Tanzania",
-    "formal": "United Republic of Tanzania",
-    "un_code": "834"
+  "dz": {
+    "iso_code": "dz",
+    "type": "State",
+    "short": "Algeria",
+    "formal": "the People's Democratic Republic of Algeria",
+    "un_code": "012"
   },
-  "ng": {
-    "iso_code": "ng",
-    "type": "Country",
-    "short": "Nigeria",
-    "formal": "Federal Republic of Nigeria",
-    "un_code": "566"
+  "ad": {
+    "iso_code": "ad",
+    "type": "State",
+    "short": "Andorra",
+    "formal": "the Principality of Andorra",
+    "un_code": "020"
   },
-  "in": {
-    "iso_code": "in",
-    "type": "Country",
-    "short": "India",
-    "formal": "Republic of India",
-    "un_code": "356"
+  "ao": {
+    "iso_code": "ao",
+    "type": "State",
+    "short": "Angola",
+    "formal": "the Republic of Angola",
+    "un_code": "024"
+  },
+  "ag": {
+    "iso_code": "ag",
+    "type": "State",
+    "short": "Antigua and Barbuda",
+    "formal": "Antigua and Barbuda",
+    "un_code": "028"
+  },
+  "ar": {
+    "iso_code": "ar",
+    "type": "State",
+    "short": "Argentina",
+    "formal": "the Argentine Republic",
+    "un_code": "032"
+  },
+  "am": {
+    "iso_code": "am",
+    "type": "State",
+    "short": "Armenia",
+    "formal": "the Republic of Armenia",
+    "un_code": "051"
+  },
+  "au": {
+    "iso_code": "au",
+    "type": "State",
+    "short": "Australia",
+    "formal": "Australia",
+    "un_code": "036"
+  },
+  "at": {
+    "iso_code": "at",
+    "type": "State",
+    "short": "Austria",
+    "formal": "the Republic of Austria",
+    "un_code": "040"
+  },
+  "az": {
+    "iso_code": "az",
+    "type": "State",
+    "short": "Azerbaijan",
+    "formal": "the Republic of Azerbaijan",
+    "un_code": "031"
+  },
+  "bs": {
+    "iso_code": "bs",
+    "type": "State",
+    "short": "Bahamas (the)",
+    "formal": "the Commonwealth of the Bahamas",
+    "un_code": "044"
+  },
+  "bh": {
+    "iso_code": "bh",
+    "type": "State",
+    "short": "Bahrain",
+    "formal": "the Kingdom of Bahrain",
+    "un_code": "048"
   },
   "bd": {
     "iso_code": "bd",
-    "type": "Country",
+    "type": "State",
     "short": "Bangladesh",
-    "formal": "People's Republic of Bangladesh",
+    "formal": "the People's Republic of Bangladesh",
     "un_code": "050"
   },
-  "pk": {
-    "iso_code": "pk",
-    "type": "Country",
-    "short": "Pakistan",
-    "formal": "Islamic Republic of Pakistan",
-    "un_code": "586"
+  "bb": {
+    "iso_code": "bb",
+    "type": "State",
+    "short": "Barbados",
+    "formal": "Barbados",
+    "un_code": "052"
   },
-  "af": {
-    "iso_code": "af",
-    "type": "Country",
-    "short": "Afghanistan",
-    "formal": "Islamic Republic of Afghanistan",
-    "un_code": "004"
+  "by": {
+    "iso_code": "by",
+    "type": "State",
+    "short": "Belarus",
+    "formal": "the Republic of Belarus",
+    "un_code": "112"
   },
-  "et": {
-    "iso_code": "et",
-    "type": "Country",
-    "short": "Ethiopia",
-    "formal": "Federal Democratic Republic of Ethiopia",
-    "un_code": "231"
+  "be": {
+    "iso_code": "be",
+    "type": "State",
+    "short": "Belgium",
+    "formal": "the Kingdom of Belgium",
+    "un_code": "056"
   },
-  "rw": {
-    "iso_code": "rw",
-    "type": "Country",
-    "short": "Rwanda",
-    "formal": "Republic of Rwanda",
-    "un_code": "646"
+  "bz": {
+    "iso_code": "bz",
+    "type": "State",
+    "short": "Belize",
+    "formal": "Belize",
+    "un_code": "084"
   },
-  "gh": {
-    "iso_code": "gh",
-    "type": "Country",
-    "short": "Ghana",
-    "formal": "Republic of Ghana",
-    "un_code": "288"
+  "bj": {
+    "iso_code": "bj",
+    "type": "State",
+    "short": "Benin",
+    "formal": "the Republic of Benin",
+    "un_code": "204"
   },
-  "mw": {
-    "iso_code": "mw",
-    "type": "Country",
-    "short": "Malawi",
-    "formal": "Republic of Malawi",
-    "un_code": "454"
+  "bt": {
+    "iso_code": "bt",
+    "type": "State",
+    "short": "Bhutan",
+    "formal": "the Kingdom of Bhutan",
+    "un_code": "064"
   },
-  "zm": {
-    "iso_code": "zm",
-    "type": "Country",
-    "short": "Zambia",
-    "formal": "Republic of Zambia",
-    "un_code": "894"
+  "bo": {
+    "iso_code": "bo",
+    "type": "State",
+    "short": "Bolivia (Plurinational State of)",
+    "formal": "the Plurinational State of Bolivia",
+    "un_code": "068"
   },
-  "zw": {
-    "iso_code": "zw",
-    "type": "Country",
-    "short": "Zimbabwe",
-    "formal": "Republic of Zimbabwe",
-    "un_code": "716"
+  "ba": {
+    "iso_code": "ba",
+    "type": "State",
+    "short": "Bosnia and Herzegovina",
+    "formal": "Bosnia and Herzegovina",
+    "un_code": "070"
   },
-  "us": {
-    "iso_code": "us",
-    "type": "Country",
-    "short": "United States",
-    "formal": "United States of America",
-    "un_code": "840"
+  "bw": {
+    "iso_code": "bw",
+    "type": "State",
+    "short": "Botswana",
+    "formal": "the Republic of Botswana",
+    "un_code": "072"
+  },
+  "br": {
+    "iso_code": "br",
+    "type": "State",
+    "short": "Brazil",
+    "formal": "the Federative Republic of Brazil",
+    "un_code": "076"
+  },
+  "bn": {
+    "iso_code": "bn",
+    "type": "State",
+    "short": "Brunei Darussalam",
+    "formal": "Brunei Darussalam",
+    "un_code": "096"
+  },
+  "bg": {
+    "iso_code": "bg",
+    "type": "State",
+    "short": "Bulgaria",
+    "formal": "the Republic of Bulgaria",
+    "un_code": "100"
+  },
+  "bf": {
+    "iso_code": "bf",
+    "type": "State",
+    "short": "Burkina Faso",
+    "formal": "Burkina Faso",
+    "un_code": "854"
+  },
+  "bi": {
+    "iso_code": "bi",
+    "type": "State",
+    "short": "Burundi",
+    "formal": "the Republic of Burundi",
+    "un_code": "108"
+  },
+  "cv": {
+    "iso_code": "cv",
+    "type": "State",
+    "short": "Cabo Verde",
+    "formal": "the Republic of Cabo Verde",
+    "un_code": "132"
+  },
+  "kh": {
+    "iso_code": "kh",
+    "type": "State",
+    "short": "Cambodia",
+    "formal": "the Kingdom of Cambodia",
+    "un_code": "116"
+  },
+  "cm": {
+    "iso_code": "cm",
+    "type": "State",
+    "short": "Cameroon",
+    "formal": "the Republic of Cameroon",
+    "un_code": "120"
   },
   "ca": {
     "iso_code": "ca",
-    "type": "Country",
+    "type": "State",
     "short": "Canada",
     "formal": "Canada",
     "un_code": "124"
   },
-  "gb": {
-    "iso_code": "gb",
-    "type": "Country",
-    "short": "United Kingdom",
-    "formal": "United Kingdom of Great Britain and Northern Ireland",
-    "un_code": "826"
+  "cf": {
+    "iso_code": "cf",
+    "type": "State",
+    "short": "Central African Republic (the)",
+    "formal": "the Central African Republic",
+    "un_code": "140"
+  },
+  "td": {
+    "iso_code": "td",
+    "type": "State",
+    "short": "Chad",
+    "formal": "the Republic of Chad",
+    "un_code": "148"
+  },
+  "cl": {
+    "iso_code": "cl",
+    "type": "State",
+    "short": "Chile",
+    "formal": "the Republic of Chile",
+    "un_code": "152"
+  },
+  "cn": {
+    "iso_code": "cn",
+    "type": "State",
+    "short": "China",
+    "formal": "the People's Republic of China",
+    "un_code": "156"
+  },
+  "co": {
+    "iso_code": "co",
+    "type": "State",
+    "short": "Colombia",
+    "formal": "the Republic of Colombia",
+    "un_code": "170"
+  },
+  "km": {
+    "iso_code": "km",
+    "type": "State",
+    "short": "Comoros (the)",
+    "formal": "the Union of the Comoros",
+    "un_code": "174"
+  },
+  "cg": {
+    "iso_code": "cg",
+    "type": "State",
+    "short": "Congo (the)",
+    "formal": "the Republic of the Congo",
+    "un_code": "178"
+  },
+  "cr": {
+    "iso_code": "cr",
+    "type": "State",
+    "short": "Costa Rica",
+    "formal": "the Republic of Costa Rica",
+    "un_code": "188"
+  },
+  "ci": {
+    "iso_code": "ci",
+    "type": "State",
+    "short": "Côte d'Ivoire",
+    "formal": "the Republic of Côte d'Ivoire",
+    "un_code": "384"
+  },
+  "hr": {
+    "iso_code": "hr",
+    "type": "State",
+    "short": "Croatia",
+    "formal": "the Republic of Croatia",
+    "un_code": "191"
+  },
+  "cu": {
+    "iso_code": "cu",
+    "type": "State",
+    "short": "Cuba",
+    "formal": "the Republic of Cuba",
+    "un_code": "192"
+  },
+  "cy": {
+    "iso_code": "cy",
+    "type": "State",
+    "short": "Cyprus",
+    "formal": "the Republic of Cyprus",
+    "un_code": "196"
+  },
+  "cz": {
+    "iso_code": "cz",
+    "type": "State",
+    "short": "Czechia",
+    "formal": "the Czech Republic",
+    "un_code": "203"
+  },
+  "kp": {
+    "iso_code": "kp",
+    "type": "State",
+    "short": "Democratic People's Republic of Korea (the)",
+    "formal": "the Democratic People's Republic of Korea",
+    "un_code": "408"
+  },
+  "cd": {
+    "iso_code": "cd",
+    "type": "State",
+    "short": "Democratic Republic of the Congo (the)",
+    "formal": "the Democratic Republic of the Congo",
+    "un_code": "180"
+  },
+  "dk": {
+    "iso_code": "dk",
+    "type": "State",
+    "short": "Denmark",
+    "formal": "the Kingdom of Denmark",
+    "un_code": "208"
+  },
+  "dj": {
+    "iso_code": "dj",
+    "type": "State",
+    "short": "Djibouti",
+    "formal": "the Republic of Djibouti",
+    "un_code": "262"
+  },
+  "dm": {
+    "iso_code": "dm",
+    "type": "State",
+    "short": "Dominica",
+    "formal": "the Commonwealth of Dominica",
+    "un_code": "212"
+  },
+  "do": {
+    "iso_code": "do",
+    "type": "State",
+    "short": "Dominican Republic (the)",
+    "formal": "the Dominican Republic",
+    "un_code": "214"
+  },
+  "ec": {
+    "iso_code": "ec",
+    "type": "State",
+    "short": "Ecuador",
+    "formal": "the Republic of Ecuador",
+    "un_code": "218"
+  },
+  "eg": {
+    "iso_code": "eg",
+    "type": "State",
+    "short": "Egypt",
+    "formal": "the Arab Republic of Egypt",
+    "un_code": "818"
+  },
+  "sv": {
+    "iso_code": "sv",
+    "type": "State",
+    "short": "El Salvador",
+    "formal": "the Republic of El Salvador",
+    "un_code": "222"
+  },
+  "gq": {
+    "iso_code": "gq",
+    "type": "State",
+    "short": "Equatorial Guinea",
+    "formal": "the Republic of Equatorial Guinea",
+    "un_code": "226"
+  },
+  "er": {
+    "iso_code": "er",
+    "type": "State",
+    "short": "Eritrea",
+    "formal": "the State of Eritrea",
+    "un_code": "232"
+  },
+  "ee": {
+    "iso_code": "ee",
+    "type": "State",
+    "short": "Estonia",
+    "formal": "the Republic of Estonia",
+    "un_code": "233"
+  },
+  "sz": {
+    "iso_code": "sz",
+    "type": "State",
+    "short": "Eswatini",
+    "formal": "the Kingdom of Eswatini",
+    "un_code": "748"
+  },
+  "et": {
+    "iso_code": "et",
+    "type": "State",
+    "short": "Ethiopia",
+    "formal": "the Federal Democratic Republic of Ethiopia",
+    "un_code": "231"
+  },
+  "fj": {
+    "iso_code": "fj",
+    "type": "State",
+    "short": "Fiji",
+    "formal": "the Republic of Fiji",
+    "un_code": "242"
+  },
+  "fi": {
+    "iso_code": "fi",
+    "type": "State",
+    "short": "Finland",
+    "formal": "the Republic of Finland",
+    "un_code": "246"
   },
   "fr": {
     "iso_code": "fr",
-    "type": "Country",
+    "type": "State",
     "short": "France",
-    "formal": "French Republic",
+    "formal": "the French Republic",
     "un_code": "250"
+  },
+  "ga": {
+    "iso_code": "ga",
+    "type": "State",
+    "short": "Gabon",
+    "formal": "the Gabonese Republic",
+    "un_code": "266"
+  },
+  "gm": {
+    "iso_code": "gm",
+    "type": "State",
+    "short": "Gambia (the)",
+    "formal": "the Republic of the Gambia",
+    "un_code": "270"
+  },
+  "ge": {
+    "iso_code": "ge",
+    "type": "State",
+    "short": "Georgia",
+    "formal": "Georgia",
+    "un_code": "268"
   },
   "de": {
     "iso_code": "de",
-    "type": "Country",
+    "type": "State",
     "short": "Germany",
-    "formal": "Federal Republic of Germany",
+    "formal": "the Federal Republic of Germany",
     "un_code": "276"
+  },
+  "gh": {
+    "iso_code": "gh",
+    "type": "State",
+    "short": "Ghana",
+    "formal": "the Republic of Ghana",
+    "un_code": "288"
+  },
+  "gr": {
+    "iso_code": "gr",
+    "type": "State",
+    "short": "Greece",
+    "formal": "the Hellenic Republic",
+    "un_code": "300"
+  },
+  "gd": {
+    "iso_code": "gd",
+    "type": "State",
+    "short": "Grenada",
+    "formal": "Grenada",
+    "un_code": "308"
+  },
+  "gt": {
+    "iso_code": "gt",
+    "type": "State",
+    "short": "Guatemala",
+    "formal": "the Republic of Guatemala",
+    "un_code": "320"
+  },
+  "gn": {
+    "iso_code": "gn",
+    "type": "State",
+    "short": "Guinea",
+    "formal": "the Republic of Guinea",
+    "un_code": "324"
+  },
+  "gw": {
+    "iso_code": "gw",
+    "type": "State",
+    "short": "Guinea-Bissau",
+    "formal": "the Republic of Guinea-Bissau",
+    "un_code": "624"
+  },
+  "gy": {
+    "iso_code": "gy",
+    "type": "State",
+    "short": "Guyana",
+    "formal": "the Co-operative Republic of Guyana",
+    "un_code": "328"
+  },
+  "ht": {
+    "iso_code": "ht",
+    "type": "State",
+    "short": "Haiti",
+    "formal": "the Republic of Haiti",
+    "un_code": "332"
+  },
+  "hn": {
+    "iso_code": "hn",
+    "type": "State",
+    "short": "Honduras",
+    "formal": "the Republic of Honduras",
+    "un_code": "340"
+  },
+  "hu": {
+    "iso_code": "hu",
+    "type": "State",
+    "short": "Hungary",
+    "formal": "Hungary",
+    "un_code": "348"
+  },
+  "is": {
+    "iso_code": "is",
+    "type": "State",
+    "short": "Iceland",
+    "formal": "Iceland",
+    "un_code": "352"
+  },
+  "in": {
+    "iso_code": "in",
+    "type": "State",
+    "short": "India",
+    "formal": "the Republic of India",
+    "un_code": "356"
+  },
+  "id": {
+    "iso_code": "id",
+    "type": "State",
+    "short": "Indonesia",
+    "formal": "the Republic of Indonesia",
+    "un_code": "360"
+  },
+  "ir": {
+    "iso_code": "ir",
+    "type": "State",
+    "short": "Iran (Islamic Republic of)",
+    "formal": "the Islamic Republic of Iran",
+    "un_code": "364"
+  },
+  "iq": {
+    "iso_code": "iq",
+    "type": "State",
+    "short": "Iraq",
+    "formal": "the Republic of Iraq",
+    "un_code": "368"
+  },
+  "ie": {
+    "iso_code": "ie",
+    "type": "State",
+    "short": "Ireland",
+    "formal": "Ireland",
+    "un_code": "372"
+  },
+  "il": {
+    "iso_code": "il",
+    "type": "State",
+    "short": "Israel",
+    "formal": "the State of Israel",
+    "un_code": "376"
+  },
+  "it": {
+    "iso_code": "it",
+    "type": "State",
+    "short": "Italy",
+    "formal": "the Republic of Italy",
+    "un_code": "380"
+  },
+  "jm": {
+    "iso_code": "jm",
+    "type": "State",
+    "short": "Jamaica",
+    "formal": "Jamaica",
+    "un_code": "388"
+  },
+  "jp": {
+    "iso_code": "jp",
+    "type": "State",
+    "short": "Japan",
+    "formal": "Japan",
+    "un_code": "392"
+  },
+  "jo": {
+    "iso_code": "jo",
+    "type": "State",
+    "short": "Jordan",
+    "formal": "the Hashemite Kingdom of Jordan",
+    "un_code": "400"
+  },
+  "kz": {
+    "iso_code": "kz",
+    "type": "State",
+    "short": "Kazakhstan",
+    "formal": "the Republic of Kazakhstan",
+    "un_code": "398"
+  },
+  "ke": {
+    "iso_code": "ke",
+    "type": "State",
+    "short": "Kenya",
+    "formal": "the Republic of Kenya",
+    "un_code": "404"
+  },
+  "ki": {
+    "iso_code": "ki",
+    "type": "State",
+    "short": "Kiribati",
+    "formal": "the Republic of Kiribati",
+    "un_code": "296"
+  },
+  "kw": {
+    "iso_code": "kw",
+    "type": "State",
+    "short": "Kuwait",
+    "formal": "the State of Kuwait",
+    "un_code": "414"
+  },
+  "kg": {
+    "iso_code": "kg",
+    "type": "State",
+    "short": "Kyrgyzstan",
+    "formal": "the Kyrgyz Republic",
+    "un_code": "417"
+  },
+  "lv": {
+    "iso_code": "lv",
+    "type": "State",
+    "short": "Latvia",
+    "formal": "the Republic of Latvia",
+    "un_code": "428"
+  },
+  "lb": {
+    "iso_code": "lb",
+    "type": "State",
+    "short": "Lebanon",
+    "formal": "the Lebanese Republic",
+    "un_code": "422"
+  },
+  "ls": {
+    "iso_code": "ls",
+    "type": "State",
+    "short": "Lesotho",
+    "formal": "the Kingdom of Lesotho",
+    "un_code": "426"
+  },
+  "lr": {
+    "iso_code": "lr",
+    "type": "State",
+    "short": "Liberia",
+    "formal": "the Republic of Liberia",
+    "un_code": "430"
+  },
+  "ly": {
+    "iso_code": "ly",
+    "type": "State",
+    "short": "Libya",
+    "formal": "the State of Libya",
+    "un_code": "434"
+  },
+  "li": {
+    "iso_code": "li",
+    "type": "State",
+    "short": "Liechtenstein",
+    "formal": "the Principality of Liechtenstein",
+    "un_code": "438"
+  },
+  "lt": {
+    "iso_code": "lt",
+    "type": "State",
+    "short": "Lithuania",
+    "formal": "the Republic of Lithuania",
+    "un_code": "440"
+  },
+  "lu": {
+    "iso_code": "lu",
+    "type": "State",
+    "short": "Luxembourg",
+    "formal": "the Grand Duchy of Luxembourg",
+    "un_code": "442"
+  },
+  "mg": {
+    "iso_code": "mg",
+    "type": "State",
+    "short": "Madagascar",
+    "formal": "the Republic of Madagascar",
+    "un_code": "450"
+  },
+  "mw": {
+    "iso_code": "mw",
+    "type": "State",
+    "short": "Malawi",
+    "formal": "the Republic of Malawi",
+    "un_code": "454"
+  },
+  "my": {
+    "iso_code": "my",
+    "type": "State",
+    "short": "Malaysia",
+    "formal": "Malaysia",
+    "un_code": "458"
+  },
+  "mv": {
+    "iso_code": "mv",
+    "type": "State",
+    "short": "Maldives",
+    "formal": "the Republic of Maldives",
+    "un_code": "462"
+  },
+  "ml": {
+    "iso_code": "ml",
+    "type": "State",
+    "short": "Mali",
+    "formal": "the Republic of Mali",
+    "un_code": "466"
+  },
+  "mt": {
+    "iso_code": "mt",
+    "type": "State",
+    "short": "Malta",
+    "formal": "the Republic of Malta",
+    "un_code": "470"
+  },
+  "mh": {
+    "iso_code": "mh",
+    "type": "State",
+    "short": "Marshall Islands (the)",
+    "formal": "the Republic of the Marshall Islands",
+    "un_code": "584"
+  },
+  "mr": {
+    "iso_code": "mr",
+    "type": "State",
+    "short": "Mauritania",
+    "formal": "the Islamic Republic of Mauritania",
+    "un_code": "478"
+  },
+  "mu": {
+    "iso_code": "mu",
+    "type": "State",
+    "short": "Mauritius",
+    "formal": "the Republic of Mauritius",
+    "un_code": "480"
+  },
+  "mx": {
+    "iso_code": "mx",
+    "type": "State",
+    "short": "Mexico",
+    "formal": "the United Mexican States",
+    "un_code": "484"
+  },
+  "fm": {
+    "iso_code": "fm",
+    "type": "State",
+    "short": "Micronesia (Federated States of)",
+    "formal": "the Federated States of Micronesia",
+    "un_code": "583"
+  },
+  "md": {
+    "iso_code": "md",
+    "type": "State",
+    "short": "Moldova (the Republic of)",
+    "formal": "the Republic of Moldova",
+    "un_code": "498"
+  },
+  "mc": {
+    "iso_code": "mc",
+    "type": "State",
+    "short": "Monaco",
+    "formal": "the Principality of Monaco",
+    "un_code": "492"
+  },
+  "mn": {
+    "iso_code": "mn",
+    "type": "State",
+    "short": "Mongolia",
+    "formal": "Mongolia",
+    "un_code": "496"
+  },
+  "me": {
+    "iso_code": "me",
+    "type": "State",
+    "short": "Montenegro",
+    "formal": "Montenegro",
+    "un_code": "499"
+  },
+  "ma": {
+    "iso_code": "ma",
+    "type": "State",
+    "short": "Morocco",
+    "formal": "the Kingdom of Morocco",
+    "un_code": "504"
+  },
+  "mz": {
+    "iso_code": "mz",
+    "type": "State",
+    "short": "Mozambique",
+    "formal": "the Republic of Mozambique",
+    "un_code": "508"
+  },
+  "mm": {
+    "iso_code": "mm",
+    "type": "State",
+    "short": "Myanmar",
+    "formal": "the Republic of the Union of Myanmar",
+    "un_code": "104"
+  },
+  "na": {
+    "iso_code": "na",
+    "type": "State",
+    "short": "Namibia",
+    "formal": "the Republic of Namibia",
+    "un_code": "516"
+  },
+  "nr": {
+    "iso_code": "nr",
+    "type": "State",
+    "short": "Nauru",
+    "formal": "the Republic of Nauru",
+    "un_code": "520"
+  },
+  "np": {
+    "iso_code": "np",
+    "type": "State",
+    "short": "Nepal",
+    "formal": "Nepal",
+    "un_code": "524"
   },
   "nl": {
     "iso_code": "nl",
-    "type": "Country",
-    "short": "Netherlands",
-    "formal": "Kingdom of the Netherlands",
+    "type": "State",
+    "short": "Netherlands (the)",
+    "formal": "the Kingdom of the Netherlands",
     "un_code": "528"
+  },
+  "nz": {
+    "iso_code": "nz",
+    "type": "State",
+    "short": "New Zealand",
+    "formal": "New Zealand",
+    "un_code": "554"
+  },
+  "ni": {
+    "iso_code": "ni",
+    "type": "State",
+    "short": "Nicaragua",
+    "formal": "the Republic of Nicaragua",
+    "un_code": "558"
+  },
+  "ne": {
+    "iso_code": "ne",
+    "type": "State",
+    "short": "Niger (the)",
+    "formal": "the Republic of the Niger",
+    "un_code": "562"
+  },
+  "ng": {
+    "iso_code": "ng",
+    "type": "State",
+    "short": "Nigeria",
+    "formal": "the Federal Republic of Nigeria",
+    "un_code": "566"
+  },
+  "mk": {
+    "iso_code": "mk",
+    "type": "State",
+    "short": "North Macedonia",
+    "formal": "the Republic of North Macedonia",
+    "un_code": "807"
+  },
+  "no": {
+    "iso_code": "no",
+    "type": "State",
+    "short": "Norway",
+    "formal": "the Kingdom of Norway",
+    "un_code": "578"
+  },
+  "om": {
+    "iso_code": "om",
+    "type": "State",
+    "short": "Oman",
+    "formal": "the Sultanate of Oman",
+    "un_code": "512"
+  },
+  "pk": {
+    "iso_code": "pk",
+    "type": "State",
+    "short": "Pakistan",
+    "formal": "the Islamic Republic of Pakistan",
+    "un_code": "586"
+  },
+  "pw": {
+    "iso_code": "pw",
+    "type": "State",
+    "short": "Palau",
+    "formal": "the Republic of Palau",
+    "un_code": "585"
+  },
+  "pa": {
+    "iso_code": "pa",
+    "type": "State",
+    "short": "Panama",
+    "formal": "the Republic of Panama",
+    "un_code": "591"
+  },
+  "pg": {
+    "iso_code": "pg",
+    "type": "State",
+    "short": "Papua New Guinea",
+    "formal": "the Independent State of Papua New Guinea",
+    "un_code": "598"
+  },
+  "py": {
+    "iso_code": "py",
+    "type": "State",
+    "short": "Paraguay",
+    "formal": "the Republic of Paraguay",
+    "un_code": "600"
+  },
+  "pe": {
+    "iso_code": "pe",
+    "type": "State",
+    "short": "Peru",
+    "formal": "the Republic of Peru",
+    "un_code": "604"
+  },
+  "ph": {
+    "iso_code": "ph",
+    "type": "State",
+    "short": "Philippines (the)",
+    "formal": "the Republic of the Philippines",
+    "un_code": "608"
+  },
+  "pl": {
+    "iso_code": "pl",
+    "type": "State",
+    "short": "Poland",
+    "formal": "the Republic of Poland",
+    "un_code": "616"
+  },
+  "pt": {
+    "iso_code": "pt",
+    "type": "State",
+    "short": "Portugal",
+    "formal": "the Portuguese Republic",
+    "un_code": "620"
+  },
+  "qa": {
+    "iso_code": "qa",
+    "type": "State",
+    "short": "Qatar",
+    "formal": "the State of Qatar",
+    "un_code": "634"
+  },
+  "kr": {
+    "iso_code": "kr",
+    "type": "State",
+    "short": "Republic of Korea (the)",
+    "formal": "the Republic of Korea",
+    "un_code": "410"
+  },
+  "ro": {
+    "iso_code": "ro",
+    "type": "State",
+    "short": "Romania",
+    "formal": "Romania",
+    "un_code": "642"
+  },
+  "ru": {
+    "iso_code": "ru",
+    "type": "State",
+    "short": "Russian Federation (the)",
+    "formal": "the Russian Federation",
+    "un_code": "643"
+  },
+  "rw": {
+    "iso_code": "rw",
+    "type": "State",
+    "short": "Rwanda",
+    "formal": "the Republic of Rwanda",
+    "un_code": "646"
+  },
+  "kn": {
+    "iso_code": "kn",
+    "type": "State",
+    "short": "Saint Kitts and Nevis",
+    "formal": "Saint Kitts and Nevis",
+    "un_code": "659"
+  },
+  "lc": {
+    "iso_code": "lc",
+    "type": "State",
+    "short": "Saint Lucia",
+    "formal": "Saint Lucia",
+    "un_code": "662"
+  },
+  "vc": {
+    "iso_code": "vc",
+    "type": "State",
+    "short": "Saint Vincent and the Grenadines",
+    "formal": "Saint Vincent and the Grenadines",
+    "un_code": "670"
+  },
+  "ws": {
+    "iso_code": "ws",
+    "type": "State",
+    "short": "Samoa",
+    "formal": "the Independent State of Samoa",
+    "un_code": "882"
+  },
+  "sm": {
+    "iso_code": "sm",
+    "type": "State",
+    "short": "San Marino",
+    "formal": "the Republic of San Marino",
+    "un_code": "674"
+  },
+  "st": {
+    "iso_code": "st",
+    "type": "State",
+    "short": "Sao Tome and Principe",
+    "formal": "the Democratic Republic of Sao Tome and Principe",
+    "un_code": "678"
+  },
+  "sa": {
+    "iso_code": "sa",
+    "type": "State",
+    "short": "Saudi Arabia",
+    "formal": "the Kingdom of Saudi Arabia",
+    "un_code": "682"
+  },
+  "sn": {
+    "iso_code": "sn",
+    "type": "State",
+    "short": "Senegal",
+    "formal": "the Republic of Senegal",
+    "un_code": "686"
+  },
+  "rs": {
+    "iso_code": "rs",
+    "type": "State",
+    "short": "Serbia",
+    "formal": "the Republic of Serbia",
+    "un_code": "688"
+  },
+  "sc": {
+    "iso_code": "sc",
+    "type": "State",
+    "short": "Seychelles",
+    "formal": "the Republic of Seychelles",
+    "un_code": "690"
+  },
+  "sl": {
+    "iso_code": "sl",
+    "type": "State",
+    "short": "Sierra Leone",
+    "formal": "the Republic of Sierra Leone",
+    "un_code": "694"
+  },
+  "sg": {
+    "iso_code": "sg",
+    "type": "State",
+    "short": "Singapore",
+    "formal": "the Republic of Singapore",
+    "un_code": "702"
+  },
+  "sk": {
+    "iso_code": "sk",
+    "type": "State",
+    "short": "Slovakia",
+    "formal": "the Slovak Republic",
+    "un_code": "703"
+  },
+  "si": {
+    "iso_code": "si",
+    "type": "State",
+    "short": "Slovenia",
+    "formal": "the Republic of Slovenia",
+    "un_code": "705"
+  },
+  "sb": {
+    "iso_code": "sb",
+    "type": "State",
+    "short": "Solomon Islands (the)",
+    "formal": "Solomon Islands",
+    "un_code": "090"
+  },
+  "so": {
+    "iso_code": "so",
+    "type": "State",
+    "short": "Somalia",
+    "formal": "the Federal Republic of Somalia",
+    "un_code": "706"
+  },
+  "za": {
+    "iso_code": "za",
+    "type": "State",
+    "short": "South Africa",
+    "formal": "the Republic of South Africa",
+    "un_code": "710"
+  },
+  "ss": {
+    "iso_code": "ss",
+    "type": "State",
+    "short": "South Sudan",
+    "formal": "the Republic of South Sudan",
+    "un_code": "728"
+  },
+  "es": {
+    "iso_code": "es",
+    "type": "State",
+    "short": "Spain",
+    "formal": "the Kingdom of Spain",
+    "un_code": "724"
+  },
+  "lk": {
+    "iso_code": "lk",
+    "type": "State",
+    "short": "Sri Lanka",
+    "formal": "the Democratic Socialist Republic of Sri Lanka",
+    "un_code": "144"
+  },
+  "sd": {
+    "iso_code": "sd",
+    "type": "State",
+    "short": "Sudan (the)",
+    "formal": "the Republic of the Sudan",
+    "un_code": "729"
+  },
+  "sr": {
+    "iso_code": "sr",
+    "type": "State",
+    "short": "Suriname",
+    "formal": "the Republic of Suriname",
+    "un_code": "740"
+  },
+  "se": {
+    "iso_code": "se",
+    "type": "State",
+    "short": "Sweden",
+    "formal": "the Kingdom of Sweden",
+    "un_code": "752"
+  },
+  "ch": {
+    "iso_code": "ch",
+    "type": "State",
+    "short": "Switzerland",
+    "formal": "the Swiss Confederation",
+    "un_code": "756"
+  },
+  "sy": {
+    "iso_code": "sy",
+    "type": "State",
+    "short": "Syrian Arab Republic (the)",
+    "formal": "the Syrian Arab Republic",
+    "un_code": "760"
+  },
+  "tj": {
+    "iso_code": "tj",
+    "type": "State",
+    "short": "Tajikistan",
+    "formal": "the Republic of Tajikistan",
+    "un_code": "762"
+  },
+  "tz": {
+    "iso_code": "tz",
+    "type": "State",
+    "short": "Tanzania, the United Republic of",
+    "formal": "the United Republic of Tanzania",
+    "un_code": "834"
+  },
+  "th": {
+    "iso_code": "th",
+    "type": "State",
+    "short": "Thailand",
+    "formal": "the Kingdom of Thailand",
+    "un_code": "764"
+  },
+  "tl": {
+    "iso_code": "tl",
+    "type": "State",
+    "short": "Timor-Leste",
+    "formal": "the Democratic Republic of Timor-Leste",
+    "un_code": "626"
+  },
+  "tg": {
+    "iso_code": "tg",
+    "type": "State",
+    "short": "Togo",
+    "formal": "the Togolese Republic",
+    "un_code": "768"
+  },
+  "to": {
+    "iso_code": "to",
+    "type": "State",
+    "short": "Tonga",
+    "formal": "the Kingdom of Tonga",
+    "un_code": "776"
+  },
+  "tt": {
+    "iso_code": "tt",
+    "type": "State",
+    "short": "Trinidad and Tobago",
+    "formal": "the Republic of Trinidad and Tobago",
+    "un_code": "780"
+  },
+  "tn": {
+    "iso_code": "tn",
+    "type": "State",
+    "short": "Tunisia",
+    "formal": "the Republic of Tunisia",
+    "un_code": "788"
+  },
+  "tr": {
+    "iso_code": "tr",
+    "type": "State",
+    "short": "Turkey",
+    "formal": "the Republic of Turkey",
+    "un_code": "792"
+  },
+  "tm": {
+    "iso_code": "tm",
+    "type": "State",
+    "short": "Turkmenistan",
+    "formal": "Turkmenistan",
+    "un_code": "795"
+  },
+  "tv": {
+    "iso_code": "tv",
+    "type": "State",
+    "short": "Tuvalu",
+    "formal": "Tuvalu",
+    "un_code": "798"
+  },
+  "ug": {
+    "iso_code": "ug",
+    "type": "State",
+    "short": "Uganda",
+    "formal": "the Republic of Uganda",
+    "un_code": "800"
+  },
+  "ua": {
+    "iso_code": "ua",
+    "type": "State",
+    "short": "Ukraine",
+    "formal": "Ukraine",
+    "un_code": "804"
+  },
+  "ae": {
+    "iso_code": "ae",
+    "type": "State",
+    "short": "United Arab Emirates (the)",
+    "formal": "the United Arab Emirates",
+    "un_code": "784"
+  },
+  "gb": {
+    "iso_code": "gb",
+    "type": "State",
+    "short": "United Kingdom of Great Britain and Northern Ireland (the)",
+    "formal": "the United Kingdom of Great Britain and Northern Ireland",
+    "un_code": "826"
+  },
+  "us": {
+    "iso_code": "us",
+    "type": "State",
+    "short": "United States of America (the)",
+    "formal": "the United States of America",
+    "un_code": "840"
+  },
+  "uy": {
+    "iso_code": "uy",
+    "type": "State",
+    "short": "Uruguay",
+    "formal": "the Oriental Republic of Uruguay",
+    "un_code": "858"
+  },
+  "uz": {
+    "iso_code": "uz",
+    "type": "State",
+    "short": "Uzbekistan",
+    "formal": "the Republic of Uzbekistan",
+    "un_code": "860"
+  },
+  "vu": {
+    "iso_code": "vu",
+    "type": "State",
+    "short": "Vanuatu",
+    "formal": "the Republic of Vanuatu",
+    "un_code": "548"
+  },
+  "ve": {
+    "iso_code": "ve",
+    "type": "State",
+    "short": "Venezuela (Bolivarian Republic of)",
+    "formal": "the Bolivarian Republic of Venezuela",
+    "un_code": "862"
+  },
+  "vn": {
+    "iso_code": "vn",
+    "type": "State",
+    "short": "Viet Nam",
+    "formal": "the Socialist Republic of Viet Nam",
+    "un_code": "704"
+  },
+  "ye": {
+    "iso_code": "ye",
+    "type": "State",
+    "short": "Yemen",
+    "formal": "the Republic of Yemen",
+    "un_code": "887"
+  },
+  "zm": {
+    "iso_code": "zm",
+    "type": "State",
+    "short": "Zambia",
+    "formal": "the Republic of Zambia",
+    "un_code": "894"
+  },
+  "zw": {
+    "iso_code": "zw",
+    "type": "State",
+    "short": "Zimbabwe",
+    "formal": "the Republic of Zimbabwe",
+    "un_code": "716"
+  },
+  "ps": {
+    "iso_code": "ps",
+    "type": "Observer",
+    "short": "Palestine, State of",
+    "formal": "the State of Palestine",
+    "un_code": "275"
+  },
+  "va": {
+    "iso_code": "va",
+    "type": "Observer",
+    "short": "Holy See (the)",
+    "formal": "the Holy See",
+    "un_code": "336"
+  },
+  "ck": {
+    "iso_code": "ck",
+    "type": "Associated State",
+    "short": "Cook Islands (the)",
+    "formal": "the Cook Islands",
+    "un_code": "184"
+  },
+  "nu": {
+    "iso_code": "nu",
+    "type": "Associated State",
+    "short": "Niue",
+    "formal": "Niue",
+    "un_code": "570"
   }
 }
