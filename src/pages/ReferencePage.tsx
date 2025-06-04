@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useReferenceData } from '@/contexts/ReferenceDataContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,7 +24,8 @@ export default function ReferencePage() {
   } = useReferenceData();
   
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [mainTab, setMainTab] = useState('all');
+  const [cardCategory, setCardCategory] = useState('types');
 
   if (loading) {
     return (
@@ -145,7 +147,7 @@ export default function ReferencePage() {
       </div>
 
       {/* Main Content Tabs */}
-      <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+      <Tabs value={mainTab} onValueChange={setMainTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3 lg:grid-cols-3">
           <TabsTrigger value="all">Overview</TabsTrigger>
           <TabsTrigger value="cards">Card View</TabsTrigger>
@@ -161,7 +163,10 @@ export default function ReferencePage() {
                 <Card 
                   key={category.id} 
                   className="cursor-pointer hover:shadow-lg transition-shadow"
-                  onClick={() => setActiveCategory('cards')}
+                  onClick={() => {
+                    setMainTab('cards');
+                    setCardCategory(category.id);
+                  }}
                 >
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
@@ -194,7 +199,7 @@ export default function ReferencePage() {
                 </TableHeader>
                 <TableBody>
                   {filteredGlobalGoodsTypes.map((type) => (
-                    <TableRow key={type.code}>
+                    <TableRow key={`type-${type.code}`}>
                       <TableCell className="font-mono">{type.code}</TableCell>
                       <TableCell className="font-medium">{type.title}</TableCell>
                       <TableCell className="text-sm text-muted-foreground">{type.description}</TableCell>
@@ -218,7 +223,7 @@ export default function ReferencePage() {
                 </TableHeader>
                 <TableBody>
                   {filteredLicenses.map((license) => (
-                    <TableRow key={license.id}>
+                    <TableRow key={`license-${license.id}`}>
                       <TableCell className="font-mono">{license.id}</TableCell>
                       <TableCell className="font-medium">{license.name}</TableCell>
                       <TableCell className="text-sm text-muted-foreground">{license.description}</TableCell>
@@ -235,72 +240,84 @@ export default function ReferencePage() {
               </Table>
             </div>
 
-            {/* Classifications Table */}
+            {/* Classifications Table with Grouping */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Classifications ({filteredClassifications.length})</h3>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Code</TableHead>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Authority</TableHead>
-                    <TableHead>Group</TableHead>
-                    <TableHead>Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredClassifications.map((classification) => (
-                    <TableRow key={classification.code}>
-                      <TableCell className="font-mono">{classification.code}</TableCell>
-                      <TableCell className="font-medium">{classification.title}</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">{classification.authority}</Badge>
-                      </TableCell>
-                      <TableCell className="text-sm">{classification.group_name}</TableCell>
-                      <TableCell className="text-sm text-muted-foreground">{classification.description}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+              {['SDG', 'WHO', 'WMO', 'DPI-H'].map(authority => {
+                const authorityClassifications = filteredClassifications.filter(c => c.authority === authority);
+                if (authorityClassifications.length === 0) return null;
+                
+                return (
+                  <div key={authority} className="mb-6">
+                    <h4 className="text-lg font-medium mb-3 text-primary">{authority} Classifications</h4>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Code</TableHead>
+                          <TableHead>Title</TableHead>
+                          <TableHead>Group</TableHead>
+                          <TableHead>Description</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {authorityClassifications.map((classification) => (
+                          <TableRow key={`classification-${authority}-${classification.code}`}>
+                            <TableCell className="font-mono">{classification.code}</TableCell>
+                            <TableCell className="font-medium">{classification.title}</TableCell>
+                            <TableCell className="text-sm">{classification.group_name}</TableCell>
+                            <TableCell className="text-sm text-muted-foreground">{classification.description}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Standards Table */}
+            {/* Standards Table with Grouping */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Code</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Domain</TableHead>
-                    <TableHead>Description</TableHead>
-                    <TableHead>Link</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {filteredStandards.map((standard: any) => (
-                    <TableRow key={standard.code}>
-                      <TableCell className="font-mono">{standard.code}</TableCell>
-                      <TableCell className="font-medium">{standard.name}</TableCell>
-                      <TableCell>
-                        <Badge variant="outline">{standard.type}</Badge>
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">{standard.domain}</Badge>
-                      </TableCell>
-                      <TableCell className="text-sm text-muted-foreground">{standard.description}</TableCell>
-                      <TableCell>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={standard.link} target="_blank" rel="noopener noreferrer" className="text-xs">
-                            View
-                          </a>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+              {['Health', 'Interoperability', 'Climate'].map(domain => {
+                const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
+                if (domainStandards.length === 0) return null;
+                
+                return (
+                  <div key={domain} className="mb-6">
+                    <h4 className="text-lg font-medium mb-3 text-primary">{domain} Standards</h4>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Code</TableHead>
+                          <TableHead>Name</TableHead>
+                          <TableHead>Type</TableHead>
+                          <TableHead>Description</TableHead>
+                          <TableHead>Link</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {domainStandards.map((standard: any) => (
+                          <TableRow key={`standard-${domain}-${standard.code}`}>
+                            <TableCell className="font-mono">{standard.code}</TableCell>
+                            <TableCell className="font-medium">{standard.name}</TableCell>
+                            <TableCell>
+                              <Badge variant="outline">{standard.type}</Badge>
+                            </TableCell>
+                            <TableCell className="text-sm text-muted-foreground">{standard.description}</TableCell>
+                            <TableCell>
+                              <Button variant="outline" size="sm" asChild>
+                                <a href={standard.link} target="_blank" rel="noopener noreferrer" className="text-xs">
+                                  View
+                                </a>
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Languages Table */}
@@ -316,7 +333,7 @@ export default function ReferencePage() {
                 </TableHeader>
                 <TableBody>
                   {filteredLanguages.map((language) => (
-                    <TableRow key={language.code}>
+                    <TableRow key={`language-${language.code}`}>
                       <TableCell className="font-mono">{language.code}</TableCell>
                       <TableCell className="font-medium">{language.name}</TableCell>
                       <TableCell>{language.nativeName}</TableCell>
@@ -340,7 +357,7 @@ export default function ReferencePage() {
                 </TableHeader>
                 <TableBody>
                   {filteredInitiatives.map((initiative) => (
-                    <TableRow key={initiative.id}>
+                    <TableRow key={`initiative-${initiative.id}`}>
                       <TableCell className="font-mono">{initiative.id}</TableCell>
                       <TableCell className="font-medium">{initiative.label}</TableCell>
                       <TableCell className="text-sm text-muted-foreground">{initiative.description}</TableCell>
@@ -371,7 +388,7 @@ export default function ReferencePage() {
                 </TableHeader>
                 <TableBody>
                   {filteredCountries.map((country) => (
-                    <TableRow key={country.code}>
+                    <TableRow key={`country-${country.code}`}>
                       <TableCell className="font-mono">{country.code?.toUpperCase()}</TableCell>
                       <TableCell className="font-medium">{country.name?.short}</TableCell>
                       <TableCell className="text-sm">{country.name?.official}</TableCell>
@@ -386,7 +403,7 @@ export default function ReferencePage() {
 
         <TabsContent value="cards" className="mt-6">
           {/* Category Selection Tabs */}
-          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+          <Tabs value={cardCategory} onValueChange={setCardCategory} className="w-full">
             <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7">
               <TabsTrigger value="types">Types</TabsTrigger>
               <TabsTrigger value="licenses">Licenses</TabsTrigger>
@@ -399,44 +416,40 @@ export default function ReferencePage() {
 
             <TabsContent value="types" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredGlobalGoodsTypes
-                  .filter(type => !searchTerm || type.title.toLowerCase().includes(searchTerm.toLowerCase()) || type.description.toLowerCase().includes(searchTerm.toLowerCase()))
-                  .map((type) => (
-                    <Card key={type.code}>
-                      <CardHeader>
-                        <CardTitle className="flex items-center justify-between">
-                          {type.title}
-                          <Badge variant="outline">{type.code}</Badge>
-                        </CardTitle>
-                        <CardDescription>{type.description}</CardDescription>
-                      </CardHeader>
-                    </Card>
-                  ))}
+                {filteredGlobalGoodsTypes.map((type) => (
+                  <Card key={type.code}>
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between">
+                        {type.title}
+                        <Badge variant="outline">{type.code}</Badge>
+                      </CardTitle>
+                      <CardDescription>{type.description}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ))}
               </div>
             </TabsContent>
 
             <TabsContent value="licenses" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredLicenses
-                  .filter(license => !searchTerm || license.name.toLowerCase().includes(searchTerm.toLowerCase()) || license.description.toLowerCase().includes(searchTerm.toLowerCase()))
-                  .map((license) => (
-                    <Card key={license.id}>
-                      <CardHeader>
-                        <CardTitle className="flex items-center justify-between">
-                          {license.name}
-                          <Badge variant="outline">{license.id}</Badge>
-                        </CardTitle>
-                        <CardDescription>{license.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={license.url} target="_blank" rel="noopener noreferrer">
-                            View License
-                          </a>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
+                {filteredLicenses.map((license) => (
+                  <Card key={license.id}>
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between">
+                        {license.name}
+                        <Badge variant="outline">{license.id}</Badge>
+                      </CardTitle>
+                      <CardDescription>{license.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href={license.url} target="_blank" rel="noopener noreferrer">
+                          View License
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </TabsContent>
 
@@ -515,63 +528,57 @@ export default function ReferencePage() {
 
             <TabsContent value="languages" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredLanguages
-                  .filter(language => !searchTerm || language.name.toLowerCase().includes(searchTerm.toLowerCase()) || language.nativeName.toLowerCase().includes(searchTerm.toLowerCase()))
-                  .map((language) => (
-                    <Card key={language.code} className="p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge variant="outline">{language.code}</Badge>
-                      </div>
-                      <h4 className="font-medium">{language.name}</h4>
-                      <p className="text-sm text-muted-foreground">{language.nativeName}</p>
-                    </Card>
-                  ))}
+                {filteredLanguages.map((language) => (
+                  <Card key={language.code} className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="outline">{language.code}</Badge>
+                    </div>
+                    <h4 className="font-medium">{language.name}</h4>
+                    <p className="text-sm text-muted-foreground">{language.nativeName}</p>
+                  </Card>
+                ))}
               </div>
             </TabsContent>
 
             <TabsContent value="initiatives" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredInitiatives
-                  .filter(initiative => !searchTerm || initiative.label.toLowerCase().includes(searchTerm.toLowerCase()) || initiative.description.toLowerCase().includes(searchTerm.toLowerCase()))
-                  .map((initiative) => (
-                    <Card key={initiative.id}>
-                      <CardHeader>
-                        <CardTitle className="flex items-center justify-between">
-                          {initiative.label}
-                          <Badge variant="outline">{initiative.id}</Badge>
-                        </CardTitle>
-                        <CardDescription>{initiative.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={initiative.site_url} target="_blank" rel="noopener noreferrer">
-                            Visit Initiative
-                          </a>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
+                {filteredInitiatives.map((initiative) => (
+                  <Card key={initiative.id}>
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between">
+                        {initiative.label}
+                        <Badge variant="outline">{initiative.id}</Badge>
+                      </CardTitle>
+                      <CardDescription>{initiative.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href={initiative.site_url} target="_blank" rel="noopener noreferrer">
+                          Visit Initiative
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </TabsContent>
 
             <TabsContent value="countries" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                {filteredCountries
-                  .filter(country => !searchTerm || country.name?.short?.toLowerCase().includes(searchTerm.toLowerCase()) || country.name?.official?.toLowerCase().includes(searchTerm.toLowerCase()))
-                  .map((country) => (
-                    <Card key={country.code} className="p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge variant="outline">{country.code?.toUpperCase()}</Badge>
-                        {country.un_code && (
-                          <Badge variant="secondary" className="text-xs">UN: {country.un_code}</Badge>
-                        )}
-                      </div>
-                      <h4 className="font-medium">{country.name?.short}</h4>
-                      {country.name?.official !== country.name?.short && (
-                        <p className="text-sm text-muted-foreground">{country.name?.official}</p>
+                {filteredCountries.map((country) => (
+                  <Card key={country.code} className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="outline">{country.code?.toUpperCase()}</Badge>
+                      {country.un_code && (
+                        <Badge variant="secondary" className="text-xs">UN: {country.un_code}</Badge>
                       )}
-                    </Card>
-                  ))}
+                    </div>
+                    <h4 className="font-medium">{country.name?.short}</h4>
+                    {country.name?.official !== country.name?.short && (
+                      <p className="text-sm text-muted-foreground">{country.name?.official}</p>
+                    )}
+                  </Card>
+                ))}
               </div>
             </TabsContent>
           </Tabs>
