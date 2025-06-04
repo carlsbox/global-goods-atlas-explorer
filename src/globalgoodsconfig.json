@@ -1,7 +1,8 @@
 
 {
   "siteName": "Global Goods Guidebook",
-  "domain": "globalgoodsguidebook.org",
+  "domain": "beta.globalgoodsguidebook.org",
+  "baseUrl": "https://beta.globalgoodsguidebook.org",
   "emails": {
     "contact": "info@globalgoodsguidebook.org",
     "support": "support@globalgoodsguidebook.org"
