@@ -76,12 +76,12 @@ export function useUseCasesData() {
         });
       }
       
-      // Standards availability - Only add string codes
+      // Standards availability - Only process string arrays, skip objects
       if (useCase.standards && Array.isArray(useCase.standards)) {
-        useCase.standards.forEach(standardCode => {
-          // Only add if it's a string
-          if (typeof standardCode === 'string' && standardCode.trim()) {
-            availableStandards.add(standardCode.trim());
+        useCase.standards.forEach(standard => {
+          // Only add if it's a string (skip objects)
+          if (typeof standard === 'string' && standard.trim()) {
+            availableStandards.add(standard.trim());
           }
         });
       }

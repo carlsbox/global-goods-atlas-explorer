@@ -16,20 +16,8 @@
     "postconditions": "**Immediate Healthcare Access Improvements:**\n- Reduced travel time and costs for patients seeking specialist care\n- Increased frequency of specialist consultations in rural areas\n- Enhanced clinical decision-making through expert consultation\n- Improved medication adherence through remote monitoring\n\n**System-Level Outcomes:**\n- Strengthened healthcare delivery capacity in rural regions\n- Better integration between primary and specialist care services\n- Enhanced health outcomes for chronic disease patients\n- Reduced healthcare disparities between urban and rural populations",
     "data_requirements": "**Patient Information:**\n- Electronic health records and medical history\n- Real-time vital signs and diagnostic data\n- Medication records and treatment adherence\n- Patient-reported outcomes and symptom tracking\n\n**Consultation Data:**\n- Video consultation recordings and clinical notes\n- Specialist recommendations and treatment plans\n- Follow-up scheduling and care coordination\n- Quality metrics and patient satisfaction scores",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "For interoperable health data exchange between systems"
-      },
-      {
-        "code": "DICOM",
-        "domain": "Health",
-        "link": "https://www.dicomstandard.org/",
-        "name": "DICOM",
-        "description": "For medical imaging data exchange and storage"
-      }
+      "HL7 FHIR",
+      "DICOM"
     ],
     "technology_components": "**Core Telemedicine Platform:**\n- **OpenMRS** enhanced with telemedicine modules\n- Secure video conferencing with end-to-end encryption\n- Mobile applications for patient engagement and monitoring\n- Integration APIs for diagnostic equipment and wearable devices\n\n**Communication Infrastructure:**\n- High-definition video conferencing systems\n- Secure messaging and file sharing capabilities\n- Real-time data transmission for vital signs monitoring\n- Cloud-based storage with backup and disaster recovery",
     "global_goods": [
@@ -63,13 +51,7 @@
     "postconditions": "**Améliorations Immédiates d'Accès :**\n- Réduction du temps et coûts de voyage pour patients\n- Fréquence accrue des consultations spécialisées\n- Prise de décision clinique améliorée\n- Adhésion médicamenteuse améliorée",
     "data_requirements": "**Information Patients :**\n- Dossiers de santé électroniques\n- Signes vitaux et données diagnostiques en temps réel\n- Dossiers de médication\n- Résultats rapportés par patients",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Santé",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Pour l'échange interopérable de données de santé"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plateforme Télémédecine :**\n- **OpenMRS** amélioré avec modules télémédecine\n- Visioconférence sécurisée\n- Applications mobiles pour engagement patient",
     "global_goods": [
@@ -103,13 +85,7 @@
     "postconditions": "**Mejoras Inmediatas de Acceso:**\n- Reducción de tiempo y costos de viaje para pacientes\n- Frecuencia aumentada de consultas especializadas\n- Toma de decisiones clínicas mejorada\n- Adherencia a medicamentos mejorada",
     "data_requirements": "**Información de Pacientes:**\n- Registros de salud electrónicos\n- Signos vitales y datos diagnósticos en tiempo real\n- Registros de medicación\n- Resultados reportados por pacientes",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Salud",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Para intercambio interoperable de datos de salud"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plataforma Telemedicina:**\n- **OpenMRS** mejorado con módulos de telemedicina\n- Videoconferencia segura\n- Aplicaciones móviles para compromiso del paciente",
     "global_goods": [

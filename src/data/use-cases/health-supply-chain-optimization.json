@@ -16,20 +16,8 @@
     "postconditions": "**Supply Chain Performance Improvements:**\n- Reduced stock-outs and overstocking of essential medicines\n- Improved inventory turnover and reduced wastage from expiration\n- Enhanced visibility into supply chain performance across all levels\n- Faster response to supply disruptions and emergency requests\n\n**Cost and Efficiency Gains:**\n- Optimized procurement through demand forecasting and bulk purchasing\n- Reduced administrative burden through automated processes\n- Better budget planning and financial control\n- Improved product quality through enhanced cold chain management",
     "data_requirements": "**Inventory and Product Data:**\n- Real-time stock levels and location tracking\n- Product specifications, batch numbers, and expiration dates\n- Consumption patterns and usage rates\n- Supplier information and lead times\n\n**Financial and Procurement Data:**\n- Purchase orders, invoices, and payment records\n- Budget allocations and expenditure tracking\n- Contract terms and pricing agreements\n- Cost analysis and variance reporting",
     "standards": [
-      {
-        "code": "GS1",
-        "domain": "Health",
-        "link": "https://www.gs1.org/healthcare",
-        "name": "GS1",
-        "description": "For global product identification and supply chain visibility"
-      },
-      {
-        "code": "HL7 FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "For medication and supply data exchange"
-      }
+      "GS1",
+      "HL7 FHIR"
     ],
     "technology_components": "**Core Supply Chain Platform:**\n- **MediTrack** as the primary logistics management system\n- Real-time inventory tracking with barcode scanning\n- Predictive analytics engine for demand forecasting\n- Mobile applications for field inventory management\n\n**Integration and Analytics:**\n- **DHIS2** integration for health facility reporting\n- Business intelligence dashboards for performance monitoring\n- Cold chain monitoring with IoT sensors and alerts\n- Financial system integration for procurement automation",
     "global_goods": [
@@ -63,13 +51,7 @@
     "postconditions": "**Améliorations de Performance :**\n- Réduction des ruptures de stock\n- Amélioration de la rotation des stocks\n- Visibilité renforcée de la chaîne d'approvisionnement\n- Réponse plus rapide aux perturbations",
     "data_requirements": "**Données d'Inventaire :**\n- Niveaux de stock en temps réel\n- Spécifications produits et dates d'expiration\n- Modèles de consommation\n- Informations fournisseurs",
     "standards": [
-      {
-        "code": "GS1",
-        "domain": "Santé",
-        "link": "https://www.gs1.org/healthcare",
-        "name": "GS1",
-        "description": "Pour identification globale des produits"
-      }
+      "GS1"
     ],
     "technology_components": "**Plateforme Principale :**\n- **MediTrack** comme système principal de gestion logistique\n- Suivi d'inventaire en temps réel\n- Moteur d'analyse prédictive",
     "global_goods": [
@@ -103,13 +85,7 @@
     "postconditions": "**Mejoras de Rendimiento:**\n- Reducción de desabastecimientos\n- Mejora en rotación de inventario\n- Visibilidad mejorada de cadena de suministro\n- Respuesta más rápida a interrupciones",
     "data_requirements": "**Datos de Inventario:**\n- Niveles de stock en tiempo real\n- Especificaciones de productos y fechas de vencimiento\n- Patrones de consumo\n- Información de proveedores",
     "standards": [
-      {
-        "code": "GS1",
-        "domain": "Salud",
-        "link": "https://www.gs1.org/healthcare",
-        "name": "GS1",
-        "description": "Para identificación global de productos"
-      }
+      "GS1"
     ],
     "technology_components": "**Plataforma Principal:**\n- **MediTrack** como sistema principal de gestión logística\n- Seguimiento de inventario en tiempo real\n- Motor de análisis predictivo",
     "global_goods": [

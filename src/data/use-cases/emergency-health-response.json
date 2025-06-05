@@ -16,20 +16,8 @@
     "postconditions": "**Enhanced Emergency Response Capabilities:**\n- Improved coordination and communication between response agencies\n- Faster identification and response to health emergencies\n- Better resource allocation and logistics management during crises\n- Enhanced situational awareness for decision-makers\n\n**Health System Resilience:**\n- Strengthened capacity for disease outbreak detection and response\n- Improved patient flow management during mass casualty events\n- Enhanced integration between emergency services and healthcare facilities\n- Better protection of vulnerable populations during emergencies",
     "data_requirements": "**Incident and Emergency Data:**\n- Real-time incident reports and situational updates\n- Geographic location and affected population estimates\n- Resource availability and deployment status\n- Weather and environmental monitoring data\n\n**Health and Medical Data:**\n- Patient flow and hospital capacity information\n- Disease surveillance and outbreak detection data\n- Medical supply inventory and distribution tracking\n- Health worker deployment and safety status",
     "standards": [
-      {
-        "code": "CAP",
-        "domain": "Emergency",
-        "link": "https://docs.oasis-open.org/emergency/cap/",
-        "name": "Common Alerting Protocol",
-        "description": "For standardized emergency alerting and public warning"
-      },
-      {
-        "code": "EDXL",
-        "domain": "Emergency",
-        "link": "https://docs.oasis-open.org/emergency/edxl/",
-        "name": "Emergency Data Exchange Language",
-        "description": "For emergency information sharing and coordination"
-      }
+      "CAP",
+      "EDXL"
     ],
     "technology_components": "**Core Emergency Management Platform:**\n- **DHIS2** configured for emergency health surveillance\n- Real-time incident reporting and tracking system\n- Geographic information system for mapping and spatial analysis\n- Mobile applications for field reporting and communication\n\n**Communication and Coordination:**\n- Secure messaging and voice communication systems\n- Video conferencing for remote coordination meetings\n- Integration with early warning systems and weather services\n- Public information and communication tools",
     "global_goods": [
@@ -63,13 +51,7 @@
     "postconditions": "**Capacités de Réponse Améliorées :**\n- Coordination améliorée entre agences\n- Identification plus rapide des urgences sanitaires\n- Meilleure allocation des ressources\n- Sensibilisation situationnelle renforcée",
     "data_requirements": "**Données d'Incident et d'Urgence :**\n- Rapports d'incident en temps réel\n- Localisation géographique\n- Disponibilité des ressources\n- Données de surveillance météorologique",
     "standards": [
-      {
-        "code": "CAP",
-        "domain": "Urgence",
-        "link": "https://docs.oasis-open.org/emergency/cap/",
-        "name": "Common Alerting Protocol",
-        "description": "Pour l'alerte d'urgence standardisée"
-      }
+      "CAP"
     ],
     "technology_components": "**Plateforme de Gestion d'Urgence :**\n- **DHIS2** configuré pour surveillance sanitaire d'urgence\n- Système de rapport d'incident en temps réel\n- Système d'information géographique",
     "global_goods": [
@@ -103,13 +85,7 @@
     "postconditions": "**Capacidades de Respuesta Mejoradas:**\n- Coordinación mejorada entre agencias\n- Identificación más rápida de emergencias sanitarias\n- Mejor asignación de recursos\n- Conciencia situacional mejorada",
     "data_requirements": "**Datos de Incidente y Emergencia:**\n- Reportes de incidentes en tiempo real\n- Ubicación geográfica\n- Disponibilidad de recursos\n- Datos de monitoreo meteorológico",
     "standards": [
-      {
-        "code": "CAP",
-        "domain": "Emergencia",
-        "link": "https://docs.oasis-open.org/emergency/cap/",
-        "name": "Common Alerting Protocol",
-        "description": "Para alerta de emergencia estandarizada"
-      }
+      "CAP"
     ],
     "technology_components": "**Plataforma de Gestión de Emergencias:**\n- **DHIS2** configurado para vigilancia sanitaria de emergencia\n- Sistema de reporte de incidentes en tiempo real\n- Sistema de información geográfica",
     "global_goods": [
