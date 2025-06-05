@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { feature } from "topojson-client";
@@ -28,7 +27,25 @@ export function WorldMap({ globalGood }: WorldMapProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const { downloadMapAsImage, isDownloading } = useMapDownload();
   
-  const implementationCountries = globalGood.Reach?.ImplementationCountries || [];
+  // Parse implementation countries data to handle different formats
+  const rawCountries = globalGood.Reach?.ImplementationCountries || [];
+  const implementationCountries = rawCountries.map((country: any) => {
+    if (typeof country === 'string') {
+      // Handle string format (just ISO codes)
+      return {
+        iso_code: country,
+        type: 'Country',
+        names: {
+          en: {
+            short: country.toUpperCase(),
+            formal: country.toUpperCase()
+          }
+        }
+      };
+    }
+    // Handle full object format
+    return country;
+  });
   
   console.log('WorldMap: Implementation countries:', implementationCountries);
   
@@ -195,14 +212,6 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                         
                         const countryData = countryIso2 ? countryDataMap.get(countryIso2.toUpperCase()) : null;
                         
-                        console.log('WorldMap: Country mapping:', {
-                          mapId: mapCountryId,
-                          mapName: geo.properties.NAME || geo.properties.NAME_EN,
-                          iso2: countryIso2,
-                          isImplemented,
-                          hasCountryData: !!countryData
-                        });
-                        
                         return (
                           <Tooltip key={geo.rsmKey}>
                             <TooltipTrigger asChild>
@@ -210,7 +219,7 @@ export function WorldMap({ globalGood }: WorldMapProps) {
                                 geography={geo}
                                 onMouseEnter={() => {
                                   if (isImplemented && countryData) {
-                                    setTooltipContent(countryData.names.en.formal);
+                                    setTooltipContent(countryData.names?.en?.formal || countryData.names?.en?.short || countryData.iso_code);
                                   } else {
                                     setTooltipContent(geo.properties.NAME || geo.properties.NAME_EN || 'Unknown');
                                   }

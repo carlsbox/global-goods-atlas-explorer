@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Download, MapPin } from "lucide-react";
 import {
@@ -23,13 +24,38 @@ interface CountriesModalProps {
   globalGood: GlobalGoodFlat;
 }
 
+// Helper function to parse implementation countries data (same as in GlobalReachSection)
+function parseImplementationCountries(globalGood: GlobalGoodFlat) {
+  const countries = globalGood.Reach?.ImplementationCountries || [];
+  
+  const parsedCountries = countries.map((country: any) => {
+    if (typeof country === 'string') {
+      // Handle string format (just ISO codes)
+      return {
+        iso_code: country,
+        type: 'Country',
+        names: {
+          en: {
+            short: country.toUpperCase(),
+            formal: country.toUpperCase()
+          }
+        }
+      };
+    }
+    // Handle full object format
+    return country;
+  });
+
+  return parsedCountries;
+}
+
 export function CountriesModal({ globalGood }: CountriesModalProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const countries = globalGood.Reach?.ImplementationCountries || [];
+  const countries = parseImplementationCountries(globalGood);
 
   // Sort countries alphabetically by their English short name
   const sortedCountries = [...countries].sort((a, b) => 
-    a.names.en.short.localeCompare(b.names.en.short)
+    (a.names?.en?.short || a.iso_code || '').localeCompare(b.names?.en?.short || b.iso_code || '')
   );
 
   const downloadCSV = () => {
@@ -38,7 +64,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
       "Country Name,ISO Code,Type,Formal Name",
       // CSV Data
       ...sortedCountries.map(country => 
-        `"${country.names.en.short}","${country.iso_code}","${country.type}","${country.names.en.formal}"`
+        `"${country.names?.en?.short || country.iso_code}","${country.iso_code}","${country.type || 'Country'}","${country.names?.en?.formal || country.names?.en?.short || country.iso_code}"`
       )
     ].join('\n');
 
@@ -62,7 +88,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm" className="mt-2">
+        <Button variant="outline" size="sm">
           <MapPin className="h-4 w-4 mr-2" />
           View All Countries
         </Button>
@@ -104,16 +130,16 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
                       <CountryFlag isoCode={country.iso_code} />
                     </TableCell>
                     <TableCell className="font-medium">
-                      {country.names.en.short}
+                      {country.names?.en?.short || country.iso_code?.toUpperCase()}
                     </TableCell>
                     <TableCell>
                       <code className="bg-muted px-1 py-0.5 rounded text-xs">
-                        {country.iso_code.toUpperCase()}
+                        {country.iso_code?.toUpperCase()}
                       </code>
                     </TableCell>
-                    <TableCell>{country.type}</TableCell>
+                    <TableCell>{country.type || 'Country'}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {country.names.en.formal}
+                      {country.names?.en?.formal || country.names?.en?.short || country.iso_code}
                     </TableCell>
                   </TableRow>
                 ))}
