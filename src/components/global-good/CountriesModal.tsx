@@ -90,7 +90,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
       <DialogTrigger asChild>
         <Button variant="outline" size="sm">
           <MapPin className="h-4 w-4 mr-2" />
-          View All Countries
+          View All
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[80vh]">
