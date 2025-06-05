@@ -1,8 +1,6 @@
-
 import React, { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
 import { 
   loadClassificationsData, 
-  loadStandardsData, 
   loadSDGData, 
   loadCountriesData,
   loadLicenses,
@@ -10,6 +8,7 @@ import {
   loadCollectionInitiatives,
   loadGlobalGoodsTypes
 } from '@/lib/loaders';
+import { loadStandards } from '@/lib/loaders/referenceDataLoader';
 
 interface ReferenceData {
   classifications: any[];
@@ -225,12 +224,16 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     }
   }, [loadedSections]);
 
-  // Lazy load standards when needed
+  // Lazy load standards when needed - FIXED VERSION
   const loadStandards = useCallback(async () => {
-    if (loadedSections.has('standards')) return;
+    if (loadedSections.has('standards')) {
+      console.log('ReferenceDataContext - Standards already loaded, skipping');
+      return;
+    }
     
     try {
-      setData(prev => ({ ...prev, loading: true }));
+      console.log('ReferenceDataContext - Loading standards...');
+      setData(prev => ({ ...prev, loading: true, error: null }));
       
       const cacheKey = 'standardsData';
       const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
@@ -240,6 +243,7 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
       if (cacheValid) {
         const cachedData = localStorage.getItem(cacheKey);
         if (cachedData) {
+          console.log('ReferenceDataContext - Loading standards from cache');
           const parsed = JSON.parse(cachedData);
           setData(prev => ({ ...prev, standards: parsed, loading: false }));
           setLoadedSections(prev => new Set(prev).add('standards'));
@@ -247,15 +251,23 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
         }
       }
 
-      const standards = await loadStandardsData();
+      console.log('ReferenceDataContext - Fetching fresh standards data');
+      const standards = await loadStandards();
+      console.log('ReferenceDataContext - Standards loaded:', {
+        type: typeof standards,
+        isArray: Array.isArray(standards),
+        keys: Object.keys(standards).slice(0, 10),
+        sampleKeys: Object.keys(standards).includes('HL7 FHIR') ? 'Has HL7 FHIR' : 'Missing HL7 FHIR'
+      });
 
       localStorage.setItem(cacheKey, JSON.stringify(standards));
       localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
 
       setData(prev => ({ ...prev, standards: standards || {}, loading: false }));
       setLoadedSections(prev => new Set(prev).add('standards'));
+      console.log('ReferenceDataContext - Standards loading complete');
     } catch (error) {
-      console.error('Failed to load standards:', error);
+      console.error('ReferenceDataContext - Failed to load standards:', error);
       setData(prev => ({ ...prev, loading: false, error: 'Failed to load standards' }));
     }
   }, [loadedSections]);
