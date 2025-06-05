@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FileText, MapPin, ChevronDown, Users, Bolt, Crosshair } from "lucide-react";
+import { FileText, MapPin, ChevronDown, Users } from "lucide-react";
 import { UseCase } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -81,7 +81,6 @@ export function EnhancedRelatedUseCaseItem({ useCase, isDirectlyReferenced }: En
               {/* Global Goods Count */}
               {useCase.global_goods && useCase.global_goods.length > 0 && (
                 <div className="flex items-center gap-1 text-muted-foreground">
-                  <Bolt className="h-3 w-3" />
                   <span>{useCase.global_goods.length} tools</span>
                 </div>
               )}
@@ -103,7 +102,6 @@ export function EnhancedRelatedUseCaseItem({ useCase, isDirectlyReferenced }: En
             {useCase.purpose && (
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Crosshair className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Purpose</span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
