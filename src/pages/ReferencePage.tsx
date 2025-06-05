@@ -16,11 +16,14 @@ export default function ReferencePage() {
     countries, 
     classifications, 
     standards, 
+    sdgs,
     languages, 
     initiatives, 
     globalGoodsTypes,
     loading,
-    loadCountries
+    loadCountries,
+    loadClassifications,
+    loadStandards
   } = useReferenceData();
   
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,33 +31,40 @@ export default function ReferencePage() {
   const [cardCategory, setCardCategory] = useState('types');
   const [dataLoading, setDataLoading] = useState(true);
 
-  // Load countries and check initiatives on component mount
+  // Load all reference data on component mount
   useEffect(() => {
-    const loadReferenceData = async () => {
-      console.log('ReferencePage - Loading reference data');
+    const loadAllReferenceData = async () => {
+      console.log('ReferencePage - Loading all reference data');
+      setDataLoading(true);
+      
       try {
-        // Load countries since they use lazy loading
-        await loadCountries();
-        console.log('ReferencePage - Countries loaded:', countries.length);
+        // Load all lazy-loaded sections
+        await Promise.all([
+          loadCountries(),
+          loadClassifications(),
+          loadStandards()
+        ]);
         
-        // Give time for background initiatives loading to complete
-        setTimeout(() => {
-          console.log('ReferencePage - Final data state:', {
-            countries: countries.length,
-            initiatives: initiatives.length,
-            licenses: licenses.length,
-            languages: languages.length
-          });
-          setDataLoading(false);
-        }, 200);
+        console.log('ReferencePage - All data loaded:', {
+          countries: countries.length,
+          classifications: classifications.length,
+          standards: Object.keys(standards).length,
+          sdgs: sdgs.length,
+          initiatives: initiatives.length,
+          licenses: licenses.length,
+          languages: languages.length,
+          globalGoodsTypes: globalGoodsTypes.length
+        });
+        
       } catch (error) {
         console.error('ReferencePage - Error loading data:', error);
+      } finally {
         setDataLoading(false);
       }
     };
 
-    loadReferenceData();
-  }, [loadCountries]);
+    loadAllReferenceData();
+  }, [loadCountries, loadClassifications, loadStandards]);
 
   if (loading || dataLoading) {
     return (
