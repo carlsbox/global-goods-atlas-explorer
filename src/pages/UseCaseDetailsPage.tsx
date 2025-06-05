@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { useUseCases } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -21,8 +22,15 @@ export default function UseCaseDetailsPage() {
   
   const useCase = useCases.find(uc => uc.id === id);
 
+  console.log('UseCaseDetailsPage - UseCase found:', useCase?.id);
+  console.log('UseCaseDetailsPage - UseCase standards:', useCase?.standards);
+
   // Resolve standards from reference data
-  const { groupedStandards, loading: standardsLoading } = useStandardsResolver(useCase?.standards || []);
+  const { groupedStandards, loading: standardsLoading, resolvedStandards } = useStandardsResolver(useCase?.standards || []);
+
+  console.log('UseCaseDetailsPage - Standards loading state:', standardsLoading);
+  console.log('UseCaseDetailsPage - Resolved standards:', resolvedStandards);
+  console.log('UseCaseDetailsPage - Grouped standards:', groupedStandards);
 
   if (isLoading) {
     return (
@@ -252,6 +260,23 @@ export default function UseCaseDetailsPage() {
               <ExportButton useCase={useCase} variant="ghost" size="sm" />
             </div>
 
+            {/* Debug Information - Temporary */}
+            {process.env.NODE_ENV === 'development' && (
+              <Card className="border-yellow-200 bg-yellow-50">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-sm text-yellow-700">Debug: Standards Data</CardTitle>
+                </CardHeader>
+                <CardContent className="text-xs space-y-2">
+                  <div>Standards Codes: {JSON.stringify(useCase.standards)}</div>
+                  <div>Standards Loading: {standardsLoading.toString()}</div>
+                  <div>Resolved Count: {resolvedStandards.length}</div>
+                  <div>Health Standards: {groupedStandards.health.length}</div>
+                  <div>Interop Standards: {groupedStandards.interoperability.length}</div>
+                  <div>Climate Standards: {groupedStandards.climate.length}</div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Consolidated Technical Details Card */}
             <Card className="border-green-200">
               <CardHeader className="pb-3">
@@ -279,57 +304,66 @@ export default function UseCaseDetailsPage() {
                 )}
                 
                 {/* Standards & Interoperability - Enhanced with StandardsBadgeCloud */}
-                {useCase.standards && useCase.standards.length > 0 && !standardsLoading && (
+                {useCase.standards && useCase.standards.length > 0 && (
                   <div>
                     <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
-                    <div className="space-y-4">
-                      <TooltipProvider>
-                        {groupedStandards.health.length > 0 && (
-                          <StandardsBadgeCloud
-                            standards={groupedStandards.health}
-                            variant="health"
-                            title="Health Standards"
-                            maxVisible={6}
-                          />
-                        )}
-                        
-                        {groupedStandards.interoperability.length > 0 && (
-                          <StandardsBadgeCloud
-                            standards={groupedStandards.interoperability}
-                            variant="interoperability"
-                            title="Interoperability Standards"
-                            maxVisible={6}
-                          />
-                        )}
-                        
-                        {groupedStandards.climate.length > 0 && (
-                          <StandardsBadgeCloud
-                            standards={groupedStandards.climate}
-                            variant="climate"
-                            title="Climate Standards"
-                            maxVisible={6}
-                          />
-                        )}
-                        
-                        {groupedStandards.dataCollection.length > 0 && (
-                          <StandardsBadgeCloud
-                            standards={groupedStandards.dataCollection}
-                            variant="interoperability"
-                            title="Data Collection Standards"
-                            maxVisible={6}
-                          />
-                        )}
-                        
-                        {groupedStandards.emergency.length > 0 && (
-                          <StandardsBadgeCloud
-                            standards={groupedStandards.emergency}
-                            variant="health"
-                            title="Emergency Standards"
-                            maxVisible={6}
-                          />
-                        )}
-                      </TooltipProvider>
-                    </div>
+                    
+                    {standardsLoading ? (
+                      <div className="text-sm text-muted-foreground">Loading standards...</div>
+                    ) : resolvedStandards.length === 0 ? (
+                      <div className="text-sm text-muted-foreground">
+                        No standards could be resolved for codes: {useCase.standards.join(', ')}
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <TooltipProvider>
+                          {groupedStandards.health.length > 0 && (
+                            <StandardsBadgeCloud
+                              standards={groupedStandards.health}
+                              variant="health"
+                              title="Health Standards"
+                              maxVisible={6}
+                            />
+                          )}
+                          
+                          {groupedStandards.interoperability.length > 0 && (
+                            <StandardsBadgeCloud
+                              standards={groupedStandards.interoperability}
+                              variant="interoperability"
+                              title="Interoperability Standards"
+                              maxVisible={6}
+                            />
+                          )}
+                          
+                          {groupedStandards.climate.length > 0 && (
+                            <StandardsBadgeCloud
+                              standards={groupedStandards.climate}
+                              variant="climate"
+                              title="Climate Standards"
+                              maxVisible={6}
+                            />
+                          )}
+                          
+                          {groupedStandards.dataCollection.length > 0 && (
+                            <StandardsBadgeCloud
+                              standards={groupedStandards.dataCollection}
+                              variant="interoperability"
+                              title="Data Collection Standards"
+                              maxVisible={6}
+                            />
+                          )}
+                          
+                          {groupedStandards.emergency.length > 0 && (
+                            <StandardsBadgeCloud
+                              standards={groupedStandards.emergency}
+                              variant="health"
+                              title="Emergency Standards"
+                              maxVisible={6}
+                            />
+                          )}
+                        </TooltipProvider>
+                      </div>
+                    )}
                   </div>
                 )}
 

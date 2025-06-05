@@ -14,12 +14,32 @@ interface Standard {
 export function useStandardsResolver(standardCodes: string[]) {
   const { standards, loading } = useLazyReferenceData(['standards']);
 
-  const resolvedStandards = useMemo(() => {
-    if (!standards || loading || !standardCodes.length) return [];
+  console.log('useStandardsResolver - Input codes:', standardCodes);
+  console.log('useStandardsResolver - Standards data:', standards);
+  console.log('useStandardsResolver - Loading state:', loading);
 
-    return standardCodes
-      .map(code => standards[code])
+  const resolvedStandards = useMemo(() => {
+    if (!standards || loading || !standardCodes.length) {
+      console.log('useStandardsResolver - Early return due to:', {
+        hasStandards: !!standards,
+        loading,
+        hasStandardCodes: standardCodes.length > 0
+      });
+      return [];
+    }
+
+    console.log('useStandardsResolver - Available standard keys:', Object.keys(standards));
+    
+    const resolved = standardCodes
+      .map(code => {
+        const standard = standards[code];
+        console.log(`useStandardsResolver - Resolving "${code}":`, standard);
+        return standard;
+      })
       .filter(Boolean) as Standard[];
+
+    console.log('useStandardsResolver - Resolved standards:', resolved);
+    return resolved;
   }, [standards, standardCodes, loading]);
 
   const groupedStandards = useMemo(() => {
@@ -32,6 +52,8 @@ export function useStandardsResolver(standardCodes: string[]) {
     };
 
     resolvedStandards.forEach(standard => {
+      console.log(`useStandardsResolver - Grouping standard "${standard.code}" with domain "${standard.domain}"`);
+      
       switch (standard.domain) {
         case 'Health':
           groups.health.push(standard);
@@ -48,9 +70,12 @@ export function useStandardsResolver(standardCodes: string[]) {
         case 'Emergency':
           groups.emergency.push(standard);
           break;
+        default:
+          console.log(`useStandardsResolver - Unknown domain "${standard.domain}" for standard "${standard.code}"`);
       }
     });
 
+    console.log('useStandardsResolver - Grouped standards:', groups);
     return groups;
   }, [resolvedStandards]);
 
