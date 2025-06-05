@@ -68,14 +68,13 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
 
   const [loadedSections, setLoadedSections] = useState<Set<string>>(new Set());
 
-  // Load only essential data on mount (licenses, languages, initiatives, globalGoodsTypes)
+  // Load only minimal essential data on mount for immediate app startup
   useEffect(() => {
-    const loadEssentialData = async () => {
+    const loadMinimalData = async () => {
       try {
-        setData(prev => ({ ...prev, loading: true, error: null }));
-
-        // Check cache first for essential data
-        const cacheKey = 'essentialReferenceData';
+        // Only load the absolutely essential data that's needed immediately
+        // Most reference data will be loaded on-demand
+        const cacheKey = 'minimalReferenceData';
         const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
         const cacheValid = cacheTimestamp && 
           (Date.now() - parseInt(cacheTimestamp)) < (24 * 60 * 60 * 1000); // 24 hours
@@ -84,52 +83,68 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
           const cachedData = localStorage.getItem(cacheKey);
           if (cachedData) {
             const parsed = JSON.parse(cachedData);
-            setData(prev => ({ ...prev, ...parsed, loading: false, error: null }));
+            setData(prev => ({ ...prev, ...parsed, loading: false }));
             return;
           }
         }
 
-        // Load only essential data
+        // Load only the most critical data for immediate app functionality
         const [
-          licenses,
-          languages,
-          initiatives,
           globalGoodsTypes
         ] = await Promise.all([
-          loadLicenses(),
-          loadProductLanguages(),
-          loadCollectionInitiatives(),
           loadGlobalGoodsTypes()
         ]);
 
-        const essentialData = {
-          licenses: licenses || [],
-          languages: languages || [],
-          initiatives: initiatives || [],
+        const minimalData = {
           globalGoodsTypes: globalGoodsTypes || [],
+          // Initialize other data as empty arrays to prevent loading states
+          licenses: [],
+          languages: [], 
+          initiatives: [],
         };
 
-        // Cache the essential data
-        localStorage.setItem(cacheKey, JSON.stringify(essentialData));
+        // Cache the minimal data
+        localStorage.setItem(cacheKey, JSON.stringify(minimalData));
         localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
 
         setData(prev => ({
           ...prev,
-          ...essentialData,
+          ...minimalData,
           loading: false,
-          error: null,
         }));
+
+        // Load the rest in the background after initial render
+        setTimeout(async () => {
+          try {
+            const [licenses, languages, initiatives] = await Promise.all([
+              loadLicenses(),
+              loadProductLanguages(), 
+              loadCollectionInitiatives()
+            ]);
+
+            const backgroundData = {
+              licenses: licenses || [],
+              languages: languages || [],
+              initiatives: initiatives || [],
+            };
+
+            setData(prev => ({ ...prev, ...backgroundData }));
+          } catch (error) {
+            console.error('Failed to load background reference data:', error);
+          }
+        }, 100);
+
       } catch (error) {
-        console.error('Failed to load essential reference data:', error);
+        console.error('Failed to load minimal reference data:', error);
         setData(prev => ({
           ...prev,
           loading: false,
-          error: 'Failed to load essential reference data',
+          error: 'Failed to load reference data',
         }));
       }
     };
 
-    loadEssentialData();
+    loadMinimalData();
   }, []);
 
   // Lazy load classifications when needed

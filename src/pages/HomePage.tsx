@@ -1,25 +1,49 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Globe, FileText, MapPin } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
+import { Skeleton } from "@/components/ui/skeleton";
+
+// Skeleton component for featured goods loading state
+function FeaturedGoodsSkeleton() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <Card key={i} className="transition-all">
+          <CardContent className="pt-6">
+            <div className="flex flex-col h-full">
+              <div className="flex items-center mb-4">
+                <Skeleton className="h-10 w-10 rounded mr-3" />
+                <Skeleton className="h-5 w-32" />
+              </div>
+              <div className="space-y-2 mb-4 flex-1">
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="h-4 w-1/2" />
+              </div>
+              <div className="flex flex-wrap gap-1 mt-auto">
+                <Skeleton className="h-6 w-16 rounded-full" />
+                <Skeleton className="h-6 w-20 rounded-full" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+}
 
 export default function HomePage() {
+  // Use deferred loading - don't block render on data loading
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
-  const { t, tPage, getText } = useI18n();
+  const { t, tPage } = useI18n();
 
-  if (isLoadingGoods) {
-    return (
-      <div className="container py-12 text-center">
-        <p>{t('common.loading')}</p>
-      </div>
-    );
-  }
-  
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Renders immediately */}
       <section className="py-16 md:py-24">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
@@ -45,11 +69,10 @@ export default function HomePage() {
         </div>
       </section>
       
-      {/* Features Section */}
+      {/* Features Section - Renders immediately */}
       <section className="py-16 bg-secondary/30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature Cards */}
             <Card className="bg-white">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center">
@@ -110,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
       
-      {/* Featured Global Goods */}
+      {/* Featured Global Goods - Progressive loading */}
       <section className="py-16">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
@@ -122,11 +145,11 @@ export default function HomePage() {
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {isLoadingGoods ? (
-              <p>{t('common.loading')}</p>
-            ) : (
-              globalGoods?.slice(0, 3).map((good) => (
+          {isLoadingGoods ? (
+            <FeaturedGoodsSkeleton />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {globalGoods?.slice(0, 3).map((good) => (
                 <Link to={`/global-goods/${good.ID}`} key={good.ID}>
                   <Card className="transition-all hover:shadow-md">
                     <CardContent className="pt-6">
@@ -137,6 +160,7 @@ export default function HomePage() {
                               src={good.Logo} 
                               alt={good.Name} 
                               className="h-10 w-10 mr-3"
+                              loading="lazy"
                             />
                           ) : (
                             <div className="h-10 w-10 bg-primary/10 rounded-full mr-3" />
@@ -160,9 +184,9 @@ export default function HomePage() {
                     </CardContent>
                   </Card>
                 </Link>
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
