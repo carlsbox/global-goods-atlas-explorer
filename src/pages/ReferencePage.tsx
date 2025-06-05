@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useReferenceData } from '@/contexts/ReferenceDataContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -20,14 +19,44 @@ export default function ReferencePage() {
     languages, 
     initiatives, 
     globalGoodsTypes,
-    loading 
+    loading,
+    loadCountries
   } = useReferenceData();
   
   const [searchTerm, setSearchTerm] = useState('');
   const [mainTab, setMainTab] = useState('all');
   const [cardCategory, setCardCategory] = useState('types');
+  const [dataLoading, setDataLoading] = useState(true);
 
-  if (loading) {
+  // Load countries and check initiatives on component mount
+  useEffect(() => {
+    const loadReferenceData = async () => {
+      console.log('ReferencePage - Loading reference data');
+      try {
+        // Load countries since they use lazy loading
+        await loadCountries();
+        console.log('ReferencePage - Countries loaded:', countries.length);
+        
+        // Give time for background initiatives loading to complete
+        setTimeout(() => {
+          console.log('ReferencePage - Final data state:', {
+            countries: countries.length,
+            initiatives: initiatives.length,
+            licenses: licenses.length,
+            languages: languages.length
+          });
+          setDataLoading(false);
+        }, 200);
+      } catch (error) {
+        console.error('ReferencePage - Error loading data:', error);
+        setDataLoading(false);
+      }
+    };
+
+    loadReferenceData();
+  }, [loadCountries]);
+
+  if (loading || dataLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">Loading reference data...</div>
