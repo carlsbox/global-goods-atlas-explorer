@@ -1,4 +1,3 @@
-
 import { MapPin, Globe, ExternalLink, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -108,86 +107,93 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
         )}
       </div>
 
-      {/* World Map - Prominent Display */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span className="flex items-center">
-              <Globe className="h-5 w-5 mr-2" />
-              Global Distribution
-            </span>
-            {hasExternalMap && (
-              <Button variant="outline" size="sm" asChild>
-                <a 
-                  href={reach!.ImplementationMapOverview!.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Interactive Map
-                </a>
-              </Button>
-            )}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <WorldMap globalGood={globalGood} />
-        </CardContent>
-      </Card>
+      {/* World Map and Countries in 70/30 Split */}
+      <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
+        {/* World Map - 70% */}
+        <div className="lg:col-span-7">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span className="flex items-center">
+                  <Globe className="h-5 w-5 mr-2" />
+                  Global Distribution
+                </span>
+                {hasExternalMap && (
+                  <Button variant="outline" size="sm" asChild>
+                    <a 
+                      href={reach!.ImplementationMapOverview!.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Interactive Map
+                    </a>
+                  </Button>
+                )}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <WorldMap globalGood={globalGood} />
+            </CardContent>
+          </Card>
+        </div>
 
-      {/* Countries Details */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span className="flex items-center">
-              <MapPin className="h-5 w-5 mr-2" />
-              Implementation Countries
-            </span>
-            {countryCount > 0 && <CountriesModal globalGood={globalGood} />}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {countryCount === 0 ? (
-            <div className="text-center py-8">
-              <MapPin className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
-              <p className="text-muted-foreground">No deployment information available</p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Deployed in {countryCount} {countryCount === 1 ? 'country' : 'countries'}
-                </p>
-                <Badge variant="secondary">{countryCount} total</Badge>
-              </div>
-
-              {/* Country Grid - Show first 12 countries */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {countries.slice(0, 12).map((country, index) => (
-                  <div key={index} className="flex items-center p-3 border rounded-lg hover:bg-muted/50 transition-colors">
-                    <div className="mr-3 flex-shrink-0">
-                      <CountryFlag isoCode={country.iso_code} />
-                    </div>
-                    <div className="font-medium text-sm truncate">
-                      {country.names?.en?.short || country.iso_code?.toUpperCase()}
-                    </div>
+        {/* Countries Details - 30% */}
+        <div className="lg:col-span-3">
+          <Card className="h-full">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span className="flex items-center">
+                  <MapPin className="h-5 w-5 mr-2" />
+                  Implementation Countries
+                </span>
+                {countryCount > 0 && <CountriesModal globalGood={globalGood} />}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {countryCount === 0 ? (
+                <div className="text-center py-8">
+                  <MapPin className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+                  <p className="text-muted-foreground">No deployment information available</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-muted-foreground">
+                      Deployed in {countryCount} {countryCount === 1 ? 'country' : 'countries'}
+                    </p>
+                    <Badge variant="secondary">{countryCount} total</Badge>
                   </div>
-                ))}
-              </div>
 
-              {/* Show more indicator */}
-              {countryCount > 12 && (
-                <div className="text-center pt-4">
-                  <p className="text-sm text-muted-foreground">
-                    And {countryCount - 12} more countries...
-                  </p>
+                  {/* Country Grid - Show first 8 countries in compact layout */}
+                  <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto">
+                    {countries.slice(0, 8).map((country, index) => (
+                      <div key={index} className="flex items-center p-2 border rounded-lg hover:bg-muted/50 transition-colors">
+                        <div className="mr-2 flex-shrink-0">
+                          <CountryFlag isoCode={country.iso_code} />
+                        </div>
+                        <div className="font-medium text-sm truncate">
+                          {country.names?.en?.short || country.iso_code?.toUpperCase()}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Show more indicator */}
+                  {countryCount > 8 && (
+                    <div className="text-center pt-2">
+                      <p className="text-xs text-muted-foreground">
+                        And {countryCount - 8} more countries...
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
