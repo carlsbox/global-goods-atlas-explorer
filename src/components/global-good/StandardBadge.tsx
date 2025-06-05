@@ -1,7 +1,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink } from "lucide-react";
 import { getStandardsBadgeColors } from "@/lib/config";
 
@@ -23,17 +23,19 @@ export function StandardBadge({ standard, variant }: StandardBadgeProps) {
   const colors = getStandardsBadgeColors()[variant];
   
   return (
-    <HoverCard openDelay={200} closeDelay={100}>
-      <HoverCardTrigger asChild>
-        <Badge 
-          variant="outline"
-          className={`cursor-pointer transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
-        >
-          {standard.code}
-        </Badge>
-      </HoverCardTrigger>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <div>
+          <Badge 
+            variant="outline"
+            className={`cursor-pointer transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
+          >
+            {standard.code}
+          </Badge>
+        </div>
+      </TooltipTrigger>
       
-      <HoverCardContent className="w-80 p-4" side="top" align="center">
+      <TooltipContent className="max-w-xs p-4" side="top" align="center">
         <div className="space-y-3">
           {/* Header */}
           <div>
@@ -71,7 +73,7 @@ export function StandardBadge({ standard, variant }: StandardBadgeProps) {
             </div>
           )}
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </TooltipContent>
+    </Tooltip>
   );
 }

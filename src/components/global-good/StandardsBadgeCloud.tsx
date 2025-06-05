@@ -1,5 +1,6 @@
 
 import { StandardBadge } from "./StandardBadge";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 interface Standard {
   code: string;
@@ -31,20 +32,22 @@ export function StandardsBadgeCloud({
   return (
     <div className="space-y-2">
       <h4 className="text-sm font-medium text-muted-foreground">{title}</h4>
-      <div className="flex flex-wrap gap-2">
-        {visibleStandards.map((standard, index) => (
-          <StandardBadge
-            key={`${standard.code}-${index}`}
-            standard={standard}
-            variant={variant}
-          />
-        ))}
-        {hiddenCount > 0 && (
-          <div className="text-xs text-muted-foreground px-2 py-1 bg-muted rounded-md">
-            +{hiddenCount} more
-          </div>
-        )}
-      </div>
+      <TooltipProvider>
+        <div className="flex flex-wrap gap-2">
+          {visibleStandards.map((standard, index) => (
+            <StandardBadge
+              key={`${standard.code}-${index}`}
+              standard={standard}
+              variant={variant}
+            />
+          ))}
+          {hiddenCount > 0 && (
+            <div className="text-xs text-muted-foreground px-2 py-1 bg-muted rounded-md">
+              +{hiddenCount} more
+            </div>
+          )}
+        </div>
+      </TooltipProvider>
     </div>
   );
 }
