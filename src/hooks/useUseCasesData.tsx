@@ -12,6 +12,24 @@ interface AvailableFilterOptions {
   standards: Set<string>;
 }
 
+// Helper function to safely extract string values from standards
+const extractStandardCodes = (standards: any[]): string[] => {
+  if (!Array.isArray(standards)) return [];
+  
+  return standards
+    .map(standard => {
+      if (typeof standard === 'string') {
+        return standard.trim();
+      } else if (typeof standard === 'object' && standard !== null) {
+        // If it's an object, try to extract the code
+        console.warn('Found object in standards array, converting to code:', standard);
+        return standard.code || standard.name || String(standard);
+      }
+      return null;
+    })
+    .filter((code): code is string => typeof code === 'string' && code.length > 0);
+};
+
 export function useUseCasesData() {
   const { data: useCases = [], isLoading: useCasesLoading } = useUseCases();
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
@@ -76,13 +94,11 @@ export function useUseCasesData() {
         });
       }
       
-      // Standards availability - Only process string arrays, skip objects
+      // Standards availability - Use helper function for safe extraction
       if (useCase.standards && Array.isArray(useCase.standards)) {
-        useCase.standards.forEach(standard => {
-          // Only add if it's a string (skip objects)
-          if (typeof standard === 'string' && standard.trim()) {
-            availableStandards.add(standard.trim());
-          }
+        const standardCodes = extractStandardCodes(useCase.standards);
+        standardCodes.forEach(code => {
+          availableStandards.add(code);
         });
       }
     });

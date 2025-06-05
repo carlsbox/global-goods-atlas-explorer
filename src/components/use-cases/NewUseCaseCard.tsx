@@ -20,6 +20,23 @@ interface NewUseCaseCardProps {
   classifications?: any[];
 }
 
+// Helper function to safely extract standard codes for display
+const getStandardCodes = (standards: any[]): string[] => {
+  if (!Array.isArray(standards)) return [];
+  
+  return standards
+    .map(standard => {
+      if (typeof standard === 'string') {
+        return standard;
+      } else if (typeof standard === 'object' && standard !== null) {
+        // If it's an object, try to extract the code
+        return standard.code || standard.name || '';
+      }
+      return '';
+    })
+    .filter(code => typeof code === 'string' && code.length > 0);
+};
+
 export function NewUseCaseCard({ useCase, globalGoods = [], classifications = [] }: NewUseCaseCardProps) {
   const { getText } = useI18n();
   
@@ -37,6 +54,9 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
   const getClassificationInfo = (code: string) => {
     return classifications.find(c => c.code === code);
   };
+
+  // Safely extract standard codes
+  const standardCodes = getStandardCodes(useCase.standards || []);
 
   return (
     <Card className="h-full flex flex-col transition-all hover:shadow-md overflow-hidden">
@@ -114,22 +134,22 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
             </div>
           )}
 
-          {/* Standards - Updated to work with string array */}
-          {useCase.standards && useCase.standards.length > 0 && (
+          {/* Standards - Now safely handles both string and object formats */}
+          {standardCodes.length > 0 && (
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Settings className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium">Standards</span>
               </div>
               <div className="flex flex-wrap gap-1">
-                {useCase.standards.slice(0, 2).map((standardCode, index) => (
+                {standardCodes.slice(0, 2).map((standardCode, index) => (
                   <Badge key={index} variant="outline" className="text-xs truncate max-w-[100px]">
                     {standardCode}
                   </Badge>
                 ))}
-                {useCase.standards.length > 2 && (
+                {standardCodes.length > 2 && (
                   <Badge variant="outline" className="text-xs">
-                    +{useCase.standards.length - 2}
+                    +{standardCodes.length - 2}
                   </Badge>
                 )}
               </div>
