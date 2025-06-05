@@ -144,15 +144,24 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
             )}
             
             {globalGood.Contact?.[0]?.email && (
-              <Button asChild variant="ghost" className="justify-start">
-                <a 
-                  href={`mailto:${globalGood.Contact[0].email}`}
-                  className="flex items-center text-muted-foreground"
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  {globalGood.Contact[0].name || globalGood.Contact[0].email}
-                </a>
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button asChild variant="ghost" className="justify-start">
+                    <a 
+                      href={`mailto:${globalGood.Contact[0].email}`}
+                      className="flex items-center text-muted-foreground"
+                    >
+                      <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
+                      <span className="truncate max-w-48">
+                        {globalGood.Contact[0].name || globalGood.Contact[0].email}
+                      </span>
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{globalGood.Contact[0].name || globalGood.Contact[0].email}</p>
+                </TooltipContent>
+              </Tooltip>
             )}
           </div>
         </div>
