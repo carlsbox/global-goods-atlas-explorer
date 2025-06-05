@@ -30,17 +30,33 @@ export function useFilterOptions({
       .map(c => c.code)
     )];
     
-    const standardOptions = [...new Set(standards
-      .filter(s => s.code && s.code.trim() !== '')
-      .map(s => s.code)
-    )];
+    // Fix standards processing - handle both array and object formats
+    let standardOptions: string[] = [];
+    if (Array.isArray(standards)) {
+      standardOptions = [...new Set(standards
+        .map(s => {
+          if (typeof s === 'string') return s;
+          if (typeof s === 'object' && s !== null) return s.code || s.name;
+          return null;
+        })
+        .filter((code): code is string => typeof code === 'string' && code.trim() !== '')
+      )];
+    } else if (standards && typeof standards === 'object') {
+      // If standards is an object (like from reference data), get the keys
+      standardOptions = Object.keys(standards).filter(key => key && key.trim() !== '');
+    }
 
     console.log('Filter options:', {
       sdgOptions: sdgOptions.length,
       whoOptions: whoOptions.length,
       wmoOptions: wmoOptions.length,
       globalGoods: globalGoods.length,
-      standards: standardOptions.length
+      standards: standardOptions.length,
+      standardsDebug: { 
+        isArray: Array.isArray(standards), 
+        keys: Array.isArray(standards) ? [] : Object.keys(standards || {}).slice(0, 5),
+        standardOptionsPreview: standardOptions.slice(0, 5)
+      }
     });
 
     return {

@@ -48,10 +48,12 @@ export default function UseCasesPage() {
     standardFilter
   });
 
-  // Convert standards objects to string codes for the filter
-  const standardCodes = Array.isArray(standards) 
-    ? standards.map(standard => typeof standard === 'string' ? standard : standard.code).filter(Boolean)
-    : Object.keys(standards || {});
+  // Pass standards directly without conversion - let the filter components handle the format
+  console.log('UseCasesPage standards debug:', { 
+    standards, 
+    isArray: Array.isArray(standards),
+    keys: Array.isArray(standards) ? [] : Object.keys(standards || {}).slice(0, 5)
+  });
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -73,7 +75,7 @@ export default function UseCasesPage() {
         onClearAllFilters={handleClearAllFilters}
         globalGoods={globalGoods}
         classifications={classifications}
-        standards={standardCodes}
+        standards={standards}
         sdgData={sdgData}
         availableFilterOptions={availableFilterOptions}
       />
