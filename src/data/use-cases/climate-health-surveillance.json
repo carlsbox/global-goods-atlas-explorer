@@ -1,4 +1,3 @@
-
 {
   "en": {
     "id": "climate-health-surveillance",
@@ -17,9 +16,10 @@
     "data_requirements": "**Meteorological Data:**\n- Daily temperature (min/max), humidity, rainfall measurements\n- Weather forecasts and seasonal climate predictions\n- Historical climate data for model development\n\n**Health Data:**\n- Disease surveillance data (cases, deaths, laboratory results)\n- Population denominators and demographic data\n- Healthcare facility capacity and resource availability\n\n**Geographic Data:**\n- Administrative boundaries and population distribution\n- Vector breeding site locations and characteristics\n- Water source mapping and quality monitoring data\n\n**Data Quality Requirements:**\n- Real-time or near real-time data availability\n- Standardized data formats and metadata\n- Quality assurance protocols for data validation",
     "standards": [
       "HL7 FHIR",
-      "ADX"
+      "ADX",
+      "NetCDF"
     ],
-    "technology_components": "**Core Platform:**\n- **DHIS2** as the primary health information management system\n- **OpenMRS** for clinical data management at health facilities\n- **MediTrack** for supply chain management of medical countermeasures\n\n**Data Integration:**\n- RESTful APIs for meteorological data integration\n- ETL processes for data transformation and validation\n- Real-time data streaming capabilities\n\n**Analytics and Visualization:**\n- R/Python-based predictive modeling engines\n- GIS mapping and spatial analysis tools\n- Dashboard and reporting interfaces\n\n**Communication Systems:**\n- SMS/USSD for mobile alerts and reporting\n- Email and web-based notification systems\n- Mobile applications for field data collection",
+    "technology_components": "**Core Platform:**\n- **DHIS2** as the primary health information management system with integrated supply chain modules for medical countermeasures\n- **OpenMRS** for clinical data management at health facilities\n\n**Data Integration:**\n- RESTful APIs for meteorological data integration\n- ETL processes for data transformation and validation\n- Real-time data streaming capabilities\n\n**Analytics and Visualization:**\n- R/Python-based predictive modeling engines\n- GIS mapping and spatial analysis tools\n- Dashboard and reporting interfaces\n\n**Communication Systems:**\n- SMS/USSD for mobile alerts and reporting\n- Email and web-based notification systems\n- Mobile applications for field data collection",
     "global_goods": [
       {
         "id": "dhis2",
@@ -30,11 +30,6 @@
         "id": "openmrs",
         "name": "OpenMRS",
         "url": "https://openmrs.org"
-      },
-      {
-        "id": "meditrack",
-        "name": "MediTrack",
-        "url": "https://meditrack.org"
       }
     ],
     "challenges": "**Technical Challenges:**\n- Ensuring data quality and completeness from multiple sources\n- Developing accurate predictive models for local contexts\n- Managing real-time data processing and system performance\n- Maintaining system security and data privacy\n\n**Institutional Challenges:**\n- Coordinating between health and meteorological agencies\n- Securing sustained political and financial commitment\n- Building technical capacity across different sectors\n- Overcoming resistance to new workflows and procedures\n\n**Operational Challenges:**\n- Ensuring reliable internet connectivity in remote areas\n- Managing false positive alerts and maintaining user trust\n- Balancing sensitivity and specificity of warning systems\n- Adapting to local disease patterns and climate variations",
@@ -58,7 +53,7 @@
     "standards": [
       "HL7 FHIR"
     ],
-    "technology_components": "**Plateforme Principale :**\n- **DHIS2** comme système principal de gestion d'informations de santé\n- **OpenMRS** pour la gestion des données cliniques\n- **MediTrack** pour la gestion de la chaîne d'approvisionnement",
+    "technology_components": "**Plateforme Principale :**\n- **DHIS2** comme système principal de gestion d'informations de santé\n- **OpenMRS** pour la gestion des données cliniques",
     "global_goods": [
       {
         "id": "dhis2",
@@ -69,11 +64,6 @@
         "id": "openmrs",
         "name": "OpenMRS",
         "url": "https://openmrs.org"
-      },
-      {
-        "id": "meditrack",
-        "name": "MediTrack",
-        "url": "https://meditrack.org"
       }
     ],
     "challenges": "**Défis Techniques :**\n- Assurer la qualité et la complétude des données\n- Développer des modèles prédictifs précis\n- Gérer le traitement de données en temps réel",
@@ -97,7 +87,7 @@
     "standards": [
       "HL7 FHIR"
     ],
-    "technology_components": "**Plataforma Principal:**\n- **DHIS2** como sistema principal de gestión de información de salud\n- **OpenMRS** para gestión de datos clínicos\n- **MediTrack** para gestión de cadena de suministro",
+    "technology_components": "**Plataforma Principal:**\n- **DHIS2** como sistema principal de gestión de información de salud\n- **OpenMRS** para gestión de datos clínicos",
     "global_goods": [
       {
         "id": "dhis2",
@@ -108,11 +98,6 @@
         "id": "openmrs",
         "name": "OpenMRS",
         "url": "https://openmrs.org"
-      },
-      {
-        "id": "meditrack",
-        "name": "MediTrack",
-        "url": "https://meditrack.org"
       }
     ],
     "challenges": "**Desafíos Técnicos:**\n- Asegurar calidad y completitud de datos\n- Desarrollar modelos predictivos precisos\n- Gestionar procesamiento de datos en tiempo real",

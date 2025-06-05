@@ -1,23 +1,5 @@
+
 [
-  {
-    "ID": "meditrack",
-    "Name": "MediTrack",
-    "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
-    "Logo": "/uploads/meditrack_logo_fake.png",
-    "GlobalGoodType": ["software", "climate"],
-    "Countries": ["am", "gt", "bd", "fi", "ml", "mm", "do", "bo", "it", "sk", "py", "ug", "de", "bs", "ng", "sd", "mc", "lr", "om", "bn", "bg", "tj", "mk", "za", "ke"],
-    "Classifications": {
-      "SDGs": ["SDG-3", "SDG-9"],
-      "WHO": ["WHO_B6"],
-      "WMO": ["WMO_A3"],
-      "DPI": ["DPI_BD1"]
-    },
-    "Standards": {
-      "Health": ["GS1"],
-      "Interop": ["ADX"],
-      "Climate": ["GRIB"]
-    }
-  },
   {
     "ID": "commcare",
     "Name": "CommCare",
