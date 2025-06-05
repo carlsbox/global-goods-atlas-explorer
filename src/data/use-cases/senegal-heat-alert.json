@@ -16,30 +16,8 @@
     "postconditions": "- Alerts are delivered on time\n- Outreach reduces health risks\n- Communities take preventive actions\n- Fewer heat-related hospital visits\n- Event data supports learning and M&E",
     "data_requirements": "- Daily weather forecasts (temperature, humidity, heat index)\n- Defined heat-health thresholds\n- CHW and community contact databases\n- Health facility data (optional)",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Fast Healthcare Interoperability Resources, a modern standard for exchanging healthcare information electronically.",
-        "name_fr": "HL7 FHIR",
-        "description_fr": "Fast Healthcare Interoperability Resources, une norme moderne pour l'échange électronique d'informations de santé.",
-        "name_es": "HL7 FHIR",
-        "description_es": "Fast Healthcare Interoperability Resources, un estándar moderno para el intercambio electrónico de información sanitaria.",
-        "type": "exchange"
-      },
-      {
-        "code": "ADX",
-        "domain": "Health",
-        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
-        "name": "ADX",
-        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis.",
-        "name_fr": "ADX",
-        "description_fr": "Standard d'échange de données agrégées pour l'échange de données de santé agrégées, couramment utilisé dans les rapports de santé publique et l'analyse statistique.",
-        "name_es": "ADX",
-        "description_es": "Estándar de intercambio de datos agregados para el intercambio de datos de salud agregados, comúnmente utilizado en informes de salud pública y análisis estadístico.",
-        "type": "exchange"
-      }
+      "HL7 FHIR",
+      "ADX"
     ],
     "technology_components": "- **Weather data API** (e.g., NOAA, local agency)\n- **Alert platform** (e.g., RapidPro)\n- **Dashboards** (e.g., DHIS2, PowerBI)\n- **Mobile phones** for CHWs\n- **Optional**: ML model for predictions",
     "global_goods": [
@@ -73,14 +51,7 @@
     "postconditions": "- Les alertes sont livrées à temps",
     "data_requirements": "- Prévisions météorologiques quotidiennes (température, humidité, indice de chaleur)",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Santé",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Fast Healthcare Interoperability Resources, une norme moderne pour l'échange électronique d'informations de santé.",
-        "type": "exchange"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "- **API de données météorologiques** (ex: NOAA, agence locale)",
     "global_goods": [
@@ -109,14 +80,7 @@
     "postconditions": "- Las alertas se entregan a tiempo",
     "data_requirements": "- Pronósticos meteorológicos diarios (temperatura, humedad, índice de calor)",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Salud",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Fast Healthcare Interoperability Resources, un estándar moderno para el intercambio electrónico de información sanitaria.",
-        "type": "exchange"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "- **API de datos meteorológicos** (ej: NOAA, agencia local)",
     "global_goods": [

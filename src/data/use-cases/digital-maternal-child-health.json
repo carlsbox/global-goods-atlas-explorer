@@ -16,20 +16,8 @@
     "postconditions": "**Immediate Outcomes:**\n- Comprehensive MCH data collection and reporting\n- Improved care coordination between providers\n- Enhanced tracking of maternal and child health indicators\n- Reduced duplication of services\n\n**Long-term Impact:**\n- Improved maternal and child health outcomes\n- Evidence-based program planning and resource allocation\n- Strengthened health information systems",
     "data_requirements": "**Patient Data:**\n- Demographics and registration information\n- Medical history and risk factors\n- Antenatal visit records and screening results\n- Immunization records and growth measurements\n\n**Program Data:**\n- Healthcare provider information\n- Facility capacity and service availability\n- Quality indicators and performance metrics",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "For maternal and child health data exchange"
-      },
-      {
-        "code": "ICD-10",
-        "domain": "Health",
-        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
-        "name": "ICD-10",
-        "description": "For standardized coding of health conditions"
-      }
+      "HL7 FHIR",
+      "ICD-10"
     ],
     "technology_components": "**Core Platform:**\n- **OpenMRS** configured for maternal and child health workflows\n- Custom modules for antenatal care and child health tracking\n- Integration with laboratory and imaging systems\n\n**Mobile Applications:**\n- Android/iOS apps for community health workers\n- Offline data collection capabilities\n- SMS integration for patient communication",
     "global_goods": [
@@ -63,13 +51,7 @@
     "postconditions": "**Résultats Immédiats :**\n- Collecte complète des données SMI\n- Coordination améliorée des soins\n- Suivi renforcé des indicateurs\n- Réduction de la duplication des services",
     "data_requirements": "**Données Patients :**\n- Démographie et enregistrement\n- Histoire médicale et facteurs de risque\n- Dossiers de visites prénatales\n- Dossiers de vaccination et mesures de croissance",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Santé",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Pour l'échange de données de santé maternelle et infantile"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plateforme Principale :**\n- **OpenMRS** configuré pour les flux de travail SMI\n- Modules personnalisés pour les soins prénataux\n- Intégration avec les systèmes de laboratoire",
     "global_goods": [
@@ -103,13 +85,7 @@
     "postconditions": "**Resultados Inmediatos:**\n- Recolección integral de datos SMI\n- Coordinación mejorada de atención\n- Seguimiento mejorado de indicadores\n- Reducción de duplicación de servicios",
     "data_requirements": "**Datos de Pacientes:**\n- Demografía y registro\n- Historia médica y factores de riesgo\n- Registros de visitas prenatales\n- Registros de vacunación y medidas de crecimiento",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Salud",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Para intercambio de datos de salud materno-infantil"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plataforma Principal:**\n- **OpenMRS** configurado para flujos de trabajo SMI\n- Módulos personalizados para atención prenatal\n- Integración con sistemas de laboratorio",
     "global_goods": [
