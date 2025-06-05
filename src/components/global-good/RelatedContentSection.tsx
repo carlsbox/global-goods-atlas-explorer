@@ -1,5 +1,4 @@
-
-import { Link2, FileText, Lightbulb } from "lucide-react";
+import { Link, FileText, Lightbulb } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useRelatedContent } from "@/hooks/useRelatedContent";
@@ -70,7 +69,7 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
           <Card className="h-fit">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Link2 className="h-5 w-5 mr-2" />
+                <Link className="h-5 w-5 mr-2" />
                 Related Global Goods
                 <span className="ml-2 text-sm font-normal text-muted-foreground">
                   ({relatedContent.globalGoods.length})

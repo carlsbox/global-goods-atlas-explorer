@@ -26,9 +26,9 @@ export function RelatedUseCaseItem({ useCase }: RelatedUseCaseItemProps) {
           </Link>
         </div>
         
-        {useCase.summary && (
+        {useCase.purpose && (
           <p className="text-xs text-muted-foreground line-clamp-2">
-            {useCase.summary}
+            {useCase.purpose.substring(0, 150)}...
           </p>
         )}
         
@@ -38,10 +38,10 @@ export function RelatedUseCaseItem({ useCase }: RelatedUseCaseItemProps) {
               {useCase.classifications.sdg}
             </Badge>
           )}
-          {useCase.location && (
+          {useCase.country && (
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
               <MapPin className="h-3 w-3" />
-              <span>{useCase.location}</span>
+              <span>{useCase.country}</span>
             </div>
           )}
         </div>

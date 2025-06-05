@@ -28,45 +28,65 @@ export function calculateRelatedContent(
       const sharedClassifications: string[] = [];
       const sharedStandards: string[] = [];
 
-      // Check for shared SDGs
-      const currentSDGs = currentGlobalGood.Classifications?.SDGs || [];
-      const otherSDGs = globalGood.Classifications?.SDGs || [];
+      // Check for shared SDGs - extract codes for comparison
+      const currentSDGs = (currentGlobalGood.Classifications?.SDGs || []).map(sdg => 
+        typeof sdg === 'string' ? sdg : sdg.code
+      );
+      const otherSDGs = (globalGood.Classifications?.SDGs || []).map(sdg => 
+        typeof sdg === 'string' ? sdg : sdg.code
+      );
       const sharedSDGs = currentSDGs.filter(sdg => otherSDGs.includes(sdg));
       if (sharedSDGs.length > 0) {
         score += sharedSDGs.length * 3; // High weight for SDGs
         sharedClassifications.push(...sharedSDGs);
       }
 
-      // Check for shared WHO classifications
-      const currentWHO = currentGlobalGood.Classifications?.WHO || [];
-      const otherWHO = globalGood.Classifications?.WHO || [];
+      // Check for shared WHO classifications - extract codes
+      const currentWHO = (currentGlobalGood.Classifications?.WHO || []).map(who => 
+        typeof who === 'string' ? who : who.code
+      );
+      const otherWHO = (globalGood.Classifications?.WHO || []).map(who => 
+        typeof who === 'string' ? who : who.code
+      );
       const sharedWHO = currentWHO.filter(who => otherWHO.includes(who));
       if (sharedWHO.length > 0) {
         score += sharedWHO.length * 2;
         sharedClassifications.push(...sharedWHO);
       }
 
-      // Check for shared DPI classifications
-      const currentDPI = currentGlobalGood.Classifications?.DPI || [];
-      const otherDPI = globalGood.Classifications?.DPI || [];
+      // Check for shared DPI classifications - extract codes
+      const currentDPI = (currentGlobalGood.Classifications?.DPI || []).map(dpi => 
+        typeof dpi === 'string' ? dpi : dpi.code
+      );
+      const otherDPI = (globalGood.Classifications?.DPI || []).map(dpi => 
+        typeof dpi === 'string' ? dpi : dpi.code
+      );
       const sharedDPI = currentDPI.filter(dpi => otherDPI.includes(dpi));
       if (sharedDPI.length > 0) {
         score += sharedDPI.length * 2;
         sharedClassifications.push(...sharedDPI);
       }
 
-      // Check for shared health standards
-      const currentHealthStandards = currentGlobalGood.StandardsAndInteroperability?.HealthStandards || [];
-      const otherHealthStandards = globalGood.StandardsAndInteroperability?.HealthStandards || [];
+      // Check for shared health standards - extract codes/names
+      const currentHealthStandards = (currentGlobalGood.StandardsAndInteroperability?.HealthStandards || []).map(std => 
+        typeof std === 'string' ? std : std.code || std.name
+      );
+      const otherHealthStandards = (globalGood.StandardsAndInteroperability?.HealthStandards || []).map(std => 
+        typeof std === 'string' ? std : std.code || std.name
+      );
       const sharedHealthStandards = currentHealthStandards.filter(std => otherHealthStandards.includes(std));
       if (sharedHealthStandards.length > 0) {
         score += sharedHealthStandards.length * 2;
         sharedStandards.push(...sharedHealthStandards);
       }
 
-      // Check for shared interoperability standards
-      const currentInteropStandards = currentGlobalGood.StandardsAndInteroperability?.Interoperability || [];
-      const otherInteropStandards = globalGood.StandardsAndInteroperability?.Interoperability || [];
+      // Check for shared interoperability standards - extract codes/names
+      const currentInteropStandards = (currentGlobalGood.StandardsAndInteroperability?.Interoperability || []).map(std => 
+        typeof std === 'string' ? std : std.code || std.name
+      );
+      const otherInteropStandards = (globalGood.StandardsAndInteroperability?.Interoperability || []).map(std => 
+        typeof std === 'string' ? std : std.code || std.name
+      );
       const sharedInteropStandards = currentInteropStandards.filter(std => otherInteropStandards.includes(std));
       if (sharedInteropStandards.length > 0) {
         score += sharedInteropStandards.length * 3; // Higher weight for interoperability
