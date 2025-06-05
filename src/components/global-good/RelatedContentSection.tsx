@@ -1,8 +1,9 @@
+
 import { Link, FileText, Lightbulb } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useRelatedContent } from "@/hooks/useRelatedContent";
-import { RelatedGlobalGoodCard } from "./RelatedGlobalGoodCard";
+import { RelatedGlobalGoodBadge } from "./RelatedGlobalGoodBadge";
 import { RelatedUseCaseItem } from "./RelatedUseCaseItem";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -29,9 +30,11 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
               <Skeleton className="h-6 w-48" />
             </CardHeader>
             <CardContent className="space-y-4">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <Skeleton key={i} className="h-24 w-full" />
-              ))}
+              <div className="flex flex-wrap gap-2">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <Skeleton key={i} className="h-8 w-24 rounded-full" />
+                ))}
+              </div>
             </CardContent>
           </Card>
           
@@ -64,7 +67,7 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Related Global Goods */}
+        {/* Related Global Goods - Badge Layout */}
         {relatedContent.globalGoods.length > 0 && (
           <Card className="h-fit">
             <CardHeader>
@@ -77,9 +80,9 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-4">
-                {relatedContent.globalGoods.map((item, index) => (
-                  <RelatedGlobalGoodCard
+              <div className="flex flex-wrap gap-2">
+                {relatedContent.globalGoods.map((item) => (
+                  <RelatedGlobalGoodBadge
                     key={item.globalGood.ID}
                     globalGood={item.globalGood}
                     sharedClassifications={item.sharedClassifications}
