@@ -23,17 +23,17 @@ export function StandardBadge({ standard, variant }: StandardBadgeProps) {
   const colors = getStandardsBadgeColors()[variant];
   
   return (
-    <HoverCard>
+    <HoverCard openDelay={200} closeDelay={100}>
       <HoverCardTrigger asChild>
         <Badge 
           variant="outline"
-          className={`cursor-pointer transition-all ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
+          className={`cursor-pointer transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
         >
           {standard.code}
         </Badge>
       </HoverCardTrigger>
       
-      <HoverCardContent className="w-80 p-4" side="top">
+      <HoverCardContent className="w-80 p-4" side="top" align="center">
         <div className="space-y-3">
           {/* Header */}
           <div>
