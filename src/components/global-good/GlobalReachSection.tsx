@@ -89,7 +89,7 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
                 <p className="text-2xl font-bold">{implementationCount.toLocaleString()}</p>
                 <p className="text-sm text-muted-foreground">Implementations</p>
               </div>
-            </div>
+            </CardContent>
           </Card>
         )}
 
@@ -103,7 +103,7 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
                 <p className="text-sm font-medium truncate">Interactive Map</p>
                 <p className="text-xs text-muted-foreground">Available</p>
               </div>
-            </div>
+            </CardContent>
           </Card>
         )}
       </div>
