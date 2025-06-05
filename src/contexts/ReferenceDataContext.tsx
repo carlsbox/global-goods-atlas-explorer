@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
 import { 
   loadClassificationsData, 
@@ -225,7 +226,7 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
   }, [loadedSections]);
 
   // Lazy load standards when needed - FIXED VERSION
-  const loadStandards = useCallback(async () => {
+  const loadStandardsData = useCallback(async () => {
     if (loadedSections.has('standards')) {
       console.log('ReferenceDataContext - Standards already loaded, skipping');
       return;
@@ -256,8 +257,8 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
       console.log('ReferenceDataContext - Standards loaded:', {
         type: typeof standards,
         isArray: Array.isArray(standards),
-        keys: Object.keys(standards).slice(0, 10),
-        sampleKeys: Object.keys(standards).includes('HL7 FHIR') ? 'Has HL7 FHIR' : 'Missing HL7 FHIR'
+        keys: standards ? Object.keys(standards).slice(0, 10) : [],
+        sampleKeys: standards && Object.keys(standards).includes('HL7 FHIR') ? 'Has HL7 FHIR' : 'Missing HL7 FHIR'
       });
 
       localStorage.setItem(cacheKey, JSON.stringify(standards));
@@ -276,7 +277,7 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     ...data,
     loadClassifications,
     loadCountries,
-    loadStandards,
+    loadStandards: loadStandardsData,
   };
 
   return (
