@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { ExternalLink, Tag, Star } from "lucide-react";
+import { ExternalLink, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -80,9 +80,8 @@ export function RelatedGlobalGoodBadge({
                 {globalGood.Name}
               </h4>
               <div className="flex items-center gap-1 mt-1">
-                <Star className="h-3 w-3 text-yellow-500" />
                 <span className="text-xs text-muted-foreground">
-                  {relationshipScore} relationship score
+                  Relationship score: {relationshipScore}
                 </span>
               </div>
             </div>
