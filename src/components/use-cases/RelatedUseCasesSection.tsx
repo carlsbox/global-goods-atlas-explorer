@@ -4,9 +4,9 @@ import { RelatedUseCaseCard } from "./RelatedUseCaseCard";
 import { useRelatedUseCases } from "@/hooks/useRelatedUseCases";
 import { UseCase } from "@/lib/types/useCase";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { Link2, ArrowRight } from "lucide-react";
+import { Link, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 interface RelatedUseCasesSectionProps {
   currentUseCase: UseCase;
@@ -34,16 +34,16 @@ export function RelatedUseCasesSection({ currentUseCase }: RelatedUseCasesSectio
     <div className="border-t pt-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-          <Link2 className="mr-2 h-6 w-6" />
+          <Link className="mr-2 h-6 w-6" />
           Related Use Cases
         </h2>
         {hasMoreUseCases && (
-          <Link to="/use-cases">
+          <RouterLink to="/use-cases">
             <Button variant="outline" size="sm">
               View All Use Cases
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </RouterLink>
         )}
       </div>
 
