@@ -42,6 +42,12 @@
     "description": "Copyleft license primarily for libraries, allowing them to be used within proprietary software under certain conditions"
   },
   {
+    "id": "lgpl",
+    "name": "GNU Lesser General Public License",
+    "url": "https://www.gnu.org/licenses/lgpl.html",
+    "description": "Copyleft license primarily for libraries, allowing them to be used within proprietary software under certain conditions"
+  },
+  {
     "id": "agpl-3.0",
     "name": "GNU Affero General Public License v3.0",
     "url": "https://www.gnu.org/licenses/agpl-3.0.html",

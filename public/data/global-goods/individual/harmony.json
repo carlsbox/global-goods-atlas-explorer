@@ -1,0 +1,318 @@
+{
+  "ID": "harmony",
+  "Name": "Harmony",
+  "Logo": "",
+  "Website": {
+    "main": {
+      "url": "https://www.zenysis.com/solution/platform/",
+      "description": "Harmony website"
+    },
+    "docs": {
+      "url": "https://zenysis.crisp.help/en-us/",
+      "description": "Harmony platform support"
+    },
+    "source_code": {
+      "url": "https://github.com/Zenysis/Harmony",
+      "description": "Main code repository"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "License": "agpl-3.0",
+  "Contact": [
+    {
+      "name": "Quentin Perrot",
+      "email": "harmony@zenysis.com",
+      "role": "Project Lead"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D1",
+      "WHO_A3",
+      "WHO_B3",
+      "WHO_D3",
+      "WHO_E1",
+      "WHO_E2"
+    ],
+    "WMO": [
+      "WMO_A1"
+    ],
+    "DPI": [
+      "DPI_A3"
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      "ADX"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Harmony is an open-source data integration and analytics platform.",
+    "Description": "Harmony is an open-source data integration and analytics platform that consolidates data from disparate sources to support stronger health systems. It enhances disease surveillance, vaccine supply chains, resource allocation, and emergency response across programs including HIV, TB, malaria, and pandemic management.",
+    "PrimaryFunctionality": "Health data management and analytics",
+    "Users": "Ministries of health, public health agencies, and their implementing partners.",
+    "Languages": [
+      "en",
+      "fr",
+      "pt",
+      "vi",
+      "am"
+    ],
+    "Screenshots": [
+      {
+        "url": "#",
+        "description": "Harmony dashboard"
+      }
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Harmony has been implemented in 9 countries and is also used in more than 25 countries through global initiatives.",
+    "NumberOfImplementations": 10,
+    "ImplementationMapOverview": {
+      "url": "",
+      "description": ""
+    },
+    "ImplementationCountries": [
+      "et",
+      "gw",
+      "mz",
+      "rw",
+      "za",
+      "pk",
+      "br",
+      "vn"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 3.8,
+        "community_support": 5.6,
+        "maturity_of_gg": 4.2,
+        "inclusive_design": 5,
+        "climate_resilience": 7.5,
+        "low_carbon": 10
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "Harmony integrates structured numeric data from any source - CSV, SQL, APIs, and more - without major customization. Built on Apache Druid, it harmonizes health and climate indicators for joint analysis, standardizing key dimensions like time, geography, and administrative levels. Harmony supports climate-informed health analytics by enabling countries to assess links between weather patterns and disease trends."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Harmony's community consists of ministries of health, government agencies and public health practitioners. Within these organizations, Harmony developers collaborate closely with Health Information System Teams composed of Data Managers, System Administrators and Data Engineers who support, implement and deploy Harmony in their own contexts.",
+    "HostAnchorOrganization": {
+      "name": "Zenysis Technologies",
+      "url": "https://www.zenysis.com/",
+      "description": "Software steward of Harmony",
+      "country": [
+        "us",
+        "pk",
+        "za",
+        "rw"
+      ]
+    },
+    "InceptionYear": 2019,
+    "SizeOfCommunity": 50,
+    "Links": {
+      "Community": {
+        "url": "https://join.slack.com/t/harmonycommunitygroup/shared_invite/zt-34wabc1kw-TM38_~8k9~6nf3f_Et0Rpw",
+        "description": "Developer Slack channel"
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "The Harmony community is primarily engaged through close collaboration with implementing partners and public health agencies during deployment and ongoing use. Zenysis works directly with country teams to support implementation, gather feedback, resolve issues in real time, and adapt the platform to meet evolving needs. This feedback loop helps shape the development roadmap and ensures that Harmony continues to serve as a practical, impactful tool for data integration, analytics, and evidence-based decision-making. While we continue to build and evolve a broader open-source community around Harmony, the existing community of implementers plays a central role in shaping the platform's direction and demonstrating its value in real-world health system contexts.",
+      "schedule": "",
+      "recent": [
+        {
+          "event": "",
+          "date": "",
+          "url": ""
+        }
+      ]
+    },
+    "Policies": {
+      "Description": "Committed to open source principles and responsible data governance.",
+      "Governance": {
+        "url": "https://github.com/Zenysis/Harmony/tree/main?tab=readme-ov-file#governance-structure",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "https://github.com/Zenysis/Harmony?tab=readme-ov-file#community-engagement-policy",
+        "description": "Terms of use"
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": "User agreement"
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": "Privacy policy"
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": "Do no harm"
+      },
+      "PIICollected": {
+        "url": "",
+        "description": "PII collected"
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": "NPII used"
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "Harmony's software design process is rooted in a human-centered, iterative development approach that actively incorporates input from a diverse group of users across the health system to address cross-cutting data challenges. We work closely with policymakers, program managers, M&E specialists, data analysts, and frontline implementers to understand their needs, gather direct feedback, and continuously improve the platform through usability testing, interviews, and collaborative planning sessions.",
+    "OfflineSupport": "No offline support currently available."
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The implementation and continued development of Harmony are primarily supported through a combination of grant funding, government contracts, and equity investment. Zenysis Technologies receives funding from governments, multilateral organizations, and philanthropic donors to implement Harmony in low- and middle-income countries (LMICs) and to support ongoing platform enhancements based on country needs. In addition, Zenysis has secured private equity investment to fund continued research, development, and innovation, ensuring the long-term sustainability and evolution of the platform beyond individual project grants.",
+    "KeyFundersSupporters": [
+      {
+        "name": "Gavi Alliance",
+        "url": "https://www.gavi.org",
+        "description": "Vaccine alliance for global health"
+      },
+      {
+        "name": "The Global Fund",
+        "url": "https://www.theglobalfund.org",
+        "description": "Partnership to fight AIDS, tuberculosis and malaria"
+      },
+      {
+        "name": "Bill and Melinda Gates Foundation (BMGF)",
+        "url": "https://www.gatesfoundation.org",
+        "description": "Donor and supporter"
+      },
+      {
+        "name": "Steele Foundation for Hope",
+        "url": "https://www.steelefoundationforhope.org/",
+        "description": "Philanthropy"
+      },
+      {
+        "name": "Pan American Health Organization (PAHO)",
+        "url": "https://www.paho.org/en",
+        "description": "UN Agency"
+      },
+      {
+        "name": "Big Win",
+        "url": "https://www.bigwin.org/",
+        "description": "Philanthropy"
+      },
+      {
+        "name": "Vital Strategies",
+        "url": "https://www.vitalstrategies.org/",
+        "description": "Donor"
+      },
+      {
+        "name": "RBM Partnership to End Malaria",
+        "url": "https://endmalaria.org/",
+        "description": "Donor"
+      },
+      {
+        "name": "Networking HIV and AIDS Community of Southern Africa (NACOSA)",
+        "url": "https://www.nacosa.org.za/",
+        "description": "Donor"
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "How data analysis helped Mozambique stem a cholera outbreak",
+        "url": "https://www.ft.com/content/330b1734-684a-11ea-a6ac-9122541af204"
+      },
+      {
+        "description": "Mozambique's Cholera Response",
+        "url": "https://www.zenysis.com/case-study/mozambiques-cholera-response/"
+      },
+      {
+        "description": "Health Service Delivery",
+        "url": "https://www.zenysis.com/case-study/health-service-delivery/"
+      },
+      {
+        "description": "The data helping tackle polio",
+        "url": "https://www.bbc.com/storyworks/healthier-together/the-data-helping-tackle-polio"
+      },
+      {
+        "description": "Zenysis raises $13.3M to scale its big data platform for emergencies across Africa, Asia and South America",
+        "url": "https://techcrunch.com/2022/06/22/zenysis-raises-13-3m-to-scale-its-big-data-platform-for-emergencies-across-africa-asia-and-south-america/"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "Product Documentation",
+        "url": ""
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "User Requirements",
+        "url": ""
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User manual",
+        "url": ""
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Implementer Documentation",
+        "url": ""
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": ""
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "description": "Operator Documentation",
+        "url": ""
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "description": "Installation Documentation",
+        "url": ""
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": "dial-exchange",
+        "tool_url": "https://exchange.dial.global/products/harmony"
+      }
+    ]
+  }
+}

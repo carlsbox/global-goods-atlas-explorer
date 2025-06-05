@@ -31,7 +31,7 @@
     ],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-13"],
-      "WHO": ["WHO_D6", "WHO_A2"],
+      "WHO": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_D8", "WHO_E1", "WHO_E2"],
       "WMO": ["WMO_A2","WMO_D1"],
       "DPI": ["DPI_BD3"]
     },
@@ -44,7 +44,7 @@
       "Summary": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
       "Description": "DHIS2 is a platform for data collection, analysis, visualization, and sharing used by governments and organizations globally for health program management.",
       "PrimaryFunctionality": "Health data management and analytics",
-      "Users": "Ministries of health, NGOs, researchers",
+      "Users": "Ministries of health, NGOs, Health workers, Supervisors, Program managers, Surveillance officers, National stakeholders",
       "Languages": ["en", "fr", "es", "pt","hi","vi","zh","no"],
       "Screenshots": [
         {
@@ -135,31 +135,31 @@
       "Policies": {
         "Description": "Committed to open source principles and responsible data governance.",
         "Governance": {
-          "url": "https://dhis2.org/governance",
+          "url": "",
           "description": "DHIS2 governance framework"
         },
         "TermsOfUse": {
-          "url": "https://dhis2.org/terms_and_conditions",
+          "url": "https://community.dhis2.org/tos",
           "description": "Terms of use"
         },
         "UserAgreement": {
-          "url": "https://dhis2.org/user-agreement",
+          "url": "",
           "description": "User agreement"
         },
         "PrivacyPolicy": {
-          "url": "https://dhis2.org/privacy",
+          "url": "https://community.dhis2.org/privacy",
           "description": "Privacy policy"
         },
         "DoNoHarm": {
-          "url": "https://dhis2.org/do-no-harm",
+          "url": "",
           "description": "Do no harm principles"
         },
         "PIICollected": {
-          "url": "https://dhis2.org/pii-policy",
+          "url": "",
           "description": "PII collection policies"
         },
         "NPIIUsed": {
-          "url": "https://dhis2.org/npii-usage",
+          "url": "",
           "description": "Non-PII usage policies"
         }
       }
@@ -210,56 +210,64 @@
     "Resources": {
       "Articles": [
         {
-          "description": "DHIS2 implementation case studies",
-          "url": "https://dhis2.org/case-studies"
+          "description": "Technology for Better Governance: Insights from Public Health Systems in Kenya",
+          "url": "https://www.orfonline.org/english/research/technology-for-better-governance-insights-from-public-health-systems-in-kenya"
         },
         {
-          "description": "Research papers on DHIS2 impact",
-          "url": "https://dhis2.org/research"
+          "description": "Unveiling the role of DHIS2 in enhancing data quality and accessibility in primary healthcare facilities: Evidence from Ethiopia",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0314505"
+        },
+        {
+          "description": "Empowerment of health managers through digitalization in Bangladesh",
+          "url": "https://www.researchgate.net/publication/385850284_Empowerment_of_health_managers_through_digitalization_in_Bangladesh"
+        },
+        {
+          "description": "DHIS2 as a tool for health impact assessment in low-resource settings: examining opportunities for expanding use of routine health data",
+          "url": "https://conferences.iaia.org/2018/final-papers/Saunders-Hastings,%20Patrick%20-%20DHIS2%20as%20a%20tool%20for%20health%20impact%20assessment.pdf"
         }
       ],
       "ProductDocumentation": [
-        {
-          "description": "DHIS2 Product Documentation",
-          "url": "https://docs.dhis2.org/en/home.html"
-        }
-      ],
-      "UserRequirements": [
-        {
-          "description": "System Requirements",
-          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html#install_server_requirements"
-        }
-      ],
-      "EndUserDocumentation": [
-        {
-          "description": "End User Manual",
-          "url": "https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/understanding-the-data-model/about-data-dimensions.html"
-        }
-      ],
-      "ImplementerDocumentation": [
-        {
-          "description": "Implementation Guide",
-          "url": "https://docs.dhis2.org/en/implement/implementing-dhis2/dhis2-implementation-guide.html"
-        }
-      ],
-      "DeveloperDocumentation": [
-        {
-          "description": "Developer Documentation",
-          "url": "https://docs.dhis2.org/en/develop/developing-with-the-android-sdk/dhis2-android-sdk-developer-guide.html"
-        }
-      ],
-      "OperatorDocumentation": [
-        {
-          "description": "System Administration Guide",
-          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html"
-        }
-      ],
-      "InstallationDocumentation": [
-        {
-          "description": "Installation Guide",
-          "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html"
-        }
-      ]
+    {
+      "description": "DHIS2 Product Documentation",
+      "url": "https://docs.dhis2.org/en/home.html"
+    }
+  ],
+  "UserRequirements": [
+    {
+      "description": "System Requirements for Installing DHIS2",
+      "url": "https://docs.dhis2.org/en/manage/performing-system-administration/dhis-core-version-master/installation.html#install_server_requirements"
+    }
+  ],
+  "EndUserDocumentation": [
+    {
+      "description": "User Guide for Using DHIS2 Applications",
+      "url": "https://docs.dhis2.org/en/use/use.html"
+    }
+  ],
+  "ImplementerDocumentation": [
+    {
+      "description": "Guidance for Implementing DHIS2 Systems",
+      "url": "https://docs.dhis2.org/en/manage/manage.html"
+    }
+  ],
+  "DeveloperDocumentation": [
+    {
+      "description": "Guidelines for Developing and Extending DHIS2",
+      "url": "https://docs.dhis2.org/en/develop/develop.html"
+    }
+  ],
+  "OperatorDocumentation": [
+    {
+      "description": "System Maintenance and Operations Manual",
+      "url": "https://docs.dhis2.org/en/manage/manage.html"
+    }
+  ],
+  "InstallationDocumentation": [
+    {
+      "description": "DHIS2 Installation and Configuration Guide",
+      "url": "https://docs.dhis2.org/en/manage/manage.html"
+    }
+  ]
     },
     "LinkedInitiatives": {
       "Initiative": [

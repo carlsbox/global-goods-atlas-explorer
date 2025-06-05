@@ -1,22 +1,21 @@
-
 [
   {
     "ID": "meditrack",
     "Name": "MediTrack",
     "Summary": "An open-source platform to manage, track, and analyze health commodity logistics.",
     "Logo": "/uploads/meditrack_logo_fake.png",
-    "GlobalGoodType": ["software","climate"],
-    "Countries": ["ke", "ug"],
+    "GlobalGoodType": ["software", "climate"],
+    "Countries": ["am", "gt", "bd", "fi", "ml", "mm", "do", "bo", "it", "sk", "py", "ug", "de", "bs", "ng", "sd", "mc", "lr", "om", "bn", "bg", "tj", "mk", "za", "ke"],
     "Classifications": {
-      "SDGs": ["SDG-3"],
-      "WHO": ["WHO_B4"],
-      "WMO": [],
-      "DPI": ["DPI_BD2"]
+      "SDGs": ["SDG-3", "SDG-9"],
+      "WHO": ["WHO_B6"],
+      "WMO": ["WMO_A3"],
+      "DPI": ["DPI_BD1"]
     },
     "Standards": {
-      "Health": ["FHIR"],
-      "Interop": ["REST"],
-      "Climate": []
+      "Health": ["GS1"],
+      "Interop": ["ADX"],
+      "Climate": ["GRIB"]
     }
   },
   {
@@ -25,7 +24,7 @@
     "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
     "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
     "GlobalGoodType": ["software"],
-    "Countries": ["in", "ng", "et", "bd"],
+    "Countries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "mu", "mz", "lr", "tg"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-1", "SDG-5"],
       "WHO": ["WHO_B4"],
@@ -33,7 +32,7 @@
       "DPI": ["DPI_BD2"]
     },
     "Standards": {
-      "Health": ["FHIR"],
+      "Health": ["HL7 FHIR"],
       "Interop": ["REST"],
       "Climate": []
     }
@@ -41,19 +40,19 @@
   {
     "ID": "dhis2",
     "Name": "DHIS2",
-    "Summary": "A flexible, web-based open-source information system with visualization features.",
+    "Summary": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
     "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
     "GlobalGoodType": ["software"],
-    "Countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw"],
+    "Countries": ["dz", "ao", "bj", "bw", "bf", "bi", "cv", "cm", "cf", "td", "km", "cg", "ci", "cd", "er", "sz", "et", "ga", "gm", "gh", "gn", "gw", "ke", "ls", "lr", "mg", "mw", "ml", "mr", "mu", "mz", "na", "ne", "ng", "rw", "st", "sn", "sl", "za", "ss", "tg", "ug", "tz", "zm", "zw", "af", "dj", "eg", "iq", "jo", "lb", "ly", "ma", "pk", "so", "sd", "sy", "ye", "ag", "cl", "co", "dm", "ec", "gd", "gt", "ht", "hn", "jm", "pa", "lc", "vc", "sr", "ve", "bd", "bt", "in", "id", "mv", "mm", "np", "lk", "tl", "kh", "la", "pw", "pg", "sb", "to", "vu", "vn"],
     "Classifications": {
-      "SDGs": ["SDG-3", "SDG-17"],
-      "WHO": ["WHO_B1"],
-      "WMO": [],
-      "DPI": ["DPI_BD1"]
+      "SDGs": ["SDG-3", "SDG-13"],
+      "WHO": ["WHO_D6", "WHO_A2", "WHO_B6", "WHO_D8", "WHO_E1", "WHO_E2"],
+      "WMO": ["WMO_A2", "WMO_D1"],
+      "DPI": ["DPI_BD3"]
     },
     "Standards": {
-      "Health": ["FHIR", "HL7"],
-      "Interop": ["REST", "JSON"],
+      "Health": ["ICD-9", "ICD-10", "ICD-11", "LOINC", "SNOMED"],
+      "Interop": ["ADX", "FHIR"],
       "Climate": []
     }
   },
@@ -63,17 +62,74 @@
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
     "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
     "GlobalGoodType": ["software"],
-    "Countries": ["ke", "ug", "in", "ng", "za", "bd", "et", "tz", "gh", "rw", "zm", "mw", "ls", "zw", "mg", "cm", "sn", "ml", "ci", "cd", "ao", "mz", "tg", "bj", "gm", "sl", "lr", "gn", "bf", "ne", "eg", "ma", "dz", "tn", "sd", "ss", "co", "pe", "br", "mx", "ar", "cl", "bo", "py", "ec", "ve", "ph", "id", "pk", "np", "lk", "th", "vn", "kh", "mm"],
+    "Countries": ["tt", "py", "tr", "cv", "pg", "cf", "bt", "fj", "ph", "bs", "mk", "vn", "ae", "bo", "qa", "cz", "so", "bh", "bd", "lr", "id", "ro", "sd", "ke", "gt", "mm", "sm", "va", "se", "br", "am", "lt", "si", "lk", "ht", "dm", "az", "dz", "no", "ga", "kr", "md", "gy", "et", "by", "mv", "pa", "gm", "au", "er", "ni", "nl", "mu", "mn", "in", "tv", "jo", "al", "pe", "ge", "za", "mt", "gn", "ng", "do", "es", "ag", "cn", "bg", "nz", "cy", "ne", "ma", "uz", "is", "il", "bz", "pk", "gh", "me", "cl", "ua", "la", "tg", "dk", "tz", "mg", "sn", "lu", "ao", "tn", "rs", "na", "ec", "rw"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-9", "SDG-17"],
-      "WHO": ["WHO_B2"],
-      "WMO": [],
-      "DPI": ["DPI_BD3"]
+      "WHO": ["WHO_B1"],
+      "WMO": ["WMO_C1"],
+      "DPI": ["DPI_HC1"]
     },
     "Standards": {
-      "Health": ["FHIR", "HL7", "ICD-10"],
-      "Interop": ["REST", "JSON", "XML"],
+      "Health": ["HL7 FHIR", "ICD-10"],
+      "Interop": ["REST"],
       "Climate": []
+    }
+  },
+  {
+    "ID": "ewars",
+    "Name": "Early Warning and Response System for climate-senstive diseases",
+    "Summary": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
+    "Logo": "",
+    "GlobalGoodType": ["software"],
+    "Countries": ["bf", "et", "mg", "mw", "mu", "mz", "co", "do", "bd", "in", "mm", "np", "th", "tl", "la", "mx", "sn", "om", "sa"],
+    "Classifications": {
+      "SDGs": ["SDG-3", "SDG-13"],
+      "WHO": ["WHO_B3", "WHO_A1", "WHO_A3", "WHO_D1", "WHO_E1", "WHO_E2"],
+      "WMO": ["WMO_D1", "WMO_D2"],
+      "DPI": ["DPI_A1"]
+    },
+    "Standards": {
+      "Health": ["ICD-9", "ICD-10", "ICD-11"],
+      "Interop": ["FHIR"],
+      "Climate": ["NetCDF"]
+    }
+  },
+  {
+    "ID": "harmony",
+    "Name": "Harmony",
+    "Summary": "Harmony is an open-source data integration and analytics platform.",
+    "Logo": "",
+    "GlobalGoodType": ["software"],
+    "Countries": ["et", "gw", "mz", "rw", "za", "pk", "br", "vn"],
+    "Classifications": {
+      "SDGs": ["SDG-3"],
+      "WHO": ["WHO_D1", "WHO_A3", "WHO_B3", "WHO_D3", "WHO_E1", "WHO_E2"],
+      "WMO": ["WMO_A1"],
+      "DPI": ["DPI_A3"]
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": ["ADX"],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "geoprism",
+    "Name": "GeoPrism Registry",
+    "Summary": "GeoPrism provides hierarchy and ontology management for normalizing disparate datasets by common geographies and ontological terms, integration with DHIS2, and spatial dashboarding capabilities.",
+    "Logo": "",
+    "GlobalGoodType": ["software"],
+    "Countries": ["mz", "us", "la"],
+    "Classifications": {
+      "SDGs": ["SDG-3", "SDG-13"],
+      "WHO": ["WHO_D5", "WHO_C5"],
+      "WMO": ["WMO_C3", "WMO-B1"],
+      "DPI": ["DPI_B5"]
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": ["FHIR"],
+      "Climate": ["WMS", "WFS"]
     }
   }
 ]

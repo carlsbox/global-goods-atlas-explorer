@@ -1,0 +1,276 @@
+{
+  "ID": "ewars",
+  "Name": "Early Warning and Response System for climate-senstive diseases",
+  "Logo": "",
+  "Website": {
+    "main": {
+      "url": "https://tdr.who.int/activities/ewars-csd",
+      "description": "Official site for EWARS-csd"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/Laith-hk/AUTO-EWARS-csd/tree/main",
+      "description": "Main code repository"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "License": "gpl-3.0",
+  "Contact": [
+    {
+      "name": "Special Programme for Research and Training in Tropical Diseases (TDR) and WHO",
+      "email": "healthclimate@who.int",
+      "role": "Project Lead"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3",
+      "SDG-13"
+    ],
+    "WHO": [
+      "WHO_B3",
+      "WHO_A1",
+      "WHO_A3",
+      "WHO_D1",
+      "WHO_E1",
+      "WHO_E2"
+    ],
+    "WMO": [
+      "WMO_D1",
+      "WMO_D2"
+    ],
+    "DPI": [
+      "DPI_A1"
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "ICD-9",
+      "ICD-10",
+      "ICD-11"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": [
+      "NetCDF"
+    ]
+  },
+  "ProductOverview": {
+    "Summary": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
+    "Description": "EWARS-csd builds on a machine learning/INLA prediction algorithm that is data and area specific, using historical disease records, and analyses retrospectively their association with alarm indicators (which are the functions of dashboard 1 used at the country or central level). It further employs prospective (weekly) alarm information, e.g., mean temperature, humidity, rainfall, ovitrap index, among others, to predict a forthcoming outbreak (which is a function of dashboard 2 used at district level).",
+    "PrimaryFunctionality": "",
+    "Users": "Country ministries of health, district health managers, local epidemiologists, meteorologists, entomologists, national management agencies, local management agencies, public communication channels",
+    "Languages": [
+      "en",
+      "es",
+      "th"
+    ],
+    "Screenshots": [
+      {
+        "url": "#",
+        "description": "EWARS-csd dashboard"
+      }
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "EWARS-csd is widely-deployed.",
+    "NumberOfImplementations": 19,
+    "ImplementationMapOverview": {
+      "url": "",
+      "description": ""
+    },
+    "ImplementationCountries": [
+      "bf",
+      "et",
+      "mg",
+      "mw",
+      "mu",
+      "mz",
+      "co",
+      "do",
+      "bd",
+      "in",
+      "mm",
+      "np",
+      "th",
+      "tl",
+      "la",
+      "mx",
+      "sn",
+      "om",
+      "sa"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 8.8,
+        "community_support": 8.1,
+        "maturity_of_gg": 8.1,
+        "inclusive_design": 7.5,
+        "climate_resilience": 10,
+        "low_carbon": 10
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": "EWARS-csd utilizes climate and health data for directing the public health and national surveillance program disease control activities. EWARS-csd has contributed to (a) strengthened cross-sectoral collaboration, including between the health and meteorological sector (e.g., signing of MoU), (b) strengthened collaboration and coordination across government levels (local, subnational, central), (c) heightened awareness of MoH staff and partners (academia, WHO country office) of the linkages between climate and health, (d) strengthened in-country capacity for risk mapping, disease modelling, output interpretation. For countries that have moved from the deployment to the operational phase, EWARS-csd has contributed to proven and enhanced public health responses to climate-sensitive diseases."
+  },
+  "Community": {
+    "DescriptionOfCommunity": "WHO and TDR organize trainings, webinars, workshops periodically to bring the community of practice - country teams- together to share experiences and best practices. Bilateral trainings take place to support country teams in deployment and scale-up. WHO also enables the link up of country teams to the broader climate and health community, e.g., through the Alliance of Transformative Action of Climate Change and Health (ATACH) and global meetings that involve a multitude of stakeholders, including developers, researchers, practitioners, etc.",
+    "HostAnchorOrganization": {
+      "name": "WHO, TDR",
+      "url": "https://tdr.who.int/activities/ewars-csd",
+      "description": "Anchor organisations",
+      "country": [
+        "ch"
+      ]
+    },
+    "InceptionYear": 2012,
+    "SizeOfCommunity": "",
+    "Links": {
+      "Community": {
+        "url": "",
+        "description": ""
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "The community is engaged via WHO and TDR-organized workshops and bilateral trainings. WHO may additionally facilitate the connection between two country teams if needed (e.g., if one country can learn from a comparable experience of another). Given ongoing collaborations with other initiatives including DHIS2, the community may also engage via channels provided by DHIS2 (e.g., annual conference, etc.)",
+      "schedule": "There is a monthly follow up and training meeting with all countries using or implementing EWARS-csd organized and coordinated by the WHO to support the technical and operation applications of EWARS-csd in the country. Beside the monthly meetings, there are periodic regional meetings to exchange feedback and experience sharing across countries.",
+      "recent": [
+        {
+          "event": "Monthly meeting",
+          "date": "2025/02/03",
+          "url": ""
+        }
+      ]
+    },
+    "Policies": {
+      "Description": "Committed to open source principles and responsible data governance.",
+      "Governance": {
+        "url": "",
+        "description": "Although not recorded in writing, key actors (leadership, technical advisory group, community representatives) are clearly delineated. WHO and TDR form the overall leadership group, facilitating the integration of the tool in the broader climate and health and disease control agenda and supporting country teams in aligning their EWARS-csd related work with existing country policies (such as National Adaptation Plans). Technical assistance is provided by experts/consultants dedicated to providing country support. Country teams constitute community representatives."
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "The tool incorporates regular input from users at all levels followed by tool updates based on feedback.",
+    "OfflineSupport": "It is designed in such a way that the calibration process to generate data- and area-specific algorithm is conducted once a year. These algorithms and associated parameters are stored permanently in a local server and updated every time a new run is performed (annual). The prospective prediction is weekly and it is functioning as far as the country server of the national program is functioning! Therefore, the tool works in line with the national system"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The tool is designed to be integrated within existing system, programs or platforms to ensure sustainability, minimal burden on manpower and it is now 100% automated that does not require any manpower for running or operating. The deployment phase is often supported by the WHO country office and experts/consultants dedicated to providing country technical assistance; the scale-up and operationalization is financed in different ways, depending on country. For instance, countries that have integrated EWARS-csd into their national health emergencies response system may finance it through core public funding, while other countries receive grant or investment support through climate funds or MDBs during their scale-up phase.",
+    "KeyFundersSupporters": [
+      {
+        "name": "Special Programme for Research and Training in Tropical Diseases(TDR)",
+        "url": "https://tdr.who.int/about-us",
+        "description": "UN Agency"
+      },
+      {
+        "name": "World Health Organization (WHO) Climate and Health Unit",
+        "url": "https://www.who.int/teams/environment-climate-change-and-health/climate-change-and-health",
+        "description": "UN Agency"
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "",
+        "url": "https://tdr.who.int/activities/ewars-cs"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "Product Documentation",
+        "url": ""
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "User Requirements",
+        "url": ""
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User manual",
+        "url": ""
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Implementer Documentation",
+        "url": ""
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": ""
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "description": "Operator Documentation",
+        "url": ""
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "description": "Installation Documentation",
+        "url": ""
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}
