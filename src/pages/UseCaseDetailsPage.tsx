@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { useUseCases } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -372,22 +371,6 @@ export default function UseCaseDetailsPage() {
               </h2>
               <ExportButton useCase={useCase} variant="ghost" size="sm" />
             </div>
-
-            {/* Debug Information - Only in development */}
-            {process.env.NODE_ENV === 'development' && (
-              <Card className="border-yellow-200 bg-yellow-50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm text-yellow-700">Debug: Standards Resolution</CardTitle>
-                </CardHeader>
-                <CardContent className="text-xs space-y-2">
-                  <div>Input Codes: {JSON.stringify(useCase.standards)}</div>
-                  <div>Loading: {standardsLoading.toString()}</div>
-                  <div>Error: {standardsError || 'None'}</div>
-                  <div>Resolved: {resolvedStandards.length} standards</div>
-                  <div>Health: {groupedStandards.health.length}, Interop: {groupedStandards.interoperability.length}</div>
-                </CardContent>
-              </Card>
-            )}
 
             {/* Consolidated Technical Details Card */}
             <Card className="border-green-200">
