@@ -1,9 +1,8 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { BookOpen, Code, FileText, Package, ExternalLink, FolderOpen } from "lucide-react";
+import { BookOpen, Code, FileText, Package, ExternalLink } from "lucide-react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 
 interface ResourcesSectionProps {
@@ -82,7 +81,7 @@ export function ResourcesSection({ globalGood }: ResourcesSectionProps) {
     <Card className="border-dashed border-2 border-muted">
       <CardContent className="flex flex-col items-center justify-center py-12 text-center">
         <div className="rounded-full bg-muted p-4 mb-4">
-          <FolderOpen className="h-8 w-8 text-muted-foreground" />
+          <FileText className="h-8 w-8 text-muted-foreground" />
         </div>
         <h3 className="text-lg font-medium mb-2">No Resources Available</h3>
         <p className="text-muted-foreground mb-4 max-w-md">
