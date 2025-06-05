@@ -122,35 +122,11 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
       <h2 className="text-2xl font-bold mb-6">Technical Information</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Column 1: DPI, WHO, Standards and Interoperability */}
+        {/* Column 1: Standards and Interoperability, then DPI and WHO */}
         <div>
-          {/* Technical Classifications Section */}
-          {hasTechnicalClassifications() && (
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4 flex items-center">
-                <Tag className="h-5 w-5 mr-2 text-primary" />
-                Classifications
-              </h3>
-              
-              <div className="grid grid-cols-1 gap-6">
-                {/* DPI */}
-                <GroupedClassifications 
-                  classifications={globalGood.Classifications?.DPI || []}
-                  title="Digital Public Infrastructure (DPI)"
-                />
-                
-                {/* WHO */}
-                <GroupedClassifications 
-                  classifications={resolvedWHO}
-                  title="World Health Organization"
-                />
-              </div>
-            </div>
-          )}
-          
           {/* Technical Standards and Interoperability Section */}
           {hasTechnicalStandards() && (
-            <div className="space-y-6">
+            <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
                 <Shield className="h-5 w-5 mr-2 text-primary" />
                 Standards & Interoperability
@@ -176,6 +152,30 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
                     maxVisible={10}
                   />
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Technical Classifications Section */}
+          {hasTechnicalClassifications() && (
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold mb-4 flex items-center">
+                <Tag className="h-5 w-5 mr-2 text-primary" />
+                Classifications
+              </h3>
+              
+              <div className="grid grid-cols-1 gap-6">
+                {/* DPI */}
+                <GroupedClassifications 
+                  classifications={globalGood.Classifications?.DPI || []}
+                  title="Digital Public Infrastructure (DPI)"
+                />
+                
+                {/* WHO */}
+                <GroupedClassifications 
+                  classifications={resolvedWHO}
+                  title="World Health Organization"
+                />
               </div>
             </div>
           )}
