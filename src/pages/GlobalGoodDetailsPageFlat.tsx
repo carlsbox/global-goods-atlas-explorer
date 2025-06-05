@@ -1,72 +1,59 @@
 
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { Suspense, useMemo } from "react";
 
-// Import optimized components
-import { FastGlobalGoodHeader } from "@/components/global-good/FastGlobalGoodHeader";
+// Import flat structure components
+import { GlobalGoodHeaderFlat } from "@/components/global-good/GlobalGoodHeaderFlat";
 import { OverviewTabFlat } from "@/components/global-good/OverviewTabFlat";
+import { CommunityTabEnhanced } from "@/components/global-good/CommunityTabEnhanced";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { RawDataViewer } from "@/components/global-good/RawDataViewer";
+import { ProgressiveLoadingSkeleton } from "@/components/global-good/ProgressiveLoadingSkeleton";
 
-// Import lazy-loaded sections
-import { LazyGlobalReachSection } from "@/components/global-good/LazyGlobalReachSection";
-import { LazyCommunitySection } from "@/components/global-good/LazyCommunitySection";
-import { LazyMaturitySection } from "@/components/global-good/LazyMaturitySection";
-
-// Import remaining sections (lightweight)
+// Import new section components
 import { TechnicalInformationSection } from "@/components/global-good/TechnicalInformationSection";
+import { GlobalReachSection } from "@/components/global-good/GlobalReachSection";
 import { ResourcesSection } from "@/components/global-good/ResourcesSection";
+import { MaturitySection } from "@/components/global-good/MaturitySection";
 import { SustainabilityEconomicsSection } from "@/components/global-good/SustainabilityEconomicsSection";
 
 import { useI18n } from "@/hooks/useI18n";
-import { useDirectGlobalGood } from "@/hooks/useDirectGlobalGood";
+import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
 import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
-
-// Lightweight section skeleton
-function SectionSkeleton() {
-  return (
-    <div className="space-y-4">
-      <Skeleton className="h-8 w-48" />
-      <Skeleton className="h-32 w-full" />
-    </div>
-  );
-}
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
   const { tPage } = useI18n();
   
-  const { data: globalGood, isLoading, error, isCached } = useDirectGlobalGood(id);
-
-  // Memoize the basic header data to prevent re-renders
-  const headerData = useMemo(() => {
-    if (!globalGood) return {};
-    return {
-      ID: globalGood.ID,
-      Name: globalGood.Name,
-      Logo: globalGood.Logo,
-      Website: globalGood.Website,
-      ProductOverview: globalGood.ProductOverview,
-      GlobalGoodsType: globalGood.GlobalGoodsType,
-    };
-  }, [globalGood?.ID, globalGood?.Name, globalGood?.Logo]);
+  const {
+    basicData,
+    detailedData,
+    loadingPhase,
+    error,
+    hasBasicData,
+    hasDetailedData
+  } = useProgressiveGlobalGood(id);
 
   // Handle error state
-  if (error) {
+  if (loadingPhase === 'error' || (!hasBasicData && !hasDetailedData && error)) {
     return <ErrorState onRetry={() => window.location.reload()} />;
   }
 
-  // Show loading only if we don't have any data and it's not cached
-  if (isLoading && !headerData.Name && !isCached) {
+  // Show initial loading if we don't have any data yet
+  if (!hasBasicData && loadingPhase === 'basic') {
+    return <LoadingState message={tPage('loading', 'globalGoodDetails')} />;
+  }
+
+  // Use the most complete data available
+  const globalGood = detailedData || basicData;
+  if (!globalGood) {
     return <LoadingState message={tPage('loading', 'globalGoodDetails')} />;
   }
 
   return (
     <div className="container px-4 py-8 mx-auto max-w-7xl">
-      {/* Breadcrumb Navigation - Renders immediately */}
+      {/* Breadcrumb Navigation */}
       <div className="mb-6 flex justify-between items-center">
         <Link 
           to="/global-goods" 
@@ -76,81 +63,65 @@ export default function GlobalGoodDetailsPageFlat() {
           {tPage('backToGlobalGoods', 'globalGoodDetails')}
         </Link>
         
-        {globalGood && (
-          <RawDataViewer data={globalGood} title={`Raw Data: ${globalGood.Name}`} />
+        {detailedData && (
+          <RawDataViewer data={detailedData} title={`Raw Data: ${globalGood.Name}`} />
         )}
       </div>
       
-      {/* Fast Header - Renders immediately with basic data */}
-      <FastGlobalGoodHeader 
-        globalGood={headerData} 
-        isLoading={isLoading && !globalGood} 
-      />
+      {/* Header Section - Show immediately with basic data */}
+      {globalGood && (
+        <GlobalGoodHeaderFlat globalGood={globalGood as any} />
+      )}
       
       {/* Main Content - Progressive sections */}
       <div className="mt-8 space-y-10">
-        {/* Overview Section - Priority content, renders quickly */}
+        {/* Overview Section - Priority content */}
         <div>
           <h2 className="text-2xl font-bold mb-4">{tPage('tabs.overview', 'globalGoodDetails')}</h2>
-          {globalGood ? (
-            <OverviewTabFlat globalGood={globalGood} />
-          ) : (
-            <SectionSkeleton />
+          {globalGood && (
+            <OverviewTabFlat globalGood={globalGood as any} />
           )}
         </div>
         
         <Separator />
         
         {/* Technical Information Section - Priority content */}
-        {globalGood ? (
-          <TechnicalInformationSection globalGood={globalGood} />
+        {hasDetailedData && detailedData ? (
+          <TechnicalInformationSection globalGood={detailedData} />
         ) : (
-          <SectionSkeleton />
+          <ProgressiveLoadingSkeleton phase={loadingPhase} />
         )}
         
-        <Separator />
-        
-        {/* Global Reach Section - Lazy loaded */}
-        {globalGood ? (
-          <LazyGlobalReachSection globalGood={globalGood} />
-        ) : (
-          <SectionSkeleton />
-        )}
-        
-        <Separator />
-        
-        {/* Resources Section - Lightweight */}
-        {globalGood ? (
-          <ResourcesSection globalGood={globalGood} />
-        ) : (
-          <SectionSkeleton />
-        )}
-        
-        <Separator />
-        
-        {/* Community Section - Lazy loaded */}
-        {globalGood ? (
-          <LazyCommunitySection globalGood={globalGood} />
-        ) : (
-          <SectionSkeleton />
-        )}
-        
-        <Separator />
-        
-        {/* Maturity Section - Lazy loaded */}
-        {globalGood ? (
-          <LazyMaturitySection globalGood={globalGood} />
-        ) : (
-          <SectionSkeleton />
-        )}
-        
-        <Separator />
-        
-        {/* Sustainability & Economics Section - Lightweight */}
-        {globalGood ? (
-          <SustainabilityEconomicsSection globalGood={globalGood} />
-        ) : (
-          <SectionSkeleton />
+        {hasDetailedData && detailedData && (
+          <>
+            <Separator />
+            
+            {/* Global Reach Section */}
+            <GlobalReachSection globalGood={detailedData} />
+            
+            <Separator />
+            
+            {/* Resources Section */}
+            <ResourcesSection globalGood={detailedData} />
+            
+            <Separator />
+            
+            {/* Community Section */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Community</h2>
+              <CommunityTabEnhanced globalGood={detailedData} />
+            </div>
+            
+            <Separator />
+            
+            {/* Maturity Section */}
+            <MaturitySection globalGood={detailedData} />
+            
+            <Separator />
+            
+            {/* Sustainability & Economics Section */}
+            <SustainabilityEconomicsSection globalGood={detailedData} />
+          </>
         )}
       </div>
     </div>

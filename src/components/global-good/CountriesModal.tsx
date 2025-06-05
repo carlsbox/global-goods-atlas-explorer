@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Download, MapPin } from "lucide-react";
 import {
@@ -28,28 +27,19 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const countries = globalGood.Reach?.ImplementationCountries || [];
 
-  // Filter out any undefined/null countries and sort them safely
-  const validCountries = countries.filter(country => country && typeof country === 'object');
-  
-  // Sort countries alphabetically by their name, handling different data structures
-  const sortedCountries = [...validCountries].sort((a, b) => {
-    // Handle the case where country data might have different structures
-    const nameA = a.names?.en?.short || 'Unknown';
-    const nameB = b.names?.en?.short || 'Unknown';
-    
-    return nameA.localeCompare(nameB);
-  });
+  // Sort countries alphabetically by their English short name
+  const sortedCountries = [...countries].sort((a, b) => 
+    a.names.en.short.localeCompare(b.names.en.short)
+  );
 
   const downloadCSV = () => {
     const csvContent = [
       // CSV Header
       "Country Name,ISO Code,Type,Formal Name",
       // CSV Data
-      ...sortedCountries.map(country => {
-        const name = country.names?.en?.short || 'Unknown';
-        const formal = country.names?.en?.formal || 'Unknown';
-        return `"${name}","${country.iso_code}","${country.type}","${formal}"`;
-      })
+      ...sortedCountries.map(country => 
+        `"${country.names.en.short}","${country.iso_code}","${country.type}","${country.names.en.formal}"`
+      )
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -114,7 +104,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
                       <CountryFlag isoCode={country.iso_code} />
                     </TableCell>
                     <TableCell className="font-medium">
-                      {country.names?.en?.short || 'Unknown'}
+                      {country.names.en.short}
                     </TableCell>
                     <TableCell>
                       <code className="bg-muted px-1 py-0.5 rounded text-xs">
@@ -123,7 +113,7 @@ export function CountriesModal({ globalGood }: CountriesModalProps) {
                     </TableCell>
                     <TableCell>{country.type}</TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {country.names?.en?.formal || 'Unknown'}
+                      {country.names.en.formal}
                     </TableCell>
                   </TableRow>
                 ))}

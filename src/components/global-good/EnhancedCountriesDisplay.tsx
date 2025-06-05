@@ -1,4 +1,3 @@
-
 import { MapPin } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
@@ -31,17 +30,10 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
     );
   }
 
-  // Filter out any undefined/null countries and sort them
-  const validCountries = countries.filter(country => country && typeof country === 'object');
-  
-  // Sort countries alphabetically by their name, handling the expected data structure
-  const sortedCountries = [...validCountries].sort((a, b) => {
-    // Use only the properties that exist on the expected type
-    const nameA = a.names?.en?.short || 'Unknown';
-    const nameB = b.names?.en?.short || 'Unknown';
-    
-    return nameA.localeCompare(nameB);
-  });
+  // Sort countries alphabetically by their English short name
+  const sortedCountries = [...countries].sort((a, b) => 
+    a.names.en.short.localeCompare(b.names.en.short)
+  );
 
   return (
     <Card className="h-full">
@@ -61,22 +53,16 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
         
         <div className="max-h-80 overflow-y-auto">
           <div className="grid grid-cols-1 gap-2">
-            {sortedCountries.map((country, index) => {
-              // Get the country name using only expected properties
-              const countryName = country.names?.en?.short || 'Unknown Country';
-              const isoCode = country.iso_code || '';
-              
-              return (
-                <div key={`${isoCode}-${index}`} className="flex items-center p-2 border rounded hover:bg-muted/50 transition-colors">
-                  <div className="mr-3 flex-shrink-0">
-                    <CountryFlag isoCode={isoCode} />
-                  </div>
-                  <div className="font-medium text-sm truncate">
-                    {countryName}
-                  </div>
+            {sortedCountries.map((country, index) => (
+              <div key={index} className="flex items-center p-2 border rounded hover:bg-muted/50 transition-colors">
+                <div className="mr-3 flex-shrink-0">
+                  <CountryFlag isoCode={country.iso_code} />
                 </div>
-              );
-            })}
+                <div className="font-medium text-sm truncate">
+                  {country.names.en.short}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </CardContent>
