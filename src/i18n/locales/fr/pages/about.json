@@ -1,22 +1,41 @@
 
 {
-  "title": "À Propos du Guide des Biens Mondiaux",
-  "subtitle": "Connecter le monde aux biens publics numériques open source pour un développement durable.",
-  "mission": {
-    "title": "Notre Mission",
-    "content": "Nous sommes dédiés à la promotion des biens numériques mondiaux qui résolvent les défis critiques du développement durable. Notre plateforme connecte développeurs, organisations et communautés pour créer un impact durable."
+  "title": "À Propos du Guide Interactif des Biens Mondiaux",
+  "subtitle": "Un marché de santé numérique où l'offre et la demande se rencontrent pour accélérer l'équité en santé grâce aux biens mondiaux open source.",
+  "digitalSquare": {
+    "title": "À Propos de Digital Square",
+    "content": "Digital Square est un marché de santé numérique–ou 'place'–où l'offre et la demande se rencontrent pour accélérer l'équité en santé. Nous alignons les investisseurs et les organismes gouvernementaux autour d'une vision partagée de santé numérique, promouvons le développement et l'adoption de biens publics numériques pour la santé, et renforçons la gouvernance nationale de santé numérique.",
+    "role": "Digital Square joue un rôle unique comme rassembleur neutre de donateurs, dirigeants gouvernementaux, innovateurs techniques et entrepreneurs. Depuis 2016, nous avons collaboré avec des centaines de parties prenantes dans 33 pays, soutenant 36 biens mondiaux matures grâce à notre Processus d'Application Ouverte.",
+    "learnMoreButton": "Visiter digitalsquare.org"
   },
-  "technology": {
-    "title": "Stack Technologique",
-    "content": "Nous construisons en utilisant des technologies web modernes axées sur la performance, l'accessibilité et l'expérience utilisateur. Notre architecture ouverte favorise la collaboration et l'innovation."
+  "globalGoods": {
+    "title": "Que Sont les Biens Mondiaux?",
+    "definition": "Outils de santé numérique adaptables à différents pays et contextes pour aider à relever les défis clés du système de santé. Ces outils gratuits et open source peuvent être utilisés dans différents programmes de santé, réduisant la fragmentation et accélérant l'impact sanitaire.",
+    "types": {
+      "software": {
+        "title": "Logiciel",
+        "description": "Outils gratuits et open source utilisés pour gérer, analyser ou transmettre des données liées à la santé, avec une utilité prouvée dans plusieurs environnements."
+      },
+      "services": {
+        "title": "Services",
+        "description": "Outils logiciels en tant que service qui gèrent, transmettent ou analysent des données de santé, librement accessibles et adhérant aux principes de données ouvertes."
+      },
+      "content": {
+        "title": "Contenu",
+        "description": "Ressources, boîtes à outils ou standards de données disponibles sous licences ouvertes pour améliorer les capacités de gestion des données de santé."
+      }
+    }
   },
-  "openSource": {
-    "title": "Engagement Open Source",
-    "content": "Nous croyons au pouvoir de l'open source pour transformer des vies. En soutenant et en promouvant des biens numériques ouverts, nous contribuons à créer un monde numérique plus équitable."
+  "benefits": {
+    "title": "Avantages et Impact",
+    "content": "Les biens mondiaux sauvent des vies en permettant la collaboration entre organisations, réduisant le verrouillage fournisseur, partageant les coûts de développement et promouvant l'interopérabilité. Beaucoup supportent les standards d'architecture OpenHIE pour une analyse de données améliorée et la continuité des soins.",
+    "examples": "Par exemple, un bien mondial utilisé pour la gestion de cas VIH peut aussi être utilisé pour gérer les soins du paludisme ou de la tuberculose."
   },
-  "team": {
-    "title": "Notre Équipe",
-    "content": "Nous sommes un groupe diversifié de technologues, d'experts en politiques et de spécialistes du développement engagés à utiliser la technologie pour le bien social.",
-    "joinButton": "Rejoindre Notre Équipe"
+  "process": {
+    "title": "Comment les Outils Deviennent des Biens Mondiaux",
+    "content": "Les outils de santé numérique peuvent postuler à tout moment via notre portail d'application, avec des examens trimestriels par notre Comité d'Examen par les Pairs et Conseil d'Examen des Biens Mondiaux.",
+    "requirements": "Les outils doivent être publiés sous licences ouvertes, soutenus par des communautés solides, financés par plusieurs sources, déployés à grande échelle, utilisés dans plusieurs pays et conçus pour l'interopérabilité.",
+    "applyButton": "Soumettre une Application",
+    "contactButton": "Contacter l'Équipe Digital Square"
   }
 }

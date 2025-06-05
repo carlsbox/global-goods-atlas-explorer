@@ -1,22 +1,41 @@
 
 {
-  "title": "Acerca de la Guía de Bienes Globales",
-  "subtitle": "Conectando al mundo con bienes públicos digitales de código abierto para el desarrollo sostenible.",
-  "mission": {
-    "title": "Nuestra Misión",
-    "content": "Nos dedicamos a promover bienes digitales globales que resuelven desafíos críticos en el desarrollo sostenible. Nuestra plataforma conecta a desarrolladores, organizaciones y comunidades para crear un impacto duradero."
+  "title": "Acerca de la Guía Interactiva de Bienes Globales",
+  "subtitle": "Un mercado de salud digital donde la oferta y la demanda se encuentran para acelerar la equidad en salud a través de bienes globales de código abierto.",
+  "digitalSquare": {
+    "title": "Acerca de Digital Square",
+    "content": "Digital Square es un mercado de salud digital–o 'plaza'–donde la oferta y la demanda se encuentran para acelerar la equidad en salud. Alineamos inversores y organismos gubernamentales en torno a una visión compartida de salud digital, promovemos el desarrollo y adopción de bienes públicos digitales para la salud, y fortalecemos la gobernanza nacional de salud digital.",
+    "role": "Digital Square desempeña un papel único como convocante neutral de donantes, líderes gubernamentales, innovadores técnicos y emprendedores. Desde 2016, hemos colaborado con cientos de partes interesadas en 33 países, apoyando 36 bienes globales maduros a través de nuestro Proceso de Aplicación Abierta.",
+    "learnMoreButton": "Visitar digitalsquare.org"
   },
-  "technology": {
-    "title": "Stack Tecnológico",
-    "content": "Construimos utilizando tecnologías web modernas enfocadas en el rendimiento, la accesibilidad y la experiencia del usuario. Nuestra arquitectura abierta fomenta la colaboración y la innovación."
+  "globalGoods": {
+    "title": "¿Qué Son los Bienes Globales?",
+    "definition": "Herramientas de salud digital adaptables a diferentes países y contextos para abordar desafíos clave del sistema de salud. Estas herramientas gratuitas y de código abierto pueden usarse en diferentes programas de salud, reduciendo la fragmentación y acelerando el impacto en salud.",
+    "types": {
+      "software": {
+        "title": "Software",
+        "description": "Herramientas gratuitas y de código abierto para gestionar, analizar o transmitir datos relacionados con la salud, con utilidad probada en múltiples entornos."
+      },
+      "services": {
+        "title": "Servicios",
+        "description": "Herramientas de software como servicio que gestionan, transmiten o analizan datos de salud, libremente accesibles y adheridas a principios de datos abiertos."
+      },
+      "content": {
+        "title": "Contenido",
+        "description": "Recursos, herramientas o estándares de datos disponibles bajo licencias abiertas para mejorar las capacidades de gestión de datos de salud."
+      }
+    }
   },
-  "openSource": {
-    "title": "Compromiso Open Source",
-    "content": "Creemos en el poder del código abierto para transformar vidas. Al apoyar y promover bienes digitales abiertos, ayudamos a crear un mundo digital más equitativo."
+  "benefits": {
+    "title": "Beneficios e Impacto",
+    "content": "Los bienes globales salvan vidas al permitir colaboración entre organizaciones, reducir el bloqueo de proveedores, compartir costos de desarrollo y promover la interoperabilidad. Muchos apoyan estándares de arquitectura OpenHIE para análisis de datos mejorado y continuidad de atención.",
+    "examples": "Por ejemplo, un bien global usado para manejo de casos de VIH también puede usarse para gestionar atención de malaria o tuberculosis."
   },
-  "team": {
-    "title": "Nuestro Equipo",
-    "content": "Somos un grupo diverso de tecnólogos, expertos en políticas y especialistas en desarrollo comprometidos a aprovechar la tecnología para el bien social.",
-    "joinButton": "Únete a Nuestro Equipo"
+  "process": {
+    "title": "Cómo las Herramientas Se Convierten en Bienes Globales",
+    "content": "Las herramientas de salud digital pueden aplicar en cualquier momento a través de nuestro portal de aplicaciones, con revisiones trimestrales por nuestro Comité de Revisión por Pares y Junta de Revisión de Bienes Globales.",
+    "requirements": "Las herramientas deben publicarse bajo licencias abiertas, estar respaldadas por comunidades sólidas, financiadas por múltiples fuentes, desplegadas a escala, usadas en múltiples países y diseñadas para interoperabilidad.",
+    "applyButton": "Enviar Aplicación",
+    "contactButton": "Contactar Equipo Digital Square"
   }
 }

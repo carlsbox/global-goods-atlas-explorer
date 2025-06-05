@@ -1,22 +1,41 @@
 
 {
-  "title": "About Global Goods Guidebook",
-  "subtitle": "Connecting the world to open-source digital public goods for sustainable development.",
-  "mission": {
-    "title": "Our Mission",
-    "content": "We're dedicated to promoting digital global goods that solve critical challenges in sustainable development. Our platform connects developers, organizations, and communities to create lasting impact."
+  "title": "About the Global Goods Interactive Guidebook",
+  "subtitle": "A digital health marketplace where supply and demand come together to accelerate health equity through open-source global goods.",
+  "digitalSquare": {
+    "title": "About Digital Square",
+    "content": "Digital Square is a digital health marketplace–or 'square'–where supply and demand come together to accelerate health equity. We align investors and government bodies around a shared digital health vision, promote the development and adoption of digital public goods for health, and strengthen national-level digital health governance to support country digital transformation.",
+    "role": "Digital Square plays a unique role as a neutral convenor of donors, government leaders, technical innovators, and entrepreneurs. Since 2016, we have partnered with hundreds of stakeholders across 33 countries, supporting 36 mature global goods through our Open Application Process.",
+    "learnMoreButton": "Visit digitalsquare.org"
   },
-  "technology": {
-    "title": "Technology Stack",
-    "content": "We build using modern web technologies focused on performance, accessibility, and user experience. Our open architecture encourages collaboration and innovation."
+  "globalGoods": {
+    "title": "What Are Global Goods?",
+    "definition": "Digital health tools that are adaptable to different countries and contexts to help address key health system challenges. These free and open source tools can be used across different health programs, cutting down on fragmentation and accelerating health impact.",
+    "types": {
+      "software": {
+        "title": "Software",
+        "description": "Free, open source tools used to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+      },
+      "services": {
+        "title": "Services", 
+        "description": "Software as a service tools that manage, transmit, or analyze health-related data, freely accessible and adhering to open data principles."
+      },
+      "content": {
+        "title": "Content",
+        "description": "Resources, toolkits, or data standards available under open licenses to improve health data management capabilities."
+      }
+    }
   },
-  "openSource": {
-    "title": "Open Source Commitment",
-    "content": "We believe in the power of open source to transform lives. By supporting and promoting open digital goods, we help create a more equitable digital world."
+  "benefits": {
+    "title": "Benefits & Impact",
+    "content": "Global goods save lives by enabling collaboration across organizations, reducing vendor lock-in, sharing development costs, and promoting interoperability. Many support OpenHIE architecture standards for enhanced data analysis and continuity of care.",
+    "examples": "For example, a global good used for HIV case management can also be used to manage care for malaria or tuberculosis."
   },
-  "team": {
-    "title": "Our Team",
-    "content": "We're a diverse group of technologists, policy experts, and development specialists committed to leveraging technology for social good.",
-    "joinButton": "Join Our Team"
+  "process": {
+    "title": "How Tools Become Global Goods",
+    "content": "Digital health tools can apply at any time through our application portal, with quarterly reviews by our Peer Review Committee and Global Goods Review Board.",
+    "requirements": "Tools must be published under open licenses, supported by strong communities, funded by multiple sources, deployed at scale, used across multiple countries, and designed for interoperability.",
+    "applyButton": "Submit Application",
+    "contactButton": "Contact Digital Square Team"
   }
 }
