@@ -49,11 +49,6 @@ import cookieEN from './locales/en/pages/cookie.json';
 import cookieFR from './locales/fr/pages/cookie.json';
 import cookieES from './locales/es/pages/cookie.json';
 
-// Import Contact page translations
-import contactEN from './locales/en/pages/contact.json';
-import contactFR from './locales/fr/pages/contact.json';
-import contactES from './locales/es/pages/contact.json';
-
 // Import Privacy Policy page translations
 import privacyEN from './locales/en/pages/privacy.json';
 import privacyFR from './locales/fr/pages/privacy.json';
@@ -81,7 +76,6 @@ const resources = {
     useCases: useCasesEN,
     map: mapEN,
     cookie: cookieEN,
-    contact: contactEN,
     privacy: privacyEN,
     terms: termsEN,
     navigation: navigationEN
@@ -96,7 +90,6 @@ const resources = {
     useCases: useCasesFR,
     map: mapFR,
     cookie: cookieFR,
-    contact: contactFR,
     privacy: privacyFR,
     terms: termsFR,
     navigation: navigationFR
@@ -111,7 +104,6 @@ const resources = {
     useCases: useCasesES,
     map: mapES,
     cookie: cookieES,
-    contact: contactES,
     privacy: privacyES,
     terms: termsES,
     navigation: navigationES
@@ -129,7 +121,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'contact', 'privacy', 'terms', 'navigation'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'privacy', 'terms', 'navigation'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss

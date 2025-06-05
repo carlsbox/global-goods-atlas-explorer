@@ -7,7 +7,6 @@
     "nav.map": "Map",
     "nav.reference": "Reference",
     "nav.about": "About",
-    "nav.contact": "Contact",
     "nav.privacy": "Privacy Policy",
     "nav.terms": "Terms of Service"
   },
@@ -18,7 +17,6 @@
     "nav.map": "Carte",
     "nav.reference": "Référence",
     "nav.about": "À Propos",
-    "nav.contact": "Contact",
     "nav.privacy": "Politique de Confidentialité",
     "nav.terms": "Conditions d'Utilisation"
   },
@@ -29,7 +27,6 @@
     "nav.map": "Mapa",
     "nav.reference": "Referencia",
     "nav.about": "Acerca de",
-    "nav.contact": "Contacto",
     "nav.privacy": "Política de Privacidad",
     "nav.terms": "Términos de Servicio"
   }

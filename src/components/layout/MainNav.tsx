@@ -9,8 +9,7 @@ import {
   Grid3X3,
   FileText,
   Database,
-  Info,
-  Mail
+  Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -25,7 +24,6 @@ const navItems = [
   { name: 'Map', path: '/map', icon: MapPin, translationKey: 'nav.map' },
   { name: 'Reference', path: '/reference', icon: Database, translationKey: 'nav.reference' },
   { name: 'About', path: '/about', icon: Info, translationKey: 'nav.about' },
-  { name: 'Contact', path: '/contact', icon: Mail, translationKey: 'nav.contact' },
 ];
 
 export function MainNav() {
