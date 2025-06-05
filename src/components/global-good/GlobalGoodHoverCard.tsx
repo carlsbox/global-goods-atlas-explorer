@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { ExternalLink, Eye, Building2 } from "lucide-react";
+import { ExternalLink, Eye, Building } from "lucide-react";
 import { useGlobalGoodDetails } from "@/hooks/useGlobalGoodDetails";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 
@@ -55,27 +55,27 @@ export function GlobalGoodHoverCard({
                 <h4 className="font-semibold text-sm leading-tight">
                   {globalGood.Name}
                 </h4>
-                {globalGood.GlobalGoodsType && (
+                {globalGood.GlobalGoodsType && globalGood.GlobalGoodsType.length > 0 && (
                   <Badge variant="secondary" className="text-xs mt-1">
-                    {globalGood.GlobalGoodsType}
+                    {globalGood.GlobalGoodsType[0].title}
                   </Badge>
                 )}
               </div>
             </div>
 
             {/* Description */}
-            {globalGood.Description && (
+            {globalGood.ProductOverview?.Description && (
               <p className="text-xs text-muted-foreground line-clamp-3">
-                {globalGood.Description}
+                {globalGood.ProductOverview.Description}
               </p>
             )}
 
             {/* Key Stats */}
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              {globalGood.Countries && globalGood.Countries.length > 0 && (
+              {globalGood.Reach?.ImplementationCountries && globalGood.Reach.ImplementationCountries.length > 0 && (
                 <div className="flex items-center gap-1">
-                  <Building2 className="h-3 w-3" />
-                  <span>{globalGood.Countries.length} countries</span>
+                  <Building className="h-3 w-3" />
+                  <span>{globalGood.Reach.ImplementationCountries.length} countries</span>
                 </div>
               )}
             </div>
@@ -89,10 +89,10 @@ export function GlobalGoodHoverCard({
                 </Link>
               </Button>
               
-              {globalGood.Website && (
+              {globalGood.Website?.main?.url && (
                 <Button variant="outline" size="sm" asChild className="flex-1 text-xs h-7">
                   <a 
-                    href={globalGood.Website} 
+                    href={globalGood.Website.main.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
