@@ -24,8 +24,19 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card>
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
+          <Card className="lg:col-span-7">
+            <CardHeader>
+              <Skeleton className="h-6 w-32" />
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Skeleton key={i} className="h-20 w-full" />
+              ))}
+            </CardContent>
+          </Card>
+          
+          <Card className="lg:col-span-3">
             <CardHeader>
               <Skeleton className="h-6 w-48" />
             </CardHeader>
@@ -35,17 +46,6 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
                   <Skeleton key={i} className="h-8 w-24 rounded-full" />
                 ))}
               </div>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader>
-              <Skeleton className="h-6 w-32" />
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <Skeleton key={i} className="h-20 w-full" />
-              ))}
             </CardContent>
           </Card>
         </div>
@@ -66,10 +66,36 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
         </p>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Related Global Goods - Badge Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
+        {/* Related Use Cases - 70% width */}
+        {relatedContent.useCases.length > 0 && (
+          <Card className="h-fit lg:col-span-7">
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Lightbulb className="h-5 w-5 mr-2" />
+                Use Cases
+                <span className="ml-2 text-sm font-normal text-muted-foreground">
+                  ({relatedContent.useCases.length})
+                </span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {relatedContent.useCases.map((item, index) => (
+                  <RelatedUseCaseItem
+                    key={item.useCase.id}
+                    useCase={item.useCase}
+                    isDirectlyReferenced={item.isDirectlyReferenced}
+                  />
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Related Global Goods - 30% width */}
         {relatedContent.globalGoods.length > 0 && (
-          <Card className="h-fit">
+          <Card className="h-fit lg:col-span-3">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Link className="h-5 w-5 mr-2" />
@@ -88,32 +114,6 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
                     sharedClassifications={item.sharedClassifications}
                     sharedStandards={item.sharedStandards}
                     relationshipScore={item.relationshipScore}
-                  />
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Related Use Cases */}
-        {relatedContent.useCases.length > 0 && (
-          <Card className="h-fit">
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Lightbulb className="h-5 w-5 mr-2" />
-                Use Cases
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({relatedContent.useCases.length})
-                </span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                {relatedContent.useCases.map((item, index) => (
-                  <RelatedUseCaseItem
-                    key={item.useCase.id}
-                    useCase={item.useCase}
-                    isDirectlyReferenced={item.isDirectlyReferenced}
                   />
                 ))}
               </div>
