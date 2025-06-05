@@ -114,7 +114,7 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
             </div>
           )}
 
-          {/* Standards */}
+          {/* Standards - Updated to work with string array */}
           {useCase.standards && useCase.standards.length > 0 && (
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -122,9 +122,9 @@ export function NewUseCaseCard({ useCase, globalGoods = [], classifications = []
                 <span className="text-sm font-medium">Standards</span>
               </div>
               <div className="flex flex-wrap gap-1">
-                {useCase.standards.slice(0, 2).map((standard, index) => (
+                {useCase.standards.slice(0, 2).map((standardCode, index) => (
                   <Badge key={index} variant="outline" className="text-xs truncate max-w-[100px]">
-                    {standard.name}
+                    {standardCode}
                   </Badge>
                 ))}
                 {useCase.standards.length > 2 && (

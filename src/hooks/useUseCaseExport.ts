@@ -54,10 +54,9 @@ export function useUseCaseExport(useCase: UseCase) {
             id: good.id,
             name: good.name
           })),
-          standards: useCase.standards?.map(standard => ({
-            code: standard.code,
-            name: standard.name,
-            domain: standard.domain
+          // Updated to work with string array - just map the codes
+          standards: useCase.standards?.map(standardCode => ({
+            code: standardCode
           })),
           exported_at: new Date().toISOString()
         };

@@ -137,14 +137,14 @@ export function EnhancedRelatedUseCaseItem({ useCase, isDirectlyReferenced }: En
               </div>
             )}
             
-            {/* Standards */}
+            {/* Standards - Updated to work with string array */}
             {useCase.standards && useCase.standards.length > 0 && (
               <div>
                 <span className="text-sm font-medium mb-2 block">Standards ({useCase.standards.length})</span>
                 <div className="flex flex-wrap gap-1">
-                  {useCase.standards.slice(0, 4).map((standard, index) => (
+                  {useCase.standards.slice(0, 4).map((standardCode, index) => (
                     <Badge key={index} variant="secondary" className="text-xs">
-                      {standard.code}
+                      {standardCode}
                     </Badge>
                   ))}
                   {useCase.standards.length > 4 && (

@@ -1,3 +1,4 @@
+
 import { GlobalGoodFlat } from '@/lib/types/globalGoodFlat';
 import { UseCase } from '@/lib/types/useCase';
 import { LanguageCode } from '@/lib/types';
@@ -115,14 +116,7 @@ export interface CMSUseCase {
   process_steps: { [key in LanguageCode]: string };
   postconditions: { [key in LanguageCode]: string };
   data_requirements: { [key in LanguageCode]: string };
-  standards: Array<{
-    code: string;
-    domain: string;
-    link?: string;
-    name: { [key in LanguageCode]: string };
-    description: { [key in LanguageCode]: string };
-    type: string;
-  }>;
+  standards: string[]; // Updated to match the new format - just array of codes
   technology_components: { [key in LanguageCode]: string };
   global_goods: Array<{
     id: string;
@@ -301,12 +295,7 @@ export function transformCMSUseCaseToApp(
     process_steps: getText(cmsUseCase.process_steps),
     postconditions: getText(cmsUseCase.postconditions),
     data_requirements: getText(cmsUseCase.data_requirements),
-    standards: cmsUseCase.standards.map(standard => ({
-      ...standard,
-      link: standard.link || '',
-      name: getText(standard.name),
-      description: getText(standard.description)
-    })),
+    standards: cmsUseCase.standards, // Updated - just pass through the string array
     technology_components: getText(cmsUseCase.technology_components),
     global_goods: cmsUseCase.global_goods.map(good => ({
       id: good.id,

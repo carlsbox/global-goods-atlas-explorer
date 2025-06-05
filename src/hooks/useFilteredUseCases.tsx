@@ -59,9 +59,9 @@ export function useFilteredUseCases({
           return false;
         }));
       
-      // Standard filter
+      // Standard filter - Updated to work with string array
       const matchesStandard = standardFilter === "all" || 
-        (useCase.standards && useCase.standards.some(standard => standard.code === standardFilter));
+        (useCase.standards && useCase.standards.includes(standardFilter));
         
       return matchesSearch && matchesSdg && matchesWho && matchesWmo && matchesGlobalGood && matchesStandard;
     });

@@ -76,10 +76,10 @@ export function useUseCasesData() {
         });
       }
       
-      // Standards availability
+      // Standards availability - Updated to work with string array
       if (useCase.standards) {
-        useCase.standards.forEach(standard => {
-          if (standard.code) availableStandards.add(standard.code);
+        useCase.standards.forEach(standardCode => {
+          availableStandards.add(standardCode);
         });
       }
     });
