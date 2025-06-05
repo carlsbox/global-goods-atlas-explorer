@@ -1,10 +1,14 @@
 
+import { useState } from "react";
 import { Link, FileText, Lightbulb } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useRelatedContent } from "@/hooks/useRelatedContent";
 import { RelatedGlobalGoodBadge } from "./RelatedGlobalGoodBadge";
 import { RelatedUseCaseItem } from "./RelatedUseCaseItem";
+import { EnhancedRelatedUseCaseItem } from "./EnhancedRelatedUseCaseItem";
+import { BadgeUseCaseItem } from "./BadgeUseCaseItem";
+import { UseCaseDisplayModeSelector, DisplayMode } from "./UseCaseDisplayModeSelector";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface RelatedContentSectionProps {
@@ -13,6 +17,7 @@ interface RelatedContentSectionProps {
 
 export function RelatedContentSection({ globalGood }: RelatedContentSectionProps) {
   const { relatedContent, isLoading } = useRelatedContent(globalGood);
+  const [useCaseDisplayMode, setUseCaseDisplayMode] = useState<DisplayMode>('enhanced');
 
   if (isLoading) {
     return (
@@ -57,6 +62,52 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
     return null;
   }
 
+  const renderUseCaseContent = () => {
+    switch (useCaseDisplayMode) {
+      case 'enhanced':
+        return (
+          <div className="space-y-3">
+            {relatedContent.useCases.map((item) => (
+              <EnhancedRelatedUseCaseItem
+                key={item.useCase.id}
+                useCase={item.useCase}
+                isDirectlyReferenced={item.isDirectlyReferenced}
+              />
+            ))}
+          </div>
+        );
+      
+      case 'badges':
+        return (
+          <div className="flex flex-wrap gap-2">
+            {relatedContent.useCases.map((item) => (
+              <BadgeUseCaseItem
+                key={item.useCase.id}
+                useCase={item.useCase}
+                isDirectlyReferenced={item.isDirectlyReferenced}
+              />
+            ))}
+          </div>
+        );
+      
+      case 'compact':
+        return (
+          <div className="space-y-2">
+            {relatedContent.useCases.map((item) => (
+              <RelatedUseCaseItem
+                key={item.useCase.id}
+                useCase={item.useCase}
+                isDirectlyReferenced={item.isDirectlyReferenced}
+              />
+            ))}
+          </div>
+        );
+      
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -71,24 +122,22 @@ export function RelatedContentSection({ globalGood }: RelatedContentSectionProps
         {relatedContent.useCases.length > 0 && (
           <Card className="h-fit lg:col-span-7">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <Lightbulb className="h-5 w-5 mr-2" />
-                Use Cases
-                <span className="ml-2 text-sm font-normal text-muted-foreground">
-                  ({relatedContent.useCases.length})
-                </span>
-              </CardTitle>
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center">
+                  <Lightbulb className="h-5 w-5 mr-2" />
+                  Use Cases
+                  <span className="ml-2 text-sm font-normal text-muted-foreground">
+                    ({relatedContent.useCases.length})
+                  </span>
+                </CardTitle>
+                <UseCaseDisplayModeSelector 
+                  mode={useCaseDisplayMode}
+                  onModeChange={setUseCaseDisplayMode}
+                />
+              </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                {relatedContent.useCases.map((item, index) => (
-                  <RelatedUseCaseItem
-                    key={item.useCase.id}
-                    useCase={item.useCase}
-                    isDirectlyReferenced={item.isDirectlyReferenced}
-                  />
-                ))}
-              </div>
+              {renderUseCaseContent()}
             </CardContent>
           </Card>
         )}
