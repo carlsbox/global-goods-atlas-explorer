@@ -1,5 +1,5 @@
 
-import { LayoutGrid, List, Timeline } from "lucide-react";
+import { LayoutGrid, List, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -54,7 +54,7 @@ export function UseCaseDisplayModeSelector({ mode, onModeChange }: UseCaseDispla
               onClick={() => onModeChange('compact')}
               className="h-7 w-7 p-0"
             >
-              <Timeline className="h-3 w-3" />
+              <Clock className="h-3 w-3" />
             </Button>
           </TooltipTrigger>
           <TooltipContent>
