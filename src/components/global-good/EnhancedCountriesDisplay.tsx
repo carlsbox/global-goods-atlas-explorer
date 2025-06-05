@@ -34,11 +34,11 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
   // Filter out any undefined/null countries and sort them
   const validCountries = countries.filter(country => country && typeof country === 'object');
   
-  // Sort countries alphabetically by their name, handling different data structures
+  // Sort countries alphabetically by their name, handling the expected data structure
   const sortedCountries = [...validCountries].sort((a, b) => {
-    // Handle the case where country data might have different structures
-    const nameA = a.names?.en?.short || a.short || a.name?.short || a.name?.common || 'Unknown';
-    const nameB = b.names?.en?.short || b.short || b.name?.short || b.name?.common || 'Unknown';
+    // Use only the properties that exist on the expected type
+    const nameA = a.names?.en?.short || 'Unknown';
+    const nameB = b.names?.en?.short || 'Unknown';
     
     return nameA.localeCompare(nameB);
   });
@@ -62,14 +62,9 @@ export function EnhancedCountriesDisplay({ globalGood }: EnhancedCountriesDispla
         <div className="max-h-80 overflow-y-auto">
           <div className="grid grid-cols-1 gap-2">
             {sortedCountries.map((country, index) => {
-              // Get the country name with fallbacks for different data structures
-              const countryName = country.names?.en?.short || 
-                                 country.short || 
-                                 country.name?.short || 
-                                 country.name?.common || 
-                                 'Unknown Country';
-              
-              const isoCode = country.iso_code || country.code || '';
+              // Get the country name using only expected properties
+              const countryName = country.names?.en?.short || 'Unknown Country';
+              const isoCode = country.iso_code || '';
               
               return (
                 <div key={`${isoCode}-${index}`} className="flex items-center p-2 border rounded hover:bg-muted/50 transition-colors">
