@@ -28,7 +28,7 @@ export function StandardBadge({ standard, variant }: StandardBadgeProps) {
         <div>
           <Badge 
             variant="outline"
-            className={`cursor-pointer transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
+            className={`cursor-help transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
           >
             {standard.code}
           </Badge>
