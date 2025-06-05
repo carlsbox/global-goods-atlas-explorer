@@ -2,7 +2,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useUseCases, useGlobalGoods } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
-import { loadClassificationsData, loadStandardsData, loadSDGData } from "@/lib/loaders";
+import { useLazyReferenceData } from "@/hooks/useLazyReferenceData";
 
 interface AvailableFilterOptions {
   sdgs: Set<string>;
@@ -17,47 +17,13 @@ export function useUseCasesData() {
   const { data: globalGoods = [], isLoading: globalGoodsLoading } = useGlobalGoods();
   const { language } = useI18n();
   
-  const [classifications, setClassifications] = useState<any[]>([]);
-  const [standards, setStandards] = useState<any[]>([]);
-  const [sdgData, setSdgData] = useState<any[]>([]);
-  
-  // Load classifications, standards, and SDG data
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const [classificationsData, standardsData, sdgDataLoaded] = await Promise.all([
-          loadClassificationsData(language),
-          loadStandardsData(),
-          loadSDGData(language)
-        ]);
-        setClassifications(classificationsData || []);
-        
-        // Handle standards data which might be an object or array
-        if (Array.isArray(standardsData)) {
-          setStandards(standardsData);
-        } else if (standardsData && typeof standardsData === 'object') {
-          // Convert object to array
-          setStandards(Object.values(standardsData));
-        } else {
-          setStandards([]);
-        }
-        
-        setSdgData(sdgDataLoaded || []);
-        
-        // Debug logging
-        console.log('Loaded data:', {
-          classifications: classificationsData?.length || 0,
-          standards: Array.isArray(standardsData) ? standardsData.length : Object.keys(standardsData || {}).length,
-          sdgs: sdgDataLoaded?.length || 0,
-          useCases: useCases.length,
-          globalGoods: globalGoods.length
-        });
-      } catch (error) {
-        console.error('Failed to load additional data:', error);
-      }
-    };
-    loadData();
-  }, [language, useCases.length, globalGoods.length]);
+  // Use lazy loading for reference data
+  const {
+    classifications = [],
+    standards = [],
+    sdgs = [],
+    loading: referenceDataLoading
+  } = useLazyReferenceData(['classifications', 'standards']);
 
   // Calculate which filter options have associated use cases
   const availableFilterOptions: AvailableFilterOptions = useMemo(() => {
@@ -139,9 +105,9 @@ export function useUseCasesData() {
     useCases,
     globalGoods,
     classifications,
-    standards,
-    sdgData,
+    standards: Array.isArray(standards) ? standards : Object.values(standards || {}),
+    sdgData: sdgs,
     availableFilterOptions,
-    isLoading: useCasesLoading || globalGoodsLoading
+    isLoading: useCasesLoading || globalGoodsLoading || referenceDataLoading
   };
 }
