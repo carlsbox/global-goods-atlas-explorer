@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Globe, FileText, MapPin, Users, TrendingUp, Award, CheckCircle, Search, Play } from "lucide-react";
+import { ArrowRight, Globe, FileText, MapPin, Users, TrendingDown, Award as AwardIcon, CheckCircle2, Search, Play } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -81,25 +80,25 @@ export default function HomePage() {
     { 
       title: "Health Systems", 
       icon: "🏥", 
-      count: globalGoods?.filter(g => g.PrimarySectorType?.some(s => s.title?.toLowerCase().includes('health')))?.length || 0,
+      count: globalGoods?.filter(g => g.GlobalGoodsType?.some(s => s.title?.toLowerCase().includes('health')))?.length || 0,
       color: "bg-red-50 border-red-200 hover:bg-red-100"
     },
     { 
       title: "Climate & Environment", 
       icon: "🌍", 
-      count: globalGoods?.filter(g => g.PrimarySectorType?.some(s => s.title?.toLowerCase().includes('climate')))?.length || 0,
+      count: globalGoods?.filter(g => g.GlobalGoodsType?.some(s => s.title?.toLowerCase().includes('climate')))?.length || 0,
       color: "bg-green-50 border-green-200 hover:bg-green-100"
     },
     { 
       title: "Education", 
       icon: "📚", 
-      count: globalGoods?.filter(g => g.PrimarySectorType?.some(s => s.title?.toLowerCase().includes('education')))?.length || 0,
+      count: globalGoods?.filter(g => g.GlobalGoodsType?.some(s => s.title?.toLowerCase().includes('education')))?.length || 0,
       color: "bg-blue-50 border-blue-200 hover:bg-blue-100"
     },
     { 
       title: "Agriculture", 
       icon: "🌾", 
-      count: globalGoods?.filter(g => g.PrimarySectorType?.some(s => s.title?.toLowerCase().includes('agriculture')))?.length || 0,
+      count: globalGoods?.filter(g => g.GlobalGoodsType?.some(s => s.title?.toLowerCase().includes('agriculture')))?.length || 0,
       color: "bg-yellow-50 border-yellow-200 hover:bg-yellow-100"
     }
   ];
@@ -114,13 +113,13 @@ export default function HomePage() {
     {
       title: "Climate Resilience",
       description: "Weather monitoring systems helping farmers adapt to climate change",
-      icon: TrendingUp,
+      icon: TrendingDown,
       color: "text-green-600"
     },
     {
       title: "Education Access",
       description: "Open educational platforms serving underserved communities",
-      icon: Award,
+      icon: AwardIcon,
       color: "text-purple-600"
     }
   ];
@@ -134,11 +133,11 @@ export default function HomePage() {
             {/* Trust badges */}
             <div className="flex justify-center items-center gap-4 mb-6 text-sm text-muted-foreground">
               <Badge variant="outline" className="bg-white/50">
-                <CheckCircle className="h-3 w-3 mr-1" />
+                <CheckCircle2 className="h-3 w-3 mr-1" />
                 Open Source Verified
               </Badge>
               <Badge variant="outline" className="bg-white/50">
-                <Award className="h-3 w-3 mr-1" />
+                <AwardIcon className="h-3 w-3 mr-1" />
                 WHO Endorsed
               </Badge>
               <Badge variant="outline" className="bg-white/50">
