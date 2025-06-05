@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
@@ -17,6 +16,7 @@ import { GlobalReachSection } from "@/components/global-good/GlobalReachSection"
 import { ResourcesSection } from "@/components/global-good/ResourcesSection";
 import { MaturitySection } from "@/components/global-good/MaturitySection";
 import { SustainabilityEconomicsSection } from "@/components/global-good/SustainabilityEconomicsSection";
+import { RelatedContentSection } from "@/components/global-good/RelatedContentSection";
 
 import { useI18n } from "@/hooks/useI18n";
 import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
@@ -121,6 +121,11 @@ export default function GlobalGoodDetailsPageFlat() {
             
             {/* Sustainability & Economics Section */}
             <SustainabilityEconomicsSection globalGood={detailedData} />
+            
+            <Separator />
+            
+            {/* Related Content Section */}
+            <RelatedContentSection globalGood={detailedData} />
           </>
         )}
       </div>
