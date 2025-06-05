@@ -251,10 +251,6 @@
       {
         "collectionInitiative": "dpga",
         "tool_url": "https://digitalpublicgoods.net/registry/meditrack.html"
-      },
-      {
-        "collectionInitiative": "open-data-institute",
-        "tool_url": "https://opendata.org/registry/meditrack.html"
       }
     ]
   }

@@ -2,22 +2,15 @@
   {
     "id": "dpga",
     "label": "Digital Public Goods Alliance",
-    "logo_url": "https://digitalpublicgoods.net/assets/img/logo.svg",
+    "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
     "site_url": "https://digitalpublicgoods.net/",
     "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
   },
   {
     "id": "dial-exchange",
     "label": "DIAL Exchange",
-    "logo_url": "https://exchange.dial.global/static/media/logo.2c7e2e2b.svg",
+    "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
     "site_url": "https://exchange.dial.global/",
     "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
-  },
-  {
-    "id": "open-data-institute",
-    "label": "Open Data Institute",
-    "logo_url": "https://opendata.org/wp-content/uploads/2021/03/odi-logo.svg",
-    "site_url": "https://opendata.org/",
-    "description": "The Open Data Institute works with companies and governments to build an open, trustworthy data ecosystem."
   }
 ]
