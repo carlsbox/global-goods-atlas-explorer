@@ -14,6 +14,7 @@ import { GlobalGoodCompactCard } from "@/components/global-good/GlobalGoodCompac
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { StandardsBadgeCloud } from "@/components/global-good/StandardsBadgeCloud";
 import { useStandardsResolver } from "@/hooks/useStandardsResolver";
+import { RelatedUseCasesSection } from "@/components/use-cases/RelatedUseCasesSection";
 
 export default function UseCaseDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -508,6 +509,9 @@ export default function UseCaseDetailsPage() {
           </div>
         </div>
       </div>
+
+      {/* Related Use Cases Section - Added before Resources & Contacts */}
+      <RelatedUseCasesSection currentUseCase={useCase} />
 
       {/* Resources & Contacts Footer */}
       {(useCase.resources || useCase.contacts) && (
