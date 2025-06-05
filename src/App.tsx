@@ -1,5 +1,6 @@
 
-import { BrowserRouter as Router, Routes, Route, Suspense } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,7 +8,6 @@ import { ReferenceDataProvider } from "@/contexts/ReferenceDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // Lazy load all pages for better performance
-import { lazy } from "react";
 const HomePage = lazy(() => import("@/pages/HomePage"));
 const GlobalGoodsPageFlat = lazy(() => import("@/pages/GlobalGoodsPageFlat"));
 const GlobalGoodDetailsPageFlat = lazy(() => import("@/pages/GlobalGoodDetailsPageFlat"));
