@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Code, Users, CheckCircle2, ExternalLink, Mail } from "lucide-react";
+import { Heart, Code, Users, ExternalLink, Mail } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 
 export default function AboutPage() {
@@ -96,7 +95,6 @@ export default function AboutPage() {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <div className="h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle2 className="h-6 w-6 text-purple-600" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.content.title', 'about')}</h3>
                     <p className="text-muted-foreground">
