@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { useUseCases } from "@/lib/api";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -11,6 +10,8 @@ import { Link } from "react-router-dom";
 import { ClassificationBadge } from "@/components/ClassificationBadge";
 import { ExportButton } from "@/components/ExportButton";
 import ReactMarkdown from "react-markdown";
+import { GlobalGoodHoverCard } from "@/components/global-good/GlobalGoodHoverCard";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default function UseCaseDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -256,29 +257,31 @@ export default function UseCaseDetailsPage() {
               </CardHeader>
               <CardContent className="space-y-6">
                 
-                {/* Associated Global Goods - Compact badges */}
+                {/* Associated Global Goods - Enhanced with hover cards */}
                 {useCase.global_goods && useCase.global_goods.length > 0 && (
                   <div>
                     <h4 className="font-medium text-green-600 mb-3 flex items-center">
                       <Globe className="mr-2 h-4 w-4" />
                       Associated Global Goods
                     </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {useCase.global_goods.map((good, index) => (
-                        <Link 
-                          key={index} 
-                          to={good.url}
-                          className="inline-block"
-                        >
-                          <Badge 
-                            variant="outline" 
-                            className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
+                    <TooltipProvider>
+                      <div className="flex flex-wrap gap-2">
+                        {useCase.global_goods.map((good, index) => (
+                          <GlobalGoodHoverCard
+                            key={index}
+                            globalGoodId={good.id}
+                            globalGoodName={good.name}
                           >
-                            {good.name}
-                          </Badge>
-                        </Link>
-                      ))}
-                    </div>
+                            <Badge 
+                              variant="outline" 
+                              className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
+                            >
+                              {good.name}
+                            </Badge>
+                          </GlobalGoodHoverCard>
+                        ))}
+                      </div>
+                    </TooltipProvider>
                   </div>
                 )}
 
