@@ -104,6 +104,46 @@
     "name": "SNOMED",
     "description": "Systematized Nomenclature of Medicine Clinical Terms, a comprehensive clinical terminology for electronic health records."
   },
+  "DICOM": {
+    "code": "DICOM",
+    "domain": "Health",
+    "link": "https://www.dicomstandard.org/",
+    "type": "medical_imaging",
+    "name": "DICOM",
+    "description": "Digital Imaging and Communications in Medicine, the international standard for medical images and related information."
+  },
+  "ODK": {
+    "code": "ODK",
+    "domain": "Data Collection",
+    "link": "https://opendatakit.org/",
+    "type": "mobile_data",
+    "name": "Open Data Kit",
+    "description": "Open source mobile data collection platform for building forms and collecting data in the field."
+  },
+  "OpenHIE": {
+    "code": "OpenHIE",
+    "domain": "Health",
+    "link": "https://ohie.org/",
+    "type": "architecture",
+    "name": "Open Health Information Exchange",
+    "description": "Open architecture framework for health information exchange in resource-constrained settings."
+  },
+  "CAP": {
+    "code": "CAP",
+    "domain": "Emergency",
+    "link": "https://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2.html",
+    "type": "alerting",
+    "name": "Common Alerting Protocol",
+    "description": "Standard format for emergency alerts and public warnings across different communication systems."
+  },
+  "EDXL": {
+    "code": "EDXL",
+    "domain": "Emergency",
+    "link": "https://docs.oasis-open.org/emergency/edxl-de/v1.0/EDXL-DE-v1.0.html",
+    "type": "data_exchange",
+    "name": "Emergency Data Exchange Language",
+    "description": "Standard for sharing emergency management information between organizations and systems."
+  },
   "REST": {
     "code": "REST",
     "domain": "Interoperability",

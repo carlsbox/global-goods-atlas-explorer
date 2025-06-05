@@ -12,12 +12,17 @@ import { ExportButton } from "@/components/ExportButton";
 import ReactMarkdown from "react-markdown";
 import { GlobalGoodCompactCard } from "@/components/global-good/GlobalGoodCompactCard";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { StandardsBadgeCloud } from "@/components/global-good/StandardsBadgeCloud";
+import { useStandardsResolver } from "@/hooks/useStandardsResolver";
 
 export default function UseCaseDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const { data: useCases = [], isLoading } = useUseCases();
   
   const useCase = useCases.find(uc => uc.id === id);
+
+  // Resolve standards from reference data
+  const { groupedStandards, loading: standardsLoading } = useStandardsResolver(useCase?.standards || []);
 
   if (isLoading) {
     return (
@@ -273,49 +278,57 @@ export default function UseCaseDetailsPage() {
                   </div>
                 )}
                 
-                {/* Standards & Interoperability */}
-                {useCase.standards && useCase.standards.length > 0 && (
+                {/* Standards & Interoperability - Enhanced with StandardsBadgeCloud */}
+                {useCase.standards && useCase.standards.length > 0 && !standardsLoading && (
                   <div>
                     <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {useCase.standards.map((standard, index) => (
-                        <Dialog key={index}>
-                          <DialogTrigger asChild>
-                            <Badge 
-                              variant="outline" 
-                              className="border-green-300 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors"
-                            >
-                              {standard.name}
-                            </Badge>
-                          </DialogTrigger>
-                          <DialogContent className="max-w-md">
-                            <DialogHeader>
-                              <DialogTitle className="flex items-center justify-between">
-                                {standard.name}
-                                <Badge variant="outline" className="ml-2">
-                                  {standard.domain}
-                                </Badge>
-                              </DialogTitle>
-                            </DialogHeader>
-                            <div className="space-y-4">
-                              <p className="text-sm text-muted-foreground">
-                                {standard.description}
-                              </p>
-                              {standard.link && (
-                                <a 
-                                  href={standard.link} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center text-sm text-primary hover:underline"
-                                >
-                                  <LinkIcon className="h-3 w-3 mr-1" />
-                                  Learn more
-                                </a>
-                              )}
-                            </div>
-                          </DialogContent>
-                        </Dialog>
-                      ))}
+                    <div className="space-y-4">
+                      <TooltipProvider>
+                        {groupedStandards.health.length > 0 && (
+                          <StandardsBadgeCloud
+                            standards={groupedStandards.health}
+                            variant="health"
+                            title="Health Standards"
+                            maxVisible={6}
+                          />
+                        )}
+                        
+                        {groupedStandards.interoperability.length > 0 && (
+                          <StandardsBadgeCloud
+                            standards={groupedStandards.interoperability}
+                            variant="interoperability"
+                            title="Interoperability Standards"
+                            maxVisible={6}
+                          />
+                        )}
+                        
+                        {groupedStandards.climate.length > 0 && (
+                          <StandardsBadgeCloud
+                            standards={groupedStandards.climate}
+                            variant="climate"
+                            title="Climate Standards"
+                            maxVisible={6}
+                          />
+                        )}
+                        
+                        {groupedStandards.dataCollection.length > 0 && (
+                          <StandardsBadgeCloud
+                            standards={groupedStandards.dataCollection}
+                            variant="interoperability"
+                            title="Data Collection Standards"
+                            maxVisible={6}
+                          />
+                        )}
+                        
+                        {groupedStandards.emergency.length > 0 && (
+                          <StandardsBadgeCloud
+                            standards={groupedStandards.emergency}
+                            variant="health"
+                            title="Emergency Standards"
+                            maxVisible={6}
+                          />
+                        )}
+                      </TooltipProvider>
                     </div>
                   </div>
                 )}

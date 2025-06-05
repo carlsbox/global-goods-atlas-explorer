@@ -16,20 +16,8 @@
     "postconditions": "**Enhanced Community Health Services:**\n- Improved quality and consistency of care delivered by CHWs\n- Increased reach and coverage of primary healthcare services\n- Better integration between community and facility-based care\n- Enhanced data collection and reporting from community level\n\n**Strengthened Health System:**\n- Real-time visibility into community health status and trends\n- Evidence-based program planning and resource allocation\n- Improved CHW performance monitoring and support\n- Enhanced community engagement and health literacy",
     "data_requirements": "**Patient and Community Data:**\n- Individual patient records and health histories\n- Household surveys and demographic information\n- Disease surveillance and outbreak reporting\n- Health behavior and risk factor data\n\n**Program Management Data:**\n- CHW activity reports and service delivery statistics\n- Training records and competency assessments\n- Supply inventory and equipment status\n- Performance indicators and outcome measures",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Health",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "For community health data exchange and interoperability"
-      },
-      {
-        "code": "ODK",
-        "domain": "Data Collection",
-        "link": "https://opendatakit.org/",
-        "name": "Open Data Kit",
-        "description": "For mobile data collection and survey management"
-      }
+      "HL7 FHIR",
+      "ODK"
     ],
     "technology_components": "**Mobile Platform:**\n- Android-based mobile applications with offline capabilities\n- Clinical decision support algorithms and treatment protocols\n- Electronic forms for data collection and patient registration\n- Multimedia content for health education and training\n\n**Backend Systems:**\n- **OpenMRS** for patient data management and clinical workflows\n- **DHIS2** for aggregate reporting and program monitoring\n- Cloud-based data synchronization and backup systems\n- SMS and USSD integration for areas with limited internet connectivity",
     "global_goods": [
@@ -63,13 +51,7 @@
     "postconditions": "**Services de Santé Communautaire Améliorés :**\n- Qualité améliorée des soins délivrés\n- Portée accrue des services de soins primaires\n- Meilleure intégration entre soins communautaires et hospitaliers\n- Collecte de données améliorée",
     "data_requirements": "**Données Patients et Communautaires :**\n- Dossiers patients individuels\n- Enquêtes ménages et informations démographiques\n- Surveillance des maladies\n- Données comportementales de santé",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Santé",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Pour échange de données de santé communautaire"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plateforme Mobile :**\n- Applications mobiles Android avec capacités hors ligne\n- Algorithmes de soutien à la décision clinique\n- Formulaires électroniques pour collecte de données",
     "global_goods": [
@@ -103,13 +85,7 @@
     "postconditions": "**Servicios de Salud Comunitaria Mejorados:**\n- Calidad mejorada de atención brindada\n- Alcance aumentado de servicios de atención primaria\n- Mejor integración entre atención comunitaria y hospitalaria\n- Recolección de datos mejorada",
     "data_requirements": "**Datos de Pacientes y Comunitarios:**\n- Registros individuales de pacientes\n- Encuestas domiciliarias e información demográfica\n- Vigilancia de enfermedades\n- Datos de comportamiento de salud",
     "standards": [
-      {
-        "code": "HL7 FHIR",
-        "domain": "Salud",
-        "link": "https://www.hl7.org/fhir/",
-        "name": "HL7 FHIR",
-        "description": "Para intercambio de datos de salud comunitaria"
-      }
+      "HL7 FHIR"
     ],
     "technology_components": "**Plataforma Móvil:**\n- Aplicaciones móviles Android con capacidades sin conexión\n- Algoritmos de apoyo a decisiones clínicas\n- Formularios electrónicos para recolección de datos",
     "global_goods": [

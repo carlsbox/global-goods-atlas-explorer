@@ -14,18 +14,7 @@ export interface UseCase {
   process_steps: string; // markdown supported
   postconditions: string; // markdown supported
   data_requirements: string; // markdown supported
-  standards: Array<{
-    code: string;
-    domain: string;
-    link: string;
-    name: string;
-    description: string;
-    name_fr?: string;
-    description_fr?: string;
-    name_es?: string;
-    description_es?: string;
-    type: string;
-  }>;
+  standards: string[]; // Now simplified to just array of standard codes
   technology_components: string; // markdown supported
   global_goods: Array<{
     id: string;
