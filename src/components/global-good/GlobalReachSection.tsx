@@ -4,6 +4,7 @@ import { HeroStats } from "@/components/global-good/HeroStats";
 import { InteractiveMapCard } from "@/components/global-good/InteractiveMapCard";
 import { EnhancedCountriesDisplay } from "@/components/global-good/EnhancedCountriesDisplay";
 import { ImplementationContext } from "@/components/global-good/ImplementationContext";
+import { WorldMap } from "@/components/global-good/WorldMap";
 
 interface GlobalReachSectionProps {
   globalGood: GlobalGoodFlat;
@@ -22,7 +23,7 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
     <div>
       <h2 className="text-2xl font-bold mb-6">Global Reach</h2>
       
-      {/* Implementation Context moved here */}
+      {/* Implementation Context */}
       <div className="mb-6">
         <ImplementationContext globalGood={globalGood} />
       </div>
@@ -30,7 +31,12 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
       {/* Hero Stats Row */}
       <HeroStats globalGood={globalGood} />
       
-      {/* Map & Countries Grid - Dynamic layout based on external map availability */}
+      {/* World Map - Always show the local interactive map */}
+      <div className="mb-6">
+        <WorldMap globalGood={globalGood} />
+      </div>
+      
+      {/* External Map and Countries - Dynamic layout based on external map availability */}
       {showExternalMap ? (
         // 2/3 + 1/3 split when external map exists
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
