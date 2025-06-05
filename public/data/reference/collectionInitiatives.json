@@ -1,31 +1,23 @@
-
 [
   {
-    "id": "digital-health-atlas",
-    "label": "Digital Health Atlas",
-    "logo_url": "https://digitalhealthatlas.org/static/img/logos/dha-logo.png",
-    "site_url": "https://digitalhealthatlas.org/",
-    "description": "Global repository of digital health implementations"
+    "id": "dpga",
+    "label": "Digital Public Goods Alliance",
+    "logo_url": "https://digitalpublicgoods.net/assets/img/logo.svg",
+    "site_url": "https://digitalpublicgoods.net/",
+    "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
   },
   {
-    "id": "who-digital-health",
-    "label": "WHO Digital Health",
-    "logo_url": "https://www.who.int/images/default-source/logo.png",
-    "site_url": "https://www.who.int/teams/digital-health-and-innovation",
-    "description": "World Health Organization digital health initiatives"
+    "id": "dial-exchange",
+    "label": "DIAL Exchange",
+    "logo_url": "https://exchange.dial.global/static/media/logo.2c7e2e2b.svg",
+    "site_url": "https://exchange.dial.global/",
+    "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
   },
   {
-    "id": "path-digital-square",
-    "label": "PATH Digital Square",
-    "logo_url": "https://digitalsquare.org/sites/default/files/logo.png",
-    "site_url": "https://digitalsquare.org/",
-    "description": "Advancing digital health solutions for global health impact"
-  },
-  {
-    "id": "usaid-global-health",
-    "label": "USAID Global Health",
-    "logo_url": "https://www.usaid.gov/sites/default/files/images/USAID-Identity-Logo-Rectangle-Color.png",
-    "site_url": "https://www.usaid.gov/global-health",
-    "description": "United States Agency for International Development global health programs"
+    "id": "open-data-institute",
+    "label": "Open Data Institute",
+    "logo_url": "https://opendata.org/wp-content/uploads/2021/03/odi-logo.svg",
+    "site_url": "https://opendata.org/",
+    "description": "The Open Data Institute works with companies and governments to build an open, trustworthy data ecosystem."
   }
 ]
