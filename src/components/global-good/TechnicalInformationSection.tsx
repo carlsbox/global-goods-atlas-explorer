@@ -7,6 +7,7 @@ import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { EnhancedClassificationBadge } from "@/components/EnhancedClassificationBadge";
 import { GroupedClassifications } from "@/components/global-good/GroupedClassifications";
 import { SDGClassificationCard } from "@/components/global-good/SDGClassificationCard";
+import { StandardsBadgeCloud } from "@/components/global-good/StandardsBadgeCloud";
 import { useReferenceData } from "@/hooks/useReferenceData";
 import { useEffect, useState } from "react";
 
@@ -155,99 +156,27 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
                 Standards & Interoperability
               </h3>
               
-              {/* Health Standards */}
-              {globalGood.StandardsAndInteroperability?.HealthStandards && globalGood.StandardsAndInteroperability.HealthStandards.length > 0 && (
-                <div>
-                  <h4 className="text-lg font-medium mb-3 flex items-center">
-                    <FileText className="h-4 w-4 mr-2" />
-                    Health Standards
-                  </h4>
-                  <div className="grid grid-cols-1 gap-4">
-                    {globalGood.StandardsAndInteroperability.HealthStandards.map((standard, index) => (
-                      <Card key={index} className="hover:shadow-md transition-shadow">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h5 className="font-medium">{standard.name}</h5>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                  <ExternalLink className="h-3 w-3" />
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent>
-                                <DialogHeader>
-                                  <DialogTitle>{standard.name}</DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-3">
-                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                  <div className="space-y-2">
-                                    <p><strong>Code:</strong> {standard.code}</p>
-                                    <p><strong>Domain:</strong> {standard.domain}</p>
-                                    <Button asChild className="w-full">
-                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                      </a>
-                                    </Button>
-                                  </div>
-                                </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                          <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {/* Interoperability Standards */}
-              {globalGood.StandardsAndInteroperability?.Interoperability && globalGood.StandardsAndInteroperability.Interoperability.length > 0 && (
-                <div>
-                  <h4 className="text-lg font-medium mb-3 flex items-center">
-                    <LinkIcon className="h-4 w-4 mr-2" />
-                    Interoperability Standards
-                  </h4>
-                  <div className="grid grid-cols-1 gap-4">
-                    {globalGood.StandardsAndInteroperability.Interoperability.map((standard, index) => (
-                      <Card key={index} className="hover:shadow-md transition-shadow">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h5 className="font-medium">{standard.name}</h5>
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                  <ExternalLink className="h-3 w-3" />
-                                </Button>
-                              </DialogTrigger>
-                              <DialogContent>
-                                <DialogHeader>
-                                  <DialogTitle>{standard.name}</DialogTitle>
-                                </DialogHeader>
-                                <div className="space-y-3">
-                                  <p className="text-sm text-muted-foreground">{standard.description}</p>
-                                  <div className="space-y-2">
-                                    <p><strong>Code:</strong> {standard.code}</p>
-                                    <p><strong>Type:</strong> {standard.type}</p>
-                                    <Button asChild className="w-full">
-                                      <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                        Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                      </a>
-                                    </Button>
-                                  </div>
-                                </div>
-                              </DialogContent>
-                            </Dialog>
-                          </div>
-                          <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                          <Badge variant="secondary" className="text-xs">{standard.type}</Badge>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div className="space-y-6">
+                {/* Health Standards - Badge Cloud */}
+                {globalGood.StandardsAndInteroperability?.HealthStandards && (
+                  <StandardsBadgeCloud
+                    standards={globalGood.StandardsAndInteroperability.HealthStandards}
+                    variant="health"
+                    title="Health Standards"
+                    maxVisible={10}
+                  />
+                )}
+                
+                {/* Interoperability Standards - Badge Cloud */}
+                {globalGood.StandardsAndInteroperability?.Interoperability && (
+                  <StandardsBadgeCloud
+                    standards={globalGood.StandardsAndInteroperability.Interoperability}
+                    variant="interoperability"
+                    title="Interoperability Standards"
+                    maxVisible={10}
+                  />
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -315,50 +244,19 @@ export function TechnicalInformationSection({ globalGood }: TechnicalInformation
             </div>
           )}
           
-          {/* Climate Standards */}
+          {/* Climate Standards - Badge Cloud */}
           {globalGood.StandardsAndInteroperability?.ClimateStandards && globalGood.StandardsAndInteroperability.ClimateStandards.length > 0 && (
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 flex items-center">
                 <Shield className="h-5 w-5 mr-2 text-primary" />
                 Climate Standards
               </h3>
-              <div className="grid grid-cols-1 gap-4">
-                {globalGood.StandardsAndInteroperability.ClimateStandards.map((standard, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-4">
-                      <div className="flex items-start justify-between mb-2">
-                        <h5 className="font-medium">{standard.name}</h5>
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <Button variant="ghost" size="sm">
-                              <ExternalLink className="h-3 w-3" />
-                            </Button>
-                          </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader>
-                              <DialogTitle>{standard.name}</DialogTitle>
-                            </DialogHeader>
-                            <div className="space-y-3">
-                              <p className="text-sm text-muted-foreground">{standard.description}</p>
-                              <div className="space-y-2">
-                                <p><strong>Code:</strong> {standard.code}</p>
-                                <p><strong>Domain:</strong> {standard.domain}</p>
-                                <Button asChild className="w-full">
-                                  <a href={standard.link} target="_blank" rel="noopener noreferrer">
-                                    Visit Standard <ExternalLink className="ml-2 h-4 w-4" />
-                                  </a>
-                                </Button>
-                              </div>
-                            </div>
-                          </DialogContent>
-                        </Dialog>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-2">{standard.description}</p>
-                      <Badge variant="secondary" className="text-xs">{standard.domain}</Badge>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              <StandardsBadgeCloud
+                standards={globalGood.StandardsAndInteroperability.ClimateStandards}
+                variant="climate"
+                title=""
+                maxVisible={8}
+              />
             </div>
           )}
 
