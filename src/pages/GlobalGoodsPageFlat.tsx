@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+
+import { useState, useMemo, Suspense } from "react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { EnhancedFilterBar } from "@/components/global-goods/EnhancedFilterBar";
@@ -8,8 +9,61 @@ import { NoResults } from "@/components/global-goods/NoResults";
 import { useI18n } from "@/hooks/useI18n";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function GlobalGoodsPageFlat() {
+// Skeleton for the catalog grid
+function CatalogSkeleton({ viewMode }: { viewMode: 'grid' | 'list' }) {
+  if (viewMode === 'grid') {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="bg-card border rounded-lg p-6">
+            <div className="flex items-center mb-4">
+              <Skeleton className="h-10 w-10 rounded mr-3" />
+              <Skeleton className="h-5 w-32" />
+            </div>
+            <div className="space-y-2 mb-4">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-4 w-1/2" />
+            </div>
+            <div className="flex gap-1 mb-4">
+              <Skeleton className="h-6 w-16 rounded-full" />
+              <Skeleton className="h-6 w-20 rounded-full" />
+            </div>
+            <Skeleton className="h-4 w-24" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="bg-card border rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 flex-1">
+              <Skeleton className="h-8 w-8 rounded" />
+              <div className="space-y-1 flex-1">
+                <Skeleton className="h-5 w-48" />
+                <Skeleton className="h-4 w-96" />
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Skeleton className="h-4 w-8" />
+              <Skeleton className="h-6 w-16 rounded-full" />
+              <Skeleton className="h-4 w-4" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Main catalog content component
+function CatalogContent() {
   const { data: globalGoods = [], isLoading, error, refetch } = useGlobalGoodsFlat();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -24,15 +78,26 @@ export default function GlobalGoodsPageFlat() {
   const [selectedInteropStandards, setSelectedInteropStandards] = useState<string[]>([]);
   const { tPage } = useI18n();
   
-  // Extract unique sectors for filter
-  const sectors = Array.from(
-    new Set(globalGoods.flatMap(good => 
-      good.GlobalGoodsType?.map(type => type.title) || []
-    ))
-  ).sort();
+  // Extract unique sectors for filter - defer calculation until data is loaded
+  const sectors = useMemo(() => {
+    if (!globalGoods.length) return [];
+    return Array.from(
+      new Set(globalGoods.flatMap(good => 
+        good.GlobalGoodsType?.map(type => type.title) || []
+      ))
+    ).sort();
+  }, [globalGoods]);
 
-  // Extract available filter options from the data
+  // Extract available filter options from the data - defer calculation
   const availableFilterOptions = useMemo(() => {
+    if (!globalGoods.length) {
+      return {
+        classifications: { who: [], dpi: [], wmo: [], sdgs: [] },
+        standards: { health: [], interop: [] },
+        countries: []
+      };
+    }
+
     const whoClassifications = new Map<string, string>();
     const dpiClassifications = new Map<string, string>();
     const wmoClassifications = new Map<string, string>();
@@ -62,17 +127,17 @@ export default function GlobalGoodsPageFlat() {
         wmoClassifications.set(classification.code, classification.title);
       });
 
-      // Extract health standards - Fixed property name
+      // Extract health standards
       good.StandardsAndInteroperability?.HealthStandards?.forEach(standard => {
         healthStandards.add(standard.code);
       });
 
-      // Extract interoperability standards - Fixed property name
+      // Extract interoperability standards
       good.StandardsAndInteroperability?.Interoperability?.forEach(standard => {
         interopStandards.add(standard.code);
       });
 
-      // Extract implementation countries - Fixed property access
+      // Extract implementation countries
       good.Reach?.ImplementationCountries?.forEach(country => {
         countries.add(country.names.en.short);
       });
@@ -93,8 +158,10 @@ export default function GlobalGoodsPageFlat() {
     };
   }, [globalGoods]);
   
-  // Filter and sort global goods
+  // Filter and sort global goods - only process when filters change
   const filteredAndSortedGoods = useMemo(() => {
+    if (!globalGoods.length) return [];
+
     let filtered = globalGoods.filter(good => {
       const matchesSearch = searchTerm === "" || 
         good.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -121,7 +188,6 @@ export default function GlobalGoodsPageFlat() {
       const matchesWMO = selectedWMOClassifications.length === 0 ||
         selectedWMOClassifications.some(classification => goodWMOClassifications.includes(classification));
 
-      // Fixed property names for standards
       const goodHealthStandards = good.StandardsAndInteroperability?.HealthStandards?.map(s => s.code) || [];
       const matchesHealthStandards = selectedHealthStandards.length === 0 ||
         selectedHealthStandards.some(standard => goodHealthStandards.includes(standard));
@@ -130,7 +196,6 @@ export default function GlobalGoodsPageFlat() {
       const matchesInteropStandards = selectedInteropStandards.length === 0 ||
         selectedInteropStandards.some(standard => goodInteropStandards.includes(standard));
 
-      // Fixed property access for countries
       const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.names.en.short) || [];
       const matchesCountries = selectedCountries.length === 0 ||
         selectedCountries.some(country => goodCountries.includes(country));
@@ -185,19 +250,98 @@ export default function GlobalGoodsPageFlat() {
     setSelectedInteropStandards([]);
   };
 
-  if (isLoading) {
-    return <LoadingState message={tPage('loadingCatalog', 'globalGoods')} />;
-  }
-
   if (error) {
     return <ErrorState onRetry={() => refetch()} />;
   }
 
   return (
+    <>
+      {/* Enhanced Filter Section */}
+      <div className="sticky top-4 z-10 mb-8">
+        <EnhancedFilterBar 
+          sectors={sectors}
+          searchTerm={searchTerm}
+          sectorFilter={sectorFilter}
+          sortBy={sortBy}
+          viewMode={viewMode}
+          selectedSDGs={selectedSDGs}
+          selectedCountries={selectedCountries}
+          selectedWHOClassifications={selectedWHOClassifications}
+          selectedDPIClassifications={selectedDPIClassifications}
+          selectedWMOClassifications={selectedWMOClassifications}
+          selectedHealthStandards={selectedHealthStandards}
+          selectedInteropStandards={selectedInteropStandards}
+          setSearchTerm={setSearchTerm}
+          setSectorFilter={setSectorFilter}
+          setSortBy={setSortBy}
+          setViewMode={setViewMode}
+          setSelectedSDGs={setSelectedSDGs}
+          setSelectedCountries={setSelectedCountries}
+          setSelectedWHOClassifications={setSelectedWHOClassifications}
+          setSelectedDPIClassifications={setSelectedDPIClassifications}
+          setSelectedWMOClassifications={setSelectedWMOClassifications}
+          setSelectedHealthStandards={setSelectedHealthStandards}
+          setSelectedInteropStandards={setSelectedInteropStandards}
+          onClearFilters={handleClearAllFilters}
+          availableClassifications={availableFilterOptions.classifications}
+          availableStandards={availableFilterOptions.standards}
+          availableCountries={availableFilterOptions.countries}
+        />
+      </div>
+
+      {/* Results Summary */}
+      <div className="bg-card rounded-lg border p-4 mb-6 shadow-sm">
+        {isLoading ? (
+          <Skeleton className="h-4 w-64" />
+        ) : (
+          <p className="text-muted-foreground">
+            {tPage('showing', 'globalGoods', { 
+              filtered: filteredAndSortedGoods.length, 
+              total: globalGoods.length 
+            })}
+          </p>
+        )}
+      </div>
+      
+      {/* Content Display */}
+      {isLoading ? (
+        <CatalogSkeleton viewMode={viewMode} />
+      ) : (
+        <>
+          {viewMode === 'grid' ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredAndSortedGoods.map((good) => (
+                <EnhancedGlobalGoodCard key={good.ID} good={good} />
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {filteredAndSortedGoods.map((good) => (
+                <EnhancedGlobalGoodListItem key={good.ID} good={good} />
+              ))}
+            </div>
+          )}
+          
+          {/* No Results */}
+          {filteredAndSortedGoods.length === 0 && (
+            <div className="mt-12">
+              <NoResults onClearFilters={handleClearAllFilters} />
+            </div>
+          )}
+        </>
+      )}
+    </>
+  );
+}
+
+export default function GlobalGoodsPageFlat() {
+  const { tPage } = useI18n();
+
+  return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header Section */}
+        {/* Header Section - Renders immediately */}
         <div className="max-w-4xl mx-auto mb-12 text-center">
           <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
           <p className="text-xl text-muted-foreground">
@@ -205,70 +349,10 @@ export default function GlobalGoodsPageFlat() {
           </p>
         </div>
         
-        {/* Enhanced Filter Section */}
-        <div className="sticky top-4 z-10 mb-8">
-          <EnhancedFilterBar 
-            sectors={sectors}
-            searchTerm={searchTerm}
-            sectorFilter={sectorFilter}
-            sortBy={sortBy}
-            viewMode={viewMode}
-            selectedSDGs={selectedSDGs}
-            selectedCountries={selectedCountries}
-            selectedWHOClassifications={selectedWHOClassifications}
-            selectedDPIClassifications={selectedDPIClassifications}
-            selectedWMOClassifications={selectedWMOClassifications}
-            selectedHealthStandards={selectedHealthStandards}
-            selectedInteropStandards={selectedInteropStandards}
-            setSearchTerm={setSearchTerm}
-            setSectorFilter={setSectorFilter}
-            setSortBy={setSortBy}
-            setViewMode={setViewMode}
-            setSelectedSDGs={setSelectedSDGs}
-            setSelectedCountries={setSelectedCountries}
-            setSelectedWHOClassifications={setSelectedWHOClassifications}
-            setSelectedDPIClassifications={setSelectedDPIClassifications}
-            setSelectedWMOClassifications={setSelectedWMOClassifications}
-            setSelectedHealthStandards={setSelectedHealthStandards}
-            setSelectedInteropStandards={setSelectedInteropStandards}
-            onClearFilters={handleClearAllFilters}
-            availableClassifications={availableFilterOptions.classifications}
-            availableStandards={availableFilterOptions.standards}
-            availableCountries={availableFilterOptions.countries}
-          />
-        </div>
-
-        {/* Results Summary */}
-        <div className="bg-card rounded-lg border p-4 mb-6 shadow-sm">
-          <p className="text-muted-foreground">
-            {tPage('showing', 'globalGoods', { 
-              filtered: filteredAndSortedGoods.length, 
-              total: globalGoods.length 
-            })}
-          </p>
-        </div>
-        
-        {/* Content Display */}
-        {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredAndSortedGoods.map((good) => (
-              <EnhancedGlobalGoodCard key={good.ID} good={good} />
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {filteredAndSortedGoods.map((good) => (
-              <EnhancedGlobalGoodListItem key={good.ID} good={good} />
-            ))}
-          </div>
-        )}
-        
-        {/* No Results */}
-        {filteredAndSortedGoods.length === 0 && (
-          <div className="mt-12">
-            <NoResults onClearFilters={handleClearAllFilters} />
-          </div>
-        )}
+        {/* Progressive loading content */}
+        <Suspense fallback={<LoadingState message={tPage('loadingCatalog', 'globalGoods')} />}>
+          <CatalogContent />
+        </Suspense>
       </div>
     </div>
   );
