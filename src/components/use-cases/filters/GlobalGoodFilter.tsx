@@ -23,6 +23,12 @@ export function GlobalGoodFilter({
 }: GlobalGoodFilterProps) {
   const { getText } = useI18n();
 
+  console.log('GlobalGoodFilter debug:', {
+    globalGoods: globalGoods.slice(0, 3),
+    availableOptions: Array.from(availableOptions),
+    currentFilter: globalGoodFilter
+  });
+
   return (
     <Select value={globalGoodFilter} onValueChange={setGlobalGoodFilter}>
       <SelectTrigger>
@@ -31,16 +37,16 @@ export function GlobalGoodFilter({
       <SelectContent>
         <SelectItem value="all">All Global Goods</SelectItem>
         {globalGoods
-          .filter(good => good.id && good.id.trim() !== '')
+          .filter(good => good.ID && good.ID.trim() !== '') // Use ID instead of id
           .map(good => {
-            const isAvailable = availableOptions.has(good.id);
+            const isAvailable = availableOptions.has(good.ID);
             return (
               <SelectItem 
-                key={good.id} 
-                value={good.id}
+                key={good.ID} 
+                value={good.ID}
                 className={!isAvailable ? "text-muted-foreground opacity-50" : ""}
               >
-                {getText(good.name)}
+                {getText(good.Name)}
               </SelectItem>
             );
           })}

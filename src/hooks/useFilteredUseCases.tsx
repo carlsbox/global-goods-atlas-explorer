@@ -24,6 +24,8 @@ export function useFilteredUseCases({
   standardFilter
 }: UseFilteredUseCasesProps) {
   return useMemo(() => {
+    console.log('Filtering use cases with globalGoodFilter:', globalGoodFilter);
+    
     return useCases.filter(useCase => {
       // Search filter - check multiple fields
       const matchesSearch = searchTerm === "" || [
@@ -44,19 +46,30 @@ export function useFilteredUseCases({
       // WMO filter
       const matchesWmo = wmoFilter === "all" || useCase.classifications?.wmo_category === wmoFilter;
       
-      // Global good filter - improved matching logic
+      // Global good filter - simplified logic
       const matchesGlobalGood = globalGoodFilter === "all" || 
         (useCase.global_goods && useCase.global_goods.some(good => {
-          // Direct ID match
-          if (good.id === globalGoodFilter) return true;
-          // Name-based matching
-          if (good.name === globalGoodFilter) return true;
-          // Check if global good with this filter ID exists and matches by name
-          const filterGlobalGood = globalGoods.find(gg => gg.id === globalGoodFilter);
-          if (filterGlobalGood && (good.name === filterGlobalGood.name || good.id === filterGlobalGood.name)) {
-            return true;
-          }
-          return false;
+          // Check if the good's ID or name matches the filter
+          const matchesId = good.id === globalGoodFilter;
+          const matchesName = good.name === globalGoodFilter;
+          
+          // Also check if the filter corresponds to a global good ID that matches this good's name
+          const filterGlobalGood = globalGoods.find(gg => gg.ID === globalGoodFilter);
+          const matchesGlobalGoodName = filterGlobalGood && (
+            good.name === filterGlobalGood.Name || 
+            good.id === filterGlobalGood.ID
+          );
+          
+          console.log('Global good matching:', {
+            goodId: good.id,
+            goodName: good.name,
+            filter: globalGoodFilter,
+            matchesId,
+            matchesName,
+            matchesGlobalGoodName
+          });
+          
+          return matchesId || matchesName || matchesGlobalGoodName;
         }));
       
       // Standard filter - Updated to work with string array
