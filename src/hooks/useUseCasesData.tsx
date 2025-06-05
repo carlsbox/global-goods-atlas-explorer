@@ -76,10 +76,16 @@ export function useUseCasesData() {
         });
       }
       
-      // Standards availability - Updated to work with string array
+      // Standards availability - Only add string codes, not objects
       if (useCase.standards) {
         useCase.standards.forEach(standardCode => {
-          availableStandards.add(standardCode);
+          // Ensure we only add strings, not objects
+          if (typeof standardCode === 'string') {
+            availableStandards.add(standardCode);
+          } else if (typeof standardCode === 'object' && standardCode.code) {
+            // If it's an object, extract the code
+            availableStandards.add(standardCode.code);
+          }
         });
       }
     });
