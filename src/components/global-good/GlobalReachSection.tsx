@@ -1,28 +1,20 @@
 
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { HeroStats } from "@/components/global-good/HeroStats";
-import { InteractiveMapCard } from "@/components/global-good/InteractiveMapCard";
 import { EnhancedCountriesDisplay } from "@/components/global-good/EnhancedCountriesDisplay";
 import { ImplementationContext } from "@/components/global-good/ImplementationContext";
+import { WorldMap } from "@/components/global-good/WorldMap";
 
 interface GlobalReachSectionProps {
   globalGood: GlobalGoodFlat;
 }
 
-// Helper function to check if external map exists
-function hasExternalMap(globalGood: GlobalGoodFlat): boolean {
-  const mapUrl = globalGood.Reach?.ImplementationMapOverview?.url;
-  return !!(mapUrl && mapUrl.trim() !== "" && mapUrl !== "#");
-}
-
 export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
-  const showExternalMap = hasExternalMap(globalGood);
-
   return (
     <div>
       <h2 className="text-2xl font-bold mb-6">Global Reach</h2>
       
-      {/* Implementation Context moved here */}
+      {/* Implementation Context */}
       <div className="mb-6">
         <ImplementationContext globalGood={globalGood} />
       </div>
@@ -30,23 +22,16 @@ export function GlobalReachSection({ globalGood }: GlobalReachSectionProps) {
       {/* Hero Stats Row */}
       <HeroStats globalGood={globalGood} />
       
-      {/* Map & Countries Grid - Dynamic layout based on external map availability */}
-      {showExternalMap ? (
-        // 2/3 + 1/3 split when external map exists
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          <div className="lg:col-span-2">
-            <InteractiveMapCard globalGood={globalGood} />
-          </div>
-          <div className="lg:col-span-1">
-            <EnhancedCountriesDisplay globalGood={globalGood} />
-          </div>
+      {/* Always show local map and countries side by side */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 className="text-lg font-semibold mb-4">Implementation Map</h3>
+          <WorldMap globalGood={globalGood} />
         </div>
-      ) : (
-        // Full width for countries when no external map
-        <div className="mb-6">
+        <div>
           <EnhancedCountriesDisplay globalGood={globalGood} />
         </div>
-      )}
+      </div>
     </div>
   );
 }

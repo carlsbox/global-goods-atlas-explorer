@@ -1,7 +1,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Globe, Github, Mail, ExternalLink } from "lucide-react";
+import { Globe, Github, Mail, ExternalLink, Users, MapPin } from "lucide-react";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -11,6 +11,10 @@ interface GlobalGoodHeaderFlatProps {
 }
 
 export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) {
+  const implementationCount = globalGood.Reach?.ImplementationCountries?.length || 0;
+  const communitySize = globalGood.Community?.SizeOfCommunity;
+  const inceptionYear = globalGood.Community?.InceptionYear;
+
   return (
     <TooltipProvider>
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 shadow-sm">
@@ -36,11 +40,32 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
             )}
           </div>
 
-          {/* Middle Column - Name, Description, Tags */}
+          {/* Middle Column - Name, Description, Tags, Stats */}
           <div className="md:col-span-1">
             <h1 className="text-3xl font-bold">{globalGood.Name}</h1>
             
-            <p className="mt-2 text-muted-foreground line-clamp-3">
+            {/* Key Stats Row */}
+            <div className="flex flex-wrap gap-4 mt-2 mb-3 text-sm text-muted-foreground">
+              {implementationCount > 0 && (
+                <div className="flex items-center gap-1">
+                  <MapPin className="h-4 w-4" />
+                  <span>{implementationCount} countries</span>
+                </div>
+              )}
+              {communitySize && (
+                <div className="flex items-center gap-1">
+                  <Users className="h-4 w-4" />
+                  <span>{communitySize.toLocaleString()} community members</span>
+                </div>
+              )}
+              {inceptionYear && (
+                <div className="flex items-center gap-1">
+                  <span>Since {inceptionYear}</span>
+                </div>
+              )}
+            </div>
+            
+            <p className="text-muted-foreground line-clamp-3">
               {globalGood.ProductOverview?.Summary || globalGood.ProductOverview?.Description}
             </p>
             
