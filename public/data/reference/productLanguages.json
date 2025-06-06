@@ -59,5 +59,30 @@
     "code": "ko",
     "name": "Korean",
     "nativeName": "한국어"
+  },
+  {
+    "code": "no",
+    "name": "Norwegian",
+    "nativeName": "Norsk"
+  },
+  {
+    "code": "th",
+    "name": "Thai",
+    "nativeName": "ไทย"
+  },
+  {
+    "code": "lo",
+    "name": "Lao",
+    "nativeName": "ພາສາລາວ"
+  },
+  {
+    "code": "vi",
+    "name": "Vietnamese",
+    "nativeName": "Tiếng Việt"
+  },
+  {
+    "code": "am",
+    "name": "Amharic",
+    "nativeName": "አማርኛ"
   }
 ]
