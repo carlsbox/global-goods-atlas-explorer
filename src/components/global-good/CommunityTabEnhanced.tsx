@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink, LinkOff } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGoodFlat;
@@ -34,6 +35,74 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
     } catch (error) {
       return countryCode.toUpperCase();
     }
+  };
+
+  // Helper component for links with URL availability check
+  const LinkButton = ({ url, label, icon: Icon, variant = "outline" }: { 
+    url?: string; 
+    label: string; 
+    icon: any; 
+    variant?: "outline" | "ghost" 
+  }) => {
+    if (url) {
+      return (
+        <Button asChild variant={variant} size="sm" className="w-full">
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <Icon className="h-3 w-3 mr-2" />
+            {label}
+          </a>
+        </Button>
+      );
+    }
+
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button 
+              variant={variant} 
+              size="sm" 
+              className="w-full text-muted-foreground bg-muted/30 cursor-not-allowed" 
+              disabled
+            >
+              <LinkOff className="h-3 w-3 mr-2" />
+              {label}
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>No link available</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
+  };
+
+  // Helper component for small link icons
+  const LinkIcon = ({ url }: { url?: string }) => {
+    if (url) {
+      return (
+        <Button asChild variant="ghost" size="sm" className="h-auto p-1">
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <ExternalLink className="h-3 w-3" />
+          </a>
+        </Button>
+      );
+    }
+
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="p-1 cursor-not-allowed">
+              <LinkOff className="h-3 w-3 text-muted-foreground" />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>No link available</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
   };
 
   return (
@@ -69,13 +138,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                     <Badge variant="outline" className="text-xs">
                       {community.HostAnchorOrganization.name}
                     </Badge>
-                    {community.HostAnchorOrganization.url && (
-                      <Button asChild variant="ghost" size="sm" className="h-auto p-1">
-                        <a href={community.HostAnchorOrganization.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    )}
+                    <LinkIcon url={community.HostAnchorOrganization.url} />
                   </div>
                   {community.HostAnchorOrganization.country && community.HostAnchorOrganization.country.length > 0 && (
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -129,24 +192,18 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Communication Links */}
+            {/* Communication Links - Always show both */}
             <div className="space-y-2">
-              {community.Links?.Community && (
-                <Button asChild variant="outline" size="sm" className="w-full">
-                  <a href={community.Links.Community.url} target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="h-3 w-3 mr-2" />
-                    Forum
-                  </a>
-                </Button>
-              )}
-              {community.Links?.MailingList && (
-                <Button asChild variant="outline" size="sm" className="w-full">
-                  <a href={community.Links.MailingList.url} target="_blank" rel="noopener noreferrer">
-                    <MessageSquare className="h-3 w-3 mr-2" />
-                    Mailing List
-                  </a>
-                </Button>
-              )}
+              <LinkButton 
+                url={community.Links?.Community?.url} 
+                label="Forum" 
+                icon={MessageSquare} 
+              />
+              <LinkButton 
+                url={community.Links?.MailingList?.url} 
+                label="Mailing List" 
+                icon={MessageSquare} 
+              />
             </div>
 
             {/* Events */}
@@ -156,16 +213,16 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                   <Calendar className="h-3 w-3 mr-1" />
                   Events
                 </h4>
-                {community.Events.schedule && (
-                  <Button asChild variant="outline" size="sm" className="w-full mb-2">
-                    <a href={community.Events.schedule} target="_blank" rel="noopener noreferrer">
-                      <Calendar className="h-3 w-3 mr-2" />
-                      Schedule
-                    </a>
-                  </Button>
-                )}
+                
+                {/* Schedule Link - Always show */}
+                <LinkButton 
+                  url={community.Events.schedule} 
+                  label="Schedule" 
+                  icon={Calendar} 
+                />
+
                 {community.Events.recent && community.Events.recent.length > 0 && (
-                  <div className="space-y-1">
+                  <div className="space-y-1 mt-2">
                     {/* Display up to 3 events */}
                     {community.Events.recent.slice(0, 3).map((event, index) => (
                       <div key={index} className="text-xs p-2 bg-muted/50 rounded">
@@ -180,7 +237,19 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                             <ExternalLink className="h-3 w-3 ml-1" />
                           </a>
                         ) : (
-                          <div className="font-medium">{event.event}</div>
+                          <div className="font-medium flex items-center text-muted-foreground">
+                            {event.event}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <LinkOff className="h-3 w-3 ml-1 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p>No link available</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         )}
                         {event.date && (
                           <div className="text-muted-foreground mt-1">{event.date}</div>
@@ -222,7 +291,10 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                                         </a>
                                       </Button>
                                     ) : (
-                                      'N/A'
+                                      <span className="text-muted-foreground text-sm flex items-center">
+                                        <LinkOff className="h-3 w-3 mr-1" />
+                                        Link not available
+                                      </span>
                                     )}
                                   </TableCell>
                                 </TableRow>
@@ -253,83 +325,62 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
               <p className="text-xs text-muted-foreground">{community.Policies.Description}</p>
             )}
 
-            {/* Core Governance */}
-            {community.Policies?.Governance && (
-              <Button asChild variant="outline" size="sm" className="w-full">
-                <a href={community.Policies.Governance.url} target="_blank" rel="noopener noreferrer">
-                  <Shield className="h-3 w-3 mr-2" />
-                  Governance
-                </a>
-              </Button>
-            )}
+            {/* Core Governance - Always show */}
+            <LinkButton 
+              url={community.Policies?.Governance?.url} 
+              label="Governance" 
+              icon={Shield} 
+            />
 
-            {/* User Agreements */}
+            {/* User Agreements - Always show */}
             <div className="space-y-1">
-              {community.Policies?.TermsOfUse && (
-                <Button asChild variant="ghost" size="sm" className="w-full justify-start text-xs h-auto py-1">
-                  <a href={community.Policies.TermsOfUse.url} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-3 w-3 mr-2" />
-                    Terms of Use
-                  </a>
-                </Button>
-              )}
+              <LinkButton 
+                url={community.Policies?.TermsOfUse?.url} 
+                label="Terms of Use" 
+                icon={ExternalLink} 
+                variant="ghost"
+              />
               
-              {community.Policies?.UserAgreement && (
-                <Button asChild variant="ghost" size="sm" className="w-full justify-start text-xs h-auto py-1">
-                  <a href={community.Policies.UserAgreement.url} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-3 w-3 mr-2" />
-                    User Agreement
-                  </a>
-                </Button>
-              )}
+              <LinkButton 
+                url={community.Policies?.UserAgreement?.url} 
+                label="User Agreement" 
+                icon={ExternalLink} 
+                variant="ghost"
+              />
 
-              {community.Policies?.PrivacyPolicy && (
-                <Button asChild variant="ghost" size="sm" className="w-full justify-start text-xs h-auto py-1">
-                  <a href={community.Policies.PrivacyPolicy.url} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-3 w-3 mr-2" />
-                    Privacy Policy
-                  </a>
-                </Button>
-              )}
+              <LinkButton 
+                url={community.Policies?.PrivacyPolicy?.url} 
+                label="Privacy Policy" 
+                icon={ExternalLink} 
+                variant="ghost"
+              />
             </div>
 
-            {/* Data Ethics */}
+            {/* Data Ethics - Always show if any policies exist */}
             {(community.Policies?.DoNoHarm || community.Policies?.PIICollected || community.Policies?.NPIIUsed) && (
               <div>
                 <h4 className="text-sm font-medium mb-1">Data Ethics</h4>
                 <div className="space-y-1">
-                  {community.Policies.DoNoHarm && (
-                    <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
-                      <span>Do No Harm</span>
-                      <Button asChild variant="ghost" size="sm" className="h-auto p-0">
-                        <a href={community.Policies.DoNoHarm.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
+                    <span className={!community.Policies.DoNoHarm?.url ? "text-muted-foreground" : ""}>
+                      Do No Harm
+                    </span>
+                    <LinkIcon url={community.Policies.DoNoHarm?.url} />
+                  </div>
                   
-                  {community.Policies.PIICollected && (
-                    <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
-                      <span>PII Policy</span>
-                      <Button asChild variant="ghost" size="sm" className="h-auto p-0">
-                        <a href={community.Policies.PIICollected.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
+                    <span className={!community.Policies.PIICollected?.url ? "text-muted-foreground" : ""}>
+                      PII Policy
+                    </span>
+                    <LinkIcon url={community.Policies.PIICollected?.url} />
+                  </div>
 
-                  {community.Policies.NPIIUsed && (
-                    <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
-                      <span>NPII Policy</span>
-                      <Button asChild variant="ghost" size="sm" className="h-auto p-0">
-                        <a href={community.Policies.NPIIUsed.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between text-xs p-1 bg-muted/30 rounded">
+                    <span className={!community.Policies.NPIIUsed?.url ? "text-muted-foreground" : ""}>
+                      NPII Policy
+                    </span>
+                    <LinkIcon url={community.Policies.NPIIUsed?.url} />
+                  </div>
                 </div>
               </div>
             )}
