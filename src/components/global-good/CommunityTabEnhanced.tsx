@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink, LinkOff } from "lucide-react";
+import { Users, Calendar, MessageSquare, Shield, Building, MapPin, ExternalLink, X } from "lucide-react";
 
 interface CommunityTabEnhancedProps {
   globalGood: GlobalGoodFlat;
@@ -65,7 +65,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
               className="w-full text-muted-foreground bg-muted/30 cursor-not-allowed" 
               disabled
             >
-              <LinkOff className="h-3 w-3 mr-2" />
+              <X className="h-3 w-3 mr-2" />
               {label}
             </Button>
           </TooltipTrigger>
@@ -94,7 +94,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
         <Tooltip>
           <TooltipTrigger asChild>
             <div className="p-1 cursor-not-allowed">
-              <LinkOff className="h-3 w-3 text-muted-foreground" />
+              <X className="h-3 w-3 text-muted-foreground" />
             </div>
           </TooltipTrigger>
           <TooltipContent>
@@ -242,7 +242,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                             <TooltipProvider>
                               <Tooltip>
                                 <TooltipTrigger asChild>
-                                  <LinkOff className="h-3 w-3 ml-1 text-muted-foreground" />
+                                  <X className="h-3 w-3 ml-1 text-muted-foreground" />
                                 </TooltipTrigger>
                                 <TooltipContent>
                                   <p>No link available</p>
@@ -292,7 +292,7 @@ export function CommunityTabEnhanced({ globalGood }: CommunityTabEnhancedProps) 
                                       </Button>
                                     ) : (
                                       <span className="text-muted-foreground text-sm flex items-center">
-                                        <LinkOff className="h-3 w-3 mr-1" />
+                                        <X className="h-3 w-3 mr-1" />
                                         Link not available
                                       </span>
                                     )}
