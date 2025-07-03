@@ -3,7 +3,7 @@
 // File: payload.config.ts
 
 import { buildConfig } from 'payload/config';
-import { mongooseAdapter } from '@payloadcms/db-mongodb';
+import { postgresAdapter } from '@payloadcms/db-postgres';
 import { webpackBundler } from '@payloadcms/bundler-webpack';
 import { slateEditor } from '@payloadcms/richtext-slate';
 
@@ -11,10 +11,16 @@ export default buildConfig({
   admin: {
     user: 'users',
     bundler: webpackBundler(),
+    meta: {
+      titleSuffix: '- Global Goods Platform',
+      favicon: '/favicon.ico',
+    },
   },
   editor: slateEditor({}),
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL!, // Supabase connection string
+    },
   }),
   collections: [
     // Global Goods Collection

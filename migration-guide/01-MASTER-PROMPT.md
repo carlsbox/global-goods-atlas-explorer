@@ -8,23 +8,26 @@ Rebuild a comprehensive Global Goods catalog platform with identical frontend fu
 
 ### Technology Stack
 - **Frontend**: React + TypeScript + Vite + Tailwind CSS + shadcn/ui
-- **Database**: Supabase (PostgreSQL)
-- **CMS**: PayloadCMS for content management
+- **Database**: Supabase PostgreSQL (unified database)
+- **CMS**: PayloadCMS with PostgreSQL adapter (uses same Supabase database)
 - **State Management**: TanStack Query for data fetching
 - **Internationalization**: react-i18next (EN, FR, ES)
 - **Icons**: Lucide React
 - **Charts**: Recharts
 - **UI Components**: shadcn/ui components
+- **Deployment**: Netlify
 
 ### Application Architecture
 1. **Multi-page application** with client-side routing
 2. **Multilingual support** (English, French, Spanish)
-3. **Real-time data** from Supabase database
-4. **Content management** via PayloadCMS admin
-5. **Progressive loading** with skeleton states
-6. **Advanced filtering and search**
-7. **Interactive world map** visualization
-8. **Responsive design** for all devices
+3. **Unified database** - Single Supabase PostgreSQL instance
+4. **Content management** - PayloadCMS with PostgreSQL adapter
+5. **Real-time data** from unified Supabase database
+6. **Progressive loading** with skeleton states
+7. **Advanced filtering and search**
+8. **Interactive world map** visualization
+9. **Responsive design** for all devices
+10. **Netlify deployment** with environment variables
 
 ## Pages to Build
 
@@ -205,10 +208,18 @@ interface UseCase {
 - Keyboard navigation support
 
 ## Integration Points
-- Supabase authentication (for admin)
-- PayloadCMS API endpoints
-- Real-time subscriptions for live data
-- CSV export functionality
-- External link validation
+- **Unified Database**: Single Supabase PostgreSQL for both app data and CMS
+- **PayloadCMS Integration**: Direct database management with PostgreSQL adapter
+- **Supabase Authentication**: For both frontend users and CMS admin access
+- **Real-time subscriptions** for live data updates
+- **CSV export functionality** from unified database
+- **Netlify deployment** with proper environment configuration
 
-Start with the database schema setup and then build the frontend components systematically, ensuring each feature matches the original functionality exactly.
+## Migration Strategy
+**Phase 1**: Set up unified Supabase PostgreSQL database with PayloadCMS tables
+**Phase 2**: Configure PayloadCMS with PostgreSQL adapter and admin interface
+**Phase 3**: Create unified API layer serving both CMS and frontend needs
+**Phase 4**: Recreate frontend with identical functionality using unified database
+**Phase 5**: Deploy to Netlify with proper environment variables and testing
+
+Start with the unified database schema setup, then configure PayloadCMS, and finally build the frontend components systematically, ensuring each feature matches the original functionality exactly.

@@ -1,9 +1,11 @@
 
 -- Global Goods Platform Database Schema
--- Supabase PostgreSQL Schema
+-- Unified Supabase PostgreSQL Schema with PayloadCMS Integration
 
 -- Enable necessary extensions
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pg_trgm"; -- For fuzzy text search
+CREATE EXTENSION IF NOT EXISTS "unaccent"; -- For accent-insensitive search
 
 -- Reference Tables
 
@@ -320,3 +322,75 @@ $$ language 'plpgsql';
 
 CREATE TRIGGER update_global_goods_updated_at BEFORE UPDATE ON global_goods FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 CREATE TRIGGER update_use_cases_updated_at BEFORE UPDATE ON use_cases FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- PayloadCMS System Tables
+-- These tables are created automatically by PayloadCMS but included here for reference
+
+-- Users table (PayloadCMS admins and editors)
+CREATE TABLE IF NOT EXISTS users (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  roles VARCHAR(50)[] DEFAULT ARRAY['editor'],
+  reset_password_token VARCHAR(255),
+  reset_password_expiration TIMESTAMP WITH TIME ZONE,
+  salt VARCHAR(255),
+  hash VARCHAR(255),
+  login_attempts INTEGER DEFAULT 0,
+  lock_until TIMESTAMP WITH TIME ZONE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- PayloadCMS Media table for file uploads
+CREATE TABLE IF NOT EXISTS media (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  alt VARCHAR(255),
+  filename VARCHAR(255) NOT NULL,
+  mime_type VARCHAR(100),
+  filesize INTEGER,
+  width INTEGER,
+  height INTEGER,
+  sizes JSONB,
+  url VARCHAR(500),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- PayloadCMS Preferences table
+CREATE TABLE IF NOT EXISTS payload_preferences (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  key VARCHAR(255) NOT NULL,
+  value JSONB,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create search function for full-text search
+CREATE OR REPLACE FUNCTION search_global_goods(search_term TEXT)
+RETURNS TABLE(
+  id UUID,
+  name VARCHAR,
+  summary JSONB,
+  rank REAL
+) AS $$
+BEGIN
+  RETURN QUERY
+  SELECT 
+    gg.id,
+    gg.name,
+    gg.summary,
+    ts_rank(
+      to_tsvector('english', gg.name || ' ' || COALESCE(gg.summary->>'en', '')),
+      plainto_tsquery('english', search_term)
+    ) as rank
+  FROM global_goods gg
+  WHERE 
+    to_tsvector('english', gg.name || ' ' || COALESCE(gg.summary->>'en', '')) 
+    @@ plainto_tsquery('english', search_term)
+  ORDER BY rank DESC;
+END;
+$$ LANGUAGE plpgsql;

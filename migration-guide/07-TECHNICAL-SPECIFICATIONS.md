@@ -3,9 +3,9 @@
 
 ## Database Configuration
 
-### Supabase Setup
+### Unified Database Setup (Supabase + PayloadCMS)
 ```sql
--- Enable necessary extensions
+-- Enable necessary extensions for unified database
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pg_trgm"; -- For fuzzy text search
 CREATE EXTENSION IF NOT EXISTS "unaccent"; -- For accent-insensitive search
@@ -411,13 +411,13 @@ export const OptimizedImage = ({
 
 ### Environment Variables
 ```env
-# Supabase Configuration
+# Supabase Configuration (Unified Database)
 VITE_SUPABASE_URL=your-supabase-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+DATABASE_URL=postgresql://postgres:[password]@db.[project].supabase.co:5432/postgres
 
-# PayloadCMS Configuration
+# PayloadCMS Configuration (PostgreSQL Adapter)
 PAYLOAD_SECRET=your-payload-secret
-DATABASE_URI=your-mongodb-uri
 
 # Application Configuration
 VITE_APP_NAME=Global Goods Platform
