@@ -168,23 +168,194 @@ interface GlobalGood {
 }
 ```
 
+### Supporting Entity Definitions
+
+```typescript
+// Events - Individual records per event
+interface Event {
+  id: string;
+  global_good_id: string;
+  event_name: string;
+  event_date?: Date;
+  description: JSONB; // Multilingual
+  url?: string;
+  created_at: timestamp;
+}
+
+// Maturity Scores - Multiple score sets per year
+interface MaturityScore {
+  id: string;
+  global_good_id: string;
+  year: number;
+  global_utility: number; // 0-10
+  community_support: number; // 0-10
+  maturity_of_gg: number; // 0-10
+  inclusive_design: number; // 0-10
+  climate_resilience: number; // 0-10
+  low_carbon: number; // 0-10
+  entry_date: timestamp; // When this score set was entered
+  created_at: timestamp;
+}
+
+// Contact Information
+interface Contact {
+  id: string;
+  global_good_id: string;
+  name: string;
+  email?: string;
+  role?: string;
+  created_at: timestamp;
+}
+
+// Screenshot Management
+interface Screenshot {
+  id: string;
+  global_good_id: string;
+  filename: string; // Stored locally in /media directory
+  alt_text: JSONB; // Multilingual alt text
+  description: JSONB; // Multilingual description
+  sort_order: number;
+  created_at: timestamp;
+}
+
+// Resources (Documentation, Articles, etc.)
+interface Resource {
+  id: string;
+  global_good_id: string;
+  type: 'Articles' | 'ProductDocumentation' | 'UserRequirements' | 'EndUserDocumentation' | 'ImplementerDocumentation' | 'DeveloperDocumentation' | 'OperatorDocumentation' | 'InstallationDocumentation';
+  title: JSONB; // Multilingual
+  description: JSONB; // Multilingual
+  url: string;
+  created_at: timestamp;
+}
+
+// Key Funders/Supporters
+interface Funder {
+  id: string;
+  global_good_id: string;
+  name: string;
+  url?: string;
+  description?: JSONB; // Multilingual
+  created_at: timestamp;
+}
+
+// Linked Initiatives
+interface LinkedInitiative {
+  id: string;
+  global_good_id: string;
+  name: string;
+  url?: string;
+  description?: JSONB; // Multilingual
+  created_at: timestamp;
+}
+
 ### Use Cases Entity
 ```typescript
 interface UseCase {
   id: string;
-  title: string;
-  purpose: string;
-  scope: string;
-  actors: string;
-  process_steps: string;
-  data_requirements: string;
-  technology_components: string;
-  challenges: string;
-  sustainability_considerations: string;
-  // Relationships
+  slug: string;
+  title: JSONB; // Multilingual
+  purpose: JSONB; // Multilingual
+  scope: JSONB; // Multilingual
+  actors: JSONB; // Multilingual
+  preconditions?: JSONB; // Multilingual
+  process_steps: JSONB; // Multilingual
+  postconditions?: JSONB; // Multilingual
+  data_requirements?: JSONB; // Multilingual
+  technology_components?: JSONB; // Multilingual
+  challenges?: JSONB; // Multilingual
+  sustainability_considerations?: JSONB; // Multilingual
+  
+  // Relationships (many-to-many via junction tables)
   global_goods: GlobalGood[];
   classifications: Classification[];
   standards: Standard[];
+  
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+```
+
+### Reference Data Entities
+
+```typescript
+// Countries - Flat list for implementation tracking
+interface Country {
+  id: string;
+  iso_code: string; // ISO 3166-1 alpha-3
+  type: string; // 'Country', 'Territory', etc.
+  names: JSONB; // {"en": {"short": "USA", "formal": "United States of America"}, "fr": {...}, "es": {...}}
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Organizations - Host organizations for global goods
+interface Organization {
+  id: string;
+  name: string;
+  url?: string;
+  description?: JSONB; // Multilingual
+  logo_url?: string;
+  countries: Country[]; // Countries where organization operates
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Classifications - Extensible classification system
+interface Classification {
+  id: string;
+  code: string; // Unique identifier
+  title: JSONB; // Multilingual titles
+  description?: JSONB; // Multilingual descriptions
+  authority: 'SDG' | 'WHO' | 'WMO' | 'DPI'; // Can be extended by adding new authorities
+  group_code?: string; // For grouping related classifications
+  group_name?: string;
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Standards - Technical and domain standards
+interface Standard {
+  id: string;
+  code: string; // Unique identifier
+  name: JSONB; // Multilingual names
+  description: JSONB; // Multilingual descriptions
+  domain: 'Health' | 'Weather and Climate' | 'Technology'; // Extensible domains
+  type: string; // 'exchange', 'terminology', etc.
+  link?: string; // Reference URL
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Global Good Types
+interface GlobalGoodType {
+  id: string;
+  code: string; // 'software', 'content', 'service', 'climate', 'data', 'ai'
+  title: JSONB; // Multilingual titles
+  description: JSONB; // Multilingual descriptions
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Languages (for programming/interface languages)
+interface Language {
+  id: string;
+  code: string; // ISO 639-1 or custom code
+  name: string; // English name
+  native_name: string; // Native language name
+  created_at: timestamp;
+  updated_at: timestamp;
+}
+
+// Licenses
+interface License {
+  id: string;
+  license_id: string; // Standard license identifier
+  name: string;
+  url?: string;
+  description?: string;
+  created_at: timestamp;
+  updated_at: timestamp;
 }
 ```
 
@@ -271,11 +442,39 @@ interface UseCase {
 - **CSV export functionality** from unified database
 - **Netlify deployment** with proper environment configuration
 
-## Migration Strategy
-**Phase 1**: Set up unified Supabase PostgreSQL database with PayloadCMS tables
-**Phase 2**: Configure PayloadCMS with PostgreSQL adapter and admin interface
-**Phase 3**: Create unified API layer serving both CMS and frontend needs
-**Phase 4**: Recreate frontend with identical functionality using unified database
-**Phase 5**: Deploy to Netlify with proper environment variables and testing
+## Data Management Strategy
 
-Start with the unified database schema setup, then configure PayloadCMS, and finally build the frontend components systematically, ensuring each feature matches the original functionality exactly.
+### Translation Management
+- **Site Content**: All pages, navigation, and UI text managed through PayloadCMS with full translation support
+- **Global Goods**: CMS allows logged-in users to add translations for fields marked as translatable
+- **Reference Data**: All reference data (except codes) must have translations for supported languages
+- **Fallback Strategy**: Partial translations show translated content then fallback to English (en)
+- **Supported Languages**: English (en - base), French (fr), Spanish (es)
+
+### File Storage Strategy
+- **Screenshots**: Stored locally in `/media` directory with optimized sizes
+- **Logos**: Stored locally in `/media` directory
+- **Documents**: External URLs only (no local document storage)
+
+### Data Entry Approach
+- **Global Goods**: Manual data entry via PayloadCMS admin interface
+- **Site Pages**: Created and managed by users through CMS
+- **Reference Data**: Managed through CMS with translation support
+- **Events**: Manual entry per event (individual records)
+- **Maturity Scores**: User-entered score sets with multiple entries per year
+
+### User Roles & Permissions
+- **Super Admin**: Full system access, user management
+- **Data Manager**: Global goods and reference data management
+- **Editor**: Content creation and translation
+- **Viewer**: Read-only access
+
+## Migration Strategy
+**Phase 1**: Set up unified Supabase PostgreSQL database with complete schema
+**Phase 2**: Configure PayloadCMS with PostgreSQL adapter, collections, and user roles
+**Phase 3**: Create comprehensive API layer with search, filtering, and export capabilities
+**Phase 4**: Build frontend with identical functionality plus new database features
+**Phase 5**: Data migration from existing JSON files to PostgreSQL
+**Phase 6**: Deploy to Netlify with proper environment configuration and testing
+
+Start with the unified database schema setup, then configure PayloadCMS collections, migrate existing data, and finally build the frontend components systematically, ensuring each feature matches the original functionality exactly.

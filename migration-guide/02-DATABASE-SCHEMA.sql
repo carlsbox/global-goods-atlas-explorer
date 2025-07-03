@@ -147,13 +147,19 @@ CREATE TABLE global_goods (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Global Good Screenshots
+-- Global Good Screenshots (Stored locally)
 CREATE TABLE global_good_screenshots (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   global_good_id UUID REFERENCES global_goods(id) ON DELETE CASCADE,
-  url VARCHAR(500) NOT NULL,
-  description JSONB,
+  filename VARCHAR(500) NOT NULL, -- Local file path in /media directory
+  original_filename VARCHAR(500), -- Original uploaded filename
+  alt_text JSONB, -- Multilingual alt text {"en": "...", "fr": "...", "es": "..."}
+  description JSONB, -- Multilingual description
   sort_order INTEGER DEFAULT 0,
+  file_size INTEGER, -- File size in bytes
+  mime_type VARCHAR(100), -- image/jpeg, image/png, etc.
+  width INTEGER, -- Image width in pixels
+  height INTEGER, -- Image height in pixels
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
@@ -167,17 +173,18 @@ CREATE TABLE global_good_contacts (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Global Good Events
+-- Global Good Events (Individual records per event)
 CREATE TABLE global_good_events (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   global_good_id UUID REFERENCES global_goods(id) ON DELETE CASCADE,
   event_name VARCHAR(300) NOT NULL,
   event_date DATE,
+  description JSONB, -- Multilingual event description
   url VARCHAR(500),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Maturity Scores
+-- Maturity Scores (Multiple score sets per year allowed)
 CREATE TABLE maturity_scores (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   global_good_id UUID REFERENCES global_goods(id) ON DELETE CASCADE,
@@ -188,7 +195,12 @@ CREATE TABLE maturity_scores (
   inclusive_design INTEGER CHECK (inclusive_design >= 0 AND inclusive_design <= 10),
   climate_resilience INTEGER CHECK (climate_resilience >= 0 AND climate_resilience <= 10),
   low_carbon INTEGER CHECK (low_carbon >= 0 AND low_carbon <= 10),
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+  entry_date TIMESTAMP WITH TIME ZONE DEFAULT NOW(), -- When this score set was entered
+  notes JSONB, -- Optional multilingual notes for this score entry
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  
+  -- Allow multiple score entries per year
+  UNIQUE(global_good_id, year, entry_date)
 );
 
 -- Use Cases
