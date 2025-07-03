@@ -87,28 +87,84 @@ Rebuild a comprehensive Global Goods catalog platform with identical frontend fu
 ### Global Goods Entity
 ```typescript
 interface GlobalGood {
+  // Core identification
   id: string;
+  slug: string;
   name: string;
   logo?: string;
-  summary: string;
-  description: string;
+  
+  // Basic information (multilingual)
+  summary: JSONB; // {"en": "...", "fr": "...", "es": "..."}
+  description: JSONB;
+  primary_functionality: JSONB;
+  users: JSONB;
+  inception_year?: number;
+  size_of_community?: number;
+  number_of_implementations?: number;
+  
+  // Website links
   website_main?: string;
   website_docs?: string;
   website_source?: string;
   website_demo?: string;
-  primary_functionality: string;
-  users: string;
-  license: string;
+  
+  // License and contact
+  license_id: string; // Reference to licenses table
   contact: Contact[];
-  inception_year?: number;
-  // Relationships
-  types: GlobalGoodType[];
-  languages: Language[];
-  classifications: Classification[];
-  standards: Standard[];
-  countries: Country[];
+  
+  // Community information
+  community_description: JSONB;
+  host_organization_id: string; // Reference to organizations table
+  community_url?: string;
+  mailing_list_url?: string;
+  
+  // Governance and policies
+  governance_url?: string;
+  terms_of_use_url?: string;
+  user_agreement_url?: string;
+  privacy_policy_url?: string;
+  do_no_harm_url?: string;
+  pii_collected_url?: string;
+  npii_used_url?: string;
+  
+  // Events and community engagement
+  events_description: JSONB;
+  events_schedule_url?: string;
+  recent_events: Event[];
+  
+  // Reach and implementation
+  reach_summary: JSONB;
+  implementation_countries: Country[];
+  implementation_map_overview?: {
+    url: string;
+    description: string;
+  };
+  
+  // Maturity and scoring
+  maturity_summary: JSONB;
+  maturity_scores: MaturityScore[]; // Yearly scores
+  
+  // Sustainability and impact
+  climate_integration: JSONB;
+  inclusive_design: JSONB;
+  environmental_impact: JSONB;
+  tco_description: JSONB;
+  tco_url?: string;
+  sustainability: JSONB;
+  key_funders: Funder[];
+  
+  // Technical specifications
+  types: GlobalGoodType[]; // Software, Content, Service, etc.
+  languages: Language[]; // Programming/supported languages
+  classifications: Classification[]; // SDGs, WHO, WMO, DPI
+  standards: Standard[]; // Health, Interop, Climate standards
   screenshots: Screenshot[];
-  // Additional data...
+  resources: Resource[]; // Documentation, articles, etc.
+  linked_initiatives: LinkedInitiative[];
+  
+  // Metadata
+  created_at: timestamp;
+  updated_at: timestamp;
 }
 ```
 
