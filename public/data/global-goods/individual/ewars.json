@@ -23,6 +23,7 @@
   "GlobalGoodsType": [
     "software"
   ],
+  "ClimateHealth": true,
   "License": "gpl-3.0",
   "Contact": [
     {

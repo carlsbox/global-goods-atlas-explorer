@@ -4,6 +4,7 @@ export interface GlobalGoodFlat {
   ID: string;
   Name: string;
   Logo?: string;
+  ClimateHealth?: boolean;
   Website: {
     main?: {
       name: string;

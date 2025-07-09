@@ -21,6 +21,7 @@
       }
     },
     "GlobalGoodsType": ["software"],
+    "ClimateHealth": true,
     "License": "bsd-3-clause",
     "Contact": [
       {
