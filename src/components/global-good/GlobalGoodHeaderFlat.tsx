@@ -45,7 +45,26 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
             </p>
             
             <div className="mt-4 flex flex-wrap gap-2">
-              {/* License Badge - First */}
+              {/* Climate & Health Badge - First Priority */}
+              {globalGood.ClimateHealth && (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div>
+                      <Badge 
+                        variant="outline" 
+                        className="bg-blue-50 border-blue-200 text-blue-800 hover:bg-blue-100 cursor-help"
+                      >
+                        🌍 Climate & Health
+                      </Badge>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>This global good supports climate and health initiatives</p>
+                  </TooltipContent>
+                </Tooltip>
+              )}
+
+              {/* License Badge - Second */}
               {globalGood.License && (
                 <Tooltip>
                   <TooltipTrigger asChild>
