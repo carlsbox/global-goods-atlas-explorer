@@ -19,4 +19,5 @@ export type TranslationNamespace =
   | 'privacy' 
   | 'terms' 
   | 'cookie'
-  | 'navigation';
+  | 'navigation'
+  | 'climateServices';
