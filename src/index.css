@@ -83,6 +83,33 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Climate Theme - Green color palette for Climate Services page */
+  .climate-theme {
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 138 76% 85%;
+    --secondary-foreground: 142 76% 15%;
+
+    --accent: 142 76% 90%;
+    --accent-foreground: 142 76% 20%;
+
+    --ring: 142 76% 36%;
+  }
+
+  .climate-theme.dark {
+    --primary: 142 76% 50%;
+    --primary-foreground: 142 76% 10%;
+
+    --secondary: 142 32% 17%;
+    --secondary-foreground: 142 76% 85%;
+
+    --accent: 142 32% 20%;
+    --accent-foreground: 142 76% 90%;
+
+    --ring: 142 76% 60%;
+  }
 }
 
 @layer base {
