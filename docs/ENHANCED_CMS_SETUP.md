@@ -86,15 +86,6 @@ npm run dev
 3. **Configure roles** in Netlify Identity
 4. **Deploy** your site with CMS files
 
-### 4. Content Migration
-
-```typescript
-// Use the enhanced loader for backward compatibility
-import { loadEnhancedCMSGlobalGood } from '@/lib/cms/enhancedCmsLoader';
-
-// Existing files will work seamlessly
-const globalGood = await loadEnhancedCMSGlobalGood('meditrack');
-```
 
 ## Advanced Features
 

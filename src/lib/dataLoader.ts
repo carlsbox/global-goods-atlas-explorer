@@ -1,6 +1,5 @@
 
-// This file re-exports all data loader functions from the new modular structure
-// for backward compatibility and ease of migration
+// This file re-exports all data loader functions from the modular structure
 
 export {
   loadClassificationsData,
