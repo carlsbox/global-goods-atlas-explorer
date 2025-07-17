@@ -11,12 +11,10 @@ This documentation suite provides comprehensive guidance for understanding, impl
 1. **Start Here**: [Global Goods Data Specification](./GlobalGoodsDataSpecification.md) - Understanding the core architecture
 2. **Implementation**: [API Data Flow Documentation](./APIDataFlowDocumentation.md) - How data flows through the system
 3. **Data Structures**: [Data Schema Reference](./DataSchemaReference.md) - Complete field specifications
-4. **Setup**: [Enhanced CMS Setup](./ENHANCED_CMS_SETUP.md) - Getting the CMS running
 
 ### For Content Editors
-1. **Start Here**: [Enhanced CMS Setup](./ENHANCED_CMS_SETUP.md) - CMS configuration and usage
-2. **Reference**: [Reference Data Systems](./ReferenceDataSystems.md) - Understanding reference data
-3. **Quality**: [Data Validation Rules](./DataValidationRules.md) - Content standards and requirements
+1. **Reference**: [Reference Data Systems](./ReferenceDataSystems.md) - Understanding reference data
+2. **Quality**: [Data Validation Rules](./DataValidationRules.md) - Content standards and requirements
 
 ### For AI Agents & System Integration
 1. **Architecture**: [Global Goods Data Specification](./GlobalGoodsDataSpecification.md) - Core concepts
@@ -67,14 +65,9 @@ These five documents form the core technical specification:
 
 ## Setup and Integration
 
-### Content Management System
+### Content Management
 
-#### [Enhanced CMS Setup](./ENHANCED_CMS_SETUP.md) ⭐ **Current Standard**
-**Complete CMS configuration guide**
-- DecapCMS integration setup
-- Authentication configuration
-- Content workflow management
-- Editorial procedures
+The platform uses a code-driven approach with JSON data files for content management. Data is stored in `/public/data/` and loaded through dedicated loaders.
 
 ## Specialized Tools
 
@@ -102,7 +95,7 @@ These five documents form the core technical specification:
 - **Data Architecture** ↔ **API Flow**: Architecture principles implemented through API patterns
 - **Schema Reference** ↔ **Validation Rules**: Schema definitions enforced through validation
 - **Reference Data** ↔ **All Documents**: Reference systems used throughout the platform
-- **CMS Setup** ↔ **Schema/Validation**: CMS configuration must align with data requirements
+- **Data Files** ↔ **Schema/Validation**: JSON data structure must align with schema requirements
 
 ---
 

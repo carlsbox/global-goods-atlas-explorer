@@ -52,7 +52,7 @@ GET /data/global-goods/index.json
 
 GET /data/global-goods/individual/{id}.json
 - Purpose: Complete global good specification
-- Response: GlobalGoodFlat | EnhancedCMSGlobalGood
+- Response: GlobalGoodFlat
 - Caching: Browser cache, CDN cache
 - Performance: 10-50KB per file, loads in ~100ms
 ```
@@ -76,10 +76,10 @@ GET /data/reference/classifications/wmo.json
 #### Primary Loaders
 ```typescript
 // Load all global goods (index only)
-loadAllEnhancedCMSGlobalGoods(language?: LanguageCode): Promise<GlobalGoodFlat[]>
+loadAllGlobalGoodsFlat(language?: LanguageCode): Promise<GlobalGoodFlat[]>
 
 // Load single global good (complete)
-loadEnhancedCMSGlobalGood(id: string, language?: LanguageCode): Promise<GlobalGoodFlat>
+loadGlobalGoodFlat(id: string, language?: LanguageCode): Promise<GlobalGoodFlat>
 
 // Load reference data
 loadLicenses(): Promise<License[]>
@@ -142,7 +142,7 @@ resolveClassificationsByAuthority(classifications: {
 ```
 1. Raw Data with Codes
    ↓
-2. transformEnhancedCMSGlobalGoodToFlat()
+2. transformGlobalGoodData()
    ↓
 3. Reference Lookup (Cached)
    ↓
@@ -281,7 +281,7 @@ const { data, error, retry } = useQuery({
 ```typescript
 // Track loading performance
 console.time(`Loading global good ${id}`);
-const globalGood = await loadEnhancedCMSGlobalGood(id);
+const globalGood = await loadGlobalGoodFlat(id);
 console.timeEnd(`Loading global good ${id}`);
 
 // Monitor cache hit rates
@@ -346,11 +346,10 @@ const GlobalGoodDetailsPage = () => {
 
 ## Future API Considerations
 
-### CMS Backend Integration
-- REST API endpoints for CRUD operations
-- Authentication and authorization
-- Real-time updates and webhooks
-- Content versioning and publishing workflows
+### Data Management Integration
+- Direct JSON file updates for content changes
+- Git-based version control for content history
+- Build-time data validation and processing
 
 ### GraphQL Potential
 - Single endpoint for flexible queries
