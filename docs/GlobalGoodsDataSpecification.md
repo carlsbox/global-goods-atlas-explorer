@@ -123,10 +123,10 @@ Reference Data → Memory Cache → 24hr Browser Cache → Fresh Load
 
 ## Future Considerations
 
-### CMS Integration
-- Current structure supports future CMS backend
-- Enhanced transform layer prepares for content management
-- Validation system ready for editorial workflows
+### Data Management
+- JSON-based structure supports direct file editing
+- Validation system ensures data quality
+- Reference system provides content relationships
 
 ### Scalability
 - Two-tier architecture supports thousands of global goods

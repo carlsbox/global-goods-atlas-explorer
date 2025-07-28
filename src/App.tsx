@@ -11,6 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const HomePage = lazy(() => import("@/pages/HomePage"));
 const GlobalGoodsPageFlat = lazy(() => import("@/pages/GlobalGoodsPageFlat"));
 const GlobalGoodDetailsPageFlat = lazy(() => import("@/pages/GlobalGoodDetailsPageFlat"));
+const ClimateServicesPage = lazy(() => import("@/pages/ClimateServicesPage"));
 const UseCasesPage = lazy(() => import("@/pages/UseCasesPage"));
 const UseCaseDetailsPage = lazy(() => import("@/pages/UseCaseDetailsPage"));
 const EnhancedMapPage = lazy(() => import("@/pages/EnhancedMapPage"));
@@ -74,6 +75,11 @@ function App() {
                   <Route path="global-goods/:id" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <GlobalGoodDetailsPageFlat />
+                    </Suspense>
+                  } />
+                  <Route path="climate-health" element={
+                    <Suspense fallback={<PageLoadingSkeleton />}>
+                      <ClimateServicesPage />
                     </Suspense>
                   } />
                   <Route path="use-cases" element={

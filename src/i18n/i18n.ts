@@ -64,6 +64,11 @@ import navigationEN from './locales/en/pages/navigation.json';
 import navigationFR from './locales/fr/pages/navigation.json';
 import navigationES from './locales/es/pages/navigation.json';
 
+// Import Climate Services page translations
+import climateServicesEN from './locales/en/pages/climateServices.json';
+import climateServicesFR from './locales/fr/pages/climateServices.json';
+import climateServicesES from './locales/es/pages/climateServices.json';
+
 // Define the resources structure with namespaces
 const resources = {
   en: {
@@ -78,7 +83,8 @@ const resources = {
     cookie: cookieEN,
     privacy: privacyEN,
     terms: termsEN,
-    navigation: navigationEN
+    navigation: navigationEN,
+    climateServices: climateServicesEN
   },
   fr: {
     translation: translationFR,
@@ -92,7 +98,8 @@ const resources = {
     cookie: cookieFR,
     privacy: privacyFR,
     terms: termsFR,
-    navigation: navigationFR
+    navigation: navigationFR,
+    climateServices: climateServicesFR
   },
   es: {
     translation: translationES,
@@ -106,7 +113,8 @@ const resources = {
     cookie: cookieES,
     privacy: privacyES,
     terms: termsES,
-    navigation: navigationES
+    navigation: navigationES,
+    climateServices: climateServicesES
   }
 };
 
@@ -121,7 +129,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'privacy', 'terms', 'navigation'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'privacy', 'terms', 'navigation', 'climateServices'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss

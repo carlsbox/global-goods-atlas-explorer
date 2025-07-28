@@ -1,5 +1,6 @@
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useMemo, Suspense, useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { GlobalGoodFlat } from "@/lib/types/globalGoodFlat";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { EnhancedFilterBar } from "@/components/global-goods/EnhancedFilterBar";
@@ -10,6 +11,7 @@ import { useI18n } from "@/hooks/useI18n";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 
 // Skeleton for the catalog grid
 function CatalogSkeleton({ viewMode }: { viewMode: 'grid' | 'list' }) {
@@ -65,6 +67,7 @@ function CatalogSkeleton({ viewMode }: { viewMode: 'grid' | 'list' }) {
 // Main catalog content component
 function CatalogContent() {
   const { data: globalGoods = [], isLoading, error, refetch } = useGlobalGoodsFlat();
+  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
   const [sortBy, setSortBy] = useState("name");
@@ -76,7 +79,14 @@ function CatalogContent() {
   const [selectedWMOClassifications, setSelectedWMOClassifications] = useState<string[]>([]);
   const [selectedHealthStandards, setSelectedHealthStandards] = useState<string[]>([]);
   const [selectedInteropStandards, setSelectedInteropStandards] = useState<string[]>([]);
+  const [climateHealthFilter, setClimateHealthFilter] = useState(false);
   const { tPage } = useI18n();
+
+  // Check for climate-health filter from URL
+  useEffect(() => {
+    const climateHealth = searchParams.get('climate-health') === 'true';
+    setClimateHealthFilter(climateHealth);
+  }, [searchParams]);
   
   // Extract unique sectors for filter - defer calculation until data is loaded
   const sectors = useMemo(() => {
@@ -199,10 +209,14 @@ function CatalogContent() {
       const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.names.en.short) || [];
       const matchesCountries = selectedCountries.length === 0 ||
         selectedCountries.some(country => goodCountries.includes(country));
+
+      const matchesClimateHealth = !climateHealthFilter || 
+        good.ClimateHealth === true || 
+        ['dhis2', 'geoprism', 'ewars'].includes(good.ID);
         
       return matchesSearch && matchesSector && matchesSDGs && matchesWHO && 
              matchesDPI && matchesWMO && matchesHealthStandards && 
-             matchesInteropStandards && matchesCountries;
+             matchesInteropStandards && matchesCountries && matchesClimateHealth;
     });
 
     // Sort the filtered results
@@ -235,7 +249,7 @@ function CatalogContent() {
     return filtered;
   }, [globalGoods, searchTerm, sectorFilter, selectedSDGs, selectedCountries, 
       selectedWHOClassifications, selectedDPIClassifications, selectedWMOClassifications,
-      selectedHealthStandards, selectedInteropStandards, sortBy]);
+      selectedHealthStandards, selectedInteropStandards, sortBy, climateHealthFilter]);
 
   // Clear filters handler
   const handleClearAllFilters = () => {
@@ -248,6 +262,7 @@ function CatalogContent() {
     setSelectedWMOClassifications([]);
     setSelectedHealthStandards([]);
     setSelectedInteropStandards([]);
+    setClimateHealthFilter(false);
   };
 
   if (error) {
@@ -289,17 +304,40 @@ function CatalogContent() {
         />
       </div>
 
+      {/* Active Filters Display */}
+      {climateHealthFilter && (
+        <div className="mb-6">
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-muted-foreground">Active filters:</span>
+            <Badge variant="secondary" className="flex items-center gap-1">
+              Climate & Health
+              <button 
+                onClick={() => setClimateHealthFilter(false)}
+                className="ml-1 hover:bg-muted rounded-full p-0.5"
+              >
+                ×
+              </button>
+            </Badge>
+          </div>
+        </div>
+      )}
+
       {/* Results Summary */}
       <div className="bg-card rounded-lg border p-4 mb-6 shadow-sm">
         {isLoading ? (
           <Skeleton className="h-4 w-64" />
         ) : (
-          <p className="text-muted-foreground">
-            {tPage('showing', 'globalGoods', { 
-              filtered: filteredAndSortedGoods.length, 
-              total: globalGoods.length 
-            })}
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-muted-foreground">
+              {tPage('showing', 'globalGoods', { 
+                filtered: filteredAndSortedGoods.length, 
+                total: globalGoods.length 
+              })}
+            </p>
+            {climateHealthFilter && (
+              <Badge variant="outline">Climate & Health Focus</Badge>
+            )}
+          </div>
         )}
       </div>
       

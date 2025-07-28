@@ -243,7 +243,7 @@ CollectionInitiative: {
 - Reference data cached for performance
 - Missing references handled gracefully
 
-### CMS Integration
-- Enhanced CMS format supports content management
-- Transformation layer converts between formats
-- Validation ensures data integrity
+### Data Management
+- JSON format supports direct file editing
+- Data validation ensures integrity
+- Reference resolution provides enrichment

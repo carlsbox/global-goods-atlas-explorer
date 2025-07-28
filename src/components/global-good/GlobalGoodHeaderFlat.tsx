@@ -11,6 +11,11 @@ interface GlobalGoodHeaderFlatProps {
 }
 
 export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) {
+  // Debug logging
+  console.log('GlobalGoodHeaderFlat - globalGood data:', globalGood);
+  console.log('GlobalGoodHeaderFlat - ClimateHealth value:', globalGood?.ClimateHealth);
+  console.log('Available globalGood properties:', Object.keys(globalGood || {}));
+  
   return (
     <TooltipProvider>
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 shadow-sm">
@@ -45,7 +50,17 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
             </p>
             
             <div className="mt-4 flex flex-wrap gap-2">
-              {/* License Badge - First */}
+              {/* Climate & Health Badge - First Priority */}
+              {globalGood.ClimateHealth && (
+                <Badge 
+                  variant="outline" 
+                  className="bg-blue-50 border-blue-200 text-blue-800"
+                >
+                  🌍 Climate & Health
+                </Badge>
+              )}
+
+              {/* License Badge - Second */}
               {globalGood.License && (
                 <Tooltip>
                   <TooltipTrigger asChild>

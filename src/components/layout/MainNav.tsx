@@ -9,7 +9,8 @@ import {
   Grid3X3,
   FileText,
   Database,
-  Info
+  Info,
+  Heart
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -20,6 +21,7 @@ import { getSiteName } from '@/lib/config';
 const navItems = [
   { name: 'Home', path: '/', icon: Home, translationKey: 'nav.home' },
   { name: 'Global Goods', path: '/global-goods', icon: Grid3X3, translationKey: 'nav.globalGoods' },
+  { name: 'Climate & Health', path: '/climate-health', icon: Heart, translationKey: 'nav.climateHealth' },
   { name: 'Use Cases', path: '/use-cases', icon: FileText, translationKey: 'nav.useCases' },
   { name: 'Map', path: '/map', icon: MapPin, translationKey: 'nav.map' },
   { name: 'Reference', path: '/reference', icon: Database, translationKey: 'nav.reference' },
