@@ -6,7 +6,7 @@ export { loadUseCase, loadAllUseCases } from "./useCaseLoader";
 export { loadCountriesData } from "./countryLoader";
 export { loadSDGData } from "./sdgLoader";
 export { loadStandardsData } from './standardsLoader';
-export { useContentLoader } from "@/hooks/useContentLoader";
+
 export { 
   loadLicenses, 
   loadProductLanguages, 

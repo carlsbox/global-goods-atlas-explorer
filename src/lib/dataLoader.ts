@@ -9,4 +9,3 @@ export {
   loadAllUseCases,
   loadCountriesData,
 } from "./loaders";
-export { useContentLoader } from "@/hooks/useContentLoader";
