@@ -79,15 +79,15 @@
   {
     "ID": "harmony",
     "Name": "Harmony",
-    "Summary": "Harmony is an open-source data integration and analytics platform.",
-    "Logo": "",
+    "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
+    "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
     "GlobalGoodType": ["software"],
-    "Countries": ["et", "gw", "mz", "rw", "za", "pk", "br", "vn"],
+    "Countries": ["et", "gw", "mz", "rw", "za", "zm", "br", "pk", "vn"],
     "Classifications": {
-      "SDGs": ["SDG-3"],
+      "SDGs": ["SDG-3", "SDG-13"],
       "WHO": ["WHO_D1", "WHO_A3", "WHO_B3", "WHO_D3", "WHO_E1", "WHO_E2"],
-      "WMO": ["WMO_A1"],
-      "DPI": ["DPI_A3"]
+      "WMO": ["WMO_B1", "WMO_A1"],
+      "DPI": ["DPI_FA3"]
     },
     "Standards": {
       "Health": [],
