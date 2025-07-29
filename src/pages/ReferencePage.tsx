@@ -322,11 +322,11 @@ export default function ReferencePage() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
               {Object.keys(standards).length > 0 ? (
-                ['Health', 'Interoperability', 'Climate'].map(domain => {
+                ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
                   const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
                   if (domainStandards.length === 0) return null;
                 
-                  const displayName = domain;
+                  const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
                 
                 return (
                   <div key={domain} className="mb-6">
@@ -540,11 +540,11 @@ export default function ReferencePage() {
             <TabsContent value="standards" className="mt-6">
               <div className="space-y-6">
                 {Object.keys(standards).length > 0 ? (
-                  ['Health', 'Interoperability', 'Climate'].map(domain => {
+                  ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
                     const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
                     if (domainStandards.length === 0) return null;
                     
-                    const displayName = domain;
+                    const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
                   
                   return (
                     <div key={domain}>
