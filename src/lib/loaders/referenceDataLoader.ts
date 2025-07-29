@@ -96,9 +96,44 @@ export async function loadStandards(): Promise<Record<string, Standard>> {
   if (standardsCache) return standardsCache;
   
   try {
-    const response = await fetch('/data/reference/standards.json');
-    if (!response.ok) throw new Error('Failed to load standards');
-    standardsCache = await response.json();
+    // Load all modular standards files
+    const [healthResponse, interopResponse, climateResponse] = await Promise.all([
+      fetch('/data/reference/standards/health.json'),
+      fetch('/data/reference/standards/interoperability.json'),
+      fetch('/data/reference/standards/climate.json')
+    ]);
+
+    if (!healthResponse.ok || !interopResponse.ok || !climateResponse.ok) {
+      throw new Error('Failed to load one or more standards files');
+    }
+
+    const [healthStandards, interopStandards, climateStandards] = await Promise.all([
+      healthResponse.json(),
+      interopResponse.json(),
+      climateResponse.json()
+    ]);
+
+    // Combine arrays into a unified object with code as key
+    standardsCache = {};
+    
+    // Process health standards
+    healthStandards.forEach((standard: Standard) => {
+      standardsCache![standard.code] = standard;
+    });
+    
+    // Process interoperability standards
+    interopStandards.forEach((standard: Standard) => {
+      standardsCache![standard.code] = standard;
+    });
+    
+    // Process climate standards (normalize domain)
+    climateStandards.forEach((standard: Standard) => {
+      standardsCache![standard.code] = {
+        ...standard,
+        domain: standard.domain === 'Climate' ? 'Weather and Climate' : standard.domain
+      };
+    });
+
     return standardsCache;
   } catch (error) {
     console.error('Error loading standards:', error);
