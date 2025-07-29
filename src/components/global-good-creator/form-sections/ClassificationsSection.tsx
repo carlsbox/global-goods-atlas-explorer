@@ -35,7 +35,7 @@ export function ClassificationsSection({ form }: ClassificationsSectionProps) {
   const sdgs = classifications.filter(c => c.authority === 'SDG');
   const who = classifications.filter(c => c.authority === 'WHO');
   const wmo = classifications.filter(c => c.authority === 'WMO');
-  const dpi = classifications.filter(c => c.authority === 'DPI');
+  const dpi = classifications.filter(c => c.authority === 'DPI' || c.authority === 'DPI-H');
 
   const renderClassificationGroup = (
     title: string,

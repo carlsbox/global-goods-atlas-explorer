@@ -1,7 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { UseFormReturn } from 'react-hook-form';
 import { GlobalGoodFlatFormValues } from '@/lib/schemas/globalGoodFlatFormSchema';
 import { useLazyReferenceData } from '@/hooks/useLazyReferenceData';
@@ -33,13 +33,18 @@ export function StandardsSection({ form }: StandardsSectionProps) {
   const renderStandardsGroup = (
     title: string,
     items: any[],
-    fieldName: 'StandardsAndInteroperability.HealthStandards' | 'StandardsAndInteroperability.Interoperability' | 'StandardsAndInteroperability.ClimateStandards'
+    fieldName: 'StandardsAndInteroperability.HealthStandards' | 'StandardsAndInteroperability.Interoperability' | 'StandardsAndInteroperability.ClimateStandards',
+    accordionValue: string
   ) => (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <AccordionItem value={accordionValue}>
+      <AccordionTrigger className="hover:no-underline">
+        <div className="flex items-center justify-between w-full pr-4">
+          <div className="text-left">
+            <span className="font-medium">{title}</span>
+          </div>
+        </div>
+      </AccordionTrigger>
+      <AccordionContent className="pt-4">
         <FormField
           control={form.control}
           name={fieldName}
@@ -105,8 +110,8 @@ export function StandardsSection({ form }: StandardsSectionProps) {
             </FormItem>
           )}
         />
-      </CardContent>
-    </Card>
+      </AccordionContent>
+    </AccordionItem>
   );
 
   return (
@@ -115,9 +120,11 @@ export function StandardsSection({ form }: StandardsSectionProps) {
         Select standards and interoperability frameworks that your global good supports or complies with.
       </div>
 
-      {standards.health && renderStandardsGroup('Health Standards', standards.health, 'StandardsAndInteroperability.HealthStandards')}
-      {standards.interoperability && renderStandardsGroup('Interoperability Standards', standards.interoperability, 'StandardsAndInteroperability.Interoperability')}
-      {standards.climate && renderStandardsGroup('Climate Standards', standards.climate, 'StandardsAndInteroperability.ClimateStandards')}
+      <Accordion type="multiple" className="w-full">
+        {standards.health && standards.health.length > 0 && renderStandardsGroup('Health Standards', standards.health, 'StandardsAndInteroperability.HealthStandards', 'health')}
+        {standards.interoperability && standards.interoperability.length > 0 && renderStandardsGroup('Interoperability Standards', standards.interoperability, 'StandardsAndInteroperability.Interoperability', 'interoperability')}
+        {standards.climate && standards.climate.length > 0 && renderStandardsGroup('Climate Standards', standards.climate, 'StandardsAndInteroperability.ClimateStandards', 'climate')}
+      </Accordion>
     </div>
   );
 }
