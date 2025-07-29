@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -64,7 +64,7 @@ export default function GlobalGoodCreatorPage() {
     setCompletionPercentage(percentage);
   };
 
-  const handleFormDataChange = (newData: Partial<GlobalGoodFlat>) => {
+  const handleFormDataChange = useCallback((newData: Partial<GlobalGoodFlat>) => {
     setFormData(prev => {
       // Only update if the data has actually changed
       const hasChanged = JSON.stringify(prev) !== JSON.stringify(newData);
@@ -75,7 +75,7 @@ export default function GlobalGoodCreatorPage() {
       }
       return prev;
     });
-  };
+  }, []);
 
   const clearDraft = () => {
     localStorage.removeItem(STORAGE_KEY);

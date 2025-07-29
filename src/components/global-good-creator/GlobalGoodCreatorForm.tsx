@@ -143,16 +143,20 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
     mode: 'onBlur',
   });
 
-  // Watch form changes and propagate to parent (but debounce to avoid performance issues)
+  // Watch form changes and propagate to parent with debouncing
   useEffect(() => {
     const subscription = form.watch((data) => {
       // Only propagate if the data is valid and different
       if (data && typeof data === 'object') {
-        onFormDataChange(data as Partial<GlobalGoodFlat>);
+        // Use setTimeout to debounce and prevent infinite loops
+        const timeoutId = setTimeout(() => {
+          onFormDataChange(data as Partial<GlobalGoodFlat>);
+        }, 100);
+        return () => clearTimeout(timeoutId);
       }
     });
     return () => subscription.unsubscribe();
-  }, [form, onFormDataChange]);
+  }, [onFormDataChange]);
 
   const formSections = [
     {
