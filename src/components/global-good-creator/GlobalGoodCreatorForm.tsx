@@ -15,6 +15,7 @@ import { MaturitySection } from './form-sections/MaturitySection';
 import { CommunitySection } from './form-sections/CommunitySection';
 import { SustainabilitySection } from './form-sections/SustainabilitySection';
 import { ResourcesSection } from './form-sections/ResourcesSection';
+import { LinkedInitiativesSection } from './form-sections/LinkedInitiativesSection';
 import { useEffect, useState } from 'react';
 
 interface GlobalGoodCreatorFormProps {
@@ -229,6 +230,13 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
       title: 'Resources & Documentation',
       description: 'Links to documentation and resources',
       component: ResourcesSection,
+      required: false,
+    },
+    {
+      id: 'linked-initiatives',
+      title: 'Linked Initiatives',
+      description: 'Connected collection initiatives and networks',
+      component: LinkedInitiativesSection,
       required: false,
     },
   ];
