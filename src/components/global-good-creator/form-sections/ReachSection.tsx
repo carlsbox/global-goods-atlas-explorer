@@ -38,8 +38,8 @@ export function ReachSection({ form }: ReachSectionProps) {
 
   // Filter countries based on search term
   const filteredCountries = countries.filter(country =>
-    country.names?.en?.short.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    country.names?.en?.formal.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.short?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.formal?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     country.iso_code.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -123,10 +123,10 @@ export function ReachSection({ form }: ReachSectionProps) {
                   <div className="mb-4">
                     <div className="text-sm font-medium mb-2">Selected Countries ({field.value.length}):</div>
                     <div className="flex flex-wrap gap-2">
-                      {field.value.map((country: any, index: number) => (
-                        <Badge key={index} variant="secondary" className="flex items-center gap-1">
-                          {country.names?.en?.short || country.iso_code}
-                          <Button
+                       {field.value.map((country: any, index: number) => (
+                         <Badge key={index} variant="secondary" className="flex items-center gap-1">
+                           {country.short || country.iso_code}
+                           <Button
                             variant="ghost"
                             size="sm"
                             className="h-4 w-4 p-0 hover:bg-transparent"
@@ -155,20 +155,25 @@ export function ReachSection({ form }: ReachSectionProps) {
                             checked={isSelected}
                             onCheckedChange={(checked) => {
                               const currentValue = field.value || [];
-                              if (checked) {
-                                field.onChange([...currentValue, {
-                                  iso_code: country.iso_code,
-                                  type: 'implementation',
-                                  names: country.names
-                                }]);
-                              } else {
+                               if (checked) {
+                                 field.onChange([...currentValue, {
+                                   iso_code: country.iso_code,
+                                   type: 'implementation',
+                                   names: {
+                                     en: {
+                                       short: country.short,
+                                       formal: country.formal
+                                     }
+                                   }
+                                 }]);
+                               } else {
                                 field.onChange(currentValue.filter((selected: any) => selected.iso_code !== country.iso_code));
                               }
                             }}
                           />
-                          <label className="text-sm cursor-pointer flex-1">
-                            {country.names?.en?.short} ({country.iso_code})
-                          </label>
+                           <label className="text-sm cursor-pointer flex-1">
+                             {country.short} ({country.iso_code})
+                           </label>
                         </div>
                       );
                     })}
