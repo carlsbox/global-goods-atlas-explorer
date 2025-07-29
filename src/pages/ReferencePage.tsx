@@ -330,7 +330,7 @@ export default function ReferencePage() {
                 
                 return (
                   <div key={domain} className="mb-6">
-                    <h4 className="text-lg font-medium mb-3 text-primary">{displayName} Standards</h4>
+                    <h4 className="text-lg font-medium mb-3 text-primary">{displayName} Standards ({domainStandards.length})</h4>
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -548,7 +548,7 @@ export default function ReferencePage() {
                   
                   return (
                     <div key={domain}>
-                      <h3 className="text-lg font-semibold mb-3">{displayName} Standards</h3>
+                      <h3 className="text-lg font-semibold mb-3">{displayName} Standards ({domainStandards.length})</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {domainStandards
                           .filter((standard: any) => !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || standard.description.toLowerCase().includes(searchTerm.toLowerCase()))
