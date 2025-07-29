@@ -44,13 +44,13 @@
     "code": "FHIR",
     "name": "Fast Healthcare Interoperability Resources",
     "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records",
-    "domain": "Health",
+    "domain": "Interoperability",
     "type": "exchange",
     "link": "https://www.hl7.org/fhir/"
   },
   {
     "code": "HL7 V3",
-    "domain": "Health",
+    "domain": "Interoperability",
     "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
     "type": "exchange",
     "name": "HL7 V3",
@@ -58,14 +58,14 @@
   },
   {
     "code": "HL7 V2",
-    "domain": "Health",
+    "domain": "Interoperability",
     "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
     "type": "exchange",
     "name": "HL7 V2",
     "description": "Health Level 7 Version 2, a messaging standard for exchanging clinical and administrative data in healthcare settings."
   },{
     "code": "ADX",
-    "domain": "Health",
+    "domain": "Interoperability",
     "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
     "type": "exchange",
     "name": "ADX",

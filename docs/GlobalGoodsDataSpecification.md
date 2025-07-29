@@ -39,9 +39,11 @@ public/data/global-goods/
 public/data/reference/
 ├── globalGoodsTypes.json        # Software, Content, Service, etc.
 ├── licenses.json                # Open source licenses
-├── standards.json               # Health, interop, climate standards
+├── standards/                   # Modular standards by domain
+│   ├── health.json             # Health-related standards
+│   ├── interoperability.json  # Interoperability standards  
+│   └── climate.json            # Climate and weather standards
 ├── countries.json               # Country codes and names
-├── productLanguages.json        # Supported languages
 ├── collectionInitiatives.json   # Partner organizations
 └── classifications/
     ├── sdgs.json               # Sustainable Development Goals

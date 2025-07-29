@@ -61,7 +61,9 @@ GET /data/global-goods/individual/{id}.json
 ```
 GET /data/reference/globalGoodsTypes.json
 GET /data/reference/licenses.json
-GET /data/reference/standards.json
+GET /data/reference/standards/health.json
+GET /data/reference/standards/interoperability.json
+GET /data/reference/standards/climate.json
 GET /data/reference/countries.json
 GET /data/reference/productLanguages.json
 GET /data/reference/collectionInitiatives.json

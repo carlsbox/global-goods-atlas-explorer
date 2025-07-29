@@ -12,7 +12,7 @@ All reference data is stored in `public/data/reference/` with dedicated files fo
 
 - **Global Types**: `globalGoodsTypes.json`
 - **Licenses**: `licenses.json`
-- **Standards**: `standards.json`
+- **Standards**: `standards/` directory with `health.json`, `interoperability.json`, `climate.json`
 - **Countries**: `countries.json`
 - **Languages**: `productLanguages.json`
 - **Initiatives**: `collectionInitiatives.json`
