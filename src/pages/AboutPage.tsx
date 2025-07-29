@@ -62,7 +62,7 @@ export default function AboutPage() {
               {tPage('globalGoods.definition', 'about')}
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-center">
@@ -100,48 +100,6 @@ export default function AboutPage() {
                     <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.content.title', 'about')}</h3>
                     <p className="text-muted-foreground">
                       {tPage('globalGoods.types.content.description', 'about')}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <FileText className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.climate.title', 'about')}</h3>
-                    <p className="text-muted-foreground">
-                      {tPage('globalGoods.types.climate.description', 'about')}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <Database className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.data.title', 'about')}</h3>
-                    <p className="text-muted-foreground">
-                      {tPage('globalGoods.types.data.description', 'about')}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <Settings className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.ai.title', 'about')}</h3>
-                    <p className="text-muted-foreground">
-                      {tPage('globalGoods.types.ai.description', 'about')}
                     </p>
                   </div>
                 </CardContent>
