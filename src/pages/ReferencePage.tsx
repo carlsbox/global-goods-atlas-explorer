@@ -45,26 +45,30 @@ export default function ReferencePage() {
           loadStandards()
         ]);
         
-        console.log('ReferencePage - All data loaded:', {
-          countries: countries.length,
-          classifications: classifications.length,
-          standards: Object.keys(standards).length,
-          sdgs: sdgs.length,
-          initiatives: initiatives.length,
-          licenses: licenses.length,
-          languages: languages.length,
-          globalGoodsTypes: globalGoodsTypes.length
-        });
-        
       } catch (error) {
         console.error('ReferencePage - Error loading data:', error);
-      } finally {
-        setDataLoading(false);
       }
     };
 
     loadAllReferenceData();
   }, [loadCountries, loadClassifications, loadStandards]);
+
+  // Monitor when data is actually available and stop loading
+  useEffect(() => {
+    const hasRequiredData = Object.keys(standards).length > 0 && 
+                           countries.length > 0 && 
+                           classifications.length > 0;
+    
+    if (hasRequiredData && dataLoading) {
+      console.log('ReferencePage - Data fully loaded:', {
+        countries: countries.length,
+        classifications: classifications.length,
+        standards: Object.keys(standards).length,
+        sdgs: sdgs.length
+      });
+      setDataLoading(false);
+    }
+  }, [standards, countries, classifications, dataLoading]);
 
   if (loading || dataLoading) {
     return (
