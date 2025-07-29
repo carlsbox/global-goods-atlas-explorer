@@ -3,8 +3,8 @@ import { z } from 'zod';
 
 // Define the GlobalGoodFlat form schema that matches the exact structure
 export const globalGoodFlatFormSchema = z.object({
-  ID: z.string().min(1, 'ID is required'),
-  Name: z.string().min(1, 'Name is required'),
+  ID: z.string().optional(),
+  Name: z.string().optional(),
   Logo: z.string().optional(),
   Website: z.object({
     main: z.object({
@@ -27,43 +27,48 @@ export const globalGoodFlatFormSchema = z.object({
       url: z.string(),
       description: z.string(),
     }).optional(),
-  }),
+  }).optional(),
   GlobalGoodsType: z.array(z.object({
     code: z.string(),
     title: z.string(),
     description: z.string(),
-  })),
+  })).default([]),
   License: z.object({
     id: z.string(),
     name: z.string(),
     url: z.string(),
     description: z.string(),
-  }),
+  }).optional(),
   Contact: z.array(z.object({
     name: z.string(),
     email: z.string(),
     role: z.string(),
-  })),
+  })).default([]),
   Classifications: z.object({
     SDGs: z.array(z.object({
       code: z.string(),
       title: z.string(),
-    })),
+    })).default([]),
     WHO: z.array(z.object({
       code: z.string(),
       title: z.string(),
       group_code: z.string(),
       group_name: z.string(),
       authority: z.string(),
-    })),
-    WMO: z.array(z.any()),
+    })).default([]),
+    WMO: z.array(z.any()).default([]),
     DPI: z.array(z.object({
       code: z.string(),
       title: z.string(),
       group_code: z.string(),
       group_name: z.string(),
       authority: z.string(),
-    })),
+    })).default([]),
+  }).default({
+    SDGs: [],
+    WHO: [],
+    WMO: [],
+    DPI: [],
   }),
   StandardsAndInteroperability: z.object({
     HealthStandards: z.array(z.object({
@@ -72,30 +77,34 @@ export const globalGoodFlatFormSchema = z.object({
       link: z.string(),
       name: z.string(),
       description: z.string(),
-    })),
+    })).default([]),
     Interoperability: z.array(z.object({
       code: z.string(),
       type: z.string(),
       link: z.string(),
       name: z.string(),
       description: z.string(),
-    })),
-    ClimateStandards: z.array(z.any()),
+    })).default([]),
+    ClimateStandards: z.array(z.any()).default([]),
+  }).default({
+    HealthStandards: [],
+    Interoperability: [],
+    ClimateStandards: [],
   }),
   ProductOverview: z.object({
-    Summary: z.string(),
-    Description: z.string(),
-    PrimaryFunctionality: z.string(),
-    Users: z.string(),
+    Summary: z.string().optional(),
+    Description: z.string().optional(),
+    PrimaryFunctionality: z.string().optional(),
+    Users: z.string().optional(),
     Languages: z.array(z.object({
       code: z.string(),
       name: z.string(),
-    })),
+    })).default([]),
     Screenshots: z.array(z.object({
       url: z.string(),
       description: z.string(),
-    })),
-  }),
+    })).default([]),
+  }).optional(),
   Reach: z.object({
     SummaryOfReach: z.string(),
     NumberOfImplementations: z.number(),
@@ -115,17 +124,17 @@ export const globalGoodFlatFormSchema = z.object({
     })),
   }),
   Maturity: z.object({
-    SummaryOfMaturity: z.string(),
+    SummaryOfMaturity: z.string().optional(),
     Scores: z.array(z.object({
-      year: z.number(),
-      global_utility: z.number(),
-      community_support: z.number(),
-      maturity_of_gg: z.number(),
-      inclusive_design: z.number(),
-      climate_resilience: z.number(),
-      low_carbon: z.number(),
-    })),
-  }),
+      year: z.number().optional(),
+      global_utility: z.number().optional(),
+      community_support: z.number().optional(),
+      maturity_of_gg: z.number().optional(),
+      inclusive_design: z.number().optional(),
+      climate_resilience: z.number().optional(),
+      low_carbon: z.number().optional(),
+    })).default([]),
+  }).optional(),
   ClimateAndHealthIntegration: z.object({
     Description: z.string(),
   }),

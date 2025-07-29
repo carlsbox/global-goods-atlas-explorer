@@ -27,22 +27,130 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
 
   const form = useForm<GlobalGoodFlatFormValues>({
     resolver: zodResolver(globalGoodFlatFormSchema),
-    defaultValues: formData as GlobalGoodFlatFormValues,
-    mode: 'onChange',
+    defaultValues: {
+      ID: '',
+      Name: '',
+      Logo: '',
+      Website: {
+        main: { name: '', url: '', description: '' },
+        docs: { name: '', url: '', description: '' },
+        source_code: { name: '', url: '', description: '' },
+        demo: { name: '', url: '', description: '' },
+      },
+      GlobalGoodsType: [],
+      License: { id: '', name: '', url: '', description: '' },
+      Contact: [],
+      Classifications: {
+        SDGs: [],
+        WHO: [],
+        WMO: [],
+        DPI: [],
+      },
+      StandardsAndInteroperability: {
+        HealthStandards: [],
+        Interoperability: [],
+        ClimateStandards: [],
+      },
+      ProductOverview: {
+        Summary: '',
+        Description: '',
+        PrimaryFunctionality: '',
+        Users: '',
+        Languages: [],
+        Screenshots: [],
+      },
+      Reach: {
+        SummaryOfReach: '',
+        NumberOfImplementations: 0,
+        ImplementationMapOverview: null,
+        ImplementationCountries: [],
+      },
+      Maturity: {
+        SummaryOfMaturity: '',
+        Scores: [{
+          year: new Date().getFullYear(),
+          global_utility: 0,
+          community_support: 0,
+          maturity_of_gg: 0,
+          inclusive_design: 0,
+          climate_resilience: 0,
+          low_carbon: 0,
+        }],
+      },
+      ClimateAndHealthIntegration: {
+        Description: '',
+      },
+      Community: {
+        DescriptionOfCommunity: '',
+        HostAnchorOrganization: {
+          name: '',
+          url: '',
+          description: '',
+          country: [],
+        },
+        InceptionYear: new Date().getFullYear(),
+        SizeOfCommunity: 0,
+        Links: {},
+        Events: {
+          description: '',
+          schedule: '',
+          recent: [],
+        },
+        Policies: {
+          Description: '',
+          Governance: { url: '', description: '' },
+          TermsOfUse: { url: '', description: '' },
+          UserAgreement: { url: '', description: '' },
+          PrivacyPolicy: { url: '', description: '' },
+          DoNoHarm: { url: '', description: '' },
+          PIICollected: { url: '', description: '' },
+          NPIIUsed: { url: '', description: '' },
+        },
+      },
+      InclusiveDesign: {
+        Description: '',
+        UserInput: '',
+        OfflineSupport: '',
+      },
+      EnvironmentalImpact: {
+        LowCarbon: '',
+      },
+      TotalCostOfOwnership: {
+        Description: '',
+        url: '',
+      },
+      Sustainability: {
+        Description: '',
+        KeyFundersSupporters: [],
+      },
+      Resources: {
+        Articles: [],
+        ProductDocumentation: [],
+        UserRequirements: [],
+        EndUserDocumentation: [],
+        ImplementerDocumentation: [],
+        DeveloperDocumentation: [],
+        OperatorDocumentation: [],
+        InstallationDocumentation: [],
+      },
+      LinkedInitiatives: {
+        Initiative: [],
+      },
+      ...formData,
+    } as GlobalGoodFlatFormValues,
+    mode: 'onBlur',
   });
 
-  // Watch form changes and propagate to parent
+  // Watch form changes and propagate to parent (but debounce to avoid performance issues)
   useEffect(() => {
     const subscription = form.watch((data) => {
-      onFormDataChange(data as Partial<GlobalGoodFlat>);
+      // Only propagate if the data is valid and different
+      if (data && typeof data === 'object') {
+        onFormDataChange(data as Partial<GlobalGoodFlat>);
+      }
     });
     return () => subscription.unsubscribe();
   }, [form, onFormDataChange]);
-
-  // Update form when external data changes
-  useEffect(() => {
-    form.reset(formData as GlobalGoodFlatFormValues);
-  }, [formData, form]);
 
   const formSections = [
     {

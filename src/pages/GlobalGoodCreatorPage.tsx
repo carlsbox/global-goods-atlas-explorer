@@ -65,9 +65,16 @@ export default function GlobalGoodCreatorPage() {
   };
 
   const handleFormDataChange = (newData: Partial<GlobalGoodFlat>) => {
-    setFormData(newData);
-    setIsDirty(true);
-    calculateCompletion(newData);
+    setFormData(prev => {
+      // Only update if the data has actually changed
+      const hasChanged = JSON.stringify(prev) !== JSON.stringify(newData);
+      if (hasChanged) {
+        setIsDirty(true);
+        calculateCompletion(newData);
+        return newData;
+      }
+      return prev;
+    });
   };
 
   const clearDraft = () => {
