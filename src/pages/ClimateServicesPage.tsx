@@ -40,18 +40,43 @@ function FeaturedGoodsSkeleton() {
 const endorsementOrgs = [
   {
     name: "Wellcome",
-    logo: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=100&fit=crop",
-    description: "Global health research charity"
+    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
   },
   {
-    name: "RF",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop",
-    description: "Research Foundation"
+    name: "Rockefeller Foundation",
+    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
   },
   {
     name: "WHO-WMO Joint Programme",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop",
-    description: "Joint Programme on Climate and Health"
+    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Gates Foundation",
+    logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Impact Alliance",
+    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Public Goods Alliance",
+    logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+  },
+  {
+    name: "ELMA Philanthropies",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+  },
+  {
+    name: "NORAD",
+    logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
+  },
+  {
+    name: "UNICEF",
+    logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
   }
 ];
 
@@ -267,7 +292,7 @@ export default function ClimateServicesPage() {
             {tPage('endorsements.description', 'climateServices')}
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {endorsementOrgs.map((org, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="pt-6">
@@ -276,8 +301,7 @@ export default function ClimateServicesPage() {
                     alt={org.name}
                     className="h-16 w-auto mx-auto mb-4 object-contain"
                   />
-                  <h3 className="font-semibold mb-2">{org.name}</h3>
-                  <p className="text-sm text-muted-foreground">{org.description}</p>
+                  <h3 className="font-semibold text-sm">{org.name}</h3>
                 </CardContent>
               </Card>
             ))}
