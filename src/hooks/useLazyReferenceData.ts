@@ -1,11 +1,14 @@
 
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useReferenceData } from '@/contexts/ReferenceDataContext';
 
 export function useLazyReferenceData(sections: ('classifications' | 'countries' | 'standards')[]) {
   const { loadClassifications, loadCountries, loadStandards, ...data } = useReferenceData();
 
-  console.log('useLazyReferenceData - Requested sections:', sections);
+  // Memoize sections to prevent infinite loops
+  const memoizedSections = useMemo(() => sections, [sections.join(',')]);
+
+  console.log('useLazyReferenceData - Requested sections:', memoizedSections);
   console.log('useLazyReferenceData - Current data state:', {
     hasStandards: !!data.standards && Object.keys(data.standards).length > 0,
     standardsKeys: data.standards ? Object.keys(data.standards).slice(0, 5) : [],
@@ -17,19 +20,23 @@ export function useLazyReferenceData(sections: ('classifications' | 'countries' 
     const loadRequiredSections = async () => {
       const promises = [];
       
-      if (sections.includes('classifications')) {
+      if (memoizedSections.includes('classifications') && !data.classifications?.length) {
         console.log('useLazyReferenceData - Loading classifications');
         promises.push(loadClassifications());
       }
       
-      if (sections.includes('countries')) {
+      if (memoizedSections.includes('countries') && !data.countries?.length) {
         console.log('useLazyReferenceData - Loading countries');
         promises.push(loadCountries());
       }
       
-      if (sections.includes('standards')) {
+      if (memoizedSections.includes('standards') && !data.standards) {
         console.log('useLazyReferenceData - Loading standards');
         promises.push(loadStandards());
+      }
+
+      if (promises.length === 0) {
+        return; // Nothing to load
       }
 
       try {
@@ -41,7 +48,7 @@ export function useLazyReferenceData(sections: ('classifications' | 'countries' 
     };
 
     loadRequiredSections();
-  }, [sections, loadClassifications, loadCountries, loadStandards]);
+  }, [memoizedSections, loadClassifications, loadCountries, loadStandards, data.classifications?.length, data.countries?.length, data.standards]);
 
   return data;
 }
