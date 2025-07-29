@@ -1,25 +1,129 @@
 
-[
+  [
+  {
+    "code": "GRIB",
+    "name": "GRIB",
+    "description": "GRIdded Binary format, a standard for encoding meteorological and oceanographic data.",
+    "domain": "Climate",
+    "type": "data_format",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf"
+  },
+  {
+    "code": "NetCDF",
+    "name": "Network Common Data Form",
+    "description": "A flexible, self-describing format used to store multidimensional scientific data (e.g., time, latitude, longitude, altitude).",
+    "domain": "Climate",
+    "type": "data_format",
+    "link": "https://www.unidata.ucar.edu/software/netcdf/"
+  },
+  {
+    "code": "BUFR",
+    "name": "Binary Universal Form for the Representation of meteorological data",
+    "description": "A binary format designed for the efficient transmission and storage of real-time observational data. Supports complex, hierarchical data.",
+    "domain": "Climate",
+    "type": "data_format",
+    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/VolumeI.2.html"
+  },
+  {
+    "code": "HDF",
+    "name": "Hierarchical Data Format",
+    "description": "A set of file formats designed to store and organize large amounts of numerical data, common in satellite and remote sensing data.",
+    "domain": "Climate",
+    "type": "data_format",
+    "link": "https://www.hdfgroup.org/solutions/hdf5/"
+  },
   {
     "code": "CF",
     "name": "Climate and Forecast Metadata Conventions",
-    "description": "Conventions for climate and forecast data stored in netCDF files",
+    "description": "A metadata standard that ensures NetCDF files are self-describing and interoperable. Defines variable names, units, and spatial/temporal dimensions.",
     "domain": "Climate",
     "type": "metadata",
     "link": "https://cfconventions.org/"
   },
   {
-    "code": "NetCDF",
-    "name": "Network Common Data Form",
-    "description": "Set of software libraries and self-describing, machine-independent data formats for array-oriented scientific data",
+    "code": "ISO 19115/19139",
+    "name": "ISO 19115 / 19139 (Geographic Metadata Standards)",
+    "description": "Standards from the ISO 19100 series for documenting datasets with geospatial content, commonly used in climate data cataloging and discovery.",
     "domain": "Climate",
-    "type": "format",
-    "link": "https://www.unidata.ucar.edu/software/netcdf/"
+    "type": "metadata",
+    "link": ""
+  },
+  {
+    "code": "SYNOP",
+    "name": "Surface Synoptic Observations",
+    "description": "Reports surface weather observations from land-based stations, including temperature, pressure, wind, cloud cover, and weather phenomena.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "METAR",
+    "name": "Meteorological Aerodrome Report",
+    "description": "Provides aviation weather reports, including wind, visibility, weather conditions, cloud cover, temperature, dew point, and pressure.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "TAF",
+    "name": "Terminal Aerodrome Forecast",
+    "description": "Forecast counterpart to METAR, providing wind, visibility, significant weather, and cloud forecasts for airports in time blocks.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "TEMP",
+    "name": "Upper-Air Sounding Reports",
+    "description": "Structured codes reporting upper-air observations from radiosondes, including temperature, humidity, wind, and geopotential height.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "BUOY/SHIP",
+    "name": "Marine Observations",
+    "description": "Reports from buoys and ships, including wave height, sea surface temperature, and swell, adapted for marine conditions.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "CLIMAT",
+    "name": "CLIMAT",
+    "description": "Monthly summaries of surface observations reported to global climate monitoring centres for climate monitoring.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "CLIMAT TEMP",
+    "name": "CLIMAT TEMP",
+    "description": "Monthly summaries of upper-air observations reported to global climate monitoring centres for climate monitoring.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "AIREP",
+    "name": "Aircraft Routine Reports",
+    "description": "Routine in-flight reports from aircraft, focusing on observed conditions like turbulence and icing.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
+  },
+  {
+    "code": "PIREP",
+    "name": "Pilot Reports",
+    "description": "In-flight reports issued by pilots, detailing conditions such as turbulence, icing, and other weather phenomena.",
+    "domain": "Climate",
+    "type": "codes",
+    "link": ""
   },
   {
     "code": "WMS",
     "name": "Web Map Service",
-    "description": "Standard protocol for serving georeferenced map images over the Internet",
+    "description": "Delivers georeferenced map images over the web, used for visualizing weather radar, satellite images, or climate model outputs.",
     "domain": "Climate",
     "type": "service",
     "link": "https://www.ogc.org/standards/wms"
@@ -27,49 +131,58 @@
   {
     "code": "WFS",
     "name": "Web Feature Service",
-    "description": "Web service that allows querying and retrieval of geographical features",
+    "description": "Provides access to vector data (e.g., points, lines, polygons) with attributes, typically encoded in GML.",
     "domain": "Climate",
     "type": "service",
     "link": "https://www.ogc.org/standards/wfs"
   },
   {
-    "code": "GRIB",
-    "domain": "Weather and Climate",
-    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/Guides/GRIB/GRIB2_062006.pdf",
-    "type": "data_format",
-    "name": "GRIB",
-    "description": "GRIdded Binary format, a standard for encoding meteorological and oceanographic data."
+    "code": "WCS",
+    "name": "Web Coverage Service",
+    "description": "Allows access to raster data (coverages), such as temperature grids or precipitation fields, often used with NetCDF or HDF.",
+    "domain": "Climate",
+    "type": "service",
+    "link": "https://www.ogc.org/standards/wcs"
   },
   {
-    "code": "WCS",
-    "domain": "Weather and Climate",
-    "link": "https://www.ogc.org/standards/wcs",
-    "type": "exchange",
-    "name": "WCS",
-    "description": "Web Coverage Service, provides access to coverage data in forms useful for client-side rendering."
+    "code": "CSW",
+    "name": "Catalogue Service for the Web",
+    "description": "Enables discovery and querying of metadata about geospatial datasets and services using ISO 19115-compliant metadata.",
+    "domain": "Climate",
+    "type": "service",
+    "link": "https://www.ogc.org/standards/csw"
+  },
+  {
+    "code": "SOS",
+    "name": "Sensor Observation Service",
+    "description": "Provides access to real-time or archived sensor observations, using SensorML and O&M standards.",
+    "domain": "Climate",
+    "type": "service",
+    "link": "https://www.ogc.org/standards/sos"
+  },
+  {
+    "code": "SensorThings",
+    "name": "OGC SensorThings API",
+    "description": "A lightweight, RESTful API for IoT, designed for streaming sensor data in JSON format.",
+    "domain": "Climate",
+    "type": "api",
+    "link": "https://www.ogc.org/standards/sensorthings"
   },
   {
     "code": "GML",
-    "domain": "Weather and Climate",
-    "link": "https://www.ogc.org/standards/gml",
+    "name": "Geography Markup Language",
+    "description": "An XML-based encoding for geospatial features, used in services like WFS and SOS.",
+    "domain": "Climate",
     "type": "data_format",
-    "name": "GML",
-    "description": "Geography Markup Language, an XML grammar for expressing geographical features."
+    "link": "https://www.ogc.org/standards/gml"
   },
   {
-    "code": "HDF",
-    "domain": "Weather and Climate",
-    "link": "https://www.hdfgroup.org/solutions/hdf5/",
-    "type": "data_format",
-    "name": "HDF",
-    "description": "Hierarchical Data Format, a set of file formats designed to store and organize large amounts of numerical data."
-  },
-  {
-    "code": "BUFR",
-    "domain": "Weather and Climate",
-    "link": "https://www.wmo.int/pages/prog/www/WMOCodes/WMO306_vI2/VolumeI.2.html",
-    "type": "data_format",
-    "name": "BUFR",
-    "description": "Binary Universal Form for the Representation of meteorological data, a binary data format for meteorological observations."
+    "code": "NetCDF/CF",
+    "name": "NetCDF with CF Conventions",
+    "description": "OGC-approved standard combining NetCDF data format with CF metadata conventions for gridded climate and oceanographic data.",
+    "domain": "Climate",
+    "type": "format",
+    "link": ""
   }
+]
 ]
