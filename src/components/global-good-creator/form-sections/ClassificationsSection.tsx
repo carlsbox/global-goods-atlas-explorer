@@ -11,8 +11,11 @@ interface ClassificationsSectionProps {
   form: UseFormReturn<GlobalGoodFlatFormValues>;
 }
 
+// Define static sections array to prevent recreation on every render
+const CLASSIFICATION_SECTIONS = ['classifications'] as const;
+
 export function ClassificationsSection({ form }: ClassificationsSectionProps) {
-  const { classifications, loading, error } = useLazyReferenceData(['classifications']);
+  const { classifications, loading, error } = useLazyReferenceData(CLASSIFICATION_SECTIONS);
 
   if (loading) {
     return (
