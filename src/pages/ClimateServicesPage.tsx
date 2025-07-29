@@ -111,7 +111,7 @@ export default function ClimateServicesPage() {
             {tPage('hero.subtitle', 'climateServices')}
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            {tPage('hero.summary', 'climateServices')}
+            Climate change is a growing and urgent health challenge, particularly for populations already facing health and economic disparities. <a href="https://www.gatesfoundation.org/our-work/programs/global-growth-and-opportunity/digital-public-infrastructure" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Digital Public Infrastructure (DPI)</a> is a set of interoperable digital systems and foundational building blocks that can enable effective delivery of services, promote inclusion, and support governance that benefits the public when aligned with social, cultural, political, and local socio-economic norms that inform complex health system governance. DPI is essential for integrating climate and health data, allowing policymakers and health leaders to make informed decisions as they build climate-resilient health systems. By combining satellite data, weather patterns, and health sector insights, we can better predict disease outbreaks, respond to changing health needs, and mitigate the impact of extreme weather events.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center">
