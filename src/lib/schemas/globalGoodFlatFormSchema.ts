@@ -6,6 +6,7 @@ export const globalGoodFlatFormSchema = z.object({
   ID: z.string().optional(),
   Name: z.string().optional(),
   Logo: z.string().optional(),
+  ClimateHealth: z.boolean().optional(),
   Website: z.object({
     main: z.object({
       name: z.string(),

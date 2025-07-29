@@ -31,6 +31,7 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
       ID: '',
       Name: '',
       Logo: '',
+      ClimateHealth: false,
       Website: {
         main: { name: '', url: '', description: '' },
         docs: { name: '', url: '', description: '' },
