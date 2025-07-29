@@ -2,6 +2,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/comp
 import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { UseFormReturn } from 'react-hook-form';
 import { GlobalGoodFlatFormValues } from '@/lib/schemas/globalGoodFlatFormSchema';
 import { useLazyReferenceData } from '@/hooks/useLazyReferenceData';
@@ -39,13 +40,18 @@ export function ClassificationsSection({ form }: ClassificationsSectionProps) {
   const renderClassificationGroup = (
     title: string,
     items: any[],
-    fieldName: 'Classifications.SDGs' | 'Classifications.WHO' | 'Classifications.WMO' | 'Classifications.DPI'
+    fieldName: 'Classifications.SDGs' | 'Classifications.WHO' | 'Classifications.WMO' | 'Classifications.DPI',
+    accordionValue: string
   ) => (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <AccordionItem value={accordionValue}>
+      <AccordionTrigger className="hover:no-underline">
+        <div className="flex items-center justify-between w-full pr-4">
+          <div className="text-left">
+            <span className="font-medium">{title}</span>
+          </div>
+        </div>
+      </AccordionTrigger>
+      <AccordionContent className="pt-4">
         <FormField
           control={form.control}
           name={fieldName}
@@ -107,8 +113,8 @@ export function ClassificationsSection({ form }: ClassificationsSectionProps) {
             </FormItem>
           )}
         />
-      </CardContent>
-    </Card>
+      </AccordionContent>
+    </AccordionItem>
   );
 
   return (
@@ -117,10 +123,12 @@ export function ClassificationsSection({ form }: ClassificationsSectionProps) {
         Select relevant classifications that apply to this global good. These help categorize and discover your global good.
       </div>
 
-      {renderClassificationGroup('Sustainable Development Goals (SDGs)', sdgs, 'Classifications.SDGs')}
-      {renderClassificationGroup('WHO Health Classifications', who, 'Classifications.WHO')}
-      {renderClassificationGroup('WMO Climate Classifications', wmo, 'Classifications.WMO')}
-      {renderClassificationGroup('Digital Public Infrastructure (DPI)', dpi, 'Classifications.DPI')}
+      <Accordion type="multiple" className="w-full">
+        {renderClassificationGroup('Sustainable Development Goals (SDGs)', sdgs, 'Classifications.SDGs', 'sdgs')}
+        {renderClassificationGroup('WHO Health Classifications', who, 'Classifications.WHO', 'who')}
+        {renderClassificationGroup('WMO Climate Classifications', wmo, 'Classifications.WMO', 'wmo')}
+        {renderClassificationGroup('Digital Public Infrastructure (DPI)', dpi, 'Classifications.DPI', 'dpi')}
+      </Accordion>
     </div>
   );
 }

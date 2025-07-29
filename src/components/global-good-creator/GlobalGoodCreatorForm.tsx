@@ -9,6 +9,7 @@ import { WebsiteContactSection } from './form-sections/WebsiteContactSection';
 import { TypeLicenseSection } from './form-sections/TypeLicenseSection';
 import { ClassificationsSection } from './form-sections/ClassificationsSection';
 import { StandardsSection } from './form-sections/StandardsSection';
+import { LinkedInitiativesSection } from './form-sections/LinkedInitiativesSection';
 import { ProductOverviewSection } from './form-sections/ProductOverviewSection';
 import { ReachSection } from './form-sections/ReachSection';
 import { MaturitySection } from './form-sections/MaturitySection';
@@ -229,6 +230,13 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
       title: 'Resources & Documentation',
       description: 'Links to documentation and resources',
       component: ResourcesSection,
+      required: false,
+    },
+    {
+      id: 'linked-initiatives',
+      title: 'Linked Initiatives',
+      description: 'Collection initiatives and partnerships',
+      component: LinkedInitiativesSection,
       required: false,
     },
   ];
