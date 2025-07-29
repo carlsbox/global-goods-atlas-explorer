@@ -139,14 +139,10 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
 
   // Lazy load classifications when needed
   const loadClassifications = useCallback(async () => {
-    if (loadedSections.has('classifications')) {
-      console.log('ReferenceDataContext - Classifications already loaded, skipping');
-      return;
-    }
+    if (loadedSections.has('classifications')) return;
     
     try {
-      console.log('ReferenceDataContext - Loading classifications...');
-      setData(prev => ({ ...prev, loading: true, error: null }));
+      setData(prev => ({ ...prev, loading: true }));
       
       const cacheKey = 'classificationsData';
       const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
@@ -186,14 +182,10 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
 
   // Lazy load countries when needed
   const loadCountries = useCallback(async () => {
-    if (loadedSections.has('countries')) {
-      console.log('ReferenceDataContext - Countries already loaded, skipping');
-      return;
-    }
+    if (loadedSections.has('countries')) return;
     
     try {
-      console.log('ReferenceDataContext - Loading countries...');
-      setData(prev => ({ ...prev, loading: true, error: null }));
+      setData(prev => ({ ...prev, loading: true }));
       
       const cacheKey = 'countriesData';
       const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);

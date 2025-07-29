@@ -15,8 +15,7 @@ import { MaturitySection } from './form-sections/MaturitySection';
 import { CommunitySection } from './form-sections/CommunitySection';
 import { SustainabilitySection } from './form-sections/SustainabilitySection';
 import { ResourcesSection } from './form-sections/ResourcesSection';
-import { LinkedInitiativesSection } from './form-sections/LinkedInitiativesSection';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 interface GlobalGoodCreatorFormProps {
   formData: Partial<GlobalGoodFlat>;
@@ -25,9 +24,6 @@ interface GlobalGoodCreatorFormProps {
 
 export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGoodCreatorFormProps) {
   const [expandedSections, setExpandedSections] = useState<string[]>(['basic-info']);
-  
-  // Memoize the callback to prevent recreation on every render
-  const memoizedOnFormDataChange = useCallback(onFormDataChange, [onFormDataChange]);
 
   const form = useForm<GlobalGoodFlatFormValues>({
     resolver: zodResolver(globalGoodFlatFormSchema),
@@ -146,32 +142,16 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
     mode: 'onBlur',
   });
 
-  // Watch form changes and propagate to parent with debouncing
+  // Watch form changes and propagate to parent (but debounce to avoid performance issues)
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
     const subscription = form.watch((data) => {
-      // Clear previous timeout
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      
       // Only propagate if the data is valid and different
       if (data && typeof data === 'object') {
-        // Use setTimeout to debounce and prevent infinite loops
-        timeoutId = setTimeout(() => {
-          memoizedOnFormDataChange(data as Partial<GlobalGoodFlat>);
-        }, 300); // Increased debounce time
+        onFormDataChange(data as Partial<GlobalGoodFlat>);
       }
     });
-    
-    return () => {
-      subscription.unsubscribe();
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [memoizedOnFormDataChange, form]);
+    return () => subscription.unsubscribe();
+  }, [form, onFormDataChange]);
 
   const formSections = [
     {
@@ -249,13 +229,6 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
       title: 'Resources & Documentation',
       description: 'Links to documentation and resources',
       component: ResourcesSection,
-      required: false,
-    },
-    {
-      id: 'linked-initiatives',
-      title: 'Linked Initiatives',
-      description: 'Connected collection initiatives and networks',
-      component: LinkedInitiativesSection,
       required: false,
     },
   ];

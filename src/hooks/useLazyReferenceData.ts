@@ -1,19 +1,11 @@
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect } from 'react';
 import { useReferenceData } from '@/contexts/ReferenceDataContext';
 
-export function useLazyReferenceData(sections: readonly ('classifications' | 'countries' | 'standards')[] | ('classifications' | 'countries' | 'standards')[]) {
+export function useLazyReferenceData(sections: ('classifications' | 'countries' | 'standards')[]) {
   const { loadClassifications, loadCountries, loadStandards, ...data } = useReferenceData();
-  
-  // Use ref to track loading states to prevent duplicate calls
-  const loadingRef = useRef<Set<string>>(new Set());
 
-  // Improved memoization using JSON stringify for better stability
-  const memoizedSections = useMemo(() => {
-    return [...sections].sort(); // Sort to ensure consistent ordering
-  }, [JSON.stringify(sections)]);
-
-  console.log('useLazyReferenceData - Requested sections:', memoizedSections);
+  console.log('useLazyReferenceData - Requested sections:', sections);
   console.log('useLazyReferenceData - Current data state:', {
     hasStandards: !!data.standards && Object.keys(data.standards).length > 0,
     standardsKeys: data.standards ? Object.keys(data.standards).slice(0, 5) : [],
@@ -25,47 +17,19 @@ export function useLazyReferenceData(sections: readonly ('classifications' | 'co
     const loadRequiredSections = async () => {
       const promises = [];
       
-      // Check if classifications need to be loaded
-      if (memoizedSections.includes('classifications') && 
-          !data.classifications?.length && 
-          !loadingRef.current.has('classifications')) {
+      if (sections.includes('classifications')) {
         console.log('useLazyReferenceData - Loading classifications');
-        loadingRef.current.add('classifications');
-        promises.push(
-          loadClassifications().finally(() => {
-            loadingRef.current.delete('classifications');
-          })
-        );
+        promises.push(loadClassifications());
       }
       
-      // Check if countries need to be loaded
-      if (memoizedSections.includes('countries') && 
-          !data.countries?.length && 
-          !loadingRef.current.has('countries')) {
+      if (sections.includes('countries')) {
         console.log('useLazyReferenceData - Loading countries');
-        loadingRef.current.add('countries');
-        promises.push(
-          loadCountries().finally(() => {
-            loadingRef.current.delete('countries');
-          })
-        );
+        promises.push(loadCountries());
       }
       
-      // Check if standards need to be loaded
-      if (memoizedSections.includes('standards') && 
-          (!data.standards || Object.keys(data.standards).length === 0) && 
-          !loadingRef.current.has('standards')) {
+      if (sections.includes('standards')) {
         console.log('useLazyReferenceData - Loading standards');
-        loadingRef.current.add('standards');
-        promises.push(
-          loadStandards().finally(() => {
-            loadingRef.current.delete('standards');
-          })
-        );
-      }
-
-      if (promises.length === 0) {
-        return; // Nothing to load
+        promises.push(loadStandards());
       }
 
       try {
@@ -77,7 +41,7 @@ export function useLazyReferenceData(sections: readonly ('classifications' | 'co
     };
 
     loadRequiredSections();
-  }, [memoizedSections, loadClassifications, loadCountries, loadStandards, data.classifications?.length, data.countries?.length, data.standards]);
+  }, [sections, loadClassifications, loadCountries, loadStandards]);
 
   return data;
 }
