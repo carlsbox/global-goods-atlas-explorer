@@ -317,13 +317,15 @@ export default function ReferencePage() {
             {/* Standards Table with Grouping */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
-              {['Health', 'Interoperability', 'Climate'].map(domain => {
+              {['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
                 const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
                 if (domainStandards.length === 0) return null;
                 
+                const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
+                
                 return (
                   <div key={domain} className="mb-6">
-                    <h4 className="text-lg font-medium mb-3 text-primary">{domain} Standards</h4>
+                    <h4 className="text-lg font-medium mb-3 text-primary">{displayName} Standards</h4>
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -527,13 +529,15 @@ export default function ReferencePage() {
 
             <TabsContent value="standards" className="mt-6">
               <div className="space-y-6">
-                {['Health', 'Interoperability', 'Climate'].map(domain => {
+                {['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
                   const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
                   if (domainStandards.length === 0) return null;
                   
+                  const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
+                  
                   return (
                     <div key={domain}>
-                      <h3 className="text-lg font-semibold mb-3">{domain} Standards</h3>
+                      <h3 className="text-lg font-semibold mb-3">{displayName} Standards</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {domainStandards
                           .filter((standard: any) => !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || standard.description.toLowerCase().includes(searchTerm.toLowerCase()))
