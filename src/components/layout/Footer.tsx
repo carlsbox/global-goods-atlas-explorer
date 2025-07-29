@@ -23,6 +23,9 @@ export function Footer() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">
+            <Link to="/create-global-good" className="text-xs text-muted-foreground hover:text-primary">
+              {tPage('nav.createGlobalGood', 'navigation')}
+            </Link>
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.privacy', 'navigation')}
             </Link>
