@@ -317,9 +317,10 @@ export default function ReferencePage() {
             {/* Standards Table with Grouping */}
             <div>
               <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
-              {['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
-                const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
-                if (domainStandards.length === 0) return null;
+              {Object.keys(standards).length > 0 ? (
+                ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
+                  const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
+                  if (domainStandards.length === 0) return null;
                 
                 const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
                 
@@ -358,7 +359,12 @@ export default function ReferencePage() {
                     </Table>
                   </div>
                 );
-              })}
+              })
+              ) : (
+                <div className="text-center p-8 text-muted-foreground">
+                  No standards data available
+                </div>
+              )}
             </div>
 
             {/* Languages Table */}
@@ -529,9 +535,10 @@ export default function ReferencePage() {
 
             <TabsContent value="standards" className="mt-6">
               <div className="space-y-6">
-                {['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
-                  const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
-                  if (domainStandards.length === 0) return null;
+                {Object.keys(standards).length > 0 ? (
+                  ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
+                    const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
+                    if (domainStandards.length === 0) return null;
                   
                   const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
                   
@@ -564,8 +571,13 @@ export default function ReferencePage() {
                           ))}
                       </div>
                     </div>
-                  );
-                })}
+                   );
+                })
+                ) : (
+                  <div className="text-center p-8 text-muted-foreground">
+                    No standards data available
+                  </div>
+                )}
               </div>
             </TabsContent>
 
