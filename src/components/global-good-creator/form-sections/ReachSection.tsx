@@ -38,8 +38,8 @@ export function ReachSection({ form }: ReachSectionProps) {
 
   // Filter countries based on search term
   const filteredCountries = countries.filter(country =>
-    country.short?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    country.formal?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.name?.short?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    country.name?.official?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     country.iso_code.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -125,7 +125,7 @@ export function ReachSection({ form }: ReachSectionProps) {
                     <div className="flex flex-wrap gap-2">
                        {field.value.map((country: any, index: number) => (
                          <Badge key={index} variant="secondary" className="flex items-center gap-1">
-                           {country.short || country.iso_code}
+                           {country.names?.en?.short || country.iso_code}
                            <Button
                             variant="ghost"
                             size="sm"
@@ -161,8 +161,8 @@ export function ReachSection({ form }: ReachSectionProps) {
                                    type: 'implementation',
                                    names: {
                                      en: {
-                                       short: country.short,
-                                       formal: country.formal
+                                       short: country.name.short,
+                                       formal: country.name.official
                                      }
                                    }
                                  }]);
@@ -172,7 +172,7 @@ export function ReachSection({ form }: ReachSectionProps) {
                             }}
                           />
                            <label className="text-sm cursor-pointer flex-1">
-                             {country.short} ({country.iso_code})
+                             {country.name?.short} ({country.iso_code})
                            </label>
                         </div>
                       );
