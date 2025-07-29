@@ -30,6 +30,7 @@ export default function ReferencePage() {
   const [mainTab, setMainTab] = useState('all');
   const [cardCategory, setCardCategory] = useState('types');
   const [dataLoading, setDataLoading] = useState(true);
+  const [expandedStandards, setExpandedStandards] = useState<Record<string, boolean>>({});
 
   // Load all reference data on component mount
   useEffect(() => {
@@ -323,14 +324,31 @@ export default function ReferencePage() {
               <h3 className="text-xl font-semibold mb-4">Standards ({filteredStandards.length})</h3>
               {Object.keys(standards).length > 0 ? (
                 ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
-                  const domainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
-                  if (domainStandards.length === 0) return null;
+                  const allDomainStandards = filteredStandards.filter((standard: any) => standard.domain === domain);
+                  const isExpanded = expandedStandards[domain] || false;
+                  const displayLimit = 5;
+                  const domainStandards = isExpanded ? allDomainStandards : allDomainStandards.slice(0, displayLimit);
+                  const hasMore = allDomainStandards.length > displayLimit;
+                  
+                  if (allDomainStandards.length === 0) return null;
                 
                   const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
+                  const countText = hasMore && !isExpanded ? `(${domainStandards.length}/${allDomainStandards.length})` : `(${allDomainStandards.length})`;
                 
                 return (
                   <div key={domain} className="mb-6">
-                    <h4 className="text-lg font-medium mb-3 text-primary">{displayName} Standards ({domainStandards.length})</h4>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-medium text-primary">{displayName} Standards {countText}</h4>
+                      {hasMore && !isExpanded && (
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => setExpandedStandards(prev => ({ ...prev, [domain]: true }))}
+                        >
+                          Load All {allDomainStandards.length} Standards
+                        </Button>
+                      )}
+                    </div>
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -541,18 +559,38 @@ export default function ReferencePage() {
               <div className="space-y-6">
                 {Object.keys(standards).length > 0 ? (
                   ['Health', 'Interoperability', 'Weather and Climate'].map(domain => {
-                    const domainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
-                    if (domainStandards.length === 0) return null;
+                    const allDomainStandards = Object.values(standards).filter((standard: any) => standard.domain === domain);
+                    const filteredDomainStandards = allDomainStandards.filter((standard: any) => 
+                      !searchTerm || 
+                      standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                      standard.description.toLowerCase().includes(searchTerm.toLowerCase())
+                    );
+                    const isExpanded = expandedStandards[domain] || false;
+                    const displayLimit = 6;
+                    const displayStandards = isExpanded ? filteredDomainStandards : filteredDomainStandards.slice(0, displayLimit);
+                    const hasMore = filteredDomainStandards.length > displayLimit;
+                    
+                    if (filteredDomainStandards.length === 0) return null;
                     
                     const displayName = domain === 'Weather and Climate' ? 'Climate' : domain;
+                    const countText = hasMore && !isExpanded ? `(${displayStandards.length}/${filteredDomainStandards.length})` : `(${filteredDomainStandards.length})`;
                   
                   return (
                     <div key={domain}>
-                      <h3 className="text-lg font-semibold mb-3">{displayName} Standards ({domainStandards.length})</h3>
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="text-lg font-semibold">{displayName} Standards {countText}</h3>
+                        {hasMore && !isExpanded && (
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => setExpandedStandards(prev => ({ ...prev, [domain]: true }))}
+                          >
+                            Load All {filteredDomainStandards.length} Standards
+                          </Button>
+                        )}
+                      </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {domainStandards
-                          .filter((standard: any) => !searchTerm || standard.name.toLowerCase().includes(searchTerm.toLowerCase()) || standard.description.toLowerCase().includes(searchTerm.toLowerCase()))
-                          .map((standard: any) => (
+                        {displayStandards.map((standard: any) => (
                             <Card key={standard.code}>
                               <CardHeader>
                                 <CardTitle className="flex items-center justify-between">
