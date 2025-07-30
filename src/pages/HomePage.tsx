@@ -262,9 +262,9 @@ export default function HomePage() {
       <section className="py-16 bg-card/50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">{t("endorsements.title")}</h2>
+            <h2 className="text-3xl font-bold mb-4">Trusted by Leading Organizations</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {t("endorsements.description")}
+              Global health and development organizations supporting digital public infrastructure for climate-resilient health systems.
             </p>
           </div>
           
