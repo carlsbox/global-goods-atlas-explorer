@@ -25,6 +25,16 @@
       "button": "Abrir Mapa"
     }
   },
+  "climateHealth": {
+    "announcement": "Ya Disponible: Herramientas Digitales de Clima y Salud",
+    "title": "Sistemas de Salud Resilientes al Clima",
+    "description": "Descubra herramientas digitales específicamente diseñadas para ayudar a los sistemas de salud a adaptarse a los impactos del cambio climático y construir resiliencia para poblaciones vulnerables.",
+    "stats": {
+      "tools": "Herramientas de Clima y Salud",
+      "countries": "Países Atendidos"
+    },
+    "button": "Explorar Herramientas de Clima y Salud"
+  },
   "featuredGoods": {
     "title": "Bienes Globales Destacados",
     "viewAll": "Ver Todos los Bienes Globales"

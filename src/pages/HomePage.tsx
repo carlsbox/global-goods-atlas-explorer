@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Globe, FileText, MapPin, Mail } from "lucide-react";
+import { ArrowRight, Globe, FileText, MapPin, Mail, Heart, Calendar } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -153,6 +153,60 @@ export default function HomePage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Climate & Health Section */}
+      <section className="py-16 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center bg-primary/10 rounded-full px-4 py-2 mb-6">
+              <Globe className="h-4 w-4 text-primary mr-2" />
+              <span className="text-sm font-medium text-primary">
+                {tPage('climateHealth.announcement', 'home')}
+              </span>
+            </div>
+            
+            <h2 className="text-3xl font-bold mb-4">
+              {tPage('climateHealth.title', 'home')}
+            </h2>
+            
+            <p className="text-xl text-muted-foreground mb-8">
+              {tPage('climateHealth.description', 'home')}
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/80 dark:bg-card/80 rounded-lg p-6 backdrop-blur-sm">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
+                    <Heart className="h-6 w-6 text-green-600 dark:text-green-400" />
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">4</div>
+                <div className="text-sm font-medium text-muted-foreground">
+                  {tPage('climateHealth.stats.tools', 'home')}
+                </div>
+              </div>
+              
+              <div className="bg-white/80 dark:bg-card/80 rounded-lg p-6 backdrop-blur-sm">
+                <div className="flex items-center justify-center mb-3">
+                  <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                    <Calendar className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">50+</div>
+                <div className="text-sm font-medium text-muted-foreground">
+                  {tPage('climateHealth.stats.countries', 'home')}
+                </div>
+              </div>
+            </div>
+            
+            <Button asChild size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+              <Link to="/global-goods?climate-health=true">
+                {tPage('climateHealth.button', 'home')} <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

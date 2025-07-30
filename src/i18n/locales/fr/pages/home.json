@@ -25,6 +25,16 @@
       "button": "Ouvrir la Carte"
     }
   },
+  "climateHealth": {
+    "announcement": "Maintenant Disponible: Outils Numériques Climat et Santé",
+    "title": "Systèmes de Santé Résilients au Climat",
+    "description": "Découvrez des outils numériques spécifiquement conçus pour aider les systèmes de santé à s'adapter aux impacts du changement climatique et à renforcer la résilience des populations vulnérables.",
+    "stats": {
+      "tools": "Outils Climat et Santé",
+      "countries": "Pays Desservis"
+    },
+    "button": "Explorer les Outils Climat et Santé"
+  },
   "featuredGoods": {
     "title": "Biens Mondiaux en Vedette",
     "viewAll": "Voir Tous les Biens Mondiaux"
