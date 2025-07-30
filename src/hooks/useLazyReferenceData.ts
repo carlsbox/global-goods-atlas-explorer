@@ -17,7 +17,7 @@ export function useLazyReferenceData(sections: ('classifications' | 'countries' 
   const transformedStandards = data.standards ? {
     health: Object.values(data.standards).filter((s: any) => s.domain === 'Health'),
     interoperability: Object.values(data.standards).filter((s: any) => s.domain === 'Interoperability'),
-    climate: Object.values(data.standards).filter((s: any) => s.domain === 'Weather and Climate')
+    climate: Object.values(data.standards).filter((s: any) => s.domain === 'Climate')
   } : { health: [], interoperability: [], climate: [] };
 
   useEffect(() => {
