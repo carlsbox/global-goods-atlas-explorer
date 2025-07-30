@@ -53,8 +53,24 @@ export function EnhancedGlobalGoodCard({ good }: EnhancedGlobalGoodCardProps) {
               {truncatedDescription}
             </p>
             
-            {/* Sectors */}
+            {/* Badges */}
             <div className="flex flex-wrap gap-1 mb-4">
+              {/* Climate Health Badge */}
+              {good.ClimateHealth && (
+                <Badge 
+                  variant="outline" 
+                  className="bg-green-50 border-green-200 text-green-800 text-xs"
+                >
+                  <img 
+                    src="/lovable-uploads/e1c580dd-92dc-40dd-91b3-5397827c9d9f.png" 
+                    alt="Climate Health" 
+                    className="w-3 h-3 mr-1" 
+                  />
+                  Climate & Health
+                </Badge>
+              )}
+              
+              {/* Sectors */}
               {sectors.slice(0, 2).map((sector) => (
                 <Badge key={sector} variant="secondary" className="text-xs">
                   {sector}

@@ -36,7 +36,23 @@ export function EnhancedGlobalGoodListItem({ good }: EnhancedGlobalGoodListItemP
             )}
             
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-lg leading-tight mb-1">{good.Name}</h3>
+              <div className="flex items-center gap-2 mb-1">
+                <h3 className="font-semibold text-lg leading-tight">{good.Name}</h3>
+                {/* Climate Health Badge */}
+                {good.ClimateHealth && (
+                  <Badge 
+                    variant="outline" 
+                    className="bg-green-50 border-green-200 text-green-800 text-xs"
+                  >
+                    <img 
+                      src="/lovable-uploads/e1c580dd-92dc-40dd-91b3-5397827c9d9f.png" 
+                      alt="Climate Health" 
+                      className="w-3 h-3 mr-1" 
+                    />
+                    Climate & Health
+                  </Badge>
+                )}
+              </div>
               <p className="text-sm text-muted-foreground line-clamp-2">
                 {good.ProductOverview?.Summary || good.ProductOverview?.Description || 'No description available'}
               </p>

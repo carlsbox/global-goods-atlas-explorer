@@ -54,9 +54,14 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
               {globalGood.ClimateHealth && (
                 <Badge 
                   variant="outline" 
-                  className="bg-blue-50 border-blue-200 text-blue-800"
+                  className="bg-green-50 border-green-200 text-green-800"
                 >
-                  🌍 Climate & Health
+                  <img 
+                    src="/lovable-uploads/e1c580dd-92dc-40dd-91b3-5397827c9d9f.png" 
+                    alt="Climate Health" 
+                    className="w-4 h-4 mr-1" 
+                  />
+                  Climate & Health
                 </Badge>
               )}
 
