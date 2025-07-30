@@ -214,39 +214,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter Signup Section */}
-      <section className="py-16 bg-primary/5">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="flex justify-center mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Mail className="h-6 w-6 text-primary" />
-              </div>
-            </div>
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-muted-foreground mb-8">
-              Get the latest updates on digital global goods, new use cases, and platform developments delivered to your inbox.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1"
-                disabled={isSubmitting}
-              />
-              <Button type="submit" disabled={isSubmitting || !email}>
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
-              </Button>
-            </form>
-            <p className="text-xs text-muted-foreground mt-4">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
