@@ -40,18 +40,43 @@ function FeaturedGoodsSkeleton() {
 const endorsementOrgs = [
   {
     name: "Wellcome",
-    logo: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=100&fit=crop",
-    description: "Global health research charity"
+    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
   },
   {
-    name: "RF",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop",
-    description: "Research Foundation"
+    name: "Rockefeller Foundation",
+    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
   },
   {
     name: "WHO-WMO Joint Programme",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop",
-    description: "Joint Programme on Climate and Health"
+    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Gates Foundation",
+    logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Impact Alliance",
+    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Public Goods Alliance",
+    logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+  },
+  {
+    name: "ELMA Philanthropies",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+  },
+  {
+    name: "NORAD",
+    logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
+  },
+  {
+    name: "UNICEF",
+    logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
   }
 ];
 
@@ -111,7 +136,7 @@ export default function ClimateServicesPage() {
             {tPage('hero.subtitle', 'climateServices')}
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            {tPage('hero.summary', 'climateServices')}
+            Climate change is a growing and urgent health challenge, particularly for populations already facing health and economic disparities. <a href="https://www.gatesfoundation.org/our-work/programs/global-growth-and-opportunity/digital-public-infrastructure" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Digital Public Infrastructure (DPI)</a> is a set of interoperable digital systems and foundational building blocks that can enable effective delivery of services, promote inclusion, and support governance that benefits the public when aligned with social, cultural, political, and local socio-economic norms that inform complex health system governance. DPI is essential for integrating climate and health data, allowing policymakers and health leaders to make informed decisions as they build climate-resilient health systems. By combining satellite data, weather patterns, and health sector insights, we can better predict disease outbreaks, respond to changing health needs, and mitigate the impact of extreme weather events.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center">
@@ -152,54 +177,6 @@ export default function ClimateServicesPage() {
           )}
         </section>
 
-        {/* Endorsements Section */}
-        <section className="mb-16 bg-card/50 rounded-xl p-8">
-          <h2 className="text-3xl font-bold mb-6">{tPage('endorsements.title', 'climateServices')}</h2>
-          <p className="text-muted-foreground mb-8 leading-relaxed">
-            {tPage('endorsements.description', 'climateServices')}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {endorsementOrgs.map((org, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <img 
-                    src={org.logo} 
-                    alt={org.name}
-                    className="h-16 w-auto mx-auto mb-4 object-contain"
-                  />
-                  <h3 className="font-semibold mb-2">{org.name}</h3>
-                  <p className="text-sm text-muted-foreground">{org.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Emerging Innovations Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-4">{tPage('emerging.title', 'climateServices')}</h2>
-          <p className="text-muted-foreground mb-8 leading-relaxed">
-            {tPage('emerging.description', 'climateServices')}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {emergingTools.map((tool, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
-                  <p className="text-sm text-primary mb-3">({tool.organization})</p>
-                  <p className="text-muted-foreground text-sm">{tool.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <p className="text-muted-foreground mt-6 italic">
-            This reflects growing international momentum to equip health systems with the digital infrastructure needed to withstand climate shocks, improve preparedness, and safeguard vulnerable populations.
-          </p>
-        </section>
-
         {/* WHO-WMO Joint Programme Section */}
         <section className="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -233,67 +210,101 @@ export default function ClimateServicesPage() {
           </div>
         </section>
 
-        {/* Additional Content Sections */}
-        <section className="space-y-12">
-          {/* Climate Change and Health Systems */}
-          <div className="bg-card/30 rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">{tPage('climateChange.title', 'climateServices')}</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground">
-              <p>
-                Climate change is recognized by the World Health Organization (WHO) as a significant global public health threat. The increasing frequency of extreme weather events and gradual climatic shifts escalate risks to human well-being, livelihoods, and health, while also placing health systems under considerable strain.
-              </p>
-              <p>
-                These environmental changes can impact biodiversity, food security, nutrition, air quality, and access to safe water, contributing to an increase in food-, water-, and vector-borne diseases. The Seventy-Seventh World Health Assembly in 2024 highlighted this critical issue through resolution WHA77.14, which calls for global action to foster health and develop climate-resilient, sustainable health systems.
-              </p>
-            </div>
+        {/* WHO: Climate and Weather Responsive Digital Health Systems Section */}
+        <section className="mb-16 bg-gradient-to-r from-secondary/5 to-accent/5 rounded-xl p-8">
+          <h2 className="text-3xl font-bold mb-6">WHO: Climate and Weather Responsive Digital Health Systems</h2>
+          
+          <div className="prose prose-sm max-w-none text-muted-foreground space-y-6">
+            <p>
+              Climate change is recognized by the World Health Organization (WHO) as a significant global public health threat. It acts as a threat multiplier, exacerbating existing systemic vulnerabilities across populations and health systems. The increasing frequency of extreme weather events and gradual climatic shifts escalate risks to human well-being, livelihoods, and health, while also placing health systems under considerable strain. These environmental changes can impact biodiversity, food security, nutrition, air quality, and access to safe water, contributing to an increase in food-, water-, and vector-borne diseases. The Seventy-Seventh World Health Assembly in 2024 highlighted this critical issue through resolution WHA77.14, which calls for global action to foster health and develop climate-resilient, sustainable health systems. Building on this momentum, in May 2025, at the Seventy-eighth World Health Assembly, Member States adopted the first-ever draft Global action plan on climate change and health. The draft Global action plan 2025–2028 (EB156(40)) acknowledged the urgent need to address the health impacts of climate change, positioning health systems as part of the climate solution. Each WHA action build upon previous resolutions going back two decades, which acknowledge the interconnectedness of health, environment, and climate change.
+            </p>
+            
+            <p>
+              The WHO's Global Strategy on Digital Health, with its mandate recently extended through 2027, provides a framework for how technology can be leveraged for health improvement. This strategy guides countries in the digital transformation of their health systems by focusing on interoperability standards and national digital health architecture. It supports patient-facing systems like telemedicine, point-of-care systems such as Electronic Health Records leveraging Artificial Intelligence (AI) for enhanced decision support, and the maintenance of global digital public infrastructure, such as verifiable health records through initiatives like the Global Digital Health Certification Network (GDHCN). A key challenge is ensuring these digital health systems can effectively achieve interoperability with the extensive standardized climate and weather data curated by organizations like the World Meteorological Organization (WMO).
+            </p>
+            
+            <p>
+              As part of a broader set of recommendations and priority actions, the WHA77.14 resolution specifically urges Member States to enhance their data systems. A key recommendation is to:
+            </p>
+            
+            <blockquote className="border-l-4 border-primary pl-6 italic">
+              "Integrate climate data into existing monitoring, early warning, surveillance, and data collection systems, including data disaggregated by sex, age, disability, and any other relevant factor, where appropriate."
+            </blockquote>
+            
+            <p>
+              This integration is crucial for enabling "evidence-based decision-making and targeted interventions that respond to the impacts of climate change...on health and health systems."
+            </p>
+            
+            <p>
+              Technical integration of climate and health information systems provides operational means to ensure critical data streams foster necessary combined evidence to inform more equitable policy choices and ensure that interventions are targeted effectively. The Global Action Plan 2025 - 28 (EB156(40)) similarly notes:
+            </p>
+            
+            <blockquote className="border-l-4 border-primary pl-6 italic">
+              "Support integrated climate and health data and surveillance systems and identify gaps for integrating climate and weather information into country-level health information systems, including by working through the WMO–WHO Joint Office for Climate and Health to build collaborative partnerships among national meteorological and hydrological services and national ministries of health"
+            </blockquote>
+            
+            <p>
+              Achieving true interoperability between diverse datasets—including satellite information, in-situ climate data, and health information—is vital for understanding and addressing how seasonal variations and extreme weather events can worsen health risks and strain health system capacities.
+            </p>
+            
+            <p>
+              To support these efforts, WHO is engaged in key activities aimed at fostering interoperable climate-health solutions. This currently involves:
+            </p>
+            
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Working through initiatives such as the WHO-WMO Joint Office on Climate and Health to advance the use of interoperable digital tools, data, and Digital Public Infrastructure (DPI). The overarching impact of these activities is to enable climate-informed health action by fostering interoperable, sustainable national information systems and supporting data-driven decision-making at all levels.</li>
+              <li>Systematically addressing priority climate-health data challenges by documenting standardized "use cases" for operationalizing climate-informed health services. This includes defining essential data, workflows, and system specifications, guided by approaches like the WHO SMART Guidelines.</li>
+              <li>Supporting country-led solutions by providing technical assistance, convening partners, and enabling capacity building for an array of climate and health interventions.</li>
+              <li>Supporting the development and implementation of early warning and surveillance systems, which both serve an operational function and as early adopters of interoperability requirements.</li>
+              <li>Convening partners around global strategies and action plans for climate and health which include dimensions of interoperability for climate and health information systems</li>
+            </ul>
           </div>
+        </section>
 
-          {/* WHO Digital Health Strategy */}
-          <div className="bg-card/30 rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">{tPage('digitalHealth.title', 'climateServices')}</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground">
-              <p>
-                The WHO's Global Strategy on Digital Health, with its mandate recently extended through 2027, provides a framework for how technology can be leveraged for health improvement. This strategy guides countries in the digital transformation of their health systems by focusing on:
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Interoperability standards</li>
-                <li>National digital health architecture</li>
-                <li>Patient-facing systems (e.g., telemedicine)</li>
-                <li>Point-of-care systems (e.g., EHRs with AI decision support)</li>
-                <li>Global digital public infrastructure (e.g., GDHCN for verifiable health records)</li>
-              </ul>
-            </div>
+        {/* Emerging Innovations Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">{tPage('emerging.title', 'climateServices')}</h2>
+          <p className="text-muted-foreground mb-8 leading-relaxed">
+            {tPage('emerging.description', 'climateServices')}
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {emergingTools.map((tool, index) => (
+              <Card key={index} className="hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
+                  <p className="text-sm text-primary mb-3">({tool.organization})</p>
+                  <p className="text-muted-foreground text-sm">{tool.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+          
+          <p className="text-muted-foreground mt-6 italic">
+            This reflects growing international momentum to equip health systems with the digital infrastructure needed to withstand climate shocks, improve preparedness, and safeguard vulnerable populations.
+          </p>
+        </section>
 
-          {/* Call for Climate-Health Interoperability */}
-          <div className="bg-card/30 rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">{tPage('interoperability.title', 'climateServices')}</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground">
-              <p>
-                A key challenge is ensuring these digital health systems can effectively achieve interoperability with the extensive standardized climate and weather data curated by organizations like the World Meteorological Organization (WMO).
-              </p>
-              <p>
-                The WHA77.14 resolution specifically urges Member States to enhance their data systems. A key recommendation is to:
-              </p>
-              <blockquote className="border-l-4 border-primary pl-4 italic">
-                "Integrate climate data into existing monitoring, early warning, surveillance, and data collection systems, including data disaggregated by sex, age, disability, and any other relevant factor, where appropriate."
-              </blockquote>
-            </div>
-          </div>
-
-          {/* WHO Support Activities */}
-          <div className="bg-card/30 rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">{tPage('support.title', 'climateServices')}</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground">
-              <p>
-                To support these efforts, WHO is engaged in key activities aimed at fostering interoperable climate-health solutions. This currently involves:
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Working through initiatives such as the WHO-WMO Joint Office on Climate and Health to advance the use of interoperable digital tools, data, and Digital Public Infrastructure (DPI).</li>
-                <li>Systematically addressing priority climate-health data challenges by documenting standardized "use cases" for operationalizing climate-informed health services.</li>
-                <li>Defining essential data, workflows, and system specifications, guided by approaches like the WHO SMART Guidelines.</li>
-              </ul>
-            </div>
+        {/* Endorsements Section */}
+        <section className="mb-16 bg-card/50 rounded-xl p-8">
+          <h2 className="text-3xl font-bold mb-6">{tPage('endorsements.title', 'climateServices')}</h2>
+          <p className="text-muted-foreground mb-8 leading-relaxed">
+            {tPage('endorsements.description', 'climateServices')}
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {endorsementOrgs.map((org, index) => (
+              <Card key={index} className="text-center">
+                <CardContent className="pt-6">
+                  <img 
+                    src={org.logo} 
+                    alt={org.name}
+                    className="h-16 w-auto mx-auto mb-4 object-contain"
+                  />
+                  <h3 className="font-semibold text-sm">{org.name}</h3>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       </div>

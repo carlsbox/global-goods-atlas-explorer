@@ -8,6 +8,7 @@ interface GlobalGoodIndexEnhanced {
   Name: string;
   Summary?: string;
   Logo?: string;
+  ClimateHealth?: boolean;
   GlobalGoodType?: string[]; // Now just codes
   Countries?: string[]; // Just ISO codes
   Classifications?: {
@@ -455,6 +456,7 @@ async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
     ID: rawData.ID || '',
     Name: rawData.Name || '',
     Logo: rawData.Logo,
+    ClimateHealth: rawData.ClimateHealth,
     Website: rawData.Website || {},
     GlobalGoodsType: globalGoodsType,
     License: license,
@@ -590,6 +592,7 @@ export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
         ID: indexItem.ID,
         Name: indexItem.Name,
         Logo: indexItem.Logo,
+        ClimateHealth: indexItem.ClimateHealth,
         Website: {},
         GlobalGoodsType: resolved.globalGoodTypes,
         License: { id: '', name: '', url: '', description: '' },

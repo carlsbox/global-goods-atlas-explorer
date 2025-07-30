@@ -6,6 +6,7 @@
     "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
     "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
     "GlobalGoodType": ["software"],
+    "ClimateHealth": false,
     "Countries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "mu", "mz", "lr", "tg"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-1", "SDG-5"],
@@ -25,6 +26,7 @@
     "Summary": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
     "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
     "GlobalGoodType": ["software"],
+    "ClimateHealth": true,
     "Countries": ["dz", "ao", "bj", "bw", "bf", "bi", "cv", "cm", "cf", "td", "km", "cg", "ci", "cd", "er", "sz", "et", "ga", "gm", "gh", "gn", "gw", "ke", "ls", "lr", "mg", "mw", "ml", "mr", "mu", "mz", "na", "ne", "ng", "rw", "st", "sn", "sl", "za", "ss", "tg", "ug", "tz", "zm", "zw", "af", "dj", "eg", "iq", "jo", "lb", "ly", "ma", "pk", "so", "sd", "sy", "ye", "ag", "cl", "co", "dm", "ec", "gd", "gt", "ht", "hn", "jm", "pa", "lc", "vc", "sr", "ve", "bd", "bt", "in", "id", "mv", "mm", "np", "lk", "tl", "kh", "la", "pw", "pg", "sb", "to", "vu", "vn"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-13"],
@@ -44,6 +46,7 @@
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
     "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
     "GlobalGoodType": ["software"],
+    "ClimateHealth": false,
     "Countries": ["tt", "py", "tr", "cv", "pg", "cf", "bt", "fj", "ph", "bs", "mk", "vn", "ae", "bo", "qa", "cz", "so", "bh", "bd", "lr", "id", "ro", "sd", "ke", "gt", "mm", "sm", "va", "se", "br", "am", "lt", "si", "lk", "ht", "dm", "az", "dz", "no", "ga", "kr", "md", "gy", "et", "by", "mv", "pa", "gm", "au", "er", "ni", "nl", "mu", "mn", "in", "tv", "jo", "al", "pe", "ge", "za", "mt", "gn", "ng", "do", "es", "ag", "cn", "bg", "nz", "cy", "ne", "ma", "uz", "is", "il", "bz", "pk", "gh", "me", "cl", "ua", "la", "tg", "dk", "tz", "mg", "sn", "lu", "ao", "tn", "rs", "na", "ec", "rw"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-9", "SDG-17"],
@@ -63,6 +66,7 @@
     "Summary": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
     "Logo": "",
     "GlobalGoodType": ["software"],
+    "ClimateHealth": true,
     "Countries": ["bf", "et", "mg", "mw", "mu", "mz", "co", "do", "bd", "in", "mm", "np", "th", "tl", "la", "mx", "sn", "om", "sa"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-13"],
@@ -79,15 +83,16 @@
   {
     "ID": "harmony",
     "Name": "Harmony",
-    "Summary": "Harmony is an open-source data integration and analytics platform.",
-    "Logo": "",
+    "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
+    "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
     "GlobalGoodType": ["software"],
-    "Countries": ["et", "gw", "mz", "rw", "za", "pk", "br", "vn"],
+    "ClimateHealth": true,
+    "Countries": ["et", "gw", "mz", "rw", "za", "zm", "br", "pk", "vn"],
     "Classifications": {
-      "SDGs": ["SDG-3"],
+      "SDGs": ["SDG-3", "SDG-13"],
       "WHO": ["WHO_D1", "WHO_A3", "WHO_B3", "WHO_D3", "WHO_E1", "WHO_E2"],
-      "WMO": ["WMO_A1"],
-      "DPI": ["DPI_A3"]
+      "WMO": ["WMO_B1", "WMO_A1"],
+      "DPI": ["DPI_FA3"]
     },
     "Standards": {
       "Health": [],
@@ -101,6 +106,7 @@
     "Summary": "GeoPrism provides hierarchy and ontology management for normalizing disparate datasets by common geographies and ontological terms, integration with DHIS2, and spatial dashboarding capabilities.",
     "Logo": "",
     "GlobalGoodType": ["software"],
+    "ClimateHealth": true,
     "Countries": ["mz", "us", "la"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-13"],

@@ -99,6 +99,7 @@ export function useStandardsResolver(standardCodes: string[]) {
           groups.interoperability.push(standard);
           break;
         case 'Weather and Climate':
+        case 'Climate': // Handle both normalized and original domain names
           groups.climate.push(standard);
           break;
         case 'Data Collection':

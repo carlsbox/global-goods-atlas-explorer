@@ -1,41 +1,58 @@
 
 {
   "title": "About the Global Goods Interactive Guidebook",
-  "subtitle": "A digital health marketplace where supply and demand come together to accelerate health equity through open-source global goods.",
+  "subtitle": "A curated resource that profiles open-source digital health tools and climate data tools to support informed decision-making around their adoption and use.",
   "digitalSquare": {
     "title": "About Digital Square",
-    "content": "Digital Square is a digital health marketplace–or 'square'–where supply and demand come together to accelerate health equity. We align investors and government bodies around a shared digital health vision, promote the development and adoption of digital public goods for health, and strengthen national-level digital health governance to support country digital transformation.",
-    "role": "Digital Square plays a unique role as a neutral convenor of donors, government leaders, technical innovators, and entrepreneurs. Since 2016, we have partnered with hundreds of stakeholders across 33 countries, supporting 36 mature global goods through our Open Application Process.",
+    "content": "Digital Square is a digital health marketplace where supply and demand come together to accelerate health equity. We align investors and government bodies around a shared digital health vision, promote the development and adoption of digital public goods for health, and strengthen national-level digital health governance to support country digital transformation.",
+    "role": "Digital Square plays a unique role as a neutral convenor of donors, government leaders, technical innovators, and entrepreneurs. Since 2016, we have partnered with hundreds of stakeholders across over more than 30 countries, supporting mature global goods through our Open Application Process.",
     "learnMoreButton": "Visit digitalsquare.org"
   },
   "globalGoods": {
     "title": "What Are Global Goods?",
-    "definition": "Digital health tools that are adaptable to different countries and contexts to help address key health system challenges. These free and open source tools can be used across different health programs, cutting down on fragmentation and accelerating health impact.",
+    "definition": "Digital health tools that are adaptable to different countries and contexts to help address key health system challenges. These open source tools can be used across different health programs, cutting down on fragmentation and accelerating health impact.",
     "types": {
       "software": {
         "title": "Software",
-        "description": "Free, open source tools used to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+        "description": "A software tool that is open source, and used to manage, analyze, or transmit health-related data, with proven utility in several settings."
       },
       "services": {
         "title": "Services", 
-        "description": "Software as a service tools that manage, transmit, or analyze health-related data, freely accessible and adhering to open data principles."
+        "description": "A service that is used to provide, manage, transmit, or analyze health-related or relevant data that can be freely accessed as a software service and adheres to open data principles."
       },
       "content": {
         "title": "Content",
-        "description": "Resources, toolkits, or data standards available under open licenses to improve health data management capabilities."
+        "description": "A resource, toolkit, or data standard that is available under an open license and that is used to improve or analyze the capabilities required to manage health data. Capabilities include those related to resource allocation, people, hardware, software, infrastructure, and operations."
+      },
+      "climate": {
+        "title": "Climate Data Product",
+        "description": "Open data sets or platforms providing analysis-ready, global, geospatial data reporting about the presence of population and human settlements."
+      },
+      "data": {
+        "title": "Data",
+        "description": "Open data collections that are accessible, reusable, and adhere to privacy and other applicable laws and best practices, contributing to the attainment of the Sustainable Development Goals (SDGs)."
+      },
+      "ai": {
+        "title": "AI Model",
+        "description": "Open artificial intelligence models that adhere to privacy and other applicable laws and best practices, designed to do no harm and help attain the SDGs."
       }
     }
   },
   "benefits": {
     "title": "Benefits & Impact",
-    "content": "Global goods save lives by enabling collaboration across organizations, reducing vendor lock-in, sharing development costs, and promoting interoperability. Many support OpenHIE architecture standards for enhanced data analysis and continuity of care.",
-    "examples": "For example, a global good used for HIV case management can also be used to manage care for malaria or tuberculosis."
+    "content": "Global goods offer a range of benefits that strengthen the implementation, scale, and sustainability of digital health technologies. By enabling contributions from multiple developers, they reduce the risk of vendor lock-in, where switching providers becomes prohibitively expensive. Their open-source nature fosters cross-organizational collaboration and adaptation across health program areas. With support from diverse funders, global goods are more likely to be sustainable over time. Costs for developing new features and maintaining software are shared among users and supporters, allowing more resources to be directed toward country-level implementation. Global goods typically follow best practices in requirements gathering and user acceptance testing, streamlining deployment efforts. Their interoperability enhances data integration and continuity of care while lowering data management costs. Together, these characteristics support a flexible digital health ecosystem in which decision-makers can choose the most context-appropriate tools."
   },
   "process": {
-    "title": "How Tools Become Global Goods",
-    "content": "Digital health tools can apply at any time through our application portal, with quarterly reviews by our Peer Review Committee and Global Goods Review Board.",
-    "requirements": "Tools must be published under open licenses, supported by strong communities, funded by multiple sources, deployed at scale, used across multiple countries, and designed for interoperability.",
-    "applyButton": "Submit Application",
-    "contactButton": "Contact Digital Square Team"
+    "title": "How a Digital Public Good becomes a Global Good",
+    "content": "The Global Goods Guidebook is a living resource managed by PATH, that identifies and showcases digital tools that meet the criteria for global goods. To be recognized as a global good, a tool must demonstrate open licensing, alignment with the Sustainable Development Goals SDG 3 (Good Health and Well-being) and SDG 13 (Climate Action), and compliance with the Digital Public Good Standard.",
+    "review": "PATH issues periodic open calls inviting digital tool developers to submit their tools, including a self-assessment using the Maturity Model. Submissions undergo a rigorous, multi-stage review led by the Peer Review Group (PRG), a diverse panel of experts with technical, programmatic, and regional expertise. This transparent and inclusive process ensures that tools are evaluated holistically and fairly.",
+    "result": "Approved tools are featured in the Global Goods Guidebook and its companion PDF Annex, providing users with accessible, up-to-date information to support decision-making and implementation of digital health systems.",
+    "prgLink": "Learn more about the Peer Review Group Members here"
+  },
+  "maturityModel": {
+    "title": "Adapting a maturity model",
+    "content": "Since 2017, Digital Square at PATH has curated Maturity Models on behalf of the global digital health community, updating them regularly to reflect shifting priorities and evolving needs. The latest version - the Maturity Model for Climate and Health (MMCH) - introduces additional indicators specifically designed to assess open-source digital tools that support health system climate adaptation, mitigation and response. The MMCH plays a central role in the Peer Review Group (PRG) process for evaluating Global Goods and serves as a practical reference for assessing tools in this emerging space.",
+    "development": "Developed through extensive global consultation, the model reflects input from workshops at major digital health events, regional digital health networks, and direct engagement with climate experts from organizations such as the WMO, Heat Health Network, and the Pasteur Institute. The MMCH provides a consistent framework to compare tools, supports evidence-based decision-making, encourages continuous improvement, promotes global alignment, and applies a climate lens to digital health innovation.",
+    "downloadLink": "Link to download the PDF of the Maturity Model for Climate and Health"
   }
 }

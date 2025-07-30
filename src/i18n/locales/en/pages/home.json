@@ -25,6 +25,16 @@
       "button": "Open Map"
     }
   },
+  "climateHealth": {
+    "announcement": "Now Available: Climate & Health Digital Tools",
+    "title": "Climate-Resilient Health Systems",
+    "description": "Discover digital tools specifically designed to help health systems adapt to climate change impacts and build resilience for vulnerable populations.",
+    "stats": {
+      "tools": "Climate & Health Tools",
+      "countries": "Countries Served"
+    },
+    "button": "Explore Climate & Health Tools"
+  },
   "featuredGoods": {
     "title": "Featured Global Goods",
     "viewAll": "View All Global Goods"

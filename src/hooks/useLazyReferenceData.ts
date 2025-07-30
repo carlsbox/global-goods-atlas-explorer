@@ -13,6 +13,13 @@ export function useLazyReferenceData(sections: ('classifications' | 'countries' 
     error: data.error
   });
 
+  // Transform standards object into grouped arrays by domain
+  const transformedStandards = data.standards ? {
+    health: Object.values(data.standards).filter((s: any) => s.domain === 'Health'),
+    interoperability: Object.values(data.standards).filter((s: any) => s.domain === 'Interoperability'),
+    climate: Object.values(data.standards).filter((s: any) => s.domain === 'Climate')
+  } : { health: [], interoperability: [], climate: [] };
+
   useEffect(() => {
     const loadRequiredSections = async () => {
       const promises = [];
@@ -43,5 +50,8 @@ export function useLazyReferenceData(sections: ('classifications' | 'countries' 
     loadRequiredSections();
   }, [sections, loadClassifications, loadCountries, loadStandards]);
 
-  return data;
+  return {
+    ...data,
+    standards: transformedStandards
+  };
 }

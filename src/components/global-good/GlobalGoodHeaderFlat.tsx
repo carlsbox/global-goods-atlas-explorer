@@ -11,11 +11,6 @@ interface GlobalGoodHeaderFlatProps {
 }
 
 export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) {
-  // Debug logging
-  console.log('GlobalGoodHeaderFlat - globalGood data:', globalGood);
-  console.log('GlobalGoodHeaderFlat - ClimateHealth value:', globalGood?.ClimateHealth);
-  console.log('Available globalGood properties:', Object.keys(globalGood || {}));
-  
   return (
     <TooltipProvider>
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 shadow-sm">
@@ -54,9 +49,14 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
               {globalGood.ClimateHealth && (
                 <Badge 
                   variant="outline" 
-                  className="bg-blue-50 border-blue-200 text-blue-800"
+                  className="bg-green-50 border-green-200 text-green-800"
                 >
-                  🌍 Climate & Health
+                  <img 
+                    src="/lovable-uploads/e1c580dd-92dc-40dd-91b3-5397827c9d9f.png" 
+                    alt="Climate Health" 
+                    className="w-4 h-4 mr-1" 
+                  />
+                  Climate & Health
                 </Badge>
               )}
 
