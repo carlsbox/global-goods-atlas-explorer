@@ -228,6 +228,121 @@ export function CommunitySection({ form }: CommunitySectionProps) {
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="Community.Events.schedule"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Event Schedule URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/events"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Additional Policies</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <FormField
+            control={form.control}
+            name="Community.Policies.TermsOfUse.url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Terms of Use URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/terms"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="Community.Policies.UserAgreement.url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>User Agreement URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/user-agreement"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="Community.Policies.DoNoHarm.url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Do No Harm Policy URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/do-no-harm"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="Community.Policies.PIICollected.url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>PII Collection Policy URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/pii-policy"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="Community.Policies.NPIIUsed.url"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Non-PII Usage Policy URL</FormLabel>
+                <FormControl>
+                  <Input 
+                    type="url"
+                    placeholder="https://example.com/npii-policy"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </CardContent>
       </Card>
     </div>

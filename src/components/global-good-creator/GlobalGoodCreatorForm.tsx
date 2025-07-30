@@ -16,6 +16,10 @@ import { MaturitySection } from './form-sections/MaturitySection';
 import { CommunitySection } from './form-sections/CommunitySection';
 import { SustainabilitySection } from './form-sections/SustainabilitySection';
 import { ResourcesSection } from './form-sections/ResourcesSection';
+import { ClimateHealthSection } from './form-sections/ClimateHealthSection';
+import { InclusiveDesignSection } from './form-sections/InclusiveDesignSection';
+import { EnvironmentalImpactSection } from './form-sections/EnvironmentalImpactSection';
+import { TotalCostSection } from './form-sections/TotalCostSection';
 import { useEffect, useState } from 'react';
 
 interface GlobalGoodCreatorFormProps {
@@ -216,6 +220,34 @@ export function GlobalGoodCreatorForm({ formData, onFormDataChange }: GlobalGood
       title: 'Community & Governance',
       description: 'Community information and policies',
       component: CommunitySection,
+      required: false,
+    },
+    {
+      id: 'climate-health',
+      title: 'Climate & Health Integration',
+      description: 'Climate and health data integration',
+      component: ClimateHealthSection,
+      required: false,
+    },
+    {
+      id: 'inclusive-design',
+      title: 'Inclusive Design',
+      description: 'Accessibility and inclusive design features',
+      component: InclusiveDesignSection,
+      required: false,
+    },
+    {
+      id: 'environmental-impact',
+      title: 'Environmental Impact',
+      description: 'Environmental and carbon footprint considerations',
+      component: EnvironmentalImpactSection,
+      required: false,
+    },
+    {
+      id: 'total-cost',
+      title: 'Total Cost of Ownership',
+      description: 'Economic analysis and cost considerations',
+      component: TotalCostSection,
       required: false,
     },
     {
