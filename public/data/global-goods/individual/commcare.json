@@ -21,7 +21,7 @@
       "description": "Try CommCare demo"
     }
   },
-  "GlobalGoodsType": ["software"],,
+  "GlobalGoodsType": ["software"],
     "ClimateHealth": false,
   "License": "bsd-3-clause",
   "Contact": [
