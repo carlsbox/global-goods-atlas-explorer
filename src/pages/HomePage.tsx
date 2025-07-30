@@ -39,6 +39,50 @@ function FeaturedGoodsSkeleton() {
   );
 }
 
+// Endorsement organizations data
+const endorsementOrgs = [
+  {
+    name: "Wellcome",
+    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Rockefeller Foundation",
+    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
+  },
+  {
+    name: "WHO-WMO Joint Programme",
+    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Gates Foundation",
+    logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Impact Alliance",
+    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Digital Public Goods Alliance",
+    logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+  },
+  {
+    name: "ELMA Philanthropies",
+    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
+  },
+  {
+    name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+  },
+  {
+    name: "NORAD",
+    logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
+  },
+  {
+    name: "UNICEF",
+    logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
+  }
+];
+
 export default function HomePage() {
   // Use deferred loading - don't block render on data loading
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
@@ -214,36 +258,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter Signup Section */}
-      <section className="py-16 bg-primary/5">
+      {/* Endorsements Section */}
+      <section className="py-16 bg-card/50">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="flex justify-center mb-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Mail className="h-6 w-6 text-primary" />
-              </div>
-            </div>
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="text-muted-foreground mb-8">
-              Get the latest updates on digital global goods, new use cases, and platform developments delivered to your inbox.
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">{t("endorsements.title")}</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {t("endorsements.description")}
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1"
-                disabled={isSubmitting}
-              />
-              <Button type="submit" disabled={isSubmitting || !email}>
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
-              </Button>
-            </form>
-            <p className="text-xs text-muted-foreground mt-4">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {endorsementOrgs.map((org, index) => (
+              <Card key={index} className="text-center hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <img 
+                    src={org.logo} 
+                    alt={org.name}
+                    className="h-16 w-auto mx-auto mb-4 object-contain"
+                  />
+                  <h3 className="font-semibold text-sm">{org.name}</h3>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
