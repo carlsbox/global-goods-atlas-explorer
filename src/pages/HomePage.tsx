@@ -202,11 +202,19 @@ export default function HomePage() {
               </div>
             </div>
             
-            <Button asChild size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
-              <Link to="/global-goods?climate-health=true">
-                {tPage('climateHealth.button', 'home')} <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                <Link to="/global-goods?climate-health=true">
+                  {tPage('climateHealth.button', 'home')} <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              
+              <Button asChild variant="outline" size="lg">
+                <Link to="/climate-health">
+                  Learn More <Heart className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
