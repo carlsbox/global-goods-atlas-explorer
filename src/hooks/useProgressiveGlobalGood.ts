@@ -34,6 +34,7 @@ export function useProgressiveGlobalGood(id: string | undefined) {
             ID: basicGood.ID,
             Name: basicGood.Name,
             Logo: basicGood.Logo,
+            ClimateHealth: basicGood.ClimateHealth,
             ProductOverview: basicGood.ProductOverview,
             Classifications: basicGood.Classifications,
             GlobalGoodsType: basicGood.GlobalGoodsType,

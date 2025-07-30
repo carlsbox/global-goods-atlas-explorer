@@ -11,11 +11,6 @@ interface GlobalGoodHeaderFlatProps {
 }
 
 export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) {
-  // Debug logging
-  console.log('GlobalGoodHeaderFlat - globalGood data:', globalGood);
-  console.log('GlobalGoodHeaderFlat - ClimateHealth value:', globalGood?.ClimateHealth);
-  console.log('Available globalGood properties:', Object.keys(globalGood || {}));
-  
   return (
     <TooltipProvider>
       <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 shadow-sm">
