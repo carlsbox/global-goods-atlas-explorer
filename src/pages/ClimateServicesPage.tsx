@@ -37,10 +37,10 @@ function FeaturedGoodsSkeleton() {
 // Endorsement organizations data
 const endorsementOrgs = [{
   name: "Wellcome",
-  logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/a87d8b19-b7dd-4104-b8ba-f094b01e062c.png"
 }, {
   name: "Rockefeller Foundation",
-  logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/30f54b6b-780a-42ec-85a4-f559bfb2a93f.png"
 }, {
   name: "WHO-WMO Joint Programme",
   logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
@@ -49,7 +49,7 @@ const endorsementOrgs = [{
   logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
 }, {
   name: "Digital Impact Alliance",
-  logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/52493266-4ebf-49b2-9061-c9fd484def89.png"
 }, {
   name: "Digital Public Goods Alliance",
   logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
@@ -61,7 +61,7 @@ const endorsementOrgs = [{
   logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
 }, {
   name: "UNICEF",
-  logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/fe709775-65d2-4883-bbaf-c313652d8616.png"
 }];
 
 // Emerging tools data
