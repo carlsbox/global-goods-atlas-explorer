@@ -180,7 +180,7 @@ export default function ClimateServicesPage() {
             </p>
             
             <p>
-              This Annex reflects what is possible when sectors come together with a shared purpose. We hope it serves as a valuable resource for those working at the intersection of climate and health, whether you are just starting out or building on existing efforts. Additional tools, case studies, and guidance can be found at ClimaHealth.info, a joint WHO-WMO initiative supporting learning and collaboration in this growing field.
+              This Annex reflects what is possible when sectors come together with a shared purpose. We hope it serves as a valuable resource for those working at the intersection of climate and health, whether you are just starting out or building on existing efforts. Additional tools, case studies, and guidance can be found at <a href="https://climahealth.info" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ClimaHealth.info</a>, a joint WHO-WMO initiative supporting learning and collaboration in this growing field.
             </p>
             
             <p>
