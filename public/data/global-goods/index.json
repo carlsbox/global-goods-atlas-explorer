@@ -86,7 +86,7 @@
     "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
     "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
     "GlobalGoodType": ["software"],
-    "ClimateHealth": true,
+    "ClimateHealth": false,
     "Countries": ["et", "gw", "mz", "rw", "za", "zm", "br", "pk", "vn"],
     "Classifications": {
       "SDGs": ["SDG-3", "SDG-13"],
