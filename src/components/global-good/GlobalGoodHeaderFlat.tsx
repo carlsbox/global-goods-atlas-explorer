@@ -102,12 +102,6 @@ export function GlobalGoodHeaderFlat({ globalGood }: GlobalGoodHeaderFlatProps) 
                 </Badge>
               ))}
               
-              {/* Maturity Summary - Third */}
-              {globalGood.Maturity?.SummaryOfMaturity && (
-                <Badge variant="secondary">
-                  {globalGood.Maturity.SummaryOfMaturity}
-                </Badge>
-              )}
             </div>
           </div>
 
