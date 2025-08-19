@@ -1,0 +1,255 @@
+{
+  "ID": "opencr",
+  "Name": "OpenCR",
+  "Logo": "",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/intrahealth/client-registry",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "mit",
+    "name": "MIT License",
+    "url": "https://opensource.org/licenses/MIT",
+    "description": "Simple permissive license with conditions only requiring preservation of copyright and license notices"
+  },
+  "Contact": [
+    {
+      "name": "",
+      "email": "digitalhealth@intrahealth.org",
+      "role": ""
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_C8",
+        "title": "Master patient index",
+        "description": "",
+        "group_code": "C",
+        "group_name": "Registries and Directories",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": [
+      {
+        "code": "DPI_RG2",
+        "title": "Client Registry",
+        "description": "",
+        "group_code": "RG",
+        "group_name": "Registry Services",
+        "authority": "DPI-H"
+      }
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7",
+        "domain": "Health",
+        "link": "https://www.hl7.org/",
+        "name": "Health Level 7",
+        "description": "International standards for transfer of clinical and administrative data between software applications"
+      },
+      {
+        "code": "SNOMED-CT",
+        "domain": "Health",
+        "link": "https://www.snomed.org/",
+        "name": "Systematized Nomenclature of Medicine Clinical Terms",
+        "description": "Comprehensive, multilingual clinical healthcare terminology"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "type": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry.",
+    "Description": "Client registries use sophisticated record linkage processes to uniquely identify patients across multiple health information systems in facilities, pharmacies, lab systems, and elsewhere. As a critical component of an interoperable health information exchange (HIE), it allows patients to be tracked across facilities and decreases instances of duplicate and incomplete records, as well as interruptions in treatment. It is a necessary tool in public health to help manage patient safety and care coordination, monitoring, reporting, surveillance, and medical research.",
+    "PrimaryFunctionality": "",
+    "Users": "OpenCR is a backend service, meant for existing applications, like electronic medical records, to create unique IDs. An example of primary users would be data administrators at a central Ministry of Health.",
+    "Languages": [],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "OpenCR has been deployed in Botswana, Haiti, and Uganda and is part of DATIM's DASH architecture.",
+    "NumberOfImplementations": 3,
+    "ImplementationMapOverview": null,
+    "ImplementationCountries": [
+      {
+        "iso_code": "ht",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Haiti",
+            "formal": "the Republic of Haiti"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "bw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Botswana",
+            "formal": "the Republic of Botswana"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 3,
+        "community_support": 2,
+        "maturity_of_gg": 5,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 9999,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://intrahealth.github.io/client-registry/user/introduction/"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": "https://intrahealth.github.io/client-registry/admin/architecture/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}
