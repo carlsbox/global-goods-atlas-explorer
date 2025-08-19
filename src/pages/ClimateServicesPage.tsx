@@ -9,10 +9,10 @@ import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobal
 
 // Skeleton component for featured goods loading state
 function FeaturedGoodsSkeleton() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <Card key={i} className="transition-all">
+  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {Array.from({
+      length: 3
+    }).map((_, i) => <Card key={i} className="transition-all">
           <CardContent className="pt-6">
             <div className="flex flex-col h-full">
               <div className="flex items-center mb-4">
@@ -30,90 +30,69 @@ function FeaturedGoodsSkeleton() {
               </div>
             </div>
           </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
+        </Card>)}
+    </div>;
 }
 
 // Endorsement organizations data
-const endorsementOrgs = [
-  {
-    name: "Wellcome",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Rockefeller Foundation",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
-  },
-  {
-    name: "WHO-WMO Joint Programme",
-    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Gates Foundation",
-    logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Digital Impact Alliance",
-    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Digital Public Goods Alliance",
-    logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
-  },
-  {
-    name: "ELMA Philanthropies",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
-    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
-  },
-  {
-    name: "NORAD",
-    logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
-  },
-  {
-    name: "UNICEF",
-    logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
-  }
-];
+const endorsementOrgs = [{
+  name: "Wellcome",
+  logo: "/lovable-uploads/a87d8b19-b7dd-4104-b8ba-f094b01e062c.png"
+}, {
+  name: "Rockefeller Foundation",
+  logo: "/lovable-uploads/30f54b6b-780a-42ec-85a4-f559bfb2a93f.png"
+}, {
+  name: "WHO-WMO Joint Programme",
+  logo: "/lovable-uploads/5a962e50-00d3-46f6-b4e4-7239a1774744.png"
+}, {
+  name: "Gates Foundation",
+  logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+}, {
+  name: "Digital Impact Alliance",
+  logo: "/lovable-uploads/52493266-4ebf-49b2-9061-c9fd484def89.png"
+}, {
+  name: "Digital Public Goods Alliance",
+  logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+}, {
+  name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+  logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+}, {
+  name: "NORAD",
+  logo: "/lovable-uploads/6ca75fe4-9d9c-4dd3-911b-3e8004df4034.png"
+}, {
+  name: "UNICEF",
+  logo: "/lovable-uploads/fe709775-65d2-4883-bbaf-c313652d8616.png"
+}];
 
 // Emerging tools data
-const emergingTools = [
-  {
-    name: "GHR Tool Suite",
-    organization: "Barcelona Supercomputing Center",
-    description: "A powerful suite of open-source R packages enabling the harmonization, exploration, modeling, and prediction of climate-health datasets."
-  },
-  {
-    name: "OpenHIM with Climate Mediator",
-    organization: "Jembi Health Systems",
-    description: "Extending an established interoperability platform to support climate data integration, with initial deployment planned in Mozambique."
-  },
-  {
-    name: "IDS-DRR Open Source Flood Risk Analysis Platform for Disaster Preparedness",
-    organization: "Civic Data Lab & Open Contracting Partnership",
-    description: "Aggregating diverse disaster risk reduction datasets, including flood hazard and rainfall data, to inform climate-resilient disaster response, currently piloted in parts of India."
-  },
-  {
-    name: "Speedy Mesh",
-    organization: "SpeedyKom",
-    description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
-  }
-];
-
+const emergingTools = [{
+  name: "GHR Tool Suite",
+  organization: "Barcelona Supercomputing Center",
+  description: "A powerful suite of open-source R packages enabling the harmonization, exploration, modeling, and prediction of climate-health datasets."
+}, {
+  name: "OpenHIM with Climate Mediator",
+  organization: "Jembi Health Systems",
+  description: "Extending an established interoperability platform to support climate data integration, with initial deployment planned in Mozambique."
+}, {
+  name: "IDS-DRR Open Source Flood Risk Analysis Platform for Disaster Preparedness",
+  organization: "Civic Data Lab & Open Contracting Partnership",
+  description: "Aggregating diverse disaster risk reduction datasets, including flood hazard and rainfall data, to inform climate-resilient disaster response, currently piloted in parts of India."
+}, {
+  name: "Speedy Mesh",
+  organization: "SpeedyKom",
+  description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
+}];
 export default function ClimateServicesPage() {
-  const { data: globalGoods = [], isLoading: isLoadingGoods } = useGlobalGoodsFlat();
-  const { tPage } = useI18n();
+  const {
+    data: globalGoods = [],
+    isLoading: isLoadingGoods
+  } = useGlobalGoodsFlat();
+  const {
+    tPage
+  } = useI18n();
 
   // Filter for climate health global goods
-  const climateHealthGoods = globalGoods.filter(good => 
-    good.ClimateHealth === true || 
-    ['dhis2', 'geoprism', 'ewars'].includes(good.ID)
-  );
-
+  const climateHealthGoods = globalGoods.filter(good => good.ClimateHealth === true || ['dhis2', 'geoprism', 'ewars'].includes(good.ID));
   const handleDownloadGuidebook = () => {
     const link = document.createElement('a');
     link.href = '/assets/Climate_Annex.pdf';
@@ -122,9 +101,7 @@ export default function ClimateServicesPage() {
     link.click();
     document.body.removeChild(link);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+  return <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Hero Section */}
@@ -166,38 +143,45 @@ export default function ClimateServicesPage() {
             </Button>
           </div>
           
-          {isLoadingGoods ? (
-            <FeaturedGoodsSkeleton />
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {climateHealthGoods.slice(0, 3).map((good) => (
-                <EnhancedGlobalGoodCard key={good.ID} good={good} />
-              ))}
-            </div>
-          )}
+          {isLoadingGoods ? <FeaturedGoodsSkeleton /> : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {climateHealthGoods.slice(0, 3).map(good => <EnhancedGlobalGoodCard key={good.ID} good={good} />)}
+            </div>}
         </section>
 
         {/* WHO-WMO Joint Programme Section */}
         <section className="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
-              <h3 className="text-lg font-semibold text-muted-foreground mb-4">
-                {tPage('whoWmo.subtitle', 'climateServices')}
-              </h3>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">{tPage('whoWmo.forward', 'climateServices')}</h4>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
+            <h4 className="text-lg font-semibold text-muted-foreground">{tPage('whoWmo.forward', 'climateServices')}</h4>
           </div>
           
-          <blockquote className="border-l-4 border-primary pl-6 italic text-muted-foreground mt-6">
-            "The health impacts of climate change are no longer a distant concern. They are here, now, affecting lives and health systems in every part of the world. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear."
-          </blockquote>
-          
-          <div className="mt-6 prose prose-sm max-w-none text-muted-foreground">
+          <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
             <p>
-              The World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Office was created to support countries in responding to these growing risks by bridging two vital communities: public health and climate science. By combining expertise, data, and action, we aim to help governments and partners build stronger, more resilient health systems that can anticipate and respond to the challenges of a changing climate.
+              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear.
+            </p>
+            
+            <p>
+              To support countries in addressing these growing risks, the World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Programme (Joint Programme office) was established. By bridging public health and climate science, this partnership combines expertise, data, and action, to help governments and partners build stronger, more resilient health systems capable of anticipating and responding to climate and changing weather challenges.
+            </p>
+            
+            <p>
+              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate and health-focused global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. This enables countries to better predict, prepare for, and respond to climate-related health risks in a coordinated and scalable way. It can help identify how and where diseases are likely to spread, allowing for more targeted prevention. It can inform the timing of interventions, from vaccination campaigns to public health messaging. It can guide emergency responses, and it can improve evaluation response effectiveness by considering the impacts of weather and climate.
+            </p>
+            
+            <p>
+              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its Member States, enables the collection, processing, and sharing of vital climate data and forecasts. But data alone is not enough. It must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
+            </p>
+            
+            <p>
+              WMO's recent resolution on climate, environment, and health (WMO Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
+            </p>
+            
+            <p>
+              This Annex reflects what is possible when sectors come together with a shared purpose. We hope it serves as a valuable resource for those working at the intersection of climate and health, whether you are just starting out or building on existing efforts. Additional tools, case studies, and guidance can be found at <a href="https://climahealth.info" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ClimaHealth.info</a>, a joint WHO-WMO initiative supporting learning and collaboration in this growing field.
+            </p>
+            
+            <p>
+              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration and learning as we work toward healthier, climate-resilient communities worldwide.
             </p>
           </div>
           
@@ -269,15 +253,13 @@ export default function ClimateServicesPage() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {emergingTools.map((tool, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
+            {emergingTools.map((tool, index) => <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
                   <p className="text-sm text-primary mb-3">({tool.organization})</p>
                   <p className="text-muted-foreground text-sm">{tool.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           <p className="text-muted-foreground mt-6 italic">
@@ -293,21 +275,27 @@ export default function ClimateServicesPage() {
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {endorsementOrgs.map((org, index) => (
-              <Card key={index} className="text-center">
+            {endorsementOrgs.map((org, index) => <Card key={index} className="text-center">
                 <CardContent className="pt-6">
-                  <img 
-                    src={org.logo} 
-                    alt={org.name}
-                    className="h-16 w-auto mx-auto mb-4 object-contain"
-                  />
+                  <img src={org.logo} alt={org.name} className="h-24 w-auto mx-auto mb-4 object-contain" />
                   <h3 className="font-semibold text-sm">{org.name}</h3>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
+          </div>
+        </section>
+
+        {/* Funding Acknowledgment Section */}
+        <section className="mb-16 text-center">
+          <div className="prose prose-sm max-w-4xl mx-auto text-muted-foreground space-y-4 italic">
+            <p>
+              Digital Square is a PATH-led initiative funded by a consortium of donors. This guidebook is made possible with funding from Wellcome, The Rockefeller Foundation, and the World Meteorological Organization (WMO) and World Health Organization (WHO) Climate and Health Joint Programme.
+            </p>
+            
+            <p>
+              The contents of this document are the responsibility of PATH and do not necessarily reflect the views of those donors.
+            </p>
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 }
