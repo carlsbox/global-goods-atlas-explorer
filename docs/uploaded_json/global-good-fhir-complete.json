@@ -1,0 +1,877 @@
+{
+  "ID": "fhir",
+  "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR) ",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "HL7 FHIR ",
+      "url": "http://hl7.org/fhir/ ",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "http://hl7.org/fhir/",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "content",
+      "title": "Content",
+      "description": "A resource, toolkit, or data standard available under an open license, used to improve or analyze health data management processes."
+    }
+  ],
+  "License": {
+    "id": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "description": "Public domain dedication allowing anyone to use the work without restrictions"
+  },
+  "Contact": [
+    {
+      "email": "karenvan@hl7.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_D2",
+        "title": "Data interchange and interoperability",
+        "description": "",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7",
+        "domain": "Health",
+        "link": "https://www.hl7.org/",
+        "name": "Health Level 7",
+        "description": "International standards for transfer of clinical and administrative data between software applications"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
+    "Description": "Healthcare records are increasingly becoming digitized. As patients move around the healthcare ecosystem, their electronic health records must be available, discoverable, and understandable. Further, to support automated clinical decision support and other machine-based processing, the data must also be structured and standardized. HL7 FHIR is a specification based on emerging industry approaches, but informed by years of lessons around requirements, successes and challenges gained through defining and implementing other HL7 standards.",
+    "PrimaryFunctionality": " HL7 FHIR can be used as a stand-alone data exchange standard, but can and will also be used in partnership with existing widely used standards. FHIR leverages existing logical and theoretical models to provide a consistent, easy to implement, and rigorous mechanism for exchanging data between healthcare applications.    ",
+    "Users": "HL7 FHIR is used deeply and widely by key global health, digital health, electronic health record and interoperability stakeholders across the world. For example, some key user groups are healthcare providers and workers, government stakeholders, public health officials, private sector innovators, payers, pharmaceutical companies, lab and diagnostic leaders, quality improvement experts and health equity trailblazers. ",
+    "Languages": [
+      {
+        "code": "zh",
+        "name": "Chinese"
+      },
+      {
+        "code": "ja",
+        "name": "Japanese"
+      },
+      {
+        "code": "ru",
+        "name": "Russian"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "HL7 FHIR is used in every corner of the globe, currently in 74 countries as detailed below. Adoption varies from mature implementations with FHIR embedded in national and regional health programs to introductory use. It is employed in a wide variety of settings and for many aspects of healthcare delivery and the supply chain. HL7 expert Work Group topics provide a good lenses through which to understand how HL7 FHIR is developed and deployed.  The United Kingdom and the United States reference HL7 FHIR requirements in national health programs, while Australia, Kenya, Argentina and Spain include HL7 FHIR as part of pre- or in-service training programs.\n",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "ar",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Argentina",
+            "formal": "the Argentine Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "at",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Austria",
+            "formal": "the Republic of Austria"
+          }
+        }
+      },
+      {
+        "iso_code": "bi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burundi",
+            "formal": "the Republic of Burundi"
+          }
+        }
+      },
+      {
+        "iso_code": "ca",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Canada",
+            "formal": "Canada"
+          }
+        }
+      },
+      {
+        "iso_code": "cl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Chile",
+            "formal": "the Republic of Chile"
+          }
+        }
+      },
+      {
+        "iso_code": "bw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Botswana",
+            "formal": "the Republic of Botswana"
+          }
+        }
+      },
+      {
+        "iso_code": "br",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Brazil",
+            "formal": "the Federative Republic of Brazil"
+          }
+        }
+      },
+      {
+        "iso_code": "cn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "China",
+            "formal": "the People's Republic of China"
+          }
+        }
+      },
+      {
+        "iso_code": "cz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Czechia",
+            "formal": "the Czech Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "us",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "United States of America (the)",
+            "formal": "the United States of America"
+          }
+        }
+      },
+      {
+        "iso_code": "ae",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "United Arab Emirates (the)",
+            "formal": "the United Arab Emirates"
+          }
+        }
+      },
+      {
+        "iso_code": "gb",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "United Kingdom of Great Britain and Northern Ireland (the)",
+            "formal": "the United Kingdom of Great Britain and Northern Ireland"
+          }
+        }
+      },
+      {
+        "iso_code": "mx",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mexico",
+            "formal": "the United Mexican States"
+          }
+        }
+      },
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "co",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Colombia",
+            "formal": "the Republic of Colombia"
+          }
+        }
+      },
+      {
+        "iso_code": "ve",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Venezuela (Bolivarian Republic of)",
+            "formal": "the Bolivarian Republic of Venezuela"
+          }
+        }
+      },
+      {
+        "iso_code": "vn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Viet Nam",
+            "formal": "the Socialist Republic of Viet Nam"
+          }
+        }
+      },
+      {
+        "iso_code": "ml",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mali",
+            "formal": "the Republic of Mali"
+          }
+        }
+      },
+      {
+        "iso_code": "my",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malaysia",
+            "formal": "Malaysia"
+          }
+        }
+      },
+      {
+        "iso_code": "et",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ethiopia",
+            "formal": "the Federal Democratic Republic of Ethiopia"
+          }
+        }
+      },
+      {
+        "iso_code": "za",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "South Africa",
+            "formal": "the Republic of South Africa"
+          }
+        }
+      },
+      {
+        "iso_code": "zw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zimbabwe",
+            "formal": "the Republic of Zimbabwe"
+          }
+        }
+      },
+      {
+        "iso_code": "mg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Madagascar",
+            "formal": "the Republic of Madagascar"
+          }
+        }
+      },
+      {
+        "iso_code": "mw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malawi",
+            "formal": "the Republic of Malawi"
+          }
+        }
+      },
+      {
+        "iso_code": "rw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Rwanda",
+            "formal": "the Republic of Rwanda"
+          }
+        }
+      },
+      {
+        "iso_code": "no",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Norway",
+            "formal": "the Kingdom of Norway"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "sa",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Saudi Arabia",
+            "formal": "the Kingdom of Saudi Arabia"
+          }
+        }
+      },
+      {
+        "iso_code": "kw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kuwait",
+            "formal": "the State of Kuwait"
+          }
+        }
+      },
+      {
+        "iso_code": "sy",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Syrian Arab Republic (the)",
+            "formal": "the Syrian Arab Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "il",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Israel",
+            "formal": "the State of Israel"
+          }
+        }
+      },
+      {
+        "iso_code": "gr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Greece",
+            "formal": "the Hellenic Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ua",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ukraine",
+            "formal": "Ukraine"
+          }
+        }
+      },
+      {
+        "iso_code": "pl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Poland",
+            "formal": "the Republic of Poland"
+          }
+        }
+      },
+      {
+        "iso_code": "pt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Portugal",
+            "formal": "the Portuguese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "es",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Spain",
+            "formal": "the Kingdom of Spain"
+          }
+        }
+      },
+      {
+        "iso_code": "fr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "France",
+            "formal": "the French Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ch",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Switzerland",
+            "formal": "the Swiss Confederation"
+          }
+        }
+      },
+      {
+        "iso_code": "se",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sweden",
+            "formal": "the Kingdom of Sweden"
+          }
+        }
+      },
+      {
+        "iso_code": "hu",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Hungary",
+            "formal": "Hungary"
+          }
+        }
+      },
+      {
+        "iso_code": "lt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Lithuania",
+            "formal": "the Republic of Lithuania"
+          }
+        }
+      },
+      {
+        "iso_code": "lv",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Latvia",
+            "formal": "the Republic of Latvia"
+          }
+        }
+      },
+      {
+        "iso_code": "fi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Finland",
+            "formal": "the Republic of Finland"
+          }
+        }
+      },
+      {
+        "iso_code": "dk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Denmark",
+            "formal": "the Kingdom of Denmark"
+          }
+        }
+      },
+      {
+        "iso_code": "de",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Germany",
+            "formal": "the Federal Republic of Germany"
+          }
+        }
+      },
+      {
+        "iso_code": "ie",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ireland",
+            "formal": "Ireland"
+          }
+        }
+      },
+      {
+        "iso_code": "it",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Italy",
+            "formal": "the Republic of Italy"
+          }
+        }
+      },
+      {
+        "iso_code": "rs",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Serbia",
+            "formal": "the Republic of Serbia"
+          }
+        }
+      },
+      {
+        "iso_code": "kz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kazakhstan",
+            "formal": "the Republic of Kazakhstan"
+          }
+        }
+      },
+      {
+        "iso_code": "uz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uzbekistan",
+            "formal": "the Republic of Uzbekistan"
+          }
+        }
+      },
+      {
+        "iso_code": "au",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Australia",
+            "formal": "Australia"
+          }
+        }
+      },
+      {
+        "iso_code": "nz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "New Zealand",
+            "formal": "New Zealand"
+          }
+        }
+      },
+      {
+        "iso_code": "jp",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Japan",
+            "formal": "Japan"
+          }
+        }
+      },
+      {
+        "iso_code": "in",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "India",
+            "formal": "the Republic of India"
+          }
+        }
+      },
+      {
+        "iso_code": "id",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Indonesia",
+            "formal": "the Republic of Indonesia"
+          }
+        }
+      },
+      {
+        "iso_code": "pk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Pakistan",
+            "formal": "the Islamic Republic of Pakistan"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "bd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bangladesh",
+            "formal": "the People's Republic of Bangladesh"
+          }
+        }
+      },
+      {
+        "iso_code": "th",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Thailand",
+            "formal": "the Kingdom of Thailand"
+          }
+        }
+      },
+      {
+        "iso_code": "ph",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Philippines (the)",
+            "formal": "the Republic of the Philippines"
+          }
+        }
+      },
+      {
+        "iso_code": "sg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Singapore",
+            "formal": "the Republic of Singapore"
+          }
+        }
+      },
+      {
+        "iso_code": "nr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nauru",
+            "formal": "the Republic of Nauru"
+          }
+        }
+      },
+      {
+        "iso_code": "tv",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tuvalu",
+            "formal": "Tuvalu"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 10,
+        "community_support": 8,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "The HL7 FHIR community is diverse and operates in both developed and LMIC country contexts. Please see https://chat.fhir.org/stat\nPlease see HL7 International Council and Affiliates here: https://www.hl7.org/Special/committees/international/leadership.cfm?ref=nav\nThe governance structure is documented here and  information about HL7 FHIR community engagement can be found at: https://fhir.org/community/process/\n",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2012,
+    "SizeOfCommunity": 25000,
+    "Links": {
+      "Community": {
+        "url": "https://hl7.org/fhir/credits.html#community"
+      },
+      "MailingList": {
+        "url": "https://www.hl7.org/concalls/"
+      }
+    },
+    "Events": {
+      "description": "HL7 holds a variety of multi-stakeholder forums, implementer events and technical, policy and other meetings to support the advancement of HL7 FHIR. See https://www.hl7.org/events/  for more information.",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": " https://www.hl7.org/legal/code-of-conduct.cfm",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "https://www.hl7.org/legal/code-of-ethics.cfm",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "https://www.hl7.org/legal/code-of-ethics.cfm",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "https://www.hl7.org/legal/privacy.cfm?ref=nav",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The content is managed by  Health Level Seven International http://www.hl7.org.  The content is supported / sustained financially through member dues and services. Key funders/investors of the work over the past 5 years are HL7 members and U.S. Office of the National Coordinator for Health Information Technology.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "Example Case Study",
+        "url": "https://www.hl7.org/participate/case-studies/index.cfm?rev=nav"
+      },
+      {
+        "description": "Master Index of Scientific Articles ",
+        "url": "https://www.zotero.org/groups/4928801/hl7_fhir/collections/7MQ854T6"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": " For more information on the HL7 FHIR standard: ",
+        "url": "https://www.hl7.org/fhir/overview.html"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

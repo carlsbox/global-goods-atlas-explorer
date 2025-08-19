@@ -1,0 +1,316 @@
+{
+  "ID": "reveal",
+  "Name": "Reveal",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://globalgoodsguidebook.org/global-goods/reveal/www.revealprecision.com",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/akrosinc",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "apache-2.0",
+    "name": "Apache License 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Permissive open source license that allows commercial use, modification, distribution, and patent use"
+  },
+  "Contact": [
+    {
+      "email": "awinters@akros.com",
+      "role": "Anna Winters"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_E2",
+        "title": "Public health and disease surveillance systems",
+        "description": "",
+        "group_code": "E",
+        "group_name": "Surveillance and Response",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Reveal is an open-source digital global good that enables country governments and implementing partners to use geospatial data and technology to efficiently and effectively microplan and then deliver life-saving intervention campaigns.",
+    "Description": "",
+    "PrimaryFunctionality": "",
+    "Users": "Reveal users include government and implementers of health programs who are involved in the planning/microplanning and delivery of health interventions. This includes central-level ministry of health staff, as well as district based managers. End users of the mobile client include field teams, community health workers, or community drug distributors.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "th",
+        "name": "Thai"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Reveal is currently being actively used, or has been used recently in the following countries: Mali, Senegal, Nigeria, Kenya, Angola, Zambia, Namibia, Mozambique.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "ml",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mali",
+            "formal": "the Republic of Mali"
+          }
+        }
+      },
+      {
+        "iso_code": "sn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Senegal",
+            "formal": "the Republic of Senegal"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "mz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mozambique",
+            "formal": "the Republic of Mozambique"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "ao",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Angola",
+            "formal": "the Republic of Angola"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "na",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Namibia",
+            "formal": "the Republic of Namibia"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 6,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Product documentation",
+        "url": "URL https://revealplatform.atlassian.net/wiki/spaces/REVEAL/pages/33049/The+Reveal+Platform"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://revealplatform.atlassian.net/wiki/spaces/REVEAL/pages/393296/End+User+Guides  "
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Help Desk SOP",
+        "url": "https://revealplatform.atlassian.net/wiki/spaces/REVEAL/pages/8847369/Reveal+Help+Desk+SOP"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Technical Documentation ",
+        "url": "https://revealplatform.atlassian.net/wiki/spaces/REVEAL/pages/393249/Reveal+Technical+Documentation"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/reveal"
+      }
+    ]
+  }
+}

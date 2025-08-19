@@ -1,0 +1,361 @@
+{
+  "ID": "ihris",
+  "Name": "iHRIS",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://www.ihris.org/",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/iHRIS/iHRIS",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "description": "Copyleft license that requires derivative works to be open source under the same license, with added protections against patent litigation and tivoization"
+  },
+  "Contact": [
+    {
+      "email": "digitalhealth@intrahealth.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_B4",
+        "title": "Human resource information systems",
+        "description": "",
+        "group_code": "B",
+        "group_name": "Health System / Provider administration",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7",
+        "domain": "Health",
+        "link": "https://www.hl7.org/",
+        "name": "Health Level 7",
+        "description": "International standards for transfer of clinical and administrative data between software applications"
+      },
+      {
+        "code": "SNOMED-CT",
+        "domain": "Health",
+        "link": "https://www.snomed.org/",
+        "name": "Systematized Nomenclature of Medicine Clinical Terms",
+        "description": "Comprehensive, multilingual clinical healthcare terminology"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "iHRIS is a health worker registry application.",
+    "Description": "iHRIS is a human resource information system that helps countries around the world track and manage their health workforce data to improve access to services. Countries use it to capture and maintain high-quality information for health workforce planning, management, regulation, and training.",
+    "PrimaryFunctionality": "Many countries experience critical shortages of health workers and struggle to meet the health care needs of their people. The COVID-19 pandemic has exacerbated this problem, making it more difficult for health workers to deliver lifesaving, people-centered care. Effective health workforce management is crucial for countries to address these gaps. Human resources managers and other decision-makers require up-to-date and accurate data on the current number of health workers, where they are deployed, their skill sets, and information on vacant posts and migration. Yet many countries lack this information in a central database, making it difficult to locate employee records or aggregate data for analysis. iHRIS is a free and open source software solution that has been used by ministries of health, district health offices, and health care facilities in over 30 countries to more easily collect, maintain, analyze, and manage health workforce data and resources.",
+    "Users": "The primary users include HR managers, planners, and workforce policy makers at ministries of health, regional health bureaus, hospitals, and professional councils.",
+    "Languages": [],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "iHRIS has been implemented in more than 30 countries since its first release in 2005.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "tn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tunisia",
+            "formal": "the Republic of Tunisia"
+          }
+        }
+      },
+      {
+        "iso_code": "sn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Senegal",
+            "formal": "the Republic of Senegal"
+          }
+        }
+      },
+      {
+        "iso_code": "ml",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mali",
+            "formal": "the Republic of Mali"
+          }
+        }
+      },
+      {
+        "iso_code": "gn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guinea",
+            "formal": "the Republic of Guinea"
+          }
+        }
+      },
+      {
+        "iso_code": "sl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sierra Leone",
+            "formal": "the Republic of Sierra Leone"
+          }
+        }
+      },
+      {
+        "iso_code": "lr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Liberia",
+            "formal": "the Republic of Liberia"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "na",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Namibia",
+            "formal": "the Republic of Namibia"
+          }
+        }
+      },
+      {
+        "iso_code": "bw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Botswana",
+            "formal": "the Republic of Botswana"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 9,
+        "community_support": 8,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "iHRIS is supported by Grant funding, implementation funding, SaaS, and organizational funding. ",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "User Guide ",
+        "url": "https://www.ihris.org/toolkit-new/"
+      },
+      {
+        "description": "Functional Spec ",
+        "url": "https://www.ihris.org/toolkit-new/plan/template-user-requirements-specifications/"
+      }
+    ],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://ihris.github.io/iHRIS/user/introduction/#ihris-architechture"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/ihris"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/ihris"
+      }
+    ]
+  }
+}

@@ -1,0 +1,366 @@
+{
+  "ID": "sormas",
+  "Name": "SORMAS",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://www.sormas.org/",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/hzi-braunschweig/SORMAS-Project",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "description": "Copyleft license that requires derivative works to be open source under the same license, with added protections against patent litigation and tivoization"
+  },
+  "Contact": [
+    {
+      "email": "info@sormas.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_E2",
+        "title": "Public health and disease surveillance systems",
+        "description": "",
+        "group_code": "E",
+        "group_name": "Surveillance and Response",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "LOINC",
+        "domain": "Health",
+        "link": "https://loinc.org/",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "description": "Universal standard for identifying medical laboratory observations"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      },
+      {
+        "code": "HL7 V3",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
+        "name": "HL7 V3",
+        "description": "Health Level 7 Version 3, an XML-based messaging framework for health data exchange and interoperability."
+      },
+      {
+        "code": "HL7 V2",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+        "name": "HL7 V2",
+        "description": "Health Level 7 Version 2, a messaging standard for exchanging clinical and administrative data in healthcare settings."
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Surveillance Outbreak Response Management and Analysis System is an open source software for early detection of infections and management of epidemic control.\n\n",
+    "Description": "SORMAS is now in use in numerous countries on several continents and has been an essential part in managing large epidemics of Lassa fever, monkey pox, meningitis, measles, and the COVID-19 pandemic. In many countries, laboratories, hospitals, medical offices, airport physicians, ministries, and public health departments work together via SORMAS. For more than 40 diseases, SORMAS enables digital data exchange in real time, even horizontally across national or regional borders. SORMAS is one of the world's leading systems in this field.",
+    "PrimaryFunctionality": "",
+    "Users": "The primary users of SORMAS are health professionals from a multitude of disciplines. For example: - Federal institutions,  Healthcare workers, Hospitals, Doctors,  Contact tracing specialists.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "de",
+        "name": "German"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "gh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ghana",
+            "formal": "the Republic of Ghana"
+          }
+        }
+      },
+      {
+        "iso_code": "fr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "France",
+            "formal": "the French Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "tn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tunisia",
+            "formal": "the Republic of Tunisia"
+          }
+        }
+      },
+      {
+        "iso_code": "ch",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Switzerland",
+            "formal": "the Swiss Confederation"
+          }
+        }
+      },
+      {
+        "iso_code": "de",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Germany",
+            "formal": "the Federal Republic of Germany"
+          }
+        }
+      },
+      {
+        "iso_code": "af",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Afghanistan",
+            "formal": "the Islamic Republic of Afghanistan"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "fj",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Fiji",
+            "formal": "the Republic of Fiji"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2022,
+        "global_utility": 10,
+        "community_support": 8,
+        "maturity_of_gg": 10,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The SORMAS Foundation is funded through three \"pillars\": Grants, Donations & Paid Consulting Services for SORMAS.  Funders include: Helmholtz-Zentrum für Infektionsforschung\nFederal Ministry of Health - Germany (BMG), Gesellschaft für internationale Zusammenarbeit (GIZ), European Union, Federal Ministry for Economic Cooperation and Development - Germany (BMZ), CDC\n",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation Wiki",
+        "url": "https://github.com/hzi-braunschweig/SORMAS-Project/wiki  Architectural Documentation URL"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://sormas.org/documents  Functional Spec URL"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Troubleshooting Guide",
+        "url": "https://github.com/hzi-braunschweig/SORMAS-Project#guidelines-and-resources"
+      }
+    ],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/surveillance-outbreak-response-management-and-analysis-system"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/sormas"
+      }
+    ]
+  }
+}
