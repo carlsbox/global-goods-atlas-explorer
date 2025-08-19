@@ -191,13 +191,33 @@ export default function ClimateServicesPage() {
             </div>
           </div>
           
-          <blockquote className="border-l-4 border-primary pl-6 italic text-muted-foreground mt-6">
-            "The health impacts of climate change are no longer a distant concern. They are here, now, affecting lives and health systems in every part of the world. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear."
-          </blockquote>
-          
-          <div className="mt-6 prose prose-sm max-w-none text-muted-foreground">
+          <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
             <p>
-              The World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Office was created to support countries in responding to these growing risks by bridging two vital communities: public health and climate science. By combining expertise, data, and action, we aim to help governments and partners build stronger, more resilient health systems that can anticipate and respond to the challenges of a changing climate.
+              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear.
+            </p>
+            
+            <p>
+              To support countries in addressing these growing risks, the World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Programme (Joint Programme office) was established. By bridging public health and climate science, this partnership combines expertise, data, and action, to help governments and partners build stronger, more resilient health systems capable of anticipating and responding to climate and changing weather challenges.
+            </p>
+            
+            <p>
+              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate and health-focused global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. This enables countries to better predict, prepare for, and respond to climate-related health risks in a coordinated and scalable way. It can help identify how and where diseases are likely to spread, allowing for more targeted prevention. It can inform the timing of interventions, from vaccination campaigns to public health messaging. It can guide emergency responses, and it can improve evaluation response effectiveness by considering the impacts of weather and climate.
+            </p>
+            
+            <p>
+              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its Member States, enables the collection, processing, and sharing of vital climate data and forecasts. But data alone is not enough. It must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
+            </p>
+            
+            <p>
+              WMO's recent resolution on climate, environment, and health (WMO Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
+            </p>
+            
+            <p>
+              This Annex reflects what is possible when sectors come together with a shared purpose. We hope it serves as a valuable resource for those working at the intersection of climate and health, whether you are just starting out or building on existing efforts. Additional tools, case studies, and guidance can be found at ClimaHealth.info, a joint WHO-WMO initiative supporting learning and collaboration in this growing field.
+            </p>
+            
+            <p>
+              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration and learning as we work toward healthier, climate-resilient communities worldwide.
             </p>
           </div>
           
