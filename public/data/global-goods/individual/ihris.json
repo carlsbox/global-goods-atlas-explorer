@@ -1,0 +1,21 @@
+{
+  "ID": "ihris",
+  "Name": "iHRIS",
+  "Summary": "iHRIS is a health worker registry application.",
+  "Logo": "",
+  "GlobalGoodType": ["software"],
+  "ClimateHealth": false,
+  "NumberOfImplementations": 30,
+  "Countries": ["sl", "ng", "rw", "ug", "tz", "mw", "zm", "zw", "na", "bw", "za", "ls", "sz", "ke", "et", "so", "dj", "er", "sd", "ss", "td", "cf", "cm", "gq", "ga", "cg", "cd", "ao", "st", "cv"],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_B4"],
+    "WMO": [],
+    "DPI": []
+  },
+  "Standards": {
+    "Health": ["HL7", "SNOMED-CT"],
+    "Interop": ["FHIR"],
+    "Climate": []
+  }
+}

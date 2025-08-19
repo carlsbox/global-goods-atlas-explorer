@@ -1,0 +1,21 @@
+{
+  "ID": "odk",
+  "Name": "ODK (Open Data Kit)",
+  "Summary": "ODK helps millions of people collect data quickly, accurately, and offline. Forms created with ODK's drag-and-drop form designer can be filled out on mobile devices and then uploaded to a cloud-based server when an internet connection is available.",
+  "Logo": "",
+  "GlobalGoodType": ["software"],
+  "ClimateHealth": false,
+  "NumberOfImplementations": 100,
+  "Countries": ["ke", "ug", "tz", "rw", "mw", "zm", "zw", "bw", "na", "za", "ls", "sz", "et", "so", "dj", "er", "sd", "ss", "td", "cf", "cm", "gq", "ga", "cg", "cd", "ao", "st", "cv", "ng", "gh", "tg", "bj", "bf", "ci", "lr", "sl", "gn", "gw", "gm", "sn", "mr", "ml", "ne", "ma", "dz", "tn", "ly", "eg"],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_A2"],
+    "WMO": [],
+    "DPI": []
+  },
+  "Standards": {
+    "Health": [],
+    "Interop": ["FHIR"],
+    "Climate": []
+  }
+}

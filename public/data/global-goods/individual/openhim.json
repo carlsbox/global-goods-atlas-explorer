@@ -1,0 +1,21 @@
+{
+  "ID": "openhim",
+  "Name": "OpenHIM",
+  "Summary": "The OpenHIM is a middleware component designed to ease interoperability between disparate health information systems.",
+  "Logo": "",
+  "GlobalGoodType": ["software"],
+  "ClimateHealth": false,
+  "NumberOfImplementations": 15,
+  "Countries": ["za", "rw", "tz", "mw", "zm", "ke", "ug", "et", "ng", "gh", "sl", "lr", "sn", "mz", "bw"],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_D2"],
+    "WMO": [],
+    "DPI": ["DPI_IE1"]
+  },
+  "Standards": {
+    "Health": ["HL7"],
+    "Interop": ["FHIR", "REST"],
+    "Climate": []
+  }
+}

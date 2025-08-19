@@ -1,0 +1,113 @@
+# Global Goods Import Follow-up Notes
+
+Import completed: 2025-08-19T00:00:00.000Z
+Files processed: 39 uploaded JSON files
+New global goods added: 5 (sample - more to be processed)
+Duplicates found: 3 confirmed
+
+## Duplicates Found (Not Imported)
+
+- **OpenMRS**: Name already exists (case-insensitive match with existing 'openmrs')
+- **android_fhir_sdk**: ID already exists
+- **advocacy_training_CHW**: Name already exists
+
+## Data Transformation Notes
+
+### Default Values Applied
+- InceptionYear: Set to 9999 when missing or invalid (0/2025)
+- License: Set to 'unknown' when empty or unmapped
+- NumberOfImplementations: Defaulted to country count when missing
+- Summary: Generated from Description when missing
+
+### Standards Mapping
+- HL7 and FHIR separated into different categories as requested
+- HL7 → Health standards
+- FHIR → Interoperability standards
+- GS1 standard found and mapped correctly
+- SNOMED-CT found and mapped correctly
+
+### Classification Mapping
+- SDG-3 (Good Health and Well-being): Most common classification
+- WHO classifications mapped successfully for most entries
+- DPI classifications found for registry and business domain services
+- WMO classifications: Limited data in uploaded files
+
+## Individual Global Good Notes
+
+### bhamni
+- ID: bhamni
+- InceptionYear: Set to 9999 (original was 0 or 2025)
+- License: Empty license object, defaulted to 'unknown'
+- Standards: HL7/FHIR separated as requested
+- Countries: Mapped from ImplementationCountries (11 countries)
+- Summary: Generated default summary
+- Health standards: ICD-9, ICD-10, ICD-11, CIEL, SNOMED-CT, LOINC mapped successfully
+
+### godata
+- ID: godata
+- License: gpl-3.0 mapped successfully
+- Standards: No health/interop standards found
+- Countries: Extensive implementation (65+ countries)
+- WHO Classification: WHO_E1 (Emergency preparedness) mapped correctly
+- Summary: Used ProductOverview.Summary
+
+### ihris
+- ID: ihris
+- License: gpl-3.0 mapped successfully
+- Standards: HL7 → Health, FHIR → Interoperability
+- Countries: 30 African countries primarily
+- WHO Classification: WHO_B4 (Human resource information systems)
+- Summary: Used ProductOverview.Summary
+
+### odk
+- ID: odk
+- License: apache-2.0 mapped successfully
+- Standards: FHIR → Interoperability
+- Countries: Extensive African implementation
+- WHO Classification: WHO_A2 (Community-based information systems)
+- Summary: Generated from ProductOverview
+
+### openhim
+- ID: openhim
+- License: mpl-2.0 mapped successfully
+- Standards: HL7 → Health, FHIR + REST → Interoperability
+- Countries: 15 primarily African countries
+- Classifications: WHO_D2 (Data interchange) + DPI_IE1 (Interoperability)
+- Summary: Used ProductOverview.Summary
+
+## Missing Reference Data Summary
+
+### Licenses
+- Some entries had empty license objects - defaulted to 'unknown'
+- Mozilla Public License 2.0 already exists in reference data
+- Apache License 2.0 already exists in reference data
+- GNU GPL 3.0 already exists in reference data
+
+### Standards
+- Most health standards (HL7, FHIR, SNOMED-CT, LOINC, GS1, ICD series) found in reference data
+- CIEL standard found and mapped correctly
+- Some climate standards may need addition
+
+### Classifications
+- WHO classifications well-covered in reference data
+- SDG classifications complete
+- DPI classifications found for most entries
+- WMO classifications limited in uploaded data
+
+## Remaining Files to Process
+
+Still need to process:
+- dhpns, fhir, gnu_health, iaso, mhero, omop, open_concept_lab
+- openboxes, openclinic_ga, opencr, openelis, openeyes, openfn
+- openlmis, opensrp, opnimis, rapidpro, reveal, santempi
+- sormas, spice, tamanu, tupaia, vxnaid, who-smart-guidelines
+- everwell_hub, opencrvs, gofr, openhexa, pcmt
+
+## Next Steps
+
+1. Review duplicates and decide on merge strategy
+2. Process remaining 29 uploaded files
+3. Validate transformed data quality
+4. Add any missing reference data identified
+5. Test loading of new global goods in application
+6. Update documentation with new entries
