@@ -17,7 +17,7 @@
       }
     },
     "GlobalGoodsType": ["software"],
-    "ClimateHealth": true,
+    "ClimateHealth": false,
     "License": "AGPL-3.0",
     "Contact": [
       {
