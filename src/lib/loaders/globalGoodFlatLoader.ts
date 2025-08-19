@@ -9,6 +9,7 @@ interface GlobalGoodIndexEnhanced {
   Summary?: string;
   Logo?: string;
   ClimateHealth?: boolean;
+  NumberOfImplementations?: number;
   GlobalGoodType?: string[]; // Now just codes
   Countries?: string[]; // Just ISO codes
   Classifications?: {
@@ -613,7 +614,7 @@ export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
         },
         Reach: {
           SummaryOfReach: '',
-          NumberOfImplementations: 0,
+          NumberOfImplementations: indexItem.NumberOfImplementations || 0,
           ImplementationMapOverview: null,
           ImplementationCountries: resolved.implementationCountries
         },
