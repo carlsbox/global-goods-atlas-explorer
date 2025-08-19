@@ -1,0 +1,336 @@
+{
+  "ID": "android_fhir_sdk",
+  "Name": "Android FHIR SDK",
+  "Logo": "",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Github repository",
+      "url": "https://github.com/google/android-fhir",
+      "description": "Github repository"
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/google/android-fhir",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "apache-2.0",
+    "name": "Apache License 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Permissive open source license that allows commercial use, modification, distribution, and patent use"
+  },
+  "Contact": [
+    {
+      "name": "Fred Hersch",
+      "email": "fredhersch@google.com",
+      "role": "Project Lead"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_A2",
+        "title": "Community-based information systems",
+        "description": "",
+        "group_code": "A",
+        "group_name": "Point of Service",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_D2",
+        "title": "Data interchange and interoperability",
+        "description": "",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7",
+        "domain": "Health",
+        "link": "https://www.hl7.org/",
+        "name": "Health Level 7",
+        "description": "International standards for transfer of clinical and administrative data between software applications"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Android FHIR SDK is a set of Kotlin libraries for building offline-capable, mobile-first healthcare applications using the HL7® FHIR® standard on Android.",
+    "Description": "Central to the vision for the Android FHIR SDK is the ability to easily leverage open standards (i.e FHIR) to build next generation digital health solutions that can run open content (e.g. shared FHIR Questionnaires or more formalised Implementation Guides such as a WHO SMART Guideline). By focussing on the open standards we believe this will lead to more developers able to build new interoperable applications that can live side-by-side platforms provided that also build to the FHIR specification (using the FHIR SDK), creating a more open ecosystem for health content and applications.",
+    "PrimaryFunctionality": "The Android FHIR SDK makes it easier for developers to build mobile health applications that can leverage the FHIR specification in different ways depending on the type of application they are building. It is made up of three libraries that provide different capabilities that can be leveraged according to the what is needed:  A structured data capture library, a FHIR Engine and a Workflow engine using CQL.",
+    "Users": "Software developers building mobile health solutions or platforms that want to leverage the open FHIR specification and data model. Today the primary users are development teams that are familiar with building healthcare worker facing applications for data collection that requires on-device storage and syncing capabilities. The SDK has been designed to significantly reduce the barriers to adoption of FHIR and to enable any developer with Android skills to build FHIR compliant applications, enabling local developers in countries everywhere to easily pick up the necessary skills and find ways to leverage the FHIR specification for their local needs (i.e they are not locked into any proprietary vendor model).",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Multiple vendors are adopting and using the technology in applications and platforms that are being implemented with NGOs and MOH partners in multiple countries.",
+    "NumberOfImplementations": 4,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "us",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "United States of America (the)",
+            "formal": "the United States of America"
+          }
+        }
+      },
+      {
+        "iso_code": "iq",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Iraq",
+            "formal": "the Republic of Iraq"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "mw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malawi",
+            "formal": "the Republic of Malawi"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "lr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Liberia",
+            "formal": "the Republic of Liberia"
+          }
+        }
+      },
+      {
+        "iso_code": "id",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Indonesia",
+            "formal": "the Republic of Indonesia"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      },
+      {
+        "year": 2023,
+        "global_utility": 4,
+        "community_support": 6,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "The community is made up of regular participants from a number of organizations. These include a mix of developers as well as big NGOs, multi-lateral organizations (e.g. WHO) and companies (e.g. Google). These groups span multiple geographies and represent a diverse swathe of the Global Digital Health ecosystem. The community engages primarily via weekly calls:\n- Implementers calls hosted by the WHO as part of the SMART Guidelines efforts.\n- Google team host a weekly developer call which is open to all developers utilizing the Android FHIR SDK for any project.",
+    "HostAnchorOrganization": {
+      "name": "Google",
+      "url": "",
+      "description": "Google is a leading global technology company best known for its world-dominant search engine.",
+      "country": []
+    },
+    "InceptionYear": 2020,
+    "SizeOfCommunity": 30,
+    "Links": {
+      "Community": {
+        "url": "https://github.com/google/android-fhir/discussions"
+      },
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "No formal governance structures or scheduled events.",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "Not applicable.",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": [
+      {
+        "name": "Google",
+        "url": "",
+        "description": "Google has been the primary funder of this work. This has been predominantly in the form of a committed engineering team to work on this as well as OpEx support for additional development. Other groups have made significant in-kind contributions especially to the early design phases. These include: Ona who have been involved since the beginning of the work and IPRD who specifically contributed to the early SDC Library implementation. The WHO has been a key collaborator and has provided small funding for early demonstration projects (e.g. COVAX app by Ona, DDCC Verifier App by PathCheck)."
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Project Wiki",
+        "url": "https://github.com/google/android-fhir/wiki"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "Functional Specification",
+        "url": "https://github.com/google/android-fhir/wiki"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://github.com/google/android-fhir/wiki"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": "https://github.com/google/android-fhir/wiki"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/android-fhir-sdk"
+      }
+    ]
+  }
+}
