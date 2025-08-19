@@ -289,7 +289,7 @@ export default function ClimateServicesPage() {
 
         {/* Funding Acknowledgment Section */}
         <section className="mb-16 text-center">
-          <div className="prose prose-sm max-w-4xl mx-auto text-muted-foreground space-y-4">
+          <div className="prose prose-sm max-w-4xl mx-auto text-muted-foreground space-y-4 italic">
             <p>
               Digital Square is a PATH-led initiative funded by a consortium of donors. This guidebook is made possible with funding from Wellcome, The Rockefeller Foundation, and the World Meteorological Organization (WMO) and World Health Organization (WHO) Climate and Health Joint Programme.
             </p>
