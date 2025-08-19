@@ -153,14 +153,9 @@ export default function ClimateServicesPage() {
 
         {/* WHO-WMO Joint Programme Section */}
         <section className="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
-              
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">{tPage('whoWmo.forward', 'climateServices')}</h4>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
+            <h4 className="text-lg font-semibold text-muted-foreground">{tPage('whoWmo.forward', 'climateServices')}</h4>
           </div>
           
           <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
