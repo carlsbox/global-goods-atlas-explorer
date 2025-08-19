@@ -277,7 +277,7 @@ export default function ClimateServicesPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {endorsementOrgs.map((org, index) => <Card key={index} className="text-center">
                 <CardContent className="pt-6">
-                  <img src={org.logo} alt={org.name} className="h-16 w-auto mx-auto mb-4 object-contain" />
+                  <img src={org.logo} alt={org.name} className="h-24 w-auto mx-auto mb-4 object-contain" />
                   <h3 className="font-semibold text-sm">{org.name}</h3>
                 </CardContent>
               </Card>)}
