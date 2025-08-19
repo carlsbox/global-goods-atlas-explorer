@@ -12,6 +12,8 @@ import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { useEnhancedReferenceData } from "@/hooks/useEnhancedReferenceData";
+import { logReferenceDataWarnings } from "@/lib/utils/referenceDataValidation";
 
 // Skeleton for the catalog grid
 function CatalogSkeleton({ viewMode }: { viewMode: 'grid' | 'list' }) {
@@ -67,6 +69,7 @@ function CatalogSkeleton({ viewMode }: { viewMode: 'grid' | 'list' }) {
 // Main catalog content component
 function CatalogContent() {
   const { data: globalGoods = [], isLoading, error, refetch } = useGlobalGoodsFlat();
+  const { standardsMap, countriesMap, classificationsMap } = useEnhancedReferenceData();
   const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -87,6 +90,13 @@ function CatalogContent() {
     const climateHealth = searchParams.get('climate-health') === 'true';
     setClimateHealthFilter(climateHealth);
   }, [searchParams]);
+
+  // Validate reference data when global goods are loaded
+  useEffect(() => {
+    if (globalGoods.length > 0 && standardsMap.size > 0) {
+      logReferenceDataWarnings(globalGoods, { standardsMap, countriesMap, classificationsMap });
+    }
+  }, [globalGoods, standardsMap, countriesMap, classificationsMap]);
   
   // Extract unique sectors for filter - defer calculation until data is loaded
   const sectors = useMemo(() => {

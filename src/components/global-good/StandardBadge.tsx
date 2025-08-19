@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ExternalLink } from "lucide-react";
 import { getStandardsBadgeColors } from "@/lib/config";
+import { useEnhancedReferenceData } from "@/hooks/useEnhancedReferenceData";
 
 interface Standard {
   code: string;
@@ -20,7 +21,9 @@ interface StandardBadgeProps {
 }
 
 export function StandardBadge({ standard, variant }: StandardBadgeProps) {
+  const { getStandardName } = useEnhancedReferenceData();
   const colors = getStandardsBadgeColors()[variant];
+  const displayName = getStandardName(standard.code);
   
   return (
     <Tooltip>
@@ -30,7 +33,7 @@ export function StandardBadge({ standard, variant }: StandardBadgeProps) {
             variant="outline"
             className={`cursor-help transition-all hover:scale-105 ${colors.background} ${colors.text} ${colors.hover} ${colors.border}`}
           >
-            {standard.code}
+            {displayName}
           </Badge>
         </div>
       </TooltipTrigger>
