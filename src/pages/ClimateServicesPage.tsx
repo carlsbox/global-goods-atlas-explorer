@@ -9,10 +9,10 @@ import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobal
 
 // Skeleton component for featured goods loading state
 function FeaturedGoodsSkeleton() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <Card key={i} className="transition-all">
+  return <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {Array.from({
+      length: 3
+    }).map((_, i) => <Card key={i} className="transition-all">
           <CardContent className="pt-6">
             <div className="flex flex-col h-full">
               <div className="flex items-center mb-4">
@@ -30,90 +30,72 @@ function FeaturedGoodsSkeleton() {
               </div>
             </div>
           </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
+        </Card>)}
+    </div>;
 }
 
 // Endorsement organizations data
-const endorsementOrgs = [
-  {
-    name: "Wellcome",
-    logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Rockefeller Foundation",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
-  },
-  {
-    name: "WHO-WMO Joint Programme",
-    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Gates Foundation",
-    logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Digital Impact Alliance",
-    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Digital Public Goods Alliance",
-    logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
-  },
-  {
-    name: "ELMA Philanthropies",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
-  },
-  {
-    name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
-    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
-  },
-  {
-    name: "NORAD",
-    logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
-  },
-  {
-    name: "UNICEF",
-    logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
-  }
-];
+const endorsementOrgs = [{
+  name: "Wellcome",
+  logo: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=100&fit=crop"
+}, {
+  name: "Rockefeller Foundation",
+  logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop"
+}, {
+  name: "WHO-WMO Joint Programme",
+  logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
+}, {
+  name: "Gates Foundation",
+  logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+}, {
+  name: "Digital Impact Alliance",
+  logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=200&h=100&fit=crop"
+}, {
+  name: "Digital Public Goods Alliance",
+  logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+}, {
+  name: "ELMA Philanthropies",
+  logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&h=100&fit=crop"
+}, {
+  name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
+  logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+}, {
+  name: "NORAD",
+  logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
+}, {
+  name: "UNICEF",
+  logo: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=200&h=100&fit=crop"
+}];
 
 // Emerging tools data
-const emergingTools = [
-  {
-    name: "GHR Tool Suite",
-    organization: "Barcelona Supercomputing Center",
-    description: "A powerful suite of open-source R packages enabling the harmonization, exploration, modeling, and prediction of climate-health datasets."
-  },
-  {
-    name: "OpenHIM with Climate Mediator",
-    organization: "Jembi Health Systems",
-    description: "Extending an established interoperability platform to support climate data integration, with initial deployment planned in Mozambique."
-  },
-  {
-    name: "IDS-DRR Open Source Flood Risk Analysis Platform for Disaster Preparedness",
-    organization: "Civic Data Lab & Open Contracting Partnership",
-    description: "Aggregating diverse disaster risk reduction datasets, including flood hazard and rainfall data, to inform climate-resilient disaster response, currently piloted in parts of India."
-  },
-  {
-    name: "Speedy Mesh",
-    organization: "SpeedyKom",
-    description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
-  }
-];
-
+const emergingTools = [{
+  name: "GHR Tool Suite",
+  organization: "Barcelona Supercomputing Center",
+  description: "A powerful suite of open-source R packages enabling the harmonization, exploration, modeling, and prediction of climate-health datasets."
+}, {
+  name: "OpenHIM with Climate Mediator",
+  organization: "Jembi Health Systems",
+  description: "Extending an established interoperability platform to support climate data integration, with initial deployment planned in Mozambique."
+}, {
+  name: "IDS-DRR Open Source Flood Risk Analysis Platform for Disaster Preparedness",
+  organization: "Civic Data Lab & Open Contracting Partnership",
+  description: "Aggregating diverse disaster risk reduction datasets, including flood hazard and rainfall data, to inform climate-resilient disaster response, currently piloted in parts of India."
+}, {
+  name: "Speedy Mesh",
+  organization: "SpeedyKom",
+  description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
+}];
 export default function ClimateServicesPage() {
-  const { data: globalGoods = [], isLoading: isLoadingGoods } = useGlobalGoodsFlat();
-  const { tPage } = useI18n();
+  const {
+    data: globalGoods = [],
+    isLoading: isLoadingGoods
+  } = useGlobalGoodsFlat();
+  const {
+    tPage
+  } = useI18n();
 
   // Filter for climate health global goods
-  const climateHealthGoods = globalGoods.filter(good => 
-    good.ClimateHealth === true || 
-    ['dhis2', 'geoprism', 'ewars'].includes(good.ID)
-  );
-
+  const climateHealthGoods = globalGoods.filter(good => good.ClimateHealth === true || ['dhis2', 'geoprism', 'ewars'].includes(good.ID));
   const handleDownloadGuidebook = () => {
     const link = document.createElement('a');
     link.href = '/assets/Climate_Annex.pdf';
@@ -122,9 +104,7 @@ export default function ClimateServicesPage() {
     link.click();
     document.body.removeChild(link);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+  return <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Hero Section */}
@@ -166,15 +146,9 @@ export default function ClimateServicesPage() {
             </Button>
           </div>
           
-          {isLoadingGoods ? (
-            <FeaturedGoodsSkeleton />
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {climateHealthGoods.slice(0, 3).map((good) => (
-                <EnhancedGlobalGoodCard key={good.ID} good={good} />
-              ))}
-            </div>
-          )}
+          {isLoadingGoods ? <FeaturedGoodsSkeleton /> : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {climateHealthGoods.slice(0, 3).map(good => <EnhancedGlobalGoodCard key={good.ID} good={good} />)}
+            </div>}
         </section>
 
         {/* WHO-WMO Joint Programme Section */}
@@ -182,9 +156,7 @@ export default function ClimateServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
-              <h3 className="text-lg font-semibold text-muted-foreground mb-4">
-                {tPage('whoWmo.subtitle', 'climateServices')}
-              </h3>
+              
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">{tPage('whoWmo.forward', 'climateServices')}</h4>
@@ -289,15 +261,13 @@ export default function ClimateServicesPage() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {emergingTools.map((tool, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
+            {emergingTools.map((tool, index) => <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
                   <p className="text-sm text-primary mb-3">({tool.organization})</p>
                   <p className="text-muted-foreground text-sm">{tool.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           <p className="text-muted-foreground mt-6 italic">
@@ -313,21 +283,14 @@ export default function ClimateServicesPage() {
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {endorsementOrgs.map((org, index) => (
-              <Card key={index} className="text-center">
+            {endorsementOrgs.map((org, index) => <Card key={index} className="text-center">
                 <CardContent className="pt-6">
-                  <img 
-                    src={org.logo} 
-                    alt={org.name}
-                    className="h-16 w-auto mx-auto mb-4 object-contain"
-                  />
+                  <img src={org.logo} alt={org.name} className="h-16 w-auto mx-auto mb-4 object-contain" />
                   <h3 className="font-semibold text-sm">{org.name}</h3>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 }
