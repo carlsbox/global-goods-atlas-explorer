@@ -48,7 +48,11 @@
     "review": "PATH issues periodic open calls inviting digital tool developers to submit their tools, including a self-assessment using the Maturity Model. Submissions undergo a rigorous, multi-stage review led by the Peer Review Group (PRG), a diverse panel of experts with technical, programmatic, and regional expertise. This transparent and inclusive process ensures that tools are evaluated holistically and fairly.",
     "result": "Approved tools are featured in the Global Goods Guidebook and its companion PDF Annex, providing users with accessible, up-to-date information to support decision-making and implementation of digital health systems.",
     "prgLink": "Learn more about the Peer Review Group Members here",
-    "linkedinText": "Open calls are publicised through LinkedIn"
+    "openCalls": {
+      "title": "Open Calls & Applications",
+      "description": "New application opportunities are announced regularly throughout the year, with specific calls targeting different health domains and technology types. Stay informed about upcoming deadlines and application requirements through our official channels.",
+      "linkedinText": "Open calls are publicised through"
+    }
   },
   "productSuites": {
     "title": "Global Goods Product Suites",

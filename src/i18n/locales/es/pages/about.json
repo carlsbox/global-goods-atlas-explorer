@@ -37,7 +37,11 @@
     "requirements": "Las herramientas deben publicarse bajo licencias abiertas, estar respaldadas por comunidades sólidas, financiadas por múltiples fuentes, desplegadas a escala, usadas en múltiples países y diseñadas para interoperabilidad.",
     "applyButton": "Enviar Aplicación",
     "contactButton": "Contactar Equipo Digital Square",
-    "linkedinText": "Las convocatorias abiertas se publican a través de LinkedIn"
+    "openCalls": {
+      "title": "Convocatorias Abiertas y Aplicaciones",
+      "description": "Las nuevas oportunidades de aplicación se anuncian regularmente durante todo el año, con convocatorias específicas dirigidas a diferentes dominios de salud y tipos de tecnología. Mantente informado sobre los próximos plazos y requisitos de aplicación a través de nuestros canales oficiales.",
+      "linkedinText": "Las convocatorias abiertas se publican a través de"
+    }
   },
   "productSuites": {
     "title": "Suites de Productos de Bienes Globales",

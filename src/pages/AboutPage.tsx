@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Code, Users, ExternalLink, BookOpen, FileText, Database, Settings, Mail, Globe } from "lucide-react";
+import { Heart, Code, Users, ExternalLink, BookOpen, FileText, Database, Settings, Mail, Globe, Calendar } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 
 export default function AboutPage() {
@@ -175,15 +175,27 @@ export default function AboutPage() {
                 <p className="text-muted-foreground mb-4">
                   {tPage('process.result', 'about')}
                 </p>
-                <p className="text-primary font-medium cursor-pointer hover:underline mb-2">
+                <p className="text-primary font-medium cursor-pointer hover:underline mb-4">
                   {tPage('process.prgLink', 'about')}
                 </p>
-                <p className="text-muted-foreground">
-                  {tPage('process.linkedinText', 'about')}{' '}
-                  <a href="https://www.linkedin.com/company/path/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                    LinkedIn
-                  </a>
-                </p>
+                
+                <div className="bg-secondary/20 p-6 rounded-lg mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Calendar className="h-4 w-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">{tPage('process.openCalls.title', 'about')}</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-3">
+                    {tPage('process.openCalls.description', 'about')}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {tPage('process.openCalls.linkedinText', 'about')}{' '}
+                    <a href="https://www.linkedin.com/company/path/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                      LinkedIn
+                    </a>
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
