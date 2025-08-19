@@ -49,15 +49,6 @@ import cookieEN from './locales/en/pages/cookie.json';
 import cookieFR from './locales/fr/pages/cookie.json';
 import cookieES from './locales/es/pages/cookie.json';
 
-// Import Privacy Policy page translations
-import privacyEN from './locales/en/pages/privacy.json';
-import privacyFR from './locales/fr/pages/privacy.json';
-import privacyES from './locales/es/pages/privacy.json';
-
-// Import Terms of Service page translations
-import termsEN from './locales/en/pages/terms.json';
-import termsFR from './locales/fr/pages/terms.json';
-import termsES from './locales/es/pages/terms.json';
 
 // Import Navigation translations
 import navigationEN from './locales/en/pages/navigation.json';
@@ -81,8 +72,6 @@ const resources = {
     useCases: useCasesEN,
     map: mapEN,
     cookie: cookieEN,
-    privacy: privacyEN,
-    terms: termsEN,
     navigation: navigationEN,
     climateServices: climateServicesEN
   },
@@ -96,8 +85,6 @@ const resources = {
     useCases: useCasesFR,
     map: mapFR,
     cookie: cookieFR,
-    privacy: privacyFR,
-    terms: termsFR,
     navigation: navigationFR,
     climateServices: climateServicesFR
   },
@@ -111,8 +98,6 @@ const resources = {
     useCases: useCasesES,
     map: mapES,
     cookie: cookieES,
-    privacy: privacyES,
-    terms: termsES,
     navigation: navigationES,
     climateServices: climateServicesES
   }
@@ -129,7 +114,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'privacy', 'terms', 'navigation', 'climateServices'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'navigation', 'climateServices'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
