@@ -43,7 +43,7 @@ const endorsementOrgs = [{
   logo: "/lovable-uploads/30f54b6b-780a-42ec-85a4-f559bfb2a93f.png"
 }, {
   name: "WHO-WMO Joint Programme",
-  logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/5a962e50-00d3-46f6-b4e4-7239a1774744.png"
 }, {
   name: "Gates Foundation",
   logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
@@ -58,7 +58,7 @@ const endorsementOrgs = [{
   logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
 }, {
   name: "NORAD",
-  logo: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/6ca75fe4-9d9c-4dd3-911b-3e8004df4034.png"
 }, {
   name: "UNICEF",
   logo: "/lovable-uploads/fe709775-65d2-4883-bbaf-c313652d8616.png"
