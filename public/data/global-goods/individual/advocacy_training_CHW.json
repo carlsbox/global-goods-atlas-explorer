@@ -1,0 +1,170 @@
+{
+  "ID": "advocacy_training_CHW",
+  "Name": "Advocacy Training for Community Health Workers",
+  "Logo": "",
+  "Website": {
+    "main": {
+      "name": "Digital Medic",
+      "url": "https://digitalmedic.stanford.edu/our-work/free-advocacy-training/",
+      "description": "Free digital advocacy training for Community Health Workers"
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["content"],
+  "ClimateHealth": false,
+  "License": "cc-by-4.0",
+  "Contact": [
+    {
+      "name": "Digital Medic",
+      "email": "digitalmedic@stanford.edu",
+      "role": "Program Manager"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_B5"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Advocacy Training for Community Health Workers is a free digital course designed to empower CHWs by building their skills to share their personal stories and advocate for key community health issues, ensuring their voices are included in decisions that affect their work and communities.",
+    "Description": "For too long, community health workers (CHWs) have been excluded from discussions that influence their work and their communities. This free digital training equips CHWs with the skills to effectively share their personal stories and promote the health issues most important to their communities.",
+    "PrimaryFunctionality": "Learners will have the ability to access and download videos, reading materials, and reflection exercises on the following topics:\n1. The history and background of CHW programs\n2. How to advocate for improved health care and working conditions\n3. How to tell personal stories to advocate for change\n4. How to use technology tools to participate in global conversations\nWe have also created a free Facilitator Guide to assist with in-person and hybrid group learning sessions as well as a Student Guide to guide users through the content.",
+    "Users": "Community health workers (CHWs) and community health worker supervisors.",
+    "Languages": ["en", "fr", "es"],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "The development of the training course was in response to a need identified by CHWs in various countries. The content is applicable on a global scale. Individual learners can access the content anytime through the Digital Medic mobile app, Digital Medic website, the Stanford Center for Health Education YouTube channel, and the CHIC web app. The course content has also been adopted and distributed by the Uganda Ministry of Health and Nama Wellness Community Centre, the Partnering for Vaccine Equity Resource Hub, CHW Central, and others from whom we do not have current reach data.",
+    "NumberOfImplementations": 33,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": ["ca", "ci", "cm", "au", "us", "gb", "mx", "ie", "fr", "es", "br", "pe", "ve", "id", "in", "my", "mw", "np", "pk", "be", "ch", "de", "sn", "sl", "gh", "tg", "ng", "rw", "ke", "ug", "zm", "mz", "zw", "za", "bw", "so"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 6,
+        "community_support": 7,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Community Health Impact Coalition (CHIC) is making professional community health workers the norm worldwide by changing guidelines, funding, and policy. Founded in 2019, CHIC includes CHWs and organizations that research, advocate and activate. The Coalition includes thousands of CHWs and dozens of global health organizations in 40 countries across five WHO regions.\n\nOur vision is quality care for all, including those who provide it: Visit joinchic.org",
+    "HostAnchorOrganization": {
+      "name": "Digital Medic",
+      "url": "https://digitalmedic.stanford.edu/get-involved",
+      "description": "Digital Medic is an initiative of the Stanford Center for Health Education. Our mission is to improve the health of global communities by advancing the field of health education, building capacity for the health workforce, and expanding information equity worldwide.",
+      "country": []
+    },
+    "InceptionYear": 0,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {
+        "url": "https://docs.google.com/presentation/d/1YBteFWCcTfDDmM9oScW5VkzNOW2rVE88Dgmj4nw85bw/edit#slide=id.g25719809432_0_81"
+      },
+      "MailingList": {
+        "url": "https://digitalmedic.stanford.edu/get-involved"
+      }
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "https://docs.google.com/document/d/192EaMIegrreA8MZBiq_Se8j2Xe2TNdPIdYsH5RslCWs/edit?usp=sharing",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "https://docs.google.com/document/d/192EaMIegrreA8MZBiq_Se8j2Xe2TNdPIdYsH5RslCWs/edit?usp=sharing",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "https://docs.google.com/document/d/192EaMIegrreA8MZBiq_Se8j2Xe2TNdPIdYsH5RslCWs/edit?usp=sharing",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The Digital Medic team manages the content on an ongoing basis. Local organizations and ministries of health support the implementation of the content. The content was developed with the Community Health Impact Coalition (CHIC) and an advisory group of community health workers from Kenya, Uganda, Liberia, South Africa, Sierra Leone, Malawi, and Guatemala to ensure that all content is action-oriented and reflects the realities of CHWs' work and the challenges they face. CHIC and this group of CHW advisors piloted the content and provided feedback on an ongoing basis before its public release. The training has also been adopted by the Uganda Ministry of Health and is being rolled out as part of their national training curriculum, in collaboration with the Nama Wellness Community Centre in Uganda. The content was initially funded by a Johnson & Johnson grant awarded to the Community Health Impact Coalition, which selected Digital Medic as a sub-grantee and partner to develop and host the content. Digital Medic funds ongoing maintenance of the course through internal operational support as well as grant support through the ELMA Foundation",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Resource library",
+        "url": "https://digitalmedic.stanford.edu/advocacy-training-community-health-workers#advocacy-access-resources"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

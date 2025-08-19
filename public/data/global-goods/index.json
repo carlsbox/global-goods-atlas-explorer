@@ -125,5 +125,26 @@
       "Interop": ["FHIR"],
       "Climate": ["WMS", "WFS"]
     }
+  },
+  {
+    "ID": "advocacy_training_CHW",
+    "Name": "Advocacy Training for Community Health Workers",
+    "Summary": "Advocacy Training for Community Health Workers is a free digital course designed to empower CHWs by building their skills to share their personal stories and advocate for key community health issues, ensuring their voices are included in decisions that affect their work and communities.",
+    "Logo": "",
+    "GlobalGoodType": ["content"],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 33,
+    "Countries": ["ca", "ci", "cm", "au", "us", "gb", "mx", "ie", "fr", "es", "br", "pe", "ve", "id", "in", "my", "mw", "np", "pk", "be", "ch", "de", "sn", "sl", "gh", "tg", "ng", "rw", "ke", "ug", "zm", "mz", "zw", "za", "bw", "so"],
+    "Classifications": {
+      "SDGs": ["SDG-3"],
+      "WHO": ["WHO_B5"],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": [],
+      "Climate": []
+    }
   }
 ]
