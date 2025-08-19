@@ -658,6 +658,13 @@
     "formal": "the Lebanese Republic",
     "un_code": "422"
   },
+  "la": {
+    "iso_code": "la",
+    "type": "State",
+    "short": "Laos",
+    "formal": "the Lao People's Democratic Republic",
+    "un_code": "418"
+  },
   "ls": {
     "iso_code": "ls",
     "type": "State",

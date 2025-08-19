@@ -70,5 +70,21 @@
     "group_name": "Registry Services",
     "authority": "DPI-H",
     "description": ""
+  },
+  {
+    "code": "DPI_PS1",
+    "title": "Point of Service Systems",
+    "group_code": "PS",
+    "group_name": "Point of Service",
+    "authority": "DPI-H",
+    "description": ""
+  },
+  {
+    "code": "DPI_IE1",
+    "title": "Interoperability / Exchange Layer",
+    "group_code": "IE",
+    "group_name": "Interoperability / Exchange Layer",
+    "authority": "DPI-H",
+    "description": ""
   }
 ]
