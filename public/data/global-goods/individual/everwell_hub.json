@@ -1,7 +1,7 @@
 {
   "ID": "everwell_hub",
   "Name": "Everwell Hub",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://hub.everwell.org/dashboard/overview",
@@ -49,11 +49,11 @@
     "Languages": ["en"],
     "Screenshots": [
       {
-        "url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Everwell Hub patient management interface"
       },
       {
-        "url": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Digital health platform dashboard"
       }
     ]

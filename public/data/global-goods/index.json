@@ -3,7 +3,7 @@
     "ID": "advocacy_training_CHW",
     "Name": "Advocacy Training for Community Health Workers",
     "Summary": "Advocacy Training for Community Health Workers is a free digital course designed to empower CHWs by building their skills to share their personal stories and advocate for key community health issues, ensuring their voices are included in decisions that affect their work and communities.",
-    "Logo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "content"
     ],
@@ -67,7 +67,7 @@
     "ID": "android_fhir_sdk",
     "Name": "Android FHIR SDK",
     "Summary": "The Android FHIR SDK is a set of Kotlin libraries for building offline-capable, mobile-first healthcare applications using the HL7® FHIR® standard on Android.",
-    "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -107,7 +107,7 @@
     "ID": "bahmni",
     "Name": "Bahmni",
     "Summary": "Bahmni is an award-winning open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product designed for low-resource environments, clinics, NGOs and governments.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -398,7 +398,7 @@
     "ID": "dhpns",
     "Name": "DHPNS Digital Health: Planning National Systems",
     "Summary": "The course, Digital Health: Planning National Systems, is designed to empower ministry leadership with the foundational and technical concepts and planning tools necessary to steer and orient national digital health stakeholders towards an enterprise planning approach.",
-    "Logo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "content"
     ],
@@ -430,7 +430,7 @@
     "ID": "everwell_hub",
     "Name": "Everwell Hub",
     "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -533,7 +533,7 @@
     "ID": "fhir",
     "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)",
     "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
-    "Logo": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+    "Logo": "/uploads/screenshot_placeholder.jpeg",
     "GlobalGoodType": [
       "content"
     ],
@@ -672,7 +672,7 @@
     "ID": "gnu_health",
     "Name": "GNU Health",
     "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -734,7 +734,7 @@
     "ID": "godata",
     "Name": "Go.Data",
     "Summary": "The Go.Data tool is designed to facilitate and support data collection for outbreak response, including case investigation, identification, and listing and tracing of contacts, as well as data management and analysis.",
-    "Logo": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+    "Logo": "/uploads/screenshot_placeholder.jpeg",
     "GlobalGoodType": [
       "software"
     ],
@@ -831,7 +831,7 @@
     "ID": "gofr",
     "Name": "Global Open Facility Registry",
     "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -869,7 +869,7 @@
     "ID": "harmony",
     "Name": "Harmony",
     "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
-    "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -919,7 +919,7 @@
     "ID": "iaso",
     "Name": "IASO",
     "Summary": "IASO is an innovative, open-source, and multilingual (EN/FR) platform designed for data collection, planning, monitoring, and evaluation of health, environmental, and social programs. With its advanced geospatial capabilities, IASO provides a structured approach to managing geographic data, optimizing field data collection, and enhancing decision-making.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -955,7 +955,7 @@
     "ID": "ihris",
     "Name": "iHRIS",
     "Summary": "iHRIS is a health worker registry application.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1000,7 +1000,7 @@
     "ID": "mhero",
     "Name": "mHero",
     "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1037,7 +1037,7 @@
     "ID": "odk",
     "Name": "ODK",
     "Summary": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
-    "Logo": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+    "Logo": "/uploads/screenshot_placeholder.jpeg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1202,7 +1202,7 @@
     "ID": "omop",
     "Name": "Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)",
     "Summary": "The OMOP Common Data Model (CDM) is a standardized framework to harmonize diverse health data sources for research and reporting. It enables interoperability and privacy by allowing shared analytics without sharing patient-level data.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "content"
     ],
@@ -1271,7 +1271,7 @@
     "ID": "open_concept_lab",
     "Name": "Open Concept Lab",
     "Summary": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1324,7 +1324,7 @@
     "ID": "openboxes",
     "Name": "Open Boxes",
     "Summary": "OpenBoxes (OB) is a purpose-built open source logistics management information system designed to serve the supply-chain management demands of public health systems.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1353,7 +1353,7 @@
     "ID": "openclinic_ga",
     "Name": "OpenClinic GA",
     "Summary": "OpenClinic GA is an open source integrated hospital information management system covering management of administrative, financial, clinical, lab, x-ray, pharmacy, meals distribution, and other data. Extensive statistical and reporting capabilities.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1413,7 +1413,7 @@
     "ID": "opencr",
     "Name": "OpenCR",
     "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1451,7 +1451,7 @@
     "ID": "opencrvs",
     "Name": "OpenCRVS",
     "Summary": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1486,7 +1486,7 @@
     "ID": "openelis",
     "Name": "OpenELIS",
     "Summary": "The OpenELIS Global software is an enterprise-level laboratory information system built on open-source web-based technologies that has been tailored for low-and-middle income country public health laboratories.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1527,7 +1527,7 @@
     "ID": "openeyes",
     "Name": "OpenEyes",
     "Summary": "OpenEyes is an open-source electronic medical record system specifically designed for ophthalmology and eye care services.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1558,7 +1558,7 @@
     "ID": "openfn",
     "Name": "OpenFn",
     "Summary": "OpenFn is an open-source integration platform designed to connect health information systems and enable data interoperability in global development contexts.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1587,7 +1587,7 @@
     "ID": "openhexa",
     "Name": "OpenHexa",
     "Summary": "OpenHexa is an open-source data platform designed to support global development initiatives by providing tools for data collection, analysis, and visualization.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1614,7 +1614,7 @@
     "ID": "openhie",
     "Name": "OpenHIE",
     "Summary": "OpenHIE (Open Health Information Exchange) is a community of practice working to enable health information exchange and interoperability at national and regional levels.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software",
       "framework"
@@ -1657,7 +1657,7 @@
     "ID": "openhim",
     "Name": "OpenHIM",
     "Summary": "OpenHIM (Open Health Information Mediator) is an open-source health information exchange platform that enables interoperability between different health information systems.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1688,7 +1688,7 @@
     "ID": "openlmis",
     "Name": "OpenLMIS",
     "Summary": "OpenLMIS is an open-source logistics management information system designed to manage health commodity supply chains in low-resource settings.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1717,7 +1717,7 @@
     "ID": "openmrs",
     "Name": "OpenMRS",
     "Summary": "OpenMRS is the world's leading open source electronic medical record system platform, designed to be adaptable to different health care delivery systems and settings.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1754,7 +1754,7 @@
     "ID": "opnimis",
     "Name": "OpenNIMIS",
     "Summary": "OpenNIMIS is an open-source nutrition information management system designed to support nutrition programs and interventions in low-resource settings.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1781,7 +1781,7 @@
     "ID": "pcmt",
     "Name": "PCMT",
     "Summary": "PCMT (Patient Care Management Tool) is an open-source software designed to support patient care management and clinical workflow in health facilities.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1808,7 +1808,7 @@
     "ID": "rapidpro",
     "Name": "RapidPro",
     "Summary": "RapidPro is an open-source platform for building interactive messaging applications that can be used for health communication, education, and service delivery.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1835,7 +1835,7 @@
     "ID": "reveal",
     "Name": "Reveal",
     "Summary": "Reveal is an open-source disease surveillance and outbreak response platform designed to support public health surveillance and response activities.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1862,7 +1862,7 @@
     "ID": "santempi",
     "Name": "Santempi",
     "Summary": "Santempi is an open-source health information system designed specifically for low-resource healthcare settings.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1893,7 +1893,7 @@
     "ID": "sormas",
     "Name": "SORMAS",
     "Summary": "SORMAS (Surveillance, Outbreak Response Management and Analysis System) is an open-source mobile and web application for disease surveillance and outbreak response.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1924,7 +1924,7 @@
     "ID": "spice",
     "Name": "SPICE",
     "Summary": "SPICE (Surveillance Platform for Infectious disease and Epidemic intelligence) is an open-source platform for infectious disease surveillance and epidemic intelligence.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1951,7 +1951,7 @@
     "ID": "tamanu",
     "Name": "Tamanu",
     "Summary": "Tamanu is an open-source electronic medical record system designed for healthcare facilities in low-resource settings.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1982,7 +1982,7 @@
     "ID": "tupaia",
     "Name": "Tupaia",
     "Summary": "Tupaia is an open-source health information system specifically designed for Pacific Island nations to support health data collection, analysis, and reporting.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -2013,7 +2013,7 @@
     "ID": "vxnaid",
     "Name": "VxNAID",
     "Summary": "VxNAID is an open-source vaccination tracking and management system designed to support immunization programs and vaccine delivery.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -2040,7 +2040,7 @@
     "ID": "who-smart-guidelines",
     "Name": "WHO SMART Guidelines",
     "Summary": "WHO SMART Guidelines are standards-based, machine-readable, adaptive, requirements-based, and testable guidelines that can be implemented in digital health systems.",
-    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software",
       "standards",

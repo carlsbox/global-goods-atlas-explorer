@@ -1,7 +1,7 @@
 {
   "ID": "mhero",
   "Name": "mHero",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://www.mhero.org/",
@@ -48,8 +48,8 @@
     "Users": "The primary users are ministry of health and healthcare workers in facilities, labs, and other sites, as well as training participants.",
     "Languages": ["fr", "es", "en"],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

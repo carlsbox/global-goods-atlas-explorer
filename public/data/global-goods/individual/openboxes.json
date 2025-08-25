@@ -1,7 +1,7 @@
 {
   "ID": "openboxes",
   "Name": "Open Boxes",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://www.openboxes.com/",
@@ -48,8 +48,8 @@
     "Users": "The primary users of OpenBoxes are pharmacists and depot managers at hospitals or medical supply warehouses in low-resource settings. These are often users at a central hub that manage warehousing, forecasting, and distribution for a network of smaller health facilities.",
     "Languages": ["en", "fr", "es"],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

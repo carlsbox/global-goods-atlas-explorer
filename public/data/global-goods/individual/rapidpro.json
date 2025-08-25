@@ -1,7 +1,7 @@
 {
   "ID": "rapidpro",
   "Name": "RapidPro",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://rapidpro.io/",
@@ -48,8 +48,8 @@
     "Users": "Health organizations, NGOs, government agencies, and developers building messaging applications",
     "Languages": [],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

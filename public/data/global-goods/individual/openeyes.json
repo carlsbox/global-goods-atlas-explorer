@@ -1,7 +1,7 @@
 {
   "ID": "openeyes",
   "Name": "OpenEyes",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://openeyes.apperta.org/",
@@ -48,8 +48,8 @@
     "Users": "Ophthalmologists, optometrists, eye care nurses, and administrative staff",
     "Languages": [],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

@@ -1,7 +1,7 @@
 {
   "ID": "dhpns",
   "Name": "DHPNS Digital Health: Planning National Systems",
-  "Logo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://www.digitalhealthtraining.org/",
@@ -49,11 +49,11 @@
     "Languages": ["en", "fr", "es", "pt"],
     "Screenshots": [
       {
-        "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Digital health training course interface"
       },
       {
-        "url": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Online learning platform dashboard"
       }
     ]

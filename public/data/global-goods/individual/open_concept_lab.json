@@ -1,7 +1,7 @@
 {
   "ID": "open_concept_lab",
   "Name": "Open Concept Lab",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://openconceptlab.org/",
@@ -48,8 +48,8 @@
     "Users": "Target users are: 1. A Terminology Publisher manages and publishes original terminology resources, leveraging and mapping to reference vocabularies and other user-generated content. 2. A Terminology Implementer adapts and repackages terminology resources from terminology publishers, such as WHO DDCC/SMART Guidelines or CIEL, based on local implementation needs, e.g. by adding a local dialect or mapping to local codes. 3. A Terminology Consumer searches, compares, and exports terminology resources that are relevant to his/her project(s) to achieve a better understand of concepts, to use the right codes, and to navigate relationships between terms.",
     "Languages": [],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

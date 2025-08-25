@@ -1,7 +1,7 @@
 {
   "ID": "godata",
   "Name": "Go.Data",
-  "Logo": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+  "Logo": "/uploads/screenshot_placeholder.jpeg",
   "Website": {
     "main": {
       "url": "https://www.who.int/tools/godata",
@@ -48,8 +48,8 @@
     "Users": "The solution's primary users are outbreak responders in general, including epidemiologists, contact tracers, data managers, lab personnel, response managers, etc.",
     "Languages": [],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400"
+      "/uploads/logo-Placeholder.jpg",
+      "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {

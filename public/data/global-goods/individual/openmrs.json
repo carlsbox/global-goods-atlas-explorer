@@ -2,7 +2,7 @@
 {
   "ID": "openmrs",
   "Name": "OpenMRS",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://openmrs.org/",
@@ -54,8 +54,8 @@
     "Users": "Healthcare providers, IT administrators, developers, implementers, and health system managers",
     "Languages": ["English", "French", "Spanish", "Portuguese", "Swahili", "Kinyarwanda", "Haitian Creole"],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

@@ -1,7 +1,7 @@
 {
   "ID": "android_fhir_sdk",
   "Name": "Android FHIR SDK",
-  "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://github.com/google/android-fhir",
@@ -49,11 +49,11 @@
     "Languages": ["en"],
     "Screenshots": [
       {
-        "url": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Android FHIR SDK development interface"
       },
       {
-        "url": "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "FHIR data model visualization"
       }
     ]

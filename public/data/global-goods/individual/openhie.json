@@ -1,7 +1,7 @@
 {
   "ID": "openhie",
   "Name": "OpenHIE",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://ohie.org/",
@@ -53,8 +53,8 @@
     "Users": "Health IT architects, system integrators, government health departments, and health information exchange implementers",
     "Languages": ["English"],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

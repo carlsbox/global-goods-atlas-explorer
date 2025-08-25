@@ -1,7 +1,7 @@
 {
   "ID": "gofr",
   "Name": "Global Open Facility Registry",
-  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://www.openfacilityregistry.org/",
@@ -48,8 +48,8 @@
     "Users": "Primary users include data managers at a central level Ministry of Health, managers of facility information, as well as the general public need to look up facility attributes.",
     "Languages": ["en"],
     "Screenshots": [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/logo-Placeholder.jpg"
     ]
   },
   "Reach": {

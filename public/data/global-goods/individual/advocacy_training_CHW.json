@@ -1,7 +1,7 @@
 {
   "ID": "advocacy_training_CHW",
   "Name": "Advocacy Training for Community Health Workers",
-  "Logo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://digitalmedic.stanford.edu/our-work/free-advocacy-training/",
@@ -49,11 +49,11 @@
     "Languages": ["en", "fr", "es"],
     "Screenshots": [
       {
-        "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Community health worker training interface"
       },
       {
-        "url": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800",
+        "url": "/uploads/screenshot_placeholder.jpeg",
         "description": "Digital learning platform dashboard"
       }
     ]
