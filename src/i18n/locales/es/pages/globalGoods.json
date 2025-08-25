@@ -9,7 +9,9 @@
     "sectorLabel": "Filtrar por tipo",
     "allSectors": "Todos los Tipos de Bienes Globales",
     "sortLabel": "Ordenar por",
-    "clearFilters": "Borrar filtros"
+    "clearFilters": "Borrar filtros",
+    "climateHealth": "Clima y Salud",
+    "climateHealthTooltip": "Mostrar solo bienes globales que apoyan la integración de clima y salud, incluyendo resiliencia climática, monitoreo ambiental y características de sostenibilidad"
   },
   "noResults": {
     "title": "No se encontraron bienes globales",
