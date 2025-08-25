@@ -1,0 +1,157 @@
+{
+  "ID": "openfn",
+  "Name": "OpenFn",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://openfn.org/",
+      "description": "Official OpenFn website - Integration platform for global development"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/OpenFn",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "mit",
+  "Contact": [
+    {
+      "name": "OpenFn Team",
+      "email": "hello@openfn.org",
+      "role": "Project Team"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_D2"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenFn is an open-source integration platform designed to connect health information systems and enable data interoperability in global development contexts.",
+    "Description": "OpenFn provides a visual workflow designer and execution engine that allows developers and implementers to create integrations between different health systems, databases, and APIs. It supports FHIR and other health data standards, making it easier to build interoperable health solutions.",
+    "PrimaryFunctionality": "Integration platform for health information systems with visual workflow design",
+    "Users": "Developers, implementers, and technical teams working on health system integrations",
+    "Languages": [],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "OpenFn has been used in various global health projects to integrate health information systems and enable data exchange between different platforms.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": []
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenFn is developed and maintained by a global community focused on health system integration and interoperability.",
+    "HostAnchorOrganization": {
+      "name": "OpenFn",
+      "url": "https://openfn.org/",
+      "description": "Open source integration platform for global development",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "OpenFn is supported through a combination of open source development and commercial services.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

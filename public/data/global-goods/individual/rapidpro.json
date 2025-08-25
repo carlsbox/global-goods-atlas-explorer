@@ -1,0 +1,157 @@
+{
+  "ID": "rapidpro",
+  "Name": "RapidPro",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://rapidpro.io/",
+      "description": "Official RapidPro website - Open source platform for building interactive messaging applications"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/rapidpro",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "mit",
+  "Contact": [
+    {
+      "name": "RapidPro Team",
+      "email": "hello@rapidpro.io",
+      "role": "Project Team"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_D2"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "RapidPro is an open-source platform for building interactive messaging applications that can be used for health communication, education, and service delivery.",
+    "Description": "RapidPro enables organizations to create and deploy interactive messaging flows for SMS, WhatsApp, Telegram, and other messaging channels. It provides tools for designing conversation flows, managing contacts, and analyzing engagement data. In health contexts, it's used for patient reminders, health education, and community engagement.",
+    "PrimaryFunctionality": "Interactive messaging platform for building conversational applications",
+    "Users": "Health organizations, NGOs, government agencies, and developers building messaging applications",
+    "Languages": [],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "RapidPro has been used in numerous health projects globally for patient communication, health education, and community engagement through messaging platforms.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": []
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "RapidPro is developed and maintained by a global community focused on messaging applications and digital communication solutions.",
+    "HostAnchorOrganization": {
+      "name": "RapidPro",
+      "url": "https://rapidpro.io/",
+      "description": "Open source messaging platform for building interactive applications",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "RapidPro is supported through open source development and commercial services.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

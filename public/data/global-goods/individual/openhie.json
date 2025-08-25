@@ -1,0 +1,225 @@
+{
+  "ID": "openhie",
+  "Name": "OpenHIE",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://ohie.org/",
+      "description": "Official OpenHIE website - Open Health Information Exchange framework for global health interoperability"
+    },
+    "docs": {
+      "url": "https://ohie.org/documentation/",
+      "description": "Comprehensive documentation for implementers and developers"
+    },
+    "source_code": {
+      "url": "https://github.com/openhie",
+      "description": "Main code repository and components on GitHub"
+    },
+    "demo": {
+      "url": "https://ohie.org/demo/",
+      "description": "Demo instances and sandbox environments"
+    }
+  },
+  "GlobalGoodsType": ["software", "framework"],
+  "ClimateHealth": false,
+  "License": "apache-2.0",
+  "Contact": [
+    {
+      "name": "OpenHIE Community",
+      "email": "info@ohie.org",
+      "role": "Community Support"
+    },
+    {
+      "name": "OpenHIE Secretariat",
+      "email": "secretariat@ohie.org",
+      "role": "Administrative Support"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3", "SDG-9"],
+    "WHO": ["WHO_D2"],
+    "WMO": [],
+    "DPI": ["DPI_BD1"]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["HL7", "IHE", "DICOM", "LOINC", "SNOMED-CT"],
+    "Interoperability": ["FHIR", "HL7-v2", "HL7-v3", "XDS", "XCA"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenHIE (Open Health Information Exchange) is a community of practice working to enable health information exchange and interoperability at national and regional levels.",
+    "Description": "OpenHIE provides a framework for implementing health information exchange using open standards and open source technologies. It includes reference implementations of key components like client registries, facility registries, terminology services, and document repositories. The framework is designed to be adaptable to different country contexts and health system architectures.",
+    "PrimaryFunctionality": "Health information exchange framework with reference implementations and standards",
+    "Users": "Health IT architects, system integrators, government health departments, and health information exchange implementers",
+    "Languages": ["English"],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "OpenHIE has been implemented in multiple countries across Africa, Asia, and Latin America to support national health information exchange initiatives.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": "https://ohie.org/implementations/"
+    },
+    "ImplementationCountries": []
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenHIE has a diverse global community including implementers, developers, standards experts, and health system stakeholders from around the world.",
+    "HostAnchorOrganization": {
+      "name": "OpenHIE Community",
+      "url": "https://ohie.org/",
+      "description": "Global community of practice for health information exchange",
+      "country": []
+    },
+    "InceptionYear": 2010,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "forum": "https://ohie.org/community/",
+      "wiki": "https://wiki.ohie.org/",
+      "conference": "https://ohie.org/events/"
+    },
+    "Events": {
+      "description": "Annual OpenHIE Community Meeting and regular working group calls",
+      "schedule": "Annual conference and monthly working group meetings",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "OpenHIE follows open community governance principles with transparent decision-making processes.",
+      "Governance": {
+        "url": "https://ohie.org/governance/",
+        "description": "Community governance model with working groups and steering committee"
+      },
+      "TermsOfUse": {
+        "url": "https://ohie.org/terms/",
+        "description": "Terms of use for the community and resources"
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "https://ohie.org/privacy/",
+        "description": "Privacy policy for community participation"
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "OpenHIE is designed to be inclusive of different health system contexts and technical capabilities, with flexible implementation approaches.",
+    "UserInput": "Community feedback and working group input inform framework development",
+    "OfflineSupport": "Components can be deployed in various connectivity environments"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Open source framework reduces carbon footprint of health information exchange implementations"
+  },
+  "TotalCostOfOwnership": {
+    "Description": "OpenHIE framework is free to use, with costs related to implementation, customization, and ongoing support.",
+    "url": "https://ohie.org/cost-analysis/"
+  },
+  "Sustainability": {
+    "Description": "OpenHIE is sustained through community contributions, working group activities, and support from implementing organizations.",
+    "KeyFundersSupporters": ["USAID", "PEPFAR", "Global Fund", "World Bank", "Implementing Partners"]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "title": "OpenHIE: Enabling Global Health Interoperability",
+        "url": "https://ohie.org/news/",
+        "description": "Overview of OpenHIE impact and implementations"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "title": "OpenHIE Documentation",
+        "url": "https://ohie.org/documentation/",
+        "description": "Comprehensive documentation for the framework and components"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "title": "Implementation Guide",
+        "url": "https://ohie.org/implementation-guide/",
+        "description": "Step-by-step guide for implementing OpenHIE"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "title": "User Manual",
+        "url": "https://ohie.org/user-manual/",
+        "description": "User manual for health information exchange components"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "title": "Implementer Guide",
+        "url": "https://ohie.org/implementer-guide/",
+        "description": "Comprehensive guide for system implementers"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "title": "Developer Guide",
+        "url": "https://ohie.org/developer-guide/",
+        "description": "Technical documentation for developers and contributors"
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "title": "Operations Guide",
+        "url": "https://ohie.org/operations-guide/",
+        "description": "Guide for system operators and administrators"
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "title": "Installation Guide",
+        "url": "https://ohie.org/installation-guide/",
+        "description": "Installation instructions for OpenHIE components"
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "name": "IHE International",
+        "url": "https://www.ihe.net/",
+        "description": "Integrating the Healthcare Enterprise standards organization"
+      },
+      {
+        "name": "HL7 International",
+        "url": "https://www.hl7.org/",
+        "description": "Health Level 7 standards organization"
+      }
+    ]
+  }
+}

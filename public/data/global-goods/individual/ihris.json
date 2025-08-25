@@ -1,0 +1,192 @@
+{
+  "ID": "ihris",
+  "Name": "iHRIS",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://www.ihris.org/",
+      "description": "Official iHRIS website - Human Resource Information System"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/iHRIS/iHRIS",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "gpl-3.0",
+  "Contact": [
+    {
+      "name": "IntraHealth iHRIS Team",
+      "email": "digitalhealth@intrahealth.org",
+      "role": "Development Team"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_B4"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["HL7", "SNOMED-CT"],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "iHRIS is a health worker registry application.",
+    "Description": "iHRIS is a human resource information system that helps countries around the world track and manage their health workforce data to improve access to services. Countries use it to capture and maintain high-quality information for health workforce planning, management, regulation, and training.",
+    "PrimaryFunctionality": "Many countries experience critical shortages of health workers and struggle to meet the health care needs of their people. The COVID-19 pandemic has exacerbated this problem, making it more difficult for health workers to deliver lifesaving, people-centered care. Effective health workforce management is crucial for countries to address these gaps. Human resources managers and other decision-makers require up-to-date and accurate data on the current number of health workers, where they are deployed, their skill sets, and information on vacant posts and migration. Yet many countries lack this information in a central database, making it difficult to locate employee records or aggregate data for analysis. iHRIS is a free and open source software solution that has been used by ministries of health, district health offices, and health care facilities in over 30 countries to more easily collect, maintain, analyze, and manage health workforce data and resources.",
+    "Users": "The primary users include HR managers, planners, and workforce policy makers at ministries of health, regional health bureaus, hospitals, and professional councils.",
+    "Languages": [],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "iHRIS has been implemented in more than 30 countries since its first release in 2005.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": ["tn", "sn", "ml", "gn", "sl", "lr", "ng", "ug", "ke", "zm", "na", "bw"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 9,
+        "community_support": 8,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "iHRIS is developed and maintained by IntraHealth International with support from the global health workforce community.",
+    "HostAnchorOrganization": {
+      "name": "IntraHealth International",
+      "url": "https://www.intrahealth.org/",
+      "description": "Global health organization focused on health workforce development",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "iHRIS is supported by Grant funding, implementation funding, SaaS, and organizational funding.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "User Guide",
+        "url": "https://www.ihris.org/toolkit-new/"
+      },
+      {
+        "description": "Functional Spec",
+        "url": "https://www.ihris.org/toolkit-new/plan/template-user-requirements-specifications/"
+      }
+    ],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": "https://ihris.github.io/iHRIS/user/introduction/#ihris-architechture"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/ihris"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/ihris"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "ID": "tamanu",
+  "Name": "Tamanu",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://tamanu.io/",
+      "description": "Official Tamanu website - Open source electronic medical record system"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/baobab-labs/tamanu",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "gpl-3.0",
+  "Contact": [
+    {
+      "name": "Tamanu Team",
+      "email": "hello@tamanu.io",
+      "role": "Project Team"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_A5"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["HL7"],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Tamanu is an open-source electronic medical record system designed for healthcare facilities in low-resource settings.",
+    "Description": "Tamanu provides comprehensive patient management capabilities including patient registration, clinical documentation, pharmacy management, and reporting. It is designed to be user-friendly and suitable for facilities with limited technical resources while maintaining high standards of data security and privacy.",
+    "PrimaryFunctionality": "Comprehensive electronic medical record system for healthcare facilities",
+    "Users": "Healthcare providers, nurses, pharmacists, and administrative staff in healthcare facilities",
+    "Languages": [],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Tamanu has been implemented in various healthcare facilities globally to support patient care and health information management.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": []
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Tamanu is developed and maintained by Baobab Labs with support from the global health information systems community.",
+    "HostAnchorOrganization": {
+      "name": "Baobab Labs",
+      "url": "https://baobab-labs.org/",
+      "description": "Open source health software development organization",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Tamanu is supported through open source development and community contributions.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

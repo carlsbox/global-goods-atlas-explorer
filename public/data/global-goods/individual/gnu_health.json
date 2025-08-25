@@ -1,0 +1,200 @@
+{
+  "ID": "gnu_health",
+  "Name": "GNU Health",
+  "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+  "Website": {
+    "main": {
+      "url": "https://www.gnuhealth.org/",
+      "description": "Official GNU Health website - Free/Libre ecosystem in healthcare"
+    },
+    "docs": {
+      "url": "https://www.gnuhealth.org/docs/",
+      "description": "Official documentation"
+    },
+    "source_code": {
+      "url": "https://savannah.gnu.org/hg/?group=health",
+      "description": "Main code repository on GNU Savannah"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "gpl-3.0",
+  "Contact": [
+    {
+      "name": "GNU Health Team",
+      "email": "falcon@gnuhealth.org",
+      "role": "Project Maintainer"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_D6"],
+    "WMO": [],
+    "DPI": ["DPI_BD3"]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["HL7", "ICD-11", "ICD-9", "ICD-10", "SNOMED-CT"],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.",
+    "Description": "The GNU Health project provides the tools for individuals, health professionals, institutions, and governments to proactively assess and improve the underlying determinants of health, from the socioeconomic agents to the molecular basis of disease, from primary health care to precision medicine.",
+    "PrimaryFunctionality": "Comprehensive health and hospital information system with modules for patient management, laboratory, pharmacy, and more",
+    "Users": "Health professionals, institutions, and governments worldwide",
+    "Languages": ["en", "fr", "es", "de"],
+    "Screenshots": [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "GNU Health is a global project, with implementations around the globe. Because it is Free/Libre Software, anyone can download it with no tracking, so it's hard to estimate the actual number of implementations. We know that GNU Health HMIS has been implemented by governments, and public and private institutions around the world, including multilateral organizations such as WHO.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": ["jm", "ht", "mx", "pe", "br", "ar", "de", "it", "es", "ma", "gm", "ml", "gh", "ng", "cm", "tz", "ao", "ga", "pk", "in", "bd", "my", "ph", "id"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 4,
+        "community_support": 9,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "GNU Health is developed by a worldwide community of developers, health professionals, and institutions committed to free/libre healthcare software.",
+    "HostAnchorOrganization": {
+      "name": "GNU Health Project",
+      "url": "https://www.gnuhealth.org/",
+      "description": "Free/Libre healthcare ecosystem project",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {},
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "GNU Health has a donor/membership model for individuals and organizations.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation",
+        "url": "https://www.gnuhealth.org/docs/"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://en.m.wikibooks.org/wiki/GNU_Health"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": "https://en.m.wikibooks.org/wiki/GNU_Health/Developers_corner"
+      },
+      {
+        "description": "Architectural Documentation",
+        "url": "https://de.wikipedia.org/wiki/Tryton"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/gnu-health"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange-dev.dial.global/es/products/gnu-health"
+      }
+    ]
+  }
+}
