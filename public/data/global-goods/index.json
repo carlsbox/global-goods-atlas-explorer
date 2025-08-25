@@ -166,5 +166,26 @@
       "Interop": ["FHIR"],
       "Climate": []
     }
+  },
+  {
+    "ID": "bahmni",
+    "Name": "Bahmni",
+    "Summary": "Bahmni is an award-winning open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product designed for low-resource environments, clinics, NGOs and governments.",
+    "Logo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+    "GlobalGoodType": ["software"],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 500,
+    "Countries": ["ht", "dm", "do", "hn", "ec", "pe", "gh", "gm", "cm", "sd", "eg", "ke", "bi", "ls", "sy", "iq", "in", "bd", "pk", "np", "bt", "mm", "vn", "kh", "ph", "id", "pg"],
+    "Classifications": {
+      "SDGs": ["SDG-3"],
+      "WHO": ["WHO_A5"],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": ["ICD-9", "ICD-10", "ICD-11", "CIEL", "SNOMED-CT", "LOINC"],
+      "Interop": ["FHIR", "ADX"],
+      "Climate": []
+    }
   }
 ]
