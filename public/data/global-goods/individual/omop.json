@@ -4,8 +4,8 @@
   "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
-      "url": "https://www.ohdsi.org/",
-      "description": "Official OHDSI website - Observational Health Data Sciences and Informatics"
+      "url": "www.ohdsi.org",
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -20,19 +20,23 @@
       "description": ""
     }
   },
-  "GlobalGoodsType": ["content"],
+  "GlobalGoodsType": [
+    "content"
+  ],
   "ClimateHealth": false,
   "License": "cc0-1.0",
   "Contact": [
     {
-      "name": "OHDSI Team",
-      "email": "gh13@cumc.columbia.edu",
-      "role": "Project Team"
+      "email": "gh13@cumc.columbia.edu"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_D2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
     "WMO": [],
     "DPI": []
   },
@@ -43,25 +47,76 @@
   },
   "ProductOverview": {
     "Summary": "The OMOP Common Data Model (CDM) is a standardized framework to harmonize diverse health data sources for research and reporting. It enables interoperability and privacy by allowing shared analytics without sharing patient-level data.",
-    "Description": "The Observational Medical Outcomes Partnership Common Data Model (OMOP CDM) is a data standard designed to harmonize the structure and content of different types of health data such as electronic health records, insurance claims data, health surveys, and other clinical data sources for federated health research and reporting. Developed by the Observational Health Data Sciences and Informatics (OHDSI) community, the OMOP CDM organizes data into domains or tables representing patient demographics, visits, diagnoses, drugs, measurements (lab tests), procedures, and clinical notes. Interoperability is achieved by sharing computer programs written for the OMOP CDM without the need to share the source data, thereby ensuring patient privacy, and allowing data owners to retain control over their data.",
-    "PrimaryFunctionality": "The primary function of OMOP CDM is to standardize health data that are in different formats to promote interoperability and collaboration. Analytical tools written for the OMOP CDM can be shared among collaborators without the need to exchange the source data, thus provenance and governance of the data remain with the data owner. Open source OHDSI tools have been created to check the quality of data in an OMOP CDM (consistency, conformance, and plausibility) and to visualize the data according to common subgroups (e.g., sex, year of birth, primary diagnoses, medication usage). Programs can be reused when new data partners join a collaborative effort or when additional data from the same partner becomes available. Results among different data partners can be aggregated to increase statistical power of an analysis, make comparisons of data from different partners, test validity in different contexts, and assess generalizability and the like.",
+    "Description": "The Observational Medical Outcomes Partnership Common Data Model (OMOP CDM) is a data standard designed to harmonize the structure and content of different types of health data such as electronic health records, insurance claims data, health surveys, and other clinical data sources for federated health research and reporting. Developed by the Observational Health Data Sciences and Informatics (OHDSI) community, the OMOP CDM organizes data into domains or tables representing patient demographics, visits, diagnoses, drugs, measurements (lab tests), procedures, and clinical notes. Interoperability is achieved by sharing computer programs written for the OMOP CDM without the need to share the source data, thereby ensuring patient privacy, and allowing data owners to retain control over their data. \n",
+    "PrimaryFunctionality": "The primary function of OMOP CDM is to standardize health data that are in different formats to promote interoperability and collaboration. Analytical tools written for the OMOP CDM can be shared among collaborators without the need to exchange the source data, thus provenance and governance of the data remain with the data owner. Open source OHDSI tools have been created to check the quality of data in an OMOP CDM (consistency, conformance, and plausibility) and to visualize the data according to common subgroups (e.g., sex, year of birth, primary diagnoses, medication usage). Programs can be reused when new data partners join a collaborative effort or when additional data from the same partner becomes available. Results among different data partners can be aggregated to increase statistical power of an analysis, make comparisons of data from different partners, test validity in different contexts, and assess generalizability and the like. ",
     "Users": "Health informaticians, computer scientists, clinicians, hospital administrators, public health officials, health product regulators, epidemiologists, biostatisticians, health care students, interns, residents, and fellows",
-    "Languages": ["zh", "ko"],
+    "Languages": [
+      {
+        "code": "zh",
+        "name": "Chinese"
+      },
+      {
+        "code": "ko",
+        "name": "Korean"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "The OHDSI community consists of 3,758 collaborators in 83 countries and 6 continents. 534 data sources are configured in an OMOP CDM in more than 50 countries in North and South American, Europe, Latin America, Asia, and Africa. Approximately one billion unique individuals, or 12% of the world's population, are estimated to have a health record in an OMOP CDM. Reference: 2023 OHDSI Annual Report.",
+    "SummaryOfReach": "The OHDSI community consists of 3,758 collaborators in 83 countries and 6 continents. 534 data sources are configured in an OMOP CDM in more than 50 countries in North and South American, Europe, Latin America, Asia, and Africa. Approximately one billion unique individuals, or 12% of the world\\'s population, are estimated to have a health record in an OMOP CDM. Reference: 2023 OHDSI Annual Report.  ",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": "https://ohdsi.org/who-we-are/collaborators/"
     },
-    "ImplementationCountries": ["us", "br", "co", "ke", "rw", "tz", "mz", "za", "sa", "il", "pt", "fr", "gb", "ie", "be", "nl", "de", "dk", "it", "hr", "bg", "ro", "tr", "ge", "se", "fi", "rs", "at", "cz", "md", "gr", "cn", "in", "pk", "th", "my", "ph", "jp", "kr", "au", "nz"]
+    "ImplementationCountries": [
+      "us",
+      "br",
+      "co",
+      "ke",
+      "rw",
+      "tz",
+      "mz",
+      "za",
+      "sa",
+      "il",
+      "pt",
+      "fr",
+      "gb",
+      "ie",
+      "be",
+      "nl",
+      "de",
+      "dk",
+      "it",
+      "hr",
+      "bg",
+      "ro",
+      "tr",
+      "ge",
+      "se",
+      "fi",
+      "rs",
+      "at",
+      "cz",
+      "md",
+      "gr",
+      "cn",
+      "in",
+      "pk",
+      "th",
+      "my",
+      "ph",
+      "jp",
+      "kr",
+      "au",
+      "nz"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model. ",
     "Scores": [
       {
         "year": 2023,
@@ -145,7 +200,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "The OMOP CDM is maintained by the OHDSI CDM Working Group (https://www.youtube.com/watch?v=m9iyfLKKN28&t=1s) and the THEMIS Working Group (https://www.youtube.com/watch?v=icuEQo8eOEQ&t=42s). The OMOP CDM and THEMIS Working Groups comprise volunteers from many countries and organizations in the OHDSI Community and take place virtually in Teams meetings, not anchored to a particular host organization. Anyone is welcome to join these Working Groups. US, Columbia University, Department of Biomedical Informatics is the coordinating center for the Global OHDSI Community. Netherlands, Erasmus Medical Center Department of Medical Informatics and UK, Oxford University Medical Sciences Division are coordinating institutions for the European OHDSI community. The OHDSI Coordinating Center at Columbia University Department of Biomedical Informatics is a registered 501(c)(3) non-profit, which has received funding from the US National Institutes of Health (NIH), National Science Foundation (NSF), Food and Drug Administration (FDA), the Bill & Melinda Gates Foundation, Wellcome Trust, Mastercard, the European Union Innovative Medicines Initiative, and the European Medicines Agency. Among the companies that have made charitable contributions to OHDSI are Johnson & Johnson, Amgen, Odysseus, Boehringer Ingelheim, Gilead, and Bayer.",
+    "Description": "The OMOP CDM is maintained by the OHDSI CDM Working Group (https://www.youtube.com/watch?v=m9iyfLKKN28&t=1s) and the THEMIS Working Group (https://www.youtube.com/watch?v=icuEQo8eOEQ&t=42s). The OMOP CDM and THEMIS Working Groups comprise volunteers from many countries and organizations in the OHDSI Community and take place virtually in Teams meetings, not anchored to a particular host organization. Anyone is welcome to join these Working Groups.    US, Columbia University, Department of Biomedical Informatics is the coordinating center for the Global OHDSI Community. Netherlands, Erasmus Medical Center Department of Medical Informatics and UK, Oxford University Medical Sciences Division are coordinating institutions for the European OHDSI community.    The OHDSI Coordinating Center at Columbia University Department of Biomedical Informatics is a registered 501(c)(3) non-profit, which has received funding from the US National Institutes of Health (NIH), National Science Foundation (NSF), Food and Drug Administration (FDA), the Bill & Melinda Gates Foundation, Wellcome Trust, Mastercard, the European Union Innovative Medicines Initiative, and the European Medicines Agency. Among the companies that have made charitable contributions to OHDSI are Johnson & Johnson, Amgen, Odysseus, Boehringer Ingelheim, Gilead, and Bayer.",
     "KeyFundersSupporters": []
   },
   "Resources": {

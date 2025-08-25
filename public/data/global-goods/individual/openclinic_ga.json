@@ -5,7 +5,7 @@
   "Website": {
     "main": {
       "url": "https://sourceforge.net/projects/open-clinic/",
-      "description": "Official OpenClinic GA website - Integrated hospital information management system"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,32 +13,47 @@
     },
     "source_code": {
       "url": "https://sourceforge.net/projects/open-clinic/files/Development/code/openclinic.code.tar.gz/download",
-      "description": "Source code available on SourceForge"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "gpl-2.0",
   "Contact": [
     {
-      "name": "OpenClinic GA Team",
-      "email": "frank@ict4d.be",
-      "role": "Project Team"
+      "email": "frank@ict4d.be"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_A5"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A5"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "ICD-11", "ICD-10", "SNOMED-CT", "ICD-9", "LOINC"],
-    "Interoperability": ["FHIR", "HL7 V3", "HL7 V2"],
+    "HealthStandards": [
+      "HL7",
+      "ICD-11",
+      "ICD-10",
+      "SNOMED-CT",
+      "ICD-9",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "HL7 V3",
+      "HL7 V2"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
@@ -46,22 +61,61 @@
     "Description": "This system is a highly customizable health information platform with integrated billing (supporting Central African, East African, and Peruvian insurance schemes), clinical coding (ICD-10, ICPC-2, SNOMED CT, LOINC, RxNorm), and comprehensive modules for patient administration, human resources, scheduling, pharmacy, laboratory, imaging, and pathology. It supports advanced statistics on mortality, co-morbidity, and care costs, as well as multimedia records, fingerprint identification, drug interaction checks, and mobile access with barcode scanning. It also offers HL7 integration with lab analyzers, efficient database performance, and multilingual capabilities.",
     "PrimaryFunctionality": "Comprehensive hospital information management system with integrated billing and clinical coding",
     "Users": "All health facility staff",
-    "Languages": ["pt", "en", "fr", "es"],
+    "Languages": [
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "500+ implementations: Rwanda, DRC, Mali and Burundi covering hospitals with 5 up to 700 users. Country specific localizations for Albania, Bangladesh, Belgium, Benin, Brazil, Burundi, Cameroon, Congo-Brazzaville, Democratic Republic of the Congo, Gabon, Ivory Coast, Kenya, Mali, Niger, Nigeria, Senegal, Rwanda, Uganda, Peru, Sri Lanka, Tanzania and Zambia.",
+    "SummaryOfReach": "500+ implementations: Rwanda,  DRC, Mali and Burundi covering hospitals with 5 up to 700 users. Country specific localizations for Albania, Bangladesh, Belgium, Benin, Brazil, Burundi, Cameroon, Congo-Brazzaville, Democratic Republic of the Congo, Gabon, Ivory Coast, Kenya, Mali, Niger, Nigeria, Senegal, Rwanda, Uganda, Peru, Sri Lanka, Tanzania and Zambia. ",
     "NumberOfImplementations": 500,
     "ImplementationMapOverview": {
       "url": "http://www.globalhealthbarometer.net/globalhealthbarometer/datacenter/datacenterHomePublic.jsp"
     },
-    "ImplementationCountries": ["al", "bd", "bj", "be", "br", "bi", "cm", "cd", "cg", "ga", "ke", "ml", "ne", "ng", "sn", "rw", "ug", "pe", "lk", "tz", "zm"]
+    "ImplementationCountries": [
+      "al",
+      "bd",
+      "bj",
+      "be",
+      "br",
+      "bi",
+      "cm",
+      "cd",
+      "cg",
+      "ga",
+      "ke",
+      "ml",
+      "ne",
+      "ng",
+      "sn",
+      "rw",
+      "ug",
+      "pe",
+      "lk",
+      "tz",
+      "zm"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -141,27 +195,27 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "GRANT Development partners: WHO, UNDP, ENABEL, GIZ, LUXDEV, VUB, OpenClinic Foundation",
+    "Description": "GRANT Developpement partners: WHO,UNDP, ENABEL,GIZ, LUXDEV, VUB, OpenClinic Foundation ",
     "KeyFundersSupporters": []
   },
   "Resources": {
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation URL",
+        "description": "Documentation URL ",
         "url": "https://sourceforge.net/projects/open-clinic/files/Development/code/javadoc.tar.gz/download"
       }
     ],
     "UserRequirements": [
       {
-        "description": "Functional Spec",
+        "description": "Functional Spec ",
         "url": "https://sourceforge.net/projects/open-clinic/files/Documentation/"
       }
     ],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
-        "url": "https://sourceforge.net/projects/open-clinic/files/Documentation/EN/openclinic_manual_en_adt.pdf/download"
+        "description": "User Guide  ",
+        "url": "User Guide URL https://sourceforge.net/projects/open-clinic/files/Documentation/EN/openclinic_manual_en_adt.pdf/download"
       }
     ],
     "ImplementerDocumentation": [

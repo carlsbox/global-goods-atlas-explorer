@@ -5,7 +5,7 @@
   "Website": {
     "main": {
       "url": "https://www.openfacilityregistry.org/",
-      "description": "Official GOFR website for health facility registry management"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,55 +13,75 @@
     },
     "source_code": {
       "url": "https://github.com/intrahealth/gofr",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "apache-2.0",
   "Contact": [
     {
-      "name": "IntraHealth GOFR Team",
-      "email": "digitalhealth@intrahealth.org",
-      "role": "Development Team"
+      "email": "digitalhealth@intrahealth.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_C6"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C6"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "SNOMED-CT", "LOINC"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities.",
+    "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities. ",
     "Description": "By reconciling data sets maintained by multiple sources, it helps health officials develop registries of all the unique health facilities in a country. Data points such as the name and location of health facilities are essential to health information systems, reporting, and decision-making. However, up-to-date, accurate information on facilities may be difficult to find as different stakeholders with different information needs and naming conventions maintain separate lists. Additionally, governments often do not have access to a flexible, secure platform for facility management and information exchange. GOFR saves time, improves accuracy, and allows administrators to compare data sets, compile lists of facilities, and manage federations.",
     "PrimaryFunctionality": "Health facility registry management, data deduplication, and facility information exchange",
     "Users": "Primary users include data managers at a central level Ministry of Health, managers of facility information, as well as the general public need to look up facility attributes.",
-    "Languages": ["en"],
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "GOFR has been implemented in several countries to support health facility registry management and data reconciliation efforts.",
+    "SummaryOfReach": "",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["sl", "lr", "tz", "et"]
+    "ImplementationCountries": [
+      "sl",
+      "lr",
+      "tz",
+      "et"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2025,
@@ -138,7 +158,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "GOFR is supported through grant funding, implementation funding, SaaS, and organizational funding.",
+    "Description": "GOFR is support through grant funding, implementation funding, SaaS, and organizational funding. ",
     "KeyFundersSupporters": []
   },
   "Resources": {
@@ -152,7 +172,7 @@
     ],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://intrahealth.github.io/gofr/user_guide/introduction/"
       }
     ],

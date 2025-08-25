@@ -1,11 +1,11 @@
 {
   "ID": "opencrvs",
-  "Name": "OpenCRVS",
+  "Name": "OpenCRVS ",
   "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://www.opencrvs.org/",
-      "description": "Official OpenCRVS website - Open source civil registration system"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,32 +13,38 @@
     },
     "source_code": {
       "url": "https://github.com/opencrvs/opencrvs-core",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "mpl-2.0",
   "Contact": [
     {
-      "name": "Ed Duffus",
-      "email": "ed@opencrvs.org",
-      "role": "Project Team"
+      "email": "ed@opencrvs.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_C2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C2"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
     "HealthStandards": [],
-    "Interoperability": ["FHIR"],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
@@ -46,22 +52,37 @@
     "Description": "OpenCRVS is an open-source digital platform that helps governments register births, deaths, and other vital events efficiently and securely. It streamlines civil registration processes, improves data accuracy, and supports interoperability with national ID and health systems, enabling countries to provide timely legal identity for all.",
     "PrimaryFunctionality": "Civil registration and vital statistics system for births, deaths, and other vital events",
     "Users": "Civil registrars, registration officers, statisticians, community health workers, and community leaders",
-    "Languages": ["en", "fr"],
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "Several countries have begun or completed early phases of their eCRVS digital transformation using OpenCRVS, including proofs of concept, pilot projects, and preparations for national rollouts, and national rollout in some.",
+    "SummaryOfReach": "Several countries have begun or completed early phases of their eCRVS digital transformation using OpenCRVS, including proofs of concept, pilot projects, and preparations for national rollouts., and national rollout in some.",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["ng", "cm", "mg", "ph", "nu"]
+    "ImplementationCountries": [
+      "ng",
+      "cm",
+      "mg",
+      "ph",
+      "nu"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2025,

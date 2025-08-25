@@ -1,11 +1,11 @@
 {
   "ID": "openelis",
   "Name": "OpenELIS",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/openelis.png",
   "Website": {
     "main": {
       "url": "https://openelis-global.org/",
-      "description": "Official OpenELIS website - Enterprise-level laboratory information system"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,32 +13,43 @@
     },
     "source_code": {
       "url": "https://github.com/I-TECH-UW/OpenELIS-Global-2",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "mpl-2.0",
   "Contact": [
     {
-      "name": "OpenELIS Team",
-      "email": "caseyi@uw.edu",
-      "role": "Project Team"
+      "email": "caseyi@uw.edu"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_A6"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A6"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "LOINC"],
-    "Interoperability": ["FHIR", "HL7 V2", "HL7 V3"],
+    "HealthStandards": [
+      "HL7",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "HL7 V2",
+      "HL7 V3"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
@@ -46,22 +57,38 @@
     "Description": "OpenELIS offers functionality suitable for supporting jobs and workflows of laboratory technicians, laboratory managers, and public health epidemiologists. Laboratory technicians can use the system to capture data on laboratory orders, tests, and results. Laboratory managers can use the system to track laboratory quality assurance processes. Public health epidemiologists can use OpenELIS data in a central data repository for disease surveillance. The system is suitable for use in any clinical lab, but it is specifically designed for public health labs in limited resource setting",
     "PrimaryFunctionality": "Enterprise-level laboratory information system for public health laboratories",
     "Users": "laboratory technicians, laboratory managers, and public health epidemiologists.",
-    "Languages": ["en", "fr"],
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "OpenELIS is implemented nationally in Cote d'Ivoire, Mauritius, and Haiti. It has implementations in at least 192 labs, with many more using the 1.x version bundled in Bahmni Hospital Operating System.",
+    "SummaryOfReach": "OpenELIS is implemented nationally in Cote d’Ivoire, Mauritius, and Haiti. It has implementations in at least 192 labs, with many more using the 1.x version bundled in Bahmni Hospital Operating System.",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["ci", "mu", "ht", "vn", "ke", "us"]
+    "ImplementationCountries": [
+      "ci",
+      "mu",
+      "ht",
+      "vn",
+      "ke",
+      "us"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -152,8 +179,8 @@
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
-        "url": "https://testing.openelisci.org:8443/OpenELIS-Global/docs/UserManual"
+        "description": "User Guide ",
+        "url": "https://testing.openelisci.org:8443/OpenELIS-Global/docs/UserManual  "
       }
     ],
     "ImplementerDocumentation": [],

@@ -1,11 +1,11 @@
 {
   "ID": "open_concept_lab",
   "Name": "Open Concept Lab",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/open-concept-lab.png",
   "Website": {
     "main": {
       "url": "https://openconceptlab.org/",
-      "description": "Official Open Concept Lab website - FHIR-enabled health terminology management system"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,38 +13,54 @@
     },
     "source_code": {
       "url": "https://github.com/OpenConceptLab/",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "mpl-2.0",
   "Contact": [
     {
-      "name": "Open Concept Lab Team",
-      "email": "info@openconceptlab.org",
-      "role": "Project Team"
+      "email": "info@openconceptlab.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_C11"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C11"
+    ],
     "WMO": [],
-    "DPI": ["DPI_RG1"]
+    "DPI": [
+      "DPI_RG1"
+    ]
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "ICD-10", "ICD-11", "ICD-9", "SNOMED-CT", "CIEL", "LOINC"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "HL7",
+      "ICD-10",
+      "ICD-11",
+      "ICD-9",
+      "SNOMED-CT",
+      "CIEL",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
     "Summary": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
-    "Description": "OCL also provides access to standardized reference terminologies like the International Classification of Diseases (ICD) and is a primary distributor of the Columbia International eHealth Laboratory (CIEL) interface terminology.",
-    "PrimaryFunctionality": "Organizations use OCL to serve as a central source of truth for data standards and definitions, supporting the normalization of clinical data to achieve semantic interoperability. Common use cases include using OCL as a foundation for a national health data dictionary, building FHIR value sets and concept maps, or managing a concept dictionary for an electronic medical record like OpenMRS. OCL is designed to be used in a shared, cloud-based environment alongside the global community or as a self-hosted architectural component within an organization's data exchange architecture.",
+    "Description": "OCL also provides access to standardized reference terminologies like the International Classification of Diseases (ICD) and is a primary distributor of the Columbia International eHealth Laboratory (CIEL) interface terminology.\n",
+    "PrimaryFunctionality": "Organizations use OCL to serve as a central source of truth for data standards and definitions, supporting the normalization of clinical data to achieve semantic interoperability. Common use cases include using OCL as a foundation for a national health data dictionary, building FHIR value sets and concept maps, or managing a concept dictionary for an electronic medical record like OpenMRS. OCL is designed to be used in a shared, cloud-based environment alongside the global community or as a self-hosted architectural component within an organization’s data exchange architecture.",
     "Users": "Target users are: 1. A Terminology Publisher manages and publishes original terminology resources, leveraging and mapping to reference vocabularies and other user-generated content. 2. A Terminology Implementer adapts and repackages terminology resources from terminology publishers, such as WHO DDCC/SMART Guidelines or CIEL, based on local implementation needs, e.g. by adding a local dialect or mapping to local codes. 3. A Terminology Consumer searches, compares, and exports terminology resources that are relevant to his/her project(s) to achieve a better understand of concepts, to use the right codes, and to navigate relationships between terms.",
     "Languages": [],
     "Screenshots": [
@@ -58,10 +74,24 @@
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["ar", "dm", "us", "ng", "et", "ug", "ke", "mw", "bw", "in", "lk", "bd", "cl"]
+    "ImplementationCountries": [
+      "ar",
+      "dm",
+      "us",
+      "ng",
+      "et",
+      "ug",
+      "ke",
+      "mw",
+      "bw",
+      "in",
+      "lk",
+      "bd",
+      "cl"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2022,
@@ -138,7 +168,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "Grant funded.",
+    "Description": "Grant funded. ",
     "KeyFundersSupporters": []
   },
   "Resources": {
@@ -152,14 +182,14 @@
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://docs.openconceptlab.org/en/latest/index.html"
       }
     ],
     "ImplementerDocumentation": [],
     "DeveloperDocumentation": [
       {
-        "description": "Developer Documentation",
+        "description": "Developer Documentation ",
         "url": "https://docs.openconceptlab.org/en/latest/oclapi/developer/index.html"
       }
     ],

@@ -5,74 +5,108 @@
   "Website": {
     "main": {
       "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
-      "description": "Official WHO SMART Guidelines website - Standards-based, machine-readable, adaptive, requirements-based, and testable guidelines"
+      "description": ""
     },
     "docs": {
-      "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/implementation",
-      "description": "Implementation documentation and technical specifications"
+      "url": "",
+      "description": ""
     },
     "source_code": {
-      "url": "https://github.com/WorldHealthOrganization",
-      "description": "WHO GitHub repositories including SMART Guidelines implementations"
+      "url": "",
+      "description": ""
     },
     "demo": {
-      "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/demonstrations",
-      "description": "Demo implementations and case studies"
+      "url": "",
+      "description": ""
     }
   },
-  "GlobalGoodsType": ["software", "standards", "guidelines"],
+  "GlobalGoodsType": [
+    "content"
+  ],
   "ClimateHealth": false,
-  "License": "cc-by-sa-3.0-igo",
+  "License": "cc-by-nc-4.0",
   "Contact": [
     {
-      "name": "WHO Digital Health Team",
-      "email": "smartguidelines@who.int",
-      "role": "Technical Support"
-    },
-    {
-      "name": "WHO Headquarters",
-      "email": "info@who.int",
-      "role": "General Information"
+      "email": "SMART@who.int"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3", "SDG-9", "SDG-17"],
-    "WHO": ["WHO_D2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2",
+      "WHO_C11",
+      "WHO_A2",
+      "WHO_A5",
+      "WHO_D6",
+      "WHO_E2"
+    ],
     "WMO": [],
-    "DPI": ["DPI_BD1", "DPI_HC1"]
+    "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "FHIR", "IHE", "SNOMED-CT", "LOINC", "ICD-11"],
-    "Interoperability": ["FHIR", "HL7-v2", "HL7-v3", "CDS-Hooks", "CQL"],
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT",
+      "LOINC",
+      "ICD-11"
+    ],
+    "Interoperability": [
+      "ADX",
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "WHO SMART Guidelines are standards-based, machine-readable, adaptive, requirements-based, and testable guidelines that can be implemented in digital health systems.",
-    "Description": "WHO SMART Guidelines transform traditional clinical guidelines into digital formats that can be directly implemented in health information systems. They use standardized data models, clinical decision support rules, and interoperability standards to ensure consistent implementation across different digital health platforms. The guidelines cover various health areas including maternal and child health, infectious diseases, and non-communicable diseases.",
-    "PrimaryFunctionality": "Digital clinical guidelines with standards-based implementation and clinical decision support",
-    "Users": "Health system developers, implementers, healthcare providers, and digital health architects",
-    "Languages": ["English", "French", "Spanish", "Arabic", "Chinese", "Russian"],
+    "Summary": "WHO SMART guidelines - standards-based, machine-readable, adaptive, requirements-based, and testable – comprise of documentation, procedures, and digital health components to steer  localisation and implementation of evidence-based recommendations through digital systems. Use of SMART guidelines results in standards-based, interoperable services and applications that can share accurate data and become part of stronger, more sustainable health information enterprises. ",
+    "Description": "In digital systems, SMART Guidelines improve quality of health content and facilitate consistent, standardized collection of data, appropriate decision support, and calculation of indicators across geographies. SMART guidelines content is, by design, software-neutral, formulated for adaptation into whichever software platforms a country has elected to use, within an exchanged digital health enterprise architecture.\n\nTo support the adoption of WHO normative guidance, including evidence-based recommendations, with fidelity in digital systems. SMART guidelines are a package of content tools, which distill WHO guidelines into a format that facilitates translation of clinical, public health, and data recommendations into digital systems. They also leverage open interoperability standards to support adoption of those standards in countries' digital systems.\n\n",
+    "PrimaryFunctionality": "There are 5 layers of the SMART Guidelines components:\n- L1: Narrative - Narrative Guidelines: Evidence-based  recommendations and accompanying implementation and data guidance.\n- L2: Operational - Digital Adaptation Kits: “Human readable” software-neutral documentation of operational and functional requirements (e.g. personas, workflows, relevant metadata, transparently documented algorithms, minimum data sets, priority metrics, listing of relevant health interventions, functional requirements).\n- L3: Machine readable - Machine readable recommendations: Structured software-neutral specifications, code, terminology and interoperability standards.\n- L4: Executable - Reference software: Software that are able to execute static algorithms and interoperable digital components to deliver the operational and functional requirements.\n- L5: Dynamic - Precision health model: Executable dynamic algorithms that are trained and optimized with advanced analytics to achieve prioritized outcomes.\n",
+    "Users": "The primary users of the SMART Guidelines content are health programme managers, business analysts and technologists who are looking to integrate recommendations into digital systems and Ministries of Health who are responsible for localizing WHO global recommendations into national policies, and operationalization of those policies into digital systems.",
+    "Languages": [
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "WHO SMART Guidelines have been implemented in multiple countries and digital health platforms globally, supporting standardized clinical care delivery.",
+    "SummaryOfReach": "SMART Guidelines are intended for a global audience and have reach to all countries. They have also been localized, adapted and implemented at a global scale across various regions and countries. Countries that we are aware of, that have included or referenced the content as part of their Digital Health strategy or related framework, digital transformation roadmaps,  or have begun the adoption of SMART Guidelines content into their digital health systems, or have included the content as part of training programs include: Zambia, Zimbabwe, Malawi, Nigeria, Kenya, Ethiopia, Ghana, Rwanda, Iraq, Cameroon, India, Burkina Faso and Brazil.  In addition, we are aware that  96 countries have adopted the Digital Documentation of COVID-19 Certificates guidance.",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/implementations"
     },
-    "ImplementationCountries": []
+    "ImplementationCountries": [
+      "bf",
+      "br",
+      "cm",
+      "zm",
+      "zw",
+      "mw",
+      "iq",
+      "rw",
+      "et",
+      "gh",
+      "in",
+      "ng"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the content development of the global good.",
     "Scores": [
       {
         "year": 2023,
-        "global_utility": 0,
-        "community_support": 0,
-        "maturity_of_gg": 0,
+        "global_utility": 9,
+        "community_support": 5,
+        "maturity_of_gg": 8,
         "inclusive_design": 0,
         "climate_resilience": 0,
         "low_carbon": 0
@@ -147,79 +181,59 @@
     "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/cost-analysis"
   },
   "Sustainability": {
-    "Description": "WHO SMART Guidelines are sustained through WHO's ongoing technical work and global health partnerships.",
-    "KeyFundersSupporters": ["WHO Member States", "Global Health Partners", "Digital Health Implementers"]
+    "Description": "All WHO SMART Guidelines are considered official WHO publications and normative guidance. WHO Headquarters is in Geneva, Switzerland, and WHO has regional and country offices around the world. The creation of content is supported through grant funding. The implementation of content is supported through a combination of donor funding and implementation funding.  Over the past 5 years, the key funders/ investors include Bill & Melinda Gates Foundation, United Nations Population Fund, The Global Fund, Rockefeller Foundation, Botnar Fondation, US Centers for Disease Control and Prevention, GAVI and USAID.",
+    "KeyFundersSupporters": [
+      "WHO Member States",
+      "Global Health Partners",
+      "Digital Health Implementers"
+    ]
   },
   "Resources": {
     "Articles": [
       {
-        "title": "WHO SMART Guidelines: Transforming Clinical Care",
-        "url": "https://www.who.int/news-room/feature-stories/detail/smart-guidelines",
-        "description": "Overview of WHO SMART Guidelines impact and implementation"
+        "description": "WHO SMART Guidelines overview ",
+        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines"
       }
     ],
     "ProductDocumentation": [
       {
-        "title": "SMART Guidelines Documentation",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/documentation",
-        "description": "Comprehensive documentation for SMART Guidelines implementation"
+        "description": "SMART Implementation Guide Starter Kit     ",
+        "url": "https://github.com/WorldHealthOrganization/smart-ig-starter-kit/wiki"
       }
     ],
     "UserRequirements": [
       {
-        "title": "Implementation Guide",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/implementation",
-        "description": "Step-by-step guide for implementing SMART Guidelines"
-      }
-    ],
-    "EndUserDocumentation": [
-      {
-        "title": "User Manual",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/user-manual",
-        "description": "User manual for healthcare providers and administrators"
-      }
-    ],
-    "ImplementerDocumentation": [
-      {
-        "title": "Implementer Guide",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/implementer-guide",
-        "description": "Comprehensive guide for system implementers"
-      }
-    ],
-    "DeveloperDocumentation": [
-      {
-        "title": "Developer Guide",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/developer-guide",
-        "description": "Technical documentation for developers and contributors"
-      }
-    ],
-    "OperatorDocumentation": [
-      {
-        "title": "Operations Guide",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/operations-guide",
-        "description": "Guide for system operators and administrators"
-      }
-    ],
-    "InstallationDocumentation": [
-      {
-        "title": "Installation Guide",
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines/installation-guide",
-        "description": "Installation instructions for SMART Guidelines components"
-      }
-    ]
-  },
-  "LinkedInitiatives": {
-    "Initiative": [
-      {
-        "name": "HL7 FHIR",
-        "url": "https://www.hl7.org/fhir/",
-        "description": "Fast Healthcare Interoperability Resources standard"
+        "description": "Digital Adaptation Kit for Antenatal Care ",
+        "url": "https://www.who.int/publications/i/item/9789240020306"
       },
       {
-        "name": "IHE International",
-        "url": "https://www.ihe.net/",
-        "description": "Integrating the Healthcare Enterprise standards organization"
+        "description": "Digital Adaptation Kit for HIV ",
+        "url": "https://www.who.int/publications/i/item/9789240054424"
+      },
+      {
+        "description": "Digital Adaptation Kit for Family Planning ",
+        "url": "https://www.who.int/publications/i/item/9789240029743  "
+      },
+      {
+        "description": "Digital Adaptation Kit for Immunization",
+        "url": "https://www.who.int/publications/i/item/9789240099456"
+      },
+      {
+        "description": "Digital adaptation kit for child health (‎0-59 months)‎ in humanitarian emergencies",
+        "url": "https://www.who.int/publications/i/item/9789240089907"
+      },
+      {
+        "description": "Digital Adaptation Kit for Tuberculosis",
+        "url": "https://www.who.int/publications/i/item/9789240086616"
       }
-    ]
+    ],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
   }
 }

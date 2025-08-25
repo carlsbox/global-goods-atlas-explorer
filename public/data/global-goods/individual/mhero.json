@@ -1,11 +1,11 @@
 {
   "ID": "mhero",
   "Name": "mHero",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/mhero.png",
   "Website": {
     "main": {
       "url": "https://www.mhero.org/",
-      "description": "Official mHero website - Mobile phone-based communication system for health workers"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,40 +13,62 @@
     },
     "source_code": {
       "url": "https://github.com/intrahealth/mhero.git",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "gpl-3.0",
   "Contact": [
     {
-      "name": "IntraHealth mHero Team",
-      "email": "digitalhealth@intrahealth.org",
-      "role": "Development Team"
+      "email": "digitalhealth@intrahealth.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_D2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "SNOMED-CT"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers.",
+    "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers. ",
     "Description": "mHero brings together existing health information systems with locally popular communication platforms to facilitate the exchange of important health information. It reduces the barriers that can exist between health workers and their support systems, playing a critical role in ensuring effective and efficient responses, particularly in a crisis.",
     "PrimaryFunctionality": "Mobile-based communication system for health worker coordination and crisis response",
     "Users": "The primary users are ministry of health and healthcare workers in facilities, labs, and other sites, as well as training participants.",
-    "Languages": ["fr", "es", "en"],
+    "Languages": [
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
@@ -58,10 +80,15 @@
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["ke", "lr", "ug", "ml"]
+    "ImplementationCountries": [
+      "ke",
+      "lr",
+      "ug",
+      "ml"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate",
     "Scores": [
       {
         "year": 2023,
@@ -156,21 +183,21 @@
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation",
+        "description": "Documentation ",
         "url": "https://intrahealth.github.io/emNutt/dev/prerequisites_normal/"
       }
     ],
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://www.mhero.org/resources"
       }
     ],
     "ImplementerDocumentation": [],
     "DeveloperDocumentation": [
       {
-        "description": "Architectural Documentation",
+        "description": "Architectural Documentation ",
         "url": "https://www.mhero.org/technology"
       }
     ],

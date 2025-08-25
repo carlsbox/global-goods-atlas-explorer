@@ -1,15 +1,15 @@
 {
   "ID": "fhir",
-  "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR) ",
+  "Logo": "/uploads/gg_logos/fhir-logo-www.png",
   "Website": {
     "main": {
-      "url": "http://hl7.org/fhir/",
-      "description": "Official HL7 FHIR standard website"
+      "url": "http://hl7.org/fhir/ ",
+      "description": ""
     },
     "docs": {
       "url": "http://hl7.org/fhir/",
-      "description": "FHIR documentation and specifications"
+      "description": ""
     },
     "source_code": {
       "url": "",
@@ -20,33 +20,58 @@
       "description": ""
     }
   },
-  "GlobalGoodsType": ["content"],
+  "GlobalGoodsType": [
+    "content"
+  ],
   "ClimateHealth": false,
   "License": "cc0-1.0",
   "Contact": [
     {
-      "name": "HL7 Team",
-      "email": "karenvan@hl7.org",
-      "role": "Project Team"
+      "email": "karenvan@hl7.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_D2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "HL7"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
     "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
     "Description": "Healthcare records are increasingly becoming digitized. As patients move around the healthcare ecosystem, their electronic health records must be available, discoverable, and understandable. Further, to support automated clinical decision support and other machine-based processing, the data must also be structured and standardized. HL7 FHIR is a specification based on emerging industry approaches, but informed by years of lessons around requirements, successes and challenges gained through defining and implementing other HL7 standards.",
-    "PrimaryFunctionality": "HL7 FHIR can be used as a stand-alone data exchange standard, but can and will also be used in partnership with existing widely used standards. FHIR leverages existing logical and theoretical models to provide a consistent, easy to implement, and rigorous mechanism for exchanging data between healthcare applications.",
-    "Users": "HL7 FHIR is used deeply and widely by key global health, digital health, electronic health record and interoperability stakeholders across the world. For example, some key user groups are healthcare providers and workers, government stakeholders, public health officials, private sector innovators, payers, pharmaceutical companies, lab and diagnostic leaders, quality improvement experts and health equity trailblazers.",
-    "Languages": ["zh", "ja", "ru", "en"],
+    "PrimaryFunctionality": " HL7 FHIR can be used as a stand-alone data exchange standard, but can and will also be used in partnership with existing widely used standards. FHIR leverages existing logical and theoretical models to provide a consistent, easy to implement, and rigorous mechanism for exchanging data between healthcare applications.    ",
+    "Users": "HL7 FHIR is used deeply and widely by key global health, digital health, electronic health record and interoperability stakeholders across the world. For example, some key user groups are healthcare providers and workers, government stakeholders, public health officials, private sector innovators, payers, pharmaceutical companies, lab and diagnostic leaders, quality improvement experts and health equity trailblazers. ",
+    "Languages": [
+      {
+        "code": "zh",
+        "name": "Chinese"
+      },
+      {
+        "code": "ja",
+        "name": "Japanese"
+      },
+      {
+        "code": "ru",
+        "name": "Russian"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
     "Screenshots": [
       {
         "url": "/uploads/screenshot_placeholder.jpeg",
@@ -59,16 +84,81 @@
     ]
   },
   "Reach": {
-    "SummaryOfReach": "HL7 FHIR is used in every corner of the globe, currently in 74 countries as detailed below. Adoption varies from mature implementations with FHIR embedded in national and regional health programs to introductory use. It is employed in a wide variety of settings and for many aspects of healthcare delivery and the supply chain. HL7 expert Work Group topics provide a good lenses through which to understand how HL7 FHIR is developed and deployed. The United Kingdom and the United States reference HL7 FHIR requirements in national health programs, while Australia, Kenya, Argentina and Spain include HL7 FHIR as part of pre- or in-service training programs.",
+    "SummaryOfReach": "HL7 FHIR is used in every corner of the globe, currently in 74 countries as detailed below. Adoption varies from mature implementations with FHIR embedded in national and regional health programs to introductory use. It is employed in a wide variety of settings and for many aspects of healthcare delivery and the supply chain. HL7 expert Work Group topics provide a good lenses through which to understand how HL7 FHIR is developed and deployed.  The United Kingdom and the United States reference HL7 FHIR requirements in national health programs, while Australia, Kenya, Argentina and Spain include HL7 FHIR as part of pre- or in-service training programs.\n",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": "",
       "description": ""
     },
-    "ImplementationCountries": ["ar", "at", "bi", "ca", "cl", "bw", "br", "cn", "cz", "us", "ae", "gb", "mx", "tz", "co", "ve", "vn", "ml", "my", "et", "za", "zw", "mg", "mw", "rw", "no", "ug", "ke", "sa", "kw", "sy", "il", "gr", "ua", "pl", "pt", "es", "fr", "ch", "se", "hu", "lt", "lv", "fi", "dk", "de", "ie", "it", "rs", "kz", "uz", "au", "nz", "jp", "in", "id", "pk", "np", "bd", "th", "ph", "sg", "nr", "tv"]
+    "ImplementationCountries": [
+      "ar",
+      "at",
+      "bi",
+      "ca",
+      "cl",
+      "bw",
+      "br",
+      "cn",
+      "cz",
+      "us",
+      "ae",
+      "gb",
+      "mx",
+      "tz",
+      "co",
+      "ve",
+      "vn",
+      "ml",
+      "my",
+      "et",
+      "za",
+      "zw",
+      "mg",
+      "mw",
+      "rw",
+      "no",
+      "ug",
+      "ke",
+      "sa",
+      "kw",
+      "sy",
+      "il",
+      "gr",
+      "ua",
+      "pl",
+      "pt",
+      "es",
+      "fr",
+      "ch",
+      "se",
+      "hu",
+      "lt",
+      "lv",
+      "fi",
+      "dk",
+      "de",
+      "ie",
+      "it",
+      "rs",
+      "kz",
+      "uz",
+      "au",
+      "nz",
+      "jp",
+      "in",
+      "id",
+      "pk",
+      "np",
+      "bd",
+      "th",
+      "ph",
+      "sg",
+      "nr",
+      "tv"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
     "Scores": [
       {
         "year": 2023,
@@ -154,7 +244,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "The content is managed by Health Level Seven International http://www.hl7.org. The content is supported / sustained financially through member dues and services. Key funders/investors of the work over the past 5 years are HL7 members and U.S. Office of the National Coordinator for Health Information Technology.",
+    "Description": "The content is managed by  Health Level Seven International http://www.hl7.org.  The content is supported / sustained financially through member dues and services. Key funders/investors of the work over the past 5 years are HL7 members and U.S. Office of the National Coordinator for Health Information Technology.",
     "KeyFundersSupporters": [
       {
         "name": "HL7 Members",
@@ -175,13 +265,13 @@
         "url": "https://www.hl7.org/participate/case-studies/index.cfm?rev=nav"
       },
       {
-        "description": "Master Index of Scientific Articles",
+        "description": "Master Index of Scientific Articles ",
         "url": "https://www.zotero.org/groups/4928801/hl7_fhir/collections/7MQ854T6"
       }
     ],
     "ProductDocumentation": [
       {
-        "description": "For more information on the HL7 FHIR standard:",
+        "description": " For more information on the HL7 FHIR standard: ",
         "url": "https://www.hl7.org/fhir/overview.html"
       }
     ],

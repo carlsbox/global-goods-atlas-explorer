@@ -106,7 +106,7 @@
   {
     "ID": "bahmni",
     "Name": "Bahmni",
-    "Summary": "Bahmni is an award-winning open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product designed for low-resource environments, clinics, NGOs and governments.",
+    "Summary": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
@@ -155,8 +155,8 @@
     "Standards": {
       "Health": [
         "ICD-9",
-        "ICD-10",
         "ICD-11",
+        "ICD-10",
         "CIEL",
         "SNOMED-CT",
         "LOINC"
@@ -429,7 +429,7 @@
   {
     "ID": "everwell_hub",
     "Name": "Everwell Hub",
-    "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.",
+    "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
@@ -531,9 +531,9 @@
   },
   {
     "ID": "fhir",
-    "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)",
+    "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR) ",
     "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/fhir-logo-www.png",
     "GlobalGoodType": [
       "content"
     ],
@@ -671,7 +671,7 @@
   {
     "ID": "gnu_health",
     "Name": "GNU Health",
-    "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.",
+    "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.\n",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
@@ -830,7 +830,7 @@
   {
     "ID": "gofr",
     "Name": "Global Open Facility Registry",
-    "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities.",
+    "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities. ",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
@@ -869,7 +869,7 @@
     "ID": "harmony",
     "Name": "Harmony",
     "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/HarmonyLogo_Horizontal.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -919,7 +919,7 @@
     "ID": "iaso",
     "Name": "IASO",
     "Summary": "IASO is an innovative, open-source, and multilingual (EN/FR) platform designed for data collection, planning, monitoring, and evaluation of health, environmental, and social programs. With its advanced geospatial capabilities, IASO provides a structured approach to managing geographic data, optimizing field data collection, and enhancing decision-making.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/iaso.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -955,7 +955,7 @@
     "ID": "ihris",
     "Name": "iHRIS",
     "Summary": "iHRIS is a health worker registry application.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/ihris.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -999,8 +999,8 @@
   {
     "ID": "mhero",
     "Name": "mHero",
-    "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers. ",
+    "Logo": "/uploads/gg_logos/mhero.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1034,10 +1034,79 @@
     }
   },
   {
+    "ID": "msupply",
+    "Name": "Open mSupply",
+    "Summary": "Open-source supply chain management system for health and humanitarian organizations.",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 50,
+    "Countries": [
+      "co",
+      "ht",
+      "gm",
+      "sl",
+      "ci",
+      "st",
+      "ng",
+      "ne",
+      "dj",
+      "tz",
+      "zm",
+      "ao",
+      "km",
+      "td",
+      "ml",
+      "np",
+      "mm",
+      "la",
+      "kh",
+      "tl",
+      "pw",
+      "pg",
+      "fm",
+      "sb",
+      "nr",
+      "tv",
+      "fj",
+      "ws",
+      "ki",
+      "vu",
+      "to"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_B6",
+        "WHO_A8",
+        "WHO_C3",
+        "WHO_C7",
+        "WHO_C9",
+        "WHO_D3"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [
+        "ICD-10"
+      ],
+      "Interop": [
+        "GS1",
+        "HL7 FHIR"
+      ],
+      "Climate": []
+    }
+  },
+  {
     "ID": "odk",
     "Name": "ODK",
     "Summary": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/odk.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1271,7 +1340,7 @@
     "ID": "open_concept_lab",
     "Name": "Open Concept Lab",
     "Summary": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/open-concept-lab.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1324,7 +1393,7 @@
     "ID": "openboxes",
     "Name": "Open Boxes",
     "Summary": "OpenBoxes (OB) is a purpose-built open source logistics management information system designed to serve the supply-chain management demands of public health systems.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/openboxes.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1412,7 +1481,7 @@
   {
     "ID": "opencr",
     "Name": "OpenCR",
-    "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry.",
+    "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry. ",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
@@ -1449,7 +1518,7 @@
   },
   {
     "ID": "opencrvs",
-    "Name": "OpenCRVS",
+    "Name": "OpenCRVS ",
     "Summary": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
@@ -1486,7 +1555,7 @@
     "ID": "openelis",
     "Name": "OpenELIS",
     "Summary": "The OpenELIS Global software is an enterprise-level laboratory information system built on open-source web-based technologies that has been tailored for low-and-middle income country public health laboratories.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/openelis.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1526,14 +1595,18 @@
   {
     "ID": "openeyes",
     "Name": "OpenEyes",
-    "Summary": "OpenEyes is an open-source electronic medical record system specifically designed for ophthalmology and eye care services.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "OpenEyes is the leading open source electronic patient record (EPR) for ophthalmology. It has been designed by clinicians to be fast in delivering content, fast to navigate, and easy (and fun) to use. ",
+    "Logo": "/uploads/gg_logos/openeyes.webp",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "gr",
+      "tt",
+      "pk"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1546,25 +1619,67 @@
     },
     "Standards": {
       "Health": [
-        "HL7"
+        "ICD-9",
+        "ICD-11",
+        "ICD-10",
+        "SNOMED-CT"
       ],
       "Interop": [
-        "FHIR"
+        "FHIR",
+        "HL7 V3",
+        "HL7 V2"
       ],
       "Climate": []
     }
   },
   {
     "ID": "openfn",
-    "Name": "OpenFn",
-    "Summary": "OpenFn is an open-source integration platform designed to connect health information systems and enable data interoperability in global development contexts.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Name": "OpenFN",
+    "Summary": "OpenFn is the leading Digital Public Good for workflow automation. It’s used by governments and NGOs in 40+ countries to securely automate business processes, exchange critical information, and achieve interoperability.",
+    "Logo": "/uploads/gg_logos/openfn.webp",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
+    "NumberOfImplementations": 40,
+    "Countries": [
+      "ni",
+      "ht",
+      "dm",
+      "us",
+      "ec",
+      "pe",
+      "bo",
+      "py",
+      "ar",
+      "gm",
+      "sn",
+      "lr",
+      "gn",
+      "gh",
+      "ng",
+      "ml",
+      "ug",
+      "ke",
+      "tz",
+      "zw",
+      "za",
+      "mg",
+      "gb",
+      "ch",
+      "no",
+      "fi",
+      "af",
+      "in",
+      "np",
+      "bd",
+      "mm",
+      "th",
+      "vn",
+      "kh",
+      "ph",
+      "id"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1578,22 +1693,35 @@
     "Standards": {
       "Health": [],
       "Interop": [
-        "FHIR"
+        "FHIR",
+        "HL7 V2",
+        "HL7 V3",
+        "ADX"
       ],
       "Climate": []
     }
   },
   {
     "ID": "openhexa",
-    "Name": "OpenHexa",
-    "Summary": "OpenHexa is an open-source data platform designed to support global development initiatives by providing tools for data collection, analysis, and visualization.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Name": "OpenHEXA",
+    "Summary": "OpenHEXA is an open-source data analysis & integration platform for public health projects. It has been built to facilitate the analysis and processing of data (and health data in particular) coming from different sources.",
+    "Logo": "/uploads/gg_logos/openhexa.webp",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "ma",
+      "sn",
+      "bf",
+      "ne",
+      "ci",
+      "cm",
+      "cf",
+      "bi",
+      "rw"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1612,58 +1740,25 @@
   },
   {
     "ID": "openhie",
-    "Name": "OpenHIE",
-    "Summary": "OpenHIE (Open Health Information Exchange) is a community of practice working to enable health information exchange and interoperability at national and regional levels.",
+    "Name": "Open Health Information Exchange (OpenHIE) Architecture Specification",
+    "Summary": "OpenHIE is a global mission-driven community of practice dedicated to improving the health of the underserved through open and collaborative development and support of country driven, large scale health information sharing architectures. The OpenHIE community supports interoperability by creating a reusable architectural framework called the OpenHIE Architecture that introduces a service-oriented approach which maximally leverages health information standards, enables flexible implementation by country partners, and supports interchangeability of individual components.",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
-      "software",
-      "framework"
+      "content"
     ],
     "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3",
-        "SDG-9"
-      ],
-      "WHO": [
-        "WHO_D2"
-      ],
-      "WMO": [],
-      "DPI": [
-        "DPI_BD1"
-      ]
-    },
-    "Standards": {
-      "Health": [
-        "HL7",
-        "IHE",
-        "DICOM",
-        "LOINC",
-        "SNOMED-CT"
-      ],
-      "Interop": [
-        "FHIR",
-        "HL7-v2",
-        "HL7-v3",
-        "XDS",
-        "XCA"
-      ],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "openhim",
-    "Name": "OpenHIM",
-    "Summary": "OpenHIM (Open Health Information Mediator) is an open-source health information exchange platform that enables interoperability between different health information systems.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
+    "NumberOfImplementations": 30,
+    "Countries": [
+      "ci",
+      "ht",
+      "mw",
+      "np",
+      "et",
+      "rw",
+      "lk",
+      "tz",
+      "ug"
     ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1676,6 +1771,294 @@
     },
     "Standards": {
       "Health": [
+        "HL7",
+        "SNOMED-CT",
+        "LOINC"
+      ],
+      "Interop": [
+        "FHIR",
+        "ADX"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "openhim",
+    "Name": "OpenHIM",
+    "Summary": "The OpenHIM is a middleware component designed to ease interoperability between disparate information systems. It provides secure communications and data governance as well as support for routing, orchestrating, and translating requests as they flow between systems.",
+    "Logo": "/uploads/gg_logos/openhim.png",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 5,
+    "Countries": [
+      "et",
+      "za"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_D2"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": [
+        "FHIR",
+        "ADX"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "openlmis",
+    "Name": "OpneLMIS",
+    "Summary": "OpenLMIS is a powerful, open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. OpenLMIS automates LMIS business processes throughout the entire supply chain, reducing the burden on health workers while improving data accuracy, data timeliness, and data visibility.",
+    "Logo": "/uploads/gg_logos/openlmis.png",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "gm",
+      "gn",
+      "jm",
+      "cm",
+      "ne",
+      "td",
+      "bj",
+      "mz",
+      "mw",
+      "zm",
+      "ao",
+      "tz",
+      "np"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_B6"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_BD1"
+      ]
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": [
+        "FHIR"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "OpenMRS",
+    "Name": "OpenMRS",
+    "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 6700,
+    "Countries": [
+      "cr",
+      "mx",
+      "gt",
+      "pe",
+      "ar",
+      "ki",
+      "id",
+      "in",
+      "ph",
+      "vn",
+      "pk",
+      "lk",
+      "np",
+      "tj",
+      "kz",
+      "hu",
+      "et",
+      "za",
+      "ls",
+      "zm",
+      "mz",
+      "mw",
+      "rw",
+      "bi",
+      "ug",
+      "ke",
+      "tz",
+      "cm",
+      "bw",
+      "na",
+      "ng",
+      "gh",
+      "lr",
+      "sl"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_A5",
+        "WHO_A6",
+        "WHO_C6",
+        "WHO_C11",
+        "WHO_D2",
+        "WHO_D8"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_BD2"
+      ]
+    },
+    "Standards": {
+      "Health": [
+        "HL7",
+        "ICD-11",
+        "ICD-9",
+        "ICD-10",
+        "SNOMED-CT",
+        "CIEL"
+      ],
+      "Interop": [
+        "FHIR",
+        "HL7 V2",
+        "HL7 V3",
+        "ADX"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "opensrp",
+    "Name": "OpenSRP",
+    "Summary": "OpenSRP is an open source mobile health platform that enables frontline health workers to register and track clients and services at community and facility levels.",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 13,
+    "Countries": [
+      "br",
+      "tn",
+      "ug",
+      "gn",
+      "lr",
+      "rw",
+      "tz",
+      "mz",
+      "ls",
+      "zw"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_A2"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [
+        "ICD-9",
+        "ICD-11",
+        "ICD-10",
+        "CIEL",
+        "LOINC",
+        "SNOMED-CT"
+      ],
+      "Interop": [
+        "FHIR"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "opnimis",
+    "Name": "openIMIS",
+    "Summary": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
+    "Logo": "/uploads/gg_logos/openimis.svg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "np",
+      "tz",
+      "zm",
+      "ne",
+      "ng",
+      "td",
+      "gm",
+      "mr"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_D2"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_BD4"
+      ]
+    },
+    "Standards": {
+      "Health": [
+        "ICD-11",
+        "ICD-10",
+        "ICD-9"
+      ],
+      "Interop": [
+        "FHIR",
+        "ADX"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "pcmt",
+    "Name": "Product Catalog Management Tool",
+    "Summary": "The Project Catalog Management Tool aims to connect product catalogs in order to show a clear journey from manufacturer to patient. It establishes master data that includes GS1 identifiers, global categories, and mappings to local identifiers. This enables end-to-end visibility, allows shipments to flow between systems, and helps supply chains perform.",
+    "Logo": "/uploads/gg_logos/product-catalog-management-tool.png",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_C9"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_RG5"
+      ]
+    },
+    "Standards": {
+      "Health": [
+        "GS1",
         "HL7"
       ],
       "Interop": [
@@ -1685,142 +2068,94 @@
     }
   },
   {
-    "ID": "openlmis",
-    "Name": "OpenLMIS",
-    "Summary": "OpenLMIS is an open-source logistics management information system designed to manage health commodity supply chains in low-resource settings.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_B6"
-      ],
-      "WMO": [],
-      "DPI": [
-        "DPI_BD1"
-      ]
-    },
-    "Standards": {
-      "Health": [],
-      "Interop": [],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "openmrs",
-    "Name": "OpenMRS",
-    "Summary": "OpenMRS is the world's leading open source electronic medical record system platform, designed to be adaptable to different health care delivery systems and settings.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 60,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_A5"
-      ],
-      "WMO": [],
-      "DPI": [
-        "DPI_BD1"
-      ]
-    },
-    "Standards": {
-      "Health": [
-        "HL7",
-        "ICD-10",
-        "SNOMED-CT"
-      ],
-      "Interop": [
-        "FHIR",
-        "HL7-FHIR",
-        "IHE"
-      ],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "opnimis",
-    "Name": "OpenNIMIS",
-    "Summary": "OpenNIMIS is an open-source nutrition information management system designed to support nutrition programs and interventions in low-resource settings.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_B6"
-      ],
-      "WMO": [],
-      "DPI": []
-    },
-    "Standards": {
-      "Health": [],
-      "Interop": [],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "pcmt",
-    "Name": "PCMT",
-    "Summary": "PCMT (Patient Care Management Tool) is an open-source software designed to support patient care management and clinical workflow in health facilities.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_A5"
-      ],
-      "WMO": [],
-      "DPI": []
-    },
-    "Standards": {
-      "Health": [],
-      "Interop": [],
-      "Climate": []
-    }
-  },
-  {
     "ID": "rapidpro",
     "Name": "RapidPro",
-    "Summary": "RapidPro is an open-source platform for building interactive messaging applications that can be used for health communication, education, and service delivery.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "RapidPro is an open source platform that allows anyone to build interactive messaging systems using an easy visual interface.",
+    "Logo": "/uploads/gg_logos/rapidpro.png",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
+    "NumberOfImplementations": 116,
+    "Countries": [
+      "ht",
+      "jm",
+      "gt",
+      "bz",
+      "hn",
+      "ni",
+      "cr",
+      "mx",
+      "pa",
+      "tt",
+      "ec",
+      "br",
+      "bo",
+      "ar",
+      "ca",
+      "ne",
+      "ng",
+      "td",
+      "cf",
+      "cm",
+      "ga",
+      "sn",
+      "gm",
+      "sl",
+      "lr",
+      "gh",
+      "tg",
+      "bj",
+      "sd",
+      "ke",
+      "ug",
+      "rw",
+      "bi",
+      "tz",
+      "mw",
+      "ml",
+      "zm",
+      "zw",
+      "ao",
+      "bw",
+      "za",
+      "ls",
+      "eg",
+      "sy",
+      "lb",
+      "jo",
+      "sa",
+      "it",
+      "ba",
+      "rs",
+      "md",
+      "ua",
+      "ro",
+      "gr",
+      "tr",
+      "az",
+      "uz",
+      "pk",
+      "af",
+      "np",
+      "bd",
+      "vn",
+      "th",
+      "mm",
+      "my",
+      "id",
+      "pg",
+      "sb",
+      "fm",
+      "fj",
+      "ki"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
       ],
       "WHO": [
-        "WHO_D2"
+        "WHO_A1"
       ],
       "WMO": [],
       "DPI": []
@@ -1834,14 +2169,23 @@
   {
     "ID": "reveal",
     "Name": "Reveal",
-    "Summary": "Reveal is an open-source disease surveillance and outbreak response platform designed to support public health surveillance and response activities.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "Reveal is an open-source digital global good that enables country governments and implementing partners to use geospatial data and technology to efficiently and effectively microplan and then deliver life-saving intervention campaigns.",
+    "Logo": "/uploads/gg_logos/reveal.png",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "ml",
+      "sn",
+      "ke",
+      "mz",
+      "ng",
+      "ao",
+      "zm",
+      "na"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1854,37 +2198,52 @@
     },
     "Standards": {
       "Health": [],
-      "Interop": [],
+      "Interop": [
+        "FHIR"
+      ],
       "Climate": []
     }
   },
   {
     "ID": "santempi",
-    "Name": "Santempi",
-    "Summary": "Santempi is an open-source health information system designed specifically for low-resource healthcare settings.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Name": "Sante MPI",
+    "Summary": "SantéMPI is a proven, next-generation, fully featured Master Patient Index/Client Registry (MPI/CR) platform designed to overcome barriers to leveraging person-centered data as a catalyst for transforming health systems",
+    "Logo": "/uploads/gg_logos/santesuite.svg",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "ki",
+      "sb",
+      "tz",
+      "th",
+      "fj"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
       ],
       "WHO": [
-        "WHO_A5"
+        "WHO_D2"
       ],
       "WMO": [],
       "DPI": []
     },
     "Standards": {
       "Health": [
-        "HL7"
+        "HL7",
+        "ICD-11",
+        "ICD-9",
+        "ICD-10",
+        "SNOMED-CT",
+        "LOINC"
       ],
       "Interop": [
-        "FHIR"
+        "FHIR",
+        "HL7 V2",
+        "HL7 V3"
       ],
       "Climate": []
     }
@@ -1892,14 +2251,25 @@
   {
     "ID": "sormas",
     "Name": "SORMAS",
-    "Summary": "SORMAS (Surveillance, Outbreak Response Management and Analysis System) is an open-source mobile and web application for disease surveillance and outbreak response.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "The Surveillance Outbreak Response Management and Analysis System is an open source software for early detection of infections and management of epidemic control.\n\n",
+    "Logo": "/uploads/gg_logos/surveillance-outbreak-response-management-and-analysis-system.webp",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "tz",
+      "ng",
+      "gh",
+      "fr",
+      "tn",
+      "ch",
+      "de",
+      "af",
+      "np",
+      "fj"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1912,10 +2282,12 @@
     },
     "Standards": {
       "Health": [
-        "HL7"
+        "LOINC"
       ],
       "Interop": [
-        "FHIR"
+        "FHIR",
+        "HL7 V3",
+        "HL7 V2"
       ],
       "Climate": []
     }
@@ -1923,14 +2295,115 @@
   {
     "ID": "spice",
     "Name": "SPICE",
-    "Summary": "SPICE (Surveillance Platform for Infectious disease and Epidemic intelligence) is an open-source platform for infectious disease surveillance and epidemic intelligence.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Summary": "SPICE is an open-source digital platform designed with and for health systems, patients, and communities. SPICE is focused on data-driven, outcomes-focused care at both the community and primary care levels. The platform is certified as a digital public good, FHIR compatible for interoperability, and designed for long-term country ownership by ministries of health.",
+    "Logo": "/uploads/gg_logos/spice.svg",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "us",
+      "sl",
+      "gh",
+      "tz",
+      "ke",
+      "bd"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_A2"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [
+        "ICD-9",
+        "ICD-11",
+        "ICD-10",
+        "SNOMED-CT",
+        "LOINC"
+      ],
+      "Interop": [],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "tamanu",
+    "Name": "Tamanu",
+    "Summary": "Tamanu is a free and open-source, patient-level electronic health record (EHR) for desktop and mobile.",
+    "Logo": "/uploads/gg_logos/tamanu.png",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "in",
+      "pw",
+      "pg",
+      "nr",
+      "ki",
+      "tv",
+      "ws",
+      "to",
+      "fj"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_A5"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [
+        "HL7",
+        "ICD-11",
+        "ICD-9",
+        "ICD-10",
+        "LOINC",
+        "SNOMED-CT"
+      ],
+      "Interop": [
+        "FHIR",
+        "HL7 V2",
+        "HL7 V3"
+      ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "tupaia",
+    "Name": "Tupaia",
+    "Summary": "Tupaia is an end-to-end data platform that supports data aggregation, analysis, and visualisation for mapping health systems in low- and middle-income countries",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 14,
+    "Countries": [
+      "mm",
+      "pg",
+      "pw",
+      "to",
+      "ws",
+      "fj",
+      "ki",
+      "tv",
+      "vu",
+      "sb",
+      "nr",
+      "mh"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1942,65 +2415,10 @@
       "DPI": []
     },
     "Standards": {
-      "Health": [],
-      "Interop": [],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "tamanu",
-    "Name": "Tamanu",
-    "Summary": "Tamanu is an open-source electronic medical record system designed for healthcare facilities in low-resource settings.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_A5"
-      ],
-      "WMO": [],
-      "DPI": []
-    },
-    "Standards": {
       "Health": [
-        "HL7"
-      ],
-      "Interop": [
-        "FHIR"
-      ],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "tupaia",
-    "Name": "Tupaia",
-    "Summary": "Tupaia is an open-source health information system specifically designed for Pacific Island nations to support health data collection, analysis, and reporting.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "software"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_A5"
-      ],
-      "WMO": [],
-      "DPI": []
-    },
-    "Standards": {
-      "Health": [
+        "ICD-9",
+        "ICD-11",
+        "ICD-10",
         "HL7"
       ],
       "Interop": [
@@ -2011,74 +2429,95 @@
   },
   {
     "ID": "vxnaid",
-    "Name": "VxNAID",
-    "Summary": "VxNAID is an open-source vaccination tracking and management system designed to support immunization programs and vaccine delivery.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Name": "Vxnaid",
+    "Summary": "Vxnaid is an integrated digital platform ensuring correct administration of vaccines, identification of vaccinees, follow-up/recall of vaccinated persons, and understanding of campaign effectiveness.",
+    "Logo": "/uploads/gg_logos/vxnaid.webp",
     "GlobalGoodType": [
       "software"
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 0,
-    "Countries": [],
+    "Countries": [
+      "ml",
+      "sl",
+      "co",
+      "rw",
+      "ke",
+      "ph"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
       ],
       "WHO": [
-        "WHO_B6"
+        "WHO_E2"
       ],
       "WMO": [],
       "DPI": []
     },
     "Standards": {
-      "Health": [],
-      "Interop": [],
+      "Health": [
+        "ICD-9",
+        "ICD-11",
+        "ICD-10",
+        "CIEL"
+      ],
+      "Interop": [
+        "HL7 V2",
+        "HL7 V3"
+      ],
       "Climate": []
     }
   },
   {
     "ID": "who-smart-guidelines",
     "Name": "WHO SMART Guidelines",
-    "Summary": "WHO SMART Guidelines are standards-based, machine-readable, adaptive, requirements-based, and testable guidelines that can be implemented in digital health systems.",
+    "Summary": "WHO SMART guidelines - standards-based, machine-readable, adaptive, requirements-based, and testable – comprise of documentation, procedures, and digital health components to steer  localisation and implementation of evidence-based recommendations through digital systems. Use of SMART guidelines results in standards-based, interoperable services and applications that can share accurate data and become part of stronger, more sustainable health information enterprises. ",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
-      "software",
-      "standards",
-      "guidelines"
+      "content"
     ],
     "ClimateHealth": false,
-    "NumberOfImplementations": 0,
-    "Countries": [],
+    "NumberOfImplementations": 96,
+    "Countries": [
+      "bf",
+      "br",
+      "cm",
+      "zm",
+      "zw",
+      "mw",
+      "iq",
+      "rw",
+      "et",
+      "gh",
+      "in",
+      "ng"
+    ],
     "Classifications": {
       "SDGs": [
-        "SDG-3",
-        "SDG-9",
-        "SDG-17"
+        "SDG-3"
       ],
       "WHO": [
-        "WHO_D2"
+        "WHO_D2",
+        "WHO_C11",
+        "WHO_A2",
+        "WHO_A5",
+        "WHO_D6",
+        "WHO_E2"
       ],
       "WMO": [],
-      "DPI": [
-        "DPI_BD1",
-        "DPI_HC1"
-      ]
+      "DPI": []
     },
     "Standards": {
       "Health": [
         "HL7",
-        "FHIR",
-        "IHE",
         "SNOMED-CT",
         "LOINC",
         "ICD-11"
       ],
       "Interop": [
-        "FHIR",
-        "HL7-v2",
-        "HL7-v3",
-        "CDS-Hooks",
-        "CQL"
+        "ADX",
+        "FHIR"
       ],
       "Climate": []
     }

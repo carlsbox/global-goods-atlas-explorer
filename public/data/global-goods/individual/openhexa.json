@@ -1,38 +1,42 @@
 {
   "ID": "openhexa",
-  "Name": "OpenHexa",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Name": "OpenHEXA",
+  "Logo": "/uploads/gg_logos/openhexa.webp",
   "Website": {
     "main": {
-      "url": "https://www.openhexa.org/",
-      "description": "Official OpenHexa website - Open source data platform for global development"
+      "url": "https://www.bluesquarehub.com/openhexa/",
+      "description": ""
     },
     "docs": {
       "url": "",
       "description": ""
     },
     "source_code": {
-      "url": "https://github.com/openhexa",
-      "description": "Main code repository on GitHub"
+      "url": "https://github.com/BLSQ/openhexa",
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "mit",
   "Contact": [
     {
-      "name": "OpenHexa Team",
-      "email": "hello@openhexa.org",
-      "role": "Project Team"
+      "email": "mdewulf@bluesquarehub.com"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_D2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
     "WMO": [],
     "DPI": []
   },
@@ -42,32 +46,47 @@
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "OpenHexa is an open-source data platform designed to support global development initiatives by providing tools for data collection, analysis, and visualization.",
-    "Description": "OpenHexa offers a comprehensive suite of data tools including data collection forms, analytics dashboards, and visualization capabilities. It is designed to be user-friendly for non-technical users while providing powerful features for data scientists and developers.",
+    "Summary": "OpenHEXA is an open-source data analysis & integration platform for public health projects. It has been built to facilitate the analysis and processing of data (and health data in particular) coming from different sources.",
+    "Description": "OpenHEXA allows users to:\n- Explore data coming from a variety of sources\n- Schedule data pipelines for extraction & transformation operations\n- Perform collaborative data analysis in interactive code notebooks\n- Easily connect their data to third-party visualization tools\nOpenHEXA also provides flexible access control capabilities: administrators have the possibility to control who can access a specific data source and what operations can be performed on it.  \nThe platform has been designed to be open (easily extensible) and affordable.",
     "PrimaryFunctionality": "Data platform with collection, analysis, and visualization tools",
-    "Users": "Data collectors, analysts, researchers, and development practitioners",
-    "Languages": [],
+    "Users": "Our primary users are health data professionals :\n- Decision-makers in ministries of health\n- Data specialists in ministries of health\n- Data scientists, data analysts, and academic researchers",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "OpenHexa has been used in various global development projects to support data-driven decision making and program monitoring.",
+    "SummaryOfReach": "",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": []
+    "ImplementationCountries": [
+      "ma",
+      "sn",
+      "bf",
+      "ne",
+      "ci",
+      "cm",
+      "cf",
+      "bi",
+      "rw"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
-        "global_utility": 0,
-        "community_support": 0,
-        "maturity_of_gg": 0,
+        "global_utility": 5,
+        "community_support": 4,
+        "maturity_of_gg": 4,
         "inclusive_design": 0,
         "climate_resilience": 0,
         "low_carbon": 0
@@ -138,20 +157,61 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "OpenHexa is supported through open source development and community contributions.",
+    "Description": "Mostly through implementation funding and investment by BlueSquare.",
     "KeyFundersSupporters": []
   },
   "Resources": {
     "Articles": [],
     "ProductDocumentation": [],
-    "UserRequirements": [],
-    "EndUserDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "Functional Spec ",
+        "url": "https://github.com/BLSQ/openhexa/wiki/Home"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://github.com/BLSQ/openhexa/wiki/User-manual"
+      }
+    ],
     "ImplementerDocumentation": [],
-    "DeveloperDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": "https://github.com/BLSQ/openhexa"
+      }
+    ],
     "OperatorDocumentation": [],
-    "InstallationDocumentation": []
+    "InstallationDocumentation": [
+      {
+        "description": "Installation Instructions   ",
+        "url": "https://github.com/BLSQ/openhexa/wiki/Installation-instructions   "
+      }
+    ]
   },
   "LinkedInitiatives": {
-    "Initiative": []
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/openhexa"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openhexa"
+      }
+    ]
   }
 }

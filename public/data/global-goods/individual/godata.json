@@ -5,7 +5,7 @@
   "Website": {
     "main": {
       "url": "https://www.who.int/tools/godata",
-      "description": "Official WHO Go.Data platform for outbreak response"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,26 +13,30 @@
     },
     "source_code": {
       "url": "https://github.com/WorldHealthOrganization/godata",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "gpl-3.0",
   "Contact": [
     {
-      "name": "WHO Go.Data Team",
-      "email": "godata@who.int",
-      "role": "Project Team"
+      "email": "godata@who.int"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_E1"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_E1"
+    ],
     "WMO": [],
     "DPI": []
   },
@@ -44,7 +48,7 @@
   "ProductOverview": {
     "Summary": "The Go.Data tool is designed to facilitate and support data collection for outbreak response, including case investigation, identification, and listing and tracing of contacts, as well as data management and analysis.",
     "Description": "The solution includes: Case data: allows for thorough recording of case information, encompassing demographics, clinical data, and exposure history. Contact data: provides robust capabilities for registering contact data, including demographic, clinical, and follow-up data. Data visualization: offers a range of analytics functionalities encompassing a dashboard with graphs and key performance indicators for cases, contacts, and chains of transmissions. Additionally, it includes an interactive function for analyzing chains of transmissions, along with a Gantt chart to oversee critical timelines for laboratory and outbreak-related activities. Mobile functionality: includes a companion mobile application for iPhone and Android devices, which is focused on performing in-field contact tracing activities and case and contact data collection. Reporting and analysis: enables the generation of detailed reports and analytics to support informed decision-making during outbreaks.",
-    "PrimaryFunctionality": "Outbreak response data collection, case investigation, contact tracing, and data visualization",
+    "PrimaryFunctionality": "The solution includes:  Case data: allows for thorough recording of case information, encompassing demographics, clinical data, and exposure history.  \nContact data: provides robust capabilities for registering contact data, including demographic, clinical, and follow-up data. \nData visualization: offers a range of analytics functionalities encompassing a dashboard with graphs and key performance indicators for cases, contacts, and chains of transmissions. Additionally, it includes an interactive function for analyzing chains of transmissions, along with a Gantt chart to oversee critical timelines for laboratory and outbreak-related activities.\nMobile functionality: includes a companion mobile application for iPhone and Android devices, which is focused on performing in-field contact tracing activities and case and contact data collection. \nReporting and analysis: enables the generation of detailed reports and analytics to support informed decision-making during outbreaks.",
     "Users": "The solution's primary users are outbreak responders in general, including epidemiologists, contact tracers, data managers, lab personnel, response managers, etc.",
     "Languages": [],
     "Screenshots": [
@@ -58,10 +62,80 @@
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["lc", "bb", "jm", "ag", "bs", "hn", "gt", "bz", "co", "gy", "sr", "mx", "us", "ca", "br", "py", "ar", "cl", "es", "fr", "be", "ch", "lv", "ua", "md", "ba", "bg", "rs", "al", "gr", "kr", "sy", "jo", "sa", "ye", "mt", "it", "mr", "dz", "eg", "td", "ng", "gn", "cf", "ga", "ug", "ke", "tz", "zm", "bw", "na", "za", "au", "pg", "tl", "id", "pw", "fm", "mv", "vu", "fj", "ph", "in", "np", "bd", "bt", "mn", "vn", "kh"]
+    "ImplementationCountries": [
+      "lc",
+      "bb",
+      "jm",
+      "ag",
+      "bs",
+      "hn",
+      "gt",
+      "bz",
+      "co",
+      "gy",
+      "sr",
+      "mx",
+      "us",
+      "ca",
+      "br",
+      "py",
+      "ar",
+      "cl",
+      "es",
+      "fr",
+      "be",
+      "ch",
+      "lv",
+      "ua",
+      "md",
+      "ba",
+      "bg",
+      "rs",
+      "al",
+      "gr",
+      "kr",
+      "sy",
+      "jo",
+      "sa",
+      "ye",
+      "mt",
+      "it",
+      "mr",
+      "dz",
+      "eg",
+      "td",
+      "ng",
+      "gn",
+      "cf",
+      "ga",
+      "ug",
+      "ke",
+      "tz",
+      "zm",
+      "bw",
+      "na",
+      "za",
+      "au",
+      "pg",
+      "tl",
+      "id",
+      "pw",
+      "fm",
+      "mv",
+      "vu",
+      "fj",
+      "ph",
+      "in",
+      "np",
+      "bd",
+      "bt",
+      "mn",
+      "vn",
+      "kh"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -150,14 +224,14 @@
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation",
+        "description": "Documentation ",
         "url": "https://github.com/WorldHealthOrganization/godata"
       }
     ],
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://goarn.who.int/virtual-spaces/godataproject"
       }
     ],
@@ -169,7 +243,7 @@
       },
       {
         "description": "Architectural Documentation URL",
-        "url": "https://github.com/WorldHealthOrganization/godata/blob/master/docs/integration/0-integration-overview.md"
+        "url": " https://github.com/WorldHealthOrganization/godata/blob/master/docs/integration/0-integration-overview.md"
       }
     ],
     "OperatorDocumentation": [],

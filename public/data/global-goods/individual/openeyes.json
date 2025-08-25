@@ -1,73 +1,95 @@
 {
   "ID": "openeyes",
   "Name": "OpenEyes",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/openeyes.webp",
   "Website": {
     "main": {
       "url": "https://openeyes.apperta.org/",
-      "description": "Official OpenEyes website - Open source ophthalmology electronic medical record system"
+      "description": ""
     },
     "docs": {
       "url": "",
       "description": ""
     },
     "source_code": {
-      "url": "https://github.com/openeyes",
-      "description": "Main code repository on GitHub"
+      "url": "https://github.com/AppertaFoundation/openeyes",
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
-  "License": "gpl-3.0",
+  "License": "agpl-3.0",
   "Contact": [
     {
-      "name": "OpenEyes Team",
-      "email": "info@openeyes.apperta.org",
-      "role": "Project Team"
+      "email": "david.jobling@apperta.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_A5"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A5"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "ICD-9",
+      "ICD-11",
+      "ICD-10",
+      "SNOMED-CT"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "HL7 V3",
+      "HL7 V2"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "OpenEyes is an open-source electronic medical record system specifically designed for ophthalmology and eye care services.",
-    "Description": "OpenEyes provides comprehensive ophthalmology workflow management including patient registration, clinical documentation, imaging integration, and reporting. It is designed to support both clinical and administrative workflows in eye care facilities.",
+    "Summary": "OpenEyes is the leading open source electronic patient record (EPR) for ophthalmology. It has been designed by clinicians to be fast in delivering content, fast to navigate, and easy (and fun) to use. ",
+    "Description": "OpenEyes benefits from a large and growing body of enthusiastic clinicians determined to make it the EPR that will help health care organisations deliver data-driven patient care in the best way possible. OpenEyes is owned by the community and not by any individual or corporate entity. It can be customised to suit local needs and will scale to connect, seamlessly, primary and secondary eye care. OpenEyes provides an ophthalmic patient record across the globe, enabling clinicians to support clinical pathways such as cataracts, glaucoma, and retinopathy in regions that previously may have had limited access to the tools and resources to so. It is governed, assured, and maintained through the novel Custodian Model, under the custodianship of the Apperta Foundation.",
     "PrimaryFunctionality": "Ophthalmology electronic medical record system with clinical workflow management",
-    "Users": "Ophthalmologists, optometrists, eye care nurses, and administrative staff",
-    "Languages": [],
+    "Users": "Primary users are Ophthalmologists, clinical, and non-medical nursing staff based in secondary care and in some cases in the community.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "OpenEyes has been implemented in various eye care facilities and hospitals to support ophthalmology services and patient care management.",
+    "SummaryOfReach": "",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": []
+    "ImplementationCountries": [
+      "gr",
+      "tt",
+      "pk"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
-        "year": 2023,
-        "global_utility": 0,
-        "community_support": 0,
-        "maturity_of_gg": 0,
+        "year": 2022,
+        "global_utility": 7,
+        "community_support": 8,
+        "maturity_of_gg": 8,
         "inclusive_design": 0,
         "climate_resilience": 0,
         "low_carbon": 0
@@ -138,7 +160,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "OpenEyes is supported through open source development and community contributions.",
+    "Description": "OpenEyes is implemented by Health Care organisations and is financially sustained through continued contributions from the community. Community members and the Custodian commission developments from users which are developed by the Accredited Contributors. The community fund the Apperta Foundation to continue its governance, assurance and commissioning activities. ",
     "KeyFundersSupporters": []
   },
   "Resources": {
@@ -147,11 +169,37 @@
     "UserRequirements": [],
     "EndUserDocumentation": [],
     "ImplementerDocumentation": [],
-    "DeveloperDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": " https://openeyes.atlassian.net/wiki/spaces/OPD/pages/1570209809/Developer+Guidelines"
+      }
+    ],
     "OperatorDocumentation": [],
     "InstallationDocumentation": []
   },
   "LinkedInitiatives": {
-    "Initiative": []
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/openeyes"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openeyes"
+      }
+    ]
   }
 }

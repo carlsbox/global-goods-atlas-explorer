@@ -4,64 +4,120 @@
   "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
-      "url": "https://www.gnuhealth.org/",
-      "description": "Official GNU Health website - Free/Libre ecosystem in healthcare"
+      "url": "https://globalgoodsguidebook.org/global-goods/gnu-health/www.gnuhealth.org",
+      "description": ""
     },
     "docs": {
-      "url": "https://www.gnuhealth.org/docs/",
-      "description": "Official documentation"
+      "url": "",
+      "description": ""
     },
     "source_code": {
       "url": "https://savannah.gnu.org/hg/?group=health",
-      "description": "Main code repository on GNU Savannah"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "gpl-3.0",
   "Contact": [
     {
-      "name": "GNU Health Team",
-      "email": "falcon@gnuhealth.org",
-      "role": "Project Maintainer"
+      "email": "falcon@gnuhealth.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_D6"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D6"
+    ],
     "WMO": [],
-    "DPI": ["DPI_BD3"]
+    "DPI": [
+      "DPI_BD3"
+    ]
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["HL7", "ICD-11", "ICD-9", "ICD-10", "SNOMED-CT"],
-    "Interoperability": ["FHIR"],
+    "HealthStandards": [
+      "HL7",
+      "ICD-11",
+      "ICD-9",
+      "ICD-10",
+      "SNOMED-CT"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.",
+    "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.\n",
     "Description": "The GNU Health project provides the tools for individuals, health professionals, institutions, and governments to proactively assess and improve the underlying determinants of health, from the socioeconomic agents to the molecular basis of disease, from primary health care to precision medicine.",
     "PrimaryFunctionality": "Comprehensive health and hospital information system with modules for patient management, laboratory, pharmacy, and more",
-    "Users": "Health professionals, institutions, and governments worldwide",
-    "Languages": ["en", "fr", "es", "de"],
+    "Users": "The GNU Health project provides the tools for individuals, health professionals, institutions, and governments to proactively assess and improve the underlying determinants of health, from the socioeconomic agents to the molecular basis of disease, from primary health care to precision medicine.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "de",
+        "name": "German"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },
   "Reach": {
-    "SummaryOfReach": "GNU Health is a global project, with implementations around the globe. Because it is Free/Libre Software, anyone can download it with no tracking, so it's hard to estimate the actual number of implementations. We know that GNU Health HMIS has been implemented by governments, and public and private institutions around the world, including multilateral organizations such as WHO.",
+    "SummaryOfReach": "GNU Health is a global project, with implementations around the globe.  Because it is Free/Libre Software, anyone can download it with no tracking, so it\\'s hard to estimate the actual number of implementations.  We know that GNU Health HMIS has been implemented by governments, and public and private institutions around the world, including multilateral organizations such as WHO.",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["jm", "ht", "mx", "pe", "br", "ar", "de", "it", "es", "ma", "gm", "ml", "gh", "ng", "cm", "tz", "ao", "ga", "pk", "in", "bd", "my", "ph", "id"]
+    "ImplementationCountries": [
+      "jm",
+      "ht",
+      "mx",
+      "pe",
+      "br",
+      "ar",
+      "de",
+      "it",
+      "es",
+      "ma",
+      "gm",
+      "ml",
+      "gh",
+      "ng",
+      "cm",
+      "tz",
+      "ao",
+      "ga",
+      "pk",
+      "in",
+      "bd",
+      "my",
+      "ph",
+      "id"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -148,14 +204,14 @@
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation",
-        "url": "https://www.gnuhealth.org/docs/"
+        "description": "Documentation ",
+        "url": "https://www.gnuhealth.org/docs/ "
       }
     ],
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://en.m.wikibooks.org/wiki/GNU_Health"
       }
     ],
@@ -163,10 +219,10 @@
     "DeveloperDocumentation": [
       {
         "description": "Developer Documentation",
-        "url": "https://en.m.wikibooks.org/wiki/GNU_Health/Developers_corner"
+        "url": "https://en.m.wikibooks.org/wiki/GNU_Health/Developers_corner "
       },
       {
-        "description": "Architectural Documentation",
+        "description": "Architectural Documentation ",
         "url": "https://de.wikipedia.org/wiki/Tryton"
       }
     ],

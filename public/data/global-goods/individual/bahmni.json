@@ -5,48 +5,79 @@
   "Website": {
     "main": {
       "url": "https://www.bahmni.org/",
-      "description": "Official Bahmni website - Open Source EMR & Hospital Information System"
+      "description": ""
     },
     "docs": {
-      "url": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/32014338/User+Guide",
-      "description": "User guide and documentation"
+      "url": "",
+      "description": ""
     },
     "source_code": {
       "url": "https://github.com/bahmni",
-      "description": "Main code repository"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "agpl-3.0",
   "Contact": [
     {
-      "name": "Bahmni Coalition Director",
-      "email": "coalition-director@bahmni.org",
-      "role": "Project Team"
+      "email": "coalition-director@bahmni.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_A5"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A5"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["ICD-9", "ICD-10", "ICD-11", "CIEL", "SNOMED-CT", "LOINC"],
-    "Interoperability": ["FHIR", "ADX"],
+    "HealthStandards": [
+      "ICD-9",
+      "ICD-11",
+      "ICD-10",
+      "CIEL",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "ADX"
+    ],
     "ClimateStandards": []
   },
   "ProductOverview": {
-    "Summary": "Bahmni is an award-winning open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product designed for low-resource environments, clinics, NGOs and governments.",
+    "Summary": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
     "Description": "Bahmni improves healthcare delivery through efficient information management, so that decision-making is faster and more reliable across the organization; doctors are enabled to be more effective and accurate while providing care; administrators have the information they need real time.",
-    "PrimaryFunctionality": "Bahmni combines and enhances existing open source products into a single solution. It integrates: OpenMRS for electronic medical records and patient management, OpenERP for inventory, billing, financial accounting, OpenELIS for laboratory management, Dcm4chee for DICOM and PACS",
-    "Users": "Clinicians - physicians, dentists, pharmacists, physician assistants, field health workers, nurses. Hospital Staff - Front desk, receptionists, scribes, billing and administrative staff, Pharmacy and Store managers. Medical Technicians - Lab technicians, radiographers. Hospital Administrators: To see facility level reports for clinical and operational decisions",
-    "Languages": ["en", "fr", "es", "pt"],
+    "PrimaryFunctionality": "Bahmni combines and enhances existing open source products into a single solution. It integrates:\nOpenMRS for electronic medical records and patient management\nOpenERP for inventory, billing, financial accounting\nOpenELIS for laboratory management\nDcm4chee for DICOM and PACS",
+    "Users": "The primary users of Bahmni are: Clinicians - physicians, dentists, pharmacists, physician assistants, field health workers, nurses Hospital Staff - Front desk, receptionists, scribes, billing and administrative staff, Pharmacy and Store managers Medical Technicians - Lab technicians, radiographers Hospital Administrators: To see facility level reports for clinical and operational decisions The end users of Bahmni are typically doctors, specialists, clinical and non-clinical staff at hospitals located in remote parts of the world, most of whom rarely use technology in their daily life. Bahmni was designed to be used by such users. Its configurable interface allows clinical users of different specialties to design forms to capture the data they need. Bahmni is also designed to be used by users in multiple languages.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      }
+    ],
     "Screenshots": [
       {
         "url": "/uploads/screenshot_placeholder.jpeg",
@@ -59,16 +90,44 @@
     ]
   },
   "Reach": {
-    "SummaryOfReach": "Bahmni was designed for use in low-resource settings. Typical organizations that form Bahmni's core user segments are: Large NGOs (e.g. MSF, Cure International), Country Ministries of Health (MOH) - for country-wide implementations, small and medium-sized for-profit and NGO hospitals and research institutes. Estimated 500 known sites worldwide in over 50 countries, managing over twenty million patient records.",
+    "SummaryOfReach": "Bahmni was designed for use in low-resource settings. Typical organizations that form Bahmni’s core user segments are: Large NGOs (e.g. MSF, Cure International), Country Ministries of Health (MOH) - for country-wide implementations, small and medium-sized for-profit and NGO hospitals and research institutes. Estimated 500 known sites worldwide in over 50 countries, managing over twenty million patient records. ",
     "NumberOfImplementations": 500,
     "ImplementationMapOverview": {
       "url": "",
       "description": ""
     },
-    "ImplementationCountries": ["ht", "dm", "do", "hn", "ec", "pe", "gh", "gm", "cm", "sd", "eg", "ke", "bi", "ls", "sy", "iq", "in", "bd", "pk", "np", "bt", "mm", "vn", "kh", "ph", "id", "pg"]
+    "ImplementationCountries": [
+      "ht",
+      "dm",
+      "do",
+      "hn",
+      "ec",
+      "pe",
+      "gh",
+      "gm",
+      "cm",
+      "sd",
+      "eg",
+      "ke",
+      "bi",
+      "ls",
+      "sy",
+      "iq",
+      "in",
+      "bd",
+      "pk",
+      "np",
+      "bt",
+      "mm",
+      "vn",
+      "kh",
+      "ph",
+      "id",
+      "pg"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -90,7 +149,9 @@
       "name": "Thoughtworks",
       "url": "https://www.thoughtworks.com/",
       "description": "Primary maintainer and contributor to Bahmni development",
-      "country": ["us"]
+      "country": [
+        "us"
+      ]
     },
     "InceptionYear": 2013,
     "SizeOfCommunity": 3800,
@@ -154,7 +215,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "Bahmni has a core team, contributed by Bahmni Coalition members, which primarily works on the core product. The size of this core team varies depending on the funding and investment available. Bahmni also leverages its community, volunteers and often works closely with projects for features aligned to its roadmap. Bahmni's product development is largely contributed by Thoughtworks (the primary maintainer) - either directly as part of social impact investments or through the support of Thoughtworks clients like Médecins Sans Frontières (MSF), a Bahmni Coalition member.",
+    "Description": "Bahmni has a core team, contributed by Bahmni Coalition members, which primarily works on the core product. The size of this core team varies depending on the funding and investment available.  Bahmni also leverages its community, volunteers and often works closely with projects for features aligned to its roadmap.    Bahmni’s product development is largely contributed by Thoughtworks (the primary maintainer) - either directly as part of social impact investments or through the support of Thoughtworks clients like Médecins Sans Frontières (MSF), a Bahmni Coalition member.   ",
     "KeyFundersSupporters": [
       {
         "name": "Thoughtworks",
@@ -180,13 +241,13 @@
     ],
     "ImplementerDocumentation": [
       {
-        "description": "Implementer's Guide",
-        "url": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/2392073/Implementer+s+Guide"
+        "description": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/2392073/Implementer+s+Guide",
+        "url": ""
       }
     ],
     "DeveloperDocumentation": [
       {
-        "description": "Architecture Technical Documentation",
+        "description": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/1645674497/Active+Bahmni+Initiatives+Projects",
         "url": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/2812969012/Architecture+Technical+Documentation"
       }
     ],

@@ -1,11 +1,11 @@
 {
   "ID": "openboxes",
   "Name": "Open Boxes",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/openboxes.png",
   "Website": {
     "main": {
       "url": "https://www.openboxes.com/",
-      "description": "Official OpenBoxes website - Open source logistics management information system"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,28 +13,34 @@
     },
     "source_code": {
       "url": "https://github.com/openboxes",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "epl-2.0",
   "Contact": [
     {
-      "name": "OpenBoxes Team",
-      "email": "knagel@pih.org",
-      "role": "Project Team"
+      "email": "knagel@pih.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_B6"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_B6"
+    ],
     "WMO": [],
-    "DPI": ["DPI_BD1"]
+    "DPI": [
+      "DPI_BD1"
+    ]
   },
   "StandardsAndInteroperability": {
     "HealthStandards": [],
@@ -46,7 +52,20 @@
     "Description": "",
     "PrimaryFunctionality": "Logistics management information system for supply chain management",
     "Users": "The primary users of OpenBoxes are pharmacists and depot managers at hospitals or medical supply warehouses in low-resource settings. These are often users at a central hub that manage warehousing, forecasting, and distribution for a network of smaller health facilities.",
-    "Languages": ["en", "fr", "es"],
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      }
+    ],
     "Screenshots": [
       "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
@@ -61,7 +80,7 @@
     "ImplementationCountries": []
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -145,22 +164,22 @@
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation",
+        "description": "Documentation ",
         "url": "https://docs.openboxes.com/en/develop/developer-guide/getting-started/"
       }
     ],
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://help.openboxes.com/"
       }
     ],
     "ImplementerDocumentation": [],
     "DeveloperDocumentation": [
       {
-        "description": "Architectural Documentation",
-        "url": "https://docs.openboxes.com/en/develop/about/architecture/"
+        "description": "Architectural Documentation ",
+        "url": "https://docs.openboxes.com/en/develop/about/architecture/   "
       }
     ],
     "OperatorDocumentation": [],

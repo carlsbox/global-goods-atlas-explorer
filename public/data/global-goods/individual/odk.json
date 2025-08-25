@@ -1,11 +1,11 @@
 {
   "ID": "odk",
   "Name": "ODK",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/odk.png",
   "Website": {
     "main": {
       "url": "https://getodk.org/",
-      "description": "Official ODK website - Open Data Kit for offline data collection"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -13,31 +13,41 @@
     },
     "source_code": {
       "url": "https://github.com/getodk/",
-      "description": "Main code repository on GitHub"
+      "description": ""
     },
     "demo": {
       "url": "",
       "description": ""
     }
   },
-  "GlobalGoodsType": ["software"],
+  "GlobalGoodsType": [
+    "software"
+  ],
   "ClimateHealth": false,
   "License": "apache-2.0",
   "Contact": [
     {
-      "name": "ODK Team",
-      "email": "yanokwa@getodk.org",
-      "role": "Project Team"
+      "email": "yanokwa@getodk.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_E2"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_E2"
+    ],
     "WMO": [],
     "DPI": []
   },
   "StandardsAndInteroperability": {
-    "HealthStandards": ["ICD-11", "ICD-9", "ICD-10", "SNOMED-CT", "LOINC"],
+    "HealthStandards": [
+      "ICD-11",
+      "ICD-9",
+      "ICD-10",
+      "SNOMED-CT",
+      "LOINC"
+    ],
     "Interoperability": [],
     "ClimateStandards": []
   },
@@ -58,10 +68,142 @@
     "ImplementationMapOverview": {
       "url": ""
     },
-    "ImplementationCountries": ["ar", "at", "al", "dz", "ao", "au", "az", "be", "bw", "br", "bo", "bj", "ba", "by", "bz", "bs", "bb", "bg", "bi", "cm", "td", "co", "cr", "ca", "cl", "ci", "kh", "bf", "cf", "cg", "hr", "cz", "dk", "cd", "dm", "dj", "er", "eg", "sn", "fi", "fj", "se", "ch", "gb", "us", "tz", "mx", "ae", "ie", "lv", "ee", "lt", "pl", "de", "ng", "ne", "lu", "fr", "mc", "es", "ad", "pt", "bn", "sg", "ph", "mw", "ml", "my", "gt", "in", "id", "pg", "th", "pk", "za", "jp", "cn", "mn", "me", "ru", "kz", "lk", "kg", "tm", "np", "mv", "sc", "mu", "mr", "km", "mg", "ls", "nz", "mz", "zw", "zm", "uz", "ve", "ke", "sd", "bd", "gh", "sl", "tg", "st", "gn", "gq", "gw", "gm", "na", "vn", "sr", "pa", "gy", "py", "uy", "nr", "mh", "mm", "ki", "to", "ws", "tv", "sb", "pw", "ni", "gr", "hn", "sv", "is", "jm"]
+    "ImplementationCountries": [
+      "ar",
+      "at",
+      "al",
+      "dz",
+      "ao",
+      "au",
+      "az",
+      "be",
+      "bw",
+      "br",
+      "bo",
+      "bj",
+      "ba",
+      "by",
+      "bz",
+      "bs",
+      "bb",
+      "bg",
+      "bi",
+      "cm",
+      "td",
+      "co",
+      "cr",
+      "ca",
+      "cl",
+      "ci",
+      "kh",
+      "bf",
+      "cf",
+      "cg",
+      "hr",
+      "cz",
+      "dk",
+      "cd",
+      "dm",
+      "dj",
+      "er",
+      "eg",
+      "sn",
+      "fi",
+      "fj",
+      "se",
+      "ch",
+      "gb",
+      "us",
+      "tz",
+      "mx",
+      "ae",
+      "ie",
+      "lv",
+      "ee",
+      "lt",
+      "pl",
+      "de",
+      "ng",
+      "ne",
+      "lu",
+      "fr",
+      "mc",
+      "es",
+      "ad",
+      "pt",
+      "bn",
+      "sg",
+      "ph",
+      "mw",
+      "ml",
+      "my",
+      "gt",
+      "in",
+      "id",
+      "pg",
+      "th",
+      "pk",
+      "za",
+      "jp",
+      "cn",
+      "mn",
+      "me",
+      "ru",
+      "kz",
+      "lk",
+      "kg",
+      "tm",
+      "np",
+      "mv",
+      "sc",
+      "mu",
+      "mr",
+      "km",
+      "mg",
+      "ls",
+      "nz",
+      "mz",
+      "zw",
+      "zm",
+      "uz",
+      "ve",
+      "ke",
+      "sd",
+      "bd",
+      "gh",
+      "sl",
+      "tg",
+      "st",
+      "gn",
+      "gq",
+      "gw",
+      "gm",
+      "na",
+      "vn",
+      "sr",
+      "pa",
+      "gy",
+      "py",
+      "uy",
+      "nr",
+      "mh",
+      "mm",
+      "ki",
+      "to",
+      "ws",
+      "tv",
+      "sb",
+      "pw",
+      "ni",
+      "gr",
+      "hn",
+      "sv",
+      "is",
+      "jm"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -145,14 +287,14 @@
     "Articles": [],
     "ProductDocumentation": [
       {
-        "description": "Documentation",
-        "url": "https://github.com/getodk/collect https://github.com/getodk/central"
+        "description": "Documentation ",
+        "url": " https://github.com/getodk/collect https://github.com/getodk/central"
       }
     ],
     "UserRequirements": [],
     "EndUserDocumentation": [
       {
-        "description": "User Guide",
+        "description": "User Guide ",
         "url": "https://docs.getodk.org"
       }
     ],

@@ -5,7 +5,7 @@
   "Website": {
     "main": {
       "url": "https://www.digitalhealthtraining.org/",
-      "description": "Official Digital Health Training platform for DHPNS course"
+      "description": ""
     },
     "docs": {
       "url": "",
@@ -20,19 +20,23 @@
       "description": ""
     }
   },
-  "GlobalGoodsType": ["content"],
+  "GlobalGoodsType": [
+    "content"
+  ],
   "ClimateHealth": false,
   "License": "cc-by-sa-4.0",
   "Contact": [
     {
-      "name": "TechChange",
-      "email": "ariel@techchange.org",
-      "role": ""
+      "email": "ariel@techchange.org"
     }
   ],
   "Classifications": {
-    "SDGs": ["SDG-3"],
-    "WHO": ["WHO_B5"],
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_B5"
+    ],
     "WMO": [],
     "DPI": []
   },
@@ -43,10 +47,27 @@
   },
   "ProductOverview": {
     "Summary": "The course, Digital Health: Planning National Systems, is designed to empower ministry leadership with the foundational and technical concepts and planning tools necessary to steer and orient national digital health stakeholders towards an enterprise planning approach.",
-    "Description": "The course has been packaged in different ways to appeal to different learner preferences (self-paced, instructor-led, or a combination of all of the above), but all with the same content that can be taken individually or with a broader cohort. The course across all languages include nine core modules (though the English version has one more on digital financial services), a variety of interactive case study activities, knowledge checks, and instructional videos and animations to guide the learners through key concepts. Each module's learning content is about 1.5 hours, and the cohort-based, facilitated versions of the course include another 1.5 hours of group activities per module.",
+    "Description": "The course has been packaged in different ways to appeal to different learner preferences (self-paced, instructor-led, or a combination of all of the above), but all with the same content that can be taken individually or with a broader cohort.  The course across all languages include nine core modules (though the English version has one more on digital financial services), a variety of interactive case study activities, knowledge checks, and instructional videos and animations to guide the learners through key concepts. Each module’s learning content is about 1.5 hours, and the cohort-based, facilitated versions of the course include another 1.5 hours of group activities per module.",
     "PrimaryFunctionality": "The course is designed to empower ministry leadership with the technical concepts and planning tools necessary to steer and orient national digital health stakeholders towards an enterprise planning approach. The curriculum features critical technical concepts, existing best practices, and pragmatic methods, all framed according to the national planning cycle that Ministry of Health officials manage.",
     "Users": "The course is best suited for leaders and managers from health, ICT, and finance ministries who work in Digital Health (eHealth, mHealth, HIS, CHIS, etc) in low and middle income countries. It would also be applicable for in-country stakeholders who work with these ministries such as donors, multi-laterals and UN agencies, and large implementing NGOs to ensure conceptual and planning alignment.",
-    "Languages": ["en", "fr", "es", "pt"],
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      }
+    ],
     "Screenshots": [
       {
         "url": "/uploads/screenshot_placeholder.jpeg",
@@ -59,16 +80,21 @@
     ]
   },
   "Reach": {
-    "SummaryOfReach": "As of December 2023, the facilitated versions of the course have a total of 696 graduates (with a completion rate of ~66%) across 93 countries, who have applied their knowledge in their work in-country, and most have leveraged it to contribute to their digital health strategies, training others in their teams, and supporting digital health intervention design and investment.",
+    "SummaryOfReach": "As of December 2023, the facilitated versions of the course have a total of 696 graduates (with a completion rate of  ~66%) across 93 countries, who have applied their knowledge in their work in-country, and most have leveraged it to contribute to their digital health strategies, training others in their teams, and supporting digital health intervention design and investment.   ",
     "NumberOfImplementations": 0,
     "ImplementationMapOverview": {
       "url": "",
       "description": ""
     },
-    "ImplementationCountries": ["me", "mn", "ug", "bd"]
+    "ImplementationCountries": [
+      "me",
+      "mn",
+      "ug",
+      "bd"
+    ]
   },
   "Maturity": {
-    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
     "Scores": [
       {
         "year": 2023,
@@ -154,7 +180,7 @@
     "url": ""
   },
   "Sustainability": {
-    "Description": "The content has been developed by USAID, Digital Square, and TechChange and is based on content compiled by the World Health Organization (WHO) and the International Telecommunications Union (ITU). The WHO has taken an active role in reviewing and approving any new content as it gets added to the courses on the TechChange platform. The content has been supported primarily through funding from USAID, UNICEF/DICE and The Global Fund funding via Digital Square since 2017.",
+    "Description": "The content has been developed by USAID, Digital Square, and TechChange and is based on content compiled by the World Health Organization (WHO) and the International Telecommunications Union (ITU). The WHO has taken an active role in reviewing and approving any new content as it gets added to the courses on the TechChange platform. The content has been supported primarily through funding from USAID , UNICEF/DICE and The Global Fund funding via Digital Square since 2017. ",
     "KeyFundersSupporters": [
       {
         "name": "USAID",
@@ -181,17 +207,17 @@
   "Resources": {
     "Articles": [
       {
-        "description": "Country case studies",
+        "description": "Country case studies ",
         "url": "https://drive.google.com/drive/folders/1M_BVhfyAre16m4ikQzVFt78DVsyjTvTP"
       }
     ],
     "ProductDocumentation": [
       {
         "description": "Videos: Global Goods Playlist",
-        "url": "https://www.youtube.com/playlist?list=PLlTZ64izC0jxKgwBSCTdXOIzzyuDDM_je"
+        "url": " https://www.youtube.com/playlist?list=PLlTZ64izC0jxKgwBSCTdXOIzzyuDDM_je"
       },
       {
-        "description": "Video: Standards and Interoperability in Digital Health: Explained",
+        "description": "Video: Standards and Interoperability in Digital Health: Explained ",
         "url": "https://www.youtube.com/watch?v=KSEUh-wj7Y0&t=101s"
       }
     ],
