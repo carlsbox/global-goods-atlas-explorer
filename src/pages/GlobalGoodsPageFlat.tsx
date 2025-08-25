@@ -296,6 +296,7 @@ function CatalogContent() {
           selectedWMOClassifications={selectedWMOClassifications}
           selectedHealthStandards={selectedHealthStandards}
           selectedInteropStandards={selectedInteropStandards}
+          climateHealthFilter={climateHealthFilter}
           setSearchTerm={setSearchTerm}
           setSectorFilter={setSectorFilter}
           setSortBy={setSortBy}
@@ -307,6 +308,7 @@ function CatalogContent() {
           setSelectedWMOClassifications={setSelectedWMOClassifications}
           setSelectedHealthStandards={setSelectedHealthStandards}
           setSelectedInteropStandards={setSelectedInteropStandards}
+          setClimateHealthFilter={setClimateHealthFilter}
           onClearFilters={handleClearAllFilters}
           availableClassifications={availableFilterOptions.classifications}
           availableStandards={availableFilterOptions.standards}
@@ -314,23 +316,7 @@ function CatalogContent() {
         />
       </div>
 
-      {/* Active Filters Display */}
-      {climateHealthFilter && (
-        <div className="mb-6">
-          <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">Active filters:</span>
-            <Badge variant="secondary" className="flex items-center gap-1">
-              Climate & Health
-              <button 
-                onClick={() => setClimateHealthFilter(false)}
-                className="ml-1 hover:bg-muted rounded-full p-0.5"
-              >
-                ×
-              </button>
-            </Badge>
-          </div>
-        </div>
-      )}
+      {/* Active Filters Display - Now integrated in filter bar */}
 
       {/* Results Summary */}
       <div className="bg-card rounded-lg border p-4 mb-6 shadow-sm">

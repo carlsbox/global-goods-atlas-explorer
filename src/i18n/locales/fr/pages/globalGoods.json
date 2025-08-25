@@ -9,7 +9,9 @@
     "sectorLabel": "Filtrer par type",
     "allSectors": "Tous les Types de Biens Mondiaux",
     "sortLabel": "Trier par",
-    "clearFilters": "Effacer les filtres"
+    "clearFilters": "Effacer les filtres",
+    "climateHealth": "Climat et Santé",
+    "climateHealthTooltip": "Afficher uniquement les biens mondiaux qui soutiennent l'intégration climat et santé, y compris la résilience climatique, la surveillance environnementale et les caractéristiques de durabilité"
   },
   "noResults": {
     "title": "Aucun bien mondial trouvé",

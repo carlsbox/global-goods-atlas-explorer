@@ -9,7 +9,9 @@
     "sectorLabel": "Filter by type",
     "allSectors": "All Global Goods Types",
     "sortLabel": "Sort by",
-    "clearFilters": "Clear filters"
+    "clearFilters": "Clear filters",
+    "climateHealth": "Climate & Health",
+    "climateHealthTooltip": "Show only global goods that support climate and health integration, including climate resilience, environmental monitoring, and sustainability features"
   },
   "noResults": {
     "title": "No global goods found",

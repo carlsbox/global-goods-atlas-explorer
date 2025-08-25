@@ -22,7 +22,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Search, Filter, X, Grid3X3, List, Sliders } from "lucide-react";
+import { 
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Search, Filter, X, Grid3X3, List, Sliders, Leaf } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 import { useEnhancedReferenceData } from "@/hooks/useEnhancedReferenceData";
 
@@ -39,6 +45,7 @@ interface EnhancedFilterBarProps {
   selectedWMOClassifications: string[];
   selectedHealthStandards: string[];
   selectedInteropStandards: string[];
+  climateHealthFilter: boolean;
   setSearchTerm: (term: string) => void;
   setSectorFilter: (sector: string) => void;
   setSortBy: (sort: string) => void;
@@ -50,6 +57,7 @@ interface EnhancedFilterBarProps {
   setSelectedWMOClassifications: (classifications: string[]) => void;
   setSelectedHealthStandards: (standards: string[]) => void;
   setSelectedInteropStandards: (standards: string[]) => void;
+  setClimateHealthFilter: (value: boolean) => void;
   onClearFilters: () => void;
   availableClassifications: {
     who: Array<{ code: string; title: string }>;
@@ -84,6 +92,7 @@ export function EnhancedFilterBar({
   selectedWMOClassifications,
   selectedHealthStandards,
   selectedInteropStandards,
+  climateHealthFilter,
   setSearchTerm,
   setSectorFilter,
   setSortBy,
@@ -95,6 +104,7 @@ export function EnhancedFilterBar({
   setSelectedWMOClassifications,
   setSelectedHealthStandards,
   setSelectedInteropStandards,
+  setClimateHealthFilter,
   onClearFilters,
   availableClassifications,
   availableStandards,
@@ -114,7 +124,7 @@ export function EnhancedFilterBar({
                           selectedSDGs.length > 0 || selectedCountries.length > 0 ||
                           selectedWHOClassifications.length > 0 || selectedDPIClassifications.length > 0 ||
                           selectedWMOClassifications.length > 0 || selectedHealthStandards.length > 0 ||
-                          selectedInteropStandards.length > 0;
+                          selectedInteropStandards.length > 0 || climateHealthFilter;
 
   const totalAdvancedFilters = selectedSDGs.length + selectedCountries.length + 
                               selectedWHOClassifications.length + selectedDPIClassifications.length +
@@ -180,6 +190,9 @@ export function EnhancedFilterBar({
         break;
       case 'sector':
         setSectorFilter('all');
+        break;
+      case 'climate':
+        setClimateHealthFilter(false);
         break;
       case 'sdg':
         if (value) setSelectedSDGs(selectedSDGs.filter(s => s !== value));
@@ -275,6 +288,36 @@ export function EnhancedFilterBar({
 
       {/* Filter Row */}
       <div className="flex flex-col sm:flex-row gap-4">
+        {/* Climate Health Filter */}
+        <div className="flex items-center space-x-2">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="flex items-center space-x-2 p-3 rounded-lg border bg-card hover:bg-accent/10 transition-colors">
+                  <Checkbox
+                    id="climate-health"
+                    checked={climateHealthFilter}
+                    onCheckedChange={(checked) => setClimateHealthFilter(checked as boolean)}
+                    className="border-primary data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                  />
+                  <label 
+                    htmlFor="climate-health" 
+                    className="flex items-center gap-2 text-sm font-medium cursor-pointer select-none"
+                  >
+                    <Leaf className="h-4 w-4 text-primary" />
+                    {tPage("filters.climateHealth", "globalGoods")}
+                  </label>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="max-w-xs">
+                  {tPage("filters.climateHealthTooltip", "globalGoods")}
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+
         {/* Sector Filter with Label */}
         <div className="space-y-2 sm:w-48">
           <Label htmlFor="sector-filter" className="text-sm font-medium">
@@ -599,6 +642,16 @@ export function EnhancedFilterBar({
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('sector')}
+              />
+            </Badge>
+          )}
+          {climateHealthFilter && (
+            <Badge variant="secondary" className="flex items-center gap-1">
+              <Leaf className="h-3 w-3" />
+              {tPage("filters.climateHealth", "globalGoods")}
+              <X 
+                className="h-3 w-3 cursor-pointer" 
+                onClick={() => removeFilter('climate')}
               />
             </Badge>
           )}
