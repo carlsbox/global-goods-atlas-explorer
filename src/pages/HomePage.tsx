@@ -183,7 +183,7 @@ export default function HomePage() {
                     <Heart className="h-6 w-6 text-green-600 dark:text-green-400" />
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">4</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">3</div>
                 <div className="text-sm font-medium text-muted-foreground">
                   {tPage('climateHealth.stats.tools', 'home')}
                 </div>
