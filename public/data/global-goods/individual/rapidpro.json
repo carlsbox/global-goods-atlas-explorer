@@ -1,0 +1,290 @@
+{
+  "ID": "rapidpro",
+  "Name": "RapidPro",
+  "Logo": "/uploads/gg_logos/rapidpro.png",
+  "Website": {
+    "main": {
+      "url": "https://community.rapidpro.io/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/rapidpro",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "agpl-3.0",
+  "Contact": [
+    {
+      "email": "ndike@unicef.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A1"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "RapidPro is an open source platform that allows anyone to build interactive messaging systems using an easy visual interface.",
+    "Description": "RapidPro enables organizations to create and deploy interactive messaging flows for SMS, WhatsApp, Telegram, and other messaging channels. It provides tools for designing conversation flows, managing contacts, and analyzing engagement data. In health contexts, it's used for patient reminders, health education, and community engagement.",
+    "PrimaryFunctionality": "Interactive messaging platform for building conversational applications",
+    "Users": "Primary managers and administrators are national-level public health officials and civil society organisations. Primary end users could be community health workers, mothers, health facility staff, and the general public.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "ru",
+        "name": "Russian"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "In 2021 through UNICEF support instances alone, 930 million messages were exchanged using RapidPro. RapidPro is used in approximately 116 countries around the world.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "ht",
+      "jm",
+      "gt",
+      "bz",
+      "hn",
+      "ni",
+      "cr",
+      "mx",
+      "pa",
+      "tt",
+      "ec",
+      "br",
+      "bo",
+      "ar",
+      "ca",
+      "ne",
+      "ng",
+      "td",
+      "cf",
+      "cm",
+      "ga",
+      "sn",
+      "gm",
+      "sl",
+      "lr",
+      "gh",
+      "tg",
+      "bj",
+      "sd",
+      "ke",
+      "ug",
+      "rw",
+      "bi",
+      "tz",
+      "mw",
+      "ml",
+      "zm",
+      "zw",
+      "ao",
+      "bw",
+      "za",
+      "ls",
+      "eg",
+      "sy",
+      "lb",
+      "jo",
+      "sa",
+      "it",
+      "ba",
+      "rs",
+      "md",
+      "ua",
+      "ro",
+      "gr",
+      "tr",
+      "az",
+      "uz",
+      "pk",
+      "af",
+      "np",
+      "bd",
+      "vn",
+      "th",
+      "mm",
+      "my",
+      "id",
+      "pg",
+      "sb",
+      "fm",
+      "fj",
+      "ki"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 10,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "RapidPro is developed and maintained by a global community focused on messaging applications and digital communication solutions.",
+    "HostAnchorOrganization": {
+      "name": "RapidPro",
+      "url": "https://rapidpro.io/",
+      "description": "Open source messaging platform for building interactive applications",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Funded primarily by UNICEF, and TextIT",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "Functional Spec ",
+        "url": "https://rapidpro.github.io/rapidpro/docs/"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://help.textit.com/en/  "
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://rapidpro.github.io/rapidpro/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/rapidpro"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/rapidpro"
+      }
+    ]
+  }
+}

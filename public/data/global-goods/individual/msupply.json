@@ -1,0 +1,175 @@
+{
+    "ID": "msupply",
+    "Name": "Open mSupply",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Website": {
+      "main": {
+        "url": "https://msupply.foundation",
+        "description": "Official site for mSupply"
+      },
+      "docs": {
+        "url": "",
+        "description": "User and developer documentation"
+      },
+      "source_code": {
+        "url": "https://github.com/msupply-foundation/open-msupply",
+        "description": "Main code repository"
+      },
+      "demo": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "GlobalGoodsType": ["software"],
+    "ClimateHealth": false,
+    "License": "gpl-3.0",
+    "Contact": [
+      {
+        "name": "mSupply Foundation",
+        "email": "info@msupply.foundation",
+        "role": "Project Team"
+      }
+    ],
+    "Classifications": {
+      "SDGs": ["SDG-3"],
+      "WHO": ["WHO_B6", "WHO_A8", "WHO_C3", "WHO_C7", "WHO_C9", "WHO_D3"],
+      "WMO": [],
+      "DPI": []
+    },
+    "StandardsAndInteroperability": {
+      "HealthStandards": ["ICD-10"],
+      "Interoperability": ["GS1", "HL7 FHIR"],
+      "ClimateStandards": []
+    },
+    "ProductOverview": {
+      "Summary": "Open-source supply chain management system for health and humanitarian organizations.",
+      "Description": "mSupply is a comprehensive platform for managing medical supplies, pharmaceuticals, and essential goods throughout the supply chain, from procurement to distribution, designed for low-resource settings.",
+      "PrimaryFunctionality": "Supply chain management and inventory tracking",
+      "Users": "Ministries of health, NGOs, Health workers, Supply chain managers, Procurement officers, Warehouse managers, Emergency response teams",
+      "Languages": ["en", "fr", "es", "pt"],
+      "Screenshots": [
+        {
+          "url": "/uploads/screenshot_placeholder.jpeg",
+          "description": "mSupply dashboard interface"
+        }
+      ]
+    },
+    "Reach": {
+      "SummaryOfReach": "Deployed in over 20 countries for medical supply chain management, pharmaceutical tracking, and emergency response across public health programs and humanitarian organizations.",
+      "NumberOfImplementations": 50,
+      "ImplementationMapOverview": {
+        "url": "https://msupply.foundation/map",
+        "description": "Global reach map"
+      },
+      "ImplementationCountries": ["co", "ht", "gm", "sl", "ci", "st", "ng", "ne", "dj", "tz", "zm", "ao", "km", "td", "ml", "np", "mm", "la", "kh", "tl", "pw", "pg", "fm", "sb", "nr", "tv", "fj", "ws", "ki", "vu", "to"]
+    },
+    "Maturity": {
+      "SummaryOfMaturity": "Well-established platform with strong community support and technical capabilities.",
+      "Scores": [
+        {
+          "year": 2024,
+          "global_utility": 10,
+          "community_support": 10,
+          "maturity_of_gg": 10,
+          "inclusive_design": 8,
+          "climate_resilience": 8,
+          "low_carbon": 8
+        }
+      ]
+    },
+    "ClimateAndHealthIntegration": {
+      "Description": ""
+    },
+    "Community": {
+      "DescriptionOfCommunity": "Active global community focused on supply chain management in health and humanitarian contexts.",
+      "HostAnchorOrganization": {
+        "name": "mSupply Foundation",
+        "url": "https://msupply.foundation",
+        "description": "Foundation dedicated to mSupply development and support",
+        "country": ["nz"]
+      },
+      "InceptionYear": 2005,
+      "SizeOfCommunity": "",
+      "Links": {
+        "Community": {
+          "url": "",
+          "description": ""
+        },
+        "MailingList": {
+          "url": "",
+          "description": ""
+        }
+      },
+      "Events": {
+        "description": "",
+        "schedule": "",
+        "recent": [
+          {
+            "event": "",
+            "date": "",
+            "url": ""
+          }
+        ]
+      },
+      "Policies": {
+        "Description": "Committed to open source principles and responsible supply chain governance.",
+        "Governance": {
+          "url": "",
+          "description": "mSupply governance framework"
+        },
+        "TermsOfUse": {
+          "url": "",
+          "description": "Terms of use"
+        },
+        "UserAgreement": {
+          "url": "",
+          "description": "User agreement"
+        },
+        "PrivacyPolicy": {
+          "url": "",
+          "description": "Privacy policy"
+        },
+        "DoNoHarm": {
+          "url": "",
+          "description": "Do no harm principles"
+        },
+        "PIICollected": {
+          "url": "",
+          "description": "PII collection policies"
+        },
+        "NPIIUsed": {
+          "url": "",
+          "description": "Non-PII usage policies"
+        }
+      }
+    },
+    "InclusiveDesign": {
+      "Description": "",
+      "UserInput": "",
+      "OfflineSupport": ""
+    },
+    "EnvironmentalImpact": {
+      "LowCarbon": ""
+    },
+    "TotalCostOfOwnership": {
+      "Description": "",
+      "url": ""
+    },
+    "Sustainability": {
+      "Description": "",
+      "KeyFundersSupporters": []
+    },
+    "Resources": {
+      "Articles": [],
+      "ProductDocumentation": [],
+      "UserRequirements": [],
+      "EndUserDocumentation": [],
+      "ImplementerDocumentation": [],
+      "DeveloperDocumentation": [],
+      "OperatorDocumentation": [],
+      "InstallationDocumentation": []
+    },
+    "LinkedInitiatives": {
+      "Initiative": []
+    }
+}

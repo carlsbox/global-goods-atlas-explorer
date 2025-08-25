@@ -1,0 +1,197 @@
+{
+  "ID": "opensrp",
+  "Name": "OpenSRP",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "https://smartregister.org",
+      "description": "Open Smart Register"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/opensrp/fhircore",
+      "description": "FHIR-native OpenSRP2 repositories"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "apache-2.0",
+  "Contact": [
+    {
+      "name": "Matt Berg",
+      "email": "mberg@ona.io"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_A2"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["ICD-9", "ICD-11", "ICD-10", "CIEL", "LOINC", "SNOMED-CT"],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenSRP is an open source mobile health platform that enables frontline health workers to register and track clients and services at community and facility levels.",
+    "Description": "OpenSRP 2 is a FHIR-native platform designed to support health systems delivering services and collecting data offline in communities and facilities. It interoperates with DHIS2, RapidPro and OpenHIM and demonstrates application of WHO SMART Guidelines.",
+    "PrimaryFunctionality": "Electronic Immunization Register and community service delivery; standards-based interoperability across immunization product suite.",
+    "Users": "Community health workers and facility staff (nurses, doctors, medical officers)",
+    "Languages": [],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Used in 14+ implementations (including national scale) with 150M+ patients registered as of June 2023.",
+    "NumberOfImplementations": 13,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": ["br", "tn", "ug", "gn", "lr", "rw", "tz", "mz", "ls", "zw"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 7,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "~400 members with ~150 active participants across multiple countries; community collaborates via Slack, GitHub and bi-monthly calls.",
+    "HostAnchorOrganization": {
+      "name": "Ona",
+      "url": "ona.io",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 0,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {
+        "url": "https://join.slack.com/t/opensrp/shared_invite/zt-1gqdlgdbb-37T3FTAmP56vxKN5du9PoQ",
+        "description": "Slack community invite"
+      },
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "OpenSRP is stewarded by Ona with a governance group of technical and implementing partners; supported through grants and implementation funding.",
+    "KeyFundersSupporters": [
+      { "name": "UNICEF", "url": "" },
+      { "name": "Gates Foundation", "url": "" },
+      { "name": "World Health Organization", "url": "" },
+      { "name": "Last Mile Health", "url": "" },
+      { "name": "Village Reach", "url": "" },
+      { "name": "Patrick J. McGovern", "url": "" },
+      { "name": "Mastercard", "url": "" }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      { "description": "GitHub Wiki", "url": "https://github.com/opensrp/fhircore/wiki" }
+    ],
+    "UserRequirements": [
+      { "description": "Requirements (Wiki)", "url": "https://github.com/opensrp/fhircore/wiki" }
+    ],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      { "description": "Issue Tracker", "url": "https://github.com/opensrp/fhircore/issues" },
+      { "description": "Architecture", "url": "https://github.com/opensrp/fhircore/wiki" }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the SDGs by facilitating discovery and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/opensrp"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/opensrp"
+      }
+    ]
+  }
+}
+
+

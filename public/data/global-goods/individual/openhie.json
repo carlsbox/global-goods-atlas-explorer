@@ -1,0 +1,211 @@
+{
+  "ID": "openhie",
+  "Name": "Open Health Information Exchange (OpenHIE) Architecture Specification",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "Website https://ohie.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "https://guides.ohie.org/arch-spec/get-started ",
+      "description": ""
+    },
+    "source_code": {
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "content"
+  ],
+  "ClimateHealth": false,
+  "License": "cc-by-4.0",
+  "Contact": [
+    {
+      "email": "jamie@ohie.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "ADX"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenHIE is a global mission-driven community of practice dedicated to improving the health of the underserved through open and collaborative development and support of country driven, large scale health information sharing architectures. The OpenHIE community supports interoperability by creating a reusable architectural framework called the OpenHIE Architecture that introduces a service-oriented approach which maximally leverages health information standards, enables flexible implementation by country partners, and supports interchangeability of individual components.",
+    "Description": "OpenHIE and its component framework (e.g. Client Registry, Health Worker Registry, Shared Health Record, Terminology Services, etc.) support several standards for sending, receiving and storing clinical and/or administrative data related to patient care.  OpenHIE workflows are the technical data exchange patterns for sharing health data between one or more of the OpenHIE Architecture components and/or other health information systems.  OpenHIE uses community forums and Architecture Summits to incorporate community review and feedback around all of its offerings. It is made up of organizations that endorse the OpenHIE framework and collaborate on OpenHIE resources.",
+    "PrimaryFunctionality": "The purpose of the OpenHIE Architecture Specification is to:\n- Provide an overview of the OpenHIE Architecture\n- Articulate the requirements for OpenHIE components\n- Articulate the workflows (data exchanges) that are currently recognized as data exchange patterns to follow\n- Provide a reference for implementers to use in their architecture and/or implementations",
+    "Users": "The primary users of the OpenHIE Architecture Specification typically include implementers, software development teams and Ministries of Health.",
+    "Languages": [
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "OpenHIE is a community of practice and its content is open to all. The online and bi-directional open structure makes it challenging to fully appreciate how far adoption of OpenHIE concepts have gone. However at a recent face-to-face community event in Malawi there was representation from over 30 countries from various regions all over the globe. Countries and implementers shared their different journeys in advancing health information exchange in their countries based on the OpenHIE architecture framework.\n\nThe following countries have included or referenced the OpenHIE framework as part of their Digital Health strategy, eHealth strategy, HIS strategy, or related framework, or have referenced the OpenHIE architecture framework as part of pre- or in-service training programs:   Côte d'Ivoire, Haiti, Kenya, Malawi, Nepal, Ethiopia, Rwanda, Sri Lanka, Tanzania, Uganda",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": "https://ohie.org/implementations/"
+    },
+    "ImplementationCountries": [
+      "ci",
+      "ht",
+      "mw",
+      "np",
+      "et",
+      "rw",
+      "lk",
+      "tz",
+      "ug"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 9,
+        "community_support": 7,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenHIE has a diverse global community including implementers, developers, standards experts, and health system stakeholders from around the world.",
+    "HostAnchorOrganization": {
+      "name": "OpenHIE Community",
+      "url": "https://ohie.org/",
+      "description": "Global community of practice for health information exchange",
+      "country": []
+    },
+    "InceptionYear": 2010,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "forum": "https://ohie.org/community/",
+      "wiki": "https://wiki.ohie.org/",
+      "conference": "https://ohie.org/events/"
+    },
+    "Events": {
+      "description": "Annual OpenHIE Community Meeting and regular working group calls",
+      "schedule": "Annual conference and monthly working group meetings",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "OpenHIE follows open community governance principles with transparent decision-making processes.",
+      "Governance": {
+        "url": "https://ohie.org/governance/",
+        "description": "Community governance model with working groups and steering committee"
+      },
+      "TermsOfUse": {
+        "url": "https://ohie.org/terms/",
+        "description": "Terms of use for the community and resources"
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "https://ohie.org/privacy/",
+        "description": "Privacy policy for community participation"
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "OpenHIE is designed to be inclusive of different health system contexts and technical capabilities, with flexible implementation approaches.",
+    "UserInput": "Community feedback and working group input inform framework development",
+    "OfflineSupport": "Components can be deployed in various connectivity environments"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Open source framework reduces carbon footprint of health information exchange implementations"
+  },
+  "TotalCostOfOwnership": {
+    "Description": "OpenHIE framework is free to use, with costs related to implementation, customization, and ongoing support.",
+    "url": "https://ohie.org/cost-analysis/"
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": [
+      "USAID",
+      "PEPFAR",
+      "Global Fund",
+      "World Bank",
+      "Implementing Partners"
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": " https://guides.ohie.org/arch-spec/architecture-specification/standards-and-profiles  "
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": " https://guides.ohie.org/arch-spec/introduction"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

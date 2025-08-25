@@ -1,167 +1,303 @@
-
 {
-    "ID": "openmrs",
-    "Name": "OpenMRS",
-    "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
-    "Website": {
-      "main": {
-        "url": "https://openmrs.org",
-        "description": "Official site for OpenMRS"
-      },
-      "docs": {
-        "url": "https://wiki.openmrs.org/display/docs",
-        "description": "User and developer documentation"
-      },
-      "source_code": {
-        "url": "https://github.com/openmrs/openmrs-core",
-        "description": "Main code repository"
-      },
-      "demo": {
-        "url": "https://demo.openmrs.org",
-        "description": "Test OpenMRS online"
-      }
+  "ID": "OpenMRS",
+  "Name": "OpenMRS",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "https://openmrs.org",
+      "description": "Official website for OpenMRS"
     },
-    "GlobalGoodsType": ["software"],
-    "ClimateHealth": false,
-    "License": "mpl-2.0",
-    "Contact": [
+    "docs": {
+      "url": "https://wiki.openmrs.org/display/docs",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/openmrs/openmrs-core",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mpl-2.0",
+  "Contact": [
+    {
+      "name": "OpenMRS Community",
+      "email": "talk@openmrs.org",
+      "role": "Community Support"
+    },
+    {
+      "name": "OpenMRS Foundation",
+      "email": "foundation@openmrs.org",
+      "role": "Foundation Support"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A5",
+      "WHO_A6",
+      "WHO_C6",
+      "WHO_C11",
+      "WHO_D2",
+      "WHO_D8"
+    ],
+    "WMO": [],
+    "DPI": [
+      "DPI_BD2"
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "HL7",
+      "ICD-11",
+      "ICD-9",
+      "ICD-10",
+      "SNOMED-CT",
+      "CIEL"
+    ],
+    "Interoperability": [
+      "FHIR",
+      "HL7 V2",
+      "HL7 V3",
+      "ADX"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
+    "Description": "OpenMRS, as an open-source project, provides a unique solution which puts local providers and patients at the center of their health information ecosystem. It allows for low-resource settings, in particular, to benefit from the contributions of others while being able to customize and “own” their own technologies. This is a foundational transformation that allows for local innovation and the development of new solutions to difficult health-related problems. When OpenMRS implementers customize the OpenMRS platform and reference application in response to local user needs and country context, the resulting OpenMRS implementation becomes an essential point-of-service system in a country's health information exchange architecture. The OpenMRS community accompanies this work with a model that supports community development, capacity building, and local ownership. Countries such as Kenya, Nigeria, Mozambique, Haiti, Rwanda, and Uganda have widely adopted OpenMRS as their premier EMR platform or have declared it to be their official EMR.",
+    "PrimaryFunctionality": "OpenMRS is a scalable, modular, interoperable, open source electronic medical records platform (EMR), designed for use with other health information systems and in resource-constrained settings. Since OpenMRS’ launch in 2007, more than 6,700 healthcare clinics in over 35 countries are using OpenMRS to provide improved healthcare to 15.8 million patients. OpenMRS provides health care workers with easier and greater access to data from longitudinal patient records that can inform patient care. Increasingly, data from OpenMRS is also used by digital health leaders to inform the public health decisions needed to achieve the UN Sustainable Development Goals, measure progress towards UNAIDS’ 95-95-95 targets for HIV epidemic control, respond to outbreaks such as Ebola and COVID-19, and achieve universal health coverage.",
+    "Users": "Healthcare providers, IT administrators, developers, implementers, and health system managers",
+    "Languages": [
       {
-        "name": "OpenMRS Community",
-        "email": "community@openmrs.org",
-        "role": "Community Support"
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "de",
+        "name": "German"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
       }
     ],
-    "Classifications": {
-      "SDGs": ["SDG-3", "SDG-9", "SDG-17"],
-      "WHO": ["WHO_B1"],
-      "WMO": ["WMO_C1"],
-      "DPI": ["DPI_HC1"]
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Since OpenMRS’ launch in 2007, more than 6,700 healthcare clinics in over 35 countries are using OpenMRS to provide improved healthcare to 15.8 million patients Countries such as Kenya, Nigeria, Mozambique, Haiti, Rwanda, and Uganda have widely adopted OpenMRS as their premier EMR platform or have declared it to be their official EMR.",
+    "NumberOfImplementations": 6700,
+    "ImplementationMapOverview": {
+      "url": "https://atlas.openmrs.org/"
     },
-    "StandardsAndInteroperability": {
-      "HealthStandards": ["HL7 FHIR", "ICD-10"],
-      "Interoperability": ["REST"],
-      "ClimateStandards": []
-    },
-    "ProductOverview": {
-      "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments.",
-      "Description": "OpenMRS enables the design of a customized medical records system with no programming knowledge. It is used to manage patient records, support clinical care, and improve health outcomes.",
-      "PrimaryFunctionality": "Electronic medical records management",
-      "Users": "Clinicians, hospitals, ministries of health, NGOs",
-      "Languages": ["en", "fr", "es", "pt"],
-      "Screenshots": [
-        { "url": "https://openmrs.org/images/screenshot1.png", "description": "OpenMRS dashboard screenshot" },
-        { "url": "https://openmrs.org/images/screenshot2.png", "description": "Patient record view" }
-      ]
-    },
-    "Reach": {
-      "SummaryOfReach": "Implemented in over 50 countries across Africa, Asia, and Latin America.",
-      "NumberOfImplementations": 120,
-      "ImplementationMapOverview": {
-        "url": "https://openmrs.org/map",
-        "description": "Global reach map"
-      },
-      "ImplementationCountries": ["tt", "py", "tr", "cv", "pg", "cf", "bt", "fj", "ph", "bs", "mk", "vn", "ae", "bo", "qa", "cz", "so", "bh", "bd", "lr", "id", "ro", "sd", "ke", "gt", "mm", "sm", "va", "se", "br", "am", "lt", "si", "lk", "ht", "dm", "az", "dz", "no", "ga", "kr", "md", "gy", "et", "by", "mv", "pa", "gm", "au", "er", "ni", "nl", "mu", "mn", "in", "tv", "jo", "al", "pe", "ge", "za", "mt", "gn", "ng", "do", "es", "ag", "cn", "bg", "nz", "cy", "ne", "ma", "uz", "is", "il", "bz", "pk", "gh", "me", "cl", "ua", "la", "tg", "dk", "tz", "mg", "sn", "lu", "ao", "tn", "rs", "na", "ec", "rw"]
-    },
-    "Maturity": {
-      "SummaryOfMaturity": "Highly mature, with a large and active global community and proven deployments.",
-      "Scores": [
-        { "year": 2023, "global_utility": 9, "community_support": 9, "maturity_of_gg": 9, "inclusive_design": 8, "climate_resilience": 7, "low_carbon": 7 },
-        { "year": 2022, "global_utility": 9, "community_support": 8, "maturity_of_gg": 9, "inclusive_design": 8, "climate_resilience": 6, "low_carbon": 7 },
-        { "year": 2021, "global_utility": 8, "community_support": 8, "maturity_of_gg": 8, "inclusive_design": 7, "climate_resilience": 5, "low_carbon": 6 }
-      ]
-    },
-    "ClimateAndHealthIntegration": {
-      "Description": "Integrates with climate data sources to support health system resilience and disease surveillance."
-    },
-    "Community": {
-      "DescriptionOfCommunity": "Large, vibrant open-source community with global contributors and regular events.",
-      "HostAnchorOrganization": {
-        "name": "OpenMRS Inc.",
-        "url": "https://openmrs.org",
-        "description": "Non-profit supporting OpenMRS community",
-        "country": ["us"]
-      },
-      "InceptionYear": 2004,
-      "SizeOfCommunity": 7000,
-      "Links": {
-        "Community": { "url": "https://talk.openmrs.org", "description": "Community forum" },
-        "MailingList": { "url": "https://openmrs.org/newsletter", "description": "Join the newsletter" }
-      },
-      "Events": {
-        "description": "Annual OpenMRS Implementers Meeting and regular online meetups.",
-        "schedule": "https://openmrs.org/events",
-        "recent": [
-          { "event": "OpenMRS Implementers Meeting 2023", "date": "2023-12-01", "url": "https://openmrs.org/implementers2023" }
-        ]
-      },
-      "Policies": {
-        "Description": "Open governance and user protection policies.",
-        "Governance": { "url": "https://openmrs.org/governance", "description": "Governance documentation" },
-        "TermsOfUse": { "url": "https://openmrs.org/terms-of-use", "description": "Terms of use" },
-        "UserAgreement": { "url": "https://openmrs.org/user-agreement", "description": "User agreement" },
-        "PrivacyPolicy": { "url": "https://openmrs.org/privacy-policy", "description": "Privacy policy" },
-        "DoNoHarm": { "url": "https://openmrs.org/do-no-harm", "description": "Do no harm" },
-        "PIICollected": { "url": "https://openmrs.org/pii-collected", "description": "PII collected" },
-        "NPIIUsed": { "url": "https://openmrs.org/npii-used", "description": "NPII used" }
+    "ImplementationCountries": [
+      "cr",
+      "mx",
+      "gt",
+      "pe",
+      "ar",
+      "ki",
+      "id",
+      "in",
+      "ph",
+      "vn",
+      "pk",
+      "lk",
+      "np",
+      "tj",
+      "kz",
+      "hu",
+      "et",
+      "za",
+      "ls",
+      "zm",
+      "mz",
+      "mw",
+      "rw",
+      "bi",
+      "ug",
+      "ke",
+      "tz",
+      "cm",
+      "bw",
+      "na",
+      "ng",
+      "gh",
+      "lr",
+      "sl"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 8,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
       }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenMRS has one of the largest and most active open source health software communities globally, with thousands of contributors, implementers, and users across the world.",
+    "HostAnchorOrganization": {
+      "name": "OpenMRS Foundation",
+      "url": "https://openmrs.org/foundation/",
+      "description": "Non-profit organization supporting the OpenMRS community and platform",
+      "country": []
     },
-    "InclusiveDesign": {
-      "Description": "Supports multiple languages, offline mode, and accessibility features.",
-      "UserInput": "Collected via forums, GitHub, and user surveys.",
-      "OfflineSupport": "Yes"
+    "InceptionYear": 2004,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "forum": "https://talk.openmrs.org/",
+      "wiki": "https://wiki.openmrs.org/",
+      "conference": "https://openmrs.org/events/"
     },
-    "EnvironmentalImpact": {
-      "LowCarbon": "Can be deployed on low-power hardware and green infrastructure."
+    "Events": {
+      "description": "Annual OpenMRS Implementers Meeting and regular community calls",
+      "schedule": "Annual conference and monthly community calls",
+      "recent": []
     },
-    "TotalCostOfOwnership": {
-      "Description": "Free and open-source, with low implementation and maintenance costs.",
-      "url": "https://openmrs.org/tco"
-    },
-    "Sustainability": {
-      "Description": "Supported by global donors, NGOs, and a strong volunteer community.",
-      "KeyFundersSupporters": [
-        { "name": "The Global Fund", "url": "https://www.theglobalfund.org", "description": "Primary funding partner" },
-        { "name": "USAID", "url": "https://www.usaid.gov", "description": "Major donor" },
-        { "name": "Bill & Melinda Gates Foundation", "url": "https://www.gatesfoundation.org", "description": "Supporter" }
-      ]
-    },
-    "Resources": {
-      "Articles": [
-        { "description": "Case study: OpenMRS in Kenya", "url": "https://openmrs.org/case-kenya" },
-        { "description": "Case study: OpenMRS in India", "url": "https://openmrs.org/case-india" }
-      ],
-      "ProductDocumentation": [
-        { "description": "Product Documentation", "url": "https://wiki.openmrs.org/display/docs/Product+Documentation" }
-      ],
-      "UserRequirements": [
-        { "description": "User Requirements", "url": "https://wiki.openmrs.org/display/docs/User+Requirements" }
-      ],
-      "EndUserDocumentation": [
-        { "description": "User manual", "url": "https://wiki.openmrs.org/display/docs/User+Manual" }
-      ],
-      "ImplementerDocumentation": [
-        { "description": "Implementer Documentation", "url": "https://wiki.openmrs.org/display/docs/Implementer+Documentation" }
-      ],
-      "DeveloperDocumentation": [
-        { "description": "Developer Documentation", "url": "https://wiki.openmrs.org/display/docs/Developer+Documentation" }
-      ],
-      "OperatorDocumentation": [
-        { "description": "Operator Documentation", "url": "https://wiki.openmrs.org/display/docs/Operator+Documentation" }
-      ],
-      "InstallationDocumentation": [
-        { "description": "Installation Documentation", "url": "https://wiki.openmrs.org/display/docs/Installation+Documentation" }
-      ]
-    },
-    "LinkedInitiatives": {
-      "Initiative": [
-        {
-          "collectionInitiative": "dpga",
-          "tool_url": "https://digitalpublicgoods.net/registry/openmrs.html"
-        },
-        {
-          "collectionInitiative": "dial-exchange",
-          "tool_url": "https://exchange.dial.global/a/products/openmrs"
-        }
-      ]
+    "Policies": {
+      "Description": "OpenMRS follows open source best practices with clear governance and contribution guidelines.",
+      "Governance": {
+        "url": "https://openmrs.org/about/governance/",
+        "description": "Community-driven governance model with elected leadership"
+      },
+      "TermsOfUse": {
+        "url": "https://openmrs.org/terms-of-use/",
+        "description": "Standard terms of use for the platform"
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "https://openmrs.org/privacy-policy/",
+        "description": "Privacy policy for the platform and community"
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
     }
+  },
+  "InclusiveDesign": {
+    "Description": "OpenMRS is designed to be accessible and usable in low-resource settings with support for multiple languages and offline functionality.",
+    "UserInput": "Extensive community feedback and user research inform design decisions",
+    "OfflineSupport": "Full offline functionality with data synchronization when connectivity is restored"
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": "Open source deployment reduces carbon footprint compared to proprietary solutions"
+  },
+  "TotalCostOfOwnership": {
+    "Description": "OpenMRS is free to use and modify, with costs primarily related to implementation, customization, and ongoing support.",
+    "url": "https://openmrs.org/cost-of-ownership/"
+  },
+  "Sustainability": {
+    "Description": "Country-specific development and deployment of OpenMRS is primarily supported through implementation funding, with some code contributed back to the community's shared code base, depending on the implementing organization's willingness to contribute upstream. In the last four years, the OpenMRS Community has successfully partnered with implementing organizations to receive grant funding that supports essential community roles (Community Director, Product Director, Community Development Lead, Senior Software Architect, etc). ",
+    "KeyFundersSupporters": [
+      "OpenMRS Foundation",
+      "Partners In Health",
+      "AMPATH",
+      "Global Fund",
+      "USAID"
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "OpenMRS as a Global Good: 15 years of impact: ",
+        "url": "https://doi.org/10.1016/j.ijmedinf.2021.104405 "
+      },
+      {
+        "description": "Open-Source Electronic Health Record Systems for Low-Resource Settings: Systematic Review:",
+        "url": ""
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "OpenMRS Product Information",
+        "url": "https://o3-dev.docs.openmrs.org/#/"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://wiki.openmrs.org/display/docs/Reference+Application+2.10.0"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Troubleshooting Guidance",
+        "url": "https://talk.openmrs.org/c/ask/41"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": "https://o3-dev.docs.openmrs.org/#/under_the_hood/architecture"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/openmrs"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openmrs"
+      }
+    ]
   }
+}

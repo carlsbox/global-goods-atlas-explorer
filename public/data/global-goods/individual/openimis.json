@@ -1,0 +1,193 @@
+{
+  "ID": "opnimis",
+  "Name": "openIMIS",
+  "Logo": "/uploads/gg_logos/openimis.svg",
+  "Website": {
+    "main": {
+      "url": "https://www.openimis.org/",
+      "description": "Official openIMIS website"
+    },
+    "docs": {
+      "url": "https://docs.openimis.org/en/latest/",
+      "description": "User and implementer documentation"
+    },
+    "source_code": {
+      "url": "https://github.com/openimis",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["software"],
+  "ClimateHealth": false,
+  "License": "agpl-3.0",
+  "Contact": [
+    {
+      "email": "contact@openimis.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_D2"],
+    "WMO": [],
+    "DPI": ["DPI_BD4"]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["ICD-11", "ICD-10", "ICD-9"],
+    "Interoperability": ["FHIR", "ADX"],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
+    "Description": "",
+    "PrimaryFunctionality": "",
+    "Users": "Scheme operators (payer), hospital administration (provider), field staff (beneficiaries)",
+    "Languages": [],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "More than 10 million people in eight countries benefit from schemes managed using openIMIS.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": ["np", "tz", "zm", "ne", "ng", "td", "gm", "mr"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 7,
+        "community_support": 10,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The major source of funding comes from a joint initiative of the Swiss and the German governments. openIMIS also sees increasing support from international organizations such as World Bank and the European Union.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation portal",
+        "url": "https://docs.openimis.org/en/latest/"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "Functional Spec",
+        "url": "https://openimis.atlassian.net/wiki/spaces/OP/pages/884310057/Product+Incubator"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://docs.openimis.org/en/latest/"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Documentation",
+        "url": "https://openimis.atlassian.net/wiki/spaces/OP/pages/1277493249/Developer+Starter+Kit%20Module%20specific%20developer%20documentation%20is%20to%20be%20found%20in%20their%20respective%20repositories:%20https://openimis.atlassian.net/wiki/spaces/OP/pages/368508929/Sources"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/openimis"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openimis"
+      }
+    ]
+  }
+}

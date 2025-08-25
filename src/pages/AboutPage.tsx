@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Code, Users, ExternalLink, BookOpen, FileText, Database, Settings, Mail } from "lucide-react";
+import { Heart, Code, Users, ExternalLink, BookOpen, FileText, Database, Settings, Mail, Globe, Calendar } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
 
 export default function AboutPage() {
@@ -62,7 +62,7 @@ export default function AboutPage() {
               {tPage('globalGoods.definition', 'about')}
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-center">
@@ -104,6 +104,48 @@ export default function AboutPage() {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <Globe className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.climate.title', 'about')}</h3>
+                    <p className="text-muted-foreground">
+                      {tPage('globalGoods.types.climate.description', 'about')}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <Database className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.data.title', 'about')}</h3>
+                    <p className="text-muted-foreground">
+                      {tPage('globalGoods.types.data.description', 'about')}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <Settings className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{tPage('globalGoods.types.ai.title', 'about')}</h3>
+                    <p className="text-muted-foreground">
+                      {tPage('globalGoods.types.ai.description', 'about')}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -133,13 +175,31 @@ export default function AboutPage() {
                 <p className="text-muted-foreground mb-4">
                   {tPage('process.result', 'about')}
                 </p>
-                <p className="text-primary font-medium cursor-pointer hover:underline">
+                <p className="text-primary font-medium cursor-pointer hover:underline mb-4">
                   {tPage('process.prgLink', 'about')}
                 </p>
+                
+                <div className="bg-secondary/20 p-6 rounded-lg mt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Calendar className="h-4 w-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">{tPage('process.openCalls.title', 'about')}</h3>
+                  </div>
+                  <p className="text-muted-foreground mb-3">
+                    {tPage('process.openCalls.description', 'about')}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {tPage('process.openCalls.linkedinText', 'about')}{' '}
+                    <a href="https://www.linkedin.com/company/path/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                      LinkedIn
+                    </a>
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="mb-12">
               <CardContent className="pt-8">
                 <h2 className="text-3xl font-bold mb-6">{tPage('maturityModel.title', 'about')}</h2>
                 <p className="text-muted-foreground mb-4">
@@ -153,6 +213,48 @@ export default function AboutPage() {
                 </p>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardContent className="pt-8">
+                <h2 className="text-3xl font-bold mb-6">{tPage('productSuites.title', 'about')}</h2>
+                <p className="text-muted-foreground mb-6">
+                  {tPage('productSuites.content', 'about')}
+                </p>
+                
+                <h3 className="text-xl font-semibold mb-4">{tPage('productSuites.requirements.title', 'about')}</h3>
+                <ul className="list-disc pl-6 mb-6 space-y-2">
+                  <li className="text-muted-foreground">Use Digital Square-approved global goods or tools meeting Digital Public Good (DPG) standards</li>
+                  <li className="text-muted-foreground">Be open source (OSI-approved license) or on the path to becoming open source</li>
+                  <li className="text-muted-foreground">Fulfill clear functional and non-functional requirements</li>
+                  <li className="text-muted-foreground">Support standards-based interoperability (e.g., HL7 FHIR, GS1, OpenHIE workflows)</li>
+                  <li className="text-muted-foreground">Align with WHO SMART Guidelines, ideally progressing to executable reference software</li>
+                  <li className="text-muted-foreground">Include up-to-date user and technical documentation (Creative Commons licensed)</li>
+                  <li className="text-muted-foreground">Demonstrate quality assurance through documented testing results</li>
+                </ul>
+
+                <h3 className="text-xl font-semibold mb-3">{tPage('productSuites.immunization.title', 'about')}</h3>
+                <p className="text-muted-foreground mb-4">
+                  {tPage('productSuites.immunization.description', 'about')}
+                </p>
+                <a href="https://opensrp.io/global-immunization-product-suite/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+                  {tPage('productSuites.immunization.linkText', 'about')}
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-secondary/30">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">{tPage('contact.title', 'about')}</h2>
+            <Button asChild size="lg">
+              <a href="mailto:globalgoods@path.org">
+                <Mail className="mr-2 h-5 w-5" />
+                {tPage('contact.buttonText', 'about')}
+              </a>
+            </Button>
           </div>
         </div>
       </section>

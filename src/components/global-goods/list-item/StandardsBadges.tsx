@@ -1,5 +1,6 @@
 
 import { Badge } from "@/components/ui/badge";
+import { useEnhancedReferenceData } from "@/hooks/useEnhancedReferenceData";
 
 interface Standard {
   code: string;
@@ -13,6 +14,8 @@ interface StandardsBadgesProps {
 }
 
 export function StandardsBadges({ healthStandards, interopStandards }: StandardsBadgesProps) {
+  const { getStandardName } = useEnhancedReferenceData();
+  
   if (healthStandards.length === 0 && interopStandards.length === 0) return null;
 
   return (
@@ -22,14 +25,14 @@ export function StandardsBadges({ healthStandards, interopStandards }: Standards
         {/* Health Standards */}
         {healthStandards.slice(0, 2).map((standard) => (
           <Badge key={standard.code} variant="default" className="text-xs bg-red-100 text-red-800 hover:bg-red-200">
-            Health: {standard.code}
+            Health: {getStandardName(standard.code)}
           </Badge>
         ))}
         
         {/* Interoperability Standards */}
         {interopStandards.slice(0, 2).map((standard) => (
           <Badge key={standard.code} variant="default" className="text-xs bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
-            Interop: {standard.code}
+            Interop: {getStandardName(standard.code)}
           </Badge>
         ))}
         

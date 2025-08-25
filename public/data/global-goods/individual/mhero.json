@@ -1,0 +1,221 @@
+{
+  "ID": "mhero",
+  "Name": "mHero",
+  "Logo": "/uploads/gg_logos/mhero.png",
+  "Website": {
+    "main": {
+      "url": "https://www.mhero.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/intrahealth/mhero.git",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "gpl-3.0",
+  "Contact": [
+    {
+      "email": "digitalhealth@intrahealth.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers. ",
+    "Description": "mHero brings together existing health information systems with locally popular communication platforms to facilitate the exchange of important health information. It reduces the barriers that can exist between health workers and their support systems, playing a critical role in ensuring effective and efficient responses, particularly in a crisis.",
+    "PrimaryFunctionality": "Mobile-based communication system for health worker coordination and crisis response",
+    "Users": "The primary users are ministry of health and healthcare workers in facilities, labs, and other sites, as well as training participants.",
+    "Languages": [
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "mHero has been deployed in seven countries to date and was used during the pandemic response in Kenya and Liberia to send guidance to health workers about COVID-19 including urgent alerts, new testing, and treatment guidelines, and to train health workers on infection prevention and control and risk communication.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "ke",
+      "lr",
+      "ug",
+      "ml"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 3,
+        "community_support": 4,
+        "maturity_of_gg": 5,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "mHero is developed and maintained by IntraHealth International with support from the global health community.",
+    "HostAnchorOrganization": {
+      "name": "IntraHealth International",
+      "url": "https://www.intrahealth.org/",
+      "description": "Global health organization focused on health workforce development",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "mHero is supported by grant funding, implementation funding, SaaS, organizational funding.",
+    "KeyFundersSupporters": [
+      {
+        "name": "Gates Foundation",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "Johnson and Johnson",
+        "url": "",
+        "description": ""
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": "https://intrahealth.github.io/emNutt/dev/prerequisites_normal/"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://www.mhero.org/resources"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://www.mhero.org/technology"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/mhero"
+      }
+    ]
+  }
+}

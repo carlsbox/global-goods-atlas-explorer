@@ -26,12 +26,22 @@ export function Footer() {
             <Link to="/create-global-good" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.createGlobalGood', 'navigation')}
             </Link>
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary">
+            <a 
+              href="https://www.path.org/privacy-notice/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
               {tPage('nav.privacy', 'navigation')}
-            </Link>
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary">
+            </a>
+            <a 
+              href="https://www.path.org/terms-use/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
               {tPage('nav.terms', 'navigation')}
-            </Link>
+            </a>
           </div>
         </div>
       </div>

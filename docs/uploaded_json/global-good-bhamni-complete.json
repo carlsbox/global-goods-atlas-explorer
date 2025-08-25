@@ -1,0 +1,549 @@
+{
+  "ID": "bahmni",
+  "Name": "Bahmni",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://www.bahmni.org/",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/bahmni",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "",
+    "name": "",
+    "url": "",
+    "description": ""
+  },
+  "Contact": [
+    {
+      "name": "Coalition-director",
+      "email": "coalition-director@bahmni.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_A5",
+        "title": "Electronic medical record systems",
+        "description": "",
+        "group_code": "A",
+        "group_name": "Point of Service",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "ICD-9",
+        "domain": "Health",
+        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+        "name": "International Classification of Diseases, 9th Revision",
+        "description": "Medical classification list by the World Health Organization containing codes for diseases, signs and symptoms"
+      },
+      {
+        "code": "ICD-11",
+        "domain": "Health",
+        "link": "https://icd.who.int/en",
+        "name": "ICD-11",
+        "description": "International Classification of Diseases, 11th Revision, the latest WHO classification for mortality, morbidity statistics and clinical documentation."
+      },
+      {
+        "code": "ICD-10",
+        "domain": "Health",
+        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+        "name": "International Classification of Diseases, 10th Revision",
+        "description": "Medical classification list by the World Health Organization containing codes for diseases, signs and symptoms"
+      },
+      {
+        "code": "CIEL",
+        "domain": "Health",
+        "link": "https://openconceptlab.org/orgs/CIEL/sources/CIEL/",
+        "name": "CIEL",
+        "description": "Columbia International eHealth Laboratory dictionary, a comprehensive clinical terminology system designed for use in low-resource settings."
+      },
+      {
+        "code": "SNOMED-CT",
+        "domain": "Health",
+        "link": "https://www.snomed.org/",
+        "name": "Systematized Nomenclature of Medicine Clinical Terms",
+        "description": "Comprehensive, multilingual clinical healthcare terminology"
+      },
+      {
+        "code": "LOINC",
+        "domain": "Health",
+        "link": "https://loinc.org/",
+        "name": "Logical Observation Identifiers Names and Codes",
+        "description": "Universal standard for identifying medical laboratory observations"
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      },
+      {
+        "code": "ADX",
+        "domain": "Interoperability",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
+    "Description": "Bahmni improves healthcare delivery through efficient information management, so that decision-making is faster and more reliable across the organization; doctors are enabled to be more effective and accurate while providing care; administrators have the information they need real time.",
+    "PrimaryFunctionality": "Bahmni combines and enhances existing open source products into a single solution. It integrates:\nOpenMRS for electronic medical records and patient management\nOpenERP for inventory, billing, financial accounting\nOpenELIS for laboratory management\nDcm4chee for DICOM and PACS",
+    "Users": "The primary users of Bahmni are: Clinicians - physicians, dentists, pharmacists, physician assistants, field health workers, nurses Hospital Staff - Front desk, receptionists, scribes, billing and administrative staff, Pharmacy and Store managers Medical Technicians - Lab technicians, radiographers Hospital Administrators: To see facility level reports for clinical and operational decisions The end users of Bahmni are typically doctors, specialists, clinical and non-clinical staff at hospitals located in remote parts of the world, most of whom rarely use technology in their daily life. Bahmni was designed to be used by such users. Its configurable interface allows clinical users of different specialties to design forms to capture the data they need. Bahmni is also designed to be used by users in multiple languages.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Bahmni was designed for use in low-resource settings. Typical organizations that form Bahmni’s core user segments are: Large NGOs (e.g. MSF, Cure International), Country Ministries of Health (MOH) - for country-wide implementations, small and medium-sized for-profit and NGO hospitals and research institutes. Estimated 500 known sites worldwide in over 50 countries, managing over twenty million patient records. ",
+    "NumberOfImplementations": 500,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "ht",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Haiti",
+            "formal": "the Republic of Haiti"
+          }
+        }
+      },
+      {
+        "iso_code": "dm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Dominica",
+            "formal": "the Commonwealth of Dominica"
+          }
+        }
+      },
+      {
+        "iso_code": "do",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Dominican Republic (the)",
+            "formal": "the Dominican Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "hn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Honduras",
+            "formal": "the Republic of Honduras"
+          }
+        }
+      },
+      {
+        "iso_code": "ec",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ecuador",
+            "formal": "the Republic of Ecuador"
+          }
+        }
+      },
+      {
+        "iso_code": "pe",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Peru",
+            "formal": "the Republic of Peru"
+          }
+        }
+      },
+      {
+        "iso_code": "gh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ghana",
+            "formal": "the Republic of Ghana"
+          }
+        }
+      },
+      {
+        "iso_code": "gm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Gambia (the)",
+            "formal": "the Republic of the Gambia"
+          }
+        }
+      },
+      {
+        "iso_code": "cm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cameroon",
+            "formal": "the Republic of Cameroon"
+          }
+        }
+      },
+      {
+        "iso_code": "sd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sudan (the)",
+            "formal": "the Republic of the Sudan"
+          }
+        }
+      },
+      {
+        "iso_code": "eg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Egypt",
+            "formal": "the Arab Republic of Egypt"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "bi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burundi",
+            "formal": "the Republic of Burundi"
+          }
+        }
+      },
+      {
+        "iso_code": "ls",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Lesotho",
+            "formal": "the Kingdom of Lesotho"
+          }
+        }
+      },
+      {
+        "iso_code": "sy",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Syrian Arab Republic (the)",
+            "formal": "the Syrian Arab Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "iq",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Iraq",
+            "formal": "the Republic of Iraq"
+          }
+        }
+      },
+      {
+        "iso_code": "in",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "India",
+            "formal": "the Republic of India"
+          }
+        }
+      },
+      {
+        "iso_code": "bd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bangladesh",
+            "formal": "the People's Republic of Bangladesh"
+          }
+        }
+      },
+      {
+        "iso_code": "pk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Pakistan",
+            "formal": "the Islamic Republic of Pakistan"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "bt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bhutan",
+            "formal": "the Kingdom of Bhutan"
+          }
+        }
+      },
+      {
+        "iso_code": "mm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Myanmar",
+            "formal": "the Republic of the Union of Myanmar"
+          }
+        }
+      },
+      {
+        "iso_code": "vn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Viet Nam",
+            "formal": "the Socialist Republic of Viet Nam"
+          }
+        }
+      },
+      {
+        "iso_code": "kh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cambodia",
+            "formal": "the Kingdom of Cambodia"
+          }
+        }
+      },
+      {
+        "iso_code": "ph",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Philippines (the)",
+            "formal": "the Republic of the Philippines"
+          }
+        }
+      },
+      {
+        "iso_code": "id",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Indonesia",
+            "formal": "the Republic of Indonesia"
+          }
+        }
+      },
+      {
+        "iso_code": "pg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Papua New Guinea",
+            "formal": "the Independent State of Papua New Guinea"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 7,
+        "community_support": 10,
+        "maturity_of_gg": 10,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Bahmni has a diverse community. These comprise developers, implementers, medical professionals, health informatics professionals and users.  Since the community is globally distributed, most communication is asynchronous.   ",
+    "HostAnchorOrganization": {
+      "name": "Thoughtworks",
+      "url": "https://www.thoughtworks.com/",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 0,
+    "SizeOfCommunity": 3800,
+    "Links": {
+      "Community": {
+        "url": "https://talk.openmrs.org/c/software/bahmni/36)"
+      },
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Bahmni has a core team, contributed by Bahmni Coalition members, which primarily works on the core product. The size of this core team varies depending on the funding and investment available.  Bahmni also leverages its community, volunteers and often works closely with projects for features aligned to its roadmap.    Bahmni’s product development is largely contributed by Thoughtworks (the primary maintainer) - either directly as part of social impact investments or through the support of Thoughtworks clients like Médecins Sans Frontières (MSF), a Bahmni Coalition member.   ",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/32014338/User+Guide"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/2392073/Implementer+s+Guide",
+        "url": ""
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/1645674497/Active+Bahmni+Initiatives+Projects",
+        "url": "https://bahmni.atlassian.net/wiki/spaces/BAH/pages/2812969012/Architecture+Technical+Documentation"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

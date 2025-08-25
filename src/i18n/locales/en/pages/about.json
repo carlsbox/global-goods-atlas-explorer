@@ -47,7 +47,37 @@
     "content": "The Global Goods Guidebook is a living resource managed by PATH, that identifies and showcases digital tools that meet the criteria for global goods. To be recognized as a global good, a tool must demonstrate open licensing, alignment with the Sustainable Development Goals SDG 3 (Good Health and Well-being) and SDG 13 (Climate Action), and compliance with the Digital Public Good Standard.",
     "review": "PATH issues periodic open calls inviting digital tool developers to submit their tools, including a self-assessment using the Maturity Model. Submissions undergo a rigorous, multi-stage review led by the Peer Review Group (PRG), a diverse panel of experts with technical, programmatic, and regional expertise. This transparent and inclusive process ensures that tools are evaluated holistically and fairly.",
     "result": "Approved tools are featured in the Global Goods Guidebook and its companion PDF Annex, providing users with accessible, up-to-date information to support decision-making and implementation of digital health systems.",
-    "prgLink": "Learn more about the Peer Review Group Members here"
+    "prgLink": "Learn more about the Peer Review Group Members here",
+    "openCalls": {
+      "title": "Open Calls & Applications",
+      "description": "New application opportunities are announced regularly throughout the year, with specific calls targeting different health domains and technology types. Stay informed about upcoming deadlines and application requirements through our official channels.",
+      "linkedinText": "Open calls are publicised through"
+    }
+  },
+  "productSuites": {
+    "title": "Global Goods Product Suites",
+    "content": "A product suite is a package of open-source digital tools configured to support a specific health domain—such as immunization, antenatal care, or telemedicine—through standards-based data exchange. These suites align with international guidance, like WHO Digital Adaptation Kits (DAKs), and are designed to deliver cohesive, interoperable solutions.",
+    "requirements": {
+      "title": "To qualify, a product suite must:",
+      "items": [
+        "Use Digital Square-approved global goods or tools meeting Digital Public Good (DPG) standards",
+        "Be open source (OSI-approved license) or on the path to becoming open source",
+        "Fulfill clear functional and non-functional requirements",
+        "Support standards-based interoperability (e.g., HL7 FHIR, GS1, OpenHIE workflows)",
+        "Align with WHO SMART Guidelines, ideally progressing to executable reference software",
+        "Include up-to-date user and technical documentation (Creative Commons licensed)",
+        "Demonstrate quality assurance through documented testing results"
+      ]
+    },
+    "immunization": {
+      "title": "Immunization Product Suite",
+      "description": "The Immunization Product Suite combines open-source tools to strengthen immunization service delivery in low- and middle-income countries. Its integrated, interoperable design enables rapid deployment of effective digital solutions.",
+      "linkText": "Find out more here."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "buttonText": "Contact Global Goods Team"
   },
   "maturityModel": {
     "title": "Adapting a maturity model",

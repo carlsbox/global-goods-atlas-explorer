@@ -1,0 +1,226 @@
+{
+  "ID": "openlmis",
+  "Name": "OpneLMIS",
+  "Logo": "/uploads/gg_logos/openlmis.png",
+  "Website": {
+    "main": {
+      "url": "https://openlmis.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/OpenLMIS/open-lmis",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "agpl-3.0",
+  "Contact": [
+    {
+      "email": "david.crewebrown@vitalliancecorp.com"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_B6"
+    ],
+    "WMO": [],
+    "DPI": [
+      "DPI_BD1"
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenLMIS is a powerful, open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. OpenLMIS automates LMIS business processes throughout the entire supply chain, reducing the burden on health workers while improving data accuracy, data timeliness, and data visibility.",
+    "Description": "The OpenLMIS Initiative’s mission is to make powerful LMIS software available in low-resource environments – providing high-quality logistics management to improve health commodity distribution in low- and middle-income countries. OpenLMIS increases data visibility, helping supply chain managers identify and respond to commodity needs, particularly at health facilities where lack of data significantly impacts the availability of key medicines and vaccines. OpenLMIS is an open source initiative supported by a collaborative group of partners",
+    "PrimaryFunctionality": "Logistics management information system for health commodity supply chains",
+    "Users": "Supply chain personnel",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "The OpenLMIS software is currently used to manage logistics processes at more than 12,000 health facilities across 14 geographies, primarily in Africa, providing ordering, reporting, and inventory management for a mix of health programs including for vaccines (EPI) as well as HIV, malaria, TB, family planning, and essential medicines. The technology is fundamental to governance and execution within the healthcare supply chains in which it operates and even more so to the health of citizens of these countries. Currently the technology is well adopted, with half of the countries on the latest version of the platform and good interest for the remaining countries to upgrade.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "gm",
+      "gn",
+      "jm",
+      "cm",
+      "ne",
+      "td",
+      "bj",
+      "mz",
+      "mw",
+      "zm",
+      "ao",
+      "tz",
+      "np"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2022,
+        "global_utility": 7,
+        "community_support": 7,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenLMIS is developed and maintained by a global community focused on health supply chain management and logistics.",
+    "HostAnchorOrganization": {
+      "name": "OpenLMIS",
+      "url": "https://openlmis.org/",
+      "description": "Open source logistics management information system",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Primarily Grant and implementation funded but some core funding through 4th level licensing agreements.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "",
+        "url": ""
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://openlmis.atlassian.net/wiki/spaces/OP/pages/88670494/Functional+Documentation"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Documentation Guide",
+        "url": "https://openlmis.atlassian.net/wiki/spaces/OP/pages/26574890/Developer+Guide"
+      },
+      {
+        "description": "Architectural Documentation  ",
+        "url": "https://openlmis.atlassian.net/wiki/spaces/OP/pages/51019809/Architecture+Overview+Version+3"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openlmis"
+      }
+    ]
+  }
+}

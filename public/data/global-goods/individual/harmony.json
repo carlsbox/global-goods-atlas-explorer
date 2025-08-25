@@ -1,7 +1,7 @@
 {
     "ID": "harmony",
     "Name": "Harmony",
-    "Logo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400",
+    "Logo": "/uploads/gg_logos/HarmonyLogo_Horizontal.png",
     "Website": {
       "main": {
         "url": "https://www.zenysis.com/solution/platform/",
@@ -17,7 +17,7 @@
       }
     },
     "GlobalGoodsType": ["software"],
-    "ClimateHealth": true,
+    "ClimateHealth": false,
     "License": "AGPL-3.0",
     "Contact": [
       {
@@ -45,11 +45,11 @@
       "Languages": ["en", "fr", "pt", "vi", "am"],
       "Screenshots": [
         {
-          "url": "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800",
+          "url": "/uploads/screenshot_placeholder.jpeg",
           "description": "Harmony analytics dashboard"
         },
         {
-          "url": "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=800",
+          "url": "/uploads/screenshot_placeholder.jpeg",
           "description": "Data integration interface"
         }
       ]

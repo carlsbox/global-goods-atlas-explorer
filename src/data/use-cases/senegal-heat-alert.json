@@ -2,7 +2,7 @@
 {
   "en": {
     "id": "senegal-heat-alert",
-    "title": "Automated Heat Alert System for Community Health Resilience in Senegal",
+    "title": "EXAMPLE ONLY: Automated Heat Alert System for Community Health Resilience in Senegal",
     "purpose": "This use case addresses the rising health risks posed by extreme heat events in Senegal, particularly for vulnerable populations such as the elderly, children, and people with chronic illnesses. The objective is to provide timely, automated heat alerts to health workers and community members to enable proactive public health responses, reduce heat-related morbidity and mortality, and improve community resilience to climate change.",
     "classifications": {
       "sdg": "SDG-3",

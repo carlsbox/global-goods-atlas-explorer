@@ -36,6 +36,36 @@
     "content": "Las herramientas de salud digital pueden aplicar en cualquier momento a través de nuestro portal de aplicaciones, con revisiones trimestrales por nuestro Comité de Revisión por Pares y Junta de Revisión de Bienes Globales.",
     "requirements": "Las herramientas deben publicarse bajo licencias abiertas, estar respaldadas por comunidades sólidas, financiadas por múltiples fuentes, desplegadas a escala, usadas en múltiples países y diseñadas para interoperabilidad.",
     "applyButton": "Enviar Aplicación",
-    "contactButton": "Contactar Equipo Digital Square"
+    "contactButton": "Contactar Equipo Digital Square",
+    "openCalls": {
+      "title": "Convocatorias Abiertas y Aplicaciones",
+      "description": "Las nuevas oportunidades de aplicación se anuncian regularmente durante todo el año, con convocatorias específicas dirigidas a diferentes dominios de salud y tipos de tecnología. Mantente informado sobre los próximos plazos y requisitos de aplicación a través de nuestros canales oficiales.",
+      "linkedinText": "Las convocatorias abiertas se publican a través de"
+    }
+  },
+  "productSuites": {
+    "title": "Suites de Productos de Bienes Globales",
+    "content": "Una suite de productos es un paquete de herramientas digitales de código abierto configuradas para apoyar un dominio de salud específico—como inmunización, atención prenatal o telemedicina—a través del intercambio de datos basado en estándares. Estas suites se alinean con la orientación internacional, como los Kits de Adaptación Digital de la OMS (DAKs), y están diseñadas para entregar soluciones cohesivas e interoperables.",
+    "requirements": {
+      "title": "Para calificar, una suite de productos debe:",
+      "items": [
+        "Usar bienes globales aprobados por Digital Square o herramientas que cumplan con los estándares de Bien Público Digital (DPG)",
+        "Ser de código abierto (licencia aprobada por OSI) o estar en el camino hacia ser de código abierto",
+        "Cumplir con requisitos funcionales y no funcionales claros",
+        "Apoyar interoperabilidad basada en estándares (ej. HL7 FHIR, GS1, flujos de trabajo OpenHIE)",
+        "Alinearse con las Directrices SMART de la OMS, idealmente progresando hacia software de referencia ejecutable",
+        "Incluir documentación técnica y de usuario actualizada (con licencia Creative Commons)",
+        "Demostrar aseguramiento de calidad a través de resultados de pruebas documentadas"
+      ]
+    },
+    "immunization": {
+      "title": "Suite de Productos de Inmunización",
+      "description": "La Suite de Productos de Inmunización combina herramientas de código abierto para fortalecer la prestación de servicios de inmunización en países de ingresos bajos y medios. Su diseño integrado e interoperable permite el despliegue rápido de soluciones digitales efectivas.",
+      "linkText": "Descubre más aquí."
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "buttonText": "Contactar Equipo de Bienes Globales"
   }
 }

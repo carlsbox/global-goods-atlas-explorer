@@ -1,0 +1,214 @@
+{
+  "ID": "everwell_hub",
+  "Name": "Everwell Hub",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "https://hub.everwell.org/dashboard/overview",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://gitlab.com/everwell/hub-foss",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mit",
+  "Contact": [
+    {
+      "email": "contact@everwell.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C1"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
+    "Description": "The Everwell Hub supports the entire digital cascade of care from diagnosis through treatment support and completion, including fully integrated modules for diagnostics (both lab-generated results and AI diagnostic solutions), digital adherence technologies, virtual care and patient engagement, and digital payments.",
+    "PrimaryFunctionality": "Patient management platform with integrated modules for diagnostics, digital adherence, virtual care, patient engagement, and digital payments",
+    "Users": "The Everwell Hub supports the entire digital cascade of care from diagnosis through treatment support and completion, including fully integrated modules for diagnostics (both lab-generated results and AI diagnostic solutions), digital adherence technologies, virtual care and patient engagement, and digital payments.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": [
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": "Everwell Hub patient management interface"
+      },
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": "Digital health platform dashboard"
+      }
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "The Everwell Hub supports more than 2.4 million cases per year, is used by over 400,000 health care providers, is deployed in over 17 countries, and is adapted for four different public health diseases. The citizen-facing app has over 350,000 downloads, and $350 million has been transferred by way of social benefits to TB citizens in India. Everwell developed Ni-kshay, the national TB case management platform for India, which has enrolled over 14 million patients to-date, making it the largest case management platform for TB in the world.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": "",
+      "description": ""
+    },
+    "ImplementationCountries": [
+      "bf",
+      "ua",
+      "ng",
+      "et",
+      "ug",
+      "tz",
+      "za"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {
+        "url": "",
+        "description": ""
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "KeyFundersSupporters": [
+      {
+        "name": "Nilekani Philanthropies",
+        "url": "https://nilekaniphilanthropies.org",
+        "description": "Philanthropic organization supporting digital health initiatives"
+      },
+      {
+        "name": "Gates Foundation",
+        "url": "https://www.gatesfoundation.org",
+        "description": "Global health and development funding"
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/projects/digital-infrastructure-for-verifiable-open-credentialing-divoc"
+      }
+    ]
+  }
+}

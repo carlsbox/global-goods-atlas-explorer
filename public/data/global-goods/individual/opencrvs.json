@@ -1,0 +1,249 @@
+{
+  "ID": "opencrvs",
+  "Name": "OpenCRVS ",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "https://www.opencrvs.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/opencrvs/opencrvs-core",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mpl-2.0",
+  "Contact": [
+    {
+      "email": "ed@opencrvs.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
+    "Description": "OpenCRVS is an open-source digital platform that helps governments register births, deaths, and other vital events efficiently and securely. It streamlines civil registration processes, improves data accuracy, and supports interoperability with national ID and health systems, enabling countries to provide timely legal identity for all.",
+    "PrimaryFunctionality": "Civil registration and vital statistics system for births, deaths, and other vital events",
+    "Users": "Civil registrars, registration officers, statisticians, community health workers, and community leaders",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Several countries have begun or completed early phases of their eCRVS digital transformation using OpenCRVS, including proofs of concept, pilot projects, and preparations for national rollouts., and national rollout in some.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "ng",
+      "cm",
+      "mg",
+      "ph",
+      "nu"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 0,
+        "community_support": 0,
+        "maturity_of_gg": 0,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      },
+      {
+        "year": 2023,
+        "global_utility": 3,
+        "community_support": 7,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenCRVS hosts an online community forum—a central hub for connecting with civil registration peers worldwide. to discuss challenges, share experiences, and collaboratively shape the product's future.",
+    "HostAnchorOrganization": {
+      "name": "OpenCRVS",
+      "url": "https://opencrvs.org/",
+      "description": "Open source civil registration system",
+      "country": []
+    },
+    "InceptionYear": 2014,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {
+        "url": "https://documentation.opencrvs.org/general/community?utm_source=chatgpt.com"
+      },
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Multi-year core funding and Implementation funding",
+    "KeyFundersSupporters": [
+      {
+        "name": "NORAD",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "Plan International",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "Vital Strategies",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "DIAL",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "Digital Square",
+        "url": "",
+        "description": ""
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "OpenCRVS documentation",
+        "url": "https://documentation.opencrvs.org/"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": "https://documentation.opencrvs.org/product-specifications/functional-architecture"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/opencrvs"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/opencrvs"
+      }
+    ]
+  }
+}

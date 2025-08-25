@@ -1,0 +1,289 @@
+{
+  "ID": "everwell_hub",
+  "Name": "Everwell Hub",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://hub.everwell.org/dashboard/overview",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://gitlab.com/everwell/hub-foss",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "mit",
+    "name": "MIT License",
+    "url": "https://opensource.org/licenses/MIT",
+    "description": "Simple permissive license with conditions only requiring preservation of copyright and license notices"
+  },
+  "Contact": [
+    {
+      "name": "",
+      "email": "contact@everwell.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_C1",
+        "title": "Census and population information systems",
+        "description": "",
+        "group_code": "C",
+        "group_name": "Registries and Directories",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
+    "Description": "The Everwell Hub supports the entire digital cascade of care from diagnosis through treatment support and completion, including fully integrated modules for diagnostics (both lab-generated results and AI diagnostic solutions), digital adherence technologies, virtual care and patient engagement, and digital payments.",
+    "PrimaryFunctionality": "",
+    "Users": "The Everwell Hub supports the entire digital cascade of care from diagnosis through treatment support and completion, including fully integrated modules for diagnostics (both lab-generated results and AI diagnostic solutions), digital adherence technologies, virtual care and patient engagement, and digital payments.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "The Everwell Hub supports more than 2.4 million cases per year, is used by over 400,000 health care providers, is deployed in over 17 countries, and is adapted for four different public health diseases. The citizen-facing app has over 350,000 downloads, and $350 million has been transferred by way of social benefits to TB citizens in India. Everwell developed Ni-kshay, the national TB case management platform for India, which has enrolled over 14 million patients to-date, making it the largest case management platform for TB in the world.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "bf",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burkina Faso",
+            "formal": "Burkina Faso"
+          }
+        }
+      },
+      {
+        "iso_code": "ua",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ukraine",
+            "formal": "Ukraine"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "et",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ethiopia",
+            "formal": "the Federal Democratic Republic of Ethiopia"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "za",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "South Africa",
+            "formal": "the Republic of South Africa"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "KeyFundersSupporters": [
+      {
+        "name": "Nilekani Philanthropies",
+        "url": "",
+        "description": ""
+      },
+      {
+        "name": "Gates Foundation ",
+        "url": "",
+        "description": ""
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/projects/digital-infrastructure-for-verifiable-open-credentialing-divoc"
+      }
+    ]
+  }
+}

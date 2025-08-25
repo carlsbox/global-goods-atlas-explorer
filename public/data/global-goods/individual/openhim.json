@@ -1,0 +1,213 @@
+{
+  "ID": "openhim",
+  "Name": "OpenHIM",
+  "Logo": "/uploads/gg_logos/openhim.png",
+  "Website": {
+    "main": {
+      "url": "http://openhim.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "https://openhim.org/docs/introduction/about",
+      "description": ""
+    },
+    "source_code": {
+      "url": "http://openhim.org/help/%20https://github.com/jembi/openhim-core-js",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mpl-2.0",
+  "Contact": [
+    {
+      "email": "info@jembi.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [
+      "FHIR",
+      "ADX"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The OpenHIM is a middleware component designed to ease interoperability between disparate information systems. It provides secure communications and data governance as well as support for routing, orchestrating, and translating requests as they flow between systems.",
+    "Description": "The OpenHIM allows you to secure and view requests to your web service APIs. It acts as a reverse proxy to your upstream services and while doing so enables visibility into your service-oriented architecture (SOA) by logging each request and by providing metrics about requests hitting your services. It also provides a central entry point into your SOA and allows you to secure access through mutual TLS or basic-auth.   The OpenHIM is easy to install and can be easily configured to meet your needs through the administration console. You can also extend the OpenHIM to transform or orchestrate requests through the mediator framework.",
+    "PrimaryFunctionality": "Health information mediator for system interoperability and data exchange",
+    "Users": "Developers and implementers of interoperability, health information exchange, and data exchange solutions in low-resource settings, mostly in healthcare.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Jembi has implemented the OpenHIM in several countries in Africa, including Rwanda (Rwanda Health Information Exchange), South Africa (MomConnect), Ethiopia (Ethiopian Public Health Institute), and internationally (DATIM). The OpenHIM is also a core component of OpenCRVS. There is anecdotal evidence of OpenHIM being used in several other African countries however due to the open source nature of the software, this is difficult to verify. ",
+    "NumberOfImplementations": 5,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "et",
+      "za"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 6,
+        "community_support": 4,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenHIM is developed and maintained by Jembi Health Systems with support from the global health interoperability community.",
+    "HostAnchorOrganization": {
+      "name": "Jembi Health Systems",
+      "url": "https://jembi.org/",
+      "description": "Health systems strengthening organization",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "About the OpenHIM",
+        "url": "https://openhim.org/docs/introduction/about"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "Functional Specification",
+        "url": "http://openhim.org/docs/dev-guide/design-overview/#key-requirements"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://openhim.org/docs/user-guide/overview"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Troubleshooting Guide",
+        "url": "http://openhim.org/help"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Guide",
+        "url": "https://openhim.org/docs/dev-guide/design-overview"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": [
+      {
+        "description": "Installation guide",
+        "url": "https://openhim.org/docs/installation"
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openhim"
+      }
+    ]
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "ID": "iaso",
+  "Name": "IASO",
+  "Logo": "/uploads/gg_logos/iaso.png",
+  "Website": {
+    "main": {
+      "url": "https://www.bluesquarehub.com/iaso/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/BLSQ/iaso",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mit",
+  "Contact": [
+    {
+      "email": "mdewulf@bluesquarehub.com"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_D6"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "IASO is an innovative, open-source, and multilingual (EN/FR) platform designed for data collection, planning, monitoring, and evaluation of health, environmental, and social programs. With its advanced geospatial capabilities, IASO provides a structured approach to managing geographic data, optimizing field data collection, and enhancing decision-making.",
+    "Description": "ASO's flexible and scalable architecture makes it a powerful solution for organizations seeking to improve data-driven decision-making and operational efficiency.\nIt has been instrumental in updating geographic data in Democratic Republic of the Congo, Côte d’Ivoire, and Burkina Faso, where it also serves as the official georegistry. At the regional level, IASO supports the Global Polio Eradication Initiative in the AFRO region, providing robust geospatial and health facility registry capabilities.   With its advanced geospatial features, IASO is a leading solution for geo-enabled campaign digitalization, enabling precise planning, monitoring, and execution of critical health interventions. Whether for vaccination campaigns (measles, polio, yellow fever, etc.) or the distribution of essential health items (bed nets, seasonal malaria chemoprevention, etc.), IASO ensures efficient targeting and optimized resource allocation.",
+    "PrimaryFunctionality": "IASO's core functionalities revolve around four interconnected components, each reinforcing the capabilities of the others: 1. Geospatial Data Management (Georegistry)  2. Geo-Structure Data Collection    3. Geo-Enabled Microplanning  4. Entity and Workflow Planning",
+    "Users": " Health facility staff",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "Since its creation in 2019, IASO has been deployed in 14 countries to support more than 25 projects, demonstrating its ability to address critical operational challenges. With over 3.5 million questionnaires submitted, IASO has proven to be a scalable and reliable solution for large-scale data collection, particularly for national health and social programs. In recent years, IASO has been successfully validated for nationwide implementations. Notable examples include the 2023 national measles vaccination campaign in Cameroon (documented in BMJ Global Health), which reached 4.9 million children, and the 2024 Côte d’Ivoire national bed net distribution campaign, covering 5.5 million households.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "sn",
+      "ci",
+      "ml",
+      "bf",
+      "ne",
+      "ng",
+      "cf",
+      "ug"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 7,
+        "community_support": 4,
+        "maturity_of_gg": 6,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "IASO is developed and maintained by BlueSquare with support from the global health and development community.",
+    "HostAnchorOrganization": {
+      "name": "BlueSquare",
+      "url": "https://www.bluesquarehub.com/",
+      "description": "Digital health and data solutions company",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Iaso development is supported through multiple contracts with mainly ministries of health for implementation of performance based financing, two grants by the Bill and Melinda Gates Foundation relative to polio vaccination campaigns and health system strengthening, a development contract with the World Food Programme and a project with USAID/IHP. ",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": "https://docs.openiaso.com/"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "User Guide",
+        "url": "https://docs.openiaso.com/"
+      }
+    ],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://github.com/BLSQ/iaso/wiki/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/iaso"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/es/products/iaso"
+      }
+    ]
+  }
+}

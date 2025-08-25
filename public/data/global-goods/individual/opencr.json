@@ -1,0 +1,182 @@
+{
+  "ID": "opencr",
+  "Name": "OpenCR",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/intrahealth/client-registry",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "mit",
+  "Contact": [
+    {
+      "email": "digitalhealth@intrahealth.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C8"
+    ],
+    "WMO": [],
+    "DPI": [
+      "DPI_RG2"
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry. ",
+    "Description": "Client registries use sophisticated record linkage processes to uniquely identify patients across multiple health information systems in facilities, pharmacies, lab systems, and elsewhere. As a critical component of an interoperable health information exchange (HIE), it allows patients to be tracked across facilities and decreases instances of duplicate and incomplete records, as well as interruptions in treatment. It is a necessary tool in public health to help manage patient safety and care coordination, monitoring, reporting, surveillance, and medical research.",
+    "PrimaryFunctionality": "Client registry service for unique patient identification across health systems",
+    "Users": "OpenCR is a backend service, meant for existing applications, like electronic medical records, to create unique IDs. An example of primary users would be data administrators at a central Ministry of Health.",
+    "Languages": [],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "OpenCR has been deployed in Botswana, Haiti, and Uganda and is part of DATIM's DASH architecture.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "ht",
+      "ug",
+      "bw"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 3,
+        "community_support": 2,
+        "maturity_of_gg": 5,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "OpenCR is developed and maintained by IntraHealth International with support from the global health community.",
+    "HostAnchorOrganization": {
+      "name": "IntraHealth International",
+      "url": "https://www.intrahealth.org/",
+      "description": "Global health organization focused on health workforce development",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://intrahealth.github.io/client-registry/user/introduction/"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": "https://intrahealth.github.io/client-registry/admin/architecture/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "ID": "spice",
+  "Name": "SPICE",
+  "Logo": "/uploads/gg_logos/spice.svg",
+  "Website": {
+    "main": {
+      "url": "https://www.medtroniclabs.org/technology-platform/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/Medtronic-LABS",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "bsd-3-clause",
+  "Contact": [
+    {
+      "email": "samuel.kanga@medtroniclabs.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_A2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "ICD-9",
+      "ICD-11",
+      "ICD-10",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "SPICE is an open-source digital platform designed with and for health systems, patients, and communities. SPICE is focused on data-driven, outcomes-focused care at both the community and primary care levels. The platform is certified as a digital public good, FHIR compatible for interoperability, and designed for long-term country ownership by ministries of health.",
+    "Description": "SPICE was built on the principles that digitization is not enough, and that data collection alone does not drive outcomes. The platform enables health systems to collect high quality data, coordinated across levels of care, and use data insights to make decisions that drive improved clinical outcomes. We focus on integrating care for a range of primary care areas including tuberculosis (TB), malaria, HIV, diabetes, hypertension, ante- and post-natal care, and immunizations.",
+    "PrimaryFunctionality": "Rather than community health– and facility-level care operating in silos, SPICE bi-directionally links community health work with facility services with closed-loop referrals and counter-referrals. Community health workers receive targeted community-based follow-up for longitudinal patient management based on clinical algorithms. At the facility-level doctor visits, pharmacy and lab workflows are augmented by clinical decision support functionality. Ultimately, the community and primary care model enabled by SPICE drives improved health outcomes for patients",
+    "Users": "The primary users of the Medtronic LABS SPICE platform include community health workers and healthcare providers like nurses, doctors, and pharmacists. These users leverage the platform to manage and coordinate care more effectively, benefiting from features such as screening, assessment, patient enrollment, medical reviews, and prescription management. The solution is designed to integrate community health work with facility services, enhancing both data-driven decision-making and patient care continuity across different healthcare settings.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "To date, SPICE-enabled programs have screened 500,000 patients, referred 146,646 patients, and measurably improved the lives of over 130,000 patients globally. In multiple peer-reviewed studies, Medtronic LABS has shown significant decreases in clinical indicators such as blood pressure and blood glucose for patients across multiple sub-Saharan African countries.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "us",
+      "sl",
+      "gh",
+      "tz",
+      "ke",
+      "bd"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2022,
+        "global_utility": 7,
+        "community_support": 5,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "SPICE is developed and maintained by a global community focused on infectious disease surveillance and epidemic intelligence.",
+    "HostAnchorOrganization": {
+      "name": "SPICE",
+      "url": "https://spice.org/",
+      "description": "Open source surveillance platform for infectious disease and epidemic intelligence",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The headquarters of Medtronic LABS is Nairobi, Kenya and 80% of the organization resides in the countries where our programs operate. The core development team for SPICE is distributed between Nairobi and Chennai, India. Medtronic PLC provides an annual donation to cover platform innovation and overhead costs. Country-specific platform deployment, training, and capacity building activities are covered at-cost by grant funding. In each country where we deploy SPICE, the intention is for it to be fully owned and sustained by the local government in the long term. Therefore, Medtronic and grant funding is used to cover set-up and ramp-up costs and then the government is responsible for covering the costs to sustain the platform once it has been transitioned to them for full ownership and scale. Key funders/investors of the work over the past 5 years are: Bill & Melinda Gates Foundation, GIZ, KOICA, Medtronic, Novo Nordisk, Patrick J. McGovern Foundation, Roche, Sanofi, World Diabetes Foundation.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://spice.docs.medtroniclabs.org/overview/spice-app-workflows"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Deployment Guide",
+        "url": "https://spice.docs.medtroniclabs.org/deploy/deployment-guide"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://spice.docs.medtroniclabs.org/engineering/architecture  Issue Tracking URL"
+      },
+      {
+        "description": "API Documentation ",
+        "url": "https://spice.docs.medtroniclabs.org/engineering/api-documentation"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/spice"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/spice"
+      }
+    ]
+  }
+}

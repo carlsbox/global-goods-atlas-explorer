@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/accordion";
 import { Search, Filter, X, Grid3X3, List, Sliders } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
+import { useEnhancedReferenceData } from "@/hooks/useEnhancedReferenceData";
 
 interface EnhancedFilterBarProps {
   sectors: string[];
@@ -100,6 +101,7 @@ export function EnhancedFilterBar({
   availableCountries
 }: EnhancedFilterBarProps) {
   const { tPage } = useI18n();
+  const { getStandardName, getCountryName, validateReference } = useEnhancedReferenceData();
   const [searchWHO, setSearchWHO] = useState("");
   const [searchDPI, setSearchDPI] = useState("");
   const [searchWMO, setSearchWMO] = useState("");
@@ -210,9 +212,15 @@ export function EnhancedFilterBar({
     sdgs: availableClassifications.sdgs.filter(c => c.title.toLowerCase().includes(searchSDGs.toLowerCase()))
   };
 
-  const filteredCountries = availableCountries.filter(c => c.toLowerCase().includes(searchCountries.toLowerCase()));
-  const filteredHealthStandards = availableStandards.health.filter(s => s.toLowerCase().includes(searchHealthStandards.toLowerCase()));
-  const filteredInteropStandards = availableStandards.interop.filter(s => s.toLowerCase().includes(searchInteropStandards.toLowerCase()));
+  const filteredCountries = availableCountries.filter(c => 
+    getCountryName(c).toLowerCase().includes(searchCountries.toLowerCase())
+  );
+  const filteredHealthStandards = availableStandards.health.filter(s => 
+    getStandardName(s).toLowerCase().includes(searchHealthStandards.toLowerCase())
+  );
+  const filteredInteropStandards = availableStandards.interop.filter(s => 
+    getStandardName(s).toLowerCase().includes(searchInteropStandards.toLowerCase())
+  );
 
   // Helper function to get classification title by code
   const getClassificationTitle = (code: string, type: 'who' | 'dpi' | 'wmo' | 'sdgs') => {
@@ -456,18 +464,25 @@ export function EnhancedFilterBar({
                           className="h-8 text-sm"
                         />
                         <div className="max-h-32 overflow-y-auto space-y-1">
-                          {filteredHealthStandards.map(standard => (
-                            <div key={standard} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`health-${standard}`}
-                                checked={selectedHealthStandards.includes(standard)}
-                                onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'health')}
-                              />
-                              <label htmlFor={`health-${standard}`} className="text-xs cursor-pointer">
-                                {standard}
-                              </label>
-                            </div>
-                          ))}
+                          {filteredHealthStandards.map(standard => {
+                            const standardName = getStandardName(standard);
+                            const isValidated = validateReference(standard, 'standard');
+                            return (
+                              <div key={standard} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`health-${standard}`}
+                                  checked={selectedHealthStandards.includes(standard)}
+                                  onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'health')}
+                                />
+                                <label htmlFor={`health-${standard}`} className="text-xs cursor-pointer">
+                                  <span className={!isValidated ? "text-muted-foreground" : ""}>
+                                    {standardName}
+                                  </span>
+                                  {!isValidated && <span className="ml-1 text-amber-600">⚠</span>}
+                                </label>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </AccordionContent>
@@ -486,18 +501,25 @@ export function EnhancedFilterBar({
                           className="h-8 text-sm"
                         />
                         <div className="max-h-32 overflow-y-auto space-y-1">
-                          {filteredInteropStandards.map(standard => (
-                            <div key={standard} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`interop-${standard}`}
-                                checked={selectedInteropStandards.includes(standard)}
-                                onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'interop')}
-                              />
-                              <label htmlFor={`interop-${standard}`} className="text-xs cursor-pointer">
-                                {standard}
-                              </label>
-                            </div>
-                          ))}
+                          {filteredInteropStandards.map(standard => {
+                            const standardName = getStandardName(standard);
+                            const isValidated = validateReference(standard, 'standard');
+                            return (
+                              <div key={standard} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`interop-${standard}`}
+                                  checked={selectedInteropStandards.includes(standard)}
+                                  onCheckedChange={(checked) => handleStandardChange(standard, checked as boolean, 'interop')}
+                                />
+                                <label htmlFor={`interop-${standard}`} className="text-xs cursor-pointer">
+                                  <span className={!isValidated ? "text-muted-foreground" : ""}>
+                                    {standardName}
+                                  </span>
+                                  {!isValidated && <span className="ml-1 text-amber-600">⚠</span>}
+                                </label>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </AccordionContent>
@@ -516,18 +538,25 @@ export function EnhancedFilterBar({
                           className="h-8 text-sm"
                         />
                         <div className="max-h-32 overflow-y-auto space-y-1">
-                          {filteredCountries.map(country => (
-                            <div key={country} className="flex items-center space-x-2">
-                              <Checkbox
-                                id={`country-${country}`}
-                                checked={selectedCountries.includes(country)}
-                                onCheckedChange={(checked) => handleCountryChange(country, checked as boolean)}
-                              />
-                              <label htmlFor={`country-${country}`} className="text-xs cursor-pointer">
-                                {country}
-                              </label>
-                            </div>
-                          ))}
+                          {filteredCountries.map(country => {
+                            const countryName = getCountryName(country);
+                            const isValidated = validateReference(country, 'country');
+                            return (
+                              <div key={country} className="flex items-center space-x-2">
+                                <Checkbox
+                                  id={`country-${country}`}
+                                  checked={selectedCountries.includes(country)}
+                                  onCheckedChange={(checked) => handleCountryChange(country, checked as boolean)}
+                                />
+                                <label htmlFor={`country-${country}`} className="text-xs cursor-pointer">
+                                  <span className={!isValidated ? "text-muted-foreground" : ""}>
+                                    {countryName}
+                                  </span>
+                                  {!isValidated && <span className="ml-1 text-amber-600">⚠</span>}
+                                </label>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </AccordionContent>
@@ -611,7 +640,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedHealthStandards.map(standard => (
             <Badge key={standard} variant="secondary" className="flex items-center gap-1">
-              Health: {standard}
+              Health: {getStandardName(standard)}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('health-standard', standard)}
@@ -620,7 +649,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedInteropStandards.map(standard => (
             <Badge key={standard} variant="secondary" className="flex items-center gap-1">
-              Interop: {standard}
+              Interop: {getStandardName(standard)}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('interop-standard', standard)}
@@ -629,7 +658,7 @@ export function EnhancedFilterBar({
           ))}
           {selectedCountries.map(country => (
             <Badge key={country} variant="secondary" className="flex items-center gap-1">
-              {country}
+              {getCountryName(country)}
               <X 
                 className="h-3 w-3 cursor-pointer" 
                 onClick={() => removeFilter('country', country)}

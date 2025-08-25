@@ -1,0 +1,950 @@
+{
+  "ID": "rapidpro",
+  "Name": "RapidPro",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://community.rapidpro.io/",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/rapidpro",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "url": "https://www.gnu.org/licenses/agpl-3.0.html",
+    "description": "Strong copyleft license requiring source code disclosure for software used over a network"
+  },
+  "Contact": [
+    {
+      "email": "ndike@unicef.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_A1",
+        "title": "Communication systems",
+        "description": "",
+        "group_code": "A",
+        "group_name": "Point of Service",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "RapidPro is an open source platform that allows anyone to build interactive messaging systems using an easy visual interface.",
+    "Description": "",
+    "PrimaryFunctionality": "",
+    "Users": "Primary managers and administrators are national-level public health officials and civil society organisations. Primary end users could be community health workers, mothers, health facility staff, and the general public.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "ru",
+        "name": "Russian"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "In 2021 through UNICEF support instances alone, 930 million messages were exchanged using RapidPro. RapidPro is used in approximately 116 countries around the world.",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": null
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "ht",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Haiti",
+            "formal": "the Republic of Haiti"
+          }
+        }
+      },
+      {
+        "iso_code": "jm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Jamaica",
+            "formal": "Jamaica"
+          }
+        }
+      },
+      {
+        "iso_code": "gt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guatemala",
+            "formal": "the Republic of Guatemala"
+          }
+        }
+      },
+      {
+        "iso_code": "bz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Belize",
+            "formal": "Belize"
+          }
+        }
+      },
+      {
+        "iso_code": "hn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Honduras",
+            "formal": "the Republic of Honduras"
+          }
+        }
+      },
+      {
+        "iso_code": "ni",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nicaragua",
+            "formal": "the Republic of Nicaragua"
+          }
+        }
+      },
+      {
+        "iso_code": "cr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Costa Rica",
+            "formal": "the Republic of Costa Rica"
+          }
+        }
+      },
+      {
+        "iso_code": "mx",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mexico",
+            "formal": "the United Mexican States"
+          }
+        }
+      },
+      {
+        "iso_code": "pa",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Panama",
+            "formal": "the Republic of Panama"
+          }
+        }
+      },
+      {
+        "iso_code": "tt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Trinidad and Tobago",
+            "formal": "the Republic of Trinidad and Tobago"
+          }
+        }
+      },
+      {
+        "iso_code": "ec",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ecuador",
+            "formal": "the Republic of Ecuador"
+          }
+        }
+      },
+      {
+        "iso_code": "br",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Brazil",
+            "formal": "the Federative Republic of Brazil"
+          }
+        }
+      },
+      {
+        "iso_code": "bo",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bolivia (Plurinational State of)",
+            "formal": "the Plurinational State of Bolivia"
+          }
+        }
+      },
+      {
+        "iso_code": "ar",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Argentina",
+            "formal": "the Argentine Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ca",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Canada",
+            "formal": "Canada"
+          }
+        }
+      },
+      {
+        "iso_code": "ne",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Niger (the)",
+            "formal": "the Republic of the Niger"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "td",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Chad",
+            "formal": "the Republic of Chad"
+          }
+        }
+      },
+      {
+        "iso_code": "cf",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Central African Republic (the)",
+            "formal": "the Central African Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "cm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cameroon",
+            "formal": "the Republic of Cameroon"
+          }
+        }
+      },
+      {
+        "iso_code": "ga",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Gabon",
+            "formal": "the Gabonese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "sn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Senegal",
+            "formal": "the Republic of Senegal"
+          }
+        }
+      },
+      {
+        "iso_code": "gm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Gambia (the)",
+            "formal": "the Republic of the Gambia"
+          }
+        }
+      },
+      {
+        "iso_code": "sl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sierra Leone",
+            "formal": "the Republic of Sierra Leone"
+          }
+        }
+      },
+      {
+        "iso_code": "lr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Liberia",
+            "formal": "the Republic of Liberia"
+          }
+        }
+      },
+      {
+        "iso_code": "gh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ghana",
+            "formal": "the Republic of Ghana"
+          }
+        }
+      },
+      {
+        "iso_code": "tg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Togo",
+            "formal": "the Togolese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "bj",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Benin",
+            "formal": "the Republic of Benin"
+          }
+        }
+      },
+      {
+        "iso_code": "sd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sudan (the)",
+            "formal": "the Republic of the Sudan"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "rw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Rwanda",
+            "formal": "the Republic of Rwanda"
+          }
+        }
+      },
+      {
+        "iso_code": "bi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burundi",
+            "formal": "the Republic of Burundi"
+          }
+        }
+      },
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "mw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malawi",
+            "formal": "the Republic of Malawi"
+          }
+        }
+      },
+      {
+        "iso_code": "ml",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mali",
+            "formal": "the Republic of Mali"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "zw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zimbabwe",
+            "formal": "the Republic of Zimbabwe"
+          }
+        }
+      },
+      {
+        "iso_code": "ao",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Angola",
+            "formal": "the Republic of Angola"
+          }
+        }
+      },
+      {
+        "iso_code": "bw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Botswana",
+            "formal": "the Republic of Botswana"
+          }
+        }
+      },
+      {
+        "iso_code": "za",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "South Africa",
+            "formal": "the Republic of South Africa"
+          }
+        }
+      },
+      {
+        "iso_code": "ls",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Lesotho",
+            "formal": "the Kingdom of Lesotho"
+          }
+        }
+      },
+      {
+        "iso_code": "eg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Egypt",
+            "formal": "the Arab Republic of Egypt"
+          }
+        }
+      },
+      {
+        "iso_code": "sy",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Syrian Arab Republic (the)",
+            "formal": "the Syrian Arab Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "lb",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Lebanon",
+            "formal": "the Lebanese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "jo",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Jordan",
+            "formal": "the Hashemite Kingdom of Jordan"
+          }
+        }
+      },
+      {
+        "iso_code": "sa",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Saudi Arabia",
+            "formal": "the Kingdom of Saudi Arabia"
+          }
+        }
+      },
+      {
+        "iso_code": "it",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Italy",
+            "formal": "the Republic of Italy"
+          }
+        }
+      },
+      {
+        "iso_code": "ba",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bosnia and Herzegovina",
+            "formal": "Bosnia and Herzegovina"
+          }
+        }
+      },
+      {
+        "iso_code": "rs",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Serbia",
+            "formal": "the Republic of Serbia"
+          }
+        }
+      },
+      {
+        "iso_code": "md",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Moldova (the Republic of)",
+            "formal": "the Republic of Moldova"
+          }
+        }
+      },
+      {
+        "iso_code": "ua",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ukraine",
+            "formal": "Ukraine"
+          }
+        }
+      },
+      {
+        "iso_code": "ro",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Romania",
+            "formal": "Romania"
+          }
+        }
+      },
+      {
+        "iso_code": "gr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Greece",
+            "formal": "the Hellenic Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "tr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Turkey",
+            "formal": "the Republic of Turkey"
+          }
+        }
+      },
+      {
+        "iso_code": "az",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Azerbaijan",
+            "formal": "the Republic of Azerbaijan"
+          }
+        }
+      },
+      {
+        "iso_code": "uz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uzbekistan",
+            "formal": "the Republic of Uzbekistan"
+          }
+        }
+      },
+      {
+        "iso_code": "pk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Pakistan",
+            "formal": "the Islamic Republic of Pakistan"
+          }
+        }
+      },
+      {
+        "iso_code": "af",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Afghanistan",
+            "formal": "the Islamic Republic of Afghanistan"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "bd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bangladesh",
+            "formal": "the People's Republic of Bangladesh"
+          }
+        }
+      },
+      {
+        "iso_code": "vn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Viet Nam",
+            "formal": "the Socialist Republic of Viet Nam"
+          }
+        }
+      },
+      {
+        "iso_code": "th",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Thailand",
+            "formal": "the Kingdom of Thailand"
+          }
+        }
+      },
+      {
+        "iso_code": "mm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Myanmar",
+            "formal": "the Republic of the Union of Myanmar"
+          }
+        }
+      },
+      {
+        "iso_code": "my",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malaysia",
+            "formal": "Malaysia"
+          }
+        }
+      },
+      {
+        "iso_code": "id",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Indonesia",
+            "formal": "the Republic of Indonesia"
+          }
+        }
+      },
+      {
+        "iso_code": "pg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Papua New Guinea",
+            "formal": "the Independent State of Papua New Guinea"
+          }
+        }
+      },
+      {
+        "iso_code": "sb",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Solomon Islands (the)",
+            "formal": "Solomon Islands"
+          }
+        }
+      },
+      {
+        "iso_code": "fm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Micronesia (Federated States of)",
+            "formal": "the Federated States of Micronesia"
+          }
+        }
+      },
+      {
+        "iso_code": "fj",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Fiji",
+            "formal": "the Republic of Fiji"
+          }
+        }
+      },
+      {
+        "iso_code": "ki",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kiribati",
+            "formal": "the Republic of Kiribati"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 10,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Funded primarily by UNICEF, and TextIT",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "Functional Spec ",
+        "url": "https://rapidpro.github.io/rapidpro/docs/"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://help.textit.com/en/  "
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation ",
+        "url": "https://rapidpro.github.io/rapidpro/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/rapidpro"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/rapidpro"
+      }
+    ]
+  }
+}

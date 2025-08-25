@@ -36,6 +36,36 @@
     "content": "Les outils de santé numérique peuvent postuler à tout moment via notre portail d'application, avec des examens trimestriels par notre Comité d'Examen par les Pairs et Conseil d'Examen des Biens Mondiaux.",
     "requirements": "Les outils doivent être publiés sous licences ouvertes, soutenus par des communautés solides, financés par plusieurs sources, déployés à grande échelle, utilisés dans plusieurs pays et conçus pour l'interopérabilité.",
     "applyButton": "Soumettre une Application",
-    "contactButton": "Contacter l'Équipe Digital Square"
+    "contactButton": "Contacter l'Équipe Digital Square",
+    "openCalls": {
+      "title": "Appels Ouverts et Candidatures",
+      "description": "De nouvelles opportunités de candidature sont annoncées régulièrement tout au long de l'année, avec des appels spécifiques ciblant différents domaines de santé et types de technologie. Restez informé des prochaines échéances et exigences de candidature via nos canaux officiels.",
+      "linkedinText": "Les appels ouverts sont publiés via"
+    }
+  },
+  "productSuites": {
+    "title": "Suites de Produits de Biens Mondiaux",
+    "content": "Une suite de produits est un ensemble d'outils numériques open source configurés pour soutenir un domaine de santé spécifique—comme l'immunisation, les soins prénatals ou la télémédecine—grâce à l'échange de données basé sur des standards. Ces suites s'alignent avec les orientations internationales, comme les Kits d'Adaptation Numérique de l'OMS (DAKs), et sont conçues pour fournir des solutions cohérentes et interopérables.",
+    "requirements": {
+      "title": "Pour être qualifiée, une suite de produits doit:",
+      "items": [
+        "Utiliser des biens mondiaux approuvés par Digital Square ou des outils répondant aux standards de Bien Public Numérique (DPG)",
+        "Être open source (licence approuvée OSI) ou en voie de le devenir",
+        "Répondre à des exigences fonctionnelles et non-fonctionnelles claires",
+        "Supporter l'interopérabilité basée sur des standards (ex. HL7 FHIR, GS1, workflows OpenHIE)",
+        "S'aligner avec les Directives SMART de l'OMS, idéalement en progressant vers un logiciel de référence exécutable",
+        "Inclure une documentation utilisateur et technique à jour (sous licence Creative Commons)",
+        "Démontrer l'assurance qualité par des résultats de tests documentés"
+      ]
+    },
+    "immunization": {
+      "title": "Suite de Produits d'Immunisation",
+      "description": "La Suite de Produits d'Immunisation combine des outils open source pour renforcer la prestation de services d'immunisation dans les pays à revenus faibles et moyens. Sa conception intégrée et interopérable permet un déploiement rapide de solutions numériques efficaces.",
+      "linkText": "En savoir plus ici."
+    }
+  },
+  "contact": {
+    "title": "Nous Contacter",
+    "buttonText": "Contacter l'Équipe des Biens Mondiaux"
   }
 }

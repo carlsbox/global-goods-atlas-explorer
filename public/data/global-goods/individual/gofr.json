@@ -1,0 +1,217 @@
+{
+  "ID": "gofr",
+  "Name": "Global Open Facility Registry",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Website": {
+    "main": {
+      "url": "https://www.openfacilityregistry.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/intrahealth/gofr",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "apache-2.0",
+  "Contact": [
+    {
+      "email": "digitalhealth@intrahealth.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_C6"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "HL7",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [
+      "FHIR"
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities. ",
+    "Description": "By reconciling data sets maintained by multiple sources, it helps health officials develop registries of all the unique health facilities in a country. Data points such as the name and location of health facilities are essential to health information systems, reporting, and decision-making. However, up-to-date, accurate information on facilities may be difficult to find as different stakeholders with different information needs and naming conventions maintain separate lists. Additionally, governments often do not have access to a flexible, secure platform for facility management and information exchange. GOFR saves time, improves accuracy, and allows administrators to compare data sets, compile lists of facilities, and manage federations.",
+    "PrimaryFunctionality": "Health facility registry management, data deduplication, and facility information exchange",
+    "Users": "Primary users include data managers at a central level Ministry of Health, managers of facility information, as well as the general public need to look up facility attributes.",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      }
+    ],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "sl",
+      "lr",
+      "tz",
+      "et"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 4,
+        "community_support": 5,
+        "maturity_of_gg": 7,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "GOFR is developed and maintained by IntraHealth International with support from the global health community.",
+    "HostAnchorOrganization": {
+      "name": "IntraHealth International",
+      "url": "https://www.intrahealth.org/",
+      "description": "Global health organization focused on health workforce development",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "GOFR is support through grant funding, implementation funding, SaaS, and organizational funding. ",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [
+      {
+        "description": "Functional Spec",
+        "url": "https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-facility-registry-fr"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://intrahealth.github.io/gofr/user_guide/introduction/"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer Guide",
+        "url": "https://intrahealth.github.io/gofr/developer_guide/getting_started/"
+      },
+      {
+        "description": "Architectural Documentation",
+        "url": "https://intrahealth.github.io/gofr/developer_guide/architechture/"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/global-open-facility-registry"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/global-open-facility-registry"
+      }
+    ]
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "ID": "odk",
+  "Name": "ODK",
+  "Logo": "/uploads/gg_logos/odk.png",
+  "Website": {
+    "main": {
+      "url": "https://getodk.org/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "https://github.com/getodk/",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    "software"
+  ],
+  "ClimateHealth": false,
+  "License": "apache-2.0",
+  "Contact": [
+    {
+      "email": "yanokwa@getodk.org"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      "SDG-3"
+    ],
+    "WHO": [
+      "WHO_E2"
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      "ICD-11",
+      "ICD-9",
+      "ICD-10",
+      "SNOMED-CT",
+      "LOINC"
+    ],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
+    "Description": "",
+    "PrimaryFunctionality": "Offline data collection platform with form building capabilities",
+    "Users": "Social impact organizations that need powerful offline forms.",
+    "Languages": [],
+    "Screenshots": [
+      "/uploads/screenshot_placeholder.jpeg",
+      "/uploads/screenshot_placeholder.jpeg"
+    ]
+  },
+  "Reach": {
+    "SummaryOfReach": "ODK is used in almost every country in the world. It enables 2 million people to collect 200 million submissions every year. ODK has helped: • Eradicate wild polio from Africa • Enable large-scale COVID-19 response • Prove the efficacy of the RTS,S malaria vaccine • Vaccinate millions of children from measles-rubella • Measure the global burden of disease in a standardized manner",
+    "NumberOfImplementations": 0,
+    "ImplementationMapOverview": {
+      "url": ""
+    },
+    "ImplementationCountries": [
+      "ar",
+      "at",
+      "al",
+      "dz",
+      "ao",
+      "au",
+      "az",
+      "be",
+      "bw",
+      "br",
+      "bo",
+      "bj",
+      "ba",
+      "by",
+      "bz",
+      "bs",
+      "bb",
+      "bg",
+      "bi",
+      "cm",
+      "td",
+      "co",
+      "cr",
+      "ca",
+      "cl",
+      "ci",
+      "kh",
+      "bf",
+      "cf",
+      "cg",
+      "hr",
+      "cz",
+      "dk",
+      "cd",
+      "dm",
+      "dj",
+      "er",
+      "eg",
+      "sn",
+      "fi",
+      "fj",
+      "se",
+      "ch",
+      "gb",
+      "us",
+      "tz",
+      "mx",
+      "ae",
+      "ie",
+      "lv",
+      "ee",
+      "lt",
+      "pl",
+      "de",
+      "ng",
+      "ne",
+      "lu",
+      "fr",
+      "mc",
+      "es",
+      "ad",
+      "pt",
+      "bn",
+      "sg",
+      "ph",
+      "mw",
+      "ml",
+      "my",
+      "gt",
+      "in",
+      "id",
+      "pg",
+      "th",
+      "pk",
+      "za",
+      "jp",
+      "cn",
+      "mn",
+      "me",
+      "ru",
+      "kz",
+      "lk",
+      "kg",
+      "tm",
+      "np",
+      "mv",
+      "sc",
+      "mu",
+      "mr",
+      "km",
+      "mg",
+      "ls",
+      "nz",
+      "mz",
+      "zw",
+      "zm",
+      "uz",
+      "ve",
+      "ke",
+      "sd",
+      "bd",
+      "gh",
+      "sl",
+      "tg",
+      "st",
+      "gn",
+      "gq",
+      "gw",
+      "gm",
+      "na",
+      "vn",
+      "sr",
+      "pa",
+      "gy",
+      "py",
+      "uy",
+      "nr",
+      "mh",
+      "mm",
+      "ki",
+      "to",
+      "ws",
+      "tv",
+      "sb",
+      "pw",
+      "ni",
+      "gr",
+      "hn",
+      "sv",
+      "is",
+      "jm"
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 10,
+        "community_support": 10,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "ODK is developed and maintained by a global community of developers and organizations committed to open data collection.",
+    "HostAnchorOrganization": {
+      "name": "ODK Project",
+      "url": "https://getodk.org/",
+      "description": "Open source data collection platform",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {},
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Software-as-a-service (ODK Cloud), implementation funding (ODK Services), and grant funding",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [
+      {
+        "description": "Documentation ",
+        "url": " https://github.com/getodk/collect https://github.com/getodk/central"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide ",
+        "url": "https://docs.getodk.org"
+      }
+    ],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [
+      {
+        "description": "",
+        "url": ""
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

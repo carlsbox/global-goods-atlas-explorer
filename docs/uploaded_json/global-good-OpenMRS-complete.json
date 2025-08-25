@@ -1,0 +1,737 @@
+{
+  "ID": "OpenMRS",
+  "Name": "OpenMRS",
+  "Logo": "https://openmrs.org/wp-content/uploads/2021/08/cropped-OpenMRSlogo-transparent.png",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website ",
+      "url": "https://openmrs.org",
+      "description": "Official website for OpenMRS"
+    },
+    "docs": {
+      "name": "",
+      "url": "https://wiki.openmrs.org/display/docs",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "https://github.com/openmrs/openmrs-core",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "software",
+      "title": "Software",
+      "description": "A free and open-source software tool designed to manage, analyze, or transmit health-related data, with proven utility in multiple settings."
+    }
+  ],
+  "License": {
+    "id": "mpl-2.0",
+    "name": "Mozilla Public License 2.0",
+    "url": "https://www.mozilla.org/MPL/2.0/",
+    "description": "Weak copyleft license that allows proprietary and open source code to coexist within the same project"
+  },
+  "Contact": [
+    {
+      "name": "OpenMRS Community Help",
+      "email": "",
+      "role": "OpenMRS Community Help"
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages",
+        "authority": "SDG"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_A5",
+        "title": "Electronic medical record systems",
+        "description": "",
+        "group_code": "A",
+        "group_name": "Point of Service",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_A6",
+        "title": "Laboratory information systems",
+        "description": "",
+        "group_code": "A",
+        "group_name": "Point of Service",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_C6",
+        "title": "Identification registries and directories",
+        "description": "",
+        "group_code": "C",
+        "group_name": "Registries and Directories",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_C11",
+        "title": "Terminology and classification systems",
+        "description": "",
+        "group_code": "C",
+        "group_name": "Registries and Directories",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_D2",
+        "title": "Data interchange and interoperability",
+        "description": "",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      },
+      {
+        "code": "WHO_D8",
+        "title": "Shared Health Record and Health Information Repository",
+        "description": "",
+        "group_code": "D",
+        "group_name": "Data Management Systems",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": [
+      {
+        "code": "DPI_BD2",
+        "title": "Shared Health Record",
+        "description": "",
+        "group_code": "BD",
+        "group_name": "Business Domain Services",
+        "authority": "DPI-H"
+      }
+    ]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [
+      {
+        "code": "HL7",
+        "domain": "Health",
+        "link": "https://www.hl7.org/",
+        "name": "Health Level 7",
+        "description": "International standards for transfer of clinical and administrative data between software applications"
+      },
+      {
+        "code": "ICD-11",
+        "domain": "Health",
+        "link": "https://icd.who.int/en",
+        "name": "ICD-11",
+        "description": "International Classification of Diseases, 11th Revision, the latest WHO classification for mortality, morbidity statistics and clinical documentation."
+      },
+      {
+        "code": "ICD-9",
+        "domain": "Health",
+        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+        "name": "International Classification of Diseases, 9th Revision",
+        "description": "Medical classification list by the World Health Organization containing codes for diseases, signs and symptoms"
+      },
+      {
+        "code": "ICD-10",
+        "domain": "Health",
+        "link": "https://www.who.int/standards/classifications/classification-of-diseases",
+        "name": "International Classification of Diseases, 10th Revision",
+        "description": "Medical classification list by the World Health Organization containing codes for diseases, signs and symptoms"
+      },
+      {
+        "code": "SNOMED-CT",
+        "domain": "Health",
+        "link": "https://www.snomed.org/",
+        "name": "Systematized Nomenclature of Medicine Clinical Terms",
+        "description": "Comprehensive, multilingual clinical healthcare terminology"
+      },
+      {
+        "code": "CIEL",
+        "domain": "Health",
+        "link": "https://openconceptlab.org/orgs/CIEL/sources/CIEL/",
+        "name": "CIEL",
+        "description": "Columbia International eHealth Laboratory dictionary, a comprehensive clinical terminology system designed for use in low-resource settings."
+      }
+    ],
+    "Interoperability": [
+      {
+        "code": "FHIR",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/fhir/",
+        "name": "Fast Healthcare Interoperability Resources",
+        "description": "A standard describing data formats and elements and an application programming interface for exchanging electronic health records"
+      },
+      {
+        "code": "HL7 V2",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185",
+        "name": "HL7 V2",
+        "description": "Health Level 7 Version 2, a messaging standard for exchanging clinical and administrative data in healthcare settings."
+      },
+      {
+        "code": "HL7 V3",
+        "domain": "Interoperability",
+        "link": "https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186",
+        "name": "HL7 V3",
+        "description": "Health Level 7 Version 3, an XML-based messaging framework for health data exchange and interoperability."
+      },
+      {
+        "code": "ADX",
+        "domain": "Interoperability",
+        "link": "https://wiki.ihe.net/index.php/Aggregate_Data_Exchange",
+        "name": "ADX",
+        "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
+      }
+    ],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
+    "Description": "OpenMRS, as an open-source project, provides a unique solution which puts local providers and patients at the center of their health information ecosystem. It allows for low-resource settings, in particular, to benefit from the contributions of others while being able to customize and “own” their own technologies. This is a foundational transformation that allows for local innovation and the development of new solutions to difficult health-related problems. When OpenMRS implementers customize the OpenMRS platform and reference application in response to local user needs and country context, the resulting OpenMRS implementation becomes an essential point-of-service system in a country's health information exchange architecture. The OpenMRS community accompanies this work with a model that supports community development, capacity building, and local ownership. Countries such as Kenya, Nigeria, Mozambique, Haiti, Rwanda, and Uganda have widely adopted OpenMRS as their premier EMR platform or have declared it to be their official EMR.",
+    "PrimaryFunctionality": "OpenMRS is a scalable, modular, interoperable, open source electronic medical records platform (EMR), designed for use with other health information systems and in resource-constrained settings. Since OpenMRS’ launch in 2007, more than 6,700 healthcare clinics in over 35 countries are using OpenMRS to provide improved healthcare to 15.8 million patients. OpenMRS provides health care workers with easier and greater access to data from longitudinal patient records that can inform patient care. Increasingly, data from OpenMRS is also used by digital health leaders to inform the public health decisions needed to achieve the UN Sustainable Development Goals, measure progress towards UNAIDS’ 95-95-95 targets for HIV epidemic control, respond to outbreaks such as Ebola and COVID-19, and achieve universal health coverage.",
+    "Users": "",
+    "Languages": [
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "de",
+        "name": "German"
+      },
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "Since OpenMRS’ launch in 2007, more than 6,700 healthcare clinics in over 35 countries are using OpenMRS to provide improved healthcare to 15.8 million patients Countries such as Kenya, Nigeria, Mozambique, Haiti, Rwanda, and Uganda have widely adopted OpenMRS as their premier EMR platform or have declared it to be their official EMR.",
+    "NumberOfImplementations": 6700,
+    "ImplementationMapOverview": {
+      "url": " "
+    },
+    "ImplementationCountries": [
+      {
+        "iso_code": "cr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Costa Rica",
+            "formal": "the Republic of Costa Rica"
+          }
+        }
+      },
+      {
+        "iso_code": "mx",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mexico",
+            "formal": "the United Mexican States"
+          }
+        }
+      },
+      {
+        "iso_code": "gt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guatemala",
+            "formal": "the Republic of Guatemala"
+          }
+        }
+      },
+      {
+        "iso_code": "pe",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Peru",
+            "formal": "the Republic of Peru"
+          }
+        }
+      },
+      {
+        "iso_code": "ar",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Argentina",
+            "formal": "the Argentine Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ki",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kiribati",
+            "formal": "the Republic of Kiribati"
+          }
+        }
+      },
+      {
+        "iso_code": "id",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Indonesia",
+            "formal": "the Republic of Indonesia"
+          }
+        }
+      },
+      {
+        "iso_code": "in",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "India",
+            "formal": "the Republic of India"
+          }
+        }
+      },
+      {
+        "iso_code": "ph",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Philippines (the)",
+            "formal": "the Republic of the Philippines"
+          }
+        }
+      },
+      {
+        "iso_code": "vn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Viet Nam",
+            "formal": "the Socialist Republic of Viet Nam"
+          }
+        }
+      },
+      {
+        "iso_code": "pk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Pakistan",
+            "formal": "the Islamic Republic of Pakistan"
+          }
+        }
+      },
+      {
+        "iso_code": "lk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sri Lanka",
+            "formal": "the Democratic Socialist Republic of Sri Lanka"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "tj",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tajikistan",
+            "formal": "the Republic of Tajikistan"
+          }
+        }
+      },
+      {
+        "iso_code": "kz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kazakhstan",
+            "formal": "the Republic of Kazakhstan"
+          }
+        }
+      },
+      {
+        "iso_code": "hu",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Hungary",
+            "formal": "Hungary"
+          }
+        }
+      },
+      {
+        "iso_code": "et",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ethiopia",
+            "formal": "the Federal Democratic Republic of Ethiopia"
+          }
+        }
+      },
+      {
+        "iso_code": "za",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "South Africa",
+            "formal": "the Republic of South Africa"
+          }
+        }
+      },
+      {
+        "iso_code": "ls",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Lesotho",
+            "formal": "the Kingdom of Lesotho"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "mz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mozambique",
+            "formal": "the Republic of Mozambique"
+          }
+        }
+      },
+      {
+        "iso_code": "mw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malawi",
+            "formal": "the Republic of Malawi"
+          }
+        }
+      },
+      {
+        "iso_code": "rw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Rwanda",
+            "formal": "the Republic of Rwanda"
+          }
+        }
+      },
+      {
+        "iso_code": "bi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burundi",
+            "formal": "the Republic of Burundi"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "cm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cameroon",
+            "formal": "the Republic of Cameroon"
+          }
+        }
+      },
+      {
+        "iso_code": "bw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Botswana",
+            "formal": "the Republic of Botswana"
+          }
+        }
+      },
+      {
+        "iso_code": "na",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Namibia",
+            "formal": "the Republic of Namibia"
+          }
+        }
+      },
+      {
+        "iso_code": "ng",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nigeria",
+            "formal": "the Federal Republic of Nigeria"
+          }
+        }
+      },
+      {
+        "iso_code": "gh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ghana",
+            "formal": "the Republic of Ghana"
+          }
+        }
+      },
+      {
+        "iso_code": "lr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Liberia",
+            "formal": "the Republic of Liberia"
+          }
+        }
+      },
+      {
+        "iso_code": "sl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sierra Leone",
+            "formal": "the Republic of Sierra Leone"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.  ",
+    "Scores": [
+      {
+        "year": 2025,
+        "global_utility": 8,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "Well-established community made up a  over 4,700 participants; 30 organizations making occasional contributions; 35 individuals and 16 organizations making active contributions upstream to the OpenMRS community.",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2025,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {},
+      "MailingList": {}
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "Country-specific development and deployment of OpenMRS is primarily supported through implementation funding, with some code contributed back to the community's shared code base, depending on the implementing organization's willingness to contribute upstream. In the last four years, the OpenMRS Community has successfully partnered with implementing organizations to receive grant funding that supports essential community roles (Community Director, Product Director, Community Development Lead, Senior Software Architect, etc). ",
+    "KeyFundersSupporters": [
+      {
+        "name": "Gates Foundation",
+        "url": "https://www.gatesfoundation.org/",
+        "description": ""
+      },
+      {
+        "name": "CDC Centers for Disease Control and Prevention",
+        "url": "https://www.cdc.gov/index.html",
+        "description": ""
+      },
+      {
+        "name": "Various anonymous donors",
+        "url": "",
+        "description": ""
+      }
+    ]
+  },
+  "Resources": {
+    "Articles": [
+      {
+        "description": "OpenMRS as a Global Good: 15 years of impact: ",
+        "url": "https://doi.org/10.1016/j.ijmedinf.2021.104405 "
+      },
+      {
+        "description": "Open-Source Electronic Health Record Systems for Low-Resource Settings: Systematic Review:",
+        "url": ""
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "OpenMRS Product Information",
+        "url": "https://o3-dev.docs.openmrs.org/#/"
+      }
+    ],
+    "UserRequirements": [],
+    "EndUserDocumentation": [
+      {
+        "description": "User Guide",
+        "url": "https://wiki.openmrs.org/display/docs/Reference+Application+2.10.0"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Troubleshooting Guidance",
+        "url": "https://talk.openmrs.org/c/ask/41"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Architectural Documentation",
+        "url": "https://o3-dev.docs.openmrs.org/#/under_the_hood/architecture"
+      }
+    ],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": [
+      {
+        "collectionInitiative": {
+          "id": "dpga",
+          "label": "Digital Public Goods Alliance",
+          "logo_url": "https://dpgalliance.github.io/wp-content/themes/dpga/images/logo.svg",
+          "site_url": "https://digitalpublicgoods.net/",
+          "description": "A multi-stakeholder initiative to accelerate the attainment of the Sustainable Development Goals in low- and middle-income countries by facilitating the discovery, development, use of, and investment in digital public goods."
+        },
+        "tool_url": "https://www.digitalpublicgoods.net/r/openmrs"
+      },
+      {
+        "collectionInitiative": {
+          "id": "dial-exchange",
+          "label": "DIAL Exchange",
+          "logo_url": "https://exchange.dial.global/ui/v1/exchange-logo.svg",
+          "site_url": "https://exchange.dial.global/",
+          "description": "A platform by the Digital Impact Alliance to connect digital public goods and solutions for global development."
+        },
+        "tool_url": "https://exchange.dial.global/products/openmrs"
+      }
+    ]
+  }
+}
