@@ -1,7 +1,7 @@
 {
   "ID": "fhir",
   "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)",
-  "Logo": "/uploads/screenshot_placeholder.jpeg",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "http://hl7.org/fhir/",

@@ -1,7 +1,7 @@
 {
   "ID": "odk",
   "Name": "ODK",
-  "Logo": "/uploads/screenshot_placeholder.jpeg",
+  "Logo": "/uploads/logo-Placeholder.jpg",
   "Website": {
     "main": {
       "url": "https://getodk.org/",
@@ -48,7 +48,7 @@
     "Users": "Social impact organizations that need powerful offline forms.",
     "Languages": [],
     "Screenshots": [
-      "/uploads/logo-Placeholder.jpg",
+      "/uploads/screenshot_placeholder.jpeg",
       "/uploads/screenshot_placeholder.jpeg"
     ]
   },

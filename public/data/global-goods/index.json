@@ -533,7 +533,7 @@
     "ID": "fhir",
     "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR)",
     "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
-    "Logo": "/uploads/screenshot_placeholder.jpeg",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "content"
     ],
@@ -734,7 +734,7 @@
     "ID": "godata",
     "Name": "Go.Data",
     "Summary": "The Go.Data tool is designed to facilitate and support data collection for outbreak response, including case investigation, identification, and listing and tracing of contacts, as well as data management and analysis.",
-    "Logo": "/uploads/screenshot_placeholder.jpeg",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -1037,7 +1037,7 @@
     "ID": "odk",
     "Name": "ODK",
     "Summary": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
-    "Logo": "/uploads/screenshot_placeholder.jpeg",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
