@@ -15,7 +15,7 @@
     "postconditions": "**Immediate Outcomes:**\n- Real-time climate-health surveillance system operational\n- Automated early warning alerts functioning\n- Enhanced capacity for climate-sensitive disease prediction\n- Improved coordination between health and meteorological sectors\n\n**Medium-term Impact:**\n- Reduced disease outbreak response time by 50%\n- Increased preparedness for climate-related health emergencies\n- Evidence-based resource allocation for prevention activities\n- Strengthened health system resilience to climate variability\n\n**Long-term Goals:**\n- Measurable reduction in climate-sensitive disease burden\n- Integration with broader disaster risk reduction frameworks\n- Regional knowledge sharing and best practice dissemination",
     "data_requirements": "**Meteorological Data:**\n- Daily temperature (min/max), humidity, rainfall measurements\n- Weather forecasts and seasonal climate predictions\n- Historical climate data for model development\n\n**Health Data:**\n- Disease surveillance data (cases, deaths, laboratory results)\n- Population denominators and demographic data\n- Healthcare facility capacity and resource availability\n\n**Geographic Data:**\n- Administrative boundaries and population distribution\n- Vector breeding site locations and characteristics\n- Water source mapping and quality monitoring data\n\n**Data Quality Requirements:**\n- Real-time or near real-time data availability\n- Standardized data formats and metadata\n- Quality assurance protocols for data validation",
     "standards": [
-      "HL7 FHIR",
+      "FHIR",
       "ADX",
       "NetCDF"
     ],
@@ -51,7 +51,7 @@
     "postconditions": "**Résultats Immédiats :**\n- Système de surveillance climat-santé opérationnel en temps réel\n- Alertes précoces automatisées fonctionnelles\n- Capacité renforcée pour la prédiction des maladies sensibles au climat\n- Coordination améliorée entre les secteurs santé et météorologie",
     "data_requirements": "**Données Météorologiques :**\n- Mesures quotidiennes de température, humidité, précipitations\n- Prévisions météorologiques et prédictions climatiques saisonnières\n- Données climatiques historiques pour le développement de modèles",
     "standards": [
-      "HL7 FHIR"
+      "FHIR"
     ],
     "technology_components": "**Plateforme Principale :**\n- **DHIS2** comme système principal de gestion d'informations de santé\n- **OpenMRS** pour la gestion des données cliniques",
     "global_goods": [
@@ -85,7 +85,7 @@
     "postconditions": "**Resultados Inmediatos:**\n- Sistema de vigilancia clima-salud operacional en tiempo real\n- Alertas tempranas automatizadas funcionando\n- Capacidad mejorada para predicción de enfermedades sensibles al clima\n- Coordinación mejorada entre sectores salud y meteorología",
     "data_requirements": "**Datos Meteorológicos:**\n- Mediciones diarias de temperatura, humedad, precipitación\n- Pronósticos meteorológicos y predicciones climáticas estacionales\n- Datos climáticos históricos para desarrollo de modelos",
     "standards": [
-      "HL7 FHIR"
+      "FHIR"
     ],
     "technology_components": "**Plataforma Principal:**\n- **DHIS2** como sistema principal de gestión de información de salud\n- **OpenMRS** para gestión de datos clínicos",
     "global_goods": [
