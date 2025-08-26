@@ -37,7 +37,7 @@
       "DPI": ["DPI_BD3"]
     },
     "StandardsAndInteroperability": {
-      "HealthStandards": ["ICD-9", "ICD-10","ICD-11","LOINC","SNOMED"],
+      "HealthStandards": ["ICD-9", "ICD-10","ICD-11","LOINC","SNOMED-CT"],
       "Interoperability": ["ADX","FHIR"],
       "ClimateStandards": []
     },
