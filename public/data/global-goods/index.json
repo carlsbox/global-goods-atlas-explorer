@@ -2590,7 +2590,7 @@
   },
   {
     "ID": "gdhm",
-    "Name": "Global Digital Health Monitor",
+    "Name": "Global Digital Health Monitor (GDHM)",
     "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
     "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
