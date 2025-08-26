@@ -57,16 +57,16 @@ export function useEnhancedReferenceData() {
     // Countries lookup - support both ISO codes and names for validation
     const countriesMap = new Map<string, { code: string; name: string }>();
     countries.forEach(country => {
-      if (country.code && country.names?.en?.short) {
+      if (country.code && country.name?.short) {
         // Add by ISO code
         countriesMap.set(country.code, {
           code: country.code,
-          name: country.names.en.short
+          name: country.name.short
         });
         // Also add by name for backwards compatibility
-        countriesMap.set(country.names.en.short, {
+        countriesMap.set(country.name.short, {
           code: country.code,
-          name: country.names.en.short
+          name: country.name.short
         });
       }
     });
