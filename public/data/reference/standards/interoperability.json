@@ -70,5 +70,12 @@
     "type": "exchange",
     "name": "ADX",
     "description": "Aggregate Data Exchange standard for exchanging aggregate health data, commonly used in public health reporting and statistical analysis."
+  },{
+    "code": "DICOM",
+    "domain": "Interoperability",
+    "link": "https://www.dicomstandard.org/",
+    "type": "exchange",
+    "name": "DICOM",
+    "description": "Digital Imaging and Communications in Medicine, a standard for medical imaging data exchange."
   }
 ]
