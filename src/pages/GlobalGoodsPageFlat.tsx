@@ -8,6 +8,7 @@ import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobal
 import { EnhancedGlobalGoodListItem } from "@/components/global-goods/EnhancedGlobalGoodListItem";
 import { NoResults } from "@/components/global-goods/NoResults";
 import { useI18n } from "@/hooks/useI18n";
+import { SEO } from "@/components/SEO";
 import { LoadingState } from "@/components/global-good/LoadingState";
 import { ErrorState } from "@/components/global-good/ErrorState";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -372,22 +373,30 @@ export default function GlobalGoodsPageFlat() {
   const { tPage } = useI18n();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
-      {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header Section - Renders immediately */}
-        <div className="max-w-4xl mx-auto mb-12 text-center">
-          <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
-          <p className="text-xl text-muted-foreground">
-            {tPage('catalogDescription', 'globalGoods')}
-          </p>
+    <>
+      <SEO 
+        title="Global Goods Catalog"
+        description="Browse our comprehensive catalog of open-source digital public goods. Filter by sector, standards, and deployment countries to find the right solution for your needs."
+        url="/global-goods"
+        keywords={['digital public goods catalog', 'open source health software', 'climate technology', 'sustainable development tools']}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+        {/* Main Container */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Header Section - Renders immediately */}
+          <div className="max-w-4xl mx-auto mb-12 text-center">
+            <h1 className="mb-6">{tPage('catalogTitle', 'globalGoods')}</h1>
+            <p className="text-xl text-muted-foreground">
+              {tPage('catalogDescription', 'globalGoods')}
+            </p>
+          </div>
+          
+          {/* Progressive loading content */}
+          <Suspense fallback={<LoadingState message={tPage('loadingCatalog', 'globalGoods')} />}>
+            <CatalogContent />
+          </Suspense>
         </div>
-        
-        {/* Progressive loading content */}
-        <Suspense fallback={<LoadingState message={tPage('loadingCatalog', 'globalGoods')} />}>
-          <CatalogContent />
-        </Suspense>
       </div>
-    </div>
+    </>
   );
 }

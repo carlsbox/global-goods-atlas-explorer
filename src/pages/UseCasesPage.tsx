@@ -6,6 +6,7 @@ import { NewUseCasesFilterBar } from "@/components/use-cases/NewUseCasesFilterBa
 import { UseCasesHeader } from "@/components/use-cases/UseCasesHeader";
 import { UseCasesGrid } from "@/components/use-cases/UseCasesGrid";
 import { useI18n } from "@/hooks/useI18n";
+import { SEO } from "@/components/SEO";
 
 export default function UseCasesPage() {
   const { tPage } = useI18n();
@@ -56,7 +57,14 @@ export default function UseCasesPage() {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <>
+      <SEO 
+        title="Use Cases"
+        description="Explore real-world implementations of digital public goods. Discover how organizations worldwide are using open-source solutions for health, climate resilience, and sustainable development."
+        url="/use-cases"
+        keywords={['digital public goods use cases', 'implementation examples', 'case studies', 'success stories']}
+      />
+      <div className="container mx-auto px-4 py-8">
       <UseCasesHeader />
       
       <NewUseCasesFilterBar
@@ -94,6 +102,7 @@ export default function UseCasesPage() {
           hasActiveFilters={hasActiveFilters}
         />
       )}
-    </div>
+      </div>
+    </>
   );
 }

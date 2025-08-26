@@ -6,6 +6,7 @@ import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobalGoodCard";
+import { SEO } from "@/components/SEO";
 
 // Skeleton component for featured goods loading state
 function FeaturedGoodsSkeleton() {
@@ -101,7 +102,15 @@ export default function ClimateServicesPage() {
     link.click();
     document.body.removeChild(link);
   };
-  return <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+  return (
+    <>
+      <SEO 
+        title="Climate Services for Health"
+        description="Explore digital public infrastructure for climate-resilient health systems. Learn how open-source tools integrate climate and health data to protect vulnerable populations."
+        url="/climate-health"
+        keywords={['climate health', 'climate resilience', 'digital health systems', 'WHO-WMO Joint Programme', 'climate services']}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Hero Section */}
@@ -297,5 +306,7 @@ export default function ClimateServicesPage() {
           </div>
         </section>
       </div>
-    </div>;
+      </div>
+    </>
+  );
 }
