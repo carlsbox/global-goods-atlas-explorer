@@ -169,6 +169,72 @@
     }
   },
   {
+    "ID": "ciel",
+    "Name": "CIEL Terminology",
+    "Summary": "The Columbia International eHealth Laboratory Terminology (CIEL Terminology) is an open source, standardized clinical interface terminology used particularly by low- and middle-income countries (LMICs) to capture, map, and analyze health information.",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "content"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 30,
+    "Countries": [
+      "mz",
+      "zm",
+      "zw",
+      "za",
+      "bw",
+      "mw",
+      "rw",
+      "ug",
+      "ke",
+      "et",
+      "ng",
+      "lr",
+      "ci",
+      "sl",
+      "il",
+      "pk",
+      "in",
+      "np",
+      "lk",
+      "bd",
+      "vn",
+      "kh",
+      "ph",
+      "ar",
+      "pe",
+      "co",
+      "pa",
+      "ht",
+      "mx",
+      "us"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_C11"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_RG1"
+      ]
+    },
+    "Standards": {
+      "Health": [
+        "ICD-9",
+        "ICD-10",
+        "ICD-11",
+        "SNOMED-CT",
+        "LOINC"
+      ],
+      "Interop": [],
+      "Climate": []
+    }
+  },
+  {
     "ID": "commcare",
     "Name": "CommCare",
     "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
@@ -178,59 +244,7 @@
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 200,
-    "Countries": [
-      "ng",
-      "za",
-      "ke",
-      "gh",
-      "et",
-      "tz",
-      "ug",
-      "sn",
-      "dz",
-      "ma",
-      "zm",
-      "zw",
-      "mw",
-      "ao",
-      "cm",
-      "ci",
-      "ml",
-      "ne",
-      "bf",
-      "bj",
-      "gn",
-      "ga",
-      "td",
-      "sd",
-      "ss",
-      "ly",
-      "mr",
-      "sl",
-      "rw",
-      "bi",
-      "mg",
-      "cv",
-      "gq",
-      "cf",
-      "cg",
-      "cd",
-      "dj",
-      "er",
-      "so",
-      "km",
-      "st",
-      "sc",
-      "na",
-      "bw",
-      "ls",
-      "sz",
-      "tn",
-      "eg",
-      "mu",
-      "mz",
-      "lr",
-      "tg"
+    "Countries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "mu", "mz", "lr", "tg"]
     ],
     "Classifications": {
       "SDGs": [
@@ -622,6 +636,86 @@
       "Interop": [
         "FHIR"
       ],
+      "Climate": []
+    }
+  },
+  {
+    "ID": "gdhm",
+    "Name": "Global Digital Health Monitor (GDHM)",
+    "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
+      "content"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 52,
+    "Countries": [
+      "do",
+      "jm",
+      "cr",
+      "gt",
+      "br",
+      "cl",
+      "ar",
+      "ie",
+      "pt",
+      "at",
+      "jo",
+      "iq",
+      "sa",
+      "ae",
+      "af",
+      "np",
+      "bd",
+      "vn",
+      "kh",
+      "th",
+      "ph",
+      "mm",
+      "lk",
+      "mv",
+      "mw",
+      "ml",
+      "my",
+      "jp",
+      "zw",
+      "zm",
+      "mz",
+      "sz",
+      "za",
+      "ug",
+      "ke",
+      "tz",
+      "rw",
+      "bi",
+      "bj",
+      "tg",
+      "ci",
+      "gh",
+      "cf",
+      "st",
+      "ga",
+      "lr",
+      "sl",
+      "gn",
+      "gw",
+      "sn",
+      "km",
+      "cv"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
+      ],
+      "WHO": [
+        "WHO_C1"
+      ],
+      "WMO": [],
+      "DPI": []
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": [],
       "Climate": []
     }
   },
@@ -2519,152 +2613,6 @@
         "ADX",
         "FHIR"
       ],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "ciel",
-    "Name": "CIEL Terminology",
-    "Summary": "The Columbia International eHealth Laboratory Terminology (CIEL Terminology) is an open source, standardized clinical interface terminology used particularly by low- and middle-income countries (LMICs) to capture, map, and analyze health information.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "content"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 30,
-    "Countries": [
-      "mz",
-      "zm",
-      "zw",
-      "za",
-      "bw",
-      "mw",
-      "rw",
-      "ug",
-      "ke",
-      "et",
-      "ng",
-      "lr",
-      "ci",
-      "sl",
-      "il",
-      "pk",
-      "in",
-      "np",
-      "lk",
-      "bd",
-      "vn",
-      "kh",
-      "ph",
-      "ar",
-      "pe",
-      "co",
-      "pa",
-      "ht",
-      "mx",
-      "us"
-    ],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_C11"
-      ],
-      "WMO": [],
-      "DPI": [
-        "DPI_RG1"
-      ]
-    },
-    "Standards": {
-      "Health": [
-        "ICD-9",
-        "ICD-10",
-        "ICD-11",
-        "SNOMED-CT",
-        "LOINC"
-      ],
-      "Interop": [],
-      "Climate": []
-    }
-  },
-  {
-    "ID": "gdhm",
-    "Name": "Global Digital Health Monitor (GDHM)",
-    "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
-    "GlobalGoodType": [
-      "content"
-    ],
-    "ClimateHealth": false,
-    "NumberOfImplementations": 52,
-    "Countries": [
-      "do",
-      "jm",
-      "cr",
-      "gt",
-      "br",
-      "cl",
-      "ar",
-      "ie",
-      "pt",
-      "at",
-      "jo",
-      "iq",
-      "sa",
-      "ae",
-      "af",
-      "np",
-      "bd",
-      "vn",
-      "kh",
-      "th",
-      "ph",
-      "mm",
-      "lk",
-      "mv",
-      "mw",
-      "ml",
-      "my",
-      "jp",
-      "zw",
-      "zm",
-      "mz",
-      "sz",
-      "za",
-      "ug",
-      "ke",
-      "tz",
-      "rw",
-      "bi",
-      "bj",
-      "tg",
-      "ci",
-      "gh",
-      "cf",
-      "st",
-      "ga",
-      "lr",
-      "sl",
-      "gn",
-      "gw",
-      "sn",
-      "km",
-      "cv"
-    ],
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_C1"
-      ],
-      "WMO": [],
-      "DPI": []
-    },
-    "Standards": {
-      "Health": [],
-      "Interop": [],
       "Climate": []
     }
   }
