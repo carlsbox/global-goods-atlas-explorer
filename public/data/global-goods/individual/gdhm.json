@@ -1,0 +1,161 @@
+{
+  "ID": "gdhm",
+  "Name": "Global Digital Health Monitor",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "url": "https://digitalhealthmonitor.org/",
+      "description": "Official website"
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["content"],
+  "License": "unknown",
+  "Contact": [
+    {
+      "name": "",
+      "email": "info@digitalhealthmonitor.org",
+      "role": ""
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_C1"],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
+    "Description": "Intended to be used by Ministries of Health, private health and technology sector stakeholders, and international agencies, the GDHM enables countries and regions to benchmark and track progress and maturity over time, advocate for resources, identify countries that are performing well to facilitate cross-country learning, and support private sector entrepreneurs and investors to strategically prioritize new market entry and strategies. Revisions to the GDHM include an update to indicators to align with the WHO Global Strategy for Digital Health 2020-2025, private sector engagement, emerging technologies such as AI, as well as diversity, equity, and inclusion – including a new sub-indicator on gender to address the widening gender digital divide.",
+    "PrimaryFunctionality": "",
+    "Users": "The primary users of the content are governments, particularly Ministries of Health who are working to advance digital health transformation within their countries",
+    "Languages": ["en", "fr", "es", "pt", "ar"],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "In 2023, 71 countries have completed the GDHM, representing 35% of all countries in the world. An additional 100 countries have data for seven indicators pre-populated with correlated data from publicly available sources. The Global Fund and Gavi have both adopted the GDHM as their digital health maturity model, which they will be using annually to track and prioritize their investments. The GDHM is also being used routinely by UNICEF and Africa CDC. Furthermore, in May 2023, the WHO announced its intention to adopt the GDHM and house it within their suite of digital health resources. Many countries have used the GDHM to inform the development of National Digital Health Strategies. The ones that we are aware of, include Nigeria, Iraq, Zambia, Ethiopia, Sierra Leone, Lao DPR and Indonesia.",
+    "NumberOfImplementations": 52,
+    "ImplementationMapOverview": null,
+    "ImplementationCountries": ["do", "jm", "cr", "gt", "br", "cl", "ar", "ie", "pt", "at", "jo", "iq", "sa", "ae", "af", "np", "bd", "vn", "kh", "th", "ph", "mm", "lk", "mv", "mw", "ml", "my", "jp", "zw", "zm", "mz", "sz", "za", "ug", "ke", "tz", "rw", "bi", "bj", "tg", "ci", "gh", "cf", "st", "ga", "lr", "sl", "gn", "gw", "sn", "km", "cv"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "This is a diverse community comprised of government officials, regional digital health networks, NGOs, multilateral organizations, philanthropic organizations, technology partners and the private sector, including representatives from Kenya, Guatemala, United States, India, France, Thailand, Switzerland, Nigeria, Mali, The Netherlands, Argentina, Chile, The Philippines, Australia and Spain. The GDHM has a technical committee comprised of more than 30 individuals from over 20 countries. The focus of the technical committee is expert guidance, oversight and review of all GDHM material, country engagement strategies and plans for expansion.",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2016,
+    "SizeOfCommunity": 30,
+    "Links": {
+      "Community": {
+        "url": "",
+        "description": ""
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The content for the GDHM is currently managed by HealthEnabled, a digital health non-profit, with plans to transition to the World Health Organization (WHO). The content has been funded through grant funding to-date, from The Global Fund and the Patrick J. McGovern Foundation.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}
