@@ -2083,7 +2083,7 @@
     }
   },
   {
-    "ID": "opnimis",
+    "ID": "openimis",
     "Name": "openIMIS",
     "Summary": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
     "Logo": "/uploads/gg_logos/openimis.svg",
