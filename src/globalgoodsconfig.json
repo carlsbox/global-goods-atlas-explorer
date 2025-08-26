@@ -17,6 +17,33 @@
   "map": {
     "geoJsonUrl": "/data/map_country-data-110m.json"
   },
+  "seo": {
+    "defaultTitle": "Global Goods Guidebook",
+    "defaultDescription": "Connecting the world to open-source digital public goods for sustainable development",
+    "defaultImage": "/og-image.png",
+    "defaultKeywords": [
+      "global goods",
+      "digital public goods",
+      "open source",
+      "sustainable development",
+      "health technology",
+      "climate resilience"
+    ],
+    "twitterCard": "summary_large_image",
+    "twitterHandle": "@globalgoodsguidebook"
+  },
+  "sitemap": {
+    "staticRoutes": [
+      { "path": "/", "priority": 1.0, "changeFreq": "daily" },
+      { "path": "/global-goods", "priority": 0.9, "changeFreq": "daily" },
+      { "path": "/use-cases", "priority": 0.8, "changeFreq": "weekly" },
+      { "path": "/map", "priority": 0.7, "changeFreq": "weekly" },
+      { "path": "/climate-health", "priority": 0.7, "changeFreq": "weekly" },
+      { "path": "/reference", "priority": 0.6, "changeFreq": "monthly" },
+      { "path": "/about", "priority": 0.5, "changeFreq": "monthly" },
+      { "path": "/create-global-good", "priority": 0.4, "changeFreq": "monthly" }
+    ]
+  },
   "ui": {
     "standardsBadges": {
       "health": {

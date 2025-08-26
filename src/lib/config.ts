@@ -48,4 +48,40 @@ export const getStandardsBadgeColors = () => {
   };
 };
 
+// SEO Configuration Helpers
+export const getSEOConfig = () => {
+  return config.seo || {};
+};
+
+export const getDefaultSEOTitle = () => {
+  return config.seo?.defaultTitle || config.siteName;
+};
+
+export const getDefaultSEODescription = () => {
+  return config.seo?.defaultDescription || '';
+};
+
+export const getDefaultSEOImage = () => {
+  const image = config.seo?.defaultImage || '/og-image.png';
+  return image.startsWith('http') ? image : `${getBaseUrl()}${image}`;
+};
+
+export const getDefaultKeywords = () => {
+  return config.seo?.defaultKeywords || [];
+};
+
+export const getTwitterHandle = () => {
+  const handle = config.seo?.twitterHandle || config.social?.twitter;
+  return handle?.startsWith('@') ? handle : `@${handle}`;
+};
+
+// Sitemap Configuration
+export const getSitemapConfig = () => {
+  return config.sitemap || {};
+};
+
+export const getStaticRoutes = () => {
+  return config.sitemap?.staticRoutes || [];
+};
+
 export default config;

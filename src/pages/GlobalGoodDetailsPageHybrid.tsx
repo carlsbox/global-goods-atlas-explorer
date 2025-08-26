@@ -13,6 +13,8 @@ import { MaturitySection } from '@/components/global-good/MaturitySection';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useI18n } from '@/hooks/useI18n';
+import { SEO } from '@/components/SEO';
+import { getBaseUrl } from '@/lib/config';
 
 // Helper function to convert GlobalGood to GlobalGoodFlat format
 const convertToFlat = (globalGood: any): any => {
@@ -80,8 +82,51 @@ export default function GlobalGoodDetailsPageHybrid() {
   // Convert to flat format for components that expect it
   const globalGoodFlat = convertToFlat(globalGood);
 
+  const getImageForGlobalGood = (good: any) => {
+    const baseUrl = getBaseUrl();
+    // Try to get screenshot first, then logo, then default
+    if (good.productOverview?.screenshots?.length > 0) {
+      return good.productOverview.screenshots[0].startsWith('http') 
+        ? good.productOverview.screenshots[0]
+        : `${baseUrl}${good.productOverview.screenshots[0]}`;
+    }
+    if (good.coreMetadata?.logo) {
+      return good.coreMetadata.logo.startsWith('http') 
+        ? good.coreMetadata.logo
+        : `${baseUrl}${good.coreMetadata.logo}`;
+    }
+    return undefined;
+  };
+
   return (
-    <div className="container mx-auto py-6">
+    <>
+      <SEO 
+        title={getTextValue(globalGood.name)}
+        description={getTextValue(globalGood.summary) || getTextValue(globalGood.description) || `Learn about ${getTextValue(globalGood.name)}, an open-source digital public good for sustainable development.`}
+        url={`/global-goods/${id}`}
+        image={getImageForGlobalGood(globalGood)}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": getTextValue(globalGood.name),
+          "description": getTextValue(globalGood.summary) || getTextValue(globalGood.description),
+          "applicationCategory": globalGood.coreMetadata?.globalGoodsType?.map((t: any) => t.title).join(", "),
+          "url": globalGood.coreMetadata?.website?.[0]?.url,
+          "operatingSystem": "Web",
+          "license": Array.isArray(globalGood.coreMetadata?.license) 
+            ? globalGood.coreMetadata.license.map((l: any) => `${l.name} (${l.url})`).join(", ")
+            : globalGood.coreMetadata?.license && typeof globalGood.coreMetadata.license === 'object'
+              ? `${(globalGood.coreMetadata.license as any).name} (${(globalGood.coreMetadata.license as any).url})` 
+              : "Open Source",
+          "image": getImageForGlobalGood(globalGood),
+          "provider": {
+            "@type": "Organization",
+            "name": "Open Source Community"
+          }
+        }}
+      />
+      <div className="container mx-auto py-6">
       <div className="mb-6">
         <Button variant="ghost" asChild className="mb-4">
           <Link to="/global-goods" className="flex items-center gap-2">
@@ -133,5 +178,6 @@ export default function GlobalGoodDetailsPageHybrid() {
         </TabsContent>
       </Tabs>
     </div>
+    </>
   );
 }

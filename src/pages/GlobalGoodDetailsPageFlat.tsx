@@ -22,6 +22,7 @@ import { useI18n } from "@/hooks/useI18n";
 import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
 import { Separator } from "@/components/ui/separator";
 import { SEO } from "@/components/SEO";
+import { getBaseUrl } from "@/lib/config";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -53,16 +54,17 @@ export default function GlobalGoodDetailsPageFlat() {
   }
 
   const getImageForGlobalGood = (good: any) => {
+    const baseUrl = getBaseUrl();
     // Try to get screenshot first, then logo, then default
     if (good.ProductOverview?.Screenshots?.length > 0) {
       return good.ProductOverview.Screenshots[0].startsWith('http') 
         ? good.ProductOverview.Screenshots[0]
-        : `https://beta.globalgoodsguidebook.org${good.ProductOverview.Screenshots[0]}`;
+        : `${baseUrl}${good.ProductOverview.Screenshots[0]}`;
     }
     if (good.Logo) {
       return good.Logo.startsWith('http') 
         ? good.Logo
-        : `https://beta.globalgoodsguidebook.org${good.Logo}`;
+        : `${baseUrl}${good.Logo}`;
     }
     return undefined;
   };

@@ -1,15 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import config from '../src/globalgoodsconfig.json' assert { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Base URL for the site
-const BASE_URL = 'https://beta.globalgoodsguidebook.org';
+// Get base URL from config
+const BASE_URL = config.baseUrl || `https://${config.domain}`;
 
-// Define static routes with their priority and change frequency
-const staticRoutes = [
+// Get static routes from config or use defaults
+const staticRoutes = config.sitemap?.staticRoutes || [
   { path: '/', priority: 1.0, changeFreq: 'daily' },
   { path: '/global-goods', priority: 0.9, changeFreq: 'daily' },
   { path: '/use-cases', priority: 0.8, changeFreq: 'weekly' },

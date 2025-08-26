@@ -1,4 +1,12 @@
 import { Helmet } from 'react-helmet-async';
+import { 
+  getDefaultSEOTitle, 
+  getDefaultSEODescription, 
+  getDefaultSEOImage, 
+  getBaseUrl, 
+  getDefaultKeywords, 
+  getTwitterHandle 
+} from '@/lib/config';
 
 interface SEOProps {
   title?: string;
@@ -13,35 +21,41 @@ interface SEOProps {
   jsonLd?: object;
 }
 
-const DEFAULT_TITLE = 'Global Goods Guidebook';
-const DEFAULT_DESCRIPTION = 'Connecting the world to open-source digital public goods for sustainable development';
-const DEFAULT_IMAGE = 'https://beta.globalgoodsguidebook.org/og-image.png';
-const BASE_URL = 'https://beta.globalgoodsguidebook.org';
-
 export function SEO({
   title,
-  description = DEFAULT_DESCRIPTION,
-  image = DEFAULT_IMAGE,
-  url = BASE_URL,
+  description,
+  image,
+  url,
   type = 'website',
   author,
   publishedTime,
   modifiedTime,
-  keywords = ['global goods', 'digital public goods', 'open source', 'sustainable development', 'health technology', 'climate resilience'],
+  keywords,
   jsonLd
 }: SEOProps) {
+  const DEFAULT_TITLE = getDefaultSEOTitle();
+  const DEFAULT_DESCRIPTION = getDefaultSEODescription();
+  const DEFAULT_IMAGE = getDefaultSEOImage();
+  const BASE_URL = getBaseUrl();
+  const DEFAULT_KEYWORDS = getDefaultKeywords();
+  const TWITTER_HANDLE = getTwitterHandle();
+
   const fullTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE;
-  const canonicalUrl = url.startsWith('http') ? url : `${BASE_URL}${url}`;
+  const finalDescription = description || DEFAULT_DESCRIPTION;
+  const finalImage = image || DEFAULT_IMAGE;
+  const finalUrl = url || BASE_URL;
+  const finalKeywords = keywords || DEFAULT_KEYWORDS;
+  const canonicalUrl = finalUrl.startsWith('http') ? finalUrl : `${BASE_URL}${finalUrl}`;
   
   // Ensure image URL is absolute
-  const absoluteImage = image.startsWith('http') ? image : `${BASE_URL}${image}`;
+  const absoluteImage = finalImage.startsWith('http') ? finalImage : `${BASE_URL}${finalImage}`;
 
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords.join(', ')} />
+      <meta name="description" content={finalDescription} />
+      <meta name="keywords" content={finalKeywords.join(', ')} />
       {author && <meta name="author" content={author} />}
       
       {/* Canonical URL */}
@@ -49,7 +63,7 @@ export function SEO({
       
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={absoluteImage} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={type} />
@@ -63,9 +77,9 @@ export function SEO({
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={absoluteImage} />
-      <meta name="twitter:site" content="@globalgoodsguidebook" />
+      <meta name="twitter:site" content={TWITTER_HANDLE} />
       
       {/* JSON-LD Structured Data */}
       {jsonLd && (
