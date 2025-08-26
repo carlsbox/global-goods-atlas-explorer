@@ -5,93 +5,343 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://beta.globalgoodsguidebook.org/</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>1</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/global-goods</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/use-cases</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/map</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/climate-health</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/reference</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/about</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://beta.globalgoodsguidebook.org/create-global-good</loc>
-    <lastmod>2024-12-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/advocacy_training_CHW</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
-  <!-- Global Goods Detail Pages -->
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/android_fhir_sdk</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/global-goods/bahmni</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/ciel</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/commcare</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/global-goods/dhis2</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://beta.globalgoodsguidebook.org/global-goods/openmrs</loc>
-    <lastmod>2024-12-16</lastmod>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/dhpns</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/everwell_hub</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/ewars</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/fhir</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/gdhm</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/geoprism</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/gnu_health</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/godata</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/gofr</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/harmony</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/iaso</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/global-goods/ihris</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Use Case Detail Pages -->
   <url>
-    <loc>https://beta.globalgoodsguidebook.org/use-cases/rural-telemedicine-platform</loc>
-    <lastmod>2024-12-16</lastmod>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/mhero</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/msupply</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/odk</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/omop</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/open_concept_lab</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openboxes</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openclinic_ga</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/opencr</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/opencrvs</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openelis</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openeyes</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openfn</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openhexa</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openhie</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openhim</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/openlmis</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/OpenMRS</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/opensrp</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/opnimis</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/pcmt</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/rapidpro</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/reveal</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/santempi</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/sormas</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/spice</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/tamanu</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/tupaia</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/vxnaid</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/global-goods/who-smart-guidelines</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta.globalgoodsguidebook.org/use-cases/climate-health-surveillance</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://beta.globalgoodsguidebook.org/use-cases/climate-health-surveillance</loc>
-    <lastmod>2024-12-16</lastmod>
+    <loc>https://beta.globalgoodsguidebook.org/use-cases/rural-telemedicine-platform</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://beta.globalgoodsguidebook.org/use-cases/senegal-heat-alert</loc>
-    <lastmod>2024-12-16</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
