@@ -1,7 +1,7 @@
 {
     "ID": "geoprism",
     "Name": "GeoPrism Registry",
-    "Logo": "",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "Website": {
       "main": {
         "url": "https://geoprismregistry.com",
@@ -42,7 +42,7 @@
       ],
       "WMO": [
         "WMO_C3",
-        "WMO-B1"
+        "WMO_B1"
       ],
       "DPI": [
         "DPI_B5"
