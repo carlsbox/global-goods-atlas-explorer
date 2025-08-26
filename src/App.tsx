@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { ReferenceDataProvider } from "@/contexts/ReferenceDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -54,9 +55,10 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <ReferenceDataProvider>
-          <Router>
+      <HelmetProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <ReferenceDataProvider>
+            <Router>
             <div className="min-h-screen bg-background">
               <Routes>
                 {/* Public routes with layout */}
@@ -122,9 +124,10 @@ function App() {
               </Routes>
             </div>
           </Router>
-        </ReferenceDataProvider>
-        <Toaster />
-      </ThemeProvider>
+          </ReferenceDataProvider>
+          <Toaster />
+        </ThemeProvider>
+      </HelmetProvider>
     </QueryClientProvider>
   );
 }

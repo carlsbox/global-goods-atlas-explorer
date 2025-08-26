@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Globe, FileText, MapPin, Mail, Heart, Calendar } from "lucide-react";
 import { useGlobalGoods } from "@/lib/api";
 import { useI18n } from "@/hooks/useI18n";
+import { SEO } from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";

@@ -13,6 +13,7 @@ import { EnhancedCountriesDisplay } from "@/components/global-good/EnhancedCount
 import { GlobalGoodCardFlat } from "@/components/global-goods/GlobalGoodCardFlat";
 import { AggregatedWorldMap } from "@/components/global-good/AggregatedWorldMap";
 import { CountryDetailPanel } from "@/components/global-good/CountryDetailPanel";
+import { SEO } from "@/components/SEO";
 
 type ViewMode = 'overview' | 'focused' | 'grid' | 'country';
 
@@ -111,7 +112,14 @@ export default function EnhancedMapPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-8">
+    <>
+      <SEO 
+        title="Global Implementation Map"
+        description="Explore the worldwide deployment of digital global goods. Interactive map showing implementation density and country-specific digital health solutions."
+        url="/map"
+        keywords={['implementation map', 'global deployment', 'digital health map', 'country implementations']}
+      />
+      <div className="container mx-auto px-4 py-8 space-y-8">
       {/* Page Header */}
       <div className="space-y-6">
         <div className="text-center space-y-2">
@@ -308,6 +316,7 @@ export default function EnhancedMapPage() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

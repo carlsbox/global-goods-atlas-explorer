@@ -21,6 +21,8 @@ import { RelatedContentSection } from "@/components/global-good/RelatedContentSe
 import { useI18n } from "@/hooks/useI18n";
 import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
 import { Separator } from "@/components/ui/separator";
+import { SEO } from "@/components/SEO";
+import { getBaseUrl } from "@/lib/config";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
@@ -51,84 +53,124 @@ export default function GlobalGoodDetailsPageFlat() {
     return <LoadingState message={tPage('loading', 'globalGoodDetails')} />;
   }
 
+  const getImageForGlobalGood = (good: any) => {
+    const baseUrl = getBaseUrl();
+    // Try to get screenshot first, then logo, then default
+    if (good.ProductOverview?.Screenshots?.length > 0) {
+      return good.ProductOverview.Screenshots[0].startsWith('http') 
+        ? good.ProductOverview.Screenshots[0]
+        : `${baseUrl}${good.ProductOverview.Screenshots[0]}`;
+    }
+    if (good.Logo) {
+      return good.Logo.startsWith('http') 
+        ? good.Logo
+        : `${baseUrl}${good.Logo}`;
+    }
+    return undefined;
+  };
+
   return (
-    <div className="container px-4 py-8 mx-auto max-w-7xl">
-      {/* Breadcrumb Navigation */}
-      <div className="mb-6 flex justify-between items-center">
-        <Link 
-          to="/global-goods" 
-          className="text-muted-foreground hover:text-primary flex items-center"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          {tPage('backToGlobalGoods', 'globalGoodDetails')}
-        </Link>
-        
-        {detailedData && (
-          <RawDataViewer data={detailedData} title={`Raw Data: ${globalGood.Name}`} />
-        )}
-      </div>
-      
-      {/* Header Section - Show immediately with basic data */}
-      {globalGood && (
-        <GlobalGoodHeaderFlat globalGood={globalGood as any} />
-      )}
-      
-      {/* Main Content - Progressive sections */}
-      <div className="mt-8 space-y-10">
-        {/* Overview Section - Priority content */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4">{tPage('tabs.overview', 'globalGoodDetails')}</h2>
-          {globalGood && (
-            <OverviewTabFlat globalGood={globalGood as any} />
+    <>
+      <SEO 
+        title={globalGood?.Name}
+        description={globalGood?.ProductOverview?.Summary || globalGood?.ProductOverview?.Description || `Learn about ${globalGood?.Name}, an open-source digital public good for sustainable development.`}
+        url={`/global-goods/${id}`}
+        image={getImageForGlobalGood(globalGood)}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": globalGood?.Name,
+          "description": globalGood?.ProductOverview?.Summary || globalGood?.ProductOverview?.Description,
+          "applicationCategory": globalGood?.GlobalGoodsType?.map((t: any) => t.title).join(", "),
+          "url": globalGood?.Website,
+          "operatingSystem": "Web",
+          "license": globalGood?.License ? `${globalGood.License.name} (${globalGood.License.url})` : "Open Source",
+          "image": getImageForGlobalGood(globalGood),
+          "provider": {
+            "@type": "Organization",
+            "name": "Open Source Community"
+          }
+        }}
+      />
+      <div className="container px-4 py-8 mx-auto max-w-7xl">
+        {/* Breadcrumb Navigation */}
+        <div className="mb-6 flex justify-between items-center">
+          <Link 
+            to="/global-goods" 
+            className="text-muted-foreground hover:text-primary flex items-center"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            {tPage('backToGlobalGoods', 'globalGoodDetails')}
+          </Link>
+          
+          {detailedData && (
+            <RawDataViewer data={detailedData} title={`Raw Data: ${globalGood.Name}`} />
           )}
         </div>
         
-        <Separator />
-        
-        {/* Technical Information Section - Priority content */}
-        {hasDetailedData && detailedData ? (
-          <TechnicalInformationSection globalGood={detailedData} />
-        ) : (
-          <ProgressiveLoadingSkeleton phase={loadingPhase} />
+        {/* Header Section - Show immediately with basic data */}
+        {globalGood && (
+          <GlobalGoodHeaderFlat globalGood={globalGood as any} />
         )}
         
-        {hasDetailedData && detailedData && (
-          <>
-            <Separator />
-            
-            {/* Global Reach Section */}
-            <GlobalReachSection globalGood={detailedData} />
-            
-            <Separator />
-            
-            {/* Resources Section */}
-            <ResourcesSection globalGood={detailedData} />
-            
-            <Separator />
-            
-            {/* Community Section */}
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Community</h2>
-              <CommunityTabEnhanced globalGood={detailedData} />
-            </div>
-            
-            <Separator />
-            
-            {/* Maturity Section */}
-            <MaturitySection globalGood={detailedData} />
-            
-            <Separator />
-            
-            {/* Sustainability & Economics Section */}
-            <SustainabilityEconomicsSection globalGood={detailedData} />
-            
-            <Separator />
-            
-            {/* Related Content Section */}
-            <RelatedContentSection globalGood={detailedData} />
-          </>
-        )}
+        {/* Main Content - Progressive sections */}
+        <div className="mt-8 space-y-10">
+          {/* Overview Section - Priority content */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">{tPage('tabs.overview', 'globalGoodDetails')}</h2>
+            {globalGood && (
+              <OverviewTabFlat globalGood={globalGood as any} />
+            )}
+          </div>
+          
+          <Separator />
+          
+          {/* Technical Information Section - Priority content */}
+          {hasDetailedData && detailedData ? (
+            <TechnicalInformationSection globalGood={detailedData} />
+          ) : (
+            <ProgressiveLoadingSkeleton phase={loadingPhase} />
+          )}
+          
+          {hasDetailedData && detailedData && (
+            <>
+              <Separator />
+              
+              {/* Global Reach Section */}
+              <GlobalReachSection globalGood={detailedData} />
+              
+              <Separator />
+              
+              {/* Resources Section */}
+              <ResourcesSection globalGood={detailedData} />
+              
+              <Separator />
+              
+              {/* Community Section */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">Community</h2>
+                <CommunityTabEnhanced globalGood={detailedData} />
+              </div>
+              
+              <Separator />
+              
+              {/* Maturity Section */}
+              <MaturitySection globalGood={detailedData} />
+              
+              <Separator />
+              
+              {/* Sustainability & Economics Section */}
+              <SustainabilityEconomicsSection globalGood={detailedData} />
+              
+              <Separator />
+              
+              {/* Related Content Section */}
+              <RelatedContentSection globalGood={detailedData} />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
