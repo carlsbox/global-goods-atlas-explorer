@@ -64,16 +64,16 @@
       "ImplementationCountries": ["co", "ht", "gm", "sl", "ci", "st", "ng", "ne", "dj", "tz", "zm", "ao", "km", "td", "ml", "np", "mm", "la", "kh", "tl", "pw", "pg", "fm", "sb", "nr", "tv", "fj", "ws", "ki", "vu", "to"]
     },
     "Maturity": {
-      "SummaryOfMaturity": "Well-established platform with strong community support and technical capabilities.",
+      "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
       "Scores": [
         {
           "year": 2024,
           "global_utility": 10,
           "community_support": 10,
           "maturity_of_gg": 10,
-          "inclusive_design": 8,
-          "climate_resilience": 8,
-          "low_carbon": 8
+          "inclusive_design": 0,
+          "climate_resilience":  0,
+          "low_carbon": 0
         }
       ]
     },
