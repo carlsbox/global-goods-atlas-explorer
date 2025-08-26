@@ -16,7 +16,7 @@
     "postconditions": "- Alerts are delivered on time\n- Outreach reduces health risks\n- Communities take preventive actions\n- Fewer heat-related hospital visits\n- Event data supports learning and M&E",
     "data_requirements": "- Daily weather forecasts (temperature, humidity, heat index)\n- Defined heat-health thresholds\n- CHW and community contact databases\n- Health facility data (optional)",
     "standards": [
-      "HL7 FHIR",
+      "FHIR",
       "ADX"
     ],
     "technology_components": "- **Weather data API** (e.g., NOAA, local agency)\n- **Alert platform** (e.g., RapidPro)\n- **Dashboards** (e.g., DHIS2, PowerBI)\n- **Mobile phones** for CHWs\n- **Optional**: ML model for predictions",

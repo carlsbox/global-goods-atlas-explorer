@@ -67,7 +67,7 @@
     "ID": "android_fhir_sdk",
     "Name": "Android FHIR SDK",
     "Summary": "The Android FHIR SDK is a set of Kotlin libraries for building offline-capable, mobile-first healthcare applications using the HL7® FHIR® standard on Android.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/open_health_stack.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -107,7 +107,7 @@
     "ID": "bahmni",
     "Name": "Bahmni",
     "Summary": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/bahmni_logo.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -225,8 +225,8 @@
     "Standards": {
       "Health": [
         "ICD-9",
-        "ICD-10",
         "ICD-11",
+        "ICD-10",
         "SNOMED-CT",
         "LOINC"
       ],
@@ -244,7 +244,59 @@
     ],
     "ClimateHealth": false,
     "NumberOfImplementations": 200,
-    "Countries": ["ng", "za", "ke", "gh", "et", "tz", "ug", "sn", "dz", "ma", "zm", "zw", "mw", "ao", "cm", "ci", "ml", "ne", "bf", "bj", "gn", "ga", "td", "sd", "ss", "ly", "mr", "sl", "rw", "bi", "mg", "cv", "gq", "cf", "cg", "cd", "dj", "er", "so", "km", "st", "sc", "na", "bw", "ls", "sz", "tn", "eg", "mu", "mz", "lr", "tg"
+    "Countries": [
+      "ng",
+      "za",
+      "ke",
+      "gh",
+      "et",
+      "tz",
+      "ug",
+      "sn",
+      "dz",
+      "ma",
+      "zm",
+      "zw",
+      "mw",
+      "ao",
+      "cm",
+      "ci",
+      "ml",
+      "ne",
+      "bf",
+      "bj",
+      "gn",
+      "ga",
+      "td",
+      "sd",
+      "ss",
+      "ly",
+      "mr",
+      "sl",
+      "rw",
+      "bi",
+      "mg",
+      "cv",
+      "gq",
+      "cf",
+      "cg",
+      "cd",
+      "dj",
+      "er",
+      "so",
+      "km",
+      "st",
+      "sc",
+      "na",
+      "bw",
+      "ls",
+      "sz",
+      "tn",
+      "eg",
+      "mu",
+      "mz",
+      "lr",
+      "tg"
     ],
     "Classifications": {
       "SDGs": [
@@ -262,7 +314,7 @@
     },
     "Standards": {
       "Health": [
-        "HL7 FHIR"
+        "FHIR"
       ],
       "Interop": [
         "REST"
@@ -399,7 +451,7 @@
         "ICD-10",
         "ICD-11",
         "LOINC",
-        "SNOMED"
+        "SNOMED-CT"
       ],
       "Interop": [
         "ADX",
@@ -444,7 +496,7 @@
     "ID": "everwell_hub",
     "Name": "Everwell Hub",
     "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/everwell_hub_logo.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -481,7 +533,7 @@
     "ID": "ewars",
     "Name": "Early Warning and Response System for climate-senstive diseases",
     "Summary": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
-    "Logo": "",
+    "Logo": "/uploads/logo-Placeholder.jpg",
     "GlobalGoodType": [
       "software"
     ],
@@ -723,7 +775,7 @@
     "ID": "geoprism",
     "Name": "GeoPrism Registry",
     "Summary": "GeoPrism provides hierarchy and ontology management for normalizing disparate datasets  by common geographies and ontological terms, integration with DHIS2, and spatial dashboarding capabilities.",
-    "Logo": "",
+    "Logo": "/uploads/gg_logos/Geoprism_logo.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -745,7 +797,7 @@
       ],
       "WMO": [
         "WMO_C3",
-        "WMO-B1"
+        "WMO_B1"
       ],
       "DPI": [
         "DPI_B5"
@@ -1187,11 +1239,11 @@
     },
     "Standards": {
       "Health": [
-        "ICD-10"
+        "ICD-10",
+        "GS1"
       ],
       "Interop": [
-        "GS1",
-        "HL7 FHIR"
+        "FHIR"
       ],
       "Climate": []
     }
@@ -1614,7 +1666,7 @@
     "ID": "opencrvs",
     "Name": "OpenCRVS ",
     "Summary": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/opencrvs_logo.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -1958,7 +2010,7 @@
     "ID": "openmrs",
     "Name": "OpenMRS",
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/openmrs_logo.png",
     "GlobalGoodType": [
       "software"
     ],
@@ -2091,7 +2143,7 @@
       "software"
     ],
     "ClimateHealth": false,
-    "NumberOfImplementations": 0,
+    "NumberOfImplementations": 8,
     "Countries": [
       "np",
       "tz",

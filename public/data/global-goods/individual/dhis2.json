@@ -71,7 +71,7 @@
       "SummaryOfMaturity": "Widely adopted and mature platform with 20+ years of development.",
       "Scores": [
         {
-          "year": 2023,
+          "year": 2025,
           "global_utility": 9,
           "community_support": 8,
           "maturity_of_gg": 9,
@@ -84,18 +84,18 @@
           "global_utility": 9,
           "community_support": 8,
           "maturity_of_gg": 8,
-          "inclusive_design": 7,
-          "climate_resilience": 5,
-          "low_carbon": 6
+          "inclusive_design": 0,
+          "climate_resilience": 0,
+          "low_carbon": 0
         },
         {
           "year": 2021,
           "global_utility": 8,
           "community_support": 7,
           "maturity_of_gg": 8,
-          "inclusive_design": 6,
-          "climate_resilience": 4,
-          "low_carbon": 6
+          "inclusive_design": 0,
+          "climate_resilience": 0,
+          "low_carbon": 0
         }
       ]
     },

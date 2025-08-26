@@ -78,8 +78,12 @@
     ],
     "Screenshots": [
       {
-        "url": "#",
-        "description": "EWARS-csd dashboard"
+        "url": "/uploads/gg_screenshots/EWARS-csd-screenshot_01.png",
+        "description": "EWARS-csd dashboard #1"
+      },
+      {
+        "url": "/uploads/gg_screenshots/EWARS-csd-screenshot_02.png",
+        "description": "EWARS-csd dashboard #2"
       }
     ]
   },

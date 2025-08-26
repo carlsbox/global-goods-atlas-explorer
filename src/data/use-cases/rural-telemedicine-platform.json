@@ -16,7 +16,7 @@
     "postconditions": "**Immediate Healthcare Access Improvements:**\n- Reduced travel time and costs for patients seeking specialist care\n- Increased frequency of specialist consultations in rural areas\n- Enhanced clinical decision-making through expert consultation\n- Improved medication adherence through remote monitoring\n\n**System-Level Outcomes:**\n- Strengthened healthcare delivery capacity in rural regions\n- Better integration between primary and specialist care services\n- Enhanced health outcomes for chronic disease patients\n- Reduced healthcare disparities between urban and rural populations",
     "data_requirements": "**Patient Information:**\n- Electronic health records and medical history\n- Real-time vital signs and diagnostic data\n- Medication records and treatment adherence\n- Patient-reported outcomes and symptom tracking\n\n**Consultation Data:**\n- Video consultation recordings and clinical notes\n- Specialist recommendations and treatment plans\n- Follow-up scheduling and care coordination\n- Quality metrics and patient satisfaction scores",
     "standards": [
-      "HL7 FHIR",
+      "FHIR",
       "DICOM"
     ],
     "technology_components": "**Core Telemedicine Platform:**\n- **OpenMRS** enhanced with telemedicine modules\n- Secure video conferencing with end-to-end encryption\n- Mobile applications for patient engagement and monitoring\n- Integration APIs for diagnostic equipment and wearable devices\n\n**Communication Infrastructure:**\n- High-definition video conferencing systems\n- Secure messaging and file sharing capabilities\n- Real-time data transmission for vital signs monitoring\n- Cloud-based storage with backup and disaster recovery",
