@@ -53,7 +53,7 @@ const endorsementOrgs = [{
   logo: "/lovable-uploads/52493266-4ebf-49b2-9061-c9fd484def89.png"
 }, {
   name: "Digital Public Goods Alliance",
-  logo: "https://images.unsplash.com/photo-1487058792275-0ad4492f6c44?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/4778ecc2-19db-433a-ac00-cc93736455f0.png"
 }, {
   name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
   logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
