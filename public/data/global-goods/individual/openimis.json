@@ -54,9 +54,10 @@
   },
   "Reach": {
     "SummaryOfReach": "More than 10 million people in eight countries benefit from schemes managed using openIMIS.",
-    "NumberOfImplementations": 0,
+    "NumberOfImplementations": 8,
     "ImplementationMapOverview": {
-      "url": ""
+      "url": "",
+      "description": ""
     },
     "ImplementationCountries": ["np", "tz", "zm", "ne", "ng", "td", "gm", "mr"]
   },
