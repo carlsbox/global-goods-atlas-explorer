@@ -1955,7 +1955,7 @@
     }
   },
   {
-    "ID": "OpenMRS",
+    "ID": "openmrs",
     "Name": "OpenMRS",
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
     "Logo": "/uploads/logo-Placeholder.jpg",
