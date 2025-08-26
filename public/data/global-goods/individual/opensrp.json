@@ -46,7 +46,12 @@
     "PrimaryFunctionality": "Electronic Immunization Register and community service delivery; standards-based interoperability across immunization product suite.",
     "Users": "Community health workers and facility staff (nurses, doctors, medical officers)",
     "Languages": [],
-    "Screenshots": []
+    "Screenshots": [
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": ""
+      }
+    ]
   },
   "Reach": {
     "SummaryOfReach": "Used in 14+ implementations (including national scale) with 150M+ patients registered as of June 2023.",
