@@ -47,7 +47,7 @@ const endorsementOrgs = [{
   logo: "/lovable-uploads/5a962e50-00d3-46f6-b4e4-7239a1774744.png"
 }, {
   name: "Gates Foundation",
-  logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/GatesFoundation.svg"
 }, {
   name: "Digital Impact Alliance",
   logo: "/lovable-uploads/52493266-4ebf-49b2-9061-c9fd484def89.png"
