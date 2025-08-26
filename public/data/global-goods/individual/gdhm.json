@@ -1,0 +1,733 @@
+{
+  "ID": "gdhm",
+  "Name": "Global Digital Health Monitor",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "name": "Official website",
+      "url": "https://digitalhealthmonitor.org/",
+      "description": ""
+    },
+    "docs": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "name": "",
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "name": "",
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": [
+    {
+      "code": "content",
+      "title": "Content",
+      "description": "A resource, toolkit, or data standard available under an open license, used to improve or analyze health data management processes."
+    }
+  ],
+  "License": {
+    "id": "unknown",
+    "name": "Unknown",
+    "url": "",
+    "description": ""
+  },
+  "Contact": [
+    {
+      "name": "",
+      "email": "info@digitalhealthmonitor.org",
+      "role": ""
+    }
+  ],
+  "Classifications": {
+    "SDGs": [
+      {
+        "code": "SDG-3",
+        "title": "Good Health and Well-being",
+        "description": "Ensure healthy lives and promote well-being for all at all ages"
+      }
+    ],
+    "WHO": [
+      {
+        "code": "WHO_C1",
+        "title": "Census and population information systems",
+        "description": "",
+        "group_code": "C",
+        "group_name": "Registries and Directories",
+        "authority": "WHO"
+      }
+    ],
+    "WMO": [],
+    "DPI": []
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
+    "Description": "Intended to be used by Ministries of Health, private health and technology sector stakeholders, and international agencies, the GDHM enables countries and regions to benchmark and track progress and maturity over time, advocate for resources, identify countries that are performing well to facilitate cross-country learning, and support private sector entrepreneurs and investors to strategically prioritize new market entry and strategies. Revisions to the GDHM include an update to indicators to align with the WHO Global Strategy for Digital Health 2020-2025, private sector engagement, emerging technologies such as AI, as well as diversity, equity, and inclusion – including a new sub-indicator on gender to address the widening gender digital divide.",
+    "PrimaryFunctionality": "",
+    "Users": "The primary users of the content are governments, particularly Ministries of Health who are working to advance digital health transformation within their countries",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "pt",
+        "name": "Portuguese"
+      },
+      {
+        "code": "ar",
+        "name": "Arabic"
+      }
+    ],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "In 2023, 71 countries have completed the GDHM, representing 35% of all countries in the world. An additional 100 countries have data for seven indicators pre-populated with correlated data from publicly available sources. The Global Fund and Gavi have both adopted the GDHM as their digital health maturity model, which they will be using annually to track and prioritize their investments. The GDHM is also being used routinely by UNICEF and Africa CDC. Furthermore, in May 2023, the WHO announced its intention to adopt the GDHM and house it within their suite of digital health resources. Many countries have used the GDHM to inform the development of National Digital Health Strategies. The ones that we are aware of, include Nigeria, Iraq, Zambia, Ethiopia, Sierra Leone, Lao DPR and Indonesia.",
+    "NumberOfImplementations": 52,
+    "ImplementationMapOverview": null,
+    "ImplementationCountries": [
+      {
+        "iso_code": "do",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Dominican Republic (the)",
+            "formal": "the Dominican Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "jm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Jamaica",
+            "formal": "Jamaica"
+          }
+        }
+      },
+      {
+        "iso_code": "cr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Costa Rica",
+            "formal": "the Republic of Costa Rica"
+          }
+        }
+      },
+      {
+        "iso_code": "gt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guatemala",
+            "formal": "the Republic of Guatemala"
+          }
+        }
+      },
+      {
+        "iso_code": "br",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Brazil",
+            "formal": "the Federative Republic of Brazil"
+          }
+        }
+      },
+      {
+        "iso_code": "cl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Chile",
+            "formal": "the Republic of Chile"
+          }
+        }
+      },
+      {
+        "iso_code": "ar",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Argentina",
+            "formal": "the Argentine Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ie",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ireland",
+            "formal": "Ireland"
+          }
+        }
+      },
+      {
+        "iso_code": "pt",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Portugal",
+            "formal": "the Portuguese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "at",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Austria",
+            "formal": "the Republic of Austria"
+          }
+        }
+      },
+      {
+        "iso_code": "jo",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Jordan",
+            "formal": "the Hashemite Kingdom of Jordan"
+          }
+        }
+      },
+      {
+        "iso_code": "iq",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Iraq",
+            "formal": "the Republic of Iraq"
+          }
+        }
+      },
+      {
+        "iso_code": "sa",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Saudi Arabia",
+            "formal": "the Kingdom of Saudi Arabia"
+          }
+        }
+      },
+      {
+        "iso_code": "ae",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "United Arab Emirates (the)",
+            "formal": "the United Arab Emirates"
+          }
+        }
+      },
+      {
+        "iso_code": "af",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Afghanistan",
+            "formal": "the Islamic Republic of Afghanistan"
+          }
+        }
+      },
+      {
+        "iso_code": "np",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Nepal",
+            "formal": "Nepal"
+          }
+        }
+      },
+      {
+        "iso_code": "bd",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Bangladesh",
+            "formal": "the People's Republic of Bangladesh"
+          }
+        }
+      },
+      {
+        "iso_code": "vn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Viet Nam",
+            "formal": "the Socialist Republic of Viet Nam"
+          }
+        }
+      },
+      {
+        "iso_code": "kh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cambodia",
+            "formal": "the Kingdom of Cambodia"
+          }
+        }
+      },
+      {
+        "iso_code": "th",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Thailand",
+            "formal": "the Kingdom of Thailand"
+          }
+        }
+      },
+      {
+        "iso_code": "ph",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Philippines (the)",
+            "formal": "the Republic of the Philippines"
+          }
+        }
+      },
+      {
+        "iso_code": "mm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Myanmar",
+            "formal": "the Republic of the Union of Myanmar"
+          }
+        }
+      },
+      {
+        "iso_code": "lk",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sri Lanka",
+            "formal": "the Democratic Socialist Republic of Sri Lanka"
+          }
+        }
+      },
+      {
+        "iso_code": "mv",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Maldives",
+            "formal": "the Republic of Maldives"
+          }
+        }
+      },
+      {
+        "iso_code": "mw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malawi",
+            "formal": "the Republic of Malawi"
+          }
+        }
+      },
+      {
+        "iso_code": "ml",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mali",
+            "formal": "the Republic of Mali"
+          }
+        }
+      },
+      {
+        "iso_code": "my",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Malaysia",
+            "formal": "Malaysia"
+          }
+        }
+      },
+      {
+        "iso_code": "jp",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Japan",
+            "formal": "Japan"
+          }
+        }
+      },
+      {
+        "iso_code": "zw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zimbabwe",
+            "formal": "the Republic of Zimbabwe"
+          }
+        }
+      },
+      {
+        "iso_code": "zm",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Zambia",
+            "formal": "the Republic of Zambia"
+          }
+        }
+      },
+      {
+        "iso_code": "mz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Mozambique",
+            "formal": "the Republic of Mozambique"
+          }
+        }
+      },
+      {
+        "iso_code": "sz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Eswatini",
+            "formal": "the Kingdom of Eswatini"
+          }
+        }
+      },
+      {
+        "iso_code": "za",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "South Africa",
+            "formal": "the Republic of South Africa"
+          }
+        }
+      },
+      {
+        "iso_code": "ug",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Uganda",
+            "formal": "the Republic of Uganda"
+          }
+        }
+      },
+      {
+        "iso_code": "ke",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Kenya",
+            "formal": "the Republic of Kenya"
+          }
+        }
+      },
+      {
+        "iso_code": "tz",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Tanzania, the United Republic of",
+            "formal": "the United Republic of Tanzania"
+          }
+        }
+      },
+      {
+        "iso_code": "rw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Rwanda",
+            "formal": "the Republic of Rwanda"
+          }
+        }
+      },
+      {
+        "iso_code": "bi",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Burundi",
+            "formal": "the Republic of Burundi"
+          }
+        }
+      },
+      {
+        "iso_code": "bj",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Benin",
+            "formal": "the Republic of Benin"
+          }
+        }
+      },
+      {
+        "iso_code": "tg",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Togo",
+            "formal": "the Togolese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "ci",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Côte d'Ivoire",
+            "formal": "the Republic of Côte d'Ivoire"
+          }
+        }
+      },
+      {
+        "iso_code": "gh",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Ghana",
+            "formal": "the Republic of Ghana"
+          }
+        }
+      },
+      {
+        "iso_code": "cf",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Central African Republic (the)",
+            "formal": "the Central African Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "st",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sao Tome and Principe",
+            "formal": "the Democratic Republic of Sao Tome and Principe"
+          }
+        }
+      },
+      {
+        "iso_code": "ga",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Gabon",
+            "formal": "the Gabonese Republic"
+          }
+        }
+      },
+      {
+        "iso_code": "lr",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Liberia",
+            "formal": "the Republic of Liberia"
+          }
+        }
+      },
+      {
+        "iso_code": "sl",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Sierra Leone",
+            "formal": "the Republic of Sierra Leone"
+          }
+        }
+      },
+      {
+        "iso_code": "gn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guinea",
+            "formal": "the Republic of Guinea"
+          }
+        }
+      },
+      {
+        "iso_code": "gw",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Guinea-Bissau",
+            "formal": "the Republic of Guinea-Bissau"
+          }
+        }
+      },
+      {
+        "iso_code": "sn",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Senegal",
+            "formal": "the Republic of Senegal"
+          }
+        }
+      },
+      {
+        "iso_code": "km",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Comoros (the)",
+            "formal": "the Union of the Comoros"
+          }
+        }
+      },
+      {
+        "iso_code": "cv",
+        "type": "implementation",
+        "names": {
+          "en": {
+            "short": "Cabo Verde",
+            "formal": "the Republic of Cabo Verde"
+          }
+        }
+      }
+    ]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 9,
+        "community_support": 9,
+        "maturity_of_gg": 8,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "This is a diverse community comprised of government officials, regional digital health networks, NGOs, multilateral organizations, philanthropic organizations, technology partners and the private sector, including representatives from Kenya, Guatemala, United States, India, France, Thailand, Switzerland, Nigeria, Mali, The Netherlands, Argentina, Chile, The Philippines, Australia and Spain. The GDHM has a technical committee comprised of more than 30 individuals from over 20 countries. The focus of the technical committee is expert guidance, oversight and review of all GDHM material, country engagement strategies and plans for expansion.",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2016,
+    "SizeOfCommunity": 30,
+    "Links": {
+      "Community": {
+        "url": "",
+        "description": ""
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "The content for the GDHM is currently managed by HealthEnabled, a digital health non-profit, with plans to transition to the World Health Organization (WHO). The content has been funded through grant funding to-date, from The Global Fund and the Patrick J. McGovern Foundation.",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}
