@@ -12,8 +12,7 @@ import { ExportButton } from "@/components/ExportButton";
 import ReactMarkdown from "react-markdown";
 import { GlobalGoodCompactCard } from "@/components/global-good/GlobalGoodCompactCard";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { StandardsBadgeCloud } from "@/components/global-good/StandardsBadgeCloud";
-import { useStandardsResolver } from "@/hooks/useStandardsResolver";
+import { UseCaseStandardsSection } from "@/components/use-cases/UseCaseStandardsSection";
 import { RelatedUseCasesSection } from "@/components/use-cases/RelatedUseCasesSection";
 
 export default function UseCaseDetailsPage() {
@@ -22,27 +21,6 @@ export default function UseCaseDetailsPage() {
   
   const useCase = useCases.find(uc => uc.id === id);
 
-  console.log('UseCaseDetailsPage - Phase 3 Debug:', {
-    useCaseId: useCase?.id,
-    standards: useCase?.standards,
-    standardsLength: useCase?.standards?.length || 0
-  });
-
-  // Resolve standards from reference data
-  const { groupedStandards, loading: standardsLoading, resolvedStandards, error: standardsError } = useStandardsResolver(useCase?.standards || []);
-
-  console.log('UseCaseDetailsPage - Standards Resolution Results:', {
-    standardsLoading,
-    standardsError,
-    resolvedCount: resolvedStandards.length,
-    groupedCounts: {
-      health: groupedStandards.health.length,
-      interoperability: groupedStandards.interoperability.length,
-      climate: groupedStandards.climate.length,
-      dataCollection: groupedStandards.dataCollection.length,
-      emergency: groupedStandards.emergency.length,
-    }
-  });
 
   if (isLoading) {
     return (
@@ -75,106 +53,6 @@ export default function UseCaseDetailsPage() {
     </div>
   );
 
-  // Enhanced standards rendering with fallbacks
-  const renderStandardsSection = () => {
-    if (!useCase.standards || useCase.standards.length === 0) {
-      return (
-        <div className="text-sm text-muted-foreground">
-          No standards specified for this use case.
-        </div>
-      );
-    }
-
-    if (standardsLoading) {
-      return (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <LoadingSpinner />
-          Loading standards information...
-        </div>
-      );
-    }
-
-    if (standardsError) {
-      return (
-        <div className="text-sm text-red-600">
-          Error loading standards: {standardsError}
-          <div className="mt-2">
-            <div className="text-xs text-muted-foreground">
-              Standards codes: {useCase.standards.join(', ')}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (resolvedStandards.length === 0) {
-      return (
-        <div className="space-y-2">
-          <div className="text-sm text-orange-600">
-            Could not resolve standards information from reference data.
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {useCase.standards.map((code) => (
-              <Badge key={code} variant="outline" className="text-xs">
-                {code}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    return (
-      <div className="space-y-4">
-        <TooltipProvider>
-          {groupedStandards.health.length > 0 && (
-            <StandardsBadgeCloud
-              standards={groupedStandards.health}
-              variant="health"
-              title="Health Standards"
-              maxVisible={6}
-            />
-          )}
-          
-          {groupedStandards.interoperability.length > 0 && (
-            <StandardsBadgeCloud
-              standards={groupedStandards.interoperability}
-              variant="interoperability"
-              title="Interoperability Standards"
-              maxVisible={6}
-            />
-          )}
-          
-          {groupedStandards.climate.length > 0 && (
-            <StandardsBadgeCloud
-              standards={groupedStandards.climate}
-              variant="climate"
-              title="Climate Standards"
-              maxVisible={6}
-            />
-          )}
-          
-          {groupedStandards.dataCollection.length > 0 && (
-            <StandardsBadgeCloud
-              standards={groupedStandards.dataCollection}
-              variant="interoperability"
-              title="Data Collection Standards"
-              maxVisible={6}
-            />
-          )}
-          
-          {groupedStandards.emergency.length > 0 && (
-            <StandardsBadgeCloud
-              standards={groupedStandards.emergency}
-              variant="health"
-              title="Emergency Standards"
-              maxVisible={6}
-            />
-          )}
-        </TooltipProvider>
-      </div>
-    );
-  };
 
   // Handle both new and legacy data structures
   const title = useCase.title;
@@ -399,10 +277,10 @@ export default function UseCaseDetailsPage() {
                   </div>
                 )}
                 
-                {/* Standards & Interoperability - Enhanced with fallbacks */}
+                {/* Standards & Interoperability - Using dedicated component */}
                 <div>
                   <h4 className="font-medium text-green-600 mb-3">Standards & Interoperability</h4>
-                  {renderStandardsSection()}
+                  <UseCaseStandardsSection standards={useCase.standards || []} />
                 </div>
 
                 {/* Associated Global Goods - Moved below Standards */}
