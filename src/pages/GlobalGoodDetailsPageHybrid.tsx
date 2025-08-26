@@ -86,9 +86,15 @@ export default function GlobalGoodDetailsPageHybrid() {
     const baseUrl = getBaseUrl();
     // Try to get screenshot first, then logo, then default
     if (good.productOverview?.screenshots?.length > 0) {
-      return good.productOverview.screenshots[0].startsWith('http') 
+      const screenshotUrl = typeof good.productOverview.screenshots[0] === 'string'
         ? good.productOverview.screenshots[0]
-        : `${baseUrl}${good.productOverview.screenshots[0]}`;
+        : good.productOverview.screenshots[0]?.url;
+      
+      if (screenshotUrl) {
+        return screenshotUrl.startsWith('http') 
+          ? screenshotUrl
+          : `${baseUrl}${screenshotUrl}`;
+      }
     }
     if (good.coreMetadata?.logo) {
       return good.coreMetadata.logo.startsWith('http') 

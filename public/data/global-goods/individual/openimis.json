@@ -45,7 +45,12 @@
     "PrimaryFunctionality": "",
     "Users": "Scheme operators (payer), hospital administration (provider), field staff (beneficiaries)",
     "Languages": [],
-    "Screenshots": []
+    "Screenshots": [
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": ""
+      }
+    ]
   },
   "Reach": {
     "SummaryOfReach": "More than 10 million people in eight countries benefit from schemes managed using openIMIS.",

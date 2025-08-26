@@ -57,9 +57,15 @@ export default function GlobalGoodDetailsPageFlat() {
     const baseUrl = getBaseUrl();
     // Try to get screenshot first, then logo, then default
     if (good.ProductOverview?.Screenshots?.length > 0) {
-      return good.ProductOverview.Screenshots[0].startsWith('http') 
+      const screenshotUrl = typeof good.ProductOverview.Screenshots[0] === 'string' 
         ? good.ProductOverview.Screenshots[0]
-        : `${baseUrl}${good.ProductOverview.Screenshots[0]}`;
+        : good.ProductOverview.Screenshots[0]?.url;
+      
+      if (screenshotUrl) {
+        return screenshotUrl.startsWith('http') 
+          ? screenshotUrl
+          : `${baseUrl}${screenshotUrl}`;
+      }
     }
     if (good.Logo) {
       return good.Logo.startsWith('http') 

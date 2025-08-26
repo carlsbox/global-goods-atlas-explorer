@@ -20,9 +20,7 @@
       "description": ""
     }
   },
-  "GlobalGoodsType": [
-    "content"
-  ],
+  "GlobalGoodsType": ["content"],
   "ClimateHealth": false,
   "License": "cc-by-4.0",
   "Contact": [
@@ -50,20 +48,7 @@
     "Description": "For too long, community health workers (CHWs) have been excluded from discussions that influence their work and their communities. This free digital training equips CHWs with the skills to effectively share their personal stories and promote the health issues most important to their communities. ",
     "PrimaryFunctionality": "Learners will have the ability to access and download videos, reading materials, and reflection exercises on the following topics:\n1. The history and background of CHW programs\n2. How to advocate for improved health care and working conditions\n3. How to tell personal stories to advocate for change\n4. How to use technology tools to participate in global conversations\nWe have also created a free Facilitator Guide to assist with in-person and hybrid group learning sessions as well as a Student Guide to guide users through the content.\n",
     "Users": "Community health workers (CHWs) and community health worker supervisors.",
-    "Languages": [
-      {
-        "code": "en",
-        "name": "English"
-      },
-      {
-        "code": "fr",
-        "name": "French"
-      },
-      {
-        "code": "es",
-        "name": "Spanish"
-      }
-    ],
+    "Languages": [ "en", "fr", "es" ],
     "Screenshots": [
       {
         "url": "/uploads/screenshot_placeholder.jpeg",
@@ -82,44 +67,7 @@
       "url": "",
       "description": ""
     },
-    "ImplementationCountries": [
-      "ca",
-      "ci",
-      "cm",
-      "au",
-      "us",
-      "gb",
-      "mx",
-      "ie",
-      "fr",
-      "es",
-      "br",
-      "pe",
-      "ve",
-      "id",
-      "in",
-      "my",
-      "mw",
-      "np",
-      "pk",
-      "be",
-      "ch",
-      "de",
-      "sn",
-      "sl",
-      "gh",
-      "tg",
-      "ng",
-      "rw",
-      "ke",
-      "ug",
-      "zm",
-      "mz",
-      "zw",
-      "za",
-      "bw",
-      "so"
-    ]
+    "ImplementationCountries": [ "ca", "ci", "cm", "au", "us", "gb", "mx", "ie", "fr", "es", "br", "pe", "ve", "id", "in", "my", "mw", "np", "pk", "be", "ch", "de", "sn", "sl", "gh", "tg", "ng", "rw", "ke", "ug", "zm", "mz", "zw", "za", "bw", "so" ]
   },
   "Maturity": {
     "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good.  The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model. ",

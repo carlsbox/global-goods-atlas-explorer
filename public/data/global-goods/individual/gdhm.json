@@ -47,7 +47,12 @@
     "PrimaryFunctionality": "",
     "Users": "The primary users of the content are governments, particularly Ministries of Health who are working to advance digital health transformation within their countries",
     "Languages": ["en", "fr", "es", "pt", "ar"],
-    "Screenshots": []
+    "Screenshots": [
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": ""
+      }
+    ]
   },
   "Reach": {
     "SummaryOfReach": "In 2023, 71 countries have completed the GDHM, representing 35% of all countries in the world. An additional 100 countries have data for seven indicators pre-populated with correlated data from publicly available sources. The Global Fund and Gavi have both adopted the GDHM as their digital health maturity model, which they will be using annually to track and prioritize their investments. The GDHM is also being used routinely by UNICEF and Africa CDC. Furthermore, in May 2023, the WHO announced its intention to adopt the GDHM and house it within their suite of digital health resources. Many countries have used the GDHM to inform the development of National Digital Health Strategies. The ones that we are aware of, include Nigeria, Iraq, Zambia, Ethiopia, Sierra Leone, Lao DPR and Indonesia.",
