@@ -158,11 +158,9 @@ function CatalogContent() {
         interopStandards.add(standard.code);
       });
 
-      // Extract implementation countries with ISO codes
+      // Extract implementation countries
       good.Reach?.ImplementationCountries?.forEach(country => {
-        if (country.iso_code) {
-          countries.add(country.iso_code);
-        }
+        countries.add(country.names.en.short);
       });
     });
 
@@ -219,7 +217,7 @@ function CatalogContent() {
       const matchesInteropStandards = selectedInteropStandards.length === 0 ||
         selectedInteropStandards.some(standard => goodInteropStandards.includes(standard));
 
-      const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.iso_code) || [];
+      const goodCountries = good.Reach?.ImplementationCountries?.map(c => c.names.en.short) || [];
       const matchesCountries = selectedCountries.length === 0 ||
         selectedCountries.some(country => goodCountries.includes(country));
 
