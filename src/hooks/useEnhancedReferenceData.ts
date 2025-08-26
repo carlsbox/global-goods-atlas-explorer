@@ -7,7 +7,7 @@ import { useLazyReferenceData } from '@/hooks/useLazyReferenceData';
  */
 export function useEnhancedReferenceData() {
   const {
-    standards = {},
+    standards = {} as any,
     countries = [],
     classifications = [],
     loading,
@@ -20,27 +20,53 @@ export function useEnhancedReferenceData() {
     const standardsMap = new Map<string, { code: string; name: string; description: string; domain: string }>();
     
     if (standards && typeof standards === 'object') {
-      Object.entries(standards).forEach(([domain, domainStandards]) => {
-        if (typeof domainStandards === 'object') {
-          Object.entries(domainStandards).forEach(([code, standard]: [string, any]) => {
-            standardsMap.set(code, {
-              code,
-              name: standard.name || code,
-              description: standard.description || '',
-              domain: standard.domain || domain
-            });
+      // Handle the transformed structure from useLazyReferenceData
+      // which returns { health: [], interoperability: [], climate: [] }
+      if (Array.isArray(standards.health)) {
+        standards.health.forEach((standard: any) => {
+          standardsMap.set(standard.code, {
+            code: standard.code,
+            name: standard.name || standard.code,
+            description: standard.description || '',
+            domain: 'Health'
           });
-        }
-      });
+        });
+      }
+      if (Array.isArray(standards.interoperability)) {
+        standards.interoperability.forEach((standard: any) => {
+          standardsMap.set(standard.code, {
+            code: standard.code,
+            name: standard.name || standard.code,
+            description: standard.description || '',
+            domain: 'Interoperability'
+          });
+        });
+      }
+      if (Array.isArray(standards.climate)) {
+        standards.climate.forEach((standard: any) => {
+          standardsMap.set(standard.code, {
+            code: standard.code,
+            name: standard.name || standard.code,
+            description: standard.description || '',
+            domain: 'Climate'
+          });
+        });
+      }
     }
 
-    // Countries lookup
+    // Countries lookup - support both ISO codes and names for validation
     const countriesMap = new Map<string, { code: string; name: string }>();
     countries.forEach(country => {
-      if (country.code && country.names?.en?.short) {
+      if (country.code && country.name?.short) {
+        // Add by ISO code
         countriesMap.set(country.code, {
           code: country.code,
-          name: country.names.en.short
+          name: country.name.short
+        });
+        // Also add by name for backwards compatibility
+        countriesMap.set(country.name.short, {
+          code: country.code,
+          name: country.name.short
         });
       }
     });
