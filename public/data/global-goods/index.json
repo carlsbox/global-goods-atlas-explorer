@@ -1817,7 +1817,7 @@
   },
   {
     "ID": "openlmis",
-    "Name": "OpneLMIS",
+    "Name": "OpenLMIS",
     "Summary": "OpenLMIS is a powerful, open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. OpenLMIS automates LMIS business processes throughout the entire supply chain, reducing the burden on health workers while improving data accuracy, data timeliness, and data visibility.",
     "Logo": "/uploads/gg_logos/openlmis.png",
     "GlobalGoodType": [
