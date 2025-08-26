@@ -1,0 +1,161 @@
+{
+  "ID": "ciel",
+  "Name": "CIEL Terminology",
+  "Logo": "/uploads/logo-Placeholder.jpg",
+  "ClimateHealth": false,
+  "Website": {
+    "main": {
+      "url": "https://opensrp.io/global-immunization-product-suite/",
+      "description": ""
+    },
+    "docs": {
+      "url": "",
+      "description": ""
+    },
+    "source_code": {
+      "url": "",
+      "description": ""
+    },
+    "demo": {
+      "url": "",
+      "description": ""
+    }
+  },
+  "GlobalGoodsType": ["content"],
+  "License": "cc-by-4.0",
+  "Contact": [
+    {
+      "name": "",
+      "email": "ask2164@cumc.columbia.edu",
+      "role": ""
+    }
+  ],
+  "Classifications": {
+    "SDGs": ["SDG-3"],
+    "WHO": ["WHO_C11"],
+    "WMO": [],
+    "DPI": ["DPI_RG1"]
+  },
+  "StandardsAndInteroperability": {
+    "HealthStandards": ["ICD-9", "ICD-11", "ICD-10", "SNOMED-CT", "LOINC"],
+    "Interoperability": [],
+    "ClimateStandards": []
+  },
+  "ProductOverview": {
+    "Summary": "The Columbia International eHealth Laboratory Terminology (CIEL Terminology) is an open source, standardized clinical interface terminology used particularly by low- and middle-income countries (LMICs) to capture, map, and analyze health information.",
+    "Description": "Clinical interface terminology provides clinically and public health–relevant concepts that are SAME-AS the concepts required for clinical care, triggering of SMART guidelines, and creating cohorts. CIEL also provides for more accurate and seamless translation of concept codes across terminologies and between versions of code systems and insulates applications and reports from backend coding changes. As part of the OMOP terminologies, CIEL is poised to play a crucial role in migrating LMIC data sources into the OHDSI community and will benefit from multi-lingual translation of the OHDSI documentation including the use of standard vocabularies.",
+    "PrimaryFunctionality": "",
+    "Users": "Clinicians are most likely to use CIEL content as it appears in their electronic health record or mobile phone device. Data managers would see CIEL content as they migrated their existing concept dictionaries as well as potentially the actual instance data (patient data) as it moves into data warehouses and reporting tools. The standard codes assigned by CIEL would be used for standard reporting to national, international, and local agencies, as well as for financial reporting and clinical decision support.",
+    "Languages": ["en", "ko", "zh"],
+    "Screenshots": []
+  },
+  "Reach": {
+    "SummaryOfReach": "CIEL is used widely across the globe primarily by those implementations that use OpenMRS and Bahmni (although this is now changing as more people use CIEL terminology for backend processes). Many countries are using the CIEL terminology as an interface terminology for migration of content, or in the case of OHIE countries, as the start of national data dictionaries, including Kenya and Nigeria.",
+    "NumberOfImplementations": 30,
+    "ImplementationMapOverview": null,
+    "ImplementationCountries": ["mz", "zm", "zw", "za", "bw", "mw", "rw", "ug", "ke", "et", "ng", "lr", "ci", "sl", "il", "pk", "in", "np", "lk", "bd", "vn", "kh", "ph", "ar", "pe", "co", "pa", "ht", "mx", "us"]
+  },
+  "Maturity": {
+    "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
+    "Scores": [
+      {
+        "year": 2023,
+        "global_utility": 7,
+        "community_support": 6,
+        "maturity_of_gg": 9,
+        "inclusive_design": 0,
+        "climate_resilience": 0,
+        "low_carbon": 0
+      }
+    ]
+  },
+  "ClimateAndHealthIntegration": {
+    "Description": ""
+  },
+  "Community": {
+    "DescriptionOfCommunity": "The OpenMRS community is primarily responsible for providing input into the CIEL, but as more countries are using Open Concept Lab as their terminology services, the OCL community has been a growing input.",
+    "HostAnchorOrganization": {
+      "name": "",
+      "url": "",
+      "description": "",
+      "country": []
+    },
+    "InceptionYear": 2010,
+    "SizeOfCommunity": 0,
+    "Links": {
+      "Community": {
+        "url": "",
+        "description": ""
+      },
+      "MailingList": {
+        "url": "",
+        "description": ""
+      }
+    },
+    "Events": {
+      "description": "",
+      "schedule": "",
+      "recent": []
+    },
+    "Policies": {
+      "Description": "",
+      "Governance": {
+        "url": "",
+        "description": ""
+      },
+      "TermsOfUse": {
+        "url": "",
+        "description": ""
+      },
+      "UserAgreement": {
+        "url": "",
+        "description": ""
+      },
+      "PrivacyPolicy": {
+        "url": "",
+        "description": ""
+      },
+      "DoNoHarm": {
+        "url": "",
+        "description": ""
+      },
+      "PIICollected": {
+        "url": "",
+        "description": ""
+      },
+      "NPIIUsed": {
+        "url": "",
+        "description": ""
+      }
+    }
+  },
+  "InclusiveDesign": {
+    "Description": "",
+    "UserInput": "",
+    "OfflineSupport": ""
+  },
+  "EnvironmentalImpact": {
+    "LowCarbon": ""
+  },
+  "TotalCostOfOwnership": {
+    "Description": "",
+    "url": ""
+  },
+  "Sustainability": {
+    "Description": "",
+    "KeyFundersSupporters": []
+  },
+  "Resources": {
+    "Articles": [],
+    "ProductDocumentation": [],
+    "UserRequirements": [],
+    "EndUserDocumentation": [],
+    "ImplementerDocumentation": [],
+    "DeveloperDocumentation": [],
+    "OperatorDocumentation": [],
+    "InstallationDocumentation": []
+  },
+  "LinkedInitiatives": {
+    "Initiative": []
+  }
+}

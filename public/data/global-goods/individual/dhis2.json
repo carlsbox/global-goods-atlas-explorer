@@ -211,6 +211,18 @@
     "Resources": {
       "Articles": [
         {
+          "description": "Use case in Togo",
+          "url": "https://dhis2.org/climate-malaria-dashboard-togo/"
+        },
+        {
+          "description": "Learning from DHIS2 climate-informed early warning pilots to develop innovative open-source AI tools",
+          "url": "https://dhis2.org/chap-lessons-learned/"
+        },
+        {
+          "description": "Catalyzing climate-health data use with the DHIS2 Climate App",
+          "url": "https://dhis2.org/climate-app-lessons-learned/"
+        },
+        {
           "description": "Technology for Better Governance: Insights from Public Health Systems in Kenya",
           "url": "https://www.orfonline.org/english/research/technology-for-better-governance-insights-from-public-health-systems-in-kenya"
         },
