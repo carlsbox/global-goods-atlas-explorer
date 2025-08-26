@@ -47,7 +47,7 @@ const endorsementOrgs = [{
   logo: "/lovable-uploads/5a962e50-00d3-46f6-b4e4-7239a1774744.png"
 }, {
   name: "Gates Foundation",
-  logo: "/lovable-uploads/GatesFoundation.svg"
+  logo: "/lovable-uploads/GatesFoundation_logo.svg"
 }, {
   name: "Digital Impact Alliance",
   logo: "/lovable-uploads/52493266-4ebf-49b2-9061-c9fd484def89.png"
@@ -56,7 +56,7 @@ const endorsementOrgs = [{
   logo: "/lovable-uploads/4778ecc2-19db-433a-ac00-cc93736455f0.png"
 }, {
   name: "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ)",
-  logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop"
+  logo: "/lovable-uploads/giz_logo.svg"
 }, {
   name: "NORAD",
   logo: "/lovable-uploads/6ca75fe4-9d9c-4dd3-911b-3e8004df4034.png"
