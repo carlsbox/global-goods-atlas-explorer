@@ -4,8 +4,7 @@ import {
   getDefaultSEODescription, 
   getDefaultSEOImage, 
   getBaseUrl, 
-  getDefaultKeywords, 
-  getTwitterHandle 
+  getDefaultKeywords
 } from '@/lib/config';
 
 interface SEOProps {
@@ -38,7 +37,6 @@ export function SEO({
   const DEFAULT_IMAGE = getDefaultSEOImage();
   const BASE_URL = getBaseUrl();
   const DEFAULT_KEYWORDS = getDefaultKeywords();
-  const TWITTER_HANDLE = getTwitterHandle();
 
   const fullTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE;
   const finalDescription = description || DEFAULT_DESCRIPTION;
@@ -73,13 +71,6 @@ export function SEO({
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       {author && <meta property="article:author" content={author} />}
-      
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={finalDescription} />
-      <meta name="twitter:image" content={absoluteImage} />
-      <meta name="twitter:site" content={TWITTER_HANDLE} />
       
       {/* JSON-LD Structured Data */}
       {jsonLd && (

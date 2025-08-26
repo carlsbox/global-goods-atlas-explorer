@@ -11,7 +11,6 @@
     "googleAnalyticsId": "G-XXXXXXXXXX"
   },
   "social": {
-    "twitter": "globalgoodsguidebook",
     "github": "globalgoodsguidebook"
   },
   "map": {
@@ -28,9 +27,7 @@
       "sustainable development",
       "health technology",
       "climate resilience"
-    ],
-    "twitterCard": "summary_large_image",
-    "twitterHandle": "@globalgoodsguidebook"
+    ]
   },
   "sitemap": {
     "staticRoutes": [

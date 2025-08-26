@@ -70,10 +70,6 @@ export const getDefaultKeywords = () => {
   return config.seo?.defaultKeywords || [];
 };
 
-export const getTwitterHandle = () => {
-  const handle = config.seo?.twitterHandle || config.social?.twitter;
-  return handle?.startsWith('@') ? handle : `@${handle}`;
-};
 
 // Sitemap Configuration
 export const getSitemapConfig = () => {
