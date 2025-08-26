@@ -1338,7 +1338,7 @@
   },
   {
     "ID": "open_concept_lab",
-    "Name": "Open Concept Lab",
+    "Name": "Open Concept Lab (OCL)",
     "Summary": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
     "Logo": "/uploads/gg_logos/open-concept-lab.png",
     "GlobalGoodType": [
