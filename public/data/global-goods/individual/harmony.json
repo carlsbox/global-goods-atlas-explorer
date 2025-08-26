@@ -45,11 +45,11 @@
       "Languages": ["en", "fr", "pt", "vi", "am"],
       "Screenshots": [
         {
-          "url": "/uploads/screenshot_placeholder.jpeg",
-          "description": "Harmony analytics dashboard"
+          "url": "/uploads/gg_screenshots/Harmony_overview.png",
+          "description": "Harmony Overview"
         },
         {
-          "url": "/uploads/screenshot_placeholder.jpeg",
+          "url": "/uploads/gg_screenshots/Harmony_screenshot_01.png",
           "description": "Data integration interface"
         }
       ]

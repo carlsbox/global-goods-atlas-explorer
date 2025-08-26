@@ -1,10 +1,10 @@
 {
   "ID": "everwell_hub",
   "Name": "Everwell Hub",
-  "Logo": "/uploads/logo-Placeholder.jpg",
+  "Logo": "/uploads/gg_logos/everwell_hub_logo.png",
   "Website": {
     "main": {
-      "url": "https://hub.everwell.org/dashboard/overview",
+      "url": "https://www.everwell.org/hub",
       "description": ""
     },
     "docs": {

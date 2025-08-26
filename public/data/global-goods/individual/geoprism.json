@@ -1,7 +1,7 @@
 {
     "ID": "geoprism",
     "Name": "GeoPrism Registry",
-    "Logo": "/uploads/logo-Placeholder.jpg",
+    "Logo": "/uploads/gg_logos/Geoprism_logo.png",
     "Website": {
       "main": {
         "url": "https://geoprismregistry.com",
@@ -70,8 +70,8 @@
       ],
       "Screenshots": [
         {
-          "url": "#",
-          "description": "GeoPrism Registry dashboard"
+          "url": "/uploads/screenshot_placeholder.jpeg",
+          "description": ""
         }
       ]
     },
