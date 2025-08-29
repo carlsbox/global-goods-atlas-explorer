@@ -58,12 +58,26 @@ export function useUseCaseExport(useCase: UseCase) {
           standards: useCase.standards?.map(standardCode => ({
             code: standardCode
           })),
-          exported_at: new Date().toISOString()
+          exported_at: new Date().toISOString(),
+          license: {
+            type: "CC BY-SA 4.0",
+            name: "Creative Commons Attribution-ShareAlike 4.0 International",
+            url: "https://creativecommons.org/licenses/by-sa/4.0/",
+            attribution: `Content from Global Goods Guidebook (${window.location.origin})`
+          }
         };
         break;
         
       default:
-        exportData = useCase;
+        exportData = {
+          ...useCase,
+          license: {
+            type: "CC BY-SA 4.0",
+            name: "Creative Commons Attribution-ShareAlike 4.0 International",
+            url: "https://creativecommons.org/licenses/by-sa/4.0/",
+            attribution: `Content from Global Goods Guidebook (${window.location.origin})`
+          }
+        };
     }
 
     const filename = `usecase-${useCase.id}-${options.format}-${timestamp}.json`;

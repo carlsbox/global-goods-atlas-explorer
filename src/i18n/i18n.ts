@@ -24,6 +24,11 @@ import notFoundEN from './locales/en/pages/notFound.json';
 import notFoundFR from './locales/fr/pages/notFound.json';
 import notFoundES from './locales/es/pages/notFound.json';
 
+// Import Content License page translations
+import contentLicenseEN from './locales/en/pages/contentLicense.json';
+import contentLicenseES from './locales/es/pages/contentLicense.json';
+import contentLicenseFR from './locales/fr/pages/contentLicense.json';
+
 // Import Global Goods page translations
 import globalGoodsEN from './locales/en/pages/globalGoods.json';
 import globalGoodsFR from './locales/fr/pages/globalGoods.json';
@@ -79,7 +84,8 @@ const resources = {
     cookie: cookieEN,
     navigation: navigationEN,
     climateServices: climateServicesEN,
-    cookiePolicy: cookiePolicyEN
+    cookiePolicy: cookiePolicyEN,
+    contentLicense: contentLicenseEN
   },
   fr: {
     translation: translationFR,
@@ -93,7 +99,8 @@ const resources = {
     cookie: cookieFR,
     navigation: navigationFR,
     climateServices: climateServicesFR,
-    cookiePolicy: cookiePolicyFR
+    cookiePolicy: cookiePolicyFR,
+    contentLicense: contentLicenseFR
   },
   es: {
     translation: translationES,
@@ -107,7 +114,8 @@ const resources = {
     cookie: cookieES,
     navigation: navigationES,
     climateServices: climateServicesES,
-    cookiePolicy: cookiePolicyES
+    cookiePolicy: cookiePolicyES,
+    contentLicense: contentLicenseES
   }
 };
 

@@ -4,6 +4,7 @@ import { useI18n } from "@/hooks/useI18n";
 import { getSiteName } from "@/lib/config";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
+import { CCLicenseBadge } from "@/components/CCLicenseBadge";
 
 export function Footer() {
   const { tPage } = useI18n();
@@ -19,14 +20,23 @@ export function Footer() {
             <div className="flex items-center space-x-2">
               <span className="text-lg font-semibold">{siteName}</span>
             </div>
-            <p className="text-sm text-muted-foreground mt-1">
-              &copy; {year} {siteName}. All rights reserved.
-            </p>
+            <div className="flex flex-col gap-2 mt-2">
+              <p className="text-sm text-muted-foreground">
+                &copy; {year} {siteName}
+              </p>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">{tPage('footer.contentLicense', 'navigation') || 'Content licensed under'}</span>
+                <CCLicenseBadge showIcon={true} showText={true} className="h-5" />
+              </div>
+            </div>
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">
             <Link to="/create-global-good" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.createGlobalGood', 'navigation')}
+            </Link>
+            <Link to="/content-license" className="text-sm text-muted-foreground hover:text-primary">
+              {tPage('nav.contentLicense', 'navigation') || 'Content License'}
             </Link>
             <a 
               href="https://www.path.org/privacy-notice/" 

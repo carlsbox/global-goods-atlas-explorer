@@ -11,5 +11,7 @@
   "nav.privacy": "Privacy Policy",
   "nav.terms": "Terms of Service",
   "nav.cookieSettings": "Cookie Settings",
-  "nav.admin": "Admin"
+  "nav.contentLicense": "Content License",
+  "nav.admin": "Admin",
+  "footer.contentLicense": "Content licensed under"
 }
