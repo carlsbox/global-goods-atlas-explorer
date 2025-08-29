@@ -1,0 +1,80 @@
+{
+  "title": "Politique de Cookies",
+  "description": "Découvrez comment nous utilisons les cookies et technologies similaires sur notre site web",
+  "lastUpdated": "Dernière Mise à Jour",
+  "backToHome": "Retour à l'Accueil",
+  "manageCookies": "Gérer les Préférences de Cookies",
+  "alwaysActive": "Toujours Actif",
+  "optional": "Optionnel",
+  "examples": "Exemples",
+  "months": "mois",
+  "years": "ans",
+  "hours": "heures",
+  "year": "an",
+  
+  "intro": {
+    "title": "Introduction",
+    "description": "Cette Politique de Cookies explique comment Global Goods Map utilise les cookies et technologies similaires pour vous reconnaître lorsque vous visitez notre site web. Elle explique ce que sont ces technologies et pourquoi nous les utilisons, ainsi que vos droits pour contrôler notre utilisation de celles-ci."
+  },
+  
+  "whatAreCookies": {
+    "title": "Que Sont les Cookies?",
+    "description": "Les cookies sont de petits fichiers de données qui sont placés sur votre ordinateur ou appareil mobile lorsque vous visitez un site web. Les cookies sont largement utilisés par les propriétaires de sites web pour faire fonctionner leurs sites, ou pour les faire fonctionner plus efficacement, ainsi que pour fournir des informations de rapport."
+  },
+  
+  "cookieTypes": {
+    "title": "Types de Cookies que Nous Utilisons",
+    "necessary": {
+      "title": "Cookies Nécessaires",
+      "description": "Ces cookies sont essentiels au bon fonctionnement du site web et ne peuvent pas être désactivés dans nos systèmes. Ils ne sont généralement définis qu'en réponse aux actions que vous effectuez.",
+      "example1": "Mémoriser vos préférences de consentement aux cookies",
+      "example2": "Maintenir votre session lorsque vous êtes connecté",
+      "example3": "Sécurité et prévention de la fraude"
+    },
+    "analytics": {
+      "title": "Cookies Analytiques",
+      "description": "Ces cookies nous permettent de compter les visites et les sources de trafic afin de pouvoir mesurer et améliorer les performances de notre site. Ils nous aident à savoir quelles pages sont les plus et les moins populaires.",
+      "example1": "Google Analytics (_ga, _gid) - Suivre les vues de page et les interactions des utilisateurs",
+      "example2": "Comprendre quelles fonctionnalités sont les plus utilisées",
+      "example3": "Mesurer les performances du site et les temps de chargement"
+    },
+    "functionality": {
+      "title": "Cookies de Fonctionnalité",
+      "description": "Ces cookies permettent au site web de fournir des fonctionnalités et une personnalisation améliorées. Ils peuvent être définis par nous ou par des fournisseurs tiers dont nous avons ajouté les services à nos pages.",
+      "example1": "Mémoriser votre préférence de langue",
+      "example2": "Mémoriser votre préférence de thème (mode sombre/clair)"
+    },
+    "marketing": {
+      "title": "Cookies Marketing",
+      "description": "Ces cookies peuvent être définis sur notre site par nos partenaires publicitaires. Ils peuvent être utilisés par ces entreprises pour créer un profil de vos intérêts et vous montrer des publicités pertinentes sur d'autres sites.",
+      "example1": "Suivi des conversions à partir des publicités",
+      "example2": "Création de profils d'audience pour la publicité ciblée"
+    }
+  },
+  
+  "cookieDetails": {
+    "title": "Détails des Cookies",
+    "name": "Nom du Cookie",
+    "provider": "Fournisseur",
+    "purpose": "Objectif",
+    "expiry": "Expiration",
+    "type": "Type",
+    "us": "Ce Site Web",
+    "consentStorage": "Stocke vos préférences de consentement aux cookies",
+    "gaDescription": "Utilisé pour distinguer les utilisateurs uniques",
+    "gidDescription": "Utilisé pour distinguer les utilisateurs uniques",
+    "languageDescription": "Stocke votre paramètre de langue préféré"
+  },
+  
+  "howToManage": {
+    "title": "Comment Gérer les Cookies",
+    "description": "Vous pouvez contrôler et gérer les cookies de différentes manières. Veuillez garder à l'esprit que la suppression ou le blocage des cookies peut avoir un impact sur votre expérience utilisateur et certaines parties de notre site web peuvent ne plus être entièrement accessibles.",
+    "browserSettings": "Paramètres de Cookies du Navigateur"
+  },
+  
+  "contact": {
+    "title": "Nous Contacter",
+    "description": "Si vous avez des questions sur notre utilisation des cookies ou d'autres technologies, veuillez nous contacter.",
+    "email": "Email"
+  }
+}
