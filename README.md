@@ -8,3 +8,13 @@
 Deployed on: netlify.com
 
 
+
+## Licensing
+
+Code: Apache-2.0 © Contributors
+
+Content (data and docs under `public/data/` and `docs/`): CC BY 4.0
+
+Logos and third-party assets (e.g., under `public/uploads/`, `public/assets/`) remain All Rights Reserved by their respective owners unless explicitly stated otherwise.
+
+
