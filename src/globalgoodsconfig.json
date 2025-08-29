@@ -29,6 +29,12 @@
       "climate resilience"
     ]
   },
+  "license": {
+    "type": "CC BY-SA 4.0",
+    "name": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "contentLicensePage": "/content-license"
+  },
   "sitemap": {
     "staticRoutes": [
       { "path": "/", "priority": 1.0, "changeFreq": "daily" },

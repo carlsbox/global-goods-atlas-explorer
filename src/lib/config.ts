@@ -80,4 +80,14 @@ export const getStaticRoutes = () => {
   return config.sitemap?.staticRoutes || [];
 };
 
+// License Configuration
+export const getLicenseConfig = () => {
+  return config.license || {
+    type: "CC BY-SA 4.0",
+    name: "Creative Commons Attribution-ShareAlike 4.0 International",
+    url: "https://creativecommons.org/licenses/by-sa/4.0/",
+    contentLicensePage: "/content-license"
+  };
+};
+
 export default config;

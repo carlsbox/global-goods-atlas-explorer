@@ -4,7 +4,8 @@ import {
   getDefaultSEODescription, 
   getDefaultSEOImage, 
   getBaseUrl, 
-  getDefaultKeywords
+  getDefaultKeywords,
+  getLicenseConfig
 } from '@/lib/config';
 
 interface SEOProps {
@@ -37,6 +38,7 @@ export function SEO({
   const DEFAULT_IMAGE = getDefaultSEOImage();
   const BASE_URL = getBaseUrl();
   const DEFAULT_KEYWORDS = getDefaultKeywords();
+  const licenseConfig = getLicenseConfig();
 
   const fullTitle = title ? `${title} | ${DEFAULT_TITLE}` : DEFAULT_TITLE;
   const finalDescription = description || DEFAULT_DESCRIPTION;
@@ -55,6 +57,11 @@ export function SEO({
       <meta name="description" content={finalDescription} />
       <meta name="keywords" content={finalKeywords.join(', ')} />
       {author && <meta name="author" content={author} />}
+      
+      {/* License meta tags */}
+      <link rel="license" href={licenseConfig.url} />
+      <meta name="dcterms.license" content={licenseConfig.url} />
+      <meta name="dcterms.rights" content={licenseConfig.name} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />

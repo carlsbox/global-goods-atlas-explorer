@@ -21,6 +21,7 @@ const EnhancedMapPage = lazy(() => import("@/pages/EnhancedMapPage"));
 const ReferencePage = lazy(() => import("@/pages/ReferencePage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
 const CookiePolicyPage = lazy(() => import("@/pages/CookiePolicyPage"));
+const ContentLicensePage = lazy(() => import("@/pages/ContentLicensePage"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 // Layout components
@@ -125,6 +126,11 @@ function App() {
                   <Route path="cookie-policy" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <CookiePolicyPage />
+                    </Suspense>
+                  } />
+                  <Route path="content-license" element={
+                    <Suspense fallback={<PageLoadingSkeleton />}>
+                      <ContentLicensePage />
                     </Suspense>
                   } />
                 </Route>

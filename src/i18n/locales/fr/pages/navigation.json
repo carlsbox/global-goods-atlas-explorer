@@ -2,6 +2,7 @@
 {
   "nav.home": "Accueil",
   "nav.globalGoods": "Biens Mondiaux",
+  "nav.createGlobalGood": "Créer un Bien Mondial",
   "nav.climateHealth": "Climat et Santé",
   "nav.useCases": "Cas d'Utilisation",
   "nav.map": "Carte",
@@ -10,5 +11,7 @@
   "nav.privacy": "Politique de Confidentialité",
   "nav.terms": "Conditions d'Utilisation",
   "nav.cookieSettings": "Paramètres de Cookies",
-  "nav.admin": "Admin"
+  "nav.contentLicense": "Licence du Contenu",
+  "nav.admin": "Admin",
+  "footer.contentLicense": "Contenu sous licence"
 }
