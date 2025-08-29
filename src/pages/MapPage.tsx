@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useGlobalGoodsIndex } from "@/lib/api/globalGoodsIndex";
-import { useCountries } from "@/lib/api";
+import { useGlobalGoods, useCountries } from "@/lib/api";
 import { GlobalGoodFlat, CountryData } from "@/lib/types";
 import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodsSidebar } from "@/components/map/GlobalGoodsSidebar";
@@ -9,24 +8,17 @@ import { MapDisplay } from "@/components/map/MapDisplay";
 import { GlobalGoodDetails } from "@/components/map/GlobalGoodDetails";
 import { CountryDetails } from "@/components/map/CountryDetails";
 import { EmptyDetails } from "@/components/map/EmptyDetails";
-import { useMapImplementationsExport } from "@/hooks/useMapImplementationsExport";
 
 export default function MapPage() {
   const [searchParams] = useSearchParams();
   const highlightParam = searchParams.get("highlight");
   const { language } = useI18n();
   
-  const { data: globalGoods = [] } = useGlobalGoodsIndex();
+  const { data: globalGoods = [] } = useGlobalGoods();
   const { data: countries = [] } = useCountries();
   
   const [selectedGood, setSelectedGood] = useState<GlobalGoodFlat | null>(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
-  
-  // Setup export functionality
-  const { downloadImplementationsCSV, getTotalImplementations } = useMapImplementationsExport(
-    globalGoods,
-    countries
-  );
   
   // Map of country codes to country objects for quick lookups
   const countryMap = countries.reduce((map: Record<string, CountryData>, country) => {
@@ -151,8 +143,6 @@ export default function MapPage() {
         selectedGoodCountries={selectedGoodCountries}
         onSelectCountry={handleSelectCountry}
         selectedCountryCode={selectedCountryCode}
-        onExportImplementations={downloadImplementationsCSV}
-        totalImplementations={getTotalImplementations()}
       />
       
       {/* Right sidebar - details */}
