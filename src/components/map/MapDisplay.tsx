@@ -55,34 +55,35 @@ export function MapDisplay({
   };
 
   return (
-    <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col items-center justify-center">
-      <div className="text-center mb-4">
-        <div className="flex items-center justify-center gap-4 mb-2">
+    <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col">
+      {/* Header with title and export button */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex-1">
           <h1 className="text-2xl font-bold">Global Goods Distribution</h1>
-          <Button 
-            onClick={onExportImplementations}
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2"
-          >
-            <Download className="w-4 h-4" />
-            Export Implementations (CSV)
-            <Badge variant="secondary" className="ml-1">
-              {totalImplementations}
-            </Badge>
-          </Button>
+          <p className="text-muted-foreground">
+            {selectedGood
+              ? `Showing countries using ${selectedGood.name}`
+              : selectedCountryName
+                ? `Showing global goods used in ${selectedCountryName}`
+                : "Select a global good or country to view its distribution"
+            }
+          </p>
         </div>
-        <p className="text-muted-foreground">
-          {selectedGood
-            ? `Showing countries using ${selectedGood.name}`
-            : selectedCountryName
-              ? `Showing global goods used in ${selectedCountryName}`
-              : "Select a global good or country to view its distribution"
-          }
-        </p>
+        <Button 
+          onClick={onExportImplementations}
+          variant="outline"
+          size="default"
+          className="flex items-center gap-2"
+        >
+          <Download className="w-4 h-4" />
+          Export Implementations
+          <Badge variant="secondary" className="ml-1">
+            {totalImplementations}
+          </Badge>
+        </Button>
       </div>
       
-      <div className="relative w-full max-w-2xl aspect-[2/1] border rounded-lg bg-card overflow-hidden shadow-lg">
+      <div className="relative w-full flex-1 border rounded-lg bg-card overflow-hidden shadow-lg">
         <div className="flex absolute top-2 right-2 z-10 space-x-2">
           <Button size="icon" variant="outline" onClick={handleZoomIn}>+</Button>
           <Button size="icon" variant="outline" onClick={handleZoomOut}>-</Button>
