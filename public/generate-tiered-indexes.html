@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Tiered Indexes</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            background: #f0f0f0;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Tiered Index Files</h1>
+    <p>This page will generate the tiered index files needed for progressive loading.</p>
+    
+    <button onclick="generateIndexes()">Generate Tiered Indexes</button>
+    
+    <div id="status"></div>
+    
+    <script>
+        async function generateIndexes() {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = 'status';
+            statusDiv.innerHTML = 'Generating tiered indexes...';
+            
+            try {
+                // Load all individual global goods files
+                const indexResponse = await fetch('/data/global-goods/index.json');
+                const goods = await indexResponse.json();
+                
+                console.log(`Found ${goods.length} global goods`);
+                
+                // Generate minimal index
+                const minimalIndex = goods.map(good => ({
+                    ID: good.ID,
+                    Name: good.Name,
+                    Logo: good.Logo,
+                    Summary: good.Summary || good.ProductOverview?.substring(0, 200),
+                    ClimateHealth: !!good.ClimateHealth,
+                    GlobalGoodsType: Array.isArray(good.GlobalGoodsType) 
+                        ? good.GlobalGoodsType.slice(0, 2)
+                        : good.GlobalGoodsType,
+                    CountryCount: good.Reach?.Countries?.length || 0,
+                    Classifications: good.Classifications ? {
+                        SDGs: good.Classifications.SDGs?.slice(0, 3)
+                    } : null
+                }));
+                
+                // Generate summary index  
+                const summaryIndex = goods.map(good => ({
+                    ID: good.ID,
+                    Name: good.Name,
+                    Logo: good.Logo,
+                    Summary: good.Summary,
+                    ProductOverview: good.ProductOverview?.substring(0, 500),
+                    ClimateHealth: good.ClimateHealth,
+                    GlobalGoodsType: good.GlobalGoodsType,
+                    License: good.License,
+                    Website: good.Website,
+                    Classifications: good.Classifications,
+                    Standards: good.Standards,
+                    Reach: good.Reach ? {
+                        Countries: good.Reach.Countries || [],
+                        Sectors: good.Reach.Sectors || []
+                    } : null,
+                    Maturity: good.Maturity ? {
+                        OverallScore: good.Maturity.OverallScore
+                    } : null,
+                    InceptionYear: good.InceptionYear
+                }));
+                
+                // For resolved index, we'll just use the full data for now
+                const resolvedIndex = goods;
+                
+                // Calculate sizes
+                const minimalSize = JSON.stringify(minimalIndex).length;
+                const summarySize = JSON.stringify(summaryIndex).length;
+                const resolvedSize = JSON.stringify(resolvedIndex).length;
+                
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = `
+                    <h3>✅ Success!</h3>
+                    <p>Generated ${goods.length} global goods in 3 tiers:</p>
+                    <ul>
+                        <li>Minimal: ${(minimalSize / 1024).toFixed(2)} KB</li>
+                        <li>Summary: ${(summarySize / 1024).toFixed(2)} KB</li>
+                        <li>Resolved: ${(resolvedSize / 1024).toFixed(2)} KB</li>
+                    </ul>
+                    <p>Reduction: ${((1 - minimalSize / resolvedSize) * 100).toFixed(1)}% for initial load</p>
+                    <p><strong>Note:</strong> The files are generated in memory. To persist them, you need to run the Node.js script on the server.</p>
+                    <details>
+                        <summary>View minimal index sample</summary>
+                        <pre>${JSON.stringify(minimalIndex[0], null, 2)}</pre>
+                    </details>
+                `;
+                
+                // Store in localStorage for now
+                localStorage.setItem('index-minimal', JSON.stringify(minimalIndex));
+                localStorage.setItem('index-summary', JSON.stringify(summaryIndex));
+                localStorage.setItem('index-resolved', JSON.stringify(resolvedIndex));
+                
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `
+                    <h3>❌ Error</h3>
+                    <p>${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

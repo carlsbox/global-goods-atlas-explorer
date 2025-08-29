@@ -38,16 +38,33 @@ export async function loadMinimalGlobalGoods(): Promise<MinimalGlobalGood[]> {
   try {
     const response = await fetch('/data/global-goods/index-minimal.json');
     if (!response.ok) {
-      console.warn('Minimal index not found, falling back to summary');
-      return loadSummaryGlobalGoods();
+      console.warn('Minimal index not found, falling back to full index');
+      // Fall back to the regular index and transform it
+      const fallbackResponse = await fetch('/data/global-goods/index.json');
+      const fullData = await fallbackResponse.json();
+      // Transform to minimal format
+      return fullData.map((item: any) => ({
+        ID: item.ID,
+        Name: item.Name,
+        Logo: item.Logo,
+        Summary: item.Summary || item.ProductOverview?.substring(0, 200),
+        ClimateHealth: !!item.ClimateHealth,
+        GlobalGoodsType: Array.isArray(item.GlobalGoodsType) 
+          ? item.GlobalGoodsType.slice(0, 2)
+          : item.GlobalGoodsType,
+        CountryCount: item.Reach?.Countries?.length || 0,
+        Classifications: item.Classifications ? {
+          SDGs: item.Classifications.SDGs?.slice(0, 3)
+        } : null
+      }));
     }
     const data = await response.json();
     console.log(`Loaded ${data.length} minimal global goods`);
     return data;
   } catch (error) {
     console.error('Error loading minimal global goods:', error);
-    // Fallback to summary
-    return loadSummaryGlobalGoods();
+    // Final fallback to empty array
+    return [];
   }
 }
 

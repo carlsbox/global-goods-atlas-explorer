@@ -11,7 +11,7 @@ import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 
 // Lazy load all pages for better performance
 const HomePage = lazy(() => import("@/pages/HomePage"));
-const GlobalGoodsPageFlat = lazy(() => import("@/pages/GlobalGoodsPageFlat"));
+const GlobalGoodsPageProgressive = lazy(() => import("@/pages/GlobalGoodsPageProgressive"));
 const GlobalGoodDetailsPageFlat = lazy(() => import("@/pages/GlobalGoodDetailsPageFlat"));
 const GlobalGoodCreatorPage = lazy(() => import("@/pages/GlobalGoodCreatorPage"));
 const ClimateServicesPage = lazy(() => import("@/pages/ClimateServicesPage"));
@@ -80,7 +80,7 @@ function App() {
                   } />
                   <Route path="global-goods" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
-                      <GlobalGoodsPageFlat />
+                      <GlobalGoodsPageProgressive />
                     </Suspense>
                   } />
                   <Route path="global-goods/:id" element={
