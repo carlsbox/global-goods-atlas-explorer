@@ -1,0 +1,80 @@
+{
+  "title": "Política de Cookies",
+  "description": "Conozca cómo utilizamos cookies y tecnologías similares en nuestro sitio web",
+  "lastUpdated": "Última Actualización",
+  "backToHome": "Volver al Inicio",
+  "manageCookies": "Gestionar Preferencias de Cookies",
+  "alwaysActive": "Siempre Activo",
+  "optional": "Opcional",
+  "examples": "Ejemplos",
+  "months": "meses",
+  "years": "años",
+  "hours": "horas",
+  "year": "año",
+  
+  "intro": {
+    "title": "Introducción",
+    "description": "Esta Política de Cookies explica cómo Global Goods Map utiliza cookies y tecnologías similares para reconocerle cuando visita nuestro sitio web. Explica qué son estas tecnologías y por qué las usamos, así como sus derechos para controlar nuestro uso de ellas."
+  },
+  
+  "whatAreCookies": {
+    "title": "¿Qué Son las Cookies?",
+    "description": "Las cookies son pequeños archivos de datos que se colocan en su computadora o dispositivo móvil cuando visita un sitio web. Las cookies son ampliamente utilizadas por los propietarios de sitios web para hacer que sus sitios funcionen, o funcionen de manera más eficiente, así como para proporcionar información de informes."
+  },
+  
+  "cookieTypes": {
+    "title": "Tipos de Cookies que Utilizamos",
+    "necessary": {
+      "title": "Cookies Necesarias",
+      "description": "Estas cookies son esenciales para que el sitio web funcione correctamente y no se pueden desactivar en nuestros sistemas. Por lo general, solo se configuran en respuesta a las acciones realizadas por usted.",
+      "example1": "Recordar sus preferencias de consentimiento de cookies",
+      "example2": "Mantener su sesión cuando está conectado",
+      "example3": "Seguridad y prevención de fraudes"
+    },
+    "analytics": {
+      "title": "Cookies Analíticas",
+      "description": "Estas cookies nos permiten contar visitas y fuentes de tráfico para poder medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y menos populares.",
+      "example1": "Google Analytics (_ga, _gid) - Rastrear vistas de página e interacciones del usuario",
+      "example2": "Comprender qué características son más utilizadas",
+      "example3": "Medir el rendimiento del sitio y los tiempos de carga"
+    },
+    "functionality": {
+      "title": "Cookies de Funcionalidad",
+      "description": "Estas cookies permiten que el sitio web proporcione funcionalidad y personalización mejoradas. Pueden ser configuradas por nosotros o por proveedores externos cuyos servicios hemos agregado a nuestras páginas.",
+      "example1": "Recordar su preferencia de idioma",
+      "example2": "Recordar su preferencia de tema (modo oscuro/claro)"
+    },
+    "marketing": {
+      "title": "Cookies de Marketing",
+      "description": "Estas cookies pueden ser configuradas a través de nuestro sitio por nuestros socios publicitarios. Pueden ser utilizadas por esas empresas para construir un perfil de sus intereses y mostrarle anuncios relevantes en otros sitios.",
+      "example1": "Seguimiento de conversiones de anuncios",
+      "example2": "Construcción de perfiles de audiencia para publicidad dirigida"
+    }
+  },
+  
+  "cookieDetails": {
+    "title": "Detalles de las Cookies",
+    "name": "Nombre de Cookie",
+    "provider": "Proveedor",
+    "purpose": "Propósito",
+    "expiry": "Caducidad",
+    "type": "Tipo",
+    "us": "Este Sitio Web",
+    "consentStorage": "Almacena sus preferencias de consentimiento de cookies",
+    "gaDescription": "Se utiliza para distinguir usuarios únicos",
+    "gidDescription": "Se utiliza para distinguir usuarios únicos",
+    "languageDescription": "Almacena su configuración de idioma preferido"
+  },
+  
+  "howToManage": {
+    "title": "Cómo Gestionar las Cookies",
+    "description": "Puede controlar y gestionar las cookies de varias maneras. Tenga en cuenta que eliminar o bloquear cookies puede afectar su experiencia de usuario y es posible que partes de nuestro sitio web ya no sean completamente accesibles.",
+    "browserSettings": "Configuración de Cookies del Navegador"
+  },
+  
+  "contact": {
+    "title": "Contáctenos",
+    "description": "Si tiene alguna pregunta sobre nuestro uso de cookies u otras tecnologías, por favor contáctenos.",
+    "email": "Correo Electrónico"
+  }
+}

@@ -20,6 +20,7 @@ const UseCaseDetailsPage = lazy(() => import("@/pages/UseCaseDetailsPage"));
 const EnhancedMapPage = lazy(() => import("@/pages/EnhancedMapPage"));
 const ReferencePage = lazy(() => import("@/pages/ReferencePage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const CookiePolicyPage = lazy(() => import("@/pages/CookiePolicyPage"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 // Layout components
@@ -119,6 +120,11 @@ function App() {
                   <Route path="about" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <AboutPage />
+                    </Suspense>
+                  } />
+                  <Route path="cookie-policy" element={
+                    <Suspense fallback={<PageLoadingSkeleton />}>
+                      <CookiePolicyPage />
                     </Suspense>
                   } />
                 </Route>

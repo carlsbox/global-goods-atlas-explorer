@@ -1,0 +1,80 @@
+{
+  "title": "Cookie Policy",
+  "description": "Learn about how we use cookies and similar technologies on our website",
+  "lastUpdated": "Last Updated",
+  "backToHome": "Back to Home",
+  "manageCookies": "Manage Cookie Preferences",
+  "alwaysActive": "Always Active",
+  "optional": "Optional",
+  "examples": "Examples",
+  "months": "months",
+  "years": "years",
+  "hours": "hours",
+  "year": "year",
+  
+  "intro": {
+    "title": "Introduction",
+    "description": "This Cookie Policy explains how Global Goods Map uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them."
+  },
+  
+  "whatAreCookies": {
+    "title": "What Are Cookies?",
+    "description": "Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information."
+  },
+  
+  "cookieTypes": {
+    "title": "Types of Cookies We Use",
+    "necessary": {
+      "title": "Necessary Cookies",
+      "description": "These cookies are essential for the website to function properly and cannot be switched off in our systems. They are usually only set in response to actions made by you.",
+      "example1": "Remembering your cookie consent preferences",
+      "example2": "Maintaining your session when logged in",
+      "example3": "Security and fraud prevention"
+    },
+    "analytics": {
+      "title": "Analytics Cookies",
+      "description": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular.",
+      "example1": "Google Analytics (_ga, _gid) - Track page views and user interactions",
+      "example2": "Understanding which features are most used",
+      "example3": "Measuring site performance and loading times"
+    },
+    "functionality": {
+      "title": "Functionality Cookies",
+      "description": "These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third party providers whose services we have added to our pages.",
+      "example1": "Remembering your language preference",
+      "example2": "Remembering your theme preference (dark/light mode)"
+    },
+    "marketing": {
+      "title": "Marketing Cookies",
+      "description": "These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.",
+      "example1": "Tracking conversions from advertisements",
+      "example2": "Building audience profiles for targeted advertising"
+    }
+  },
+  
+  "cookieDetails": {
+    "title": "Cookie Details",
+    "name": "Cookie Name",
+    "provider": "Provider",
+    "purpose": "Purpose",
+    "expiry": "Expiry",
+    "type": "Type",
+    "us": "This Website",
+    "consentStorage": "Stores your cookie consent preferences",
+    "gaDescription": "Used to distinguish unique users",
+    "gidDescription": "Used to distinguish unique users",
+    "languageDescription": "Stores your preferred language setting"
+  },
+  
+  "howToManage": {
+    "title": "How to Manage Cookies",
+    "description": "You can control and manage cookies in various ways. Please keep in mind that removing or blocking cookies can impact your user experience and parts of our website may no longer be fully accessible.",
+    "browserSettings": "Browser Cookie Settings"
+  },
+  
+  "contact": {
+    "title": "Contact Us",
+    "description": "If you have any questions about our use of cookies or other technologies, please contact us.",
+    "email": "Email"
+  }
+}

@@ -60,6 +60,11 @@ import climateServicesEN from './locales/en/pages/climateServices.json';
 import climateServicesFR from './locales/fr/pages/climateServices.json';
 import climateServicesES from './locales/es/pages/climateServices.json';
 
+// Import Cookie Policy page translations
+import cookiePolicyEN from './locales/en/pages/cookiePolicy.json';
+import cookiePolicyFR from './locales/fr/pages/cookiePolicy.json';
+import cookiePolicyES from './locales/es/pages/cookiePolicy.json';
+
 // Define the resources structure with namespaces
 const resources = {
   en: {
@@ -73,7 +78,8 @@ const resources = {
     map: mapEN,
     cookie: cookieEN,
     navigation: navigationEN,
-    climateServices: climateServicesEN
+    climateServices: climateServicesEN,
+    cookiePolicy: cookiePolicyEN
   },
   fr: {
     translation: translationFR,
@@ -86,7 +92,8 @@ const resources = {
     map: mapFR,
     cookie: cookieFR,
     navigation: navigationFR,
-    climateServices: climateServicesFR
+    climateServices: climateServicesFR,
+    cookiePolicy: cookiePolicyFR
   },
   es: {
     translation: translationES,
@@ -99,7 +106,8 @@ const resources = {
     map: mapES,
     cookie: cookieES,
     navigation: navigationES,
-    climateServices: climateServicesES
+    climateServices: climateServicesES,
+    cookiePolicy: cookiePolicyES
   }
 };
 
@@ -114,7 +122,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'navigation', 'climateServices'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'navigation', 'climateServices', 'cookiePolicy'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss
