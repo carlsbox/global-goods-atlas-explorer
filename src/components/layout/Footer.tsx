@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "@/hooks/useI18n";
 import { getSiteName } from "@/lib/config";
+import { Button } from "@/components/ui/button";
+import { Cookie } from "lucide-react";
 
 export function Footer() {
   const { tPage } = useI18n();
@@ -42,6 +44,15 @@ export function Footer() {
             >
               {tPage('nav.terms', 'navigation')}
             </a>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-auto p-0 text-sm font-normal text-muted-foreground hover:text-primary"
+              onClick={() => window.dispatchEvent(new CustomEvent('openCookieSettings'))}
+            >
+              <Cookie className="h-3 w-3 mr-1" />
+              {tPage('nav.cookieSettings', 'navigation') || 'Cookie Settings'}
+            </Button>
           </div>
         </div>
       </div>
