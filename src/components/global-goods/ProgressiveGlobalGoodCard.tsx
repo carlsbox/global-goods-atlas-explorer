@@ -63,7 +63,11 @@ export function ProgressiveGlobalGoodCard({
           
           {/* Description */}
           <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-grow">
-            {good.Summary || good.ProductOverview?.substring(0, 150) || 'No description available'}
+            {good.Summary || 
+             (typeof good.ProductOverview === 'string' 
+               ? good.ProductOverview.substring(0, 150) 
+               : good.ProductOverview?.Body?.substring(0, 150)) || 
+             'No description available'}
           </p>
           
           {/* Progressive Content Loading */}
