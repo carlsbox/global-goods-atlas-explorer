@@ -22,20 +22,22 @@ export function useGlobalGoodsMinimal() {
 }
 
 // Hook for summary data (filtering/sorting)
-export function useGlobalGoodsSummary() {
+export function useGlobalGoodsSummary(enabled = true) {
   return useQuery({
     queryKey: ['globalGoods', 'summary'],
     queryFn: () => progressiveLoader.getSummary(),
+    enabled,
     staleTime: 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
   });
 }
 
 // Hook for resolved data (full features)
-export function useGlobalGoodsResolved() {
+export function useGlobalGoodsResolved(enabled = true) {
   return useQuery({
     queryKey: ['globalGoods', 'resolved'],
     queryFn: () => progressiveLoader.getResolved(),
+    enabled,
     staleTime: 15 * 60 * 1000,
     gcTime: 60 * 60 * 1000, // 1 hour
   });
@@ -44,27 +46,31 @@ export function useGlobalGoodsResolved() {
 // Progressive loading hook that manages all three tiers
 export function useProgressiveGlobalGoods() {
   const [dataState, setDataState] = useState<'minimal' | 'summary' | 'resolved'>('minimal');
+  const [shouldLoadSummary, setShouldLoadSummary] = useState(false);
+  const [shouldLoadResolved, setShouldLoadResolved] = useState(false);
   
   const minimalQuery = useGlobalGoodsMinimal();
-  const summaryQuery = useGlobalGoodsSummary();
-  const resolvedQuery = useGlobalGoodsResolved();
+  const summaryQuery = useGlobalGoodsSummary(shouldLoadSummary);
+  const resolvedQuery = useGlobalGoodsResolved(shouldLoadResolved);
   
-  // Automatically progress through loading states
+  // Progress from minimal to summary
   useEffect(() => {
-    if (minimalQuery.isSuccess && dataState === 'minimal') {
-      // Start loading summary in background
-      summaryQuery.refetch();
+    if (minimalQuery.isSuccess && dataState === 'minimal' && !shouldLoadSummary) {
+      setShouldLoadSummary(true);
     }
-  }, [minimalQuery.isSuccess, dataState]);
+  }, [minimalQuery.isSuccess, dataState, shouldLoadSummary]);
   
+  // Progress from summary to resolved
   useEffect(() => {
     if (summaryQuery.isSuccess && dataState === 'minimal') {
       setDataState('summary');
-      // Start loading resolved in background
-      resolvedQuery.refetch();
+      if (!shouldLoadResolved) {
+        setShouldLoadResolved(true);
+      }
     }
-  }, [summaryQuery.isSuccess, dataState]);
+  }, [summaryQuery.isSuccess, dataState, shouldLoadResolved]);
   
+  // Complete loading with resolved data
   useEffect(() => {
     if (resolvedQuery.isSuccess && dataState === 'summary') {
       setDataState('resolved');
