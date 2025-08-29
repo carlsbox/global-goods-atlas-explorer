@@ -1,13 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import config from '../src/globalgoodsconfig.json' assert { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Load config manually instead of using import assert
+const configPath = path.join(__dirname, '..', 'src', 'globalgoodsconfig.json');
+const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+
 // Get base URL from config
 const BASE_URL = config.baseUrl || `https://${config.domain}`;
+
 
 // Get static routes from config or use defaults
 const staticRoutes = config.sitemap?.staticRoutes || [
