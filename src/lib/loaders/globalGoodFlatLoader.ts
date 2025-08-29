@@ -1,17 +1,6 @@
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
-import { 
-  getLicenseById, 
-  getProductLanguageByCode, 
-  getStandardByCode, 
-  getGlobalGoodsTypeByCode, 
-  getCollectionInitiativeById,
-  loadLicenses,
-  loadProductLanguages,
-  loadStandards,
-  loadGlobalGoodsTypes,
-  loadCountries
-} from './referenceDataLoader';
-import { resolveClassificationsByAuthority, loadClassificationsByAuthority } from './classificationsReferenceLoader';
+import { getLicenseById, getProductLanguageByCode, getStandardByCode, getGlobalGoodsTypeByCode, getCollectionInitiativeById } from './referenceDataLoader';
+import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 import { loadCountriesData } from './countryLoader';
 
 interface GlobalGoodIndexEnhanced {
@@ -595,49 +584,7 @@ export async function loadGlobalGoodFlat(id: string): Promise<GlobalGoodFlat | u
 export async function loadAllGlobalGoodsFlat(): Promise<GlobalGoodFlat[]> {
   const index = await fetchGlobalGoodsIndex();
   
-  // Pre-load ALL reference data once to avoid N+1 queries
-  // This dramatically improves performance by caching all reference data upfront
-  const [
-    allGlobalGoodsTypes,
-    allLicenses,
-    allLanguages,
-    sdgClassifications,
-    whoClassifications,
-    wmoClassifications,
-    dpiClassifications,
-    allCountries,
-    healthStandards,
-    interopStandards,
-    climateStandards
-  ] = await Promise.all([
-    loadGlobalGoodsTypes(),
-    loadLicenses(),
-    loadProductLanguages(),
-    loadClassificationsByAuthority('SDGs'),
-    loadClassificationsByAuthority('WHO'),
-    loadClassificationsByAuthority('WMO'),
-    loadClassificationsByAuthority('DPI'),
-    loadCountries(),
-    loadStandards().then(s => Object.values(s).filter((std: any) => std.domain === 'Health')),
-    loadStandards().then(s => Object.values(s).filter((std: any) => std.domain === 'Interoperability')),
-    loadStandards().then(s => Object.values(s).filter((std: any) => std.domain === 'Climate'))
-  ]);
-  
-  console.log('Pre-loaded all reference data:', {
-    globalGoodsTypes: allGlobalGoodsTypes.length,
-    licenses: allLicenses.length,
-    languages: allLanguages.length,
-    sdgClassifications: sdgClassifications.length,
-    whoClassifications: whoClassifications.length,
-    wmoClassifications: wmoClassifications.length,
-    dpiClassifications: dpiClassifications.length,
-    countries: Object.keys(allCountries).length,
-    healthStandards: healthStandards.length,
-    interopStandards: interopStandards.length,
-    climateStandards: climateStandards.length
-  });
-  
-  // Now process global goods - references will be served from cache
+  // For index items, we need to resolve references on-demand
   const resolvedItems = await Promise.all(
     index.map(async (indexItem) => {
       const resolved = await resolveIndexReferences(indexItem);
