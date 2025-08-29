@@ -222,7 +222,7 @@ export function CookiePolicyPage() {
               {tPage('contact.description', 'cookiePolicy')}
             </p>
             <p className="text-muted-foreground">
-              {tPage('contact.email', 'cookiePolicy')}: <a href="mailto:privacy@globalgoodsmap.org" className="text-primary hover:underline">privacy@globalgoodsmap.org</a>
+              {tPage('contact.email', 'cookiePolicy')}: <a href="mailto:globalgoods@path.org" className="text-primary hover:underline">globalgoods@path.org</a>
             </p>
           </Card>
         </div>
