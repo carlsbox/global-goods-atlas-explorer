@@ -1,4 +1,6 @@
 
+import { referenceDataCache } from '@/lib/cache/ReferenceDataCache';
+
 interface License {
   id: string;
   name: string;
@@ -43,59 +45,33 @@ interface Country {
   un_code?: string;
 }
 
-let licensesCache: License[] | null = null;
-let productLanguagesCache: ProductLanguage[] | null = null;
-let collectionInitiativesCache: CollectionInitiative[] | null = null;
-let standardsCache: Record<string, Standard> | null = null;
-let globalGoodsTypesCache: GlobalGoodsType[] | null = null;
-let countriesCache: Record<string, Country> | null = null;
-
+// Using centralized cache instead of module-level variables
 export async function loadLicenses(): Promise<License[]> {
-  if (licensesCache) return licensesCache;
-  
-  try {
+  return referenceDataCache.get('licenses', async () => {
     const response = await fetch('/data/reference/licenses.json');
     if (!response.ok) throw new Error('Failed to load licenses');
-    licensesCache = await response.json();
-    return licensesCache;
-  } catch (error) {
-    console.error('Error loading licenses:', error);
-    return [];
-  }
+    return response.json();
+  });
 }
 
 export async function loadProductLanguages(): Promise<ProductLanguage[]> {
-  if (productLanguagesCache) return productLanguagesCache;
-  
-  try {
+  return referenceDataCache.get('productLanguages', async () => {
     const response = await fetch('/data/reference/productLanguages.json');
     if (!response.ok) throw new Error('Failed to load product languages');
-    productLanguagesCache = await response.json();
-    return productLanguagesCache;
-  } catch (error) {
-    console.error('Error loading product languages:', error);
-    return [];
-  }
+    return response.json();
+  });
 }
 
 export async function loadCollectionInitiatives(): Promise<CollectionInitiative[]> {
-  if (collectionInitiativesCache) return collectionInitiativesCache;
-  
-  try {
+  return referenceDataCache.get('collectionInitiatives', async () => {
     const response = await fetch('/data/reference/collectionInitiatives.json');
     if (!response.ok) throw new Error('Failed to load collection initiatives');
-    collectionInitiativesCache = await response.json();
-    return collectionInitiativesCache;
-  } catch (error) {
-    console.error('Error loading collection initiatives:', error);
-    return [];
-  }
+    return response.json();
+  });
 }
 
 export async function loadStandards(): Promise<Record<string, Standard>> {
-  if (standardsCache) return standardsCache;
-  
-  try {
+  return referenceDataCache.get('standards', async () => {
     // Load all modular standards files
     const [healthResponse, interopResponse, climateResponse] = await Promise.all([
       fetch('/data/reference/standards/health.json'),
@@ -114,59 +90,44 @@ export async function loadStandards(): Promise<Record<string, Standard>> {
     ]);
 
     // Combine arrays into a unified object with code as key
-    standardsCache = {};
+    const standardsObject: Record<string, Standard> = {};
     
     // Process health standards
     healthStandards.forEach((standard: Standard) => {
-      standardsCache![standard.code] = standard;
+      standardsObject[standard.code] = standard;
     });
     
     // Process interoperability standards
     interopStandards.forEach((standard: Standard) => {
-      standardsCache![standard.code] = standard;
+      standardsObject[standard.code] = standard;
     });
     
     // Process climate standards (normalize domain)
     climateStandards.forEach((standard: Standard) => {
-      standardsCache![standard.code] = {
+      standardsObject[standard.code] = {
         ...standard,
         domain: standard.domain === 'Climate' ? 'Weather and Climate' : standard.domain
       };
     });
 
-    return standardsCache;
-  } catch (error) {
-    console.error('Error loading standards:', error);
-    return {};
-  }
+    return standardsObject;
+  });
 }
 
 export async function loadGlobalGoodsTypes(): Promise<GlobalGoodsType[]> {
-  if (globalGoodsTypesCache) return globalGoodsTypesCache;
-  
-  try {
+  return referenceDataCache.get('globalGoodsTypes', async () => {
     const response = await fetch('/data/reference/globalGoodsTypes.json');
     if (!response.ok) throw new Error('Failed to load global goods types');
-    globalGoodsTypesCache = await response.json();
-    return globalGoodsTypesCache;
-  } catch (error) {
-    console.error('Error loading global goods types:', error);
-    return [];
-  }
+    return response.json();
+  });
 }
 
 export async function loadCountries(): Promise<Record<string, Country>> {
-  if (countriesCache) return countriesCache;
-  
-  try {
+  return referenceDataCache.get('countries', async () => {
     const response = await fetch('/data/reference/countries.json');
     if (!response.ok) throw new Error('Failed to load countries');
-    countriesCache = await response.json();
-    return countriesCache;
-  } catch (error) {
-    console.error('Error loading countries:', error);
-    return {};
-  }
+    return response.json();
+  });
 }
 
 export async function getLicenseById(id: string): Promise<License | undefined> {
@@ -209,11 +170,7 @@ export async function getCountryByCode(code: string): Promise<Country | undefine
   return countries[code.toLowerCase()];
 }
 
-export function clearReferenceDataCache(): void {
-  licensesCache = null;
-  productLanguagesCache = null;
-  collectionInitiativesCache = null;
-  standardsCache = null;
-  globalGoodsTypesCache = null;
-  countriesCache = null;
+export async function clearReferenceDataCache(): Promise<void> {
+  // Clear all caches using the centralized cache manager
+  await referenceDataCache.clear();
 }
