@@ -9,6 +9,8 @@ import {
 } from "react-simple-maps";
 import { useState } from "react";
 import { getMapGeoUrl } from "@/lib/config";
+import { Download } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 // Use centralized map data configuration
 const geoUrl = getMapGeoUrl();
@@ -19,6 +21,8 @@ interface MapDisplayProps {
   selectedGoodCountries: CountryData[];
   onSelectCountry: (code: string | null) => void;
   selectedCountryCode: string | null;
+  onExportImplementations: () => void;
+  totalImplementations: number;
 }
 
 export function MapDisplay({
@@ -27,6 +31,8 @@ export function MapDisplay({
   selectedGoodCountries,
   onSelectCountry,
   selectedCountryCode,
+  onExportImplementations,
+  totalImplementations,
 }: MapDisplayProps) {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
@@ -51,7 +57,21 @@ export function MapDisplay({
   return (
     <div className="col-span-12 md:col-span-6 lg:col-span-7 relative bg-accent/20 p-4 flex flex-col items-center justify-center">
       <div className="text-center mb-4">
-        <h1 className="text-2xl font-bold mb-2">Global Goods Distribution</h1>
+        <div className="flex items-center justify-center gap-4 mb-2">
+          <h1 className="text-2xl font-bold">Global Goods Distribution</h1>
+          <Button 
+            onClick={onExportImplementations}
+            variant="outline"
+            size="sm"
+            className="flex items-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Export Implementations (CSV)
+            <Badge variant="secondary" className="ml-1">
+              {totalImplementations}
+            </Badge>
+          </Button>
+        </div>
         <p className="text-muted-foreground">
           {selectedGood
             ? `Showing countries using ${selectedGood.name}`

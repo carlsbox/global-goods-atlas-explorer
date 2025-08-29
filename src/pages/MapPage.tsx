@@ -8,6 +8,7 @@ import { MapDisplay } from "@/components/map/MapDisplay";
 import { GlobalGoodDetails } from "@/components/map/GlobalGoodDetails";
 import { CountryDetails } from "@/components/map/CountryDetails";
 import { EmptyDetails } from "@/components/map/EmptyDetails";
+import { useMapImplementationsExport } from "@/hooks/useMapImplementationsExport";
 
 export default function MapPage() {
   const [searchParams] = useSearchParams();
@@ -19,6 +20,12 @@ export default function MapPage() {
   
   const [selectedGood, setSelectedGood] = useState<GlobalGoodFlat | null>(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState<string | null>(null);
+  
+  // Setup export functionality
+  const { downloadImplementationsCSV, getTotalImplementations } = useMapImplementationsExport(
+    globalGoods,
+    countries
+  );
   
   // Map of country codes to country objects for quick lookups
   const countryMap = countries.reduce((map: Record<string, CountryData>, country) => {
@@ -143,6 +150,8 @@ export default function MapPage() {
         selectedGoodCountries={selectedGoodCountries}
         onSelectCountry={handleSelectCountry}
         selectedCountryCode={selectedCountryCode}
+        onExportImplementations={downloadImplementationsCSV}
+        totalImplementations={getTotalImplementations()}
       />
       
       {/* Right sidebar - details */}
