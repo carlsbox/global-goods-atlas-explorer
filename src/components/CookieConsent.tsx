@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { X, Settings, Cookie } from "lucide-react";
+import { X, Settings, Shield } from "lucide-react";
 
 interface CookiePreferences {
   necessary: boolean;
@@ -39,8 +39,8 @@ export function CookieConsent() {
     if (!consentData) {
       setShowConsent(true);
       // Set default consent state for Google
-      if (window.gtag) {
-        window.gtag('consent', 'default', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        (window as any).gtag('consent', 'default', {
           'analytics_storage': 'denied',
           'ad_storage': 'denied',
           'ad_user_data': 'denied',
@@ -75,8 +75,8 @@ export function CookieConsent() {
   }, []);
 
   const updateGoogleConsent = (preferences: CookiePreferences) => {
-    if (window.gtag) {
-      window.gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      (window as any).gtag('consent', 'update', {
         'analytics_storage': preferences.analytics ? 'granted' : 'denied',
         'ad_storage': preferences.marketing ? 'granted' : 'denied',
         'ad_user_data': preferences.marketing ? 'granted' : 'denied',
@@ -194,7 +194,7 @@ export function CookieConsent() {
     <Card className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-lg z-50 p-6 shadow-xl border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Cookie className="h-5 w-5 text-primary" />
+          <Shield className="h-5 w-5 text-primary" />
           <h2 className="text-lg font-semibold">{tPage('title', 'cookie')}</h2>
         </div>
         <Button

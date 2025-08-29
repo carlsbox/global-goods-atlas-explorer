@@ -37,9 +37,9 @@ export const useGoogleAnalytics = () => {
       `;
       document.head.appendChild(script);
       
-      // Mark consent mode as initialized
-      window.gtag = window.gtag || function(){
-        (window.dataLayer = window.dataLayer || []).push(arguments);
+      // Mark consent mode as initialized - using any type to avoid type issues
+      (window as any).gtag = (window as any).gtag || function(){
+        ((window as any).dataLayer = (window as any).dataLayer || []).push(arguments);
       };
     };
 
@@ -51,7 +51,7 @@ export const useGoogleAnalytics = () => {
       }
 
       // Initialize consent mode if not already done
-      if (!window.gtag) {
+      if (!(window as any).gtag) {
         initializeGoogleConsent();
       }
 
@@ -67,8 +67,8 @@ export const useGoogleAnalytics = () => {
         const data = JSON.parse(consentData);
         const preferences = data.preferences;
         
-        // Update consent based on user preferences
-        window.gtag('consent', 'update', {
+        // Update consent based on user preferences - using any type to avoid type issues
+        (window as any).gtag('consent', 'update', {
           'analytics_storage': preferences.analytics ? 'granted' : 'denied',
           'ad_storage': preferences.marketing ? 'granted' : 'denied',
           'ad_user_data': preferences.marketing ? 'granted' : 'denied',
@@ -89,8 +89,8 @@ export const useGoogleAnalytics = () => {
             document.head.appendChild(gaScript);
             
             gaScript.onload = () => {
-              window.gtag('js', new Date());
-              window.gtag('config', analyticsId, {
+              (window as any).gtag('js', new Date());
+              (window as any).gtag('config', analyticsId, {
                 page_path: location.pathname + location.search,
                 send_page_view: true,
                 cookie_flags: 'SameSite=None;Secure'
@@ -114,8 +114,8 @@ export const useGoogleAnalytics = () => {
         const preferences = e.newValue ? JSON.parse(e.newValue) : null;
         
         if (preferences) {
-          // Update Google consent state
-          window.gtag('consent', 'update', {
+          // Update Google consent state - using any type to avoid type issues
+          (window as any).gtag('consent', 'update', {
             'analytics_storage': preferences.analytics ? 'granted' : 'denied',
             'ad_storage': preferences.marketing ? 'granted' : 'denied',
             'ad_user_data': preferences.marketing ? 'granted' : 'denied',
@@ -141,7 +141,7 @@ export const useGoogleAnalytics = () => {
 
   // Track page views (only if consent granted)
   useEffect(() => {
-    if (!analyticsId || analyticsId === 'G-XXXXXXXXXX' || !window.gtag) {
+    if (!analyticsId || analyticsId === 'G-XXXXXXXXXX' || !(window as any).gtag) {
       return;
     }
 
@@ -151,7 +151,7 @@ export const useGoogleAnalytics = () => {
       try {
         const data = JSON.parse(consentData);
         if (data.preferences.analytics) {
-          window.gtag('event', 'page_view', {
+          (window as any).gtag('event', 'page_view', {
             page_path: location.pathname + location.search,
             page_location: window.location.href,
             page_title: document.title
