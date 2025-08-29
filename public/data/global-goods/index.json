@@ -2,32 +2,51 @@
   {
     "ID": "advocacy_training_CHW",
     "Name": "Advocacy Training for Community Health Workers",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "Advocacy Training for Community Health Workers is a free digital course designed to empower CHWs by building their skills to share their personal stories and advocate for key community health issues, ensuring their voices are included in decisions that affect their work and communities.",
-    "ProductOverview": "Advocacy Training for Community Health Workers is a free digital course designed to empower CHWs by building their skills to share their personal stories and advocate for key community health issues, ensuring their voices are included in decisions that affect their work and communities.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc-by-4.0",
-    "Website": {
-      "main": {
-        "url": "https://digitalmedic.stanford.edu/our-work/free-advocacy-training/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ca",
+      "ci",
+      "cm",
+      "au",
+      "us",
+      "gb",
+      "mx",
+      "ie",
+      "fr",
+      "es",
+      "br",
+      "pe",
+      "ve",
+      "id",
+      "in",
+      "my",
+      "mw",
+      "np",
+      "pk",
+      "be",
+      "ch",
+      "de",
+      "sn",
+      "sl",
+      "gh",
+      "tg",
+      "ng",
+      "rw",
+      "ke",
+      "ug",
+      "zm",
+      "mz",
+      "zw",
+      "za",
+      "bw",
+      "so"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -40,81 +59,29 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ca",
-        "ci",
-        "cm",
-        "au",
-        "us",
-        "gb",
-        "mx",
-        "ie",
-        "fr",
-        "es",
-        "br",
-        "pe",
-        "ve",
-        "id",
-        "in",
-        "my",
-        "mw",
-        "np",
-        "pk",
-        "be",
-        "ch",
-        "de",
-        "sn",
-        "sl",
-        "gh",
-        "tg",
-        "ng",
-        "rw",
-        "ke",
-        "ug",
-        "zm",
-        "mz",
-        "zw",
-        "za",
-        "bw",
-        "so"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "android_fhir_sdk",
     "Name": "Android FHIR SDK",
-    "Logo": "/uploads/gg_logos/open_health_stack.png",
     "Summary": "The Android FHIR SDK is a set of Kotlin libraries for building offline-capable, mobile-first healthcare applications using the HL7® FHIR® standard on Android.",
-    "ProductOverview": "The Android FHIR SDK is a set of Kotlin libraries for building offline-capable, mobile-first healthcare applications using the HL7® FHIR® standard on Android.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/open_health_stack.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://github.com/google/android-fhir",
-        "description": "Github repository"
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/google/android-fhir",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 4,
+    "Countries": [
+      "us",
+      "iq",
+      "ug",
+      "mw",
+      "zm",
+      "lr",
+      "id"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -130,54 +97,51 @@
       "Health": [
         "HL7"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "us",
-        "iq",
-        "ug",
-        "mw",
-        "zm",
-        "lr",
-        "id"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "bahmni",
     "Name": "Bahmni",
-    "Logo": "/uploads/gg_logos/bahmni_logo.png",
     "Summary": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
-    "ProductOverview": "Bahmni (https://www.bahmni.org) is an open source Hospital Information System (HIS) and Electronic Medical Record (EMR) product led by the Bahmni Coalition (a group of companies and non-profit organizations that provide leadership to Bahmni). It is a project of the OpenMRS Foundation.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/bahmni_logo.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "agpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.bahmni.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/bahmni",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 500,
+    "Countries": [
+      "ht",
+      "dm",
+      "do",
+      "hn",
+      "ec",
+      "pe",
+      "gh",
+      "gm",
+      "cm",
+      "sd",
+      "eg",
+      "ke",
+      "bi",
+      "ls",
+      "sy",
+      "iq",
+      "in",
+      "bd",
+      "pk",
+      "np",
+      "bt",
+      "mm",
+      "vn",
+      "kh",
+      "ph",
+      "id",
+      "pg"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -197,75 +161,55 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ht",
-        "dm",
-        "do",
-        "hn",
-        "ec",
-        "pe",
-        "gh",
-        "gm",
-        "cm",
-        "sd",
-        "eg",
-        "ke",
-        "bi",
-        "ls",
-        "sy",
-        "iq",
-        "in",
-        "bd",
-        "pk",
-        "np",
-        "bt",
-        "mm",
-        "vn",
-        "kh",
-        "ph",
-        "id",
-        "pg"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "ciel",
     "Name": "CIEL Terminology",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The Columbia International eHealth Laboratory Terminology (CIEL Terminology) is an open source, standardized clinical interface terminology used particularly by low- and middle-income countries (LMICs) to capture, map, and analyze health information.",
-    "ProductOverview": "The Columbia International eHealth Laboratory Terminology (CIEL Terminology) is an open source, standardized clinical interface terminology used particularly by low- and middle-income countries (LMICs) to capture, map, and analyze health information.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc-by-4.0",
-    "Website": {
-      "main": {
-        "url": "https://opensrp.io/global-immunization-product-suite/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 30,
+    "Countries": [
+      "mz",
+      "zm",
+      "zw",
+      "za",
+      "bw",
+      "mw",
+      "rw",
+      "ug",
+      "ke",
+      "et",
+      "ng",
+      "lr",
+      "ci",
+      "sl",
+      "il",
+      "pk",
+      "in",
+      "np",
+      "lk",
+      "bd",
+      "vn",
+      "kh",
+      "ph",
+      "ar",
+      "pe",
+      "co",
+      "pa",
+      "ht",
+      "mx",
+      "us"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -286,75 +230,74 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "mz",
-        "zm",
-        "zw",
-        "za",
-        "bw",
-        "mw",
-        "rw",
-        "ug",
-        "ke",
-        "et",
-        "ng",
-        "lr",
-        "ci",
-        "sl",
-        "il",
-        "pk",
-        "in",
-        "np",
-        "lk",
-        "bd",
-        "vn",
-        "kh",
-        "ph",
-        "ar",
-        "pe",
-        "co",
-        "pa",
-        "ht",
-        "mx",
-        "us"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "commcare",
     "Name": "CommCare",
-    "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
     "Summary": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
-    "ProductOverview": "A mobile platform that enables frontline workers to track, support, and communicate with clients using mobile phones and tablets.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "https://dimagi.com/wp-content/uploads/2024/02/CommCare-Favicon-2.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "bsd-3-clause",
-    "Website": {
-      "main": {
-        "url": "https://www.dimagi.com/commcare/",
-        "description": "Official CommCare platform website"
-      },
-      "docs": {
-        "url": "https://confluence.dimagi.com/display/commcarepublic/CommCare+Public+Home",
-        "description": "CommCare documentation and user guides"
-      },
-      "source_code": {
-        "url": "https://github.com/dimagi/commcare-hq",
-        "description": "CommCare HQ repository"
-      },
-      "demo": {
-        "url": "https://www.commcarehq.org/demo/",
-        "description": "Try CommCare demo"
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 200,
+    "Countries": [
+      "ng",
+      "za",
+      "ke",
+      "gh",
+      "et",
+      "tz",
+      "ug",
+      "sn",
+      "dz",
+      "ma",
+      "zm",
+      "zw",
+      "mw",
+      "ao",
+      "cm",
+      "ci",
+      "ml",
+      "ne",
+      "bf",
+      "bj",
+      "gn",
+      "ga",
+      "td",
+      "sd",
+      "ss",
+      "ly",
+      "mr",
+      "sl",
+      "rw",
+      "bi",
+      "mg",
+      "cv",
+      "gq",
+      "cf",
+      "cg",
+      "cd",
+      "dj",
+      "er",
+      "so",
+      "km",
+      "st",
+      "sc",
+      "na",
+      "bw",
+      "ls",
+      "sz",
+      "tn",
+      "eg",
+      "mu",
+      "mz",
+      "lr",
+      "tg"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3",
@@ -373,99 +316,114 @@
       "Health": [
         "FHIR"
       ],
-      "Interoperability": [
+      "Interop": [
         "REST"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ng",
-        "za",
-        "ke",
-        "gh",
-        "et",
-        "tz",
-        "ug",
-        "sn",
-        "dz",
-        "ma",
-        "zm",
-        "zw",
-        "mw",
-        "ao",
-        "cm",
-        "ci",
-        "ml",
-        "ne",
-        "bf",
-        "bj",
-        "gn",
-        "ga",
-        "td",
-        "sd",
-        "ss",
-        "ly",
-        "mr",
-        "sl",
-        "rw",
-        "bi",
-        "mg",
-        "cv",
-        "gq",
-        "cf",
-        "cg",
-        "cd",
-        "dj",
-        "er",
-        "so",
-        "km",
-        "st",
-        "sc",
-        "na",
-        "bw",
-        "ls",
-        "sz",
-        "tn",
-        "eg",
-        "mu",
-        "mz",
-        "lr",
-        "tg"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "dhis2",
     "Name": "DHIS2",
-    "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
     "Summary": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
-    "ProductOverview": "Open-source health information management system. DHIS2 is a flexible, web-based open-source information system with visualization features.",
-    "ClimateHealth": true,
-    "GlobalGoodsType": [
+    "Logo": "https://dhis2.org/wp-content/uploads/dhis2-logo-rgb-positive.svg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "bsd-3-clause",
-    "Website": {
-      "main": {
-        "url": "https://dhis2.org",
-        "description": "Official site for DHIS2"
-      },
-      "docs": {
-        "url": "https://docs.dhis2.org",
-        "description": "User and developer documentation"
-      },
-      "source_code": {
-        "url": "https://github.com/dhis2",
-        "description": "Main code repository"
-      },
-      "demo": {
-        "url": "https://play.dhis2.org",
-        "description": "Test DHIS2 online"
-      }
-    },
+    "ClimateHealth": true,
+    "NumberOfImplementations": 1000,
+    "Countries": [
+      "dz",
+      "ao",
+      "bj",
+      "bw",
+      "bf",
+      "bi",
+      "cv",
+      "cm",
+      "cf",
+      "td",
+      "km",
+      "cg",
+      "ci",
+      "cd",
+      "er",
+      "sz",
+      "et",
+      "ga",
+      "gm",
+      "gh",
+      "gn",
+      "gw",
+      "ke",
+      "ls",
+      "lr",
+      "mg",
+      "mw",
+      "ml",
+      "mr",
+      "mu",
+      "mz",
+      "na",
+      "ne",
+      "ng",
+      "rw",
+      "st",
+      "sn",
+      "sl",
+      "za",
+      "ss",
+      "tg",
+      "ug",
+      "tz",
+      "zm",
+      "zw",
+      "af",
+      "dj",
+      "eg",
+      "iq",
+      "jo",
+      "lb",
+      "ly",
+      "ma",
+      "pk",
+      "so",
+      "sd",
+      "sy",
+      "ye",
+      "ag",
+      "cl",
+      "co",
+      "dm",
+      "ec",
+      "gd",
+      "gt",
+      "ht",
+      "hn",
+      "jm",
+      "pa",
+      "lc",
+      "vc",
+      "sr",
+      "ve",
+      "bd",
+      "bt",
+      "in",
+      "id",
+      "mv",
+      "mm",
+      "np",
+      "lk",
+      "tl",
+      "kh",
+      "la",
+      "pw",
+      "pg",
+      "sb",
+      "to",
+      "vu",
+      "vn"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3",
@@ -495,138 +453,29 @@
         "LOINC",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "ADX",
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "dz",
-        "ao",
-        "bj",
-        "bw",
-        "bf",
-        "bi",
-        "cv",
-        "cm",
-        "cf",
-        "td",
-        "km",
-        "cg",
-        "ci",
-        "cd",
-        "er",
-        "sz",
-        "et",
-        "ga",
-        "gm",
-        "gh",
-        "gn",
-        "gw",
-        "ke",
-        "ls",
-        "lr",
-        "mg",
-        "mw",
-        "ml",
-        "mr",
-        "mu",
-        "mz",
-        "na",
-        "ne",
-        "ng",
-        "rw",
-        "st",
-        "sn",
-        "sl",
-        "za",
-        "ss",
-        "tg",
-        "ug",
-        "tz",
-        "zm",
-        "zw",
-        "af",
-        "dj",
-        "eg",
-        "iq",
-        "jo",
-        "lb",
-        "ly",
-        "ma",
-        "pk",
-        "so",
-        "sd",
-        "sy",
-        "ye",
-        "ag",
-        "cl",
-        "co",
-        "dm",
-        "ec",
-        "gd",
-        "gt",
-        "ht",
-        "hn",
-        "jm",
-        "pa",
-        "lc",
-        "vc",
-        "sr",
-        "ve",
-        "bd",
-        "bt",
-        "in",
-        "id",
-        "mv",
-        "mm",
-        "np",
-        "lk",
-        "tl",
-        "kh",
-        "la",
-        "pw",
-        "pg",
-        "sb",
-        "to",
-        "vu",
-        "vn"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "dhpns",
     "Name": "DHPNS Digital Health: Planning National Systems",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The course, Digital Health: Planning National Systems, is designed to empower ministry leadership with the foundational and technical concepts and planning tools necessary to steer and orient national digital health stakeholders towards an enterprise planning approach.",
-    "ProductOverview": "The course, Digital Health: Planning National Systems, is designed to empower ministry leadership with the foundational and technical concepts and planning tools necessary to steer and orient national digital health stakeholders towards an enterprise planning approach.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc-by-sa-4.0",
-    "Website": {
-      "main": {
-        "url": "https://www.digitalhealthtraining.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 93,
+    "Countries": [
+      "me",
+      "mn",
+      "ug",
+      "bd"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -639,49 +488,29 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "me",
-        "mn",
-        "ug",
-        "bd"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "everwell_hub",
     "Name": "Everwell Hub",
-    "Logo": "/uploads/gg_logos/everwell_hub_logo.png",
     "Summary": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
-    "ProductOverview": "The Everwell Hub is a best in-class patient management platform designed for high-burden public healthcare programs globally.\n\n",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/everwell_hub_logo.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mit",
-    "Website": {
-      "main": {
-        "url": "https://www.everwell.org/hub",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://gitlab.com/everwell/hub-foss",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 17,
+    "Countries": [
+      "bf",
+      "ua",
+      "ng",
+      "et",
+      "ug",
+      "tz",
+      "za"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -694,54 +523,43 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "bf",
-        "ua",
-        "ng",
-        "et",
-        "ug",
-        "tz",
-        "za"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "ewars",
     "Name": "Early Warning and Response System for climate-senstive diseases",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
-    "ProductOverview": "EWARS-csd is a validated data-driven modelling system to empower front line health care workers and data use for appropriate and timely local response to climate-sensitive diseases.",
-    "ClimateHealth": true,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://tdr.who.int/activities/ewars-csd",
-        "description": "Official site for EWARS-csd"
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/Laith-hk/AUTO-EWARS-csd/tree/main",
-        "description": "Main code repository"
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": true,
+    "NumberOfImplementations": 19,
+    "Countries": [
+      "bf",
+      "et",
+      "mg",
+      "mw",
+      "mu",
+      "mz",
+      "co",
+      "do",
+      "bd",
+      "in",
+      "mm",
+      "np",
+      "th",
+      "tl",
+      "la",
+      "mx",
+      "sn",
+      "om",
+      "sa"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3",
@@ -769,68 +587,90 @@
         "ICD-10",
         "ICD-11"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": [
         "NetCDF"
       ]
-    },
-    "Reach": {
-      "Countries": [
-        "bf",
-        "et",
-        "mg",
-        "mw",
-        "mu",
-        "mz",
-        "co",
-        "do",
-        "bd",
-        "in",
-        "mm",
-        "np",
-        "th",
-        "tl",
-        "la",
-        "mx",
-        "sn",
-        "om",
-        "sa"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "fhir",
     "Name": "Health Level Seven International (HL7) Fast Healthcare Interoperability Resources (FHIR) ",
-    "Logo": "/uploads/gg_logos/fhir-logo-www.png",
     "Summary": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
-    "ProductOverview": "HL7 Fast Healthcare Interoperability Resources (FHIR) is a next-generation interoperability standard created by the standards development organization Health Level 7 (HL7®). HL7 FHIR is designed to enable health data, including clinical and administrative data, to be quickly and efficiently exchanged.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/fhir-logo-www.png",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc0-1.0",
-    "Website": {
-      "main": {
-        "url": "http://hl7.org/fhir/ ",
-        "description": ""
-      },
-      "docs": {
-        "url": "http://hl7.org/fhir/",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 74,
+    "Countries": [
+      "ar",
+      "at",
+      "bi",
+      "ca",
+      "cl",
+      "bw",
+      "br",
+      "cn",
+      "cz",
+      "us",
+      "ae",
+      "gb",
+      "mx",
+      "tz",
+      "co",
+      "ve",
+      "vn",
+      "ml",
+      "my",
+      "et",
+      "za",
+      "zw",
+      "mg",
+      "mw",
+      "rw",
+      "no",
+      "ug",
+      "ke",
+      "sa",
+      "kw",
+      "sy",
+      "il",
+      "gr",
+      "ua",
+      "pl",
+      "pt",
+      "es",
+      "fr",
+      "ch",
+      "se",
+      "hu",
+      "lt",
+      "lv",
+      "fi",
+      "dk",
+      "de",
+      "ie",
+      "it",
+      "rs",
+      "kz",
+      "uz",
+      "au",
+      "nz",
+      "jp",
+      "in",
+      "id",
+      "pk",
+      "np",
+      "bd",
+      "th",
+      "ph",
+      "sg",
+      "nr",
+      "tv"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -845,111 +685,76 @@
       "Health": [
         "HL7"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ar",
-        "at",
-        "bi",
-        "ca",
-        "cl",
-        "bw",
-        "br",
-        "cn",
-        "cz",
-        "us",
-        "ae",
-        "gb",
-        "mx",
-        "tz",
-        "co",
-        "ve",
-        "vn",
-        "ml",
-        "my",
-        "et",
-        "za",
-        "zw",
-        "mg",
-        "mw",
-        "rw",
-        "no",
-        "ug",
-        "ke",
-        "sa",
-        "kw",
-        "sy",
-        "il",
-        "gr",
-        "ua",
-        "pl",
-        "pt",
-        "es",
-        "fr",
-        "ch",
-        "se",
-        "hu",
-        "lt",
-        "lv",
-        "fi",
-        "dk",
-        "de",
-        "ie",
-        "it",
-        "rs",
-        "kz",
-        "uz",
-        "au",
-        "nz",
-        "jp",
-        "in",
-        "id",
-        "pk",
-        "np",
-        "bd",
-        "th",
-        "ph",
-        "sg",
-        "nr",
-        "tv"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "gdhm",
     "Name": "Global Digital Health Monitor (GDHM)",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
-    "ProductOverview": "The Global Digital Health Monitor (GDHM) is an interactive digital global public good that helps countries to prioritize and monitor their digital health transformation, using the World Health Organization (WHO)/ International Telecommunications Union (ITU) eHealth Strategy Toolkit as the underlying framework.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "unknown",
-    "Website": {
-      "main": {
-        "url": "https://digitalhealthmonitor.org/",
-        "description": "Official website"
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 52,
+    "Countries": [
+      "do",
+      "jm",
+      "cr",
+      "gt",
+      "br",
+      "cl",
+      "ar",
+      "ie",
+      "pt",
+      "at",
+      "jo",
+      "iq",
+      "sa",
+      "ae",
+      "af",
+      "np",
+      "bd",
+      "vn",
+      "kh",
+      "th",
+      "ph",
+      "mm",
+      "lk",
+      "mv",
+      "mw",
+      "ml",
+      "my",
+      "jp",
+      "zw",
+      "zm",
+      "mz",
+      "sz",
+      "za",
+      "ug",
+      "ke",
+      "tz",
+      "rw",
+      "bi",
+      "bj",
+      "tg",
+      "ci",
+      "gh",
+      "cf",
+      "st",
+      "ga",
+      "lr",
+      "sl",
+      "gn",
+      "gw",
+      "sn",
+      "km",
+      "cv"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -962,97 +767,25 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "do",
-        "jm",
-        "cr",
-        "gt",
-        "br",
-        "cl",
-        "ar",
-        "ie",
-        "pt",
-        "at",
-        "jo",
-        "iq",
-        "sa",
-        "ae",
-        "af",
-        "np",
-        "bd",
-        "vn",
-        "kh",
-        "th",
-        "ph",
-        "mm",
-        "lk",
-        "mv",
-        "mw",
-        "ml",
-        "my",
-        "jp",
-        "zw",
-        "zm",
-        "mz",
-        "sz",
-        "za",
-        "ug",
-        "ke",
-        "tz",
-        "rw",
-        "bi",
-        "bj",
-        "tg",
-        "ci",
-        "gh",
-        "cf",
-        "st",
-        "ga",
-        "lr",
-        "sl",
-        "gn",
-        "gw",
-        "sn",
-        "km",
-        "cv"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "geoprism",
     "Name": "GeoPrism Registry",
-    "Logo": "/uploads/gg_logos/Geoprism_logo.png",
     "Summary": "GeoPrism provides hierarchy and ontology management for normalizing disparate datasets  by common geographies and ontological terms, integration with DHIS2, and spatial dashboarding capabilities.",
-    "ProductOverview": "GeoPrism provides hierarchy and ontology management for normalizing disparate datasets  by common geographies and ontological terms, integration with DHIS2, and spatial dashboarding capabilities.",
-    "ClimateHealth": true,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/Geoprism_logo.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "lgpl",
-    "Website": {
-      "main": {
-        "url": "https://geoprismregistry.com",
-        "description": "Official site for GeoPrism Registry"
-      },
-      "docs": {
-        "url": "https://geoprismregistry.com",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/terraframe/geoprism-registry",
-        "description": "Main code repository"
-      },
-      "demo": {
-        "url": "https://demo-georegistry.geoprism.net/",
-        "description": "GeoPrism demo"
-      }
-    },
+    "ClimateHealth": true,
+    "NumberOfImplementations": 5,
+    "Countries": [
+      "mz",
+      "us",
+      "la"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3",
@@ -1072,53 +805,51 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": [
         "WMS",
         "WFS"
       ]
-    },
-    "Reach": {
-      "Countries": [
-        "mz",
-        "us",
-        "la"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "gnu_health",
     "Name": "GNU Health",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.\n",
-    "ProductOverview": "GNU Health is a free/libre ecosystem in healthcare. It is modular, extensible, builds on top of proven free/libre software (like Python, PostgreSQL, GnuPG), supports open standards (like HL7/FHIR), and is developed by a worldwide community.\n",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://globalgoodsguidebook.org/global-goods/gnu-health/www.gnuhealth.org",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://savannah.gnu.org/hg/?group=health",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "jm",
+      "ht",
+      "mx",
+      "pe",
+      "br",
+      "ar",
+      "de",
+      "it",
+      "es",
+      "ma",
+      "gm",
+      "ml",
+      "gh",
+      "ng",
+      "cm",
+      "tz",
+      "ao",
+      "ga",
+      "pk",
+      "in",
+      "bd",
+      "my",
+      "ph",
+      "id"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1139,71 +870,93 @@
         "ICD-10",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "jm",
-        "ht",
-        "mx",
-        "pe",
-        "br",
-        "ar",
-        "de",
-        "it",
-        "es",
-        "ma",
-        "gm",
-        "ml",
-        "gh",
-        "ng",
-        "cm",
-        "tz",
-        "ao",
-        "ga",
-        "pk",
-        "in",
-        "bd",
-        "my",
-        "ph",
-        "id"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "godata",
     "Name": "Go.Data",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The Go.Data tool is designed to facilitate and support data collection for outbreak response, including case investigation, identification, and listing and tracing of contacts, as well as data management and analysis.",
-    "ProductOverview": "The Go.Data tool is designed to facilitate and support data collection for outbreak response, including case investigation, identification, and listing and tracing of contacts, as well as data management and analysis.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.who.int/tools/godata",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/WorldHealthOrganization/godata",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 65,
+    "Countries": [
+      "lc",
+      "bb",
+      "jm",
+      "ag",
+      "bs",
+      "hn",
+      "gt",
+      "bz",
+      "co",
+      "gy",
+      "sr",
+      "mx",
+      "us",
+      "ca",
+      "br",
+      "py",
+      "ar",
+      "cl",
+      "es",
+      "fr",
+      "be",
+      "ch",
+      "lv",
+      "ua",
+      "md",
+      "ba",
+      "bg",
+      "rs",
+      "al",
+      "gr",
+      "kr",
+      "sy",
+      "jo",
+      "sa",
+      "ye",
+      "mt",
+      "it",
+      "mr",
+      "dz",
+      "eg",
+      "td",
+      "ng",
+      "gn",
+      "cf",
+      "ga",
+      "ug",
+      "ke",
+      "tz",
+      "zm",
+      "bw",
+      "na",
+      "za",
+      "au",
+      "pg",
+      "tl",
+      "id",
+      "pw",
+      "fm",
+      "mv",
+      "vu",
+      "fj",
+      "ph",
+      "in",
+      "np",
+      "bd",
+      "bt",
+      "mn",
+      "vn",
+      "kh"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1216,114 +969,26 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "lc",
-        "bb",
-        "jm",
-        "ag",
-        "bs",
-        "hn",
-        "gt",
-        "bz",
-        "co",
-        "gy",
-        "sr",
-        "mx",
-        "us",
-        "ca",
-        "br",
-        "py",
-        "ar",
-        "cl",
-        "es",
-        "fr",
-        "be",
-        "ch",
-        "lv",
-        "ua",
-        "md",
-        "ba",
-        "bg",
-        "rs",
-        "al",
-        "gr",
-        "kr",
-        "sy",
-        "jo",
-        "sa",
-        "ye",
-        "mt",
-        "it",
-        "mr",
-        "dz",
-        "eg",
-        "td",
-        "ng",
-        "gn",
-        "cf",
-        "ga",
-        "ug",
-        "ke",
-        "tz",
-        "zm",
-        "bw",
-        "na",
-        "za",
-        "au",
-        "pg",
-        "tl",
-        "id",
-        "pw",
-        "fm",
-        "mv",
-        "vu",
-        "fj",
-        "ph",
-        "in",
-        "np",
-        "bd",
-        "bt",
-        "mn",
-        "vn",
-        "kh"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "gofr",
     "Name": "Global Open Facility Registry",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities. ",
-    "ProductOverview": "The Global Open Facility Registry (GOFR) lets health data administrators analyze, de-duplicate, and curate lists of facilities. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://www.openfacilityregistry.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/intrahealth/gofr",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "sl",
+      "lr",
+      "tz",
+      "et"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1340,47 +1005,33 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "sl",
-        "lr",
-        "tz",
-        "et"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "harmony",
     "Name": "Harmony",
-    "Logo": "/uploads/gg_logos/HarmonyLogo_Horizontal.png",
     "Summary": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
-    "ProductOverview": "Harmony is an open-source data integration and analytics platform designed to support public health systems by consolidating and analyzing structured data from multiple sources.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/HarmonyLogo_Horizontal.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "AGPL-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.zenysis.com/solution/platform/",
-        "description": "Harmony website"
-      },
-      "docs": {
-        "url": "https://zenysis.crisp.help/en-us/",
-        "description": "User documentation"
-      },
-      "source_code": {
-        "url": "https://github.com/Zenysis/Harmony",
-        "description": "Main code repository"
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 10,
+    "Countries": [
+      "et",
+      "gw",
+      "mz",
+      "rw",
+      "za",
+      "zm",
+      "br",
+      "pk",
+      "vn"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3",
@@ -1404,56 +1055,32 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "et",
-        "gw",
-        "mz",
-        "rw",
-        "za",
-        "zm",
-        "br",
-        "pk",
-        "vn"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "iaso",
     "Name": "IASO",
-    "Logo": "/uploads/gg_logos/iaso.png",
     "Summary": "IASO is an innovative, open-source, and multilingual (EN/FR) platform designed for data collection, planning, monitoring, and evaluation of health, environmental, and social programs. With its advanced geospatial capabilities, IASO provides a structured approach to managing geographic data, optimizing field data collection, and enhancing decision-making.",
-    "ProductOverview": "IASO is an innovative, open-source, and multilingual (EN/FR) platform designed for data collection, planning, monitoring, and evaluation of health, environmental, and social programs. With its advanced geospatial capabilities, IASO provides a structured approach to managing geographic data, optimizing field data collection, and enhancing decision-making.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/iaso.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mit",
-    "Website": {
-      "main": {
-        "url": "https://www.bluesquarehub.com/iaso/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/BLSQ/iaso",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 14,
+    "Countries": [
+      "sn",
+      "ci",
+      "ml",
+      "bf",
+      "ne",
+      "ng",
+      "cf",
+      "ug"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1466,53 +1093,34 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "sn",
-        "ci",
-        "ml",
-        "bf",
-        "ne",
-        "ng",
-        "cf",
-        "ug"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "ihris",
     "Name": "iHRIS",
-    "Logo": "/uploads/gg_logos/ihris.png",
     "Summary": "iHRIS is a health worker registry application.",
-    "ProductOverview": "iHRIS is a health worker registry application.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/ihris.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.ihris.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/iHRIS/iHRIS",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 30,
+    "Countries": [
+      "tn",
+      "sn",
+      "ml",
+      "gn",
+      "sl",
+      "lr",
+      "ng",
+      "ug",
+      "ke",
+      "zm",
+      "na",
+      "bw"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1528,59 +1136,28 @@
         "HL7",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "tn",
-        "sn",
-        "ml",
-        "gn",
-        "sl",
-        "lr",
-        "ng",
-        "ug",
-        "ke",
-        "zm",
-        "na",
-        "bw"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "mhero",
     "Name": "mHero",
-    "Logo": "/uploads/gg_logos/mhero.png",
     "Summary": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers. ",
-    "ProductOverview": "mHero is a two-way, mobile phone–based communication system that connects ministries of health and health workers. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/mhero.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.mhero.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/intrahealth/mhero.git",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ke",
+      "lr",
+      "ug",
+      "ml"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1596,51 +1173,55 @@
         "HL7",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ke",
-        "lr",
-        "ug",
-        "ml"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "msupply",
     "Name": "Open mSupply",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "Open-source supply chain management system for health and humanitarian organizations.",
-    "ProductOverview": "Open-source supply chain management system for health and humanitarian organizations.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://msupply.foundation",
-        "description": "Official site for mSupply"
-      },
-      "docs": {
-        "url": "",
-        "description": "User and developer documentation"
-      },
-      "source_code": {
-        "url": "https://github.com/msupply-foundation/open-msupply",
-        "description": "Main code repository"
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 50,
+    "Countries": [
+      "co",
+      "ht",
+      "gm",
+      "sl",
+      "ci",
+      "st",
+      "ng",
+      "ne",
+      "dj",
+      "tz",
+      "zm",
+      "ao",
+      "km",
+      "td",
+      "ml",
+      "np",
+      "mm",
+      "la",
+      "kh",
+      "tl",
+      "pw",
+      "pg",
+      "fm",
+      "sb",
+      "nr",
+      "tv",
+      "fj",
+      "ws",
+      "ki",
+      "vu",
+      "to"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1661,78 +1242,155 @@
         "ICD-10",
         "GS1"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "co",
-        "ht",
-        "gm",
-        "sl",
-        "ci",
-        "st",
-        "ng",
-        "ne",
-        "dj",
-        "tz",
-        "zm",
-        "ao",
-        "km",
-        "td",
-        "ml",
-        "np",
-        "mm",
-        "la",
-        "kh",
-        "tl",
-        "pw",
-        "pg",
-        "fm",
-        "sb",
-        "nr",
-        "tv",
-        "fj",
-        "ws",
-        "ki",
-        "vu",
-        "to"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "odk",
     "Name": "ODK",
-    "Logo": "/uploads/gg_logos/odk.png",
     "Summary": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
-    "ProductOverview": "ODK is an open-source platform that helps social impact organizations build powerful offline forms to collect the data they need wherever it is. It is the global standard for offline data collection.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/odk.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://getodk.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/getodk/",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ar",
+      "at",
+      "al",
+      "dz",
+      "ao",
+      "au",
+      "az",
+      "be",
+      "bw",
+      "br",
+      "bo",
+      "bj",
+      "ba",
+      "by",
+      "bz",
+      "bs",
+      "bb",
+      "bg",
+      "bi",
+      "cm",
+      "td",
+      "co",
+      "cr",
+      "ca",
+      "cl",
+      "ci",
+      "kh",
+      "bf",
+      "cf",
+      "cg",
+      "hr",
+      "cz",
+      "dk",
+      "cd",
+      "dm",
+      "dj",
+      "er",
+      "eg",
+      "sn",
+      "fi",
+      "fj",
+      "se",
+      "ch",
+      "gb",
+      "us",
+      "tz",
+      "mx",
+      "ae",
+      "ie",
+      "lv",
+      "ee",
+      "lt",
+      "pl",
+      "de",
+      "ng",
+      "ne",
+      "lu",
+      "fr",
+      "mc",
+      "es",
+      "ad",
+      "pt",
+      "bn",
+      "sg",
+      "ph",
+      "mw",
+      "ml",
+      "my",
+      "gt",
+      "in",
+      "id",
+      "pg",
+      "th",
+      "pk",
+      "za",
+      "jp",
+      "cn",
+      "mn",
+      "me",
+      "ru",
+      "kz",
+      "lk",
+      "kg",
+      "tm",
+      "np",
+      "mv",
+      "sc",
+      "mu",
+      "mr",
+      "km",
+      "mg",
+      "ls",
+      "nz",
+      "mz",
+      "zw",
+      "zm",
+      "uz",
+      "ve",
+      "ke",
+      "sd",
+      "bd",
+      "gh",
+      "sl",
+      "tg",
+      "st",
+      "gn",
+      "gq",
+      "gw",
+      "gm",
+      "na",
+      "vn",
+      "sr",
+      "pa",
+      "gy",
+      "py",
+      "uy",
+      "nr",
+      "mh",
+      "mm",
+      "ki",
+      "to",
+      "ws",
+      "tv",
+      "sb",
+      "pw",
+      "ni",
+      "gr",
+      "hn",
+      "sv",
+      "is",
+      "jm"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1751,176 +1409,63 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ar",
-        "at",
-        "al",
-        "dz",
-        "ao",
-        "au",
-        "az",
-        "be",
-        "bw",
-        "br",
-        "bo",
-        "bj",
-        "ba",
-        "by",
-        "bz",
-        "bs",
-        "bb",
-        "bg",
-        "bi",
-        "cm",
-        "td",
-        "co",
-        "cr",
-        "ca",
-        "cl",
-        "ci",
-        "kh",
-        "bf",
-        "cf",
-        "cg",
-        "hr",
-        "cz",
-        "dk",
-        "cd",
-        "dm",
-        "dj",
-        "er",
-        "eg",
-        "sn",
-        "fi",
-        "fj",
-        "se",
-        "ch",
-        "gb",
-        "us",
-        "tz",
-        "mx",
-        "ae",
-        "ie",
-        "lv",
-        "ee",
-        "lt",
-        "pl",
-        "de",
-        "ng",
-        "ne",
-        "lu",
-        "fr",
-        "mc",
-        "es",
-        "ad",
-        "pt",
-        "bn",
-        "sg",
-        "ph",
-        "mw",
-        "ml",
-        "my",
-        "gt",
-        "in",
-        "id",
-        "pg",
-        "th",
-        "pk",
-        "za",
-        "jp",
-        "cn",
-        "mn",
-        "me",
-        "ru",
-        "kz",
-        "lk",
-        "kg",
-        "tm",
-        "np",
-        "mv",
-        "sc",
-        "mu",
-        "mr",
-        "km",
-        "mg",
-        "ls",
-        "nz",
-        "mz",
-        "zw",
-        "zm",
-        "uz",
-        "ve",
-        "ke",
-        "sd",
-        "bd",
-        "gh",
-        "sl",
-        "tg",
-        "st",
-        "gn",
-        "gq",
-        "gw",
-        "gm",
-        "na",
-        "vn",
-        "sr",
-        "pa",
-        "gy",
-        "py",
-        "uy",
-        "nr",
-        "mh",
-        "mm",
-        "ki",
-        "to",
-        "ws",
-        "tv",
-        "sb",
-        "pw",
-        "ni",
-        "gr",
-        "hn",
-        "sv",
-        "is",
-        "jm"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "omop",
     "Name": "Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "The OMOP Common Data Model (CDM) is a standardized framework to harmonize diverse health data sources for research and reporting. It enables interoperability and privacy by allowing shared analytics without sharing patient-level data.",
-    "ProductOverview": "The OMOP Common Data Model (CDM) is a standardized framework to harmonize diverse health data sources for research and reporting. It enables interoperability and privacy by allowing shared analytics without sharing patient-level data.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc0-1.0",
-    "Website": {
-      "main": {
-        "url": "www.ohdsi.org",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 83,
+    "Countries": [
+      "us",
+      "br",
+      "co",
+      "ke",
+      "rw",
+      "tz",
+      "mz",
+      "za",
+      "sa",
+      "il",
+      "pt",
+      "fr",
+      "gb",
+      "ie",
+      "be",
+      "nl",
+      "de",
+      "dk",
+      "it",
+      "hr",
+      "bg",
+      "ro",
+      "tr",
+      "ge",
+      "se",
+      "fi",
+      "rs",
+      "at",
+      "cz",
+      "md",
+      "gr",
+      "cn",
+      "in",
+      "pk",
+      "th",
+      "my",
+      "ph",
+      "jp",
+      "kr",
+      "au",
+      "nz"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -1933,86 +1478,35 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "us",
-        "br",
-        "co",
-        "ke",
-        "rw",
-        "tz",
-        "mz",
-        "za",
-        "sa",
-        "il",
-        "pt",
-        "fr",
-        "gb",
-        "ie",
-        "be",
-        "nl",
-        "de",
-        "dk",
-        "it",
-        "hr",
-        "bg",
-        "ro",
-        "tr",
-        "ge",
-        "se",
-        "fi",
-        "rs",
-        "at",
-        "cz",
-        "md",
-        "gr",
-        "cn",
-        "in",
-        "pk",
-        "th",
-        "my",
-        "ph",
-        "jp",
-        "kr",
-        "au",
-        "nz"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "open_concept_lab",
     "Name": "Open Concept Lab (OCL)",
-    "Logo": "/uploads/gg_logos/open-concept-lab.png",
     "Summary": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
-    "ProductOverview": "Open Concept Lab (OCL) is an open source, FHIR-enabled health terminology management system. OCL facilitates the collaborative management, publication, and use of custom medical terminology resources such as diagnoses, observations, lab measurements, reporting indicators, and more.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/open-concept-lab.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://openconceptlab.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/OpenConceptLab/",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ar",
+      "dm",
+      "us",
+      "ng",
+      "et",
+      "ug",
+      "ke",
+      "mw",
+      "bw",
+      "in",
+      "lk",
+      "bd",
+      "cl"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2035,60 +1529,23 @@
         "CIEL",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ar",
-        "dm",
-        "us",
-        "ng",
-        "et",
-        "ug",
-        "ke",
-        "mw",
-        "bw",
-        "in",
-        "lk",
-        "bd",
-        "cl"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openboxes",
     "Name": "Open Boxes",
-    "Logo": "/uploads/gg_logos/openboxes.png",
     "Summary": "OpenBoxes (OB) is a purpose-built open source logistics management information system designed to serve the supply-chain management demands of public health systems.",
-    "ProductOverview": "OpenBoxes (OB) is a purpose-built open source logistics management information system designed to serve the supply-chain management demands of public health systems.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openboxes.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "epl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://www.openboxes.com/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/openboxes",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2103,44 +1560,43 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openclinic_ga",
     "Name": "OpenClinic GA",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "OpenClinic GA is an open source integrated hospital information management system covering management of administrative, financial, clinical, lab, x-ray, pharmacy, meals distribution, and other data. Extensive statistical and reporting capabilities.",
-    "ProductOverview": "OpenClinic GA is an open source integrated hospital information management system covering management of administrative, financial, clinical, lab, x-ray, pharmacy, meals distribution, and other data. Extensive statistical and reporting capabilities.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://sourceforge.net/projects/open-clinic/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://sourceforge.net/projects/open-clinic/files/Development/code/openclinic.code.tar.gz/download",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 500,
+    "Countries": [
+      "al",
+      "bd",
+      "bj",
+      "be",
+      "br",
+      "bi",
+      "cm",
+      "cd",
+      "cg",
+      "ga",
+      "ke",
+      "ml",
+      "ne",
+      "ng",
+      "sn",
+      "rw",
+      "ug",
+      "pe",
+      "lk",
+      "tz",
+      "zm"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2160,70 +1616,29 @@
         "ICD-9",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V3",
         "HL7 V2"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "al",
-        "bd",
-        "bj",
-        "be",
-        "br",
-        "bi",
-        "cm",
-        "cd",
-        "cg",
-        "ga",
-        "ke",
-        "ml",
-        "ne",
-        "ng",
-        "sn",
-        "rw",
-        "ug",
-        "pe",
-        "lk",
-        "tz",
-        "zm"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "opencr",
     "Name": "OpenCR",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "Open Client Registry (OpenCR) is an open source and standards-based client registry. ",
-    "ProductOverview": "Open Client Registry (OpenCR) is an open source and standards-based client registry. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mit",
-    "Website": {
-      "main": {
-        "url": "",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/intrahealth/client-registry",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ht",
+      "ug",
+      "bw"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2241,50 +1656,29 @@
         "HL7",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ht",
-        "ug",
-        "bw"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "opencrvs",
     "Name": "OpenCRVS ",
-    "Logo": "/uploads/gg_logos/opencrvs_logo.png",
     "Summary": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
-    "ProductOverview": "OpenCRVS is open-source software solution for civil registration designed specifically for use in low-resource contexts.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/opencrvs_logo.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://www.opencrvs.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/opencrvs/opencrvs-core",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ng",
+      "cm",
+      "mg",
+      "ph",
+      "nu"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2297,52 +1691,30 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ng",
-        "cm",
-        "mg",
-        "ph",
-        "nu"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openelis",
     "Name": "OpenELIS",
-    "Logo": "/uploads/gg_logos/openelis.png",
     "Summary": "The OpenELIS Global software is an enterprise-level laboratory information system built on open-source web-based technologies that has been tailored for low-and-middle income country public health laboratories.",
-    "ProductOverview": "The OpenELIS Global software is an enterprise-level laboratory information system built on open-source web-based technologies that has been tailored for low-and-middle income country public health laboratories.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openelis.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://openelis-global.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/I-TECH-UW/OpenELIS-Global-2",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ci",
+      "mu",
+      "ht",
+      "vn",
+      "ke",
+      "us"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2358,55 +1730,29 @@
         "HL7",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V2",
         "HL7 V3"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ci",
-        "mu",
-        "ht",
-        "vn",
-        "ke",
-        "us"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openeyes",
     "Name": "OpenEyes",
-    "Logo": "/uploads/gg_logos/openeyes.webp",
     "Summary": "OpenEyes is the leading open source electronic patient record (EPR) for ophthalmology. It has been designed by clinicians to be fast in delivering content, fast to navigate, and easy (and fun) to use. ",
-    "ProductOverview": "OpenEyes is the leading open source electronic patient record (EPR) for ophthalmology. It has been designed by clinicians to be fast in delivering content, fast to navigate, and easy (and fun) to use. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openeyes.webp",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "agpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://openeyes.apperta.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/AppertaFoundation/openeyes",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "gr",
+      "tt",
+      "pk"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2424,52 +1770,62 @@
         "ICD-10",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V3",
         "HL7 V2"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "gr",
-        "tt",
-        "pk"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openfn",
     "Name": "OpenFN",
-    "Logo": "/uploads/gg_logos/openfn.webp",
     "Summary": "OpenFn is the leading Digital Public Good for workflow automation. It’s used by governments and NGOs in 40+ countries to securely automate business processes, exchange critical information, and achieve interoperability.",
-    "ProductOverview": "OpenFn is the leading Digital Public Good for workflow automation. It’s used by governments and NGOs in 40+ countries to securely automate business processes, exchange critical information, and achieve interoperability.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openfn.webp",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "lgpl",
-    "Website": {
-      "main": {
-        "url": "https://openfn.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/OpenFn",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 40,
+    "Countries": [
+      "ni",
+      "ht",
+      "dm",
+      "us",
+      "ec",
+      "pe",
+      "bo",
+      "py",
+      "ar",
+      "gm",
+      "sn",
+      "lr",
+      "gn",
+      "gh",
+      "ng",
+      "ml",
+      "ug",
+      "ke",
+      "tz",
+      "zw",
+      "za",
+      "mg",
+      "gb",
+      "ch",
+      "no",
+      "fi",
+      "af",
+      "in",
+      "np",
+      "bd",
+      "mm",
+      "th",
+      "vn",
+      "kh",
+      "ph",
+      "id"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2482,86 +1838,36 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V2",
         "HL7 V3",
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ni",
-        "ht",
-        "dm",
-        "us",
-        "ec",
-        "pe",
-        "bo",
-        "py",
-        "ar",
-        "gm",
-        "sn",
-        "lr",
-        "gn",
-        "gh",
-        "ng",
-        "ml",
-        "ug",
-        "ke",
-        "tz",
-        "zw",
-        "za",
-        "mg",
-        "gb",
-        "ch",
-        "no",
-        "fi",
-        "af",
-        "in",
-        "np",
-        "bd",
-        "mm",
-        "th",
-        "vn",
-        "kh",
-        "ph",
-        "id"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openhexa",
     "Name": "OpenHEXA",
-    "Logo": "/uploads/gg_logos/openhexa.webp",
     "Summary": "OpenHEXA is an open-source data analysis & integration platform for public health projects. It has been built to facilitate the analysis and processing of data (and health data in particular) coming from different sources.",
-    "ProductOverview": "OpenHEXA is an open-source data analysis & integration platform for public health projects. It has been built to facilitate the analysis and processing of data (and health data in particular) coming from different sources.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openhexa.webp",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mit",
-    "Website": {
-      "main": {
-        "url": "https://www.bluesquarehub.com/openhexa/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/BLSQ/openhexa",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ma",
+      "sn",
+      "bf",
+      "ne",
+      "ci",
+      "cm",
+      "cf",
+      "bi",
+      "rw"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2574,54 +1880,31 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ma",
-        "sn",
-        "bf",
-        "ne",
-        "ci",
-        "cm",
-        "cf",
-        "bi",
-        "rw"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openhie",
     "Name": "Open Health Information Exchange (OpenHIE) Architecture Specification",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "OpenHIE is a global mission-driven community of practice dedicated to improving the health of the underserved through open and collaborative development and support of country driven, large scale health information sharing architectures. The OpenHIE community supports interoperability by creating a reusable architectural framework called the OpenHIE Architecture that introduces a service-oriented approach which maximally leverages health information standards, enables flexible implementation by country partners, and supports interchangeability of individual components.",
-    "ProductOverview": "OpenHIE is a global mission-driven community of practice dedicated to improving the health of the underserved through open and collaborative development and support of country driven, large scale health information sharing architectures. The OpenHIE community supports interoperability by creating a reusable architectural framework called the OpenHIE Architecture that introduces a service-oriented approach which maximally leverages health information standards, enables flexible implementation by ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc-by-4.0",
-    "Website": {
-      "main": {
-        "url": "Website https://ohie.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "https://guides.ohie.org/arch-spec/get-started ",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 30,
+    "Countries": [
+      "ci",
+      "ht",
+      "mw",
+      "np",
+      "et",
+      "rw",
+      "lk",
+      "tz",
+      "ug"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2638,57 +1921,27 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ci",
-        "ht",
-        "mw",
-        "np",
-        "et",
-        "rw",
-        "lk",
-        "tz",
-        "ug"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openhim",
     "Name": "OpenHIM",
-    "Logo": "/uploads/gg_logos/openhim.png",
     "Summary": "The OpenHIM is a middleware component designed to ease interoperability between disparate information systems. It provides secure communications and data governance as well as support for routing, orchestrating, and translating requests as they flow between systems.",
-    "ProductOverview": "The OpenHIM is a middleware component designed to ease interoperability between disparate information systems. It provides secure communications and data governance as well as support for routing, orchestrating, and translating requests as they flow between systems.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openhim.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mpl-2.0",
-    "Website": {
-      "main": {
-        "url": "http://openhim.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "https://openhim.org/docs/introduction/about",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/jembi/openhim-core-js",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 5,
+    "Countries": [
+      "et",
+      "za"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2701,118 +1954,38 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "et",
-        "za"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
-  },
-  {
-    "ID": "openimis",
-    "Name": "openIMIS",
-    "Logo": "/uploads/gg_logos/openimis.svg",
-    "Summary": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
-    "ProductOverview": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
-      "software"
-    ],
-    "License": "agpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.openimis.org/",
-        "description": "Official openIMIS website"
-      },
-      "docs": {
-        "url": "https://docs.openimis.org/en/latest/",
-        "description": "User and implementer documentation"
-      },
-      "source_code": {
-        "url": "https://github.com/openimis",
-        "description": "Main code repository on GitHub"
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
-    "Classifications": {
-      "SDGs": [
-        "SDG-3"
-      ],
-      "WHO": [
-        "WHO_D2"
-      ],
-      "WMO": [],
-      "DPI": [
-        "DPI_BD4"
-      ]
-    },
-    "Standards": {
-      "Health": [
-        "ICD-11",
-        "ICD-10",
-        "ICD-9"
-      ],
-      "Interoperability": [
-        "FHIR",
-        "ADX"
-      ],
-      "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "np",
-        "tz",
-        "zm",
-        "ne",
-        "ng",
-        "td",
-        "gm",
-        "mr"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openlmis",
     "Name": "OpenLMIS",
-    "Logo": "/uploads/gg_logos/openlmis.png",
     "Summary": "OpenLMIS is a powerful, open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. OpenLMIS automates LMIS business processes throughout the entire supply chain, reducing the burden on health workers while improving data accuracy, data timeliness, and data visibility.",
-    "ProductOverview": "OpenLMIS is a powerful, open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. OpenLMIS automates LMIS business processes throughout the entire supply chain, reducing the burden on health workers while improving data accuracy, data timeliness, and data visibility.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openlmis.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "agpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://openlmis.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/OpenLMIS/open-lmis",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "gm",
+      "gn",
+      "jm",
+      "cm",
+      "ne",
+      "td",
+      "bj",
+      "mz",
+      "mw",
+      "zm",
+      "ao",
+      "tz",
+      "np"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2827,60 +2000,58 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "gm",
-        "gn",
-        "jm",
-        "cm",
-        "ne",
-        "td",
-        "bj",
-        "mz",
-        "mw",
-        "zm",
-        "ao",
-        "tz",
-        "np"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "openmrs",
     "Name": "OpenMRS",
-    "Logo": "/uploads/gg_logos/openmrs_logo.png",
     "Summary": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
-    "ProductOverview": "A collaborative open-source platform for electronic medical records in resource-constrained environments. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/openmrs_logo.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://openmrs.org",
-        "description": "Official website for OpenMRS"
-      },
-      "docs": {
-        "url": "https://wiki.openmrs.org/display/docs",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/openmrs/openmrs-core",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 6700,
+    "Countries": [
+      "cr",
+      "mx",
+      "gt",
+      "pe",
+      "ar",
+      "ki",
+      "id",
+      "in",
+      "ph",
+      "vn",
+      "pk",
+      "lk",
+      "np",
+      "tj",
+      "kz",
+      "hu",
+      "et",
+      "za",
+      "ls",
+      "zm",
+      "mz",
+      "mw",
+      "rw",
+      "bi",
+      "ug",
+      "ke",
+      "tz",
+      "cm",
+      "bw",
+      "na",
+      "ng",
+      "gh",
+      "lr",
+      "sl"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -2907,84 +2078,37 @@
         "SNOMED-CT",
         "CIEL"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V2",
         "HL7 V3",
         "ADX"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "cr",
-        "mx",
-        "gt",
-        "pe",
-        "ar",
-        "ki",
-        "id",
-        "in",
-        "ph",
-        "vn",
-        "pk",
-        "lk",
-        "np",
-        "tj",
-        "kz",
-        "hu",
-        "et",
-        "za",
-        "ls",
-        "zm",
-        "mz",
-        "mw",
-        "rw",
-        "bi",
-        "ug",
-        "ke",
-        "tz",
-        "cm",
-        "bw",
-        "na",
-        "ng",
-        "gh",
-        "lr",
-        "sl"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "opensrp",
     "Name": "OpenSRP",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "OpenSRP is an open source mobile health platform that enables frontline health workers to register and track clients and services at community and facility levels.",
-    "ProductOverview": "OpenSRP is an open source mobile health platform that enables frontline health workers to register and track clients and services at community and facility levels.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://smartregister.org",
-        "description": "Open Smart Register"
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/opensrp/fhircore",
-        "description": "FHIR-native OpenSRP2 repositories"
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 13,
+    "Countries": [
+      "br",
+      "tn",
+      "ug",
+      "gn",
+      "lr",
+      "rw",
+      "tz",
+      "mz",
+      "ls",
+      "zw"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3004,57 +2128,68 @@
         "LOINC",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "br",
-        "tn",
-        "ug",
-        "gn",
-        "lr",
-        "rw",
-        "tz",
-        "mz",
-        "ls",
-        "zw"
+    }
+  },
+  {
+    "ID": "openimis",
+    "Name": "openIMIS",
+    "Summary": "openIMIS is an open source software that supports the administration of health financing and social protection schemes by integrating beneficiary, provider and payer data in a single platform.",
+    "Logo": "/uploads/gg_logos/openimis.svg",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 8,
+    "Countries": [
+      "np",
+      "tz",
+      "zm",
+      "ne",
+      "ng",
+      "td",
+      "gm",
+      "mr"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3"
       ],
-      "Sectors": []
+      "WHO": [
+        "WHO_D2"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_BD4"
+      ]
     },
-    "Maturity": {}
+    "Standards": {
+      "Health": [
+        "ICD-11",
+        "ICD-10",
+        "ICD-9"
+      ],
+      "Interop": [
+        "FHIR",
+        "ADX"
+      ],
+      "Climate": []
+    }
   },
   {
     "ID": "pcmt",
     "Name": "Product Catalog Management Tool",
-    "Logo": "/uploads/gg_logos/product-catalog-management-tool.png",
     "Summary": "The Project Catalog Management Tool aims to connect product catalogs in order to show a clear journey from manufacturer to patient. It establishes master data that includes GS1 identifiers, global categories, and mappings to local identifiers. This enables end-to-end visibility, allows shipments to flow between systems, and helps supply chains perform.",
-    "ProductOverview": "The Project Catalog Management Tool aims to connect product catalogs in order to show a clear journey from manufacturer to patient. It establishes master data that includes GS1 identifiers, global categories, and mappings to local identifiers. This enables end-to-end visibility, allows shipments to flow between systems, and helps supply chains perform.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/product-catalog-management-tool.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "mit",
-    "Website": {
-      "main": {
-        "url": "http://productcatalog.io/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://gitlab.com/pcmt/pcmt",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3072,46 +2207,95 @@
         "GS1",
         "HL7"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "rapidpro",
     "Name": "RapidPro",
-    "Logo": "/uploads/gg_logos/rapidpro.png",
     "Summary": "RapidPro is an open source platform that allows anyone to build interactive messaging systems using an easy visual interface.",
-    "ProductOverview": "RapidPro is an open source platform that allows anyone to build interactive messaging systems using an easy visual interface.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/rapidpro.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "agpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://community.rapidpro.io/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/rapidpro",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 116,
+    "Countries": [
+      "ht",
+      "jm",
+      "gt",
+      "bz",
+      "hn",
+      "ni",
+      "cr",
+      "mx",
+      "pa",
+      "tt",
+      "ec",
+      "br",
+      "bo",
+      "ar",
+      "ca",
+      "ne",
+      "ng",
+      "td",
+      "cf",
+      "cm",
+      "ga",
+      "sn",
+      "gm",
+      "sl",
+      "lr",
+      "gh",
+      "tg",
+      "bj",
+      "sd",
+      "ke",
+      "ug",
+      "rw",
+      "bi",
+      "tz",
+      "mw",
+      "ml",
+      "zm",
+      "zw",
+      "ao",
+      "bw",
+      "za",
+      "ls",
+      "eg",
+      "sy",
+      "lb",
+      "jo",
+      "sa",
+      "it",
+      "ba",
+      "rs",
+      "md",
+      "ua",
+      "ro",
+      "gr",
+      "tr",
+      "az",
+      "uz",
+      "pk",
+      "af",
+      "np",
+      "bd",
+      "vn",
+      "th",
+      "mm",
+      "my",
+      "id",
+      "pg",
+      "sb",
+      "fm",
+      "fj",
+      "ki"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3124,116 +2308,30 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ht",
-        "jm",
-        "gt",
-        "bz",
-        "hn",
-        "ni",
-        "cr",
-        "mx",
-        "pa",
-        "tt",
-        "ec",
-        "br",
-        "bo",
-        "ar",
-        "ca",
-        "ne",
-        "ng",
-        "td",
-        "cf",
-        "cm",
-        "ga",
-        "sn",
-        "gm",
-        "sl",
-        "lr",
-        "gh",
-        "tg",
-        "bj",
-        "sd",
-        "ke",
-        "ug",
-        "rw",
-        "bi",
-        "tz",
-        "mw",
-        "ml",
-        "zm",
-        "zw",
-        "ao",
-        "bw",
-        "za",
-        "ls",
-        "eg",
-        "sy",
-        "lb",
-        "jo",
-        "sa",
-        "it",
-        "ba",
-        "rs",
-        "md",
-        "ua",
-        "ro",
-        "gr",
-        "tr",
-        "az",
-        "uz",
-        "pk",
-        "af",
-        "np",
-        "bd",
-        "vn",
-        "th",
-        "mm",
-        "my",
-        "id",
-        "pg",
-        "sb",
-        "fm",
-        "fj",
-        "ki"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "reveal",
     "Name": "Reveal",
-    "Logo": "/uploads/gg_logos/reveal.png",
     "Summary": "Reveal is an open-source digital global good that enables country governments and implementing partners to use geospatial data and technology to efficiently and effectively microplan and then deliver life-saving intervention campaigns.",
-    "ProductOverview": "Reveal is an open-source digital global good that enables country governments and implementing partners to use geospatial data and technology to efficiently and effectively microplan and then deliver life-saving intervention campaigns.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/reveal.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://globalgoodsguidebook.org/global-goods/reveal/www.revealprecision.com",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/akrosinc",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ml",
+      "sn",
+      "ke",
+      "mz",
+      "ng",
+      "ao",
+      "zm",
+      "na"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3246,55 +2344,29 @@
     },
     "Standards": {
       "Health": [],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ml",
-        "sn",
-        "ke",
-        "mz",
-        "ng",
-        "ao",
-        "zm",
-        "na"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "santempi",
     "Name": "Sante MPI",
-    "Logo": "/uploads/gg_logos/santesuite.svg",
     "Summary": "SantéMPI is a proven, next-generation, fully featured Master Patient Index/Client Registry (MPI/CR) platform designed to overcome barriers to leveraging person-centered data as a catalyst for transforming health systems",
-    "ProductOverview": "SantéMPI is a proven, next-generation, fully featured Master Patient Index/Client Registry (MPI/CR) platform designed to overcome barriers to leveraging person-centered data as a catalyst for transforming health systems",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/santesuite.svg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://help.santesuite.org/product-overview/santesuite-products/master-patient-index-santempi",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/santedb/santempi",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ki",
+      "sb",
+      "tz",
+      "th",
+      "fj"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3314,54 +2386,36 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V2",
         "HL7 V3"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ki",
-        "sb",
-        "tz",
-        "th",
-        "fj"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "sormas",
     "Name": "SORMAS",
-    "Logo": "/uploads/gg_logos/surveillance-outbreak-response-management-and-analysis-system.webp",
     "Summary": "The Surveillance Outbreak Response Management and Analysis System is an open source software for early detection of infections and management of epidemic control.\n\n",
-    "ProductOverview": "The Surveillance Outbreak Response Management and Analysis System is an open source software for early detection of infections and management of epidemic control.\n\n",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/surveillance-outbreak-response-management-and-analysis-system.webp",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.sormas.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/hzi-braunschweig/SORMAS-Project",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "tz",
+      "ng",
+      "gh",
+      "fr",
+      "tn",
+      "ch",
+      "de",
+      "af",
+      "np",
+      "fj"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3376,59 +2430,32 @@
       "Health": [
         "LOINC"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V3",
         "HL7 V2"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "tz",
-        "ng",
-        "gh",
-        "fr",
-        "tn",
-        "ch",
-        "de",
-        "af",
-        "np",
-        "fj"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "spice",
     "Name": "SPICE",
-    "Logo": "/uploads/gg_logos/spice.svg",
     "Summary": "SPICE is an open-source digital platform designed with and for health systems, patients, and communities. SPICE is focused on data-driven, outcomes-focused care at both the community and primary care levels. The platform is certified as a digital public good, FHIR compatible for interoperability, and designed for long-term country ownership by ministries of health.",
-    "ProductOverview": "SPICE is an open-source digital platform designed with and for health systems, patients, and communities. SPICE is focused on data-driven, outcomes-focused care at both the community and primary care levels. The platform is certified as a digital public good, FHIR compatible for interoperability, and designed for long-term country ownership by ministries of health.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/spice.svg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "bsd-3-clause",
-    "Website": {
-      "main": {
-        "url": "https://www.medtroniclabs.org/technology-platform/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/Medtronic-LABS",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "us",
+      "sl",
+      "gh",
+      "tz",
+      "ke",
+      "bd"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3447,51 +2474,31 @@
         "SNOMED-CT",
         "LOINC"
       ],
-      "Interoperability": [],
+      "Interop": [],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "us",
-        "sl",
-        "gh",
-        "tz",
-        "ke",
-        "bd"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "tamanu",
     "Name": "Tamanu",
-    "Logo": "/uploads/gg_logos/tamanu.png",
     "Summary": "Tamanu is a free and open-source, patient-level electronic health record (EHR) for desktop and mobile.",
-    "ProductOverview": "Tamanu is a free and open-source, patient-level electronic health record (EHR) for desktop and mobile.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/tamanu.png",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-3.0",
-    "Website": {
-      "main": {
-        "url": "https://www.beyondessential.com.au/products/tamanu/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/beyondessential/tamanu-open",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "in",
+      "pw",
+      "pg",
+      "nr",
+      "ki",
+      "tv",
+      "ws",
+      "to",
+      "fj"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3511,58 +2518,38 @@
         "LOINC",
         "SNOMED-CT"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR",
         "HL7 V2",
         "HL7 V3"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "in",
-        "pw",
-        "pg",
-        "nr",
-        "ki",
-        "tv",
-        "ws",
-        "to",
-        "fj"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "tupaia",
     "Name": "Tupaia",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "Tupaia is an end-to-end data platform that supports data aggregation, analysis, and visualisation for mapping health systems in low- and middle-income countries",
-    "ProductOverview": "Tupaia is an end-to-end data platform that supports data aggregation, analysis, and visualisation for mapping health systems in low- and middle-income countries",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "gpl-2.0",
-    "Website": {
-      "main": {
-        "url": "https://tupaia.org/",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/beyondessential/tupaia",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 14,
+    "Countries": [
+      "mm",
+      "pg",
+      "pw",
+      "to",
+      "ws",
+      "fj",
+      "ki",
+      "tv",
+      "vu",
+      "sb",
+      "nr",
+      "mh"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3580,59 +2567,30 @@
         "ICD-10",
         "HL7"
       ],
-      "Interoperability": [
+      "Interop": [
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "mm",
-        "pg",
-        "pw",
-        "to",
-        "ws",
-        "fj",
-        "ki",
-        "tv",
-        "vu",
-        "sb",
-        "nr",
-        "mh"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "vxnaid",
     "Name": "Vxnaid",
-    "Logo": "/uploads/gg_logos/vxnaid.webp",
     "Summary": "Vxnaid is an integrated digital platform ensuring correct administration of vaccines, identification of vaccinees, follow-up/recall of vaccinated persons, and understanding of campaign effectiveness.",
-    "ProductOverview": "Vxnaid is an integrated digital platform ensuring correct administration of vaccines, identification of vaccinees, follow-up/recall of vaccinated persons, and understanding of campaign effectiveness.",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/gg_logos/vxnaid.webp",
+    "GlobalGoodType": [
       "software"
     ],
-    "License": "apache-2.0",
-    "Website": {
-      "main": {
-        "url": "https://github.com/johnsonandjohnson/vxnaid/wiki",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "https://github.com/johnsonandjohnson/vxnaid",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 0,
+    "Countries": [
+      "ml",
+      "sl",
+      "co",
+      "rw",
+      "ke",
+      "ph"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3650,54 +2608,37 @@
         "ICD-10",
         "CIEL"
       ],
-      "Interoperability": [
+      "Interop": [
         "HL7 V2",
         "HL7 V3"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "ml",
-        "sl",
-        "co",
-        "rw",
-        "ke",
-        "ph"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   },
   {
     "ID": "who-smart-guidelines",
     "Name": "WHO SMART Guidelines",
-    "Logo": "/uploads/logo-Placeholder.jpg",
     "Summary": "WHO SMART guidelines - standards-based, machine-readable, adaptive, requirements-based, and testable – comprise of documentation, procedures, and digital health components to steer  localisation and implementation of evidence-based recommendations through digital systems. Use of SMART guidelines results in standards-based, interoperable services and applications that can share accurate data and become part of stronger, more sustainable health information enterprises. ",
-    "ProductOverview": "WHO SMART guidelines - standards-based, machine-readable, adaptive, requirements-based, and testable – comprise of documentation, procedures, and digital health components to steer  localisation and implementation of evidence-based recommendations through digital systems. Use of SMART guidelines results in standards-based, interoperable services and applications that can share accurate data and become part of stronger, more sustainable health information enterprises. ",
-    "ClimateHealth": false,
-    "GlobalGoodsType": [
+    "Logo": "/uploads/logo-Placeholder.jpg",
+    "GlobalGoodType": [
       "content"
     ],
-    "License": "cc-by-nc-4.0",
-    "Website": {
-      "main": {
-        "url": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
-        "description": ""
-      },
-      "docs": {
-        "url": "",
-        "description": ""
-      },
-      "source_code": {
-        "url": "",
-        "description": ""
-      },
-      "demo": {
-        "url": "",
-        "description": ""
-      }
-    },
+    "ClimateHealth": false,
+    "NumberOfImplementations": 96,
+    "Countries": [
+      "bf",
+      "br",
+      "cm",
+      "zm",
+      "zw",
+      "mw",
+      "iq",
+      "rw",
+      "et",
+      "gh",
+      "in",
+      "ng"
+    ],
     "Classifications": {
       "SDGs": [
         "SDG-3"
@@ -3720,29 +2661,11 @@
         "LOINC",
         "ICD-11"
       ],
-      "Interoperability": [
+      "Interop": [
         "ADX",
         "FHIR"
       ],
       "Climate": []
-    },
-    "Reach": {
-      "Countries": [
-        "bf",
-        "br",
-        "cm",
-        "zm",
-        "zw",
-        "mw",
-        "iq",
-        "rw",
-        "et",
-        "gh",
-        "in",
-        "ng"
-      ],
-      "Sectors": []
-    },
-    "Maturity": {}
+    }
   }
 ]
