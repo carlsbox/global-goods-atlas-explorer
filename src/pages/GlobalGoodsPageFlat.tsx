@@ -7,6 +7,7 @@ import { EnhancedFilterBar } from "@/components/global-goods/EnhancedFilterBar";
 import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobalGoodCard";
 import { EnhancedGlobalGoodListItem } from "@/components/global-goods/EnhancedGlobalGoodListItem";
 import { NoResults } from "@/components/global-goods/NoResults";
+import { GlobalGoodsExportButton } from "@/components/global-goods/GlobalGoodsExportButton";
 import { useI18n } from "@/hooks/useI18n";
 import { SEO } from "@/components/SEO";
 import { LoadingState } from "@/components/global-good/LoadingState";
@@ -325,15 +326,33 @@ function CatalogContent() {
           <Skeleton className="h-4 w-64" />
         ) : (
           <div className="flex items-center justify-between">
-            <p className="text-muted-foreground">
-              {tPage('showing', 'globalGoods', { 
-                filtered: filteredAndSortedGoods.length, 
-                total: globalGoods.length 
-              })}
-            </p>
-            {climateHealthFilter && (
-              <Badge variant="outline">Climate & Health Focus</Badge>
-            )}
+            <div className="flex items-center gap-4">
+              <p className="text-muted-foreground">
+                {tPage('showing', 'globalGoods', { 
+                  filtered: filteredAndSortedGoods.length, 
+                  total: globalGoods.length 
+                })}
+              </p>
+              {climateHealthFilter && (
+                <Badge variant="outline">Climate & Health Focus</Badge>
+              )}
+            </div>
+            <GlobalGoodsExportButton
+              goods={globalGoods}
+              filteredGoods={filteredAndSortedGoods}
+              isFiltered={
+                searchTerm !== "" ||
+                sectorFilter !== "all" ||
+                selectedSDGs.length > 0 ||
+                selectedCountries.length > 0 ||
+                selectedWHOClassifications.length > 0 ||
+                selectedDPIClassifications.length > 0 ||
+                selectedWMOClassifications.length > 0 ||
+                selectedHealthStandards.length > 0 ||
+                selectedInteropStandards.length > 0 ||
+                climateHealthFilter
+              }
+            />
           </div>
         )}
       </div>
