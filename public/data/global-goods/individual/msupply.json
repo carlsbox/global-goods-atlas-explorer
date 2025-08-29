@@ -16,8 +16,8 @@
         "description": "Main code repository"
       },
       "demo": {
-        "url": "",
-        "description": ""
+        "url": "https://demo-open.msupply.org/login",
+        "description": "Demo site"
       }
     },
     "GlobalGoodsType": ["software"],
