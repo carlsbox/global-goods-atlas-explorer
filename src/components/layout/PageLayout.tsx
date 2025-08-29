@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import { CookieConsent } from '@/components/CookieConsent';
 
 export function PageLayout() {
   const location = useLocation();
@@ -24,6 +25,7 @@ export function PageLayout() {
         </main>
         
         <Footer />
+        <CookieConsent />
         <Toaster />
         <Sonner />
       </div>

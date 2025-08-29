@@ -8,10 +8,40 @@ export const useGoogleAnalytics = () => {
   const analyticsId = getAnalyticsId();
 
   useEffect(() => {
-    // Initialize Google Analytics
-    const initGoogleAnalytics = () => {
+    // Check for cookie consent before initializing
+    const checkConsentAndInit = () => {
+      // Check if user has given consent for analytics cookies
+      const consent = localStorage.getItem('cookieConsent');
+      const preferences = localStorage.getItem('cookiePreferences');
+      
+      // Only proceed if consent is given and analytics is enabled
+      if (!consent || consent !== 'true') {
+        console.info('Cookie consent not given, skipping Google Analytics initialization');
+        return;
+      }
+      
+      if (preferences) {
+        try {
+          const prefs = JSON.parse(preferences);
+          if (!prefs.analytics) {
+            console.info('Analytics cookies not enabled, skipping Google Analytics initialization');
+            return;
+          }
+        } catch (e) {
+          console.error('Error parsing cookie preferences:', e);
+          return;
+        }
+      }
+
+      // Initialize Google Analytics only after consent
       if (!analyticsId || analyticsId === 'G-XXXXXXXXXX') {
         console.info('Google Analytics ID not configured');
+        return;
+      }
+
+      // Check if already initialized
+      if (window.gtag) {
+        console.info('Google Analytics already initialized');
         return;
       }
 
@@ -31,7 +61,17 @@ export const useGoogleAnalytics = () => {
       document.head.appendChild(script2);
     };
 
-    initGoogleAnalytics();
+    checkConsentAndInit();
+    
+    // Listen for storage changes (in case consent is given in another tab)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'cookieConsent' || e.key === 'cookiePreferences') {
+        checkConsentAndInit();
+      }
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, [analyticsId]);
 
   // Track page views
