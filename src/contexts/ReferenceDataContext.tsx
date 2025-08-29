@@ -9,6 +9,7 @@ import {
   loadGlobalGoodsTypes
 } from '@/lib/loaders';
 import { loadStandards } from '@/lib/loaders/referenceDataLoader';
+import { referenceDataCache } from '@/lib/cache/ReferenceDataCache';
 
 interface ReferenceData {
   classifications: any[];
@@ -67,37 +68,23 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
 
   const [loadedSections, setLoadedSections] = useState<Set<string>>(new Set());
 
-  // Load essential data immediately on mount
+  // Load essential data immediately on mount using centralized cache
   useEffect(() => {
     const loadEssentialData = async () => {
       try {
         console.log('ReferenceDataContext - Loading essential data');
-        
-        const cacheKey = 'essentialReferenceData';
-        const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
-        const cacheValid = cacheTimestamp && 
-          (Date.now() - parseInt(cacheTimestamp)) < (24 * 60 * 60 * 1000); // 24 hours
 
-        if (cacheValid) {
-          const cachedData = localStorage.getItem(cacheKey);
-          if (cachedData) {
-            const parsed = JSON.parse(cachedData);
-            setData(prev => ({ ...prev, ...parsed, loading: false }));
-            return;
-          }
-        }
-
-        // Load all essential data at once for the reference page
+        // Load all essential data through cache
         const [
           globalGoodsTypes,
           licenses,
           languages,
           initiatives
         ] = await Promise.all([
-          loadGlobalGoodsTypes(),
-          loadLicenses(),
-          loadProductLanguages(),
-          loadCollectionInitiatives()
+          referenceDataCache.get('globalGoodsTypes', loadGlobalGoodsTypes),
+          referenceDataCache.get('licenses', loadLicenses),
+          referenceDataCache.get('productLanguages', loadProductLanguages),
+          referenceDataCache.get('collectionInitiatives', loadCollectionInitiatives)
         ]);
 
         console.log('ReferenceDataContext - Essential data loaded:', {
@@ -113,10 +100,6 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
           languages: languages || [],
           initiatives: initiatives || [],
         };
-
-        // Cache the essential data
-        localStorage.setItem(cacheKey, JSON.stringify(essentialData));
-        localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
 
         setData(prev => ({
           ...prev,
@@ -137,42 +120,24 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     loadEssentialData();
   }, []);
 
-  // Lazy load classifications when needed
+  // Lazy load classifications when needed using centralized cache
   const loadClassifications = useCallback(async () => {
     if (loadedSections.has('classifications')) return;
     
     try {
       setData(prev => ({ ...prev, loading: true }));
-      
-      const cacheKey = 'classificationsData';
-      const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
-      const cacheValid = cacheTimestamp && 
-        (Date.now() - parseInt(cacheTimestamp)) < (12 * 60 * 60 * 1000); // 12 hours
-
-      if (cacheValid) {
-        const cachedData = localStorage.getItem(cacheKey);
-        if (cachedData) {
-          const parsed = JSON.parse(cachedData);
-          setData(prev => ({ ...prev, classifications: parsed.classifications, sdgs: parsed.sdgs, loading: false }));
-          setLoadedSections(prev => new Set(prev).add('classifications'));
-          return;
-        }
-      }
 
       const [classifications, sdgs] = await Promise.all([
-        loadClassificationsData('en'),
-        loadSDGData('en')
+        referenceDataCache.get('classifications', () => loadClassificationsData('en')),
+        referenceDataCache.get('sdgs', () => loadSDGData('en'))
       ]);
 
-      const classificationData = {
+      setData(prev => ({ 
+        ...prev, 
         classifications: classifications || [],
         sdgs: sdgs || [],
-      };
-
-      localStorage.setItem(cacheKey, JSON.stringify(classificationData));
-      localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
-
-      setData(prev => ({ ...prev, ...classificationData, loading: false }));
+        loading: false 
+      }));
       setLoadedSections(prev => new Set(prev).add('classifications'));
     } catch (error) {
       console.error('Failed to load classifications:', error);
@@ -180,32 +145,14 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     }
   }, [loadedSections]);
 
-  // Lazy load countries when needed
+  // Lazy load countries when needed using centralized cache
   const loadCountries = useCallback(async () => {
     if (loadedSections.has('countries')) return;
     
     try {
       setData(prev => ({ ...prev, loading: true }));
-      
-      const cacheKey = 'countriesData';
-      const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
-      const cacheValid = cacheTimestamp && 
-        (Date.now() - parseInt(cacheTimestamp)) < (24 * 60 * 60 * 1000); // 24 hours
 
-      if (cacheValid) {
-        const cachedData = localStorage.getItem(cacheKey);
-        if (cachedData) {
-          const parsed = JSON.parse(cachedData);
-          setData(prev => ({ ...prev, countries: parsed, loading: false }));
-          setLoadedSections(prev => new Set(prev).add('countries'));
-          return;
-        }
-      }
-
-      const countries = await loadCountriesData('en');
-
-      localStorage.setItem(cacheKey, JSON.stringify(countries));
-      localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
+      const countries = await referenceDataCache.get('countries', () => loadCountriesData('en'));
 
       setData(prev => ({ ...prev, countries: countries || [], loading: false }));
       setLoadedSections(prev => new Set(prev).add('countries'));
@@ -215,7 +162,7 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     }
   }, [loadedSections]);
 
-  // Lazy load standards when needed - FIXED VERSION
+  // Lazy load standards when needed using centralized cache
   const loadStandardsData = useCallback(async () => {
     if (loadedSections.has('standards')) {
       console.log('ReferenceDataContext - Standards already loaded, skipping');
@@ -225,34 +172,15 @@ export function ReferenceDataProvider({ children }: ReferenceDataProviderProps) 
     try {
       console.log('ReferenceDataContext - Loading standards...');
       setData(prev => ({ ...prev, loading: true, error: null }));
+
+      const standards = await referenceDataCache.get('standards', loadStandards);
       
-      const cacheKey = 'standardsData';
-      const cacheTimestamp = localStorage.getItem(`${cacheKey}_timestamp`);
-      const cacheValid = cacheTimestamp && 
-        (Date.now() - parseInt(cacheTimestamp)) < (24 * 60 * 60 * 1000); // 24 hours
-
-      if (cacheValid) {
-        const cachedData = localStorage.getItem(cacheKey);
-        if (cachedData) {
-          console.log('ReferenceDataContext - Loading standards from cache');
-          const parsed = JSON.parse(cachedData);
-          setData(prev => ({ ...prev, standards: parsed, loading: false }));
-          setLoadedSections(prev => new Set(prev).add('standards'));
-          return;
-        }
-      }
-
-      console.log('ReferenceDataContext - Fetching fresh standards data');
-      const standards = await loadStandards();
       console.log('ReferenceDataContext - Standards loaded:', {
         type: typeof standards,
         isArray: Array.isArray(standards),
         keys: standards ? Object.keys(standards).slice(0, 10) : [],
         sampleKeys: standards && Object.keys(standards).includes('HL7 FHIR') ? 'Has HL7 FHIR' : 'Missing HL7 FHIR'
       });
-
-      localStorage.setItem(cacheKey, JSON.stringify(standards));
-      localStorage.setItem(`${cacheKey}_timestamp`, Date.now().toString());
 
       setData(prev => ({ ...prev, standards: standards || {}, loading: false }));
       setLoadedSections(prev => new Set(prev).add('standards'));

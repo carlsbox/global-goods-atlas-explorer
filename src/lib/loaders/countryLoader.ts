@@ -1,9 +1,19 @@
 
 import { LanguageCode } from '@/lib/types';
 import { CountryData, CountryTranslations } from '../types/country';
+import { referenceDataCache } from '@/lib/cache/ReferenceDataCache';
 
-// Updated function to load countries data with translations from reference location
+// Cached wrapper for countries data
 export async function loadCountriesData(language: LanguageCode = 'en') {
+  return referenceDataCache.get(
+    `countries:${language}`,
+    () => loadCountriesDataRaw(language),
+    { ttl: 7 * 24 * 60 * 60 * 1000 } // 7 days cache
+  );
+}
+
+// Raw function to load countries data with translations from reference location
+async function loadCountriesDataRaw(language: LanguageCode = 'en') {
   try {
     // Load base country data from reference location
     const response = await fetch('/data/reference/countries.json');

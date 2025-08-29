@@ -2,6 +2,7 @@ import { GlobalGoodFlat } from '../types/globalGoodFlat';
 import { getLicenseById, getProductLanguageByCode, getStandardByCode, getGlobalGoodsTypeByCode, getCollectionInitiativeById } from './referenceDataLoader';
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 import { loadCountriesData } from './countryLoader';
+import { referenceDataCache } from '@/lib/cache/ReferenceDataCache';
 
 interface GlobalGoodIndexEnhanced {
   ID: string;
@@ -29,18 +30,15 @@ let globalGoodsIndexCache: GlobalGoodIndexEnhanced[] | null = null;
 const individualFileCache = new Map<string, GlobalGoodFlat>();
 
 async function fetchGlobalGoodsIndex(): Promise<GlobalGoodIndexEnhanced[]> {
-  if (globalGoodsIndexCache) return globalGoodsIndexCache;
-  
-  try {
-    const res = await fetch('/data/global-goods/index.json');
-    if (!res.ok) throw new Error('Failed to fetch global goods index');
-    const data = await res.json();
-    globalGoodsIndexCache = data;
-    return data;
-  } catch (err) {
-    console.error('Error fetching global goods index:', err);
-    return [];
-  }
+  return referenceDataCache.get(
+    'globalGoodsIndex',
+    async () => {
+      const res = await fetch('/data/global-goods/index.json');
+      if (!res.ok) throw new Error('Failed to fetch global goods index');
+      return res.json();
+    },
+    { ttl: 5 * 60 * 1000 } // 5 minutes cache for index
+  );
 }
 
 // Helper function to resolve index item references
@@ -201,27 +199,22 @@ async function resolveIndexReferences(indexItem: GlobalGoodIndexEnhanced) {
 }
 
 async function fetchIndividualGlobalGood(id: string): Promise<GlobalGoodFlat | undefined> {
-  if (individualFileCache.has(id)) {
-    return individualFileCache.get(id);
-  }
-  
-  try {
-    const res = await fetch(`/data/global-goods/individual/${id}.json`);
-    if (!res.ok) {
-      console.warn(`Individual file not found for global good: ${id}`);
-      return undefined;
-    }
-    const rawData = await res.json();
-    
-    // Transform the raw data to resolve references
-    const transformedData = await transformRawDataToFlat(rawData);
-    
-    individualFileCache.set(id, transformedData);
-    return transformedData;
-  } catch (err) {
-    console.error(`Error fetching individual global good ${id}:`, err);
-    return undefined;
-  }
+  return referenceDataCache.get(
+    `globalGood:${id}`,
+    async () => {
+      const res = await fetch(`/data/global-goods/individual/${id}.json`);
+      if (!res.ok) {
+        console.warn(`Individual file not found for global good: ${id}`);
+        return undefined;
+      }
+      const rawData = await res.json();
+      
+      // Transform the raw data to resolve references
+      const transformedData = await transformRawDataToFlat(rawData);
+      return transformedData;
+    },
+    { ttl: 10 * 60 * 1000 } // 10 minutes cache for individual goods
+  );
 }
 
 async function transformRawDataToFlat(rawData: any): Promise<GlobalGoodFlat> {
