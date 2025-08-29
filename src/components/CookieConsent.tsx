@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useI18n } from "@/hooks/useI18n";
 import { toast } from "@/components/ui/use-toast";
-import { Link } from "react-router-dom";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -213,13 +212,13 @@ export function CookieConsent() {
 
       <div className="text-xs text-muted-foreground mb-4">
         {tPage('policyIntro', 'cookie')}{' '}
-        <Link to="/privacy" className="underline hover:text-primary">
+        <a href="https://www.path.org/privacy-notice/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
           {tPage('privacyPolicy', 'cookie')}
-        </Link>
+        </a>
         {' '}and{' '}
-        <Link to="/cookie-policy" className="underline hover:text-primary">
+        <a href="/cookie-policy" className="underline hover:text-primary">
           Cookie Policy
-        </Link>.
+        </a>.
       </div>
 
       {!showCustomize ? (
