@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { ReferenceDataProvider } from "@/contexts/ReferenceDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 
 // Lazy load all pages for better performance
 const HomePage = lazy(() => import("@/pages/HomePage"));
@@ -52,6 +53,12 @@ const queryClient = new QueryClient({
   },
 });
 
+// Analytics wrapper component that must be inside Router
+function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
+  useGoogleAnalytics();
+  return <>{children}</>;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -59,10 +66,11 @@ function App() {
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ReferenceDataProvider>
             <Router>
-            <div className="min-h-screen bg-background">
-              <Routes>
-                {/* Public routes with layout */}
-                <Route path="/" element={<PageLayout />}>
+              <AnalyticsWrapper>
+                <div className="min-h-screen bg-background">
+                  <Routes>
+                    {/* Public routes with layout */}
+                    <Route path="/" element={<PageLayout />}>
                   <Route index element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <HomePage />
@@ -123,9 +131,10 @@ function App() {
                 } />
               </Routes>
             </div>
-          </Router>
-          </ReferenceDataProvider>
-          <Toaster />
+          </AnalyticsWrapper>
+        </Router>
+        </ReferenceDataProvider>
+        <Toaster />
         </ThemeProvider>
       </HelmetProvider>
     </QueryClientProvider>
