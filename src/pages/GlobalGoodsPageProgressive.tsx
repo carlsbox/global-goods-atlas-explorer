@@ -156,15 +156,16 @@ function CatalogContent() {
         case 'name':
           return (a.Name || '').localeCompare(b.Name || '');
         case 'countries':
-          const aCount = a.CountryCount || a.Reach?.Countries?.length || 0;
-          const bCount = b.CountryCount || b.Reach?.Countries?.length || 0;
+          // Handle different data shapes - CountryCount in minimal/summary, Reach.Countries in full
+          const aCount = (a as any).CountryCount ?? (a as any).Reach?.Countries?.length ?? 0;
+          const bCount = (b as any).CountryCount ?? (b as any).Reach?.Countries?.length ?? 0;
           return bCount - aCount;
         case 'maturity':
           if (dataState === 'minimal') return 0;
-          return (b.Maturity?.OverallScore || 0) - (a.Maturity?.OverallScore || 0);
+          return ((b as any).Maturity?.OverallScore || 0) - ((a as any).Maturity?.OverallScore || 0);
         case 'year':
           if (dataState === 'minimal') return 0;
-          return (b.InceptionYear || 0) - (a.InceptionYear || 0);
+          return ((b as any).InceptionYear || 0) - ((a as any).InceptionYear || 0);
         default:
           return 0;
       }
