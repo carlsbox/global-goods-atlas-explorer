@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(__dirname, '../public/data/global-goods');
 const INDIVIDUAL_DIR = path.join(DATA_DIR, 'individual');
@@ -17,12 +21,12 @@ function generateMinimalIndex(goods) {
     ID: good.ID,
     Name: good.Name,
     Logo: good.Logo,
-    Summary: good.Summary || good.ProductOverview?.substring(0, 200),
+    Summary: good.Summary || good.ProductOverview?.Summary?.substring(0, 200),
     ClimateHealth: !!good.ClimateHealth,
     GlobalGoodsType: Array.isArray(good.GlobalGoodsType) 
       ? good.GlobalGoodsType.slice(0, 2) // Just first 2 for quick display
       : good.GlobalGoodsType,
-    CountryCount: good.Reach?.Countries?.length || 0,
+    CountryCount: good.Reach?.ImplementationCountries?.length || 0,
     // Minimal classifications for climate badge
     Classifications: good.Classifications ? {
       SDGs: good.Classifications.SDGs?.slice(0, 3) // Just first 3 SDGs
@@ -36,8 +40,8 @@ function generateSummaryIndex(goods) {
     ID: good.ID,
     Name: good.Name,
     Logo: good.Logo,
-    Summary: good.Summary,
-    ProductOverview: good.ProductOverview?.substring(0, 500),
+    Summary: good.Summary || good.ProductOverview?.Summary,
+    ProductOverview: good.ProductOverview?.Summary?.substring(0, 500),
     ClimateHealth: good.ClimateHealth,
     GlobalGoodsType: good.GlobalGoodsType,
     License: good.License,
@@ -45,15 +49,15 @@ function generateSummaryIndex(goods) {
     
     // For filtering
     Classifications: good.Classifications,
-    Standards: good.Standards ? {
-      Health: good.Standards.Health || [],
-      Interoperability: good.Standards.Interoperability || [],
-      Climate: good.Standards.Climate || []
+    Standards: good.StandardsAndInteroperability ? {
+      Health: good.StandardsAndInteroperability.HealthStandards || [],
+      Interoperability: good.StandardsAndInteroperability.Interoperability || [],
+      Climate: good.StandardsAndInteroperability.ClimateStandards || []
     } : null,
     
     // For display
     Reach: good.Reach ? {
-      Countries: good.Reach.Countries || [],
+      Countries: good.Reach.ImplementationCountries || [],
       Sectors: good.Reach.Sectors || []
     } : null,
     
@@ -136,23 +140,23 @@ async function generateResolvedIndex(goods) {
     }
     
     // Resolve Standards
-    if (resolved.Standards) {
-      resolved.StandardsResolved = {};
+    if (resolved.StandardsAndInteroperability) {
+      resolved.StandardsAndInteroperabilityResolved = {};
       
-      if (resolved.Standards.Health) {
-        resolved.StandardsResolved.Health = resolved.Standards.Health
+      if (resolved.StandardsAndInteroperability.HealthStandards) {
+        resolved.StandardsAndInteroperabilityResolved.HealthStandards = resolved.StandardsAndInteroperability.HealthStandards
           .map(code => healthStandards[code])
           .filter(Boolean);
       }
       
-      if (resolved.Standards.Interoperability) {
-        resolved.StandardsResolved.Interoperability = resolved.Standards.Interoperability
+      if (resolved.StandardsAndInteroperability.Interoperability) {
+        resolved.StandardsAndInteroperabilityResolved.Interoperability = resolved.StandardsAndInteroperability.Interoperability
           .map(code => interopStandards[code])
           .filter(Boolean);
       }
       
-      if (resolved.Standards.Climate) {
-        resolved.StandardsResolved.Climate = resolved.Standards.Climate
+      if (resolved.StandardsAndInteroperability.ClimateStandards) {
+        resolved.StandardsAndInteroperabilityResolved.ClimateStandards = resolved.StandardsAndInteroperability.ClimateStandards
           .map(code => climateStandards[code])
           .filter(Boolean);
       }
