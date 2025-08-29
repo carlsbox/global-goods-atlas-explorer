@@ -3,7 +3,7 @@ import { getLicenseById, getProductLanguageByCode, getStandardByCode, getGlobalG
 import { resolveClassificationsByAuthority } from './classificationsReferenceLoader';
 import { loadCountriesData } from './countryLoader';
 
-interface GlobalGoodIndexEnhanced {
+export interface GlobalGoodIndexEnhanced {
   ID: string;
   Name: string;
   Summary?: string;

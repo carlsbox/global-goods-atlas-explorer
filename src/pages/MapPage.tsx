@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useGlobalGoods, useCountries } from "@/lib/api";
+import { useGlobalGoodsIndex } from "@/lib/api/globalGoodsIndex";
+import { useCountries } from "@/lib/api";
 import { GlobalGoodFlat, CountryData } from "@/lib/types";
 import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodsSidebar } from "@/components/map/GlobalGoodsSidebar";
@@ -15,7 +16,7 @@ export default function MapPage() {
   const highlightParam = searchParams.get("highlight");
   const { language } = useI18n();
   
-  const { data: globalGoods = [] } = useGlobalGoods();
+  const { data: globalGoods = [] } = useGlobalGoodsIndex();
   const { data: countries = [] } = useCountries();
   
   const [selectedGood, setSelectedGood] = useState<GlobalGoodFlat | null>(null);
