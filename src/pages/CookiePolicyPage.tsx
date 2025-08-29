@@ -1,7 +1,7 @@
 import { useI18n } from '@/hooks/useI18n';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Shield, Settings, BarChart3, UserCog, Share, ArrowLeft } from 'lucide-react';
+import { Shield, Settings, BarChart3, UserCog, Eye, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
@@ -124,7 +124,7 @@ export function CookiePolicyPage() {
               {/* Marketing Cookies */}
               <div className="border-l-4 border-purple-500 pl-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Share className="h-5 w-5 text-purple-500" />
+                  <Eye className="h-5 w-5 text-purple-500" />
                   <h3 className="text-lg font-semibold">{tPage('cookieTypes.marketing.title', 'cookiePolicy')}</h3>
                   <span className="text-xs bg-purple-500/10 text-purple-500 px-2 py-1 rounded">
                     {tPage('optional', 'cookiePolicy')}
