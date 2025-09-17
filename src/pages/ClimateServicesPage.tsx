@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Download, Heart, ExternalLink } from "lucide-react";
+import { ArrowRight, Download, Heart, ExternalLink, Leaf } from "lucide-react";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -83,6 +83,19 @@ const emergingTools = [{
   organization: "SpeedyKom",
   description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
 }];
+
+// Resources data
+const resources = [
+  {
+    id: 'green-digital-health',
+    title: 'Green Digital Health Tool',
+    organization: 'SHADE Research Hub at King\'s College London',
+    url: 'https://shaderesearchhub.netlify.app/',
+    description: 'Developed by the SHADE Research Hub at King\'s College London, this simple tool helps you consider the environmental impacts of a digital health system. It adopts a \'systems thinking\' approach that goes beyond carbon calculators to also address data sufficiency and mitigation of rebound effects.',
+    icon: 'Leaf'
+  }
+];
+
 export default function ClimateServicesPage() {
   const {
     data: globalGoods = [],
@@ -274,6 +287,54 @@ export default function ClimateServicesPage() {
           <p className="text-muted-foreground mt-6 italic">
             This reflects growing international momentum to equip health systems with the digital infrastructure needed to withstand climate shocks, improve preparedness, and safeguard vulnerable populations.
           </p>
+        </section>
+
+        {/* Resources Section */}
+        <section className="mb-16">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold mb-2">
+              {tPage('resources.title', 'climateServices')}
+            </h2>
+            <p className="text-muted-foreground">
+              {tPage('resources.description', 'climateServices')}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {resources.map((resource) => (
+              <Card key={resource.id} className="hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                      <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-1">
+                        {tPage('resources.greenTool.title', 'climateServices')}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        {resource.organization}
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {tPage('resources.greenTool.description', 'climateServices')}
+                      </p>
+                      <Button asChild variant="outline" size="sm">
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center"
+                        >
+                          {tPage('resources.visitTool', 'climateServices')}
+                          <ExternalLink className="ml-2 h-3 w-3" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </section>
 
         {/* Endorsements Section */}

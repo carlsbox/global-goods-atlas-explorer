@@ -16,5 +16,10 @@
   "climateChange.title": "Cambio Climático y Sistemas de Salud",
   "digitalHealth.title": "Estrategia de Salud Digital de la OMS",
   "interoperability.title": "Llamado a la Interoperabilidad Clima-Salud",
-  "support.title": "Actividades de Apoyo de la OMS"
+  "support.title": "Actividades de Apoyo de la OMS",
+  "resources.title": "Recursos Adicionales",
+  "resources.description": "Explore estas valiosas herramientas y recursos para comprender y abordar los impactos ambientales de los sistemas de salud digital:",
+  "resources.greenTool.title": "Herramienta de Salud Digital Verde",
+  "resources.greenTool.description": "Desarrollada por el SHADE Research Hub del King's College London, esta sencilla herramienta ayuda a considerar los impactos ambientales de un sistema de salud digital. Adopta un enfoque de 'pensamiento sistémico' que va más allá de las calculadoras de carbono para abordar también la suficiencia de datos y la mitigación de efectos rebote.",
+  "resources.visitTool": "Visitar Herramienta"
 }
