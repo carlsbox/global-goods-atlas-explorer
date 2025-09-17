@@ -16,5 +16,10 @@
   "climateChange.title": "Changement Climatique et Systèmes de Santé",
   "digitalHealth.title": "Stratégie de Santé Numérique de l'OMS",
   "interoperability.title": "Appel à l'Interopérabilité Climat-Santé",
-  "support.title": "Activités de Soutien de l'OMS"
+  "support.title": "Activités de Soutien de l'OMS",
+  "resources.title": "Ressources Supplémentaires",
+  "resources.description": "Explorez ces outils et ressources précieux pour comprendre et traiter les impacts environnementaux des systèmes de santé numérique :",
+  "resources.greenTool.title": "Outil de Santé Numérique Verte",
+  "resources.greenTool.description": "Développé par le SHADE Research Hub du King's College London, cet outil simple vous aide à considérer les impacts environnementaux d'un système de santé numérique. Il adopte une approche de 'pensée systémique' qui va au-delà des calculateurs de carbone pour aborder également la suffisance des données et l'atténuation des effets de rebond.",
+  "resources.visitTool": "Visiter l'Outil"
 }

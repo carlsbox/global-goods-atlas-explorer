@@ -16,5 +16,10 @@
   "climateChange.title": "Climate Change and Health Systems",
   "digitalHealth.title": "WHO Digital Health Strategy",
   "interoperability.title": "Call for Climate-Health Interoperability",
-  "support.title": "WHO Support Activities"
+  "support.title": "WHO Support Activities",
+  "resources.title": "Additional Resources",
+  "resources.description": "Explore these valuable tools and resources for understanding and addressing the environmental impacts of digital health systems:",
+  "resources.greenTool.title": "Green Digital Health Tool",
+  "resources.greenTool.description": "Developed by the SHADE Research Hub at King's College London, this simple tool helps you consider the environmental impacts of a digital health system. It adopts a 'systems thinking' approach that goes beyond carbon calculators to also address data sufficiency and mitigation of rebound effects.",
+  "resources.visitTool": "Visit Tool"
 }
