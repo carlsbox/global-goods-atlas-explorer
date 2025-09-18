@@ -23,10 +23,12 @@ import { useProgressiveGlobalGood } from "@/hooks/useProgressiveGlobalGood";
 import { Separator } from "@/components/ui/separator";
 import { SEO } from "@/components/SEO";
 import { getBaseUrl } from "@/lib/config";
+import { useFeatureFlags } from "@/hooks/useFeatureFlags";
 
 export default function GlobalGoodDetailsPageFlat() {
   const { id } = useParams<{ id: string }>();
   const { tPage } = useI18n();
+  const { isUseCasesEnabled, isUseCasesInGlobalGoods } = useFeatureFlags();
   
   const {
     basicData,
@@ -171,8 +173,10 @@ export default function GlobalGoodDetailsPageFlat() {
               
               <Separator />
               
-              {/* Related Content Section */}
-              <RelatedContentSection globalGood={detailedData} />
+              {/* Related Content Section - Conditionally render based on feature flags */}
+              {isUseCasesEnabled && isUseCasesInGlobalGoods && (
+                <RelatedContentSection globalGood={detailedData} />
+              )}
             </>
           )}
         </div>

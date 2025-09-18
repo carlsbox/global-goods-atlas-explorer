@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ReferenceDataProvider } from "@/contexts/ReferenceDataContext";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
+import { useFeatureFlags } from "@/hooks/useFeatureFlags";
 
 // Lazy load all pages for better performance
 const HomePage = lazy(() => import("@/pages/HomePage"));
@@ -61,18 +62,15 @@ function AnalyticsWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function App() {
+// App wrapper to use hooks inside Router
+function AppContent() {
+  const { isUseCasesEnabled } = useFeatureFlags();
+  
   return (
-    <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <ReferenceDataProvider>
-            <Router>
-              <AnalyticsWrapper>
-                <div className="min-h-screen bg-background">
-                  <Routes>
-                    {/* Public routes with layout */}
-                    <Route path="/" element={<PageLayout />}>
+    <div className="min-h-screen bg-background">
+      <Routes>
+        {/* Public routes with layout */}
+        <Route path="/" element={<PageLayout />}>
                   <Route index element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <HomePage />
@@ -98,16 +96,28 @@ function App() {
                       <ClimateServicesPage />
                     </Suspense>
                   } />
-                  <Route path="use-cases" element={
-                    <Suspense fallback={<PageLoadingSkeleton />}>
-                      <UseCasesPage />
-                    </Suspense>
-                  } />
-                  <Route path="use-cases/:id" element={
-                    <Suspense fallback={<PageLoadingSkeleton />}>
-                      <UseCaseDetailsPage />
-                    </Suspense>
-                  } />
+                  {/* Conditionally render use cases routes */}
+                  {isUseCasesEnabled && (
+                    <>
+                      <Route path="use-cases" element={
+                        <Suspense fallback={<PageLoadingSkeleton />}>
+                          <UseCasesPage />
+                        </Suspense>
+                      } />
+                      <Route path="use-cases/:id" element={
+                        <Suspense fallback={<PageLoadingSkeleton />}>
+                          <UseCaseDetailsPage />
+                        </Suspense>
+                      } />
+                    </>
+                  )}
+                  {/* Redirect use cases routes to 404 when disabled */}
+                  {!isUseCasesEnabled && (
+                    <>
+                      <Route path="use-cases" element={<Navigate to="/404" replace />} />
+                      <Route path="use-cases/:id" element={<Navigate to="/404" replace />} />
+                    </>
+                  )}
                   <Route path="map" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <EnhancedMapPage />
@@ -143,10 +153,22 @@ function App() {
                 } />
               </Routes>
             </div>
-          </AnalyticsWrapper>
-        </Router>
-        </ReferenceDataProvider>
-        <Toaster />
+  );
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <ReferenceDataProvider>
+            <Router>
+              <AnalyticsWrapper>
+                <AppContent />
+              </AnalyticsWrapper>
+            </Router>
+          </ReferenceDataProvider>
+          <Toaster />
         </ThemeProvider>
       </HelmetProvider>
     </QueryClientProvider>

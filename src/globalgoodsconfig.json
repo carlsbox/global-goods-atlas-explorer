@@ -47,6 +47,15 @@
       { "path": "/create-global-good", "priority": 0.4, "changeFreq": "monthly" }
     ]
   },
+  "features": {
+    "useCases": {
+      "enabled": true,
+      "showInNavigation": true,
+      "showInGlobalGoods": true,
+      "showInHomePage": false,
+      "routes": ["/use-cases", "/use-cases/:id"]
+    }
+  },
   "ui": {
     "standardsBadges": {
       "health": {

@@ -13,17 +13,22 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
 const BASE_URL = config.baseUrl || `https://${config.domain}`;
 
 
-// Get static routes from config or use defaults
-const staticRoutes = config.sitemap?.staticRoutes || [
+// Check if use cases feature is enabled
+const isUseCasesEnabled = config.features?.useCases?.enabled ?? true;
+
+// Get static routes from config or use defaults, filtering based on features
+const defaultStaticRoutes = [
   { path: '/', priority: 1.0, changeFreq: 'daily' },
   { path: '/global-goods', priority: 0.9, changeFreq: 'daily' },
-  { path: '/use-cases', priority: 0.8, changeFreq: 'weekly' },
+  ...(isUseCasesEnabled ? [{ path: '/use-cases', priority: 0.8, changeFreq: 'weekly' }] : []),
   { path: '/map', priority: 0.7, changeFreq: 'weekly' },
   { path: '/climate-health', priority: 0.7, changeFreq: 'weekly' },
   { path: '/reference', priority: 0.6, changeFreq: 'monthly' },
   { path: '/about', priority: 0.5, changeFreq: 'monthly' },
   { path: '/create-global-good', priority: 0.4, changeFreq: 'monthly' }
 ];
+
+const staticRoutes = config.sitemap?.staticRoutes || defaultStaticRoutes;
 
 // Function to generate XML for a URL entry
 function generateUrlEntry(url, priority = 0.5, changeFreq = 'weekly', lastMod = new Date().toISOString().split('T')[0]) {
@@ -76,23 +81,27 @@ async function generateSitemap() {
     console.error('Error loading global goods data:', error);
   }
 
-  // Load use cases data
-  try {
-    const useCasesDir = path.join(__dirname, '..', 'src', 'data', 'use-cases');
-    const useCaseFiles = fs.readdirSync(useCasesDir).filter(file => file.endsWith('.json'));
-    
-    for (const file of useCaseFiles) {
-      const id = file.replace('.json', '');
-      sitemap += generateUrlEntry(
-        `${BASE_URL}/use-cases/${id}`,
-        0.5,
-        'monthly'
-      );
+  // Load use cases data only if enabled
+  if (isUseCasesEnabled) {
+    try {
+      const useCasesDir = path.join(__dirname, '..', 'src', 'data', 'use-cases');
+      const useCaseFiles = fs.readdirSync(useCasesDir).filter(file => file.endsWith('.json'));
+      
+      for (const file of useCaseFiles) {
+        const id = file.replace('.json', '');
+        sitemap += generateUrlEntry(
+          `${BASE_URL}/use-cases/${id}`,
+          0.5,
+          'monthly'
+        );
+      }
+      
+      console.log(`Added ${useCaseFiles.length} use cases to sitemap`);
+    } catch (error) {
+      console.error('Error loading use cases:', error);
     }
-    
-    console.log(`Added ${useCaseFiles.length} use cases to sitemap`);
-  } catch (error) {
-    console.error('Error loading use cases:', error);
+  } else {
+    console.log('Use cases feature is disabled, skipping sitemap generation for use cases');
   }
 
   // Close the sitemap

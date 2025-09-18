@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import {
@@ -17,12 +17,13 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import LanguageSelector from '@/components/LanguageSelector';
 import { useI18n } from '@/hooks/useI18n';
 import { getSiteName } from '@/lib/config';
+import { useFeatureFlags } from '@/hooks/useFeatureFlags';
 
-const navItems = [
+const baseNavItems = [
   { name: 'Home', path: '/', icon: Home, translationKey: 'nav.home' },
   { name: 'Global Goods', path: '/global-goods', icon: Grid3X3, translationKey: 'nav.globalGoods' },
   { name: 'Climate & Health', path: '/climate-health', icon: Heart, translationKey: 'nav.climateHealth' },
-  { name: 'Use Cases', path: '/use-cases', icon: FileText, translationKey: 'nav.useCases' },
+  { name: 'Use Cases', path: '/use-cases', icon: FileText, translationKey: 'nav.useCases', feature: 'useCases' },
   { name: 'Map', path: '/map', icon: MapPin, translationKey: 'nav.map' },
   { name: 'Reference', path: '/reference', icon: Database, translationKey: 'nav.reference' },
   { name: 'About', path: '/about', icon: Info, translationKey: 'nav.about' },
@@ -32,6 +33,17 @@ export function MainNav() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { tPage } = useI18n();
   const siteName = getSiteName();
+  const { isUseCasesEnabled, isUseCasesInNavigation } = useFeatureFlags();
+  
+  // Filter navigation items based on feature flags
+  const navItems = useMemo(() => {
+    return baseNavItems.filter(item => {
+      if (item.feature === 'useCases') {
+        return isUseCasesEnabled && isUseCasesInNavigation;
+      }
+      return true;
+    });
+  }, [isUseCasesEnabled, isUseCasesInNavigation]);
   
   return (
     <div className="flex justify-between items-center py-4">
