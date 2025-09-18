@@ -10,6 +10,7 @@ import { SEO } from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useFeatureFlags } from "@/hooks/useFeatureFlags";
 
 // Skeleton component for featured goods loading state
 function FeaturedGoodsSkeleton() {
@@ -45,6 +46,7 @@ export default function HomePage() {
   const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
   const { t, tPage } = useI18n();
   const { toast } = useToast();
+  const { isUseCasesInHomePage } = useFeatureFlags();
   
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,7 +99,7 @@ export default function HomePage() {
       {/* Features Section - Renders immediately */}
       <section className="py-16 bg-secondary/30">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 ${isUseCasesInHomePage ? 'md:grid-cols-3' : 'md:grid-cols-2 max-w-4xl mx-auto'} gap-8`}>
             <Card className="bg-white">
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center">
@@ -117,24 +119,26 @@ export default function HomePage() {
               </CardContent>
             </Card>
             
-            <Card className="bg-white">
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <FileText className="h-6 w-6 text-primary" />
+            {isUseCasesInHomePage && (
+              <Card className="bg-white">
+                <CardContent className="pt-6">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <FileText className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{tPage('features.cases.title', 'home')}</h3>
+                    <p className="text-muted-foreground mb-4">
+                      {tPage('features.cases.description', 'home')}
+                    </p>
+                    <Button asChild variant="link">
+                      <Link to="/use-cases">
+                        {tPage('features.cases.button', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{tPage('features.cases.title', 'home')}</h3>
-                  <p className="text-muted-foreground mb-4">
-                    {tPage('features.cases.description', 'home')}
-                  </p>
-                  <Button asChild variant="link">
-                    <Link to="/use-cases">
-                      {tPage('features.cases.button', 'home')} <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            )}
             
             <Card className="bg-white">
               <CardContent className="pt-6">
