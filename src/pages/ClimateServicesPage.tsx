@@ -174,28 +174,28 @@ export default function ClimateServicesPage() {
         <section className="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
-            <h4 className="text-lg font-semibold text-muted-foreground">{tPage('whoWmo.forward', 'climateServices')}</h4>
+            <h4 className="text-lg font-semibold text-muted-foreground">Forward from the WHO-WMO Joint Programme on Climate and Health</h4>
           </div>
           
           <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
             <p>
-              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear.
+              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, understanding, monitoring, and preventing the nexus of health risks amplified by changing weather and climate have never been more urgent.
             </p>
             
             <p>
-              To support countries in addressing these growing risks, the World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Programme (Joint Programme office) was established. By bridging public health and climate science, this partnership combines expertise, data, and action, to help governments and partners build stronger, more resilient health systems capable of anticipating and responding to climate and changing weather challenges.
+              To support countries in addressing these growing risks, the Joint Programme office is a unique partnership bringing together science, policy, information, and action to support governments and partners to better anticipate and respond to health risks of weather and climate.
             </p>
             
             <p>
-              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate and health-focused global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. This enables countries to better predict, prepare for, and respond to climate-related health risks in a coordinated and scalable way. It can help identify how and where diseases are likely to spread, allowing for more targeted prevention. It can inform the timing of interventions, from vaccination campaigns to public health messaging. It can guide emergency responses, and it can improve evaluation response effectiveness by considering the impacts of weather and climate.
+              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate- and health-focused digital global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. Climate-enabled health DPI can accelerate the access and use of standardized climate information more easily and accelerate efforts to predict, prepare, and respond to climate-related health risks in coordinated and scalable ways by considering the influence of weather and climate on health risk, the timing of vector control, opening of cooling centers, and issuing public advisories that are more precise and protective.
             </p>
             
             <p>
-              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its Member States, enables the collection, processing, and sharing of vital climate data and forecasts. But data alone is not enough. It must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
+              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its member states, enables the collection, processing, and sharing of vital weather, climate, and environmental observations, information, and services. But data alone are not enough. They must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
             </p>
             
             <p>
-              WMO's recent resolution on climate, environment, and health (WMO Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
+              WMO's 2023 resolution on climate, environment, and health (WMO's 19th Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
             </p>
             
             <p>
@@ -203,7 +203,7 @@ export default function ClimateServicesPage() {
             </p>
             
             <p>
-              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration and learning as we work toward healthier, climate-resilient communities worldwide.
+              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration.
             </p>
           </div>
           
