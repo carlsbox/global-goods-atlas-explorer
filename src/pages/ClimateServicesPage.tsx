@@ -310,7 +310,14 @@ export default function ClimateServicesPage() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold mb-1">
-                        {tPage('resources.greenTool.title', 'climateServices')}
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary transition-colors"
+                        >
+                          {tPage('resources.greenTool.title', 'climateServices')}
+                        </a>
                       </h3>
                       <p className="text-sm text-muted-foreground mb-1">
                         {resource.organization}
