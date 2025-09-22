@@ -710,9 +710,10 @@ export async function loadFeaturedGlobalGoods(count?: number): Promise<GlobalGoo
       GlobalGoodsType: Array.isArray(item.GlobalGoodType) 
         ? item.GlobalGoodType.map((type: string) => ({
             code: type,
-            title: GLOBAL_GOOD_TYPE_TITLES[type] || type
+            title: GLOBAL_GOOD_TYPE_TITLES[type] || type,
+            description: ''
           }))
-        : item.GlobalGoodType,
+        : [],
       // Keep other fields as-is for card display
       Name: item.Name,
       Logo: item.Logo,
