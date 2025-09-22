@@ -195,7 +195,7 @@ export default function ClimateServicesPage() {
             </p>
             
             <p>
-              WMO's 2023 resolution on climate, environment, and health (WMO's 19th Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
+              WMO's 2023 resolution on climate, environment, and health (<a href="https://climahealth.info/resource-library/who-wmo-implementation-plan-2023-2033/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">WMO's 19th Congress Resolution 17</a>) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
             </p>
             
             <p>
