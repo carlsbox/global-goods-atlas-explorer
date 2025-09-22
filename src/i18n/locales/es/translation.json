@@ -19,7 +19,9 @@
     "view": "Ver",
     "search": "Buscar",
     "filter": "Filtrar",
-    "noResults": "No se encontraron resultados"
+    "noResults": "No se encontraron resultados",
+    "languageChanged": "Idioma cambiado a {{language}}",
+    "selectLanguage": "Seleccionar idioma"
   },
   "globalGoods": {
     "title": "Bienes Mundiales",
