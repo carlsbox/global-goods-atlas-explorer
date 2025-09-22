@@ -730,3 +730,47 @@ export async function loadFeaturedGlobalGoods(count?: number): Promise<GlobalGoo
     return [];
   }
 }
+
+// Optimized loader for climate health featured goods (used on climate health page)
+export async function loadClimateHealthFeaturedGoods(): Promise<GlobalGoodFlat[]> {
+  try {
+    const response = await fetch('/data/global-goods/index.json');
+    if (!response.ok) {
+      throw new Error(`Failed to load global goods index: ${response.statusText}`);
+    }
+    
+    const indexData: any[] = await response.json();
+    
+    // Filter for climate health goods only
+    const climateGoods = indexData.filter(good => 
+      good.ClimateHealth === true || 
+      good.ClimateAndHealthIntegration?.Description
+    );
+    
+    // Map with minimal processing - just resolve type titles
+    return climateGoods.map((item: any) => ({
+      ...item,
+      // Map type codes to titles without async lookup
+      GlobalGoodsType: Array.isArray(item.GlobalGoodType) 
+        ? item.GlobalGoodType.map((type: string) => ({
+            code: type,
+            title: GLOBAL_GOOD_TYPE_TITLES[type] || type,
+            description: ''
+          }))
+        : [],
+      // Keep other fields as-is for card display
+      Name: item.Name,
+      Logo: item.Logo,
+      // Map Summary from index.json to ProductOverview structure
+      ProductOverview: {
+        Summary: item.Summary || '',
+        Description: item.Summary || '' // Use Summary as Description since index doesn't have full description
+      },
+      Reach: item.Reach,
+      Website: item.Website
+    }));
+  } catch (error) {
+    console.error('Error loading climate health featured goods:', error);
+    return [];
+  }
+}

@@ -38,3 +38,15 @@ export function useFeaturedGlobalGoods(count?: number) {
     staleTime: 10 * 60 * 1000, // 10 minutes cache
   });
 }
+
+// Hook for climate health featured goods - optimized for climate health page
+export function useClimateHealthFeaturedGoods() {
+  return useQuery({
+    queryKey: ['climateHealthFeaturedGoods'],
+    queryFn: async () => {
+      const { loadClimateHealthFeaturedGoods } = await import('../loaders/globalGoodFlatLoader');
+      return loadClimateHealthFeaturedGoods();
+    },
+    staleTime: 10 * 60 * 1000, // 10 minutes cache
+  });
+}

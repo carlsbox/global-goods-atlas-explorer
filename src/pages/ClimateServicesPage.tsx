@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ArrowRight, Download, Heart, ExternalLink, Leaf, Globe, Building, BookOpen, Wifi, Database, Code, BarChart3 } from "lucide-react";
-import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
+import { useClimateHealthFeaturedGoods } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobalGoodCard";
@@ -193,15 +193,12 @@ const resources = [
 
 export default function ClimateServicesPage() {
   const {
-    data: globalGoods = [],
+    data: climateHealthGoods = [],
     isLoading: isLoadingGoods
-  } = useGlobalGoodsFlat();
+  } = useClimateHealthFeaturedGoods();
   const {
     tPage
   } = useI18n();
-
-  // Filter for climate health global goods
-  const climateHealthGoods = globalGoods.filter(good => good.ClimateHealth === true || ['dhis2', 'geoprism', 'ewars'].includes(good.ID));
   const handleDownloadGuidebook = () => {
     const link = document.createElement('a');
     link.href = '/assets/Climate_Annex.pdf';
