@@ -1,6 +1,6 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { loadGlobalGoodFlatWithDetails, loadAllGlobalGoodsFlat } from '../loaders/globalGoodFlatLoader';
+import { loadGlobalGoodFlatWithDetails, loadAllGlobalGoodsFlat, loadFeaturedGlobalGoods } from '../loaders/globalGoodFlatLoader';
 import { GlobalGoodFlat } from '../types/globalGoodFlat';
 
 export function useGlobalGoodsFlat() {
@@ -27,5 +27,14 @@ export function useGlobalGoodFlatDetailed(id: string | undefined) {
     queryFn: () => id ? loadGlobalGoodFlatWithDetails(id) : Promise.resolve(undefined),
     enabled: !!id,
     staleTime: 10 * 60 * 1000, // 10 minutes - longer cache for detailed data
+  });
+}
+
+// Hook for featured global goods on home page - lightweight and fast
+export function useFeaturedGlobalGoods(count?: number) {
+  return useQuery({
+    queryKey: ['featuredGlobalGoods', count],
+    queryFn: () => loadFeaturedGlobalGoods(count),
+    staleTime: 10 * 60 * 1000, // 10 minutes cache
   });
 }
