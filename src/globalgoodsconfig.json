@@ -1,8 +1,8 @@
 
 {
   "siteName": "Global Goods Guidebook",
-  "domain": "beta.globalgoodsguidebook.org",
-  "baseUrl": "https://beta.globalgoodsguidebook.org",
+  "domain": "www.globalgoodsguidebook.org",
+  "baseUrl": "https://www.globalgoodsguidebook.org",
   "emails": {
     "contact": "info@globalgoodsguidebook.org",
     "support": "support@globalgoodsguidebook.org"
@@ -46,6 +46,15 @@
       { "path": "/about", "priority": 0.5, "changeFreq": "monthly" },
       { "path": "/create-global-good", "priority": 0.4, "changeFreq": "monthly" }
     ]
+  },
+  "features": {
+    "useCases": {
+      "enabled": false,
+      "showInNavigation": true,
+      "showInGlobalGoods": true,
+      "showInHomePage": false,
+      "routes": ["/use-cases", "/use-cases/:id"]
+    }
   },
   "ui": {
     "standardsBadges": {

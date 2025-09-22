@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://beta.globalgoodsguidebook.org/sitemap.xml
+Sitemap: https://www.globalgoodsguidebook.org/sitemap.xml

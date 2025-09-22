@@ -4,6 +4,17 @@ import { UseCase } from '../types';
 
 // Function to load use case data
 export async function loadUseCase(id: string, language: LanguageCode): Promise<UseCase | undefined> {
+  // Check if use cases feature is enabled
+  try {
+    const { getConfig } = await import('@/lib/config');
+    const config = getConfig();
+    if (!config.features?.useCases?.enabled) {
+      return undefined;
+    }
+  } catch (e) {
+    // If config check fails, proceed anyway for backward compatibility
+  }
+  
   try {
     const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
     const filePath = `../../data/use-cases/${id}.json`;
@@ -42,6 +53,17 @@ export async function loadUseCase(id: string, language: LanguageCode): Promise<U
 
 // Function to load all use cases
 export async function loadAllUseCases(language: LanguageCode = 'en'): Promise<UseCase[]> {
+  // Check if use cases feature is enabled
+  try {
+    const { getConfig } = await import('@/lib/config');
+    const config = getConfig();
+    if (!config.features?.useCases?.enabled) {
+      return [];
+    }
+  } catch (e) {
+    // If config check fails, proceed anyway for backward compatibility
+  }
+  
   try {
     const context = import.meta.glob('../../data/use-cases/*.json', { eager: true });
     const items = await Promise.all(

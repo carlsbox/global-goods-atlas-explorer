@@ -43,11 +43,23 @@ export const useGlobalGood = (id: string | undefined, options = {}) => {
 export const useUseCases = () => {
   const { language } = useI18n();
   
+  // Check if use cases feature is enabled
+  const { isUseCasesEnabled } = (() => {
+    const { getConfig } = require('@/lib/config');
+    const config = getConfig();
+    return {
+      isUseCasesEnabled: config.features?.useCases?.enabled ?? true
+    };
+  })();
+  
   return useQuery({
     queryKey: ['useCases', language],
     queryFn: async (): Promise<UseCase[]> => {
+      // Return empty array if feature is disabled
+      if (!isUseCasesEnabled) return [];
       return loadAllUseCases(language);
-    }
+    },
+    enabled: isUseCasesEnabled
   });
 };
 
@@ -55,13 +67,22 @@ export const useUseCases = () => {
 export const useUseCase = (id: string | undefined) => {
   const { language } = useI18n();
   
+  // Check if use cases feature is enabled
+  const { isUseCasesEnabled } = (() => {
+    const { getConfig } = require('@/lib/config');
+    const config = getConfig();
+    return {
+      isUseCasesEnabled: config.features?.useCases?.enabled ?? true
+    };
+  })();
+  
   return useQuery({
     queryKey: ['useCase', id, language],
     queryFn: async (): Promise<UseCase | undefined> => {
-      if (!id) return undefined;
+      if (!id || !isUseCasesEnabled) return undefined;
       return loadUseCase(id, language);
     },
-    enabled: !!id
+    enabled: !!id && isUseCasesEnabled
   });
 };
 
