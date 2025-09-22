@@ -717,7 +717,11 @@ export async function loadFeaturedGlobalGoods(count?: number): Promise<GlobalGoo
       // Keep other fields as-is for card display
       Name: item.Name,
       Logo: item.Logo,
-      ProductOverview: item.ProductOverview,
+      // Map Summary from index.json to ProductOverview structure
+      ProductOverview: {
+        Summary: item.Summary || '',
+        Description: item.Summary || '' // Use Summary as Description since index doesn't have full description
+      },
       Reach: item.Reach,
       Website: item.Website
     }));
