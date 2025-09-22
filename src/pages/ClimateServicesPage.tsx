@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Download, Heart, ExternalLink, Leaf, Globe } from "lucide-react";
+import { ArrowRight, Download, Heart, ExternalLink, Leaf, Globe, Building, BookOpen, Wifi } from "lucide-react";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -101,6 +101,38 @@ const resources = [
     url: 'https://climahealth.info/',
     description: 'The first global knowledge platform dedicated to climate and health, providing evidence-based resources, tools, and case studies for action on climate change and health impacts. Features country profiles, hazard information, and a comprehensive resource library.',
     icon: 'Globe'
+  },
+  {
+    id: 'who-wmo-joint-programme',
+    title: 'WHO-WMO Joint Programme Office',
+    organization: 'WHO & WMO',
+    url: 'https://climahealth.info/who-wmo-joint-programme/',
+    description: 'A collaborative initiative between WHO and WMO to accelerate integrated climate services for health, supporting countries in building climate-resilient health systems through coordinated action and technical expertise.',
+    icon: 'Building'
+  },
+  {
+    id: 'who-climate-health',
+    title: 'WHO Climate Change and Health',
+    organization: 'World Health Organization',
+    url: 'https://www.who.int/teams/environment-climate-change-and-health/climate-change-and-health',
+    description: 'Official WHO resources on climate change and health impacts, providing global guidance, policy frameworks, and evidence-based strategies to protect public health from climate risks.',
+    icon: 'Heart'
+  },
+  {
+    id: 'climahealth-resource-library',
+    title: 'ClimaHealth Resource Library',
+    organization: 'ClimaHealth',
+    url: 'https://climahealth.info/learn/resource-library',
+    description: 'Comprehensive collection of climate and health resources including research, tools, case studies, and implementation guides from global partners working at the intersection of climate and health.',
+    icon: 'BookOpen'
+  },
+  {
+    id: 'wmo-wis2',
+    title: 'WMO Information System 2.0 (WIS 2.0)',
+    organization: 'World Meteorological Organization',
+    url: 'https://community.wmo.int/en/activity-areas/wis/wis2-implementation',
+    description: 'Next-generation global data exchange infrastructure enabling seamless sharing of weather, water, and climate information to support early warning systems and climate services for health.',
+    icon: 'Wifi'
   }
 ];
 
@@ -310,7 +342,16 @@ export default function ClimateServicesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {resources.map((resource) => {
-              const IconComponent = resource.icon === 'Globe' ? Globe : Leaf;
+              // Map icon strings to actual icon components
+              const iconMap: { [key: string]: any } = {
+                'Globe': Globe,
+                'Leaf': Leaf,
+                'Building': Building,
+                'Heart': Heart,
+                'BookOpen': BookOpen,
+                'Wifi': Wifi
+              };
+              const IconComponent = iconMap[resource.icon] || Globe;
               
               return (
                 <Card key={resource.id} className="hover:shadow-lg transition-shadow">
