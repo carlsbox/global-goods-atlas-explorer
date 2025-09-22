@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Globe, FileText, MapPin, Mail, Heart, Calendar } from "lucide-react";
-import { useGlobalGoods } from "@/lib/api";
+import { useFeaturedGlobalGoods } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { SEO } from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -42,8 +42,8 @@ function FeaturedGoodsSkeleton() {
 }
 
 export default function HomePage() {
-  // Use deferred loading - don't block render on data loading
-  const { data: globalGoods, isLoading: isLoadingGoods } = useGlobalGoods();
+  // Use lightweight featured goods hook - much faster loading!
+  const { data: featuredGoods, isLoading: isLoadingGoods } = useFeaturedGlobalGoods();
   const { t, tPage } = useI18n();
   const { toast } = useToast();
   const { isUseCasesInHomePage } = useFeatureFlags();
@@ -240,7 +240,7 @@ export default function HomePage() {
             <FeaturedGoodsSkeleton />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {globalGoods?.slice(0, 3).map((good) => (
+              {featuredGoods?.map((good) => (
                 <Link to={`/global-goods/${good.ID}`} key={good.ID}>
                   <Card className="transition-all hover:shadow-md">
                     <CardContent className="pt-6">

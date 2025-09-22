@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Download, Heart, ExternalLink, Leaf } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ArrowRight, Download, Heart, ExternalLink, Leaf, Globe, Building, BookOpen, Wifi, Database, Code, BarChart3 } from "lucide-react";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EnhancedGlobalGoodCard } from "@/components/global-goods/EnhancedGlobalGoodCard";
 import { SEO } from "@/components/SEO";
+import { Badge } from "@/components/ui/badge";
 
 // Skeleton component for featured goods loading state
 function FeaturedGoodsSkeleton() {
@@ -66,23 +67,77 @@ const endorsementOrgs = [{
 }];
 
 // Emerging tools data
-const emergingTools = [{
-  name: "GHR Tool Suite",
-  organization: "Barcelona Supercomputing Center",
-  description: "A powerful suite of open-source R packages enabling the harmonization, exploration, modeling, and prediction of climate-health datasets."
-}, {
-  name: "OpenHIM with Climate Mediator",
-  organization: "Jembi Health Systems",
-  description: "Extending an established interoperability platform to support climate data integration, with initial deployment planned in Mozambique."
-}, {
-  name: "IDS-DRR Open Source Flood Risk Analysis Platform for Disaster Preparedness",
-  organization: "Civic Data Lab & Open Contracting Partnership",
-  description: "Aggregating diverse disaster risk reduction datasets, including flood hazard and rainfall data, to inform climate-resilient disaster response, currently piloted in parts of India."
-}, {
-  name: "Speedy Mesh",
-  organization: "SpeedyKom",
-  description: "A cutting-edge pipeline integrating climate, human, and animal health data, with national and regional deployments across Africa, including Cameroon, the African Union's Digital One Health Platform, and IGAD initiatives."
-}];
+const emergingTools = [
+  {
+    name: 'ClimWeb',
+    organization: 'WMO',
+    url: 'https://climweb.readthedocs.io/en/stable/',
+    description: 'Empowers national meteorological and hydrological services and environmental institutions to deliver critical climate information effectively through a comprehensive, open-source platform. Featuring intuitive content management, real-time satellite visualization, Common Alerting Protocol (CAP) alert composer, and integrated marketing tools, ClimWeb ensures weather and climate services reach decision-makers and communities when they need them most.',
+    deployment: 'Trusted by more than 27 institutions across Africa'
+  },
+  {
+    name: 'CAP Standards-based Implementation Tools',
+    organization: 'WMO Emergency Education and Training Programme',
+    url: 'https://etrp.wmo.int/pluginfile.php/17999/mod_resource/content/1/wmo_1109_en.pdf',
+    description: 'Includes Google Public Alerts freeware, mapping platforms that are CAP-enabled such as the Environmental Systems Research Institute\'s platform, geographic information systems (GIS)–based platforms with related CAP functionality, and emergency management freeware.',
+    deployment: 'Global implementation'
+  },
+  {
+    name: 'IDS-DRR Open-source Platform',
+    organization: 'CivicDataLab and Open Contracting Partnership',
+    url: 'https://drr.open-contracting.in/en',
+    description: 'Aggregates diverse datasets related to disaster risk reduction, including flood hazard and rainfall data, to inform a climate-resilient disaster response.',
+    deployment: 'Currently piloted in parts of India'
+  },
+  {
+    name: 'OpenHIM with Climate Mediator',
+    organization: 'Jembi Health Systems',
+    url: 'https://openhim.org/',
+    description: 'Extends an established interoperability platform to support climate data integration.',
+    deployment: 'Initial deployment planned in Mozambique'
+  },
+  {
+    name: 'Speedy Mesh',
+    organization: 'SpeedyKom',
+    url: 'https://speedykom.de/solutions/speedymesh',
+    description: 'Supports climate, human, and animal health data integration with national deployments across Africa and regional applicability through platforms such as the African Union\'s Digital One Health Platform and Intergovernmental Authority on Development initiatives.',
+    deployment: 'Deployed in Cameroon and across Africa'
+  }
+];
+
+// GHR Tools Suite data
+const ghrTools = [
+  {
+    name: 'data4health',
+    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/harmonize-toolkit',
+    description: 'Processes health data (e.g., numbers of symptomatic individuals or confirmed disease cases) typically sourced from surveillance systems and aggregates them in space, time, or by demographic groups.',
+    icon: 'Database'
+  },
+  {
+    name: 'clim4health',
+    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/harmonize-toolkit',
+    description: 'Processes climate data (e.g., temperature, precipitation, or drought indicators) from weather stations, reanalysis, and forecast datasets, with postprocessing steps such as bias correction, downscaling, and spatiotemporal aggregation.',
+    icon: 'Globe'
+  },
+  {
+    name: 'GHRexplore',
+    url: 'https://earth.bsc.es/gitlab/ghr/ghrexplo',
+    description: 'Provides a wide variety of visualizations for exploratory analysis of temporal and spatiotemporal health data, including time series, heatmaps, seasonality plots, thematic maps, and more.',
+    icon: 'BarChart3'
+  },
+  {
+    name: 'GHRmodel',
+    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/ghrmodel',
+    description: 'Supports modeling health outcomes using Bayesian hierarchical spatiotemporal models with complex covariate effects (e.g., linear, nonlinear, interactions, distributed lag nonlinear models) in the R-INLA framework.',
+    icon: 'Code'
+  },
+  {
+    name: 'GHRpredict',
+    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/idextremes-r-package',
+    description: 'Computes out-of-sample probabilistic predictions of disease case counts and outbreak risk using INLA spatiotemporal models and evaluates predictive performance via a range of cross-validation schemes.',
+    icon: 'Database'
+  }
+];
 
 // Resources data
 const resources = [
@@ -93,6 +148,46 @@ const resources = [
     url: 'https://shaderesearchhub.netlify.app/',
     description: 'Developed by the SHADE Research Hub at King\'s College London, this simple tool helps you consider the environmental impacts of a digital health system. It adopts a \'systems thinking\' approach that goes beyond carbon calculators to also address data sufficiency and mitigation of rebound effects.',
     icon: 'Leaf'
+  },
+  {
+    id: 'climahealth',
+    title: 'ClimaHealth',
+    organization: 'WHO-WMO Joint Office',
+    url: 'https://climahealth.info/',
+    description: 'The first global knowledge platform dedicated to climate and health, providing evidence-based resources, tools, and case studies for action on climate change and health impacts. Features country profiles, hazard information, and a comprehensive resource library.',
+    icon: 'Globe'
+  },
+  {
+    id: 'who-wmo-joint-programme',
+    title: 'WHO-WMO Joint Programme Office',
+    organization: 'WHO & WMO',
+    url: 'https://climahealth.info/who-wmo-joint-programme/',
+    description: 'A collaborative initiative between WHO and WMO to accelerate integrated climate services for health, supporting countries in building climate-resilient health systems through coordinated action and technical expertise.',
+    icon: 'Building'
+  },
+  {
+    id: 'who-climate-health',
+    title: 'WHO Climate Change and Health',
+    organization: 'World Health Organization',
+    url: 'https://www.who.int/teams/environment-climate-change-and-health/climate-change-and-health',
+    description: 'Official WHO resources on climate change and health impacts, providing global guidance, policy frameworks, and evidence-based strategies to protect public health from climate risks.',
+    icon: 'Heart'
+  },
+  {
+    id: 'climahealth-resource-library',
+    title: 'ClimaHealth Resource Library',
+    organization: 'ClimaHealth',
+    url: 'https://climahealth.info/learn/resource-library',
+    description: 'Comprehensive collection of climate and health resources including research, tools, case studies, and implementation guides from global partners working at the intersection of climate and health.',
+    icon: 'BookOpen'
+  },
+  {
+    id: 'wmo-wis2',
+    title: 'WMO Information System 2.0 (WIS 2.0)',
+    organization: 'World Meteorological Organization',
+    url: 'https://community.wmo.int/en/activity-areas/wis/wis2-implementation',
+    description: 'Next-generation global data exchange infrastructure enabling seamless sharing of weather, water, and climate information to support early warning systems and climate services for health.',
+    icon: 'Wifi'
   }
 ];
 
@@ -144,7 +239,7 @@ export default function ClimateServicesPage() {
                 {tPage('hero.exploreCatalog', 'climateServices')} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" onClick={handleDownloadGuidebook}>
+            <Button variant="outline" size="lg" onClick={handleDownloadGuidebook} disabled>
               <Download className="mr-2 h-4 w-4" />
               {tPage('hero.downloadGuidebook', 'climateServices')}
             </Button>
@@ -174,28 +269,28 @@ export default function ClimateServicesPage() {
         <section className="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-2">{tPage('whoWmo.title', 'climateServices')}</h2>
-            <h4 className="text-lg font-semibold text-muted-foreground">{tPage('whoWmo.forward', 'climateServices')}</h4>
+            <h4 className="text-lg font-semibold text-muted-foreground">Forward from the WHO-WMO Joint Programme on Climate and Health</h4>
           </div>
           
           <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
             <p>
-              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, the connection between climate and health has never been more urgent, or more clear.
+              The health impacts of climate change are no longer a distant concern. They are here, now, affecting people and health systems around the world in diverse and unequal ways. From shifting patterns of disease to more frequent heat waves and extreme weather, understanding, monitoring, and preventing the nexus of health risks amplified by changing weather and climate have never been more urgent.
             </p>
             
             <p>
-              To support countries in addressing these growing risks, the World Health Organization (WHO) - World Meteorological Organization (WMO) Climate and Health Joint Programme (Joint Programme office) was established. By bridging public health and climate science, this partnership combines expertise, data, and action, to help governments and partners build stronger, more resilient health systems capable of anticipating and responding to climate and changing weather challenges.
+              To support countries in addressing these growing risks, the Joint Programme office is a unique partnership bringing together science, policy, information, and action to support governments and partners to better anticipate and respond to health risks of weather and climate.
             </p>
             
             <p>
-              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate and health-focused global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. This enables countries to better predict, prepare for, and respond to climate-related health risks in a coordinated and scalable way. It can help identify how and where diseases are likely to spread, allowing for more targeted prevention. It can inform the timing of interventions, from vaccination campaigns to public health messaging. It can guide emergency responses, and it can improve evaluation response effectiveness by considering the impacts of weather and climate.
+              This Global Goods Guidebook Climate Services for Health Annex is part of that effort. While DPI has not historically been designed with climate resilience in mind, it plays a vital role in building it. Service delivery components such as telemedicine, supply chain management, and patient record systems actively support health systems to handle climate challenges better. Furthermore, climate- and health-focused digital global goods can strengthen DPI by providing open, interoperable tools and data systems that integrate climate information into health decision-making. Climate-enabled health DPI can accelerate the access and use of standardized climate information more easily and accelerate efforts to predict, prepare, and respond to climate-related health risks in coordinated and scalable ways by considering the influence of weather and climate on health risk, the timing of vector control, opening of cooling centers, and issuing public advisories that are more precise and protective.
             </p>
             
             <p>
-              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its Member States, enables the collection, processing, and sharing of vital climate data and forecasts. But data alone is not enough. It must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
+              Effective climate-health integration requires strong collaboration across sectors, better data access, user-centered systems, and expanded training opportunities. WMO's global network, built through decades of cooperation among its member states, enables the collection, processing, and sharing of vital weather, climate, and environmental observations, information, and services. But data alone are not enough. They must be translated into actionable information for health professionals, whether they're managing a disease surveillance system, designing an early warning tool, or writing a national adaptation plan.
             </p>
             
             <p>
-              WMO's recent resolution on climate, environment, and health (WMO Congress Resolution 17) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
+              WMO's 2023 resolution on climate, environment, and health (<a href="https://climahealth.info/resource-library/who-wmo-implementation-plan-2023-2033/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">WMO's 19th Congress Resolution 17</a>) underscores these needs and calls for a more coordinated and practical approach to using science and technology to support human well-being.
             </p>
             
             <p>
@@ -203,7 +298,7 @@ export default function ClimateServicesPage() {
             </p>
             
             <p>
-              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration and learning as we work toward healthier, climate-resilient communities worldwide.
+              We are grateful to everyone who contributed their time, knowledge, and experience to this Annex. We look forward to continued collaboration.
             </p>
           </div>
           
@@ -274,14 +369,95 @@ export default function ClimateServicesPage() {
             {tPage('emerging.description', 'climateServices')}
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {emergingTools.map((tool, index) => <Card key={index} className="hover:shadow-md transition-shadow">
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
-                  <p className="text-sm text-primary mb-3">({tool.organization})</p>
-                  <p className="text-muted-foreground text-sm">{tool.description}</p>
+          {/* Main Tools */}
+          <div className="grid grid-cols-1 gap-6 mb-12">
+            {emergingTools.map((tool, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all border-border/50 bg-gradient-to-br from-background to-muted/10">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-xl mb-2">
+                        <a 
+                          href={tool.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-primary hover:underline"
+                        >
+                          {tool.name}
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </CardTitle>
+                      <CardDescription className="text-sm font-medium">
+                        {tool.organization}
+                      </CardDescription>
+                    </div>
+                    {tool.deployment && (
+                      <Badge variant="secondary" className="ml-4">
+                        {tool.deployment}
+                      </Badge>
+                    )}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{tool.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
+          </div>
+
+          {/* GHR Tools Suite Section */}
+          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8 mb-8">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold mb-3">GHR Tools Suite</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                The Global Health Resilience (GHR) group, within the Earth Sciences Department at the{' '}
+                <a 
+                  href="https://www.bsc.es/discover-bsc/organisation/research-departments/global-health-resilience" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Barcelona Supercomputing Center (BSC)
+                </a>
+                , develops cutting-edge modeling and digital innovations at the intersection of climate and health to enhance resilience to climate-sensitive health challenges globally and locally. The GHR group is developing a suite of open-source R packages called GHRtools designed for climate-health data integration and analysis:
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {ghrTools.map((tool, index) => {
+                const iconMap: { [key: string]: any } = {
+                  'Database': Database,
+                  'Globe': Globe,
+                  'BarChart3': BarChart3,
+                  'Code': Code
+                };
+                const IconComponent = iconMap[tool.icon] || Database;
+                
+                return (
+                  <Card key={index} className="bg-background/60 backdrop-blur-sm hover:shadow-md transition-all">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center gap-3">
+                        <IconComponent className="h-5 w-5 text-primary" />
+                        <CardTitle className="text-base">
+                          <a 
+                            href={tool.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-primary hover:underline"
+                          >
+                            {tool.name}
+                            <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{tool.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
           
           <p className="text-muted-foreground mt-6 italic">
@@ -301,39 +477,59 @@ export default function ClimateServicesPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {resources.map((resource) => (
-              <Card key={resource.id} className="hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
-                      <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
+            {resources.map((resource) => {
+              // Map icon strings to actual icon components
+              const iconMap: { [key: string]: any } = {
+                'Globe': Globe,
+                'Leaf': Leaf,
+                'Building': Building,
+                'Heart': Heart,
+                'BookOpen': BookOpen,
+                'Wifi': Wifi
+              };
+              const IconComponent = iconMap[resource.icon] || Globe;
+              
+              return (
+                <Card key={resource.id} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                        <IconComponent className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold mb-1">
+                          <a 
+                            href={resource.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-foreground hover:text-primary transition-colors"
+                          >
+                            {resource.title}
+                          </a>
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {resource.organization}
+                        </p>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          {resource.description}
+                        </p>
+                        <Button asChild variant="outline" size="sm">
+                          <a 
+                            href={resource.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center"
+                          >
+                            {tPage('resources.visitTool', 'climateServices')}
+                            <ExternalLink className="ml-2 h-3 w-3" />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-1">
-                        {tPage('resources.greenTool.title', 'climateServices')}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-1">
-                        {resource.organization}
-                      </p>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {tPage('resources.greenTool.description', 'climateServices')}
-                      </p>
-                      <Button asChild variant="outline" size="sm">
-                        <a 
-                          href={resource.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center"
-                        >
-                          {tPage('resources.visitTool', 'climateServices')}
-                          <ExternalLink className="ml-2 h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 

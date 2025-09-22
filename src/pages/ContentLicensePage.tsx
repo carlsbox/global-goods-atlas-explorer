@@ -163,7 +163,7 @@ export default function ContentLicensePage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              {t('contentLicense.contactUs', "If you have questions about using content from this website or need clarification about the license, please contact us at")} <a href="mailto:info@globalgoodsguidebook.org" className="text-primary hover:underline">info@globalgoodsguidebook.org</a>.
+              {t('contentLicense.contactUs', "If you have questions about using content from this website or need clarification about the license, please contact us at")} <a href="mailto:globalgoods@path.org" className="text-primary hover:underline">globalgoods@path.org</a>.
             </p>
           </CardContent>
         </Card>

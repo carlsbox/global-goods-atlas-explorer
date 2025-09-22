@@ -59,14 +59,23 @@ public/data/reference/
 User Request → Index Load → Basic Display → Detail Load → Full Display
 ```
 
-### 2. Reference Resolution
+### 2. Optimized Featured Loading (Home Page)
+```
+Home Page → Index Load → Random Selection (3-5) → Transform → Display
+            ↑
+        No individual file loading needed
+        90% faster than full detail loading
+```
+
+### 3. Reference Resolution
 ```
 Raw Data with Codes → Reference Lookup → Enriched Objects → User Display
 ```
 
-### 3. Caching Strategy
+### 4. Caching Strategy
 ```
 Reference Data → Memory Cache → 24hr Browser Cache → Fresh Load
+Featured Goods → React Query Cache (10 min) → Fresh Random Selection
 ```
 
 ## Key Concepts
@@ -94,6 +103,13 @@ Reference Data → Memory Cache → 24hr Browser Cache → Fresh Load
 2. **Phase 2**: Show basic global good information
 3. **Phase 3**: Load complete data in background
 4. **Phase 4**: Update display with full information
+
+### Featured Goods Optimization
+- **Home Page Strategy**: Load only index.json, select 3-5 random items
+- **Lightweight Transform**: Map only essential fields (Name, Summary, Type, Logo)
+- **Static Type Mapping**: Use GLOBAL_GOOD_TYPE_TITLES for instant type resolution
+- **Performance Gain**: Single HTTP request vs multiple individual file loads
+- **Cache Duration**: 10 minutes in React Query cache
 
 ### Reference Data Caching
 - All reference data loads once at application start

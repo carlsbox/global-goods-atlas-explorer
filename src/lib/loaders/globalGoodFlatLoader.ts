@@ -666,3 +666,67 @@ export function clearGlobalGoodsCache(): void {
   globalGoodsIndexCache = null;
   individualFileCache.clear();
 }
+
+// Simple type mapping to avoid async lookups for featured goods
+const GLOBAL_GOOD_TYPE_TITLES: Record<string, string> = {
+  'software': 'Software',
+  'content': 'Content',
+  'standard': 'Standard',
+  'data': 'Data',
+  'curriculum': 'Curriculum',
+  'advocacy_training_CHW': 'Advocacy Training CHW',
+  'advocacy_training_content': 'Advocacy Training Content',
+  'chw_guidelines': 'CHW Guidelines',
+  'curriculum_content': 'Curriculum Content',
+  'guidelines': 'Guidelines',
+  'health_education_training': 'Health Education Training',
+  'job_aids': 'Job Aids',
+  'planning_documents': 'Planning Documents',
+  'reference_content': 'Reference Content'
+};
+
+/**
+ * Load featured global goods for the home page with minimal processing
+ * Only resolves the data needed for card display
+ */
+export async function loadFeaturedGlobalGoods(count?: number): Promise<GlobalGoodFlat[]> {
+  try {
+    const response = await fetch('/data/global-goods/index.json');
+    if (!response.ok) {
+      throw new Error(`Failed to fetch global goods index: ${response.statusText}`);
+    }
+    
+    const indexData = await response.json();
+    
+    // Randomly select 3-5 items (or use provided count)
+    const itemCount = count || Math.floor(Math.random() * 3) + 3; // Random between 3-5
+    const shuffled = [...indexData].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, itemCount);
+    
+    // Map with minimal processing - just resolve type titles
+    return selected.map((item: any) => ({
+      ...item,
+      // Map type codes to titles without async lookup
+      GlobalGoodsType: Array.isArray(item.GlobalGoodType) 
+        ? item.GlobalGoodType.map((type: string) => ({
+            code: type,
+            title: GLOBAL_GOOD_TYPE_TITLES[type] || type,
+            description: ''
+          }))
+        : [],
+      // Keep other fields as-is for card display
+      Name: item.Name,
+      Logo: item.Logo,
+      // Map Summary from index.json to ProductOverview structure
+      ProductOverview: {
+        Summary: item.Summary || '',
+        Description: item.Summary || '' // Use Summary as Description since index doesn't have full description
+      },
+      Reach: item.Reach,
+      Website: item.Website
+    }));
+  } catch (error) {
+    console.error('Error loading featured global goods:', error);
+    return [];
+  }
+}

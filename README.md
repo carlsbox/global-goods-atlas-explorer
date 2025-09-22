@@ -1,5 +1,11 @@
 # Running development version of the new Global Goods Guidebook
 
+## Documentation
+
+📚 **[Content Management Guide](./CONTENT_MANAGEMENT_GUIDE.md)** - Complete guide for adding and editing content (global goods, use cases, reference data, translations, etc.)
+
+📋 **[Global Good JSON Creation Guide](./docs/GlobalGoodJSONGuide.md)** - Detailed schema documentation for creating Global Good JSON files with templates, validation rules, and best practices
+
 ## Project info
 **Live URL**: https://www.globalgoodsguidebook.org
 

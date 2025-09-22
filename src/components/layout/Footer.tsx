@@ -32,9 +32,9 @@ export function Footer() {
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/create-global-good" className="text-sm text-muted-foreground hover:text-primary">
+            {/* <Link to="/create-global-good" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.createGlobalGood', 'navigation')}
-            </Link>
+            </Link> */}
             <Link to="/content-license" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.contentLicense', 'navigation') || 'Content License'}
             </Link>
