@@ -2,6 +2,8 @@
 
 This guide documents all configuration and content locations in the Global Goods Atlas project. Use this as a reference for adding, editing, or managing content.
 
+> 📋 **For detailed Global Good JSON schema documentation**, see the [Global Good JSON Creation Guide](./docs/GlobalGoodJSONGuide.md)
+
 ## 📋 Quick Reference Table
 
 | Content Type | Location | Format | Description |
