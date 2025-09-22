@@ -19,7 +19,9 @@
     "view": "View",
     "search": "Search",
     "filter": "Filter",
-    "noResults": "No results found"
+    "noResults": "No results found",
+    "languageChanged": "Language changed to {{language}}",
+    "selectLanguage": "Select language"
   },
   "globalGoods": {
     "title": "Global Goods",
