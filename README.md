@@ -1,5 +1,9 @@
 # Running development version of the new Global Goods Guidebook
 
+## Documentation
+
+📚 **[Content Management Guide](./CONTENT_MANAGEMENT_GUIDE.md)** - Complete guide for adding and editing content (global goods, use cases, reference data, translations, etc.)
+
 ## Project info
 **Live URL**: https://www.globalgoodsguidebook.org
 
