@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Download, Heart, ExternalLink, Leaf } from "lucide-react";
+import { ArrowRight, Download, Heart, ExternalLink, Leaf, Globe } from "lucide-react";
 import { useGlobalGoodsFlat } from "@/lib/api/globalGoodsFlat";
 import { useI18n } from "@/hooks/useI18n";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -93,6 +93,14 @@ const resources = [
     url: 'https://shaderesearchhub.netlify.app/',
     description: 'Developed by the SHADE Research Hub at King\'s College London, this simple tool helps you consider the environmental impacts of a digital health system. It adopts a \'systems thinking\' approach that goes beyond carbon calculators to also address data sufficiency and mitigation of rebound effects.',
     icon: 'Leaf'
+  },
+  {
+    id: 'climahealth',
+    title: 'ClimaHealth',
+    organization: 'WHO-WMO Joint Office',
+    url: 'https://climahealth.info/',
+    description: 'The first global knowledge platform dedicated to climate and health, providing evidence-based resources, tools, and case studies for action on climate change and health impacts. Features country profiles, hazard information, and a comprehensive resource library.',
+    icon: 'Globe'
   }
 ];
 
@@ -301,46 +309,50 @@ export default function ClimateServicesPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {resources.map((resource) => (
-              <Card key={resource.id} className="hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
-                      <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
+            {resources.map((resource) => {
+              const IconComponent = resource.icon === 'Globe' ? Globe : Leaf;
+              
+              return (
+                <Card key={resource.id} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                        <IconComponent className="h-6 w-6 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold mb-1">
+                          <a 
+                            href={resource.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-foreground hover:text-primary transition-colors"
+                          >
+                            {resource.title}
+                          </a>
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {resource.organization}
+                        </p>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          {resource.description}
+                        </p>
+                        <Button asChild variant="outline" size="sm">
+                          <a 
+                            href={resource.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center"
+                          >
+                            {tPage('resources.visitTool', 'climateServices')}
+                            <ExternalLink className="ml-2 h-3 w-3" />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-1">
-                        <a 
-                          href={resource.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-foreground hover:text-primary transition-colors"
-                        >
-                          {tPage('resources.greenTool.title', 'climateServices')}
-                        </a>
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-1">
-                        {resource.organization}
-                      </p>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {tPage('resources.greenTool.description', 'climateServices')}
-                      </p>
-                      <Button asChild variant="outline" size="sm">
-                        <a 
-                          href={resource.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center"
-                        >
-                          {tPage('resources.visitTool', 'climateServices')}
-                          <ExternalLink className="ml-2 h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
