@@ -201,7 +201,7 @@ export default function ClimateServicesPage() {
   } = useI18n();
   const handleDownloadGuidebook = () => {
     const link = document.createElement('a');
-    link.href = '/assets/GG_Guidebook_Climate_Annex.pdf.pdf';
+    link.href = '/assets/GG_Guidebook_Climate_Annex.pdf';
     link.download = 'GG_Guidebook_Climate_Annex.pdf';
     document.body.appendChild(link);
     link.click();
