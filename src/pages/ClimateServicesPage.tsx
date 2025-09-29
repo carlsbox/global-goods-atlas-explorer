@@ -200,9 +200,31 @@ export default function ClimateServicesPage() {
     tPage
   } = useI18n();
   const handleDownloadGuidebook = () => {
+    // Track download event in Google Analytics
+    if ((window as any).gtag) {
+      const consentData = localStorage.getItem('cookieConsentData');
+      if (consentData) {
+        try {
+          const data = JSON.parse(consentData);
+          if (data.preferences.analytics) {
+            (window as any).gtag('event', 'file_download', {
+              file_name: 'GG_Guidebook_Climate_Annex.pdf',
+              file_extension: 'pdf',
+              link_url: '/assets/GG_Guidebook_Climate_Annex.pdf',
+              event_category: 'Downloads',
+              event_label: 'Climate Guidebook'
+            });
+          }
+        } catch (e) {
+          console.error('Error tracking download:', e);
+        }
+      }
+    }
+
+    // Trigger the download
     const link = document.createElement('a');
-    link.href = '/assets/Climate_Annex.pdf';
-    link.download = 'Climate_Services_for_Health_Annex.pdf';
+    link.href = '/assets/GG_Guidebook_Climate_Annex.pdf';
+    link.download = 'GG_Guidebook_Climate_Annex.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -236,10 +258,10 @@ export default function ClimateServicesPage() {
                 {tPage('hero.exploreCatalog', 'climateServices')} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            {/* <Button variant="outline" size="lg" onClick={handleDownloadGuidebook} disabled>
+            <Button variant="outline" size="lg" onClick={handleDownloadGuidebook}>
               <Download className="mr-2 h-4 w-4" />
               {tPage('hero.downloadGuidebook', 'climateServices')}
-            </Button> */}
+            </Button>
           </div>
         </section>
 
