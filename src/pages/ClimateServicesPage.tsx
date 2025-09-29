@@ -236,10 +236,10 @@ export default function ClimateServicesPage() {
                 {tPage('hero.exploreCatalog', 'climateServices')} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            {<Button variant="outline" size="lg" onClick={handleDownloadGuidebook} disabled>
+            <Button variant="outline" size="lg" onClick={handleDownloadGuidebook}>
               <Download className="mr-2 h-4 w-4" />
               {tPage('hero.downloadGuidebook', 'climateServices')}
-            </Button>}
+            </Button>
           </div>
         </section>
 
