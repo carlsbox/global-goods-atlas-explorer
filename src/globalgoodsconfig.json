@@ -49,7 +49,7 @@
   },
   "features": {
     "useCases": {
-      "enabled": false,
+      "enabled": true,
       "showInNavigation": true,
       "showInGlobalGoods": true,
       "showInHomePage": false,
