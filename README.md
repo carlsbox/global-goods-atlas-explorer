@@ -6,6 +6,8 @@
 
 📋 **[Global Good JSON Creation Guide](./docs/GlobalGoodJSONGuide.md)** - Detailed schema documentation for creating Global Good JSON files with templates, validation rules, and best practices
 
+📋 **[Use Case JSON Creation Guide](./docs/UseCaseJSONGuide.md)** - Detailed schema documentation for creating Use Case JSON files with templates, validation rules, and best practices
+
 ## Project info
 **Live URL**: https://www.globalgoodsguidebook.org
 
