@@ -168,6 +168,8 @@ Each standard file follows this pattern:
 
 ## 📝 Use Cases
 
+> 📋 **For detailed Use Case JSON schema documentation**, see the [Use Case JSON Creation Guide](./docs/UseCaseJSONGuide.md)
+
 ### Location
 `/src/data/use-cases/[use-case-id].json`
 
