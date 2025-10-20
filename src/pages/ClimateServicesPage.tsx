@@ -209,7 +209,11 @@ export default function ClimateServicesPage() {
   } = useI18n();
   const handleDownloadGuidebook = (lang?: 'en' | 'es' | 'fr') => {
     const downloadLang = lang || language;
-    const filename = GUIDEBOOK_FILES[downloadLang];
+    // Ensure we have a valid language key, default to 'en'
+    const validLang = (downloadLang === 'en' || downloadLang === 'es' || downloadLang === 'fr') 
+      ? downloadLang 
+      : 'en';
+    const filename = GUIDEBOOK_FILES[validLang];
     
     // Track download event in Google Analytics with language tracking
     if ((window as any).gtag) {
@@ -223,8 +227,8 @@ export default function ClimateServicesPage() {
               file_extension: 'pdf',
               link_url: `/assets/${filename}`,
               event_category: 'Downloads',
-              event_label: `Climate Guidebook - ${downloadLang.toUpperCase()}`,
-              language: downloadLang
+              event_label: `Climate Guidebook - ${validLang.toUpperCase()}`,
+              language: validLang
             });
           }
         } catch (e) {
