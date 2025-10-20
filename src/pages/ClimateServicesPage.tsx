@@ -191,16 +191,31 @@ const resources = [
   }
 ];
 
+// Language-specific guidebook file mapping
+const GUIDEBOOK_FILES = {
+  en: 'GG_Guidebook_Climate_Annex_ENG.pdf',
+  es: 'GG_Guidebook_Climate_Annex_ES.pdf',
+  fr: 'GG_Guidebook_Climate_Annex_FR.pdf'
+} as const;
+
 export default function ClimateServicesPage() {
   const {
     data: climateHealthGoods = [],
     isLoading: isLoadingGoods
   } = useClimateHealthFeaturedGoods();
   const {
-    tPage
+    tPage,
+    language
   } = useI18n();
-  const handleDownloadGuidebook = () => {
-    // Track download event in Google Analytics
+  const handleDownloadGuidebook = (lang?: 'en' | 'es' | 'fr') => {
+    const downloadLang = lang || language;
+    // Ensure we have a valid language key, default to 'en'
+    const validLang = (downloadLang === 'en' || downloadLang === 'es' || downloadLang === 'fr') 
+      ? downloadLang 
+      : 'en';
+    const filename = GUIDEBOOK_FILES[validLang];
+    
+    // Track download event in Google Analytics with language tracking
     if ((window as any).gtag) {
       const consentData = localStorage.getItem('cookieConsentData');
       if (consentData) {
@@ -208,11 +223,12 @@ export default function ClimateServicesPage() {
           const data = JSON.parse(consentData);
           if (data.preferences.analytics) {
             (window as any).gtag('event', 'file_download', {
-              file_name: 'GG_Guidebook_Climate_Annex.pdf',
+              file_name: filename,
               file_extension: 'pdf',
-              link_url: '/assets/GG_Guidebook_Climate_Annex.pdf',
+              link_url: `/assets/${filename}`,
               event_category: 'Downloads',
-              event_label: 'Climate Guidebook'
+              event_label: `Climate Guidebook - ${validLang.toUpperCase()}`,
+              language: validLang
             });
           }
         } catch (e) {
@@ -223,8 +239,8 @@ export default function ClimateServicesPage() {
 
     // Trigger the download
     const link = document.createElement('a');
-    link.href = '/assets/GG_Guidebook_Climate_Annex.pdf';
-    link.download = 'GG_Guidebook_Climate_Annex.pdf';
+    link.href = `/assets/${filename}`;
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -252,16 +268,35 @@ export default function ClimateServicesPage() {
             Climate change is a growing and urgent health challenge, particularly for populations already facing health and economic disparities. <a href="https://www.gatesfoundation.org/our-work/programs/global-growth-and-opportunity/digital-public-infrastructure" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Digital Public Infrastructure (DPI)</a> is a set of interoperable digital systems and foundational building blocks that can enable effective delivery of services, promote inclusion, and support governance that benefits the public when aligned with social, cultural, political, and local socio-economic norms that inform complex health system governance. DPI is essential for integrating climate and health data, allowing policymakers and health leaders to make informed decisions as they build climate-resilient health systems. By combining satellite data, weather patterns, and health sector insights, we can better predict disease outbreaks, respond to changing health needs, and mitigate the impact of extreme weather events.
           </p>
           
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg">
-              <Link to="/global-goods?climate-health=true">
-                {tPage('hero.exploreCatalog', 'climateServices')} <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" onClick={handleDownloadGuidebook}>
-              <Download className="mr-2 h-4 w-4" />
-              {tPage('hero.downloadGuidebook', 'climateServices')}
-            </Button>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button asChild size="lg">
+                <Link to="/global-goods?climate-health=true">
+                  {tPage('hero.exploreCatalog', 'climateServices')} <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" onClick={() => handleDownloadGuidebook()}>
+                <Download className="mr-2 h-4 w-4" />
+                {tPage('hero.downloadGuidebook', 'climateServices')}
+              </Button>
+            </div>
+            
+            <div className="text-sm text-muted-foreground">
+              <span>{tPage('hero.alsoAvailableIn', 'climateServices')} </span>
+              {(['en', 'es', 'fr'] as const)
+                .filter(lang => lang !== language)
+                .map((lang, index, array) => (
+                  <span key={lang}>
+                    <button
+                      onClick={() => handleDownloadGuidebook(lang)}
+                      className="text-primary hover:underline focus:outline-none focus:underline"
+                    >
+                      {tPage(`hero.language${lang === 'en' ? 'English' : lang === 'es' ? 'Spanish' : 'French'}`, 'climateServices')}
+                    </button>
+                    {index < array.length - 1 ? ' | ' : ''}
+                  </span>
+                ))}
+            </div>
           </div>
         </section>
 

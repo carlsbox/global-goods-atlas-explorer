@@ -13,6 +13,7 @@ import {
 import { useI18n } from "@/hooks/useI18n";
 import { GlobalGoodFlat } from "./types/globalGoodFlat";
 import { GlobalGood } from "./types";
+import { getConfig } from "@/lib/config";
 
 // Fetch global goods data
 export const useGlobalGoods = () => {
@@ -44,13 +45,8 @@ export const useUseCases = () => {
   const { language } = useI18n();
   
   // Check if use cases feature is enabled
-  const { isUseCasesEnabled } = (() => {
-    const { getConfig } = require('@/lib/config');
-    const config = getConfig();
-    return {
-      isUseCasesEnabled: config.features?.useCases?.enabled ?? true
-    };
-  })();
+  const config = getConfig();
+  const isUseCasesEnabled = config.features?.useCases?.enabled ?? true;
   
   return useQuery({
     queryKey: ['useCases', language],
@@ -68,13 +64,8 @@ export const useUseCase = (id: string | undefined) => {
   const { language } = useI18n();
   
   // Check if use cases feature is enabled
-  const { isUseCasesEnabled } = (() => {
-    const { getConfig } = require('@/lib/config');
-    const config = getConfig();
-    return {
-      isUseCasesEnabled: config.features?.useCases?.enabled ?? true
-    };
-  })();
+  const config = getConfig();
+  const isUseCasesEnabled = config.features?.useCases?.enabled ?? true;
   
   return useQuery({
     queryKey: ['useCase', id, language],
