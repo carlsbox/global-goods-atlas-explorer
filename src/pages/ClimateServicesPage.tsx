@@ -193,9 +193,9 @@ const resources = [
 
 // Language-specific guidebook file mapping
 const GUIDEBOOK_FILES = {
-  en: 'GG Guidebook_Climate Annex_ENG.pdf',
-  es: 'GG Guidebook_Climate Annex_ES.pdf',
-  fr: 'GG Guidebook_Climate Annex_FR.pdf'
+  en: 'GG_Guidebook_Climate_Annex_ENG.pdf',
+  es: 'GG_Guidebook_Climate_Annex_ES.pdf',
+  fr: 'GG_Guidebook_Climate_Annex_FR.pdf'
 } as const;
 
 export default function ClimateServicesPage() {
@@ -221,7 +221,7 @@ export default function ClimateServicesPage() {
             (window as any).gtag('event', 'file_download', {
               file_name: filename,
               file_extension: 'pdf',
-              link_url: `/assets/${encodeURIComponent(filename)}`,
+              link_url: `/assets/${filename}`,
               event_category: 'Downloads',
               event_label: `Climate Guidebook - ${downloadLang.toUpperCase()}`,
               language: downloadLang
@@ -235,7 +235,7 @@ export default function ClimateServicesPage() {
 
     // Trigger the download
     const link = document.createElement('a');
-    link.href = `/assets/${encodeURIComponent(filename)}`;
+    link.href = `/assets/${filename}`;
     link.download = filename;
     document.body.appendChild(link);
     link.click();
