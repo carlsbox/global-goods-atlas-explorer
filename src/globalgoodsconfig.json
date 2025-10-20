@@ -39,7 +39,6 @@
     "staticRoutes": [
       { "path": "/", "priority": 1.0, "changeFreq": "daily" },
       { "path": "/global-goods", "priority": 0.9, "changeFreq": "daily" },
-      { "path": "/use-cases", "priority": 0.8, "changeFreq": "weekly" },
       { "path": "/map", "priority": 0.7, "changeFreq": "weekly" },
       { "path": "/climate-health", "priority": 0.7, "changeFreq": "weekly" },
       { "path": "/reference", "priority": 0.6, "changeFreq": "monthly" },
@@ -49,9 +48,9 @@
   },
   "features": {
     "useCases": {
-      "enabled": true,
+      "enabled": false,
       "showInNavigation": true,
-      "showInGlobalGoods": true,
+      "showInGlobalGoods": false,
       "showInHomePage": false,
       "routes": ["/use-cases", "/use-cases/:id"]
     }
