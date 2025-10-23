@@ -115,19 +115,19 @@ const ghrTools = [
   },
   {
     name: 'clim4health',
-    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/harmonize-toolkit',
+    url: 'https://bsc-es.github.io/GHRtools/docs/clim4health/clim4health',
     description: 'Processes climate data (e.g., temperature, precipitation, or drought indicators) from weather stations, reanalysis, and forecast datasets, with postprocessing steps such as bias correction, downscaling, and spatiotemporal aggregation.',
     icon: 'Globe'
   },
   {
     name: 'GHRexplore',
-    url: 'https://earth.bsc.es/gitlab/ghr/ghrexplo',
+    url: 'https://bsc-es.github.io/GHRtools/docs/GHRexplore/GHRexplore',
     description: 'Provides a wide variety of visualizations for exploratory analysis of temporal and spatiotemporal health data, including time series, heatmaps, seasonality plots, thematic maps, and more.',
     icon: 'BarChart3'
   },
   {
     name: 'GHRmodel',
-    url: 'https://www.bsc.es/research-and-development/software-and-apps/software-list/ghrmodel',
+    url: 'https://bsc-es.github.io/GHRtools/docs/GHRmodel/GHRmodel',
     description: 'Supports modeling health outcomes using Bayesian hierarchical spatiotemporal models with complex covariate effects (e.g., linear, nonlinear, interactions, distributed lag nonlinear models) in the R-INLA framework.',
     icon: 'Code'
   },
