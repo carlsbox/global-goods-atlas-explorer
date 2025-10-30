@@ -23,61 +23,23 @@
   "GlobalGoodType": ["software"],
   "License": "agpl-3.0",
   "ClimateHealth": false,
-  "Contact": {
-    "name": "Antony Khaemba",
-    "email": "antony@medic.org",
-    "role": "Medic Mobile Inc"
-  },
+  "Contact": [
+    {
+      "name": "Antony Khaemba",
+      "email": "antony@medic.org",
+      "role": "Medic Mobile Inc"
+    }
+  ],
   "Classifications": {
-    "SDGs": [
-      {
-        "Code": "SDG-3",
-        "Targets": []
-      },
-      {
-        "Code": "SDG-13",
-        "Targets": []
-      }
-    ],
-    "WHO": [
-      {
-        "Code": "WHO_A2",
-        "Description": "Community-based information systems"
-      },
-      {
-        "Code": "WHO_A3",
-        "Description": "Decision support systems"
-      },
-      {
-        "Code": "WHO_A7",
-        "Description": "Personal health records"
-      },
-      {
-        "Code": "WHO_B3",
-        "Description": "Health program monitoring systems"
-      },
-      {
-        "Code": "WHO_C5",
-        "Description": "Health worker registry"
-      }
-    ],
+    "SDGs": ["SDG-3", "SDG-13"],
+    "WHO": ["WHO_A2", "WHO_A3", "WHO_A7", "WHO_B3", "WHO_C5"],
     "WMO": [],
-    "DPI": [
-      {
-        "Code": "DPI_PS1",
-        "Description": "Point of Service Systems"
-      }
-    ]
+    "DPI": ["DPI_PS1"]
   },
-  "Standards": {
-    "Health": [],
-    "Interop": [
-      {
-        "Code": "FHIR",
-        "Description": "HL7 FHIR standard for healthcare data exchange"
-      }
-    ],
-    "Climate": []
+  "StandardsAndInteroperability": {
+    "HealthStandards": [],
+    "Interoperability": ["FHIR"],
+    "ClimateStandards": []
   },
   "ProductOverview": {
     "Summary": "Digital public good supporting community health workers with configurable mobile applications for health service delivery",
