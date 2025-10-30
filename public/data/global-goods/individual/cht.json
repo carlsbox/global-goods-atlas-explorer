@@ -1,0 +1,284 @@
+{
+  "ID": "cht",
+  "Name": "Community Health Toolkit",
+  "Logo": "/uploads/gg_logos/cht_logo.png",
+  "Website": {
+    "main": {
+      "url": "https://communityhealthtoolkit.org",
+      "description": "Official Community Health Toolkit website"
+    },
+    "docs": {
+      "url": "https://docs.communityhealthtoolkit.org",
+      "description": "Technical and user documentation"
+    },
+    "source_code": {
+      "url": "https://github.com/medic/cht-core",
+      "description": "Main code repository on GitHub"
+    },
+    "demo": {
+      "url": "https://docs.communityhealthtoolkit.org/#what-can-you-build-with-the-cht",
+      "description": "Demo and examples of CHT applications"
+    }
+  },
+  "GlobalGoodType": ["software"],
+  "License": "agpl-3.0",
+  "ClimateHealth": false,
+  "Contact": {
+    "name": "Antony Khaemba",
+    "email": "antony@medic.org",
+    "role": "Medic Mobile Inc"
+  },
+  "Classifications": {
+    "SDGs": [
+      {
+        "Code": "SDG-3",
+        "Targets": []
+      },
+      {
+        "Code": "SDG-13",
+        "Targets": []
+      }
+    ],
+    "WHO": [
+      {
+        "Code": "WHO_A2",
+        "Description": "Community-based information systems"
+      },
+      {
+        "Code": "WHO_A3",
+        "Description": "Decision support systems"
+      },
+      {
+        "Code": "WHO_A7",
+        "Description": "Personal health records"
+      },
+      {
+        "Code": "WHO_B3",
+        "Description": "Health program monitoring systems"
+      },
+      {
+        "Code": "WHO_C5",
+        "Description": "Health worker registry"
+      }
+    ],
+    "WMO": [],
+    "DPI": [
+      {
+        "Code": "DPI_PS1",
+        "Description": "Point of Service Systems"
+      }
+    ]
+  },
+  "Standards": {
+    "Health": [],
+    "Interop": [
+      {
+        "Code": "FHIR",
+        "Description": "HL7 FHIR standard for healthcare data exchange"
+      }
+    ],
+    "Climate": []
+  },
+  "ProductOverview": {
+    "Summary": "Digital public good supporting community health workers with configurable mobile applications for health service delivery",
+    "Description": "The Community Health Toolkit (CHT) is a digital public good that supports health workers as they deliver care in reimagined health systems. CHT includes a collection of open source software frameworks and applications, with resources to help partners design and deploy digital tools for care teams with the support of an active community of collaborators. CHT's modular tools work together as an integrated platform for infectious disease preparedness, surveillance, and response as well as routine community health services, and can be quickly configured for specific partner needs. Deployments include implementations in both mainland Tanzania and Zanzibar.",
+    "PrimaryFunctionality": "The CHT Core Framework makes it faster to build full-featured, scalable digital health apps that equip health workers to provide better care in their communities. It provides modular tools for community health services, infectious disease surveillance, and response.",
+    "Users": "Community Health Workers (CHWs), CHW supervisors, nurses, and facility-based health teams implementing community health systems",
+    "Languages": [
+      {
+        "code": "en",
+        "name": "English"
+      },
+      {
+        "code": "fr",
+        "name": "French"
+      },
+      {
+        "code": "hi",
+        "name": "Hindi"
+      },
+      {
+        "code": "ne",
+        "name": "Nepali"
+      },
+      {
+        "code": "es",
+        "name": "Spanish"
+      },
+      {
+        "code": "sw",
+        "name": "Swahili"
+      },
+      {
+        "code": "id",
+        "name": "Indonesian"
+      },
+      {
+        "code": "ar",
+        "name": "Arabic"
+      }
+    ],
+    "Screenshots": [
+      {
+        "url": "/uploads/screenshot_placeholder.jpeg",
+        "description": "CHT application interface"
+      }
+    ],
+    "OfflineSupport": true
+  },
+  "Reach": {
+    "Summary": "As of December 2024, more than 170,000 health workers across 20 countries use CHT-powered apps and have delivered over 170 million moments of digitally supported care. Six nations have selected the CHT as a digital community platform of choice, with a collective roadmap to scale their digital health programs to 350,000 CHWs this decade, including Kenya, Mali, Nepal, Uganda, Togo, and Zanzibar.",
+    "NumberOfImplementations": 20,
+    "HealthWorkersUsing": 170000,
+    "MomentsOfCare": 170000000,
+    "Countries": [
+      {
+        "Code": "cf",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ci",
+        "ImplementationDetails": "Recent pilot launched in Côte d'Ivoire"
+      },
+      {
+        "Code": "cd",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "gn",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ke",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs"
+      },
+      {
+        "Code": "ls",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ly",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ml",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs"
+      },
+      {
+        "Code": "mz",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "np",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs"
+      },
+      {
+        "Code": "ng",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ph",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "sl",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "so",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "za",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "ss",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      },
+      {
+        "Code": "tz",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs. Includes deployments in both mainland Tanzania and Zanzibar."
+      },
+      {
+        "Code": "tg",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs"
+      },
+      {
+        "Code": "ug",
+        "ImplementationDetails": "National platform selection with plans to scale to 350,000 CHWs"
+      },
+      {
+        "Code": "zw",
+        "ImplementationDetails": "CHT deployment supporting community health workers"
+      }
+    ]
+  },
+  "Maturity": {
+    "Scores": [
+      {
+        "Year": 2025,
+        "GlobalUtility": 8,
+        "CommunitySupport": 7,
+        "MaturityOfGG": 8,
+        "InclusiveDesign": 7,
+        "ClimateResilience": 4,
+        "LowCarbon": 6
+      }
+    ],
+    "InceptionYear": 2015,
+    "LatestVersion": "4.18",
+    "ReleaseNotes": true
+  },
+  "Community": {
+    "Description": "The CHT community engages through the Community Health Toolkit Forum, a place for implementers, developers, contributors, and users to share ideas and best practices, ask questions, or meet others who work in digital health. The online community includes resources supporting implementation, research, design, product features, technical support, COVID-19, and more.",
+    "HostAnchorOrganization": "Medic Mobile",
+    "CommunitySize": "170,000+ health workers using CHT-powered apps",
+    "Policies": {
+      "Governance": {
+        "url": "https://docs.communityhealthtoolkit.org",
+        "description": "Governance documentation"
+      },
+      "CommunityForum": {
+        "url": "https://forum.communityhealthtoolkit.org",
+        "description": "Community forum for implementers, developers, and users"
+      },
+      "CommunityEngagement": {
+        "url": "https://forum.communityhealthtoolkit.org/c/community/community-calls/33",
+        "description": "Monthly Round Up community calls"
+      }
+    }
+  },
+  "Resources": {
+    "ProductDocumentation": [
+      {
+        "url": "https://docs.communityhealthtoolkit.org",
+        "description": "Complete CHT documentation including technical and user guides"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "url": "https://docs.communityhealthtoolkit.org",
+        "description": "End user guides and documentation"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "url": "https://docs.communityhealthtoolkit.org/core",
+        "description": "Technical and developer documentation"
+      }
+    ],
+    "Roadmap": [
+      {
+        "url": "https://github.com/orgs/medic/projects/112",
+        "description": "Public-facing tool roadmap on GitHub"
+      }
+    ]
+  },
+  "LinkedInitiatives": {
+    "DigitalPublicGoods": {
+      "url": "https://www.digitalpublicgoods.net/r/community-health-toolkit",
+      "description": "Community Health Toolkit on Digital Public Goods Alliance registry"
+    }
+  }
+}

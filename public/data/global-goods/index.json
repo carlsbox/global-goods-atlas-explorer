@@ -2667,5 +2667,62 @@
       ],
       "Climate": []
     }
+  },
+  {
+    "ID": "cht",
+    "Name": "Community Health Toolkit",
+    "Summary": "Digital public good supporting community health workers with configurable mobile applications for health service delivery",
+    "Logo": "/uploads/gg_logos/cht_logo.png",
+    "GlobalGoodType": [
+      "software"
+    ],
+    "ClimateHealth": false,
+    "NumberOfImplementations": 20,
+    "Countries": [
+      "cf",
+      "ci",
+      "cd",
+      "gn",
+      "ke",
+      "ls",
+      "ly",
+      "ml",
+      "mz",
+      "np",
+      "ng",
+      "ph",
+      "sl",
+      "so",
+      "za",
+      "ss",
+      "tz",
+      "tg",
+      "ug",
+      "zw"
+    ],
+    "Classifications": {
+      "SDGs": [
+        "SDG-3",
+        "SDG-13"
+      ],
+      "WHO": [
+        "WHO_A2",
+        "WHO_A3",
+        "WHO_A7",
+        "WHO_B3",
+        "WHO_C5"
+      ],
+      "WMO": [],
+      "DPI": [
+        "DPI_PS1"
+      ]
+    },
+    "Standards": {
+      "Health": [],
+      "Interop": [
+        "FHIR"
+      ],
+      "Climate": []
+    }
   }
 ]
