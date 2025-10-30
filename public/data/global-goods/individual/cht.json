@@ -179,13 +179,13 @@
   "Maturity": {
     "Scores": [
       {
-        "Year": 2025,
-        "GlobalUtility": 8,
-        "CommunitySupport": 7,
-        "MaturityOfGG": 8,
-        "InclusiveDesign": 7,
-        "ClimateResilience": 4,
-        "LowCarbon": 6
+        "year": 2025,
+        "global_utility": 8,
+        "community_support": 7,
+        "maturity_of_gg": 8,
+        "inclusive_design": 7,
+        "climate_resilience": 4,
+        "low_carbon": 6
       }
     ],
     "InceptionYear": 2015,
