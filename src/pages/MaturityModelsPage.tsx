@@ -2,7 +2,7 @@ import { useI18n } from "@/hooks/useI18n";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Code, BookOpen, Users } from "lucide-react";
+import { ExternalLink, Code, BookOpen, Users, FileText, Check } from "lucide-react";
 
 const MaturityModelsPage = () => {
   const { tPage } = useI18n();
@@ -228,21 +228,33 @@ const MaturityModelsPage = () => {
             </section>
 
             {/* Guidance for applicants */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold">
-                {tPage('guidance.title', 'maturityModels')}
-              </h2>
-              <p className="text-muted-foreground">
-                {tPage('guidance.intro', 'maturityModels')}
-              </p>
-              <ul className="space-y-3 list-disc list-inside text-muted-foreground marker:text-primary">
-                {[0, 1, 2, 3, 4].map((index) => (
-                  <li key={index} className="leading-relaxed">
-                    {tPage(`guidance.points.${index}`, 'maturityModels')}
-                  </li>
-                ))}
-              </ul>
-            </section>
+            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
+              <CardHeader>
+                <CardTitle className="text-3xl flex items-center gap-2">
+                  <FileText className="h-8 w-8 text-primary" />
+                  {tPage('guidance.title', 'maturityModels')}
+                </CardTitle>
+                <CardDescription className="text-base">
+                  {tPage('guidance.intro', 'maturityModels')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-4">
+                  {[0, 1, 2, 3, 4].map((index) => (
+                    <div key={index} className="flex gap-3 items-start">
+                      <div className="mt-1 flex-shrink-0">
+                        <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center">
+                          <Check className="h-4 w-4 text-primary" />
+                        </div>
+                      </div>
+                      <p className="text-foreground leading-relaxed flex-1">
+                        {tPage(`guidance.points.${index}`, 'maturityModels')}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Resources section */}
             <section className="space-y-8">
