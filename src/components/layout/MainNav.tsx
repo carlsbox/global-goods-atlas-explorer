@@ -10,10 +10,17 @@ import {
   FileText,
   Database,
   Info,
-  Heart
+  Heart,
+  ChevronDown
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import LanguageSelector from '@/components/LanguageSelector';
 import { useI18n } from '@/hooks/useI18n';
 import { getSiteName } from '@/lib/config';
@@ -56,18 +63,56 @@ export function MainNav() {
       {/* Desktop Navigation */}
       <div className="flex items-center">
         <nav className="hidden md:flex space-x-8 mr-4">
-          {navItems.map((item) => (
-            <NavLink 
-              key={item.path} 
-              to={item.path}
-              className={({ isActive }) => cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                isActive ? "text-primary font-semibold" : "text-muted-foreground"
-              )}
-            >
-              {tPage(item.translationKey, 'navigation')}
-            </NavLink>
-          ))}
+          {navItems.map((item) => {
+            // Render About as a dropdown
+            if (item.path === '/about') {
+              return (
+                <DropdownMenu key={item.path}>
+                  <DropdownMenuTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      className="text-sm font-medium text-muted-foreground hover:text-primary h-auto p-0 gap-1"
+                    >
+                      {tPage(item.translationKey, 'navigation')}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem asChild>
+                      <NavLink 
+                        to="/about"
+                        className="w-full cursor-pointer"
+                      >
+                        {tPage('nav.about', 'navigation')}
+                      </NavLink>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <NavLink 
+                        to="/gg-maturity-model"
+                        className="w-full cursor-pointer"
+                      >
+                        {tPage('nav.maturityModels', 'navigation')}
+                      </NavLink>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              );
+            }
+            
+            // Render other items normally
+            return (
+              <NavLink 
+                key={item.path} 
+                to={item.path}
+                className={({ isActive }) => cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                )}
+              >
+                {tPage(item.translationKey, 'navigation')}
+              </NavLink>
+            );
+          })}
         </nav>
         
         {/* Language selector */}
@@ -87,20 +132,52 @@ export function MainNav() {
             <LanguageSelector />
           </div>
           <nav className="flex flex-col space-y-4 mt-8">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileOpen(false)}
-                className={({ isActive }) => cn(
-                  "flex items-center py-2 text-base font-medium transition-colors hover:text-primary",
-                  isActive ? "text-primary font-semibold" : "text-muted-foreground"
-                )}
-              >
-                <item.icon className="mr-2 h-5 w-5" />
-                {tPage(item.translationKey, 'navigation')}
-              </NavLink>
-            ))}
+            {navItems.map((item) => {
+              // Render About as expandable section in mobile
+              if (item.path === '/about') {
+                return (
+                  <div key={item.path} className="flex flex-col space-y-2">
+                    <NavLink
+                      to="/about"
+                      onClick={() => setIsMobileOpen(false)}
+                      className={({ isActive }) => cn(
+                        "flex items-center py-2 text-base font-medium transition-colors hover:text-primary",
+                        isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                      )}
+                    >
+                      <item.icon className="mr-2 h-5 w-5" />
+                      {tPage(item.translationKey, 'navigation')}
+                    </NavLink>
+                    <NavLink
+                      to="/gg-maturity-model"
+                      onClick={() => setIsMobileOpen(false)}
+                      className={({ isActive }) => cn(
+                        "flex items-center py-2 pl-7 text-sm font-medium transition-colors hover:text-primary",
+                        isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                      )}
+                    >
+                      {tPage('nav.maturityModels', 'navigation')}
+                    </NavLink>
+                  </div>
+                );
+              }
+              
+              // Render other items normally
+              return (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileOpen(false)}
+                  className={({ isActive }) => cn(
+                    "flex items-center py-2 text-base font-medium transition-colors hover:text-primary",
+                    isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                  )}
+                >
+                  <item.icon className="mr-2 h-5 w-5" />
+                  {tPage(item.translationKey, 'navigation')}
+                </NavLink>
+              );
+            })}
           </nav>
         </SheetContent>
       </Sheet>

@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "title": "Modèles de Maturité des Biens Mondiaux",
+    "description": "Découvrez les modèles de maturité utilisés pour évaluer les outils et contenus numériques de santé open-source. Comprenez comment évaluer et améliorer votre bien mondial."
+  },
+  "hero": {
+    "title": "Modèles de Maturité des Biens Mondiaux",
+    "description": "Les biens mondiaux sont des outils et ressources numériques open-source qui peuvent être adaptés à différents pays et contextes pour aider à résoudre les défis des systèmes de santé et accélérer l'impact. Le Guide des Biens Mondiaux reconnaît que pour devenir véritablement mondial, un outil doit répondre à des critères clairs – y compris une licence ouverte, un alignement sur les Objectifs de Développement Durable (ODD) et la conformité à la norme des Biens Publics Numériques. Pour garantir que les outils et contenus numériques peuvent évoluer de manière durable et être réutilisés dans tous les programmes, Digital Square a développé des Modèles de Maturité des Biens Mondiaux. Ces modèles fournissent une manière structurée pour les développeurs et les responsables de mise en œuvre d'évaluer où en est leur projet et quelles étapes sont nécessaires pour atteindre le statut de 'bien mondial'. Les modèles fournissent également un cadre cohérent pour comparer les outils, soutenant la prise de décision fondée sur des preuves, et encouragent l'amélioration continue tout en promouvant l'alignement mondial."
+  },
+  "whatAre": {
+    "title": "Que sont les modèles de maturité?",
+    "content": "Les modèles de maturité aident les développeurs, les responsables de mise en œuvre et les décideurs gouvernementaux à comprendre jusqu'où un produit numérique a progressé, d'un prototype précoce à un bien mondial robuste et largement adopté. Depuis 2017, Digital Square a organisé et continuellement mis à jour ces modèles en étroite collaboration avec la communauté mondiale de la santé numérique. Développés à travers de vastes consultations, ils intègrent les perspectives d'un large éventail d'experts, de réseaux régionaux de santé numérique, de l'Alliance des Biens Publics Numériques et d'organisations multilatérales notamment l'OMS, l'OMM et l'UNICEF. Les modèles mettent l'accent sur la collaboration ouverte et encouragent l'amélioration continue, créant un cadre cohérent pour comparer les outils et soutenir la prise de décision fondée sur des preuves."
+  },
+  "twoModels": {
+    "title": "Deux modèles distincts existent:",
+    "software": {
+      "title": "Modèle de Maturité des Logiciels Biens Mondiaux",
+      "subtitle": "Utilisé pour les plateformes logicielles open-source, les applications et les composants",
+      "intro": "Ce modèle évalue trois dimensions:",
+      "dimensions": {
+        "globalUtility": {
+          "label": "Utilité mondiale:",
+          "description": "Plusieurs pays ou programmes utilisent-ils le logiciel? Résout-il un défi reconnu du système de santé et réduit-il la fragmentation? Les projets avec une adoption large démontrent une maturité plus élevée."
+        },
+        "communitySupport": {
+          "label": "Soutien communautaire:",
+          "description": "Y a-t-il une communauté de contributeurs dynamique et diversifiée? La gouvernance inclut-elle les utilisateurs, les développeurs et les financeurs, et le développement est-il transparent? Des communautés fortes réduisent le verrouillage des fournisseurs et rendent les logiciels plus durables."
+        },
+        "softwareMaturity": {
+          "label": "Maturité logicielle:",
+          "description": "La base de code répond-elle aux meilleures pratiques techniques? Y a-t-il une documentation claire, des normes d'interopérabilité et des déploiements éprouvés? Une maturité élevée nécessite une architecture évolutive et le respect des normes ouvertes."
+        }
+      },
+      "downloadButton": "Télécharger le modèle de maturité logicielle"
+    },
+    "content": {
+      "title": "Modèle de Maturité des Contenus Biens Mondiaux",
+      "subtitle": "Conçu pour les ressources de connaissances numériques – telles que les directives, les ensembles de données, les modules d'apprentissage ou les boîtes à outils",
+      "intro": "Ce modèle se concentre sur:",
+      "focuses": {
+        "quality": {
+          "label": "Qualité et pertinence du contenu:",
+          "description": "Le contenu est-il précis, régulièrement mis à jour et fondé sur des preuves? Répond-il à un défi de santé réel et s'aligne-t-il sur les directives internationales? Le contenu d'un bien mondial est digne de confiance, pertinent et réactif aux défis de santé réels."
+        },
+        "accessibility": {
+          "label": "Accessibilité et licences:",
+          "description": "La ressource est-elle disponible sous une licence ouverte (par exemple, Creative Commons)? Les utilisateurs peuvent-ils facilement la trouver, l'adapter et la traduire? Une licence ouverte est une condition préalable à la reconnaissance en tant que bien mondial."
+        },
+        "community": {
+          "label": "Communauté et utilisation:",
+          "description": "Les organisations et les pays adoptent-ils, adaptent-ils et contribuent-ils au contenu? Les biens de contenu matures ont des communautés actives qui maintiennent et améliorent la ressource, similaires aux communautés de logiciels open-source."
+        }
+      },
+      "downloadButton": "Télécharger le modèle de maturité du contenu"
+    }
+  },
+  "howToUse": {
+    "title": "Comment utiliser les modèles de maturité",
+    "steps": [
+      {
+        "label": "Choisissez le modèle approprié.",
+        "description": "Utilisez le modèle logiciel pour les plateformes numériques ou les applications et le modèle de contenu pour la documentation, les programmes ou les ensembles de données."
+      },
+      {
+        "label": "Auto-évaluez votre projet.",
+        "description": "Passez en revue chaque dimension et sous-indicateur et marquez le niveau (par exemple, bas/moyen/élevé) qui décrit le mieux votre statut actuel."
+      },
+      {
+        "label": "Identifiez les lacunes et planifiez les améliorations.",
+        "description": "Les scores de maturité mettent en évidence les forces et les domaines nécessitant du travail. Par exemple, si le soutien communautaire est faible, concentrez-vous sur la construction d'une gouvernance communautaire inclusive et l'engagement des contributeurs."
+      },
+      {
+        "label": "Soumettez dans le cadre d'un appel ouvert.",
+        "description": "Digital Square émet des appels ouverts périodiques invitant les développeurs d'outils numériques à soumettre leurs outils accompagnés du modèle de maturité."
+      }
+    ]
+  },
+  "guidance": {
+    "title": "Conseils pour les candidats à un appel ouvert",
+    "intro": "Lors de la préparation de votre évaluation de modèle de maturité:",
+    "points": [
+      "Assurez-vous que votre logiciel ou contenu est véritablement open-source ou sous une licence ouverte; ceci est non négociable pour les biens mondiaux.",
+      "Démontrez comment votre projet est utilisé dans les programmes ou les pays et expliquez comment il réduit la fragmentation et améliore l'impact sur la santé.",
+      "Mettez en évidence votre structure de gouvernance, votre communauté de contributeurs et la diversité du financement. Les biens mondiaux durables bénéficient de la collaboration inter-organisationnelle et réduisent la dépendance à un seul fournisseur.",
+      "Fournissez des preuves d'interopérabilité et d'alignement avec les normes pertinentes (par exemple, HL7 FHIR, flux de travail OpenHIE) et les directives internationales telles que les Kits d'Adaptation Numérique de l'OMS.",
+      "Pour les biens de contenu, incluez des détails sur les processus de mise à jour, les efforts de traduction et la manière dont les utilisateurs peuvent adapter la ressource aux contextes locaux."
+    ]
+  },
+  "resources": {
+    "title": "Ressources et prochaines étapes",
+    "cards": {
+      "software": {
+        "title": "Modèle de Maturité Logicielle",
+        "description": "Digital Square fournit une feuille Google pour l'auto-évaluation. Faites une copie et évaluez votre logiciel par rapport à chaque indicateur.",
+        "buttonText": "Télécharger"
+      },
+      "content": {
+        "title": "Modèle de Maturité du Contenu",
+        "description": "Un modèle séparé est disponible pour évaluer les biens de contenu. Faites une copie et évaluez votre contenu par rapport à chaque indicateur.",
+        "buttonText": "Télécharger"
+      },
+      "review": {
+        "title": "Processus d'Examen",
+        "description": "Lisez comment le Groupe d'Examen par les Pairs évalue les soumissions et les avantages de devenir un bien mondial reconnu.",
+        "buttonText": "En savoir plus"
+      }
+    }
+  },
+  "closing": {
+    "content": "En utilisant ces modèles de maturité, les développeurs et les responsables de mise en œuvre peuvent construire des biens mondiaux robustes qui sont durables, interopérables et prêts pour l'adoption à l'échelle, s'alignant sur la vision du Guide des biens mondiaux d'outils open-source qui améliorent les résultats de santé dans le monde entier."
+  }
+}

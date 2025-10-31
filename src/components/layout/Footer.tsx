@@ -35,6 +35,9 @@ export function Footer() {
             {/* <Link to="/create-global-good" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.createGlobalGood', 'navigation')}
             </Link> */}
+            <Link to="/gg-maturity-model" className="text-sm text-muted-foreground hover:text-primary">
+              {tPage('nav.maturityModels', 'navigation')}
+            </Link>
             <Link to="/content-license" className="text-sm text-muted-foreground hover:text-primary">
               {tPage('nav.contentLicense', 'navigation') || 'Content License'}
             </Link>

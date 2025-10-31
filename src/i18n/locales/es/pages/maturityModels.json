@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "title": "Modelos de Madurez de Bienes Globales",
+    "description": "Aprenda sobre los modelos de madurez utilizados para evaluar herramientas y contenidos digitales de salud de código abierto. Comprenda cómo evaluar y mejorar su bien global."
+  },
+  "hero": {
+    "title": "Modelos de Madurez de Bienes Globales",
+    "description": "Los bienes globales son herramientas y recursos digitales de código abierto que pueden adaptarse a diferentes países y contextos para ayudar a resolver los desafíos del sistema de salud y acelerar el impacto. La Guía de Bienes Globales reconoce que para convertirse verdaderamente en global, una herramienta debe cumplir con criterios claros, incluidas las licencias abiertas, la alineación con los Objetivos de Desarrollo Sostenible (ODS) y el cumplimiento del estándar de Bien Público Digital. Para garantizar que las herramientas y contenidos digitales puedan escalar de manera sostenible y reutilizarse en todos los programas, Digital Square ha desarrollado Modelos de Madurez de Bienes Globales. Estos modelos proporcionan una forma estructurada para que los desarrolladores e implementadores evalúen dónde se encuentra su proyecto y qué pasos se necesitan para lograr el estado de 'bien global'. Los modelos también proporcionan un marco consistente para comparar herramientas, apoyando la toma de decisiones basada en evidencia, y fomentan la mejora continua al tiempo que promueven la alineación global."
+  },
+  "whatAre": {
+    "title": "¿Qué son los modelos de madurez?",
+    "content": "Los modelos de madurez ayudan a los desarrolladores, implementadores y tomadores de decisiones gubernamentales a comprender hasta dónde ha progresado un producto digital desde un prototipo temprano hasta un bien global robusto y ampliamente adoptado. Desde 2017, Digital Square ha curado y actualizado continuamente estos modelos en estrecha colaboración con la comunidad global de salud digital. Desarrollados a través de extensas consultas, incorporan perspectivas de una amplia gama de expertos, redes regionales de salud digital, la Alianza de Bienes Públicos Digitales y organizaciones multilaterales que incluyen la OMS, la OMM y UNICEF. Los modelos enfatizan la colaboración abierta y fomentan la mejora continua, creando un marco consistente para comparar herramientas y apoyar la toma de decisiones basada en evidencia."
+  },
+  "twoModels": {
+    "title": "Existen dos modelos separados:",
+    "software": {
+      "title": "Modelo de Madurez de Software de Bienes Globales",
+      "subtitle": "Utilizado para plataformas de software de código abierto, aplicaciones y componentes básicos",
+      "intro": "Este modelo evalúa tres dimensiones:",
+      "dimensions": {
+        "globalUtility": {
+          "label": "Utilidad global:",
+          "description": "¿Múltiples países o programas están usando el software? ¿Resuelve un desafío reconocido del sistema de salud y reduce la fragmentación? Los proyectos con amplia adopción demuestran mayor madurez."
+        },
+        "communitySupport": {
+          "label": "Apoyo comunitario:",
+          "description": "¿Hay una comunidad de contribuyentes vibrante y diversa? ¿La gobernanza incluye usuarios, desarrolladores y financiadores, y el desarrollo es transparente? Las comunidades fuertes reducen el bloqueo de proveedores y hacen que el software sea más sostenible."
+        },
+        "softwareMaturity": {
+          "label": "Madurez del software:",
+          "description": "¿La base de código cumple con las mejores prácticas técnicas? ¿Hay documentación clara, estándares de interoperabilidad y despliegues probados? La alta madurez requiere arquitectura escalable y adherencia a estándares abiertos."
+        }
+      },
+      "downloadButton": "Descargar el modelo de madurez de software"
+    },
+    "content": {
+      "title": "Modelo de Madurez de Contenido de Bienes Globales",
+      "subtitle": "Diseñado para recursos de conocimiento digital, como directrices, conjuntos de datos, paquetes de aprendizaje o kits de herramientas",
+      "intro": "Este modelo se centra en:",
+      "focuses": {
+        "quality": {
+          "label": "Calidad y relevancia del contenido:",
+          "description": "¿El contenido es preciso, actualizado regularmente y basado en evidencia? ¿Aborda un desafío de salud real y se alinea con la orientación internacional? El contenido de bien global es confiable, relevante y receptivo a los desafíos de salud reales."
+        },
+        "accessibility": {
+          "label": "Accesibilidad y licencias:",
+          "description": "¿El recurso está disponible bajo una licencia abierta (por ejemplo, Creative Commons)? ¿Los usuarios pueden encontrarlo, adaptarlo y traducirlo fácilmente? La licencia abierta es una condición previa para el reconocimiento como bien global."
+        },
+        "community": {
+          "label": "Comunidad y uso:",
+          "description": "¿Las organizaciones y países están adoptando, adaptando y contribuyendo al contenido? Los bienes de contenido maduros tienen comunidades activas que mantienen y mejoran el recurso, similar a las comunidades de software de código abierto."
+        }
+      },
+      "downloadButton": "Descargar el modelo de madurez de contenido"
+    }
+  },
+  "howToUse": {
+    "title": "Cómo usar los modelos de madurez",
+    "steps": [
+      {
+        "label": "Elija el modelo apropiado.",
+        "description": "Use el modelo de software para plataformas digitales o aplicaciones y el modelo de contenido para documentación, planes de estudio o conjuntos de datos."
+      },
+      {
+        "label": "Autoevalúe su proyecto.",
+        "description": "Revise cada dimensión y sub-indicador y marque el nivel (por ejemplo, bajo/medio/alto) que mejor describe su estado actual."
+      },
+      {
+        "label": "Identifique brechas y planifique mejoras.",
+        "description": "Las puntuaciones de madurez resaltan las fortalezas y áreas que necesitan trabajo. Por ejemplo, si el apoyo comunitario es débil, enfóquese en construir gobernanza comunitaria inclusiva y compromiso de contribuyentes."
+      },
+      {
+        "label": "Presente como parte de una convocatoria abierta.",
+        "description": "Digital Square emite convocatorias abiertas periódicas invitando a los desarrolladores de herramientas digitales a presentar sus herramientas junto con el modelo de madurez."
+      }
+    ]
+  },
+  "guidance": {
+    "title": "Orientación para solicitantes de una convocatoria abierta",
+    "intro": "Al preparar su evaluación del modelo de madurez:",
+    "points": [
+      "Asegúrese de que su software o contenido sea genuinamente de código abierto o bajo una licencia abierta; esto no es negociable para los bienes globales.",
+      "Demuestre cómo se usa su proyecto en programas o países y explique cómo reduce la fragmentación y mejora el impacto en la salud.",
+      "Destaque su estructura de gobernanza, comunidad de contribuyentes y diversidad de financiamiento. Los bienes globales sostenibles se benefician de la colaboración interorganizacional y reducen la dependencia de un solo proveedor.",
+      "Proporcione evidencia de interoperabilidad y alineación con estándares relevantes (por ejemplo, HL7 FHIR, flujos de trabajo OpenHIE) y orientación internacional como los Kits de Adaptación Digital de la OMS.",
+      "Para bienes de contenido, incluya detalles sobre procesos de actualización, esfuerzos de traducción y cómo los usuarios pueden adaptar el recurso a contextos locales."
+    ]
+  },
+  "resources": {
+    "title": "Recursos y próximos pasos",
+    "cards": {
+      "software": {
+        "title": "Modelo de Madurez de Software",
+        "description": "Digital Square proporciona una hoja de Google para la autoevaluación. Haga una copia y califique su software contra cada indicador.",
+        "buttonText": "Descargar"
+      },
+      "content": {
+        "title": "Modelo de Madurez de Contenido",
+        "description": "Una plantilla separada está disponible para evaluar bienes de contenido. Haga una copia y califique su contenido contra cada indicador.",
+        "buttonText": "Descargar"
+      },
+      "review": {
+        "title": "Proceso de Revisión",
+        "description": "Lea sobre cómo el Grupo de Revisión por Pares evalúa las presentaciones y los beneficios de convertirse en un bien global reconocido.",
+        "buttonText": "Aprende más"
+      }
+    }
+  },
+  "closing": {
+    "content": "Al usar estos modelos de madurez, los desarrolladores e implementadores pueden construir bienes globales robustos que son sostenibles, interoperables y listos para la adopción a escala, alineándose con la visión de la Guía de herramientas de código abierto que mejoran los resultados de salud en todo el mundo."
+  }
+}
