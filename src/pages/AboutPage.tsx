@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Code, Users, ExternalLink, BookOpen, FileText, Database, Settings, Mail, Globe, Calendar } from "lucide-react";
 import { useI18n } from "@/hooks/useI18n";
+import { SEO } from "@/components/SEO";
 
 export default function AboutPage() {
   const { tPage } = useI18n();
@@ -208,9 +210,11 @@ export default function AboutPage() {
                 <p className="text-muted-foreground mb-4">
                   {tPage('maturityModel.development', 'about')}
                 </p>
-                <p className="text-primary font-medium cursor-pointer hover:underline">
-                  {tPage('maturityModel.downloadLink', 'about')}
-                </p>
+                <Button asChild variant="outline" className="mt-2">
+                  <Link to="/gg-maturity-model">
+                    {tPage('maturityModel.learnMoreButton', 'about')}
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 

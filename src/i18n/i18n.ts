@@ -70,6 +70,11 @@ import cookiePolicyEN from './locales/en/pages/cookiePolicy.json';
 import cookiePolicyFR from './locales/fr/pages/cookiePolicy.json';
 import cookiePolicyES from './locales/es/pages/cookiePolicy.json';
 
+// Import Maturity Models page translations
+import maturityModelsEN from './locales/en/pages/maturityModels.json';
+import maturityModelsFR from './locales/fr/pages/maturityModels.json';
+import maturityModelsES from './locales/es/pages/maturityModels.json';
+
 // Define the resources structure with namespaces
 const resources = {
   en: {
@@ -85,7 +90,8 @@ const resources = {
     navigation: navigationEN,
     climateServices: climateServicesEN,
     cookiePolicy: cookiePolicyEN,
-    contentLicense: contentLicenseEN
+    contentLicense: contentLicenseEN,
+    maturityModels: maturityModelsEN
   },
   fr: {
     translation: translationFR,
@@ -100,7 +106,8 @@ const resources = {
     navigation: navigationFR,
     climateServices: climateServicesFR,
     cookiePolicy: cookiePolicyFR,
-    contentLicense: contentLicenseFR
+    contentLicense: contentLicenseFR,
+    maturityModels: maturityModelsFR
   },
   es: {
     translation: translationES,
@@ -115,7 +122,8 @@ const resources = {
     navigation: navigationES,
     climateServices: climateServicesES,
     cookiePolicy: cookiePolicyES,
-    contentLicense: contentLicenseES
+    contentLicense: contentLicenseES,
+    maturityModels: maturityModelsES
   }
 };
 
@@ -130,7 +138,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'navigation', 'climateServices', 'cookiePolicy'],
+    ns: ['translation', 'home', 'about', 'notFound', 'globalGoods', 'globalGoodDetails', 'useCases', 'map', 'cookie', 'navigation', 'climateServices', 'cookiePolicy', 'maturityModels'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false // React already safes from xss

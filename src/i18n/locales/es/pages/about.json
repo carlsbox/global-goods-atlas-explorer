@@ -67,5 +67,11 @@
   "contact": {
     "title": "Contáctanos",
     "buttonText": "Contactar Equipo de Bienes Globales"
+  },
+  "maturityModel": {
+    "title": "Adaptación de un modelo de madurez",
+    "content": "Desde 2017, Digital Square en PATH ha gestionado Modelos de Madurez en nombre de la comunidad global de salud digital, actualizándolos regularmente para reflejar prioridades cambiantes y necesidades evolutivas. La última versión - el Modelo de Madurez para el Clima y la Salud (MMCH) - introduce indicadores adicionales específicamente diseñados para evaluar herramientas digitales de código abierto que apoyan la adaptación, mitigación y respuesta del sistema de salud al clima. El MMCH juega un papel central en el proceso del Grupo de Revisión por Pares (PRG) para evaluar Bienes Globales y sirve como referencia práctica para evaluar herramientas en este espacio emergente.",
+    "development": "Desarrollado mediante una extensa consulta global, el modelo refleja aportes de talleres en grandes eventos de salud digital, redes regionales de salud digital y compromiso directo con expertos climáticos de organizaciones como la OMM, Heat Health Network y el Instituto Pasteur. El MMCH proporciona un marco consistente para comparar herramientas, apoya la toma de decisiones basada en evidencia, fomenta la mejora continua, promueve la alineación global y aplica una perspectiva climática a la innovación en salud digital.",
+    "learnMoreButton": "Más información sobre modelos de madurez GG"
   }
 }

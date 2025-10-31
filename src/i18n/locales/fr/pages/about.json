@@ -67,5 +67,11 @@
   "contact": {
     "title": "Nous Contacter",
     "buttonText": "Contacter l'Équipe des Biens Mondiaux"
+  },
+  "maturityModel": {
+    "title": "Adaptation d'un modèle de maturité",
+    "content": "Depuis 2017, Digital Square à PATH a géré des Modèles de Maturité au nom de la communauté mondiale de santé numérique, les mettant à jour régulièrement pour refléter les priorités changeantes et les besoins évolutifs. La dernière version - le Modèle de Maturité pour le Climat et la Santé (MMCH) - introduit des indicateurs supplémentaires spécifiquement conçus pour évaluer les outils numériques open source qui soutiennent l'adaptation, l'atténuation et la réponse des systèmes de santé au climat. Le MMCH joue un rôle central dans le processus du Groupe d'Examen par les Pairs (PRG) pour évaluer les Biens Mondiaux et sert de référence pratique pour évaluer les outils dans cet espace émergent.",
+    "development": "Développé grâce à une vaste consultation mondiale, le modèle reflète les contributions d'ateliers lors de grands événements de santé numérique, de réseaux régionaux de santé numérique, et d'engagements directs avec des experts climatiques d'organisations telles que l'OMM, le Heat Health Network et l'Institut Pasteur. Le MMCH fournit un cadre cohérent pour comparer les outils, soutient la prise de décision basée sur les preuves, encourage l'amélioration continue, favorise l'alignement mondial et applique une perspective climatique à l'innovation en santé numérique.",
+    "learnMoreButton": "En savoir plus sur les modèles de maturité GG"
   }
 }

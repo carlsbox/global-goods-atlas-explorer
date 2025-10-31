@@ -21,6 +21,7 @@ const UseCaseDetailsPage = lazy(() => import("@/pages/UseCaseDetailsPage"));
 const EnhancedMapPage = lazy(() => import("@/pages/EnhancedMapPage"));
 const ReferencePage = lazy(() => import("@/pages/ReferencePage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const MaturityModelsPage = lazy(() => import("@/pages/MaturityModelsPage"));
 const CookiePolicyPage = lazy(() => import("@/pages/CookiePolicyPage"));
 const ContentLicensePage = lazy(() => import("@/pages/ContentLicensePage"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
@@ -131,6 +132,11 @@ function AppContent() {
                   <Route path="about" element={
                     <Suspense fallback={<PageLoadingSkeleton />}>
                       <AboutPage />
+                    </Suspense>
+                  } />
+                  <Route path="gg-maturity-model" element={
+                    <Suspense fallback={<PageLoadingSkeleton />}>
+                      <MaturityModelsPage />
                     </Suspense>
                   } />
                   <Route path="cookie-policy" element={

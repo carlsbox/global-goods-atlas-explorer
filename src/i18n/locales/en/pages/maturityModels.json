@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "title": "Global Goods Maturity Models",
+    "description": "Learn about the maturity models used to assess open-source digital health tools and content. Understand how to evaluate and improve your global good."
+  },
+  "hero": {
+    "title": "Global Goods Maturity Models",
+    "description": "Global goods are open-source digital tools and resources that can be adapted to different countries and contexts to help solve health system challenges and accelerate impact. The Global Goods Guidebook recognises that to become truly global, a tool must meet clear criteria – including open licensing, alignment with the Sustainable Development Goals (SDGs) and compliance with the Digital Public Good standard. To ensure that digital tools and content can scale sustainably and be reused across programmes, Digital Square has developed Global Goods Maturity Models. These models provide a structured way for developers and implementers to assess where their project stands and what steps are needed to achieve 'global good' status. The models also provide a consistent framework to compare tools, supporting evidence-based decision-making, and encourage continuous improvement whilst also promoting global alignment."
+  },
+  "whatAre": {
+    "title": "What are the maturity models?",
+    "content": "The maturity models help developers, implementers and government decision-makers to understand how far a digital product has progressed from early prototype to a robust, widely adopted global good. Since 2017, Digital Square has curated and continuously updated these models in close collaboration with the global digital health community. Developed through extensive consultation, they incorporate insights from a diverse range of experts, regional digital health networks, the Digital Public Goods Alliance and multilateral organizations including WHO, WMO and UNICEF. The models emphasise open collaboration and encourage continuous improvement, creating a consistent framework for comparing tools and supporting evidence-based decision-making."
+  },
+  "twoModels": {
+    "title": "Two separate models exist:",
+    "software": {
+      "title": "Software Global Goods Maturity Model",
+      "subtitle": "Used for open-source software platforms, applications and building blocks",
+      "intro": "This model assesses three dimensions:",
+      "dimensions": {
+        "globalUtility": {
+          "label": "Global utility:",
+          "description": "Are multiple countries or programmes using the software? Does it solve a recognised health system challenge and reduce fragmentation? Projects with broad adoption demonstrate higher maturity."
+        },
+        "communitySupport": {
+          "label": "Community support:",
+          "description": "Is there a vibrant, diverse contributor community? Does governance include users, developers and funders, and is development transparent? Strong communities reduce vendor lock-in and make software more sustainable."
+        },
+        "softwareMaturity": {
+          "label": "Software maturity:",
+          "description": "Does the code base meet technical best practices? Are there clear documentation, interoperability standards and proven deployments? High maturity requires scalable architecture and adherence to open standards."
+        }
+      },
+      "downloadButton": "Download the software maturity model"
+    },
+    "content": {
+      "title": "Content Global Goods Maturity Model",
+      "subtitle": "Designed for digital knowledge resources – such as guidelines, data sets, learning packages or toolkits",
+      "intro": "This model focuses on:",
+      "focuses": {
+        "quality": {
+          "label": "Content quality and relevance:",
+          "description": "Is the content accurate, regularly updated and evidence-based? Does it address a real health challenge and align with international guidance? Global good content is trustworthy, relevant, and responsive to real health challenges."
+        },
+        "accessibility": {
+          "label": "Accessibility and licensing:",
+          "description": "Is the resource available under an open licence (e.g., Creative Commons)? Can users easily find, adapt and translate it? Open licensing is a precondition for recognition as a global good."
+        },
+        "community": {
+          "label": "Community and use:",
+          "description": "Are organisations and countries adopting, adapting and contributing to the content? Mature content goods have active communities that maintain and enhance the resource, similar to open-source software communities."
+        }
+      },
+      "downloadButton": "Download the content maturity model"
+    }
+  },
+  "howToUse": {
+    "title": "How to use the maturity models",
+    "steps": [
+      {
+        "label": "Choose the appropriate model.",
+        "description": "Use the software model for digital platforms or applications and the content model for documentation, curricula or data sets."
+      },
+      {
+        "label": "Self-assess your project.",
+        "description": "Review each dimension and sub-indicator and mark the level (e.g., low/medium/high) that best describes your current status."
+      },
+      {
+        "label": "Identify gaps and plan improvements.",
+        "description": "Maturity scores highlight strengths and areas needing work. For instance, if community support is weak, focus on building inclusive community governance and contributor engagement."
+      },
+      {
+        "label": "Submit as part of an open call.",
+        "description": "Digital Square issues periodic open calls inviting digital tool developers to submit their tools along with the maturity model."
+      }
+    ]
+  },
+  "guidance": {
+    "title": "Guidance for applicants to an open call",
+    "intro": "When preparing your maturity model assessment:",
+    "points": [
+      "Ensure your software or content is genuinely open source or under an open licence; this is non-negotiable for global goods.",
+      "Demonstrate how your project is used across programmes or countries and explain how it reduces fragmentation and improves health impact.",
+      "Highlight your governance structure, contributor community and funding diversity. Sustainable global goods benefit from cross-organisational collaboration and reduce dependence on a single vendor.",
+      "Provide evidence of interoperability and alignment with relevant standards (e.g., HL7 FHIR, OpenHIE workflows) and international guidance such as WHO Digital Adaptation Kits.",
+      "For content goods, include details on update processes, translation efforts and how users can adapt the resource to local contexts."
+    ]
+  },
+  "resources": {
+    "title": "Resources and next steps",
+    "cards": {
+      "software": {
+        "title": "Software Maturity Model",
+        "description": "Digital Square provides a Google Sheet for self-assessment. Make a copy and score your software against each indicator.",
+        "buttonText": "Download"
+      },
+      "content": {
+        "title": "Content Maturity Model",
+        "description": "A separate template is available for evaluating content goods. Make a copy and score your content against each indicator.",
+        "buttonText": "Download"
+      },
+      "review": {
+        "title": "Review Process",
+        "description": "Read about how the Peer Review Group evaluates submissions and the benefits of becoming a recognised global good.",
+        "buttonText": "Learn more"
+      }
+    }
+  },
+  "closing": {
+    "content": "By using these maturity models, developers and implementers can build robust global goods that are sustainable, interoperable and ready for adoption at scale, aligning with the Guidebook's vision of open-source tools that improve health outcomes around the world."
+  }
+}
