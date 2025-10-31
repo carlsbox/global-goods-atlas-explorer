@@ -2670,7 +2670,7 @@
   },
   {
     "ID": "cht",
-    "Name": "Community Health Toolkit",
+    "Name": "Community Health Toolkit (CHT)",
     "Summary": "Digital public good supporting community health workers with configurable mobile applications for health service delivery",
     "Logo": "/uploads/gg_logos/cht_logo.png",
     "GlobalGoodType": [

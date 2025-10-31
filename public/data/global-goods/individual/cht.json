@@ -1,6 +1,6 @@
 {
   "ID": "cht",
-  "Name": "Community Health Toolkit",
+  "Name": "Community Health Toolkit (CHT)",
   "Logo": "/uploads/gg_logos/cht_logo.png",
   "Website": {
     "main": {
@@ -28,6 +28,10 @@
       "name": "Antony Khaemba",
       "email": "antony@medic.org",
       "role": "Medic Mobile Inc"
+    },{
+      "name": "Community Health Toolkit General Contact",
+      "email": "hello@medic.org",
+      "role": "General contact address"
     }
   ],
   "Classifications": {
@@ -71,7 +75,7 @@
     "SummaryOfMaturity": "All maturity model assessments are self-reported by the funded organization leading the development of the global good. The scores for Inclusive Design, Climate Resilience and Low Carbon are not available as this assessment was done using the previous version of the maturity model.",
     "Scores": [
       {
-        "year": 2025,
+        "year": 2024,
         "global_utility": 8,
         "community_support": 7,
         "maturity_of_gg": 8,
@@ -93,21 +97,27 @@
       "country": ["us", "ke"]
     },
     "InceptionYear": 2015,
-    "SizeOfCommunity": 170000,
+    "SizeOfCommunity": 37,
     "Links": {
       "Community": {
         "url": "https://forum.communityhealthtoolkit.org",
         "description": "Community forum for implementers, developers, and users"
       },
       "MailingList": {
-        "url": "",
-        "description": ""
+        "url": "https://forum.communityhealthtoolkit.org",
+        "description": "Monthly Round-Up calls and discussion threads"
       }
     },
     "Events": {
-      "description": "Annual CHT Conference and quarterly community webinars.",
-      "schedule": "https://communityhealthtoolkit.org/events",
-      "recent": []
+      "description": "Annual CHT Conference, Quarterly Webinars, and Monthly Round-Up Calls.",
+      "schedule": "https://forum.communityhealthtoolkit.org/c/community/community-calls/33",
+      "recent": [
+        {
+          "name": "Monthly Round-Up Call",
+          "url": "https://forum.communityhealthtoolkit.org/c/community/community-calls/33",
+          "date": "Ongoing"
+        }
+      ]
     },
     "Policies": {
       "Description": "The CHT community follows open source best practices with clear governance and contribution guidelines.",
@@ -116,16 +126,16 @@
         "description": "Governance documentation"
       },
       "TermsOfUse": {
-        "url": "",
-        "description": ""
+        "url": "https://docs.google.com/document/d/1MaI1rgYMNyCZF2eEjBuvnBDoCYHDKlx4k_N5pkDiWu8/edit?tab=t.0#heading=h.9sdb6g11dv40",
+        "description": "Terms and conditions of use"
       },
       "UserAgreement": {
         "url": "",
         "description": ""
       },
       "PrivacyPolicy": {
-        "url": "",
-        "description": ""
+        "url": "https://docs.communityhealthtoolkit.org/building/guides/privacy/privacy-policy/",
+        "description": "Privacy policy guidance for CHT implementations"
       },
       "DoNoHarm": {
         "url": "",
@@ -142,30 +152,111 @@
     }
   },
   "InclusiveDesign": {
-    "Description": "",
-    "UserInput": "",
-    "OfflineSupport": ""
+    "Description": "Medic applies human-centered design across product, research, and deployment — anchoring work in real users' needs through continuous discovery, ideation, prototyping, testing, and iteration. Teams work alongside CHWs in the field (e.g., Nepal) to ensure voices are heard and included.",
+    "UserInput": "Input is gathered from a diverse set of users, including CHWs and supervisors, via field accompaniment, co-design, prototyping, and iterative testing to incorporate feedback into design and development.",
+    "OfflineSupport": "Yes — the CHT is offline-first and designed to operate reliably with no connectivity, slow or intermittent networks, and full connectivity, following strict Offline-First principles."
   },
   "EnvironmentalImpact": {
-    "LowCarbon": ""
+    "LowCarbon": "Yes — design and deployment consider minimizing environmental impact of end-user devices."
   },
   "TotalCostOfOwnership": {
-    "Description": "",
+    "Description": "Yes — cost structure for implementation/ownership available; open-source core with deployment and support costs varying by context.",
     "url": ""
   },
   "Sustainability": {
-    "Description": "",
-    "KeyFundersSupporters": []
+    "Description": "Supported through multiple revenue streams and funding mechanisms, including grant funding and implementation funding.",
+    "KeyFundersSupporters": [
+      { "name": "Amazon Web Services, Inc. (AWS)", "url": "https://aws.amazon.com/", "description": "" },
+      { "name": "Bayer Foundation", "url": "https://www.bayer-foundation.com/", "description": "" },
+      { "name": "Bohemian Foundation", "url": "https://bohemianfoundation.org/", "description": "" },
+      { "name": "Crown Family Philanthropies", "url": "https://www.crownfamilyphilanthropies.org/", "description": "" },
+      { "name": "Dovetail Impact Foundation", "url": "https://www.dovetailimpact.org/", "description": "" },
+      { "name": "The ELMA Foundation", "url": "https://www.elmaphilanthropies.org/", "description": "" },
+      { "name": "The Global Fund to Fight AIDS, Tuberculosis and Malaria", "url": "https://www.theglobalfund.org/", "description": "" },
+      { "name": "Gates Foundation", "url": "https://www.gatesfoundation.org/", "description": "" },
+      { "name": "Global Impact (Co-Develop)", "url": "https://charity.org/", "description": "" },
+      { "name": "The Greater Houston Community Foundation", "url": "https://ghcf.org/", "description": "" },
+      { "name": "Johnson & Johnson Foundation", "url": "https://www.jnj.com/impact/strategic-partnerships/johnson-johnson-foundation", "description": "" },
+      { "name": "Merrill Schneider Foundation", "url": "", "description": "" },
+      { "name": "The Ray & Tye Noorda Foundation", "url": "https://www.rtnfoundation.org/", "description": "" },
+      { "name": "The Sall Family Foundation", "url": "https://www.sallfamilyfoundation.org/", "description": "" },
+      { "name": "Schwab Charitable Fund", "url": "https://www.schwabcharitable.org/", "description": "" },
+      { "name": "Silicon Valley Community Foundation", "url": "https://www.siliconvalleycf.org/", "description": "" },
+      { "name": "The Skoll Foundation", "url": "https://skoll.org/", "description": "" },
+      { "name": "Swiss Re Foundation", "url": "https://www.swissrefoundation.org/", "description": "" },
+      { "name": "Twilio.org", "url": "https://www.twilio.org/", "description": "" },
+      { "name": "United States Agency for International Development (USAID)", "url": "https://www.usaid.gov/", "description": "" }
+    ]
   },
   "Resources": {
-    "Articles": [],
-    "ProductDocumentation": [],
-    "UserRequirements": [],
-    "EndUserDocumentation": [],
-    "ImplementerDocumentation": [],
-    "DeveloperDocumentation": [],
-    "OperatorDocumentation": [],
-    "InstallationDocumentation": []
+    "Articles": [
+      {
+        "description": "Medic Annual Report 2024",
+        "url": "https://medic.org/wp-content/uploads/2025/04/Medic_2024_Annual_Report-Final.pdf"
+      },
+      {
+        "description": "A Low-Cost User Interface for Community Health Workers",
+        "url": "https://doi.org/10.3233/THC-2010-0576"
+      },
+      {
+        "description": "The impact of mHealth on maternal health: A systematic review",
+        "url": "https://doi.org/10.7189/jogh.08.020418"
+      },
+      {
+        "description": "Mobile health applications for communicable disease control",
+        "url": "https://doi.org/10.1016/j.cmi.2018.04.014"
+      },
+      {
+        "description": "Decision support for community health workers: a qualitative assessment",
+        "url": "http://doi.org/10.1186/1472-6947-13-95"
+      },
+      {
+        "description": "Medic publications overview",
+        "url": "http://medic.org/publications/"
+      }
+    ],
+    "ProductDocumentation": [
+      {
+        "description": "Community Health Toolkit Documentation",
+        "url": "https://docs.communityhealthtoolkit.org/"
+      }
+    ],
+    "UserRequirements": [
+      {
+        "description": "Reference apps and functional specifications",
+        "url": "https://docs.communityhealthtoolkit.org/reference-apps/"
+      }
+    ],
+    "EndUserDocumentation": [
+      {
+        "description": "End user training resources",
+        "url": "https://docs.communityhealthtoolkit.org/building/training/"
+      }
+    ],
+    "ImplementerDocumentation": [
+      {
+        "description": "Implementer guidance for deploying and configuring CHT",
+        "url": "https://docs.communityhealthtoolkit.org/building/"
+      }
+    ],
+    "DeveloperDocumentation": [
+      {
+        "description": "Developer contribution and technical guides",
+        "url": "https://docs.communityhealthtoolkit.org/community/contributing/"
+      }
+    ],
+    "OperatorDocumentation": [
+      {
+        "description": "Operations and contact management",
+        "url": "https://docs.communityhealthtoolkit.org/building/contact-management/"
+      }
+    ],
+    "InstallationDocumentation": [
+      {
+        "description": "Hosting and installation guide",
+        "url": "https://docs.communityhealthtoolkit.org/hosting/"
+      }
+    ]
   },
   "LinkedInitiatives": {
     "DigitalPublicGoods": {
