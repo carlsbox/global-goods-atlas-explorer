@@ -143,7 +143,7 @@ const MaturityModelsPage = () => {
                 </Card>
 
                 {/* Content Model Card */}
-                <Card className="bg-gradient-to-br from-secondary/5 to-accent/5 border-secondary/20">
+                <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
                   <CardHeader>
                     <div className="flex items-start gap-4">
                       <div className="p-3 rounded-lg bg-secondary/10">
