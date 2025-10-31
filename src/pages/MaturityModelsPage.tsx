@@ -104,32 +104,32 @@ const MaturityModelsPage = () => {
                     <p className="text-muted-foreground">
                       {tPage('twoModels.software.intro', 'maturityModels')}
                     </p>
-                    <ul className="space-y-4">
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                    <div className="space-y-5">
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.software.dimensions.globalUtility.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.software.dimensions.globalUtility.description', 'maturityModels')}
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                        </p>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.software.dimensions.communitySupport.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.software.dimensions.communitySupport.description', 'maturityModels')}
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                        </p>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.software.dimensions.softwareMaturity.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.software.dimensions.softwareMaturity.description', 'maturityModels')}
-                        </span>
-                      </li>
-                    </ul>
+                        </p>
+                      </div>
+                    </div>
                     <div className="pt-4">
                       <Button 
                         onClick={() => trackDownload('software', SOFTWARE_MODEL_URL)}
@@ -163,32 +163,32 @@ const MaturityModelsPage = () => {
                     <p className="text-muted-foreground">
                       {tPage('twoModels.content.intro', 'maturityModels')}
                     </p>
-                    <ul className="space-y-4">
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                    <div className="space-y-5">
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.content.focuses.quality.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.content.focuses.quality.description', 'maturityModels')}
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                        </p>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.content.focuses.accessibility.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.content.focuses.accessibility.description', 'maturityModels')}
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="font-semibold min-w-fit text-foreground">
+                        </p>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-foreground">
                           {tPage('twoModels.content.focuses.community.label', 'maturityModels')}
-                        </span>
-                        <span className="text-muted-foreground">
+                        </h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
                           {tPage('twoModels.content.focuses.community.description', 'maturityModels')}
-                        </span>
-                      </li>
-                    </ul>
+                        </p>
+                      </div>
+                    </div>
                     <div className="pt-4">
                       <Button 
                         onClick={() => trackDownload('content', CONTENT_MODEL_URL)}
