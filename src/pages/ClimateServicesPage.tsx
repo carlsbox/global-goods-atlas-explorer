@@ -142,6 +142,14 @@ const ghrTools = [
 // Resources data
 const resources = [
   {
+    id: 'climate-health-landscape',
+    title: 'Climate and Health Landscape 2024/2025',
+    organization: 'Digital Square / PATH',
+    url: 'https://docs.google.com/spreadsheets/d/1HdXZEm9B6gj42ne4c7PSSHiN4ee2lFD0/edit?gid=382624192#gid=382624192',
+    description: 'This open, living document presents a curated landscape of existing climate data and climate-informed digital health resources. It serves as a reference and learning resource to synthesize what exists, highlight gaps, and inform global goods guidance, data maturity frameworks, use cases, and capacity-building efforts, while remaining open for ongoing community contributions.',
+    icon: 'Database'
+  },
+  {
     id: 'green-digital-health',
     title: 'Green Digital Health Tool',
     organization: 'SHADE Research Hub at King\'s College London',
