@@ -196,7 +196,23 @@ const resources = [
     url: 'https://community.wmo.int/en/activity-areas/wis/wis2-implementation',
     description: 'Next-generation global data exchange infrastructure enabling seamless sharing of weather, water, and climate information to support early warning systems and climate services for health.',
     icon: 'Wifi'
-  }
+  },
+  {
+  id: 'heat-health-alert-system',
+  title: 'Heat Health Alert System (HHAS)',
+  organization: 'World Health Organization',
+  url: 'https://worldhealthorganization.github.io/smart-l2-hhas/',
+  description: 'An implementation guide that defines interoperable, standards-based requirements for a Heat-Health Alert System (HHAS). The guide focuses on delivering targeted alerts to healthcare workers and capturing response outcomes to support effective preparedness and response during heat events.',
+  icon: 'Thermometer'
+},
+{
+  id: 'chud-dengue-surveillance',
+  title: 'Climate and Health Data Unification for Dengue Surveillance (CHUD)',
+  organization: 'World Health Organization',
+  url: 'https://worldhealthorganization.github.io/smart-dak-chud/#l3-machine-readable-guidelines',
+  description: 'This implementation guide defines a standards-based approach for integrating epidemiological and climate data to support national and sub-national early warning systems for dengue surveillance, enabling climate-informed public health decision-making.',
+  icon: 'Activity'
+}
 ];
 
 // Language-specific guidebook file mapping
